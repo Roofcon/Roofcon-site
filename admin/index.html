@@ -72,8 +72,10 @@ $('refs-editor').innerHTML=C.references.items.map((x,i)=>`
 `).join('');
 
 C.references.items.forEach((x,i)=>{
-    set('r'+i+'-fr',x.title.fr);
-    set('r'+i+'-de',x.title.de);
+    x.title = x.title || {fr:'',de:''};
+
+    set('r'+i+'-fr',x.title.fr || '');
+    set('r'+i+'-de',x.title.de || '');
 });
 }
 function fill(){
