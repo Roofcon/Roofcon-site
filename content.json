@@ -188,59 +188,58 @@
       }
     ]
   },
-  "references": {
-    "kicker": {
-      "fr": "Nos réalisations",
-      "de": "Unsere Referenzen"
-    },
-    "title": {
-      "fr": "EXPLOREZ NOTRE EXPERTISE AU FIL DE NOS PROJETS. ",
-      "de": "ENTDECKEN SIE UNSERE KOMPETENZ ANHAND UNSERER PROJEKTE."
-    },
-    "intro": {
-      "fr": "Nous sommes des spécialistes dans le domaine de la toiture. \nQu´il s´agisse de charpentes, de toitures plates ou de couvertures et même de façades ventilées. \nVenez découvrir notre travail en consultant nos projets. ",
-      "de": "Wir sind Spezialisten im Bereich Dachbau.\nOb Dachstühle, Flachdächer, Dachdeckungen oder sogar hinterlüftete Fassaden.\nEntdecken Sie unsere Arbeit in unserer Projektgalerie."
-    },
-    "items": [
-      {
-        "label": {
-          "fr": "Charpentes en bois ",
-          "de": "Holzkonstruktionen"
-        }
-      },
-      {
-        "label": {
-          "fr": "Couvertures ",
-          "de": "Umschläge"
-        }
-      },
-      {
-        "label": {
-          "fr": "Toitures plates ",
-          "de": "Flachdächer"
-        }
-      },
-      {
-        "label": {
-          "fr": "Façades ventilées ",
-          "de": "Hinterlüftete Fassaden"
-        }
-      },
-      {
-        "label": {
-          "fr": "Rénovation ",
-          "de": "Renovierung"
-        }
-      },
-      {
-        "image": "images/realisations/roofcon-francais-1789125353058.png",
-        "label": {
-          "fr": "Offre d´emploi ",
-          "de": "Stellenangebot"
-        }
-      }
-    ]
+ "references": {
+  "kicker": {
+    "fr": "Nos réalisations",
+    "de": "Unsere Referenzen"
   },
+  "title": {
+    "fr": "Des projets qui parlent pour nous.",
+    "de": "Projekte, die für sich sprechen."
+  },
+  "intro": {
+    "fr": "Découvrez nos différents domaines de réalisation.",
+    "de": "Entdecken Sie unsere verschiedenen Tätigkeitsbereiche."
+  },
+  "items": [
+    {
+      "id": "charpentes",
+      "title": {
+        "fr": "Charpentes bois",
+        "de": "Holzkonstruktionen"
+      },
+      "image": "",
+      "projects": []
+    },
+    {
+      "id": "toitures",
+      "title": {
+        "fr": "Toitures plates",
+        "de": "Flachdächer"
+      },
+      "image": "",
+      "projects": []
+    },
+    {
+      "id": "facades",
+      "title": {
+        "fr": "Façades ventilées",
+        "de": "Hinterlüftete Fassaden"
+      },
+      "image": "",
+      "projects": []
+    },
+    {
+      "id": "couvertures",
+      "title": {
+        "fr": "Couvertures",
+        "de": "Dachdeckungen"
+      },
+      "image": "",
+      "projects": []
+    }
+  ]
+},
   "contact": {
     "kicker": "Contact",
     "title": {
