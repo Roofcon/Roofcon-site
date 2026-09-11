@@ -43,56 +43,6 @@ footer{background:#171616;color:#aaa;padding:25px 0;font-size:13px}.foot{display
 <div class="top"><div class="container inner"><span id="top-phone"></span><span id="top-email"></span></div></div>
 <header><div class="container nav">
 <a href="#" data-page="accueil"><img class="logo" src="ROOFCON.png" alt="ROOFCON"></a>
-function openReference(id) {
-    if (!CONTENT || !CONTENT.references) return;
-
-    const ref = CONTENT.references.items.find(function(x) {
-        return x.id === id;
-    });
-
-    if (!ref) return;
-
-    document.getElementById('detail-kicker').textContent = 'Nos réalisations';
-    document.getElementById('detail-title').textContent = t(ref.title);
-    document.getElementById('detail-intro').textContent =
-        LANG === 'fr'
-            ? 'Découvrez nos projets réalisés dans ce domaine.'
-            : 'Entdecken Sie unsere Projekte in diesem Bereich.';
-
-    const projects = ref.projects || [];
-
-    if (projects.length === 0) {
-        document.getElementById('detail-projects').innerHTML = `
-            <div style="grid-column:1/-1;background:var(--cream);padding:50px;text-align:center;color:var(--gray);">
-                ${LANG === 'fr'
-                    ? 'Les projets seront bientôt ajoutés.'
-                    : 'Die Projekte werden bald hinzugefügt.'}
-            </div>
-        `;
-    } else {
-        document.getElementById('detail-projects').innerHTML =
-            projects.map(function(project) {
-                return `
-                    <div style="background:#fff;border:1px solid var(--line);overflow:hidden;">
-                        ${project.image ? `
-                            <img src="/${esc(project.image)}"
-                                 alt="${esc(t(project.title))}"
-                                 style="width:100%;height:260px;object-fit:cover;display:block;">
-                        ` : ''}
-                        <div style="padding:20px;">
-                            <h3 style="font-size:22px;margin-bottom:8px;">
-                                ${esc(t(project.title))}
-                            </h3>
-                            <p style="color:var(--gray);">
-                                ${esc(t(project.description))}
-                            </p>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-    }
-
-    showPage('reference-detail');
 }    
 <div class="lang"><button class="active" onclick="setLang('fr')">FR</button><button onclick="setLang('de')">DE</button></div>
 <nav class="menu">
@@ -323,28 +273,25 @@ fetch('./content.json?v=' + Date.now())
 
         return response.json();
     })
-   .then(function(data) {
+ .then(function(data) {
 
     CONTENT = data;
-
-    alert(JSON.stringify(data.references.items));
 
     render();
 
     showPage('accueil');
 })
-    })
-    .catch(function(error) {
+.catch(function(error) {
 
-        console.error(error);
+    console.error(error);
 
-        document.body.innerHTML = `
-            <div style="font-family:Arial;padding:40px">
-                <h1>Erreur</h1>
-                <p>${esc(error.message)}</p>
-            </div>
-        `;
-    });
+    document.body.innerHTML = `
+        <div style="font-family:Arial;padding:40px">
+            <h1>Erreur</h1>
+            <p>${esc(error.message)}</p>
+        </div>
+    `;
+});
 </script>
 
 </body>
