@@ -258,13 +258,16 @@ fetch('./content.json?v=' + Date.now())
 
         return response.json();
     })
-    .then(function(data) {
+   .then(function(data) {
 
-        CONTENT = data;
+    CONTENT = data;
 
-        render();
+    alert(JSON.stringify(data.references.items));
 
-        showPage('accueil');
+    render();
+
+    showPage('accueil');
+})
     })
     .catch(function(error) {
 
