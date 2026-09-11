@@ -152,5 +152,233 @@ document.addEventListener('click',function(e){
 window.addEventListener('DOMContentLoaded',function(){
     showPage('accueil');
 });
+<script>
+let CONTENT = null;
+let LANG = localStorage.getItem('roofconLang') || 'fr';
+
+const t = (obj) => {
+    if (typeof obj === 'string') return obj;
+    return obj?.[LANG] ?? '';
+};
+
+const esc = (v) =>
+    String(v ?? '').replace(/[&<>"']/g, m => ({
+        '&':'&amp;',
+        '<':'&lt;',
+        '>':'&gt;',
+        '"':'&quot;',
+        "'":'&#039;'
+    }[m]));
+
+function setLang(lang) {
+    LANG = lang;
+    localStorage.setItem('roofconLang', lang);
+    if (CONTENT) render();
+}
+
+function showPage(pageId) {
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.remove('active-page');
+    });
+
+    const page = document.getElementById(pageId);
+
+    if (page) {
+        page.classList.add('active-page');
+    }
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+    history.replaceState(null, '', '#' + pageId);
+}
+
+function setupNavigation() {
+    document.addEventListener('click', function(e) {
+        const link = e.target.closest('[data-page]');
+
+        if (!link) return;
+
+        e.preventDefault();
+
+        const page = link.getAttribute('data-page');
+
+        if (page) {
+            showPage(page);
+        }
+    });
+}
+
+function render() {
+    const c = CONTENT;
+
+    document.documentElement.lang = LANG;
+
+    document.title = c.site.title;
+    document.querySelector('meta[name="description"]').content = c.site.description;
+
+    document.getElementById('top-phone').textContent = c.site.phone;
+    document.getElementById('top-email').textContent = c.site.email;
+
+    [
+        ['nav-services', 'services'],
+        ['nav-references', 'references'],
+        ['nav-company', 'company'],
+        ['nav-quote', 'quote']
+    ].forEach(([id, key]) => {
+        const element = document.getElementById(id);
+        if (element) element.textContent = t(c.nav[key]);
+    });
+
+    document.getElementById('hero-kicker').textContent = t(c.hero.kicker);
+    document.getElementById('hero-title').innerHTML = t(c.hero.title);
+    document.getElementById('hero-text').textContent = t(c.hero.text);
+    document.getElementById('hero-primary').textContent = t(c.hero.primary);
+    document.getElementById('hero-secondary').textContent = t(c.hero.secondary);
+
+    document.getElementById('services-kicker').textContent = t(c.services.kicker);
+    document.getElementById('services-title').textContent = t(c.services.title);
+    document.getElementById('services-intro').textContent = t(c.services.intro);
+
+    document.getElementById('services-grid').innerHTML =
+        c.services.items.map(x => `
+            <article class="service">
+                <div class="number">${esc(x.number)}</div>
+                <h3>${esc(t(x.title))}</h3>
+                <p>${esc(t(x.text))}</p>
+            </article>
+        `).join('');
+
+    document.getElementById('process-kicker').textContent = t(c.process.kicker);
+    document.getElementById('process-title').textContent = t(c.process.title);
+    document.getElementById('process-intro').textContent = t(c.process.intro);
+
+    document.getElementById('process-grid').innerHTML =
+        c.process.steps.map((x, i) => `
+            <div class="step">
+                <strong>${String(i + 1).padStart(2, '0')}</strong>
+                <h3>${esc(t(x.title))}</h3>
+                <p>${esc(t(x.text))}</p>
+            </div>
+        `).join('');
+
+    document.getElementById('company-title').textContent = t(c.company.title);
+    document.getElementById('company-p1').textContent = t(c.company.paragraph1);
+    document.getElementById('company-p2').textContent = t(c.company.paragraph2);
+    document.getElementById('company-button').textContent = t(c.company.button);
+
+    document.getElementById('facts-grid').innerHTML =
+        c.company.facts.map(x => `
+            <div class="fact">
+                <b>${esc(x.value)}</b>
+                <span>${esc(x.label)}</span>
+            </div>
+        `).join('');
+
+    document.getElementById('refs-kicker').textContent = t(c.references.kicker);
+    document.getElementById('refs-title').textContent = t(c.references.title);
+    document.getElementById('refs-intro').textContent = t(c.references.intro);
+
+    document.getElementById('refs-grid').innerHTML =
+        c.references.items.map(x => `
+            <div class="ref">
+                <div class="label">
+                    <small>Référence</small><br>
+                    ${esc(t(x.label))}
+                </div>
+            </div>
+        `).join('');
+
+    document.getElementById('contact-kicker').textContent = t(c.contact.kicker);
+    document.getElementById('contact-title').innerHTML = t(c.contact.title);
+    document.getElementById('contact-intro').textContent = t(c.contact.intro);
+
+    document.getElementById('contact-phone').textContent = c.site.phone;
+    document.getElementById('contact-phone').href =
+        'tel:' + c.site.phone.replace(/[^+0-9]/g, '');
+
+    document.getElementById('contact-email').textContent = c.site.email;
+    document.getElementById('contact-email').href =
+        'mailto:' + c.site.email;
+
+    document.getElementById('contact-card-title').textContent =
+        t(c.contact.cardTitle);
+
+    document.getElementById('contact-card-text').textContent =
+        t(c.contact.cardText);
+
+    const button = document.getElementById('contact-button');
+
+    button.textContent = t(c.contact.button);
+
+    button.href =
+        'mailto:' + c.site.email +
+        '?subject=' +
+        encodeURIComponent('Demande de devis ROOFCON');
+
+    document.getElementById('footer-text').textContent = t(c.footer);
+
+    document.querySelectorAll('.lang button').forEach(btn => {
+        btn.classList.toggle(
+            'active',
+            btn.textContent.trim().toLowerCase() === LANG
+        );
+    });
+}
+
+async function loadSite() {
+    try {
+        const response = await fetch('./content.json?v=' + Date.now());
+
+        if (!response.ok) {
+            throw new Error(
+                'Impossible de charger content.json : ' +
+                response.status
+            );
+        }
+
+        CONTENT = await response.json();
+
+        render();
+        setupNavigation();
+
+        const requestedPage =
+            window.location.hash.replace('#', '');
+
+        const validPages = [
+            'accueil',
+            'services',
+            'references',
+            'entreprise',
+            'contact'
+        ];
+
+        if (validPages.includes(requestedPage)) {
+            showPage(requestedPage);
+        } else {
+            showPage('accueil');
+        }
+
+    } catch (error) {
+        console.error('Erreur ROOFCON :', error);
+
+        document.body.innerHTML = `
+            <main style="
+                font-family:Arial;
+                padding:40px;
+                max-width:900px;
+                margin:auto;
+            ">
+                <h1>Erreur de chargement</h1>
+                <p>Le contenu du site n'a pas pu être chargé.</p>
+                <p><b>Détail :</b> ${esc(error.message)}</p>
+            </main>
+        `;
+    }
+}
+
+loadSite();
 </script>
 </body></html>
