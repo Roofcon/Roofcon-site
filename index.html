@@ -75,7 +75,7 @@ footer{background:#171616;color:#aaa;padding:25px 0;font-size:13px}.foot{display
 </div></section>
 
 <section class="about" id="entreprise"><div class="container about-grid">
-<div><div class="kicker">ROOFCON</div><h2 id="company-title"></h2><p id="company-p1"></p><p id="company-p2"></p><a <a class="btn primary" href="#" data-page="contact" id="company-button"></a>
+<div><div class="kicker">ROOFCON</div><h2 id="company-title"></h2><p id="company-p1"></p><p id="company-p2"></p><a class="btn primary" href="#" data-page="contact" id="company-button"></a>
 <div class="facts" id="facts-grid"></div>
 </div></section>
 
@@ -153,7 +153,6 @@ window.addEventListener('DOMContentLoaded',function(){
     showPage('accueil');
 });
 <script>
-<script>
 let CONTENT = null;
 let LANG = localStorage.getItem('roofconLang') || 'fr';
 
@@ -189,8 +188,9 @@ function showPage(page) {
 
   if (target) {
     target.classList.add('active-page');
-    window.scrollTo({top: 0, behavior: 'smooth'});
   }
+
+  window.scrollTo(0, 0);
 }
 
 function setupNavigation() {
@@ -207,176 +207,98 @@ function render() {
 
   document.documentElement.lang = LANG;
 
-  if (c.site) {
-    document.title = c.site.title || 'ROOFCON';
-    
-    const description = document.querySelector('meta[name="description"]');
-    if (description) {
-      description.content = c.site.description || '';
-    }
+  document.title = c.site.title;
 
-    const phone = document.getElementById('top-phone');
-    if (phone) phone.textContent = c.site.phone || '';
+  document.querySelector('meta[name="description"]').content =
+    c.site.description;
 
-    const email = document.getElementById('top-email');
-    if (email) email.textContent = c.site.email || '';
-  }
+  document.getElementById('top-phone').textContent = c.site.phone;
+  document.getElementById('top-email').textContent = c.site.email;
 
-  if (c.nav) {
-    const nav = {
-      'nav-services': 'services',
-      'nav-references': 'references',
-      'nav-company': 'company',
-      'nav-quote': 'quote'
-    };
+  const navItems = [
+    ['nav-services', 'services'],
+    ['nav-references', 'references'],
+    ['nav-company', 'company'],
+    ['nav-quote', 'quote']
+  ];
 
-    Object.entries(nav).forEach(([id, key]) => {
-      const el = document.getElementById(id);
-      if (el && c.nav[key]) {
-        el.textContent = t(c.nav[key]);
-      }
-    });
-  }
+  navItems.forEach(([id, key]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = t(c.nav[key]);
+  });
 
-  if (c.hero) {
-    const el = id => document.getElementById(id);
+  document.getElementById('hero-kicker').textContent = t(c.hero.kicker);
+  document.getElementById('hero-title').innerHTML = t(c.hero.title);
+  document.getElementById('hero-text').textContent = t(c.hero.text);
+  document.getElementById('hero-primary').textContent = t(c.hero.primary);
+  document.getElementById('hero-secondary').textContent = t(c.hero.secondary);
 
-    if (el('hero-kicker')) el('hero-kicker').textContent = t(c.hero.kicker);
-    if (el('hero-title')) el('hero-title').innerHTML = t(c.hero.title);
-    if (el('hero-text')) el('hero-text').textContent = t(c.hero.text);
-    if (el('hero-primary')) el('hero-primary').textContent = t(c.hero.primary);
-    if (el('hero-secondary')) el('hero-secondary').textContent = t(c.hero.secondary);
-  }
+  document.getElementById('services-kicker').textContent = t(c.services.kicker);
+  document.getElementById('services-title').textContent = t(c.services.title);
+  document.getElementById('services-intro').textContent = t(c.services.intro);
 
-  if (c.services) {
-    if (document.getElementById('services-kicker'))
-      document.getElementById('services-kicker').textContent = t(c.services.kicker);
+  document.getElementById('services-grid').innerHTML =
+    c.services.items.map(x => `
+      <article class="service">
+        <div class="number">${esc(x.number)}</div>
+        <h3>${esc(t(x.title))}</h3>
+        <p>${esc(t(x.text))}</p>
+      </article>
+    `).join('');
 
-    if (document.getElementById('services-title'))
-      document.getElementById('services-title').textContent = t(c.services.title);
+  document.getElementById('company-title').textContent = t(c.company.title);
+  document.getElementById('company-p1').textContent = t(c.company.paragraph1);
+  document.getElementById('company-p2').textContent = t(c.company.paragraph2);
+  document.getElementById('company-button').textContent = t(c.company.button);
 
-    if (document.getElementById('services-intro'))
-      document.getElementById('services-intro').textContent = t(c.services.intro);
+  document.getElementById('facts-grid').innerHTML =
+    c.company.facts.map(x => `
+      <div class="fact">
+        <b>${esc(x.value)}</b>
+        <span>${esc(t(x.label))}</span>
+      </div>
+    `).join('');
 
-    if (document.getElementById('services-grid')) {
-      document.getElementById('services-grid').innerHTML =
-        (c.services.items || []).map(x => `
-          <article class="service">
-            <div class="number">${esc(x.number)}</div>
-            <h3>${esc(t(x.title))}</h3>
-            <p>${esc(t(x.text))}</p>
-          </article>
-        `).join('');
-    }
-  }
+  document.getElementById('refs-kicker').textContent = t(c.references.kicker);
+  document.getElementById('refs-title').textContent = t(c.references.title);
+  document.getElementById('refs-intro').textContent = t(c.references.intro);
 
-  if (c.process) {
-    if (document.getElementById('process-kicker'))
-      document.getElementById('process-kicker').textContent = t(c.process.kicker);
+  document.getElementById('refs-grid').innerHTML =
+    c.references.items.map(x => `
+      <div class="ref">
+        <div class="label">
+          <small>Référence</small><br>
+          ${esc(t(x.label))}
+        </div>
+      </div>
+    `).join('');
 
-    if (document.getElementById('process-title'))
-      document.getElementById('process-title').textContent = t(c.process.title);
+  document.getElementById('contact-kicker').textContent = t(c.contact.kicker);
+  document.getElementById('contact-title').innerHTML = t(c.contact.title);
+  document.getElementById('contact-intro').textContent = t(c.contact.intro);
 
-    if (document.getElementById('process-intro'))
-      document.getElementById('process-intro').textContent = t(c.process.intro);
+  document.getElementById('contact-phone').textContent = c.site.phone;
+  document.getElementById('contact-phone').href =
+    'tel:' + c.site.phone.replace(/[^+0-9]/g, '');
 
-    if (document.getElementById('process-grid')) {
-      document.getElementById('process-grid').innerHTML =
-        (c.process.steps || []).map((x,i) => `
-          <div class="step">
-            <strong>${String(i+1).padStart(2,'0')}</strong>
-            <h3>${esc(t(x.title))}</h3>
-            <p>${esc(t(x.text))}</p>
-          </div>
-        `).join('');
-    }
-  }
+  document.getElementById('contact-email').textContent = c.site.email;
+  document.getElementById('contact-email').href =
+    'mailto:' + c.site.email;
 
-  if (c.company) {
-    if (document.getElementById('company-title'))
-      document.getElementById('company-title').textContent = t(c.company.title);
+  document.getElementById('contact-card-title').textContent =
+    t(c.contact.cardTitle);
 
-    if (document.getElementById('company-p1'))
-      document.getElementById('company-p1').textContent = t(c.company.paragraph1);
+  document.getElementById('contact-card-text').textContent =
+    t(c.contact.cardText);
 
-    if (document.getElementById('company-p2'))
-      document.getElementById('company-p2').textContent = t(c.company.paragraph2);
+  const button = document.getElementById('contact-button');
+  button.textContent = t(c.contact.button);
+  button.href =
+    'mailto:' + c.site.email +
+    '?subject=' +
+    encodeURIComponent('Demande de devis ROOFCON');
 
-    if (document.getElementById('company-button'))
-      document.getElementById('company-button').textContent = t(c.company.button);
-
-    if (document.getElementById('facts-grid')) {
-      document.getElementById('facts-grid').innerHTML =
-        (c.company.facts || []).map(x => `
-          <div class="fact">
-            <b>${esc(x.value)}</b>
-            <span>${esc(t(x.label))}</span>
-          </div>
-        `).join('');
-    }
-  }
-
-  if (c.references) {
-    if (document.getElementById('refs-kicker'))
-      document.getElementById('refs-kicker').textContent = t(c.references.kicker);
-
-    if (document.getElementById('refs-title'))
-      document.getElementById('refs-title').textContent = t(c.references.title);
-
-    if (document.getElementById('refs-intro'))
-      document.getElementById('refs-intro').textContent = t(c.references.intro);
-
-    if (document.getElementById('refs-grid')) {
-      document.getElementById('refs-grid').innerHTML =
-        (c.references.items || []).map(x => `
-          <div class="ref">
-            <div class="label">
-              <small>Référence</small><br>
-              ${esc(t(x.label))}
-            </div>
-          </div>
-        `).join('');
-    }
-  }
-
-  if (c.contact) {
-    if (document.getElementById('contact-kicker'))
-      document.getElementById('contact-kicker').textContent = t(c.contact.kicker);
-
-    if (document.getElementById('contact-title'))
-      document.getElementById('contact-title').innerHTML = t(c.contact.title);
-
-    if (document.getElementById('contact-intro'))
-      document.getElementById('contact-intro').textContent = t(c.contact.intro);
-
-    if (document.getElementById('contact-card-title'))
-      document.getElementById('contact-card-title').textContent = t(c.contact.cardTitle);
-
-    if (document.getElementById('contact-card-text'))
-      document.getElementById('contact-card-text').textContent = t(c.contact.cardText);
-
-    if (document.getElementById('contact-button')) {
-      const button = document.getElementById('contact-button');
-      button.textContent = t(c.contact.button);
-      button.href = 'mailto:' + c.site.email +
-        '?subject=' + encodeURIComponent('Demande de devis ROOFCON');
-    }
-  }
-
-  if (document.getElementById('contact-phone')) {
-    document.getElementById('contact-phone').textContent = c.site.phone;
-    document.getElementById('contact-phone').href =
-      'tel:' + c.site.phone.replace(/[^+0-9]/g,'');
-  }
-
-  if (document.getElementById('contact-email')) {
-    document.getElementById('contact-email').textContent = c.site.email;
-    document.getElementById('contact-email').href =
-      'mailto:' + c.site.email;
-  }
-
-  if (document.getElementById('footer-text'))
-    document.getElementById('footer-text').textContent = t(c.footer);
+  document.getElementById('footer-text').textContent = t(c.footer);
 
   document.querySelectorAll('.lang button').forEach(btn => {
     btn.classList.toggle(
@@ -386,38 +308,26 @@ function render() {
   });
 }
 
-async function startSite() {
-  try {
-    const response = await fetch('./content.json?v=' + Date.now());
-
+fetch('./content.json?v=' + Date.now())
+  .then(response => {
     if (!response.ok) {
-      throw new Error('content.json inaccessible : ' + response.status);
+      throw new Error('Erreur content.json');
     }
-
-    CONTENT = await response.json();
-
+    return response.json();
+  })
+  .then(data => {
+    CONTENT = data;
     render();
     setupNavigation();
     showPage('accueil');
-
-  } catch (error) {
+  })
+  .catch(error => {
     console.error(error);
-
     document.body.innerHTML = `
-      <div style="
-        font-family:Arial;
-        padding:40px;
-        color:#211f20;
-      ">
+      <div style="font-family:Arial;padding:40px">
         <h1>Erreur du site</h1>
-        <p>Le contenu n'a pas pu être chargé.</p>
-        <p><b>Erreur :</b> ${esc(error.message)}</p>
+        <p>${esc(error.message)}</p>
       </div>
     `;
-  }
-}
-
-startSite();
+  });
 </script>
-</script>
-</body></html>
