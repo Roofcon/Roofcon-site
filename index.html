@@ -189,16 +189,16 @@ function render() {
     document.getElementById('refs-intro').textContent = t(c.references.intro);
 
     document.getElementById('refs-grid').innerHTML =
-        c.references.items.map(function(x) {
-            return `
-                <div class="ref">
-                    <div class="label">
-                        <small>Référence</small><br>
-                        ${esc(t(x.label))}
-                    </div>
+    c.references.items.map(function(x) {
+        return `
+            <div class="ref" style="background-image:url('${esc(x.image || '')}')">
+                <div class="label">
+                    <small>Référence</small><br>
+                    ${esc(t(x.label))}
                 </div>
-            `;
-        }).join('');
+            </div>
+        `;
+    }).join('');
 
     document.getElementById('contact-kicker').textContent = t(c.contact.kicker);
     document.getElementById('contact-title').innerHTML = t(c.contact.title);
