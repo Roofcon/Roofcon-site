@@ -17,6 +17,21 @@
 <section class="card"><h2>L’entreprise</h2><div class="grid"><div><label>Titre FR</label><input id="company-title-fr"></div><div><label>Titre DE</label><input id="company-title-de"></div><div><label>Paragraphe 1 FR</label><textarea id="company-p1-fr"></textarea></div><div><label>Paragraphe 1 DE</label><textarea id="company-p1-de"></textarea></div><div><label>Paragraphe 2 FR</label><textarea id="company-p2-fr"></textarea></div><div><label>Paragraphe 2 DE</label><textarea id="company-p2-de"></textarea></div></div><div id="facts-editor"></div></section>
 
 <section class="card"><h2>Réalisations</h2><div class="grid"><div><label>Titre FR</label><input id="refs-title-fr"></div><div><label>Titre DE</label><input id="refs-title-de"></div><div><label>Introduction FR</label><textarea id="refs-intro-fr"></textarea></div><div><label>Introduction DE</label><textarea id="refs-intro-de"></textarea></div></div><div id="refs-editor"></div></section>
+ <div style="margin-top:20px;padding:18px;border:1px solid var(--line);background:#faf9f7">
+  <h3 style="margin-top:0">Ajouter une photo</h3>
+  <p class="hint">Choisissez une photo de votre ordinateur. Elle sera ensuite envoyée dans le dossier des réalisations.</p>
+  
+  <label>Photo du projet</label>
+  <input type="file" id="ref-image" accept="image/jpeg,image/png,image/webp">
+  
+  <br><br>
+  
+  <button type="button" onclick="uploadReferenceImage()">
+    Ajouter la photo
+  </button>
+  
+  <div id="image-status" class="hint" style="margin-top:12px"></div>
+</div>
 
 <section class="card"><h2>Contact</h2><div class="grid"><div><label>Titre FR (HTML autorisé)</label><textarea id="contact-title-fr"></textarea></div><div><label>Titre DE</label><textarea id="contact-title-de"></textarea></div><div><label>Introduction FR</label><textarea id="contact-intro-fr"></textarea></div><div><label>Introduction DE</label><textarea id="contact-intro-de"></textarea></div><div><label>Titre du bloc FR</label><input id="contact-card-title-fr"></div><div><label>Titre du bloc DE</label><input id="contact-card-title-de"></div><div><label>Texte du bloc FR</label><textarea id="contact-card-text-fr"></textarea></div><div><label>Texte du bloc DE</label><textarea id="contact-card-text-de"></textarea></div><div><label>Bouton FR</label><input id="contact-button-fr"></div><div><label>Bouton DE</label><input id="contact-button-de"></div></div></section>
 
@@ -46,6 +61,82 @@ function fill(){
  set('site-phone',C.site.phone);set('site-email',C.site.email);set('site-title',C.site.title);set('site-description',C.site.description);set('hero-kicker',C.hero.kicker);setB('hero-title',C.hero.title);setB('hero-text',C.hero.text);setB('hero-primary',C.hero.primary);setB('hero-secondary',C.hero.secondary);setB('services-title',C.services.title);setB('services-intro',C.services.intro);setB('process-title',C.process.title);setB('process-intro',C.process.intro);setB('company-title',C.company.title);setB('company-p1',C.company.paragraph1);setB('company-p2',C.company.paragraph2);setB('refs-title',C.references.title);setB('refs-intro',C.references.intro);setB('contact-title',C.contact.title);setB('contact-intro',C.contact.intro);setB('contact-card-title',C.contact.cardTitle);setB('contact-card-text',C.contact.cardText);setB('contact-button',C.contact.button);renderLists();}
 function collect(){C.site.phone=val('site-phone');C.site.email=val('site-email');C.site.title=val('site-title');C.site.description=val('site-description');C.hero.kicker=val('hero-kicker');C.hero.title=getB('hero-title');C.hero.text=getB('hero-text');C.hero.primary=getB('hero-primary');C.hero.secondary=getB('hero-secondary');C.services.title=getB('services-title');C.services.intro=getB('services-intro');C.services.items.forEach((x,i)=>{x.number=val('s'+i+'-number');x.title={fr:val('s'+i+'-title-fr'),de:val('s'+i+'-title-de')};x.text={fr:val('s'+i+'-text-fr'),de:val('s'+i+'-text-de')}});C.process.title=getB('process-title');C.process.intro=getB('process-intro');C.process.steps.forEach((x,i)=>{x.title={fr:val('st'+i+'-title-fr'),de:val('st'+i+'-title-de')};x.text={fr:val('st'+i+'-text-fr'),de:val('st'+i+'-text-de')}});C.company.title=getB('company-title');C.company.paragraph1=getB('company-p1');C.company.paragraph2=getB('company-p2');C.company.facts.forEach((x,i)=>{x.value=val('f'+i+'-value');x.label=val('f'+i+'-label')});C.references.title=getB('refs-title');C.references.intro=getB('refs-intro');C.references.items.forEach((x,i)=>x.label={fr:val('r'+i+'-fr'),de:val('r'+i+'-de')});C.contact.title=getB('contact-title');C.contact.intro=getB('contact-intro');C.contact.cardTitle=getB('contact-card-title');C.contact.cardText=getB('contact-card-text');C.contact.button=getB('contact-button');}
 async function loadContent(){try{$('status').textContent='Connexion à GitHub…';const data=await api('/contents/content.json?ref='+encodeURIComponent(settings().branch));sha=data.sha;C=JSON.parse(dec(data.content));fill();$('editor').style.display='block';$('status').textContent='Contenu chargé. Vous pouvez modifier les textes puis publier.';}catch(e){$('status').innerHTML='<span class="danger">Erreur : '+e.message+'</span>';}}
+async function uploadReferenceImage(){
+  try{
+    const file=$('ref-image').files[0];
+
+    if(!file){
+      $('image-status').innerHTML='<span class="danger">Veuillez choisir une photo.</span>';
+      return;
+    }
+
+    if(!['image/jpeg','image/png','image/webp'].includes(file.type)){
+      $('image-status').innerHTML='<span class="danger">Format accepté : JPG, PNG ou WEBP.</span>';
+      return;
+    }
+
+    if(file.size>8*1024*1024){
+      $('image-status').innerHTML='<span class="danger">La photo est trop lourde. Maximum : 8 Mo.</span>';
+      return;
+    }
+
+    const s=auth();
+
+    $('image-status').textContent='Envoi de la photo vers GitHub…';
+
+    const ext=file.name.split('.').pop().toLowerCase();
+    const safeName=file.name
+      .replace(/\.[^/.]+$/,'')
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g,'')
+      .replace(/[^a-z0-9]+/g,'-')
+      .replace(/^-+|-+$/g,'');
+
+    const fileName=(safeName||'realisation')+'-'+Date.now()+'.'+ext;
+    const path='images/realisations/'+fileName;
+
+    const buffer=await file.arrayBuffer();
+    const bytes=new Uint8Array(buffer);
+
+    let binary='';
+    const chunkSize=0x8000;
+
+    for(let i=0;i<bytes.length;i+=chunkSize){
+      binary+=String.fromCharCode(...bytes.subarray(i,i+chunkSize));
+    }
+
+    const base64=btoa(binary);
+
+    await api('/contents/'+path,{
+      method:'PUT',
+      body:JSON.stringify({
+        message:'Ajouter une photo de réalisation',
+        content:base64,
+        branch:s.branch
+      })
+    });
+
+    const imagePath=path;
+
+    C.references.items.push({
+      image:imagePath,
+      label:{
+        fr:file.name.replace(/\.[^/.]+$/,''),
+        de:file.name.replace(/\.[^/.]+$/,'')
+      }
+    });
+
+    renderLists();
+
+    $('ref-image').value='';
+
+    $('image-status').textContent='Photo ajoutée avec succès. N’oubliez pas de cliquer sur « Enregistrer et publier ».';
+
+  }catch(e){
+    $('image-status').innerHTML='<span class="danger">Erreur : '+e.message+'</span>';
+  }
+} 
 async function saveContent(){try{collect();const s=auth();$('save').disabled=true;$('status').textContent='Publication en cours…';const r=await api('/contents/content.json',{method:'PUT',body:JSON.stringify({message:'Mettre à jour le contenu ROOFCON',content:enc(JSON.stringify(C,null,2)+'\n'),sha,branch:s.branch})});sha=r.content.sha;$('status').textContent='Publié avec succès. Le site peut prendre quelques instants à se mettre à jour.';}catch(e){$('status').innerHTML='<span class="danger">Erreur de publication : '+e.message+'</span>';}finally{$('save').disabled=false;}}
 loadSettings();
 </script></body></html>
