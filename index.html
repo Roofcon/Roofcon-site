@@ -23,7 +23,10 @@ linear-gradient(135deg,#292626 0%,#685344 55%,#b29273 100%)}
 h1{font-size:clamp(45px,6.5vw,80px);line-height:.98;letter-spacing:-3px;margin-bottom:24px}h1 span{color:#c3a080}
 .hero p{font-size:19px;color:#eee;max-width:650px;margin-bottom:32px}.buttons{display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-block;padding:15px 23px;font-weight:800;border:1px solid transparent}.primary{background:var(--brown);color:#fff}.outline{border-color:rgba(255,255,255,.55);color:#fff}.outline:hover{background:#fff;color:var(--black)}
-section{padding:92px 0}.head{max-width:760px;margin-bottom:46px}.head h2{font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-1.5px}.head p{color:var(--gray);font-size:18px;margin-top:14px}
+section{padding:92px 0;display:none}
+section.active-page{display:block}
+.hero{display:none}
+.hero.active-page{display:flex}.head{max-width:760px;margin-bottom:46px}.head h2{font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-1.5px}.head p{color:var(--gray);font-size:18px;margin-top:14px}
 .services{background:var(--cream)}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .service{background:#fff;border:1px solid var(--line);min-height:300px;padding:30px;position:relative;overflow:hidden;transition:.25s}
 .service:hover{transform:translateY(-5px);box-shadow:0 15px 35px #211f2012}.number{font-size:13px;color:var(--brown);font-weight:900;letter-spacing:2px}.service h3{font-size:23px;margin:28px 0 10px}.service p{color:var(--gray);font-size:15px}.service:after{content:"";position:absolute;right:-30px;bottom:-55px;width:130px;height:130px;border:25px solid #a27b5b18;transform:rotate(45deg)}
@@ -39,9 +42,15 @@ footer{background:#171616;color:#aaa;padding:25px 0;font-size:13px}.foot{display
 <body>
 <div class="top"><div class="container inner"><span id="top-phone"></span><span id="top-email"></span></div></div>
 <header><div class="container nav">
-<a href="#accueil"><img class="logo" src="ROOFCON.png" alt="ROOFCON"></a>
+<a href="#" data-page="accueil"><img class="logo" src="ROOFCON.png" alt="ROOFCON"></a>
 <div class="lang"><button class="active" onclick="setLang('fr')">FR</button><button onclick="setLang('de')">DE</button></div>
-<nav class="menu"><a href="#services" id="nav-services"></a><a href="#process" id="nav-process"></a><a href="#entreprise" id="nav-company"></a><a href="#references" id="nav-references"></a><a class="cta" href="#contact" id="nav-quote"></a></nav>
+<nav class="menu">
+<a href="#" data-page="accueil">ACCUEIL</a>
+<a href="#" data-page="services" id="nav-services"></a>
+<a href="#" data-page="references" id="nav-references"></a>
+<a href="#" data-page="entreprise" id="nav-company"></a>
+<a class="cta" href="#" data-page="contact" id="nav-quote"></a>
+</nav>
 </div></header>
 
 <section class="hero" id="accueil"><div class="container"><div class="hero-content">
@@ -49,7 +58,10 @@ footer{background:#171616;color:#aaa;padding:25px 0;font-size:13px}.foot{display
 <div class="kicker" id="hero-kicker"></div>
 <h1 id="hero-title"></h1>
 <p id="hero-text"></p>
-<div class="buttons"><a class="btn primary" href="#contact" id="hero-primary"></a><a class="btn outline" href="#references" id="hero-secondary"></a></div>
+<div class="buttons">
+<a class="btn primary" href="#" data-page="contact" id="hero-primary"></a>
+<a class="btn outline" href="#" data-page="references" id="hero-secondary"></a>
+</div>
 </div></div></section>
 
 <section class="services" id="services"><div class="container">
@@ -63,7 +75,7 @@ footer{background:#171616;color:#aaa;padding:25px 0;font-size:13px}.foot{display
 </div></section>
 
 <section class="about" id="entreprise"><div class="container about-grid">
-<div><div class="kicker">ROOFCON</div><h2 id="company-title"></h2><p id="company-p1"></p><p id="company-p2"></p><a class="btn primary" href="#contact" id="company-button"></a></div>
+<div><div class="kicker">ROOFCON</div><h2 id="company-title"></h2><p id="company-p1"></p><p id="company-p2"></p><a <a class="btn primary" href="#" data-page="contact" id="company-button"></a>
 <div class="facts" id="facts-grid"></div>
 </div></section>
 
@@ -106,5 +118,39 @@ function render(){
  document.querySelectorAll('.lang button').forEach(btn=>btn.classList.toggle('active',btn.textContent.trim().toLowerCase()===LANG));
 }
 fetch('content.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('content.json introuvable');return r.json();}).then(c=>{CONTENT=c;render();}).catch(()=>{document.body.innerHTML='<main style="font-family:Arial;padding:40px">Impossible de charger le contenu du site. Vérifiez que <b>content.json</b> est bien présent à la racine du site.</main>';});
+ function showPage(pageId){
+    document.querySelectorAll('section').forEach(section=>{
+        section.classList.remove('active-page');
+    });
+
+    const page=document.getElementById(pageId);
+
+    if(page){
+        page.classList.add('active-page');
+    }
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+
+    history.replaceState(null,'','#'+pageId);
+}
+
+document.addEventListener('click',function(e){
+    const link=e.target.closest('[data-page]');
+
+    if(!link) return;
+
+    e.preventDefault();
+
+    const page=link.getAttribute('data-page');
+
+    showPage(page);
+});
+
+window.addEventListener('DOMContentLoaded',function(){
+    showPage('accueil');
+});
 </script>
 </body></html>
