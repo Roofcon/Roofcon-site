@@ -117,7 +117,7 @@ function render(){
  document.getElementById('footer-text').textContent=t(c.footer);
  document.querySelectorAll('.lang button').forEach(btn=>btn.classList.toggle('active',btn.textContent.trim().toLowerCase()===LANG));
 }
-fetch('content.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('content.json introuvable');return r.json();}).then(c=>{CONTENT=c;render();}).catch(()=>{document.body.innerHTML='<main style="font-family:Arial;padding:40px">Impossible de charger le contenu du site. Vérifiez que <b>content.json</b> est bien présent à la racine du site.</main>';});
+fetch('./content.json?v=2',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('content.json introuvable');return r.json();}).then(c=>{CONTENT=c;render();}).catch(()=>{document.body.innerHTML='<main style="font-family:Arial;padding:40px">Impossible de charger le contenu du site. Vérifiez que <b>content.json</b> est bien présent à la racine du site.</main>';});
  function showPage(pageId){
     document.querySelectorAll('section').forEach(section=>{
         section.classList.remove('active-page');
