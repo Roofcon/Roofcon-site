@@ -37,73 +37,74 @@ footer{background:#171616;color:#aaa;padding:25px 0;font-size:13px}.foot{display
 </style>
 </head>
 <body>
-<div class="top"><div class="container inner"><span>+352 621 765 489</span><span>info@roof-con.com</span></div></div>
+<div class="top"><div class="container inner"><span id="top-phone"></span><span id="top-email"></span></div></div>
 <header><div class="container nav">
 <a href="#accueil"><img class="logo" src="ROOFCON.png" alt="ROOFCON"></a>
-<div class="lang"><button class="active" onclick="setLang('fr')">FR</button><button onclick="setLang('de')">DE</button></div><nav class="menu"><a href="#services" data-fr="Nos pôles" data-de="Unsere Bereiche">Nos services</a><a href="#process" data-fr="Notre méthode" data-de="Unser Vorgehen">Notre méthode</a><a href="#entreprise" data-fr="L’entreprise" data-de="Das Unternehmen">L’entreprise</a><a href="#references" data-fr="Références" data-de="Referenzen">Réalisations</a><a class="cta" href="#contact" data-fr="Demander un devis" data-de="Angebot anfragen">Demander un devis</a></nav>
+<div class="lang"><button class="active" onclick="setLang('fr')">FR</button><button onclick="setLang('de')">DE</button></div>
+<nav class="menu"><a href="#services" id="nav-services"></a><a href="#process" id="nav-process"></a><a href="#entreprise" id="nav-company"></a><a href="#references" id="nav-references"></a><a class="cta" href="#contact" id="nav-quote"></a></nav>
 </div></header>
 
 <section class="hero" id="accueil"><div class="container"><div class="hero-content">
 <img class="hero-logo" src="ROOFCON.png" alt="ROOFCON">
-<div class="kicker">HOLZBAU · BEDACHUNG · FASSADENBAU</div>
-<h1 data-fr="Votre projet.<br><span>Notre savoir-faire.</span>" data-de="Ihr Projekt.<br><span>Unser Know-how.</span>">Votre projet.<br><span>Notre savoir-faire.</span></h1>
-<p data-fr="ROOFCON vous accompagne dans vos projets autour de quatre pôles : façades ventilées, toitures plates, charpentes et couvertures." data-de="ROOFCON vous accompagne dans vos travaux de toiture, charpente, façades et construction-rénovation, avec une approche professionnelle de la préparation à la réalisation.">ROOFCON vous accompagne dans vos travaux de toiture, charpente, façades et construction-rénovation, avec une approche professionnelle de la préparation à la réalisation.</p>
-<div class="buttons"><a class="btn primary" href="#contact" data-fr="Parler de votre projet" data-de="Über Ihr Projekt sprechen">Parler de votre projet</a><a class="btn outline" href="#references" data-fr="Voir nos réalisations" data-de="Unsere Referenzen">Voir nos réalisations</a></div>
+<div class="kicker" id="hero-kicker"></div>
+<h1 id="hero-title"></h1>
+<p id="hero-text"></p>
+<div class="buttons"><a class="btn primary" href="#contact" id="hero-primary"></a><a class="btn outline" href="#references" id="hero-secondary"></a></div>
 </div></div></section>
 
 <section class="services" id="services"><div class="container">
-<div class="head"><div class="kicker" data-fr="Nos pôles" data-de="Unsere Bereiche">Nos services</div><h2 data-fr="Des solutions adaptées à chaque projet." data-de="Passende Lösungen für jedes Projekt.">Des solutions adaptées à chaque projet.</h2><p data-fr="Découvrez nos quatre domaines d’intervention, chacun présenté comme une rubrique dédiée." data-de="Entdecken Sie unsere vier Tätigkeitsbereiche, jeweils als eigener Bereich der Website.">Comme sur le site de référence, les services sont présentés clairement dès le début, mais avec l'identité visuelle ROOFCON.</p></div>
-<div class="grid4">
-<article class="service"><div class="number">01 / TOITURE</div><h3 data-fr="Toitures plates" data-de="Flachdächer">Toitures</h3><p data-fr="Des solutions adaptées à vos projets de toitures plates, avec une attention portée à l’étanchéité et aux détails." data-de="Lösungen für Flachdächer mit besonderem Augenmerk auf Abdichtung und technische Details.">Réalisation, rénovation et interventions sur vos toitures avec une attention portée à la qualité et à la durabilité.</p></article>
-<article class="service"><div class="number">02 / BOIS</div><h3 data-fr="Charpentes" data-de="Holzkonstruktionen">Charpentes</h3><p data-fr="Des structures bois conçues avec précision pour répondre aux contraintes de chaque projet." data-de="Präzise geplante Holzkonstruktionen, abgestimmt auf die Anforderungen jedes Projekts.">Structures et travaux de charpente pensés selon les contraintes et les caractéristiques de votre bâtiment.</p></article>
-<article class="service"><div class="number">03 / FAÇADE</div><h3 data-fr="Projet à venirs ventilées" data-de="Hinterlüftete Fassaden">Projet à venirs</h3><p data-fr="Des systèmes de façade pensés pour la performance, la durabilité et une finition soignée." data-de="Fassadensysteme mit Fokus auf Leistungsfähigkeit, Langlebigkeit und eine hochwertige Ausführung.">Réalisation et rénovation de façades pour protéger et valoriser durablement votre bâtiment.</p></article>
-<article class="service"><div class="number">04 / BÂTIMENT</div><h3 data-fr="Couvertures" data-de="Dachdeckungen">Projet à venir & rénovation</h3><p data-fr="Des solutions de couverture pour protéger durablement vos bâtiments et assurer une finition professionnelle." data-de="Dachlösungen zum dauerhaften Schutz Ihrer Gebäude und für einen professionellen Abschluss.">Un accompagnement pour vos travaux de construction et de rénovation, avec une approche globale du projet.</p></article>
-</div></div></section>
+<div class="head"><div class="kicker" id="services-kicker"></div><h2 id="services-title"></h2><p id="services-intro"></p></div>
+<div class="grid4" id="services-grid"></div>
+</div></section>
 
 <section class="process" id="process"><div class="container">
-<div class="head"><div class="kicker" data-fr="Notre méthode" data-de="Unser Vorgehen">Notre méthode</div><h2 data-fr="De l'idée à la réalisation." data-de="Von der Idee bis zur Umsetzung.">De l'idée à la réalisation.</h2><p>Une structure inspirée de l'approche de  : accompagner le client à chaque étape, sans reprendre son identité graphique.</p></div>
-<div class="process-grid">
-<div class="step"><strong>01</strong><h3 data-fr="Conseiller" data-de="Beraten">Conseiller</h3><p data-fr="Comprendre votre besoin, étudier le projet et vous orienter vers une solution adaptée." data-de="Comprendre votre besoin, étudier le projet et vous orienter vers une solution adaptée.">Comprendre votre besoin, étudier le projet et vous orienter vers une solution adaptée.</p></div>
-<div class="step"><strong>02</strong><h3 data-fr="Planifier" data-de="Planen">Planifier</h3><p data-fr="Préparer chaque étape avec précision afin d'assurer une réalisation claire et efficace." data-de="Préparer chaque étape avec précision afin d'assurer une réalisation claire et efficace.">Préparer chaque étape avec précision afin d'assurer une réalisation claire et efficace.</p></div>
-<div class="step"><strong>03</strong><h3 data-fr="Réaliser" data-de="Umsetzen">Réaliser</h3><p data-fr="Mettre en œuvre le projet avec un travail soigné et une attention portée aux finitions." data-de="Mettre en œuvre le projet avec un travail soigné et une attention portée aux finitions.">Mettre en œuvre le projet avec un travail soigné et une attention portée aux finitions.</p></div>
-</div></div></section>
+<div class="head"><div class="kicker" id="process-kicker"></div><h2 id="process-title"></h2><p id="process-intro"></p></div>
+<div class="process-grid" id="process-grid"></div>
+</div></section>
 
 <section class="about" id="entreprise"><div class="container about-grid">
-<div><div class="kicker">ROOFCON</div><h2 data-fr="Un partenaire de confiance pour vos travaux." data-de="Ein zuverlässiger Partner für Ihre Bauarbeiten.">Un partenaire de confiance pour vos travaux.</h2><p data-fr="Nous mettons notre savoir-faire au service de réalisations durables, avec une attention particulière portée à la qualité d’exécution et aux détails techniques." data-de="Wir setzen unser Know-how für langlebige Lösungen ein und legen besonderen Wert auf saubere Ausführung und technische Details.">Notre objectif est de proposer des solutions fiables et durables, adaptées aux besoins de chaque client.</p><p data-fr="Cette partie pourra être complétée plus tard avec l’histoire de ROOFCON, votre équipe, votre zone d’intervention et vos engagements." data-de="Dieser Bereich kann später mit der Geschichte von ROOFCON, Ihrem Team, Einsatzgebiet und Ihren Werten ergänzt werden.">Cette partie pourra être personnalisée avec l'histoire de ROOFCON, votre équipe, votre zone d'intervention et vos engagements.</p><a class="btn primary" href="#contact" data-fr="Nous contacter" data-de="Kontaktieren Sie uns">Nous contacter</a></div>
-<div class="facts"><div class="fact"><b>01</b><span>Un interlocuteur pour votre projet</span></div><div class="fact"><b>04</b><span>Domaines de compétence</span></div><div class="fact"><b>100%</b><span>Projet personnalisé</span></div><div class="fact"><b>ROOFCON</b><span>Holzbau · Bedachung · Fassadenbau</span></div></div>
+<div><div class="kicker">ROOFCON</div><h2 id="company-title"></h2><p id="company-p1"></p><p id="company-p2"></p><a class="btn primary" href="#contact" id="company-button"></a></div>
+<div class="facts" id="facts-grid"></div>
 </div></section>
 
 <section class="refs" id="references"><div class="container">
-<div class="head"><div class="kicker" data-fr="Nos réalisations" data-de="Unsere Referenzen">Nos réalisations</div><h2 data-fr="Des projets qui parlent pour nous." data-de="Projekte, die für sich sprechen.">Des projets qui parlent pour nous.</h2><p data-fr="Cette rubrique est prête à accueillir les photos de vos chantiers dès que vous les aurez." data-de="Dieser Bereich ist bereit für die Fotos Ihrer Baustellen, sobald diese vorliegen.">La galerie est organisée comme une vraie vitrine de références. Les blocs ci-dessous pourront être remplacés par vos photos de chantiers.</p></div>
-<div class="refs-grid">
-<div class="ref"><div class="label"><small>Référence</small><br data-fr="Projet à venir" data-de="Projet à venir">Projet à venir</div></div>
-<div class="ref"><div class="label"><small>Référence</small><br data-fr="Projet à venir" data-de="Renovierung">Projet à venir</div></div>
-<div class="ref"><div class="label"><small>Référence</small><br data-fr="Projet à venir" data-de="Fassade">Projet à venir</div></div>
-<div class="ref"><div class="label"><small>Référence</small><br data-fr="Projet à venir" data-de="Holzkonstruktion">Projet à venir</div></div>
-<div class="ref"><div class="label"><small>Référence</small><br data-fr="Projet à venir" data-de="Bau">Projet à venir</div></div>
-</div></div></section>
-
-<section class="contact" id="contact"><div class="container contact-grid">
-<div><div class="kicker">Contact</div><h2 style="font-size:clamp(34px,4.5vw,58px);line-height:1.05" data-fr="Vous avez un projet ?<br>Parlons-en." data-de="Sie haben ein Projekt?<br>Sprechen wir darüber.">Vous avez un projet ?<br>Parlons-en.</h2><p style="color:var(--gray);font-size:18px;margin-top:16px" data-fr="Décrivez votre projet et contactez-nous pour en discuter." data-de="Beschreiben Sie Ihr Projekt und kontaktieren Sie uns.">Demandez un devis ou contactez-nous pour discuter de vos besoins.</p><div style="margin-top:28px"><div class="item"><small>Téléphone</small><a href="tel:+352621765489">+352 621 765 489</a></div><div class="item"><small>E-mail</small><a href="mailto:info@roof-con.com">info@roof-con.com</a></div></div></div>
-<div class="contact-card"><h3 data-fr="Demander un devis" data-de="Angebot anfragen">Demander un devis</h3><p data-fr="Envoyez-nous les informations principales de votre projet. Nous pourrons ensuite vous recontacter." data-de="Envoyez-nous les informations principales de votre projet. Nous pourrons ensuite vous recontacter.">Envoyez-nous les informations principales de votre projet. Nous pourrons ensuite vous recontacter.</p><a class="btn primary" href="mailto:info@roof-con.com?subject=Demande%20de%20devis%20ROOFCON" data-fr="Envoyer ma demande" data-de="Anfrage senden">Envoyer ma demande</a></div>
+<div class="head"><div class="kicker" id="refs-kicker"></div><h2 id="refs-title"></h2><p id="refs-intro"></p></div>
+<div class="refs-grid" id="refs-grid"></div>
 </div></section>
 
-<footer><div class="container foot"><span>© 2026 ROOFCON — Tous droits réservés.</span><span>Toiture · Charpente · Projet à venirs · Projet à venir & rénovation</span></div></footer>
+<section class="contact" id="contact"><div class="container contact-grid">
+<div><div class="kicker" id="contact-kicker"></div><h2 id="contact-title" style="font-size:clamp(34px,4.5vw,58px);line-height:1.05"></h2><p id="contact-intro" style="color:var(--gray);font-size:18px;margin-top:16px"></p><div style="margin-top:28px"><div class="item"><small>Téléphone</small><a id="contact-phone"></a></div><div class="item"><small>E-mail</small><a id="contact-email"></a></div></div></div>
+<div class="contact-card"><h3 id="contact-card-title"></h3><p id="contact-card-text"></p><a class="btn primary" id="contact-button"></a></div>
+</div></section>
+
+<footer><div class="container foot"><span>© 2026 ROOFCON — Tous droits réservés.</span><span id="footer-text"></span></div></footer>
 
 <script>
-function setLang(lang){
-  document.documentElement.lang = lang;
-  document.querySelectorAll('[data-fr]').forEach(el=>{
-    const value = el.getAttribute('data-' + lang);
-    if(value !== null) el.innerHTML = value;
-  });
-  document.querySelectorAll('.lang button').forEach(btn=>{
-    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
-  });
-  localStorage.setItem('roofconLang', lang);
+let CONTENT=null;
+let LANG=localStorage.getItem('roofconLang') || 'fr';
+const t=(obj)=>typeof obj==='string'?obj:(obj?.[LANG] ?? '');
+const esc=(v)=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+function setLang(lang){LANG=lang;localStorage.setItem('roofconLang',lang);if(CONTENT) render();}
+function render(){
+ const c=CONTENT;
+ document.documentElement.lang=LANG;
+ document.title=c.site.title;
+ document.querySelector('meta[name="description"]').content=c.site.description;
+ document.getElementById('top-phone').textContent=c.site.phone;
+ document.getElementById('top-email').textContent=c.site.email;
+ [['nav-services','services'],['nav-process','process'],['nav-company','company'],['nav-references','references'],['nav-quote','quote']].forEach(([id,k])=>document.getElementById(id).textContent=t(c.nav[k]));
+ document.getElementById('hero-kicker').textContent=c.hero.kicker; document.getElementById('hero-title').innerHTML=t(c.hero.title); document.getElementById('hero-text').textContent=t(c.hero.text); document.getElementById('hero-primary').textContent=t(c.hero.primary); document.getElementById('hero-secondary').textContent=t(c.hero.secondary);
+ document.getElementById('services-kicker').textContent=t(c.services.kicker); document.getElementById('services-title').textContent=t(c.services.title); document.getElementById('services-intro').textContent=t(c.services.intro);
+ document.getElementById('services-grid').innerHTML=c.services.items.map(x=>`<article class="service"><div class="number">${esc(x.number)}</div><h3>${esc(t(x.title))}</h3><p>${esc(t(x.text))}</p></article>`).join('');
+ document.getElementById('process-kicker').textContent=t(c.process.kicker); document.getElementById('process-title').textContent=t(c.process.title); document.getElementById('process-intro').textContent=t(c.process.intro);
+ document.getElementById('process-grid').innerHTML=c.process.steps.map((x,i)=>`<div class="step"><strong>${String(i+1).padStart(2,'0')}</strong><h3>${esc(t(x.title))}</h3><p>${esc(t(x.text))}</p></div>`).join('');
+ document.getElementById('company-title').textContent=t(c.company.title); document.getElementById('company-p1').textContent=t(c.company.paragraph1); document.getElementById('company-p2').textContent=t(c.company.paragraph2); document.getElementById('company-button').textContent=t(c.company.button);
+ document.getElementById('facts-grid').innerHTML=c.company.facts.map(x=>`<div class="fact"><b>${esc(x.value)}</b><span>${esc(x.label)}</span></div>`).join('');
+ document.getElementById('refs-kicker').textContent=t(c.references.kicker); document.getElementById('refs-title').textContent=t(c.references.title); document.getElementById('refs-intro').textContent=t(c.references.intro); document.getElementById('refs-grid').innerHTML=c.references.items.map(x=>`<div class="ref"><div class="label"><small>Référence</small><br>${esc(t(x.label))}</div></div>`).join('');
+ document.getElementById('contact-kicker').textContent=c.contact.kicker; document.getElementById('contact-title').innerHTML=t(c.contact.title); document.getElementById('contact-intro').textContent=t(c.contact.intro); document.getElementById('contact-phone').textContent=c.site.phone; document.getElementById('contact-phone').href='tel:'+c.site.phone.replace(/[^+0-9]/g,''); document.getElementById('contact-email').textContent=c.site.email; document.getElementById('contact-email').href='mailto:'+c.site.email; document.getElementById('contact-card-title').textContent=t(c.contact.cardTitle); document.getElementById('contact-card-text').textContent=t(c.contact.cardText); const b=document.getElementById('contact-button'); b.textContent=t(c.contact.button); b.href='mailto:'+c.site.email+'?subject='+encodeURIComponent('Demande de devis ROOFCON');
+ document.getElementById('footer-text').textContent=t(c.footer);
+ document.querySelectorAll('.lang button').forEach(btn=>btn.classList.toggle('active',btn.textContent.trim().toLowerCase()===LANG));
 }
-document.addEventListener('DOMContentLoaded',()=>{
-  setLang(localStorage.getItem('roofconLang') || 'fr');
-});
+fetch('content.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('content.json introuvable');return r.json();}).then(c=>{CONTENT=c;render();}).catch(()=>{document.body.innerHTML='<main style="font-family:Arial;padding:40px">Impossible de charger le contenu du site. Vérifiez que <b>content.json</b> est bien présent à la racine du site.</main>';});
 </script>
 </body></html>

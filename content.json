@@ -1,0 +1,76 @@
+{
+  "site": {
+    "title": "ROOFCON | Holzbau · Bedachung · Fassadenbau",
+    "description": "ROOFCON — Façades ventilées, toitures plates, charpentes et couvertures.",
+    "phone": "+352 621 765 489",
+    "email": "info@roof-con.com"
+  },
+  "nav": {
+    "services": {"fr":"Nos pôles","de":"Unsere Bereiche"},
+    "process": {"fr":"Notre méthode","de":"Unser Vorgehen"},
+    "company": {"fr":"L’entreprise","de":"Das Unternehmen"},
+    "references": {"fr":"Références","de":"Referenzen"},
+    "quote": {"fr":"Demander un devis","de":"Angebot anfragen"}
+  },
+  "hero": {
+    "kicker":"HOLZBAU · BEDACHUNG · FASSADENBAU",
+    "title":{"fr":"Votre projet.<br><span>Notre savoir-faire.</span>","de":"Ihr Projekt.<br><span>Unser Know-how.</span>"},
+    "text":{"fr":"ROOFCON vous accompagne dans vos projets autour de quatre pôles : façades ventilées, toitures plates, charpentes et couvertures.","de":"ROOFCON vous accompagne dans vos travaux de toiture, charpente, façades et construction-rénovation, avec une approche professionnelle de la préparation à la réalisation."},
+    "primary":{"fr":"Parler de votre projet","de":"Über Ihr Projekt sprechen"},
+    "secondary":{"fr":"Voir nos réalisations","de":"Unsere Referenzen"}
+  },
+  "services": {
+    "kicker":{"fr":"Nos pôles","de":"Unsere Bereiche"},
+    "title":{"fr":"Des solutions adaptées à chaque projet.","de":"Passende Lösungen für jedes Projekt."},
+    "intro":{"fr":"Découvrez nos quatre domaines d’intervention, chacun présenté comme une rubrique dédiée.","de":"Entdecken Sie unsere vier Tätigkeitsbereiche, jeweils als eigener Bereich der Website."},
+    "items":[
+      {"number":"01 / TOITURE","title":{"fr":"Toitures plates","de":"Flachdächer"},"text":{"fr":"Des solutions adaptées à vos projets de toitures plates, avec une attention portée à l’étanchéité et aux détails.","de":"Lösungen für Flachdächer mit besonderem Augenmerk auf Abdichtung und technische Details."}},
+      {"number":"02 / BOIS","title":{"fr":"Charpentes","de":"Holzkonstruktionen"},"text":{"fr":"Des structures bois conçues avec précision pour répondre aux contraintes de chaque projet.","de":"Präzise geplante Holzkonstruktionen, abgestimmt auf die Anforderungen jedes Projekts."}},
+      {"number":"03 / FAÇADE","title":{"fr":"Façades ventilées","de":"Hinterlüftete Fassaden"},"text":{"fr":"Des systèmes de façade pensés pour la performance, la durabilité et une finition soignée.","de":"Fassadensysteme mit Fokus auf Leistungsfähigkeit, Langlebigkeit und eine hochwertige Ausführung."}},
+      {"number":"04 / BÂTIMENT","title":{"fr":"Couvertures","de":"Dachdeckungen"},"text":{"fr":"Des solutions de couverture pour protéger durablement vos bâtiments et assurer une finition professionnelle.","de":"Dachlösungen zum dauerhaften Schutz Ihrer Gebäude und für einen professionellen Abschluss."}}
+    ]
+  },
+  "process": {
+    "kicker":{"fr":"Notre méthode","de":"Unser Vorgehen"},
+    "title":{"fr":"De l'idée à la réalisation.","de":"Von der Idee bis zur Umsetzung."},
+    "intro":{"fr":"Une approche claire pour accompagner chaque projet, de la première discussion à la réalisation.","de":"Ein klarer Ablauf, der jedes Projekt von der ersten Besprechung bis zur Umsetzung begleitet."},
+    "steps":[
+      {"title":{"fr":"Conseiller","de":"Beraten"},"text":{"fr":"Comprendre votre besoin, étudier le projet et vous orienter vers une solution adaptée.","de":"Comprendre votre besoin, étudier le projet et vous orienter vers une solution adaptée."}},
+      {"title":{"fr":"Planifier","de":"Planen"},"text":{"fr":"Préparer chaque étape avec précision afin d'assurer une réalisation claire et efficace.","de":"Préparer chaque étape avec précision afin d'assurer une réalisation claire et efficace."}},
+      {"title":{"fr":"Réaliser","de":"Umsetzen"},"text":{"fr":"Mettre en œuvre le projet avec un travail soigné et une attention portée aux finitions.","de":"Mettre en œuvre le projet avec un travail soigné et une attention portée aux finitions."}}
+    ]
+  },
+  "company": {
+    "title":{"fr":"Un partenaire de confiance pour vos travaux.","de":"Ein zuverlässiger Partner für Ihre Bauarbeiten."},
+    "paragraph1":{"fr":"Nous mettons notre savoir-faire au service de réalisations durables, avec une attention particulière portée à la qualité d’exécution et aux détails techniques.","de":"Wir setzen unser Know-how für langlebige Lösungen ein und legen besonderen Wert auf saubere Ausführung und technische Details."},
+    "paragraph2":{"fr":"Cette partie pourra être complétée plus tard avec l’histoire de ROOFCON, votre équipe, votre zone d’intervention et vos engagements.","de":"Dieser Bereich kann später mit der Geschichte von ROOFCON, Ihrem Team, Einsatzgebiet und Ihren Werten ergänzt werden."},
+    "button":{"fr":"Nous contacter","de":"Kontaktieren Sie uns"},
+    "facts":[
+      {"value":"01","label":"Un interlocuteur pour votre projet"},
+      {"value":"04","label":"Domaines de compétence"},
+      {"value":"100%","label":"Projet personnalisé"},
+      {"value":"ROOFCON","label":"Holzbau · Bedachung · Fassadenbau"}
+    ]
+  },
+  "references": {
+    "kicker":{"fr":"Nos réalisations","de":"Unsere Referenzen"},
+    "title":{"fr":"Des projets qui parlent pour nous.","de":"Projekte, die für sich sprechen."},
+    "intro":{"fr":"Cette rubrique est prête à accueillir les photos de vos chantiers dès que vous les aurez.","de":"Dieser Bereich ist bereit für die Fotos Ihrer Baustellen, sobald diese vorliegen."},
+    "items":[
+      {"label":{"fr":"Projet à venir","de":"Projekt folgt"}},
+      {"label":{"fr":"Projet à venir","de":"Projekt folgt"}},
+      {"label":{"fr":"Projet à venir","de":"Projekt folgt"}},
+      {"label":{"fr":"Projet à venir","de":"Projekt folgt"}},
+      {"label":{"fr":"Projet à venir","de":"Projekt folgt"}}
+    ]
+  },
+  "contact": {
+    "kicker":"Contact",
+    "title":{"fr":"Vous avez un projet ?<br>Parlons-en.","de":"Sie haben ein Projekt?<br>Sprechen wir darüber."},
+    "intro":{"fr":"Demandez un devis ou contactez-nous pour discuter de vos besoins.","de":"Fordern Sie ein Angebot an oder kontaktieren Sie uns, um Ihre Anforderungen zu besprechen."},
+    "cardTitle":{"fr":"Demander un devis","de":"Angebot anfragen"},
+    "cardText":{"fr":"Envoyez-nous les informations principales de votre projet. Nous pourrons ensuite vous recontacter.","de":"Senden Sie uns die wichtigsten Informationen zu Ihrem Projekt. Wir melden uns anschließend bei Ihnen."},
+    "button":{"fr":"Envoyer ma demande","de":"Anfrage senden"}
+  },
+  "footer": {"fr":"Toiture · Charpente · Façades · Construction & rénovation","de":"Dach · Holzbau · Fassaden · Bau & Renovierung"}
+}
