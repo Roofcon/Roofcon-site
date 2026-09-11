@@ -93,14 +93,15 @@
           "de": "Fassadensysteme mit Fokus auf Leistungsfähigkeit, Langlebigkeit und eine hochwertige Ausführung."
         }
       },
-      {
+                {
         "number": "04 / BÂTIMENT",
         "title": {
           "fr": "Couvertures",
           "de": "Dachdeckungen"
-                "text": {
+        },
+        "text": {
           "fr": "Des solutions de couverture pour protéger durablement vos bâtiments et assurer une finition professionnelle.",
-          "de": "Dachlösungen zum dauerhaften Schutz Ihrer Gebäude und pour une finition professionnelle."
+          "de": "Dachlösungen zum dauerhaften Schutz Ihrer Gebäude und für einen professionellen Abschluss."
         }
       }
     ]
