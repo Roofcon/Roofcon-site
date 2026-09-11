@@ -90,244 +90,191 @@ footer{background:#171616;color:#aaa;padding:25px 0;font-size:13px}.foot{display
 </div></section>
 
 <footer><div class="container foot"><span>© 2026 ROOFCON — Tous droits réservés.</span><span id="footer-text"></span></div></footer>
-
-<script>
-let CONTENT=null;
-let LANG=localStorage.getItem('roofconLang') || 'fr';
-const t=(obj)=>typeof obj==='string'?obj:(obj?.[LANG] ?? '');
-const esc=(v)=>String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
-function setLang(lang){LANG=lang;localStorage.setItem('roofconLang',lang);if(CONTENT) render();}
-function render(){
- const c=CONTENT;
- document.documentElement.lang=LANG;
- document.title=c.site.title;
- document.querySelector('meta[name="description"]').content=c.site.description;
- document.getElementById('top-phone').textContent=c.site.phone;
- document.getElementById('top-email').textContent=c.site.email;
- [['nav-services','services'],['nav-process','process'],['nav-company','company'],['nav-references','references'],['nav-quote','quote']].forEach(([id,k])=>document.getElementById(id).textContent=t(c.nav[k]));
- document.getElementById('hero-kicker').textContent=c.hero.kicker; document.getElementById('hero-title').innerHTML=t(c.hero.title); document.getElementById('hero-text').textContent=t(c.hero.text); document.getElementById('hero-primary').textContent=t(c.hero.primary); document.getElementById('hero-secondary').textContent=t(c.hero.secondary);
- document.getElementById('services-kicker').textContent=t(c.services.kicker); document.getElementById('services-title').textContent=t(c.services.title); document.getElementById('services-intro').textContent=t(c.services.intro);
- document.getElementById('services-grid').innerHTML=c.services.items.map(x=>`<article class="service"><div class="number">${esc(x.number)}</div><h3>${esc(t(x.title))}</h3><p>${esc(t(x.text))}</p></article>`).join('');
- document.getElementById('process-kicker').textContent=t(c.process.kicker); document.getElementById('process-title').textContent=t(c.process.title); document.getElementById('process-intro').textContent=t(c.process.intro);
- document.getElementById('process-grid').innerHTML=c.process.steps.map((x,i)=>`<div class="step"><strong>${String(i+1).padStart(2,'0')}</strong><h3>${esc(t(x.title))}</h3><p>${esc(t(x.text))}</p></div>`).join('');
- document.getElementById('company-title').textContent=t(c.company.title); document.getElementById('company-p1').textContent=t(c.company.paragraph1); document.getElementById('company-p2').textContent=t(c.company.paragraph2); document.getElementById('company-button').textContent=t(c.company.button);
- document.getElementById('facts-grid').innerHTML=c.company.facts.map(x=>`<div class="fact"><b>${esc(x.value)}</b><span>${esc(x.label)}</span></div>`).join('');
- document.getElementById('refs-kicker').textContent=t(c.references.kicker); document.getElementById('refs-title').textContent=t(c.references.title); document.getElementById('refs-intro').textContent=t(c.references.intro); document.getElementById('refs-grid').innerHTML=c.references.items.map(x=>`<div class="ref"><div class="label"><small>Référence</small><br>${esc(t(x.label))}</div></div>`).join('');
- document.getElementById('contact-kicker').textContent=c.contact.kicker; document.getElementById('contact-title').innerHTML=t(c.contact.title); document.getElementById('contact-intro').textContent=t(c.contact.intro); document.getElementById('contact-phone').textContent=c.site.phone; document.getElementById('contact-phone').href='tel:'+c.site.phone.replace(/[^+0-9]/g,''); document.getElementById('contact-email').textContent=c.site.email; document.getElementById('contact-email').href='mailto:'+c.site.email; document.getElementById('contact-card-title').textContent=t(c.contact.cardTitle); document.getElementById('contact-card-text').textContent=t(c.contact.cardText); const b=document.getElementById('contact-button'); b.textContent=t(c.contact.button); b.href='mailto:'+c.site.email+'?subject='+encodeURIComponent('Demande de devis ROOFCON');
- document.getElementById('footer-text').textContent=t(c.footer);
- document.querySelectorAll('.lang button').forEach(btn=>btn.classList.toggle('active',btn.textContent.trim().toLowerCase()===LANG));
-}
-fetch('./content.json?v=2',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('content.json introuvable');return r.json();}).then(c=>{CONTENT=c;render();}).catch(()=>{document.body.innerHTML='<main style="font-family:Arial;padding:40px">Impossible de charger le contenu du site. Vérifiez que <b>content.json</b> est bien présent à la racine du site.</main>';});
- function showPage(pageId){
-    document.querySelectorAll('section').forEach(section=>{
-        section.classList.remove('active-page');
-    });
-
-    const page=document.getElementById(pageId);
-
-    if(page){
-        page.classList.add('active-page');
-    }
-
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
-    });
-
-    history.replaceState(null,'','#'+pageId);
-}
-
-document.addEventListener('click',function(e){
-    const link=e.target.closest('[data-page]');
-
-    if(!link) return;
-
-    e.preventDefault();
-
-    const page=link.getAttribute('data-page');
-
-    showPage(page);
-});
-
-window.addEventListener('DOMContentLoaded',function(){
-    showPage('accueil');
-});
 <script>
 let CONTENT = null;
 let LANG = localStorage.getItem('roofconLang') || 'fr';
 
 function t(obj) {
-  if (typeof obj === 'string') return obj;
-  return obj && obj[LANG] ? obj[LANG] : '';
+    if (typeof obj === 'string') return obj;
+    return obj && obj[LANG] ? obj[LANG] : '';
 }
 
 function esc(v) {
-  return String(v ?? '').replace(/[&<>"']/g, function(m) {
-    return {
-      '&':'&amp;',
-      '<':'&lt;',
-      '>':'&gt;',
-      '"':'&quot;',
-      "'":'&#039;'
-    }[m];
-  });
+    return String(v ?? '').replace(/[&<>"']/g, function(m) {
+        return {
+            '&':'&amp;',
+            '<':'&lt;',
+            '>':'&gt;',
+            '"':'&quot;',
+            "'":'&#039;'
+        }[m];
+    });
+}
+
+function showPage(id) {
+    document.querySelectorAll('section').forEach(function(section) {
+        section.classList.remove('active-page');
+    });
+
+    const page = document.getElementById(id);
+
+    if (page) {
+        page.classList.add('active-page');
+    }
+
+    window.scrollTo(0, 0);
 }
 
 function setLang(lang) {
-  LANG = lang;
-  localStorage.setItem('roofconLang', lang);
-  if (CONTENT) render();
-}
+    LANG = lang;
+    localStorage.setItem('roofconLang', lang);
 
-function showPage(page) {
-  document.querySelectorAll('section').forEach(section => {
-    section.classList.remove('active-page');
-  });
-
-  const target = document.getElementById(page);
-
-  if (target) {
-    target.classList.add('active-page');
-  }
-
-  window.scrollTo(0, 0);
-}
-
-function setupNavigation() {
-  document.querySelectorAll('[data-page]').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      showPage(this.dataset.page);
-    });
-  });
+    if (CONTENT) {
+        render();
+    }
 }
 
 function render() {
-  const c = CONTENT;
 
-  document.documentElement.lang = LANG;
+    const c = CONTENT;
 
-  document.title = c.site.title;
+    document.title = c.site.title;
 
-  document.querySelector('meta[name="description"]').content =
-    c.site.description;
+    document.getElementById('top-phone').textContent = c.site.phone;
+    document.getElementById('top-email').textContent = c.site.email;
 
-  document.getElementById('top-phone').textContent = c.site.phone;
-  document.getElementById('top-email').textContent = c.site.email;
+    document.getElementById('nav-services').textContent = t(c.nav.services);
+    document.getElementById('nav-references').textContent = t(c.nav.references);
+    document.getElementById('nav-company').textContent = t(c.nav.company);
+    document.getElementById('nav-quote').textContent = t(c.nav.quote);
 
-  const navItems = [
-    ['nav-services', 'services'],
-    ['nav-references', 'references'],
-    ['nav-company', 'company'],
-    ['nav-quote', 'quote']
-  ];
+    document.getElementById('hero-kicker').textContent = t(c.hero.kicker);
+    document.getElementById('hero-title').innerHTML = t(c.hero.title);
+    document.getElementById('hero-text').textContent = t(c.hero.text);
+    document.getElementById('hero-primary').textContent = t(c.hero.primary);
+    document.getElementById('hero-secondary').textContent = t(c.hero.secondary);
 
-  navItems.forEach(([id, key]) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = t(c.nav[key]);
-  });
+    document.getElementById('services-kicker').textContent = t(c.services.kicker);
+    document.getElementById('services-title').textContent = t(c.services.title);
+    document.getElementById('services-intro').textContent = t(c.services.intro);
 
-  document.getElementById('hero-kicker').textContent = t(c.hero.kicker);
-  document.getElementById('hero-title').innerHTML = t(c.hero.title);
-  document.getElementById('hero-text').textContent = t(c.hero.text);
-  document.getElementById('hero-primary').textContent = t(c.hero.primary);
-  document.getElementById('hero-secondary').textContent = t(c.hero.secondary);
+    document.getElementById('services-grid').innerHTML =
+        c.services.items.map(function(x) {
+            return `
+                <article class="service">
+                    <div class="number">${esc(x.number)}</div>
+                    <h3>${esc(t(x.title))}</h3>
+                    <p>${esc(t(x.text))}</p>
+                </article>
+            `;
+        }).join('');
 
-  document.getElementById('services-kicker').textContent = t(c.services.kicker);
-  document.getElementById('services-title').textContent = t(c.services.title);
-  document.getElementById('services-intro').textContent = t(c.services.intro);
+    document.getElementById('company-title').textContent = t(c.company.title);
+    document.getElementById('company-p1').textContent = t(c.company.paragraph1);
+    document.getElementById('company-p2').textContent = t(c.company.paragraph2);
+    document.getElementById('company-button').textContent = t(c.company.button);
 
-  document.getElementById('services-grid').innerHTML =
-    c.services.items.map(x => `
-      <article class="service">
-        <div class="number">${esc(x.number)}</div>
-        <h3>${esc(t(x.title))}</h3>
-        <p>${esc(t(x.text))}</p>
-      </article>
-    `).join('');
+    document.getElementById('facts-grid').innerHTML =
+        c.company.facts.map(function(x) {
+            return `
+                <div class="fact">
+                    <b>${esc(x.value)}</b>
+                    <span>${esc(t(x.label))}</span>
+                </div>
+            `;
+        }).join('');
 
-  document.getElementById('company-title').textContent = t(c.company.title);
-  document.getElementById('company-p1').textContent = t(c.company.paragraph1);
-  document.getElementById('company-p2').textContent = t(c.company.paragraph2);
-  document.getElementById('company-button').textContent = t(c.company.button);
+    document.getElementById('refs-kicker').textContent = t(c.references.kicker);
+    document.getElementById('refs-title').textContent = t(c.references.title);
+    document.getElementById('refs-intro').textContent = t(c.references.intro);
 
-  document.getElementById('facts-grid').innerHTML =
-    c.company.facts.map(x => `
-      <div class="fact">
-        <b>${esc(x.value)}</b>
-        <span>${esc(t(x.label))}</span>
-      </div>
-    `).join('');
+    document.getElementById('refs-grid').innerHTML =
+        c.references.items.map(function(x) {
+            return `
+                <div class="ref">
+                    <div class="label">
+                        <small>Référence</small><br>
+                        ${esc(t(x.label))}
+                    </div>
+                </div>
+            `;
+        }).join('');
 
-  document.getElementById('refs-kicker').textContent = t(c.references.kicker);
-  document.getElementById('refs-title').textContent = t(c.references.title);
-  document.getElementById('refs-intro').textContent = t(c.references.intro);
+    document.getElementById('contact-kicker').textContent = t(c.contact.kicker);
+    document.getElementById('contact-title').innerHTML = t(c.contact.title);
+    document.getElementById('contact-intro').textContent = t(c.contact.intro);
 
-  document.getElementById('refs-grid').innerHTML =
-    c.references.items.map(x => `
-      <div class="ref">
-        <div class="label">
-          <small>Référence</small><br>
-          ${esc(t(x.label))}
-        </div>
-      </div>
-    `).join('');
+    document.getElementById('contact-phone').textContent = c.site.phone;
+    document.getElementById('contact-phone').href =
+        'tel:' + c.site.phone.replace(/[^+0-9]/g, '');
 
-  document.getElementById('contact-kicker').textContent = t(c.contact.kicker);
-  document.getElementById('contact-title').innerHTML = t(c.contact.title);
-  document.getElementById('contact-intro').textContent = t(c.contact.intro);
+    document.getElementById('contact-email').textContent = c.site.email;
+    document.getElementById('contact-email').href =
+        'mailto:' + c.site.email;
 
-  document.getElementById('contact-phone').textContent = c.site.phone;
-  document.getElementById('contact-phone').href =
-    'tel:' + c.site.phone.replace(/[^+0-9]/g, '');
+    document.getElementById('contact-card-title').textContent =
+        t(c.contact.cardTitle);
 
-  document.getElementById('contact-email').textContent = c.site.email;
-  document.getElementById('contact-email').href =
-    'mailto:' + c.site.email;
+    document.getElementById('contact-card-text').textContent =
+        t(c.contact.cardText);
 
-  document.getElementById('contact-card-title').textContent =
-    t(c.contact.cardTitle);
+    const contactButton = document.getElementById('contact-button');
 
-  document.getElementById('contact-card-text').textContent =
-    t(c.contact.cardText);
+    contactButton.textContent = t(c.contact.button);
+    contactButton.href =
+        'mailto:' + c.site.email +
+        '?subject=' +
+        encodeURIComponent('Demande de devis ROOFCON');
 
-  const button = document.getElementById('contact-button');
-  button.textContent = t(c.contact.button);
-  button.href =
-    'mailto:' + c.site.email +
-    '?subject=' +
-    encodeURIComponent('Demande de devis ROOFCON');
+    document.getElementById('footer-text').textContent = t(c.footer);
 
-  document.getElementById('footer-text').textContent = t(c.footer);
-
-  document.querySelectorAll('.lang button').forEach(btn => {
-    btn.classList.toggle(
-      'active',
-      btn.textContent.trim().toLowerCase() === LANG
-    );
-  });
+    document.querySelectorAll('.lang button').forEach(function(button) {
+        button.classList.toggle(
+            'active',
+            button.textContent.trim().toLowerCase() === LANG
+        );
+    });
 }
 
+document.addEventListener('click', function(e) {
+
+    const link = e.target.closest('[data-page]');
+
+    if (!link) return;
+
+    e.preventDefault();
+
+    showPage(link.dataset.page);
+});
+
 fetch('./content.json?v=' + Date.now())
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Erreur content.json');
-    }
-    return response.json();
-  })
-  .then(data => {
-    CONTENT = data;
-    render();
-    setupNavigation();
-    showPage('accueil');
-  })
-  .catch(error => {
-    console.error(error);
-    document.body.innerHTML = `
-      <div style="font-family:Arial;padding:40px">
-        <h1>Erreur du site</h1>
-        <p>${esc(error.message)}</p>
-      </div>
-    `;
-  });
+    .then(function(response) {
+        if (!response.ok) {
+            throw new Error('Impossible de charger content.json');
+        }
+
+        return response.json();
+    })
+    .then(function(data) {
+
+        CONTENT = data;
+
+        render();
+
+        showPage('accueil');
+    })
+    .catch(function(error) {
+
+        console.error(error);
+
+        document.body.innerHTML = `
+            <div style="font-family:Arial;padding:40px">
+                <h1>Erreur</h1>
+                <p>${esc(error.message)}</p>
+            </div>
+        `;
+    });
 </script>
+
+</body>
+</html>
