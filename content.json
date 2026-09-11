@@ -98,11 +98,11 @@
         "title": {
           "fr": "Couvertures",
           "de": "Dachdeckungen"
-        },
-        "text": {
+                "text": {
           "fr": "Des solutions de couverture pour protéger durablement vos bâtiments et assurer une finition professionnelle.",
-          "de": "Dachlösungen zum dauerhaften Schutz Ihrer Gebäude und für einen professionellen Abschluss."
-        },
+          "de": "Dachlösungen zum dauerhaften Schutz Ihrer Gebäude und pour une finition professionnelle."
+        }
+      }
     ]
   },
   "process": {
@@ -187,7 +187,7 @@
       }
     ]
   },
-  "references": {
+   "references": {
     "kicker": {
       "fr": "Nos réalisations",
       "de": "Unsere Referenzen"
@@ -205,32 +205,32 @@
         "label": {
           "fr": "Projet à venir",
           "de": "Projekt folgt"
-        },
+        }
       },
       {
         "label": {
           "fr": "Projet à venir",
           "de": "Projekt folgt"
-        }´,
-      }
+        }
+      },
       {
         "label": {
           "fr": "Projet à venir",
           "de": "Projekt folgt"
-        },
-      }
+        }
+      },
       {
         "label": {
           "fr": "Projet à venir",
           "de": "Projekt folgt"
-        },
-      }
+        }
+      },
       {
         "label": {
           "fr": "Projet à venir",
           "de": "Projekt folgt"
-        },
-      }
+        }
+      },
       {
         "image": "images/realisations/roofcon-francais-1789125353058.png",
         "label": {
