@@ -147,7 +147,76 @@ function setLang(lang) {
         render();
     }
 }
+function openReference(id) {
+    if (!CONTENT || !CONTENT.references) return;
 
+    const ref = CONTENT.references.items.find(function(x) {
+        return x.id === id;
+    });
+
+    if (!ref) return;
+
+    document.getElementById('detail-kicker').textContent =
+        LANG === 'fr' ? 'Nos réalisations' : 'Unsere Referenzen';
+
+    document.getElementById('detail-title').textContent =
+        t(ref.title);
+
+    document.getElementById('detail-intro').textContent =
+        LANG === 'fr'
+            ? 'Découvrez nos projets réalisés dans ce domaine.'
+            : 'Entdecken Sie unsere Projekte in diesem Bereich.';
+
+    const projects = ref.projects || [];
+
+    if (projects.length === 0) {
+
+        document.getElementById('detail-projects').innerHTML = `
+            <div style="grid-column:1/-1;background:var(--cream);padding:50px;text-align:center;color:var(--gray);">
+                ${
+                    LANG === 'fr'
+                        ? 'Les projets seront bientôt ajoutés.'
+                        : 'Die Projekte werden bald hinzugefügt.'
+                }
+            </div>
+        `;
+
+    } else {
+
+        document.getElementById('detail-projects').innerHTML =
+            projects.map(function(project) {
+
+                return `
+                    <div style="background:#fff;border:1px solid var(--line);overflow:hidden;">
+
+                        ${project.image ? `
+                            <img
+                                src="/${esc(project.image)}"
+                                alt="${esc(t(project.title))}"
+                                style="width:100%;height:260px;object-fit:cover;display:block;"
+                            >
+                        ` : ''}
+
+                        <div style="padding:20px;">
+
+                            <h3 style="font-size:22px;margin-bottom:8px;">
+                                ${esc(t(project.title))}
+                            </h3>
+
+                            <p style="color:var(--gray);">
+                                ${esc(t(project.description))}
+                            </p>
+
+                        </div>
+
+                    </div>
+                `;
+
+            }).join('');
+    }
+
+    showPage('reference-detail');
+}
 function render() {
 
     const c = CONTENT;
