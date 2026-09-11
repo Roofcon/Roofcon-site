@@ -188,10 +188,13 @@ function render() {
     document.getElementById('refs-title').textContent = t(c.references.title);
     document.getElementById('refs-intro').textContent = t(c.references.intro);
 
-    document.getElementById('refs-grid').innerHTML =
+   document.getElementById('refs-grid').innerHTML =
     c.references.items.map(function(x) {
         return `
-            <div class="ref" style="background-image:url('./${esc(x.image || '')}')">
+            <div class="ref">
+                ${x.image ? `
+                    <img src="/${esc(x.image)}" alt="${esc(t(x.label))}" style="width:100%;height:100%;object-fit:cover;display:block;">
+                ` : ''}
                 <div class="label">
                     <small>Référence</small><br>
                     ${esc(t(x.label))}
