@@ -55,11 +55,35 @@ function renderLists(){
  $('steps-editor').innerHTML=C.process.steps.map((x,i)=>`<div class="step"><b>Étape ${i+1}</b><div class="grid"><div><label>Titre FR</label><input id="st${i}-title-fr"></div><div><label>Titre DE</label><input id="st${i}-title-de"></div><div><label>Texte FR</label><textarea id="st${i}-text-fr"></textarea></div><div><label>Texte DE</label><textarea id="st${i}-text-de"></textarea></div></div></div>`).join('');
  C.process.steps.forEach((x,i)=>{set('st'+i+'-title-fr',x.title.fr);set('st'+i+'-title-de',x.title.de);set('st'+i+'-text-fr',x.text.fr);set('st'+i+'-text-de',x.text.de)});
  $('facts-editor').innerHTML=C.company.facts.map((x,i)=>`<div class="service"><b>Élément ${i+1}</b><div class="grid"><div><label>Valeur</label><input id="f${i}-value"></div><div><label>Texte</label><input id="f${i}-label"></div></div></div>`).join('');C.company.facts.forEach((x,i)=>{set('f'+i+'-value',x.value);set('f'+i+'-label',x.label)});
- $('refs-editor').innerHTML=C.references.items.map((x,i)=>`<div class="ref"><b>Référence ${i+1}</b><div class="grid"><div><label>Libellé FR</label><input id="r${i}-fr"></div><div><label>Libellé DE</label><input id="r${i}-de"></div></div></div>`).join('');C.references.items.forEach((x,i)=>{set('r'+i+'-fr',x.label.fr);set('r'+i+'-de',x.label.de)});
+$('refs-editor').innerHTML=C.references.items.map((x,i)=>`
+<div class="ref">
+    <b>Catégorie ${i+1}</b>
+    <div class="grid">
+        <div>
+            <label>Nom FR</label>
+            <input id="r${i}-fr">
+        </div>
+        <div>
+            <label>Nom DE</label>
+            <input id="r${i}-de">
+        </div>
+    </div>
+</div>
+`).join('');
+
+C.references.items.forEach((x,i)=>{
+    set('r'+i+'-fr',x.title.fr);
+    set('r'+i+'-de',x.title.de);
+});
 }
 function fill(){
  set('site-phone',C.site.phone);set('site-email',C.site.email);set('site-title',C.site.title);set('site-description',C.site.description);set('hero-kicker',C.hero.kicker);setB('hero-title',C.hero.title);setB('hero-text',C.hero.text);setB('hero-primary',C.hero.primary);setB('hero-secondary',C.hero.secondary);setB('services-title',C.services.title);setB('services-intro',C.services.intro);setB('process-title',C.process.title);setB('process-intro',C.process.intro);setB('company-title',C.company.title);setB('company-p1',C.company.paragraph1);setB('company-p2',C.company.paragraph2);setB('refs-title',C.references.title);setB('refs-intro',C.references.intro);setB('contact-title',C.contact.title);setB('contact-intro',C.contact.intro);setB('contact-card-title',C.contact.cardTitle);setB('contact-card-text',C.contact.cardText);setB('contact-button',C.contact.button);renderLists();}
-function collect(){C.site.phone=val('site-phone');C.site.email=val('site-email');C.site.title=val('site-title');C.site.description=val('site-description');C.hero.kicker=val('hero-kicker');C.hero.title=getB('hero-title');C.hero.text=getB('hero-text');C.hero.primary=getB('hero-primary');C.hero.secondary=getB('hero-secondary');C.services.title=getB('services-title');C.services.intro=getB('services-intro');C.services.items.forEach((x,i)=>{x.number=val('s'+i+'-number');x.title={fr:val('s'+i+'-title-fr'),de:val('s'+i+'-title-de')};x.text={fr:val('s'+i+'-text-fr'),de:val('s'+i+'-text-de')}});C.process.title=getB('process-title');C.process.intro=getB('process-intro');C.process.steps.forEach((x,i)=>{x.title={fr:val('st'+i+'-title-fr'),de:val('st'+i+'-title-de')};x.text={fr:val('st'+i+'-text-fr'),de:val('st'+i+'-text-de')}});C.company.title=getB('company-title');C.company.paragraph1=getB('company-p1');C.company.paragraph2=getB('company-p2');C.company.facts.forEach((x,i)=>{x.value=val('f'+i+'-value');x.label=val('f'+i+'-label')});C.references.title=getB('refs-title');C.references.intro=getB('refs-intro');C.references.items.forEach((x,i)=>x.label={fr:val('r'+i+'-fr'),de:val('r'+i+'-de')});C.contact.title=getB('contact-title');C.contact.intro=getB('contact-intro');C.contact.cardTitle=getB('contact-card-title');C.contact.cardText=getB('contact-card-text');C.contact.button=getB('contact-button');}
+function collect(){C.site.phone=val('site-phone');C.site.email=val('site-email');C.site.title=val('site-title');C.site.description=val('site-description');C.hero.kicker=val('hero-kicker');C.hero.title=getB('hero-title');C.hero.text=getB('hero-text');C.hero.primary=getB('hero-primary');C.hero.secondary=getB('hero-secondary');C.services.title=getB('services-title');C.services.intro=getB('services-intro');C.services.items.forEach((x,i)=>{x.number=val('s'+i+'-number');x.title={fr:val('s'+i+'-title-fr'),de:val('s'+i+'-title-de')};x.text={fr:val('s'+i+'-text-fr'),de:val('s'+i+'-text-de')}});C.process.title=getB('process-title');C.process.intro=getB('process-intro');C.process.steps.forEach((x,i)=>{x.title={fr:val('st'+i+'-title-fr'),de:val('st'+i+'-title-de')};x.text={fr:val('st'+i+'-text-fr'),de:val('st'+i+'-text-de')}});C.company.title=getB('company-title');C.company.paragraph1=getB('company-p1');C.company.paragraph2=getB('company-p2');C.company.facts.forEach((x,i)=>{x.value=val('f'+i+'-value');x.label=val('f'+i+'-label')});C.references.title=getB('refs-title');C.references.intro=getB('refs-intro');C.references.items.forEach((x,i)=>{
+    x.title={
+        fr:val('r'+i+'-fr'),
+        de:val('r'+i+'-de')
+    };
+});C.contact.title=getB('contact-title');C.contact.intro=getB('contact-intro');C.contact.cardTitle=getB('contact-card-title');C.contact.cardText=getB('contact-card-text');C.contact.button=getB('contact-button');}
 async function loadContent(){try{$('status').textContent='Connexion à GitHub…';const data=await api('/contents/content.json?ref='+encodeURIComponent(settings().branch));sha=data.sha;C=JSON.parse(dec(data.content));fill();$('editor').style.display='block';$('status').textContent='Contenu chargé. Vous pouvez modifier les textes puis publier.';}catch(e){$('status').innerHTML='<span class="danger">Erreur : '+e.message+'</span>';}}
 async function uploadReferenceImage(){
   try{
