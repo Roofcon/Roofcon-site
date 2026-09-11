@@ -271,12 +271,14 @@ function render() {
     document.getElementById('refs-title').textContent = t(c.references.title);
     document.getElementById('refs-intro').textContent = t(c.references.intro);
 
-  document.getElementById('refs-grid').innerHTML =
+ document.getElementById('refs-grid').innerHTML =
     c.references.items.map(function(x) {
         return `
-            <div class="ref" style="cursor:pointer" onclick="openReference('${esc(x.id)}')">
+            <div class="ref reference-card" data-reference-id="${esc(x.id)}" style="cursor:pointer">
                 ${x.image ? `
-                    <img src="/${esc(x.image)}" alt="${esc(t(x.title))}" style="width:100%;height:100%;object-fit:cover;display:block;">
+                    <img src="/${esc(x.image)}"
+                         alt="${esc(t(x.title))}"
+                         style="width:100%;height:100%;object-fit:cover;display:block;">
                 ` : ''}
                 <div class="label">
                     <small>Référence</small><br>
@@ -326,11 +328,18 @@ document.addEventListener('click', function(e) {
 
     const link = e.target.closest('[data-page]');
 
-    if (!link) return;
+    if (link) {
+        e.preventDefault();
+        showPage(link.dataset.page);
+        return;
+    }
 
-    e.preventDefault();
+    const reference = e.target.closest('.reference-card');
 
-    showPage(link.dataset.page);
+    if (reference) {
+        const id = reference.dataset.referenceId;
+        openReference(id);
+    }
 });
 
 fetch('./content.json?v=' + Date.now())
