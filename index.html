@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROOFCON | Holzbau · Bedachung · Fassadenbau</title>
+<meta name="description" content="ROOFCON — Projet à venirs ventilées, toitures plates, charpentes et couvertures.">
+<style>
+:root{--black:#211f20;--brown:#a27b5b;--brown2:#c3a080;--cream:#f5f2ee;--white:#fff;--gray:#706b67;--line:#e5dfda}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:Arial,Helvetica,sans-serif;color:var(--black);line-height:1.6}
+a{text-decoration:none;color:inherit}.container{width:min(1180px,92%);margin:auto}
+.top{background:var(--black);color:#eee;font-size:13px}.top .inner{height:38px;display:flex;justify-content:flex-end;align-items:center;gap:28px}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}.nav{height:92px;display:flex;align-items:center;justify-content:space-between}
+.logo{width:190px}.hero-logo{width:min(330px,70vw);height:auto;margin-bottom:32px;background:#fff;padding:12px}.lang{display:flex;gap:4px;margin-right:8px}.lang button{border:1px solid var(--line);background:#fff;color:var(--black);padding:7px 10px;font-weight:800;cursor:pointer}.lang button.active{background:var(--brown);color:#fff;border-color:var(--brown)}.menu{display:flex;align-items:center;gap:30px;font-size:14px;font-weight:800}.menu a:hover{color:var(--brown)}
+.cta{background:var(--brown);color:white;padding:13px 20px}.cta:hover{background:var(--black)}
+.hero{min-height:690px;position:relative;display:flex;align-items:center;overflow:hidden;background:
+linear-gradient(90deg,rgba(20,18,18,.93) 0%,rgba(20,18,18,.76) 47%,rgba(20,18,18,.25) 100%),
+linear-gradient(135deg,#292626 0%,#685344 55%,#b29273 100%)}
+.hero:before{content:"";position:absolute;right:-120px;top:-160px;width:600px;height:600px;border:95px solid rgba(195,160,128,.18);transform:rotate(45deg)}
+.hero .container{position:relative;z-index:2}.hero-content{max-width:730px;color:#fff;padding:80px 0}
+.kicker{text-transform:uppercase;letter-spacing:3px;font-size:13px;font-weight:800;color:var(--brown2);margin-bottom:15px}
+h1{font-size:clamp(45px,6.5vw,80px);line-height:.98;letter-spacing:-3px;margin-bottom:24px}h1 span{color:#c3a080}
+.hero p{font-size:19px;color:#eee;max-width:650px;margin-bottom:32px}.buttons{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 23px;font-weight:800;border:1px solid transparent}.primary{background:var(--brown);color:#fff}.outline{border-color:rgba(255,255,255,.55);color:#fff}.outline:hover{background:#fff;color:var(--black)}
+section{padding:92px 0}.head{max-width:760px;margin-bottom:46px}.head h2{font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-1.5px}.head p{color:var(--gray);font-size:18px;margin-top:14px}
+.services{background:var(--cream)}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.service{background:#fff;border:1px solid var(--line);min-height:300px;padding:30px;position:relative;overflow:hidden;transition:.25s}
+.service:hover{transform:translateY(-5px);box-shadow:0 15px 35px #211f2012}.number{font-size:13px;color:var(--brown);font-weight:900;letter-spacing:2px}.service h3{font-size:23px;margin:28px 0 10px}.service p{color:var(--gray);font-size:15px}.service:after{content:"";position:absolute;right:-30px;bottom:-55px;width:130px;height:130px;border:25px solid #a27b5b18;transform:rotate(45deg)}
+.process{background:#fff}.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.step{padding:35px 30px;border-top:4px solid var(--brown);background:var(--cream)}.step strong{font-size:48px;color:var(--brown2);line-height:1}.step h3{font-size:25px;margin:12px 0 7px}.step p{color:var(--gray)}
+.about{background:var(--black);color:#fff}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}.about h2{font-size:clamp(32px,4.2vw,54px);line-height:1.05}.about p{color:#c9c4c0;margin:18px 0}.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#514b48}.fact{background:var(--black);padding:28px}.fact b{display:block;font-size:32px;color:#c3a080}.fact span{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:#ccc}
+.refs{background:var(--cream)}.refs-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:230px 230px;gap:14px}.ref{position:relative;overflow:hidden;background:linear-gradient(135deg,#c9c1ba,#685c53)}.ref:nth-child(2){background:linear-gradient(135deg,#9b8069,#3b3430)}.ref:nth-child(3){background:linear-gradient(135deg,#ddd6ce,#927257)}.ref:nth-child(4){background:linear-gradient(135deg,#b5aaa0,#514a45)}.ref:nth-child(5){background:linear-gradient(135deg,#d5c3b0,#776050)}.ref:first-child{grid-row:span 2}.ref .label{position:absolute;left:16px;right:16px;bottom:16px;background:#211f20e8;color:white;padding:13px 15px}.label small{color:#c3a080;text-transform:uppercase;font-weight:800;letter-spacing:1px}
+.contact{background:#fff}.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px}.contact-card{background:var(--black);color:#fff;padding:42px}.contact-card h3{font-size:30px;margin-bottom:8px}.contact-card p{color:#c8c3bf;margin-bottom:26px}.item{padding:16px 0;border-top:1px solid #403b39}.item small{display:block;color:#b99470;text-transform:uppercase;font-weight:800;letter-spacing:1px}.item a{font-size:21px;font-weight:700}
+footer{background:#171616;color:#aaa;padding:25px 0;font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:900px){.menu{display:none}.lang{margin-left:auto;margin-right:12px}.grid4{grid-template-columns:1fr 1fr}.about-grid,.contact-grid{grid-template-columns:1fr}.refs-grid{grid-template-columns:1fr 1fr;grid-template-rows:250px 180px 180px}.ref:first-child{grid-row:auto}.process-grid{grid-template-columns:1fr}}
+@media(max-width:550px){.top{display:none}.nav{height:76px}.logo{width:150px}.grid4{grid-template-columns:1fr}.refs-grid{grid-template-columns:1fr;grid-template-rows:220px 180px 180px 180px 180px}section{padding:65px 0}.hero{min-height:620px}h1{letter-spacing:-2px}.hero p{font-size:17px}}
+</style>
+</head>
+<body>
+<div class="top"><div class="container inner"><span>+352 621 765 489</span><span>info@roof-con.com</span></div></div>
+<header><div class="container nav">
+<a href="#accueil"><img class="logo" src="ROOFCON.png" alt="ROOFCON"></a>
+<div class="lang"><button class="active" onclick="setLang('fr')">FR</button><button onclick="setLang('de')">DE</button></div><nav class="menu"><a href="#services" data-fr="Nos pôles" data-de="Unsere Bereiche">Nos services</a><a href="#process" data-fr="Notre méthode" data-de="Unser Vorgehen">Notre méthode</a><a href="#entreprise" data-fr="L’entreprise" data-de="Das Unternehmen">L’entreprise</a><a href="#references" data-fr="Références" data-de="Referenzen">Réalisations</a><a class="cta" href="#contact" data-fr="Demander un devis" data-de="Angebot anfragen">Demander un devis</a></nav>
+</div></header>
+
+<section class="hero" id="accueil"><div class="container"><div class="hero-content">
+<img class="hero-logo" src="ROOFCON.png" alt="ROOFCON">
+<div class="kicker">HOLZBAU · BEDACHUNG · FASSADENBAU</div>
+<h1 data-fr="Votre projet.<br><span>Notre savoir-faire.</span>" data-de="Ihr Projekt.<br><span>Unser Know-how.</span>">Votre projet.<br><span>Notre savoir-faire.</span></h1>
+<p data-fr="ROOFCON vous accompagne dans vos projets autour de quatre pôles : façades ventilées, toitures plates, charpentes et couvertures." data-de="ROOFCON vous accompagne dans vos travaux de toiture, charpente, façades et construction-rénovation, avec une approche professionnelle de la préparation à la réalisation.">ROOFCON vous accompagne dans vos travaux de toiture, charpente, façades et construction-rénovation, avec une approche professionnelle de la préparation à la réalisation.</p>
+<div class="buttons"><a class="btn primary" href="#contact" data-fr="Parler de votre projet" data-de="Über Ihr Projekt sprechen">Parler de votre projet</a><a class="btn outline" href="#references" data-fr="Voir nos réalisations" data-de="Unsere Referenzen">Voir nos réalisations</a></div>
+</div></div></section>
+
+<section class="services" id="services"><div class="container">
+<div class="head"><div class="kicker" data-fr="Nos pôles" data-de="Unsere Bereiche">Nos services</div><h2 data-fr="Des solutions adaptées à chaque projet." data-de="Passende Lösungen für jedes Projekt.">Des solutions adaptées à chaque projet.</h2><p data-fr="Découvrez nos quatre domaines d’intervention, chacun présenté comme une rubrique dédiée." data-de="Entdecken Sie unsere vier Tätigkeitsbereiche, jeweils als eigener Bereich der Website.">Comme sur le site de référence, les services sont présentés clairement dès le début, mais avec l'identité visuelle ROOFCON.</p></div>
+<div class="grid4">
+<article class="service"><div class="number">01 / TOITURE</div><h3 data-fr="Toitures plates" data-de="Flachdächer">Toitures</h3><p data-fr="Des solutions adaptées à vos projets de toitures plates, avec une attention portée à l’étanchéité et aux détails." data-de="Lösungen für Flachdächer mit besonderem Augenmerk auf Abdichtung und technische Details.">Réalisation, rénovation et interventions sur vos toitures avec une attention portée à la qualité et à la durabilité.</p></article>
+<article class="service"><div class="number">02 / BOIS</div><h3 data-fr="Charpentes" data-de="Holzkonstruktionen">Charpentes</h3><p data-fr="Des structures bois conçues avec précision pour répondre aux contraintes de chaque projet." data-de="Präzise geplante Holzkonstruktionen, abgestimmt auf die Anforderungen jedes Projekts.">Structures et travaux de charpente pensés selon les contraintes et les caractéristiques de votre bâtiment.</p></article>
+<article class="service"><div class="number">03 / FAÇADE</div><h3 data-fr="Projet à venirs ventilées" data-de="Hinterlüftete Fassaden">Projet à venirs</h3><p data-fr="Des systèmes de façade pensés pour la performance, la durabilité et une finition soignée." data-de="Fassadensysteme mit Fokus auf Leistungsfähigkeit, Langlebigkeit und eine hochwertige Ausführung.">Réalisation et rénovation de façades pour protéger et valoriser durablement votre bâtiment.</p></article>
+<article class="service"><div class="number">04 / BÂTIMENT</div><h3 data-fr="Couvertures" data-de="Dachdeckungen">Projet à venir & rénovation</h3><p data-fr="Des solutions de couverture pour protéger durablement vos bâtiments et assurer une finition professionnelle." data-de="Dachlösungen zum dauerhaften Schutz Ihrer Gebäude und für einen professionellen Abschluss.">Un accompagnement pour vos travaux de construction et de rénovation, avec une approche globale du projet.</p></article>
+</div></div></section>
+
+<section class="process" id="process"><div class="container">
+<div class="head"><div class="kicker" data-fr="Notre méthode" data-de="Unser Vorgehen">Notre méthode</div><h2 data-fr="De l'idée à la réalisation." data-de="Von der Idee bis zur Umsetzung.">De l'idée à la réalisation.</h2><p>Une structure inspirée de l'approche de  : accompagner le client à chaque étape, sans reprendre son identité graphique.</p></div>
+<div class="process-grid">
+<div class="step"><strong>01</strong><h3 data-fr="Conseiller" data-de="Beraten">Conseiller</h3><p data-fr="Comprendre votre besoin, étudier le projet et vous orienter vers une solution adaptée." data-de="Comprendre votre besoin, étudier le projet et vous orienter vers une solution adaptée.">Comprendre votre besoin, étudier le projet et vous orienter vers une solution adaptée.</p></div>
+<div class="step"><strong>02</strong><h3 data-fr="Planifier" data-de="Planen">Planifier</h3><p data-fr="Préparer chaque étape avec précision afin d'assurer une réalisation claire et efficace." data-de="Préparer chaque étape avec précision afin d'assurer une réalisation claire et efficace.">Préparer chaque étape avec précision afin d'assurer une réalisation claire et efficace.</p></div>
+<div class="step"><strong>03</strong><h3 data-fr="Réaliser" data-de="Umsetzen">Réaliser</h3><p data-fr="Mettre en œuvre le projet avec un travail soigné et une attention portée aux finitions." data-de="Mettre en œuvre le projet avec un travail soigné et une attention portée aux finitions.">Mettre en œuvre le projet avec un travail soigné et une attention portée aux finitions.</p></div>
+</div></div></section>
+
+<section class="about" id="entreprise"><div class="container about-grid">
+<div><div class="kicker">ROOFCON</div><h2 data-fr="Un partenaire de confiance pour vos travaux." data-de="Ein zuverlässiger Partner für Ihre Bauarbeiten.">Un partenaire de confiance pour vos travaux.</h2><p data-fr="Nous mettons notre savoir-faire au service de réalisations durables, avec une attention particulière portée à la qualité d’exécution et aux détails techniques." data-de="Wir setzen unser Know-how für langlebige Lösungen ein und legen besonderen Wert auf saubere Ausführung und technische Details.">Notre objectif est de proposer des solutions fiables et durables, adaptées aux besoins de chaque client.</p><p data-fr="Cette partie pourra être complétée plus tard avec l’histoire de ROOFCON, votre équipe, votre zone d’intervention et vos engagements." data-de="Dieser Bereich kann später mit der Geschichte von ROOFCON, Ihrem Team, Einsatzgebiet und Ihren Werten ergänzt werden.">Cette partie pourra être personnalisée avec l'histoire de ROOFCON, votre équipe, votre zone d'intervention et vos engagements.</p><a class="btn primary" href="#contact" data-fr="Nous contacter" data-de="Kontaktieren Sie uns">Nous contacter</a></div>
+<div class="facts"><div class="fact"><b>01</b><span>Un interlocuteur pour votre projet</span></div><div class="fact"><b>04</b><span>Domaines de compétence</span></div><div class="fact"><b>100%</b><span>Projet personnalisé</span></div><div class="fact"><b>ROOFCON</b><span>Holzbau · Bedachung · Fassadenbau</span></div></div>
+</div></section>
+
+<section class="refs" id="references"><div class="container">
+<div class="head"><div class="kicker" data-fr="Nos réalisations" data-de="Unsere Referenzen">Nos réalisations</div><h2 data-fr="Des projets qui parlent pour nous." data-de="Projekte, die für sich sprechen.">Des projets qui parlent pour nous.</h2><p data-fr="Cette rubrique est prête à accueillir les photos de vos chantiers dès que vous les aurez." data-de="Dieser Bereich ist bereit für die Fotos Ihrer Baustellen, sobald diese vorliegen.">La galerie est organisée comme une vraie vitrine de références. Les blocs ci-dessous pourront être remplacés par vos photos de chantiers.</p></div>
+<div class="refs-grid">
+<div class="ref"><div class="label"><small>Référence</small><br data-fr="Projet à venir" data-de="Projet à venir">Projet à venir</div></div>
+<div class="ref"><div class="label"><small>Référence</small><br data-fr="Projet à venir" data-de="Renovierung">Projet à venir</div></div>
+<div class="ref"><div class="label"><small>Référence</small><br data-fr="Projet à venir" data-de="Fassade">Projet à venir</div></div>
+<div class="ref"><div class="label"><small>Référence</small><br data-fr="Projet à venir" data-de="Holzkonstruktion">Projet à venir</div></div>
+<div class="ref"><div class="label"><small>Référence</small><br data-fr="Projet à venir" data-de="Bau">Projet à venir</div></div>
+</div></div></section>
+
+<section class="contact" id="contact"><div class="container contact-grid">
+<div><div class="kicker">Contact</div><h2 style="font-size:clamp(34px,4.5vw,58px);line-height:1.05" data-fr="Vous avez un projet ?<br>Parlons-en." data-de="Sie haben ein Projekt?<br>Sprechen wir darüber.">Vous avez un projet ?<br>Parlons-en.</h2><p style="color:var(--gray);font-size:18px;margin-top:16px" data-fr="Décrivez votre projet et contactez-nous pour en discuter." data-de="Beschreiben Sie Ihr Projekt und kontaktieren Sie uns.">Demandez un devis ou contactez-nous pour discuter de vos besoins.</p><div style="margin-top:28px"><div class="item"><small>Téléphone</small><a href="tel:+352621765489">+352 621 765 489</a></div><div class="item"><small>E-mail</small><a href="mailto:info@roof-con.com">info@roof-con.com</a></div></div></div>
+<div class="contact-card"><h3 data-fr="Demander un devis" data-de="Angebot anfragen">Demander un devis</h3><p data-fr="Envoyez-nous les informations principales de votre projet. Nous pourrons ensuite vous recontacter." data-de="Envoyez-nous les informations principales de votre projet. Nous pourrons ensuite vous recontacter.">Envoyez-nous les informations principales de votre projet. Nous pourrons ensuite vous recontacter.</p><a class="btn primary" href="mailto:info@roof-con.com?subject=Demande%20de%20devis%20ROOFCON" data-fr="Envoyer ma demande" data-de="Anfrage senden">Envoyer ma demande</a></div>
+</div></section>
+
+<footer><div class="container foot"><span>© 2026 ROOFCON — Tous droits réservés.</span><span>Toiture · Charpente · Projet à venirs · Projet à venir & rénovation</span></div></footer>
+
+<script>
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-fr]').forEach(el=>{
+    const value = el.getAttribute('data-' + lang);
+    if(value !== null) el.innerHTML = value;
+  });
+  document.querySelectorAll('.lang button').forEach(btn=>{
+    btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+  });
+  localStorage.setItem('roofconLang', lang);
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  setLang(localStorage.getItem('roofconLang') || 'fr');
+});
+</script>
+</body></html>
