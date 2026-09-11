@@ -93,7 +93,7 @@
           "de": "Fassadensysteme mit Fokus auf Leistungsfähigkeit, Langlebigkeit und eine hochwertige Ausführung."
         }
       },
-                {
+      {
         "number": "04 / BÂTIMENT",
         "title": {
           "fr": "Couvertures",
@@ -188,55 +188,55 @@
       }
     ]
   },
-   "references": {
+  "references": {
     "kicker": {
       "fr": "Nos réalisations",
       "de": "Unsere Referenzen"
     },
     "title": {
-      "fr": "Des projets qui parlent pour nous.",
-      "de": "Projekte, die für sich sprechen."
+      "fr": "EXPLOREZ NOTRE EXPERTISE AU FIL DE NOS PROJETS. ",
+      "de": "ENTDECKEN SIE UNSERE KOMPETENZ ANHAND UNSERER PROJEKTE."
     },
     "intro": {
-      "fr": "Cette rubrique est prête à accueillir les photos de vos chantiers dès que vous les aurez.",
-      "de": "Dieser Bereich ist bereit für die Fotos Ihrer Baustellen, sobald diese vorliegen."
+      "fr": "Nous sommes des spécialistes dans le domaine de la toiture. \nQu´il s´agisse de charpentes, de toitures plates ou de couvertures et même de façades ventilées. \nVenez découvrir notre travail en consultant nos projets. ",
+      "de": "Wir sind Spezialisten im Bereich Dachbau.\nOb Dachstühle, Flachdächer, Dachdeckungen oder sogar hinterlüftete Fassaden.\nEntdecken Sie unsere Arbeit in unserer Projektgalerie."
     },
     "items": [
       {
         "label": {
-          "fr": "Projet à venir",
-          "de": "Projekt folgt"
+          "fr": "Charpentes en bois ",
+          "de": "Holzkonstruktionen"
         }
       },
       {
         "label": {
-          "fr": "Projet à venir",
-          "de": "Projekt folgt"
+          "fr": "Couvertures ",
+          "de": "Umschläge"
         }
       },
       {
         "label": {
-          "fr": "Projet à venir",
-          "de": "Projekt folgt"
+          "fr": "Toitures plates ",
+          "de": "Flachdächer"
         }
       },
       {
         "label": {
-          "fr": "Projet à venir",
-          "de": "Projekt folgt"
+          "fr": "Façades ventilées ",
+          "de": "Hinterlüftete Fassaden"
         }
       },
       {
         "label": {
-          "fr": "Projet à venir",
-          "de": "Projekt folgt"
+          "fr": "Rénovation ",
+          "de": "Renovierung"
         }
       },
       {
         "image": "images/realisations/roofcon-francais-1789125353058.png",
         "label": {
-          "fr": "ROOFCON Francais",
-          "de": "ROOFCON Francais"
+          "fr": "Offre d´emploi ",
+          "de": "Stellenangebot"
         }
       }
     ]
