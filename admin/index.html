@@ -1004,25 +1004,51 @@ function renderReferences(){
 
 <div style="margin-top:15px">
 
-  <label>Photo du projet</label>
+  <label>Photos du projet</label>
 
   <input
     type="file"
     accept="image/*"
-    onchange="selectProjectImage(${i},${j},this)"
+    multiple
+    onchange="selectProjectImages(${i},${j},this)"
   >
 
-${
-  project.image
-  ?
-  `<img
-    class="preview project-preview"
-    src="../${project.image}"
-    alt=""
-  >`
-  :
-  `<p class="hint">Aucune photo pour ce projet.</p>`
-}
+  <div
+    class="project-images-preview"
+    id="project-images-${i}-${j}"
+    style="
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:15px;
+    "
+  >
+
+    ${
+      (
+        project.images && project.images.length
+          ? project.images
+          : (project.image ? [project.image] : [])
+      )
+      .map(function(image){
+
+        return `
+          <img
+            class="preview project-preview"
+            src="../${image}"
+            alt=""
+            style="
+              width:180px;
+              height:120px;
+              object-fit:cover;
+            "
+          >
+        `;
+
+      }).join('')
+    }
+
+  </div>
 
 </div>
 
