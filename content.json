@@ -146,7 +146,20 @@
           "de": "Holzkonstruktionen"
         },
         "image": "",
-        "projects": []
+        "projects": [
+          {
+            "id": "project-1789370595760",
+            "title": {
+              "fr": "",
+              "de": ""
+            },
+            "description": {
+              "fr": "",
+              "de": ""
+            },
+            "image": ""
+          }
+        ]
       },
       {
         "id": "toitures",
