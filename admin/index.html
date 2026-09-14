@@ -1121,19 +1121,38 @@ async function selectProjectImage(categoryIndex, projectIndex, input){
 
   const file = input.files[0];
 
-  if(!file) return;
+  if(!file){
+    return;
+  }
 
   try{
 
     const s = auth();
 
-    $('status').textContent = 'Envoi de la photo…';
+    $('status').textContent =
+      'Envoi de la photo vers GitHub…';
 
-    const category = C.references.items[categoryIndex];
-    const project = category.projects[projectIndex];
+
+    const category =
+      C.references.items[categoryIndex];
+
+    const project =
+      category.projects[projectIndex];
+
+
+    if(!project){
+      throw new Error('Projet introuvable.');
+    }
+
+
+    /* NOM DU FICHIER */
 
     const extension =
-      file.name.split('.').pop().toLowerCase();
+      file.name
+        .split('.')
+        .pop()
+        .toLowerCase();
+
 
     const filename =
       project.id +
@@ -1142,71 +1161,148 @@ async function selectProjectImage(categoryIndex, projectIndex, input){
       '.' +
       extension;
 
+
     const path =
       'images/realisations/' +
       filename;
 
-    const buffer = await file.arrayBuffer();
-    const bytes = new Uint8Array(buffer);
 
-    let binary = '';
+    /* LECTURE DU FICHIER */
 
-    bytes.forEach(function(b){
-      binary += String.fromCharCode(b);
-    });
+    const buffer =
+      await file.arrayBuffer();
 
-    const content = btoa(binary);
 
-    await api(
-      '/contents/' + path,
-      {
-        method: 'PUT',
+    const bytes =
+      new Uint8Array(buffer);
 
-        body: JSON.stringify({
-          message: 'Ajouter une photo de réalisation',
-          content: content,
-          branch: s.branch
-        })
-      }
-    );
 
-    project.image = path;
+    let binary='';
 
-    const projectBox = input.closest('.project');
+
+    for(let i=0;i<bytes.length;i++){
+
+      binary +=
+        String.fromCharCode(bytes[i]);
+
+    }
+
+
+    const content =
+      btoa(binary);
+
+
+    /* ENVOI À GITHUB */
+
+    const result =
+      await api(
+        '/contents/' + path,
+        {
+          method:'PUT',
+
+          body:JSON.stringify({
+
+            message:
+              'Ajouter une photo de réalisation',
+
+            content:
+              content,
+
+            branch:
+              s.branch
+
+          })
+
+        }
+      );
+
+
+    /* ENREGISTRER LE CHEMIN */
+
+    project.image =
+      path;
+
+
+    /* APERÇU */
+
+    const projectBox =
+      input.closest('.project');
+
 
     const oldPreview =
-      projectBox.querySelector('.project-preview');
+      projectBox.querySelector(
+        '.project-preview'
+      );
+
 
     if(oldPreview){
       oldPreview.remove();
     }
 
-    const img = document.createElement('img');
 
-    img.className = 'preview project-preview';
-    img.src = '../' + path;
-    img.alt = '';
+    const img =
+      document.createElement('img');
 
-    input.parentElement.appendChild(img);
+
+    img.className =
+      'preview project-preview';
+
+
+    img.src =
+      '../' + path +
+      '?v=' + Date.now();
+
+
+    img.alt =
+      'Aperçu du projet';
+
+
+    img.style.display =
+      'block';
+
+
+    img.style.maxWidth =
+      '400px';
+
+
+    img.style.marginTop =
+      '15px';
+
+
+    input.parentElement
+      .appendChild(img);
+
 
     $('status').innerHTML =
       '<span class="success">' +
-      'Photo ajoutée ! Cliquez maintenant sur « Enregistrer et publier ».' +
+      'Photo envoyée avec succès ! ' +
+      'Cliquez maintenant sur « Enregistrer et publier ». ' +
       '</span>';
+
+
+    console.log(
+      'Photo GitHub :',
+      result
+    );
 
   }
   catch(e){
 
+    console.error(
+      'Erreur upload photo :',
+      e
+    );
+
+
     $('status').innerHTML =
       '<span class="danger-text">' +
-      'Erreur : ' +
+      'Erreur lors de l’envoi : ' +
       escapeHtml(e.message) +
       '</span>';
 
   }
 
 }
-
 
 function deleteProject(categoryIndex,projectIndex){
 
