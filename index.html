@@ -485,7 +485,23 @@ h1 span{
   object-fit:cover;
   display:block;
 }
+.job-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:2px;
+  background:var(--line);
+}
 
+.job-gallery img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  display:block;
+}
+
+.job-gallery img:only-child{
+  grid-column:1 / -1;
+}
 .job-content{
   padding:28px;
 }
@@ -1436,88 +1452,109 @@ function render(){
     }).join('');
 
 
-  /* OFFRES D'EMPLOI */
+/* OFFRES D'EMPLOI */
 
-  document.getElementById('jobs-kicker').textContent=
-    t(c.jobs.kicker);
+document.getElementById('jobs-kicker').textContent=
+  t(c.jobs.kicker);
 
-  document.getElementById('jobs-title').textContent=
-    t(c.jobs.title);
+document.getElementById('jobs-title').textContent=
+  t(c.jobs.title);
 
-  document.getElementById('jobs-intro').textContent=
-    t(c.jobs.intro);
-
-
-  const jobs=c.jobs.items || [];
-
-  if(jobs.length===0){
-
-    document.getElementById('jobs-grid').innerHTML=`
-
-      <div class="empty">
-
-        ${
-          LANG==='fr'
-            ? 'Aucune offre d’emploi disponible actuellement.'
-            : 'Derzeit sind keine Stellenangebote verfügbar.'
-        }
-
-      </div>
-
-    `;
-
-  }else{
-
-    document.getElementById('jobs-grid').innerHTML=
-      jobs.map(function(job){
-
-        return `
-
-          <article class="job">
-
-            ${
-              job.image
-                ? `
-                  <img
-                    src="${esc(job.image)}"
-                    alt="${esc(t(job.title))}">
-                `
-                : ''
-            }
-
-            <div class="job-content">
-
-              <h3>
-                ${esc(t(job.title))}
-              </h3>
-
-              <p>
-                ${esc(t(job.description))}
-              </p>
-
-              <a
-                class="btn primary job-button"
-                href="mailto:${esc(c.site.email)}?subject=${encodeURIComponent('Candidature ROOFCON - '+t(job.title))}">
-
-                ${
-                  LANG==='fr'
-                    ? 'Postuler'
-                    : 'Bewerben'
-                }
-
-              </a>
-
-            </div>
-
-          </article>
-
-        `;
-
-      }).join('');
-
-  }
+document.getElementById('jobs-intro').textContent=
+  t(c.jobs.intro);
 
 
+const jobs=c.jobs.items || [];
+
+if(jobs.length===0){
+
+  document.getElementById('jobs-grid').innerHTML=`
+
+    <div class="empty">
+
+      ${
+        LANG==='fr'
+          ? 'Aucune offre d’emploi disponible actuellement.'
+          : 'Derzeit sind keine Stellenangebote verfügbar.'
+      }
+
+    </div>
+
+  `;
+
+}else{
+
+  document.getElementById('jobs-grid').innerHTML=
+    jobs.map(function(job){
+
+      let images=[];
+
+      if(Array.isArray(job.images)){
+        images=job.images;
+      }else if(job.image){
+        images=[job.image];
+      }
+
+      return `
+
+        <article class="job">
+
+          ${
+            images.length
+              ?
+              `
+                <div class="job-gallery">
+
+                  ${images.map(function(image,index){
+
+                    return `
+
+                      <img
+                        src="${esc(image)}"
+                        alt="${esc(t(job.title))} - Photo ${index+1}"
+                      >
+
+                    `;
+
+                  }).join('')}
+
+                </div>
+              `
+              :
+              ''
+          }
+
+          <div class="job-content">
+
+            <h3>
+              ${esc(t(job.title))}
+            </h3>
+
+            <p>
+              ${esc(t(job.description))}
+            </p>
+
+            <a
+              class="btn primary job-button"
+              href="mailto:${esc(c.site.email)}?subject=${encodeURIComponent('Candidature ROOFCON - '+t(job.title))}">
+
+              ${
+                LANG==='fr'
+                  ? 'Postuler'
+                  : 'Bewerben'
+              }
+
+            </a>
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join('');
+
+}
   /* CONTACT */
 
   document.getElementById('contact-kicker').textContent=
