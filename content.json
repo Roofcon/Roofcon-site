@@ -146,20 +146,7 @@
           "de": "Holzkonstruktionen"
         },
         "image": "",
-        "projects": [
-          {
-            "id": "project-1789370595760",
-            "title": {
-              "fr": "OFFRE ",
-              "de": "OFFRE"
-            },
-            "description": {
-              "fr": "Offre démploi pour tester les fonctions ",
-              "de": "Offre démploi pour tester les fonctions "
-            },
-            "image": "images/realisations/project-1789370595760-1789371480099.jpg"
-          }
-        ]
+        "projects": []
       },
       {
         "id": "toitures",
