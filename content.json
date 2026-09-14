@@ -184,20 +184,7 @@
           "de": "Holzkonstruktionen"
         },
         "image": "",
-        "projects": [
-          {
-            "id": "project-1789390799180",
-            "title": {
-              "fr": "veve",
-              "de": "vee"
-            },
-            "description": {
-              "fr": "veve",
-              "de": "vesv v"
-            },
-            "image": "images/realisations/project-1789390799180-1789390871723.jpg"
-          }
-        ]
+        "projects": []
       },
       {
         "id": "toitures",
