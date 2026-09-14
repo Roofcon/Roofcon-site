@@ -184,20 +184,7 @@
           "de": "Holzkonstruktionen"
         },
         "image": "",
-        "projects": [
-          {
-            "id": "project-1789389480539",
-            "title": {
-              "fr": "Test charpente",
-              "de": "Test Holzkonstruktion"
-            },
-            "description": {
-              "fr": "Projet test",
-              "de": "Testprojekt"
-            },
-            "image": ""
-          }
-        ]
+        "projects": []
       },
       {
         "id": "toitures",
