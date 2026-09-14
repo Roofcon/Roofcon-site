@@ -1598,29 +1598,49 @@ function openReference(id){
 
   document.getElementById('detail-projects').innerHTML=`
 
-    <article class="project">
+    <article class="project-detail">
 
       ${
         project.image
           ?
           `
-            <img
-              src="${esc(project.image)}"
-              alt="${esc(t(project.title))}">
+            <div class="project-detail-image">
+
+              <img
+                src="${esc(project.image)}"
+                alt="${esc(t(project.title))}">
+
+            </div>
           `
           :
-          ''
+          `
+            <div class="project-detail-placeholder">
+              ROOFCON
+            </div>
+          `
       }
 
-      <div class="project-content">
+      <div class="project-detail-content">
+
+        <div class="project-detail-category">
+          ${esc(t(category.title))}
+        </div>
 
         <h3>
           ${esc(t(project.title))}
         </h3>
 
-        <p>
-          ${esc(t(project.description))}
-        </p>
+        ${
+          t(project.description)
+            ?
+            `
+              <p>
+                ${esc(t(project.description))}
+              </p>
+            `
+            :
+            ''
+        }
 
       </div>
 
@@ -1631,7 +1651,6 @@ function openReference(id){
   showPage('reference-detail');
 
 }
-
 /* AFFICHAGE PRINCIPAL */
 
 function render(){
