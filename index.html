@@ -930,10 +930,10 @@ footer{
             <a id="contact-phone"></a>
           </div>
 
-          <div class="item">
-            <small id="label-email"></small>
-            <a id="contact-email"></a>
-          </div>
+        <div class="item">
+  <small id="label-email"></small>
+  <span id="contact-email"></span>
+</div>
 
           <div class="item">
             <small id="label-address"></small>
@@ -1545,9 +1545,6 @@ function render(){
 
   document.getElementById('contact-email').textContent=
     c.site.email;
-
-  document.getElementById('contact-email').href=
-    'mailto:'+c.site.email;
 
 
   document.getElementById('contact-address').textContent=
