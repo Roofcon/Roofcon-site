@@ -1608,15 +1608,54 @@ function fill(){
 
 /* QUI SOMMES-NOUS */
 
-bilingual('who-kicker',C.who.kicker || {fr:'',de:''});
-bilingual('who-title',C.who.title || {fr:'',de:''});
-bilingual('who-intro',C.who.intro || {fr:'',de:''});
-bilingual('who-text1',C.who.text1 || {fr:'',de:''});
-bilingual('who-text2',C.who.text2 || {fr:'',de:''});
-bilingual('who-text3',C.who.text3 || {fr:'',de:''});
-bilingual('who-text4',C.who.text4 || {fr:'',de:''});
-bilingual('who-objective',C.who.objective || {fr:'',de:''});
-bilingual('who-hallcon',C.who.hallcon || {fr:'',de:''});
+if(C.who){
+
+  bilingual(
+    'who-kicker',
+    C.who.kicker || {fr:'',de:''}
+  );
+
+  bilingual(
+    'who-title',
+    C.who.title || {fr:'',de:''}
+  );
+
+  bilingual(
+    'who-intro',
+    C.who.intro || {fr:'',de:''}
+  );
+
+  bilingual(
+    'who-text1',
+    C.who.text1 || {fr:'',de:''}
+  );
+
+  bilingual(
+    'who-text2',
+    C.who.text2 || {fr:'',de:''}
+  );
+
+  bilingual(
+    'who-text3',
+    C.who.text3 || {fr:'',de:''}
+  );
+
+  bilingual(
+    'who-text4',
+    C.who.text4 || {fr:'',de:''}
+  );
+
+  bilingual(
+    'who-objective',
+    C.who.objective || {fr:'',de:''}
+  );
+
+  bilingual(
+    'who-hallcon',
+    C.who.hallcon || {fr:'',de:''}
+  );
+
+}
   
   /* ABOUT */
 
