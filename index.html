@@ -503,6 +503,37 @@ h1 span{
   grid-column:1 / -1;
 }
   
+.job-gallery img{
+  cursor:pointer;
+}
+
+.job-lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.88);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  padding:30px;
+}
+
+.job-lightbox img{
+  max-width:95vw;
+  max-height:90vh;
+  object-fit:contain;
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
+
+.job-lightbox-close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  color:#fff;
+  font-size:40px;
+  cursor:pointer;
+  line-height:1;
+}  
 .job-content{
   padding:28px;
 }
@@ -1510,10 +1541,11 @@ if(jobs.length===0){
 
                     return `
 
-                      <img
-                        src="${esc(image)}"
-                        alt="${esc(t(job.title))} - Photo ${index+1}"
-                      >
+                     <img
+  src="${esc(image)}"
+  alt="${esc(t(job.title))} - Photo ${index+1}"
+  onclick="openJobImage('${esc(image)}')"
+>
 
                     `;
 
@@ -1846,7 +1878,35 @@ fetch('./content.json?v='+Date.now())
   `;
 
 });
+function openJobImage(image){
 
+  const lightbox=document.createElement('div');
+
+  lightbox.className='job-lightbox';
+
+  lightbox.innerHTML=`
+
+    <span class="job-lightbox-close">
+      &times;
+    </span>
+
+    <img
+      src="${esc(image)}"
+      alt=""
+    >
+
+  `;
+
+  lightbox.addEventListener(
+    'click',
+    function(){
+      lightbox.remove();
+    }
+  );
+
+  document.body.appendChild(lightbox);
+
+}
 </script>
 
 </body>
