@@ -896,13 +896,29 @@ function renderReferences(){
 
         </div>
 
-        ${
-          project.image
-          ?
-          `<img class="preview" src="../${project.image}" alt="">`
-          :
-          `<p class="hint">Aucune photo pour ce projet.</p>`
-        }
+<div style="margin-top:15px">
+
+  <label>Photo du projet</label>
+
+  <input
+    type="file"
+    accept="image/*"
+    onchange="selectProjectImage(${i},${j},this)"
+  >
+
+  ${
+    project.image
+    ?
+    `<img
+      class="preview"
+      src="../${project.image}"
+      alt=""
+    >`
+    :
+    `<p class="hint">Aucune photo pour ce projet.</p>`
+  }
+
+</div>
 
       </div>
       `;
