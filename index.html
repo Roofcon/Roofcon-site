@@ -3,372 +3,1815 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ROOFCON | Holzbau · Bedachung · Fassadenbau</title>
-<meta name="description" content="ROOFCON — Projet à venirs ventilées, toitures plates, charpentes et couvertures.">
+
+<title>ROOFCON</title>
+<meta name="description" content="ROOFCON — Façades ventilées, toitures plates, charpentes et couvertures.">
+
 <style>
-:root{--black:#211f20;--brown:#a27b5b;--brown2:#c3a080;--cream:#f5f2ee;--white:#fff;--gray:#706b67;--line:#e5dfda}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;color:var(--black);line-height:1.6}
-a{text-decoration:none;color:inherit}.container{width:min(1180px,92%);margin:auto}
-.top{background:var(--black);color:#eee;font-size:13px}.top .inner{height:38px;display:flex;justify-content:flex-end;align-items:center;gap:28px}
-header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:30}.nav{height:92px;display:flex;align-items:center;justify-content:space-between}
-.logo{width:190px}.hero-logo{width:min(330px,70vw);height:auto;margin-bottom:32px;background:#fff;padding:12px}.lang{display:flex;gap:4px;margin-right:8px}.lang button{border:1px solid var(--line);background:#fff;color:var(--black);padding:7px 10px;font-weight:800;cursor:pointer}.lang button.active{background:var(--brown);color:#fff;border-color:var(--brown)}.menu{display:flex;align-items:center;gap:30px;font-size:14px;font-weight:800}.menu a:hover{color:var(--brown)}
-.cta{background:var(--brown);color:white;padding:13px 20px}.cta:hover{background:var(--black)}
-.hero{min-height:690px;position:relative;display:flex;align-items:center;overflow:hidden;background:
-linear-gradient(90deg,rgba(20,18,18,.93) 0%,rgba(20,18,18,.76) 47%,rgba(20,18,18,.25) 100%),
-linear-gradient(135deg,#292626 0%,#685344 55%,#b29273 100%)}
-.hero:before{content:"";position:absolute;right:-120px;top:-160px;width:600px;height:600px;border:95px solid rgba(195,160,128,.18);transform:rotate(45deg)}
-.hero .container{position:relative;z-index:2}.hero-content{max-width:730px;color:#fff;padding:80px 0}
-.kicker{text-transform:uppercase;letter-spacing:3px;font-size:13px;font-weight:800;color:var(--brown2);margin-bottom:15px}
-h1{font-size:clamp(45px,6.5vw,80px);line-height:.98;letter-spacing:-3px;margin-bottom:24px}h1 span{color:#c3a080}
-.hero p{font-size:19px;color:#eee;max-width:650px;margin-bottom:32px}.buttons{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:15px 23px;font-weight:800;border:1px solid transparent}.primary{background:var(--brown);color:#fff}.outline{border-color:rgba(255,255,255,.55);color:#fff}.outline:hover{background:#fff;color:var(--black)}
-section{padding:92px 0;display:none}
-section.active-page{display:block}
-.hero{display:none}
-.hero.active-page{display:flex}.head{max-width:760px;margin-bottom:46px}.head h2{font-size:clamp(32px,4.2vw,54px);line-height:1.05;letter-spacing:-1.5px}.head p{color:var(--gray);font-size:18px;margin-top:14px}
-.services{background:var(--cream)}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.service{background:#fff;border:1px solid var(--line);min-height:300px;padding:30px;position:relative;overflow:hidden;transition:.25s}
-.service:hover{transform:translateY(-5px);box-shadow:0 15px 35px #211f2012}.number{font-size:13px;color:var(--brown);font-weight:900;letter-spacing:2px}.service h3{font-size:23px;margin:28px 0 10px}.service p{color:var(--gray);font-size:15px}.service:after{content:"";position:absolute;right:-30px;bottom:-55px;width:130px;height:130px;border:25px solid #a27b5b18;transform:rotate(45deg)}
-.process{background:#fff}.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.step{padding:35px 30px;border-top:4px solid var(--brown);background:var(--cream)}.step strong{font-size:48px;color:var(--brown2);line-height:1}.step h3{font-size:25px;margin:12px 0 7px}.step p{color:var(--gray)}
-.about{background:var(--black);color:#fff}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}.about h2{font-size:clamp(32px,4.2vw,54px);line-height:1.05}.about p{color:#c9c4c0;margin:18px 0}.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#514b48}.fact{background:var(--black);padding:28px}.fact b{display:block;font-size:32px;color:#c3a080}.fact span{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:#ccc}
-.refs{background:var(--cream)}.refs-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:230px 230px;gap:14px}.ref{position:relative;overflow:hidden;background:linear-gradient(135deg,#c9c1ba,#685c53);background-size:cover;background-position:center;background-repeat:no-repeat}.ref:nth-child(2){background:linear-gradient(135deg,#9b8069,#3b3430)}.ref:nth-child(3){background:linear-gradient(135deg,#ddd6ce,#927257)}.ref:nth-child(4){background:linear-gradient(135deg,#b5aaa0,#514a45)}.ref:nth-child(5){background:linear-gradient(135deg,#d5c3b0,#776050)}.ref:first-child{grid-row:span 2}.ref .label{position:absolute;left:16px;right:16px;bottom:16px;background:#211f20e8;color:white;padding:13px 15px}.label small{color:#c3a080;text-transform:uppercase;font-weight:800;letter-spacing:1px}
-.contact{background:#fff}.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px}.contact-card{background:var(--black);color:#fff;padding:42px}.contact-card h3{font-size:30px;margin-bottom:8px}.contact-card p{color:#c8c3bf;margin-bottom:26px}.item{padding:16px 0;border-top:1px solid #403b39}.item small{display:block;color:#b99470;text-transform:uppercase;font-weight:800;letter-spacing:1px}.item a{font-size:21px;font-weight:700}
-footer{background:#171616;color:#aaa;padding:25px 0;font-size:13px}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-@media(max-width:900px){.menu{display:none}.lang{margin-left:auto;margin-right:12px}.grid4{grid-template-columns:1fr 1fr}.about-grid,.contact-grid{grid-template-columns:1fr}.refs-grid{grid-template-columns:1fr 1fr;grid-template-rows:250px 180px 180px}.ref:first-child{grid-row:auto}.process-grid{grid-template-columns:1fr}}
-@media(max-width:550px){.top{display:none}.nav{height:76px}.logo{width:150px}.grid4{grid-template-columns:1fr}.refs-grid{grid-template-columns:1fr;grid-template-rows:220px 180px 180px 180px 180px}section{padding:65px 0}.hero{min-height:620px}h1{letter-spacing:-2px}.hero p{font-size:17px}}
+:root{
+  --black:#211f20;
+  --brown:#a27b5b;
+  --brown2:#c3a080;
+  --cream:#f5f2ee;
+  --white:#fff;
+  --gray:#706b67;
+  --line:#e5dfda;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--black);
+  line-height:1.6;
+  background:#fff;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,
+input,
+textarea{
+  font-family:inherit;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+/* TOP BAR */
+
+.top{
+  background:var(--black);
+  color:#eee;
+  font-size:13px;
+}
+
+.top .inner{
+  min-height:38px;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:28px;
+  flex-wrap:wrap;
+}
+
+/* HEADER */
+
+header{
+  background:#fff;
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:30;
+}
+
+.nav{
+  min-height:92px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.logo{
+  width:190px;
+  display:block;
+}
+
+.menu{
+  display:flex;
+  align-items:center;
+  gap:25px;
+  font-size:14px;
+  font-weight:800;
+}
+
+.menu a:hover{
+  color:var(--brown);
+}
+
+.menu .cta{
+  background:var(--brown);
+  color:#fff;
+  padding:12px 18px;
+}
+
+.menu .cta:hover{
+  background:var(--black);
+}
+
+.lang{
+  display:flex;
+  gap:4px;
+  margin-left:auto;
+}
+
+.lang button{
+  border:1px solid var(--line);
+  background:#fff;
+  color:var(--black);
+  padding:7px 10px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.lang button.active{
+  background:var(--brown);
+  color:#fff;
+  border-color:var(--brown);
+}
+
+/* PAGES */
+
+section{
+  padding:92px 0;
+  display:none;
+}
+
+section.active-page{
+  display:block;
+}
+
+/* HERO */
+
+.hero{
+  min-height:690px;
+  position:relative;
+  display:none;
+  align-items:center;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20,18,18,.93) 0%,
+      rgba(20,18,18,.76) 47%,
+      rgba(20,18,18,.25) 100%
+    ),
+    linear-gradient(
+      135deg,
+      #292626 0%,
+      #685344 55%,
+      #b29273 100%
+    );
+}
+
+.hero.active-page{
+  display:flex;
+}
+
+.hero.has-image{
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+}
+
+.hero:before{
+  content:"";
+  position:absolute;
+  right:-120px;
+  top:-160px;
+  width:600px;
+  height:600px;
+  border:95px solid rgba(195,160,128,.18);
+  transform:rotate(45deg);
+}
+
+.hero .container{
+  position:relative;
+  z-index:2;
+}
+
+.hero-content{
+  max-width:760px;
+  color:#fff;
+  padding:80px 0;
+}
+
+.hero-logo{
+  width:min(330px,70vw);
+  height:auto;
+  margin-bottom:32px;
+  background:#fff;
+  padding:12px;
+}
+
+.kicker{
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:13px;
+  font-weight:800;
+  color:var(--brown2);
+  margin-bottom:15px;
+}
+
+h1{
+  font-size:clamp(45px,6.5vw,80px);
+  line-height:.98;
+  letter-spacing:-3px;
+  margin-bottom:24px;
+}
+
+h1 span{
+  color:#c3a080;
+}
+
+.hero p{
+  font-size:19px;
+  color:#eee;
+  max-width:650px;
+  margin-bottom:32px;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-block;
+  padding:15px 23px;
+  font-weight:800;
+  border:1px solid transparent;
+  cursor:pointer;
+}
+
+.primary{
+  background:var(--brown);
+  color:#fff;
+}
+
+.primary:hover{
+  background:var(--black);
+}
+
+.outline{
+  border-color:rgba(255,255,255,.55);
+  color:#fff;
+}
+
+.outline:hover{
+  background:#fff;
+  color:var(--black);
+}
+
+/* HEADINGS */
+
+.head{
+  max-width:760px;
+  margin-bottom:46px;
+}
+
+.head h2{
+  font-size:clamp(32px,4.2vw,54px);
+  line-height:1.05;
+  letter-spacing:-1.5px;
+}
+
+.head p{
+  color:var(--gray);
+  font-size:18px;
+  margin-top:14px;
+}
+
+/* ABOUT */
+
+.about{
+  background:var(--black);
+  color:#fff;
+}
+
+.about-intro{
+  max-width:850px;
+  margin-bottom:50px;
+}
+
+.about-intro h2{
+  font-size:clamp(34px,4.5vw,58px);
+  line-height:1.05;
+  margin-bottom:20px;
+}
+
+.about-intro p{
+  color:#c9c4c0;
+  font-size:18px;
+}
+
+.poles{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.pole{
+  background:#2c2928;
+  border:1px solid #403b39;
+  min-height:330px;
+  padding:30px;
+  position:relative;
+  overflow:hidden;
+}
+
+.pole-image{
+  width:calc(100% + 60px);
+  height:170px;
+  object-fit:cover;
+  margin:-30px -30px 25px;
+  display:block;
+}
+
+.pole-number{
+  font-size:13px;
+  color:var(--brown2);
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.pole h3{
+  font-size:24px;
+  margin:18px 0 10px;
+}
+
+.pole p{
+  color:#c9c4c0;
+  font-size:15px;
+}
+
+/* REFERENCES */
+
+.refs{
+  background:var(--cream);
+}
+
+.refs-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+
+.ref{
+  position:relative;
+  overflow:hidden;
+  min-height:300px;
+  background:
+    linear-gradient(135deg,#c9c1ba,#685c53);
+  cursor:pointer;
+  transition:.25s;
+}
+
+.ref:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px #211f2012;
+}
+
+.ref-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.ref-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    transparent 25%,
+    rgba(20,18,18,.88) 100%
+  );
+}
+
+.ref .label{
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:18px;
+  color:#fff;
+  z-index:2;
+}
+
+.ref .label small{
+  color:var(--brown2);
+  text-transform:uppercase;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.ref .label h3{
+  font-size:24px;
+  margin-top:5px;
+}
+
+/* REFERENCE DETAIL */
+
+.reference-detail{
+  background:#fff;
+}
+
+.detail-back{
+  display:inline-block;
+  margin-bottom:30px;
+  color:var(--brown);
+  font-weight:800;
+}
+
+.detail-projects{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.project{
+  background:#fff;
+  border:1px solid var(--line);
+  overflow:hidden;
+}
+
+.project img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  display:block;
+}
+
+.project-content{
+  padding:22px;
+}
+
+.project h3{
+  font-size:22px;
+  margin-bottom:8px;
+}
+
+.project p{
+  color:var(--gray);
+}
+
+/* JOBS */
+
+.jobs{
+  background:#fff;
+}
+
+.jobs-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+
+.job{
+  border:1px solid var(--line);
+  background:var(--cream);
+  overflow:hidden;
+}
+
+.job img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  display:block;
+}
+
+.job-content{
+  padding:28px;
+}
+
+.job h3{
+  font-size:27px;
+  margin-bottom:10px;
+}
+
+.job p{
+  color:var(--gray);
+  white-space:pre-line;
+}
+
+.job-button{
+  display:inline-block;
+  margin-top:20px;
+}
+
+/* CONTACT */
+
+.contact{
+  background:#fff;
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.05fr .95fr;
+  gap:60px;
+}
+
+.contact-title{
+  font-size:clamp(34px,4.5vw,58px);
+  line-height:1.05;
+}
+
+.contact-intro{
+  color:var(--gray);
+  font-size:18px;
+  margin-top:16px;
+}
+
+.contact-details{
+  margin-top:30px;
+}
+
+.item{
+  padding:16px 0;
+  border-top:1px solid var(--line);
+}
+
+.item small{
+  display:block;
+  color:var(--brown);
+  text-transform:uppercase;
+  font-weight:800;
+  letter-spacing:1px;
+  margin-bottom:3px;
+}
+
+.item a,
+.item span{
+  font-size:19px;
+  font-weight:700;
+}
+
+.contact-card{
+  background:var(--black);
+  color:#fff;
+  padding:42px;
+}
+
+.contact-card h3{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.contact-card p{
+  color:#c8c3bf;
+  margin-bottom:25px;
+}
+
+.contact-form{
+  display:grid;
+  gap:14px;
+}
+
+.contact-form label{
+  font-size:13px;
+  font-weight:800;
+  color:#c8c3bf;
+}
+
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:13px 14px;
+  border:1px solid #514b48;
+  background:#2c2928;
+  color:#fff;
+  outline:none;
+}
+
+.contact-form textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color:var(--brown2);
+}
+
+/* FOOTER */
+
+footer{
+  background:#171616;
+  color:#aaa;
+  padding:40px 0;
+  font-size:13px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr 1fr 1fr;
+  gap:35px;
+}
+
+.footer-logo{
+  width:150px;
+  background:#fff;
+  padding:7px;
+  margin-bottom:15px;
+}
+
+.footer-title{
+  color:#fff;
+  font-size:14px;
+  font-weight:800;
+  margin-bottom:12px;
+}
+
+.footer-item{
+  margin-bottom:7px;
+}
+
+.footer-social a{
+  display:block;
+  margin-bottom:7px;
+}
+
+.footer-social a:hover{
+  color:var(--brown2);
+}
+
+.footer-bottom{
+  border-top:1px solid #302d2b;
+  margin-top:30px;
+  padding-top:20px;
+  color:#777;
+}
+
+/* EMPTY STATES */
+
+.empty{
+  grid-column:1/-1;
+  background:var(--cream);
+  padding:50px;
+  text-align:center;
+  color:var(--gray);
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+  .menu{
+    gap:14px;
+    font-size:12px;
+  }
+
+  .poles{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .refs-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:750px){
+
+  .top{
+    display:none;
+  }
+
+  .nav{
+    min-height:76px;
+  }
+
+  .logo{
+    width:145px;
+  }
+
+  .menu{
+    display:none;
+  }
+
+  .lang{
+    margin-left:auto;
+  }
+
+  section{
+    padding:65px 0;
+  }
+
+  .hero{
+    min-height:620px;
+  }
+
+  h1{
+    letter-spacing:-2px;
+  }
+
+  .hero p{
+    font-size:17px;
+  }
+
+  .poles,
+  .refs-grid,
+  .jobs-grid,
+  .contact-grid,
+  .detail-projects,
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .ref{
+    min-height:250px;
+  }
+
+  .contact-card{
+    padding:28px;
+  }
+}
 </style>
 </head>
+
 <body>
-<div class="top"><div class="container inner"><span id="top-phone"></span><span id="top-email"></span></div></div>
-<header><div class="container nav">
-<a href="#" data-page="accueil"><img class="logo" src="ROOFCON.png" alt="ROOFCON"></a>    
-<div class="lang"><button class="active" onclick="setLang('fr')">FR</button><button onclick="setLang('de')">DE</button></div>
-<nav class="menu">
-    <a href="#" data-page="accueil">ACCUEIL</a>
-    <a href="#" data-page="services" id="nav-services"></a>
-    <a href="#" data-page="references" id="nav-references"></a>
-    <a href="#" data-page="entreprise" id="nav-company"></a>
-    <a class="cta" href="#" data-page="contact" id="nav-quote"></a>
-</nav>
-</div></header>
 
-<section class="hero" id="accueil"><div class="container"><div class="hero-content">
-<img class="hero-logo" src="ROOFCON.png" alt="ROOFCON">
-<div class="kicker" id="hero-kicker"></div>
-<h1 id="hero-title"></h1>
-<p id="hero-text"></p>
-<div class="buttons">
-<a class="btn primary" href="#" data-page="contact" id="hero-primary"></a>
-<a class="btn outline" href="#" data-page="references" id="hero-secondary"></a>
+<!-- TOP BAR -->
+<div class="top">
+  <div class="container inner">
+    <span id="top-phone"></span>
+    <span id="top-email"></span>
+  </div>
 </div>
-</div></div></section>
 
-<section class="services" id="services"><div class="container">
-<div class="head"><div class="kicker" id="services-kicker"></div><h2 id="services-title"></h2><p id="services-intro"></p></div>
-<div class="grid4" id="services-grid"></div>
-</div></section>
+<!-- HEADER -->
+<header>
+  <div class="container nav">
 
-<section class="process" id="process"><div class="container">
-<div class="head"><div class="kicker" id="process-kicker"></div><h2 id="process-title"></h2><p id="process-intro"></p></div>
-<div class="process-grid" id="process-grid"></div>
-</div></section>
+    <a href="#" data-page="accueil">
+      <img class="logo" src="ROOFCON.png" alt="ROOFCON">
+    </a>
 
-<section class="about" id="entreprise"><div class="container about-grid">
-<div><div class="kicker">ROOFCON</div><h2 id="company-title"></h2><p id="company-p1"></p><p id="company-p2"></p><a class="btn primary" href="#" data-page="contact" id="company-button"></a>
-<div class="facts" id="facts-grid"></div>
-</div></section>
+    <div class="lang">
+      <button class="active" onclick="setLang('fr')">FR</button>
+      <button onclick="setLang('de')">DE</button>
+    </div>
 
-<section class="refs" id="references"><div class="container">
-<div class="head"><div class="kicker" id="refs-kicker"></div><h2 id="refs-title"></h2><p id="refs-intro"></p></div>
-<div class="refs-grid" id="refs-grid"></div>
-</div></section>
-<section class="reference-detail" id="reference-detail">
-    <div class="container">
-        <a href="#" onclick="showPage('references'); return false;" style="display:inline-block;margin-bottom:30px;color:var(--brown);font-weight:800;">
-            ← Retour aux réalisations
+    <nav class="menu">
+      <a href="#" data-page="accueil" id="nav-home"></a>
+      <a href="#" data-page="about" id="nav-about"></a>
+      <a href="#" data-page="references" id="nav-references"></a>
+      <a href="#" data-page="jobs" id="nav-jobs"></a>
+      <a href="#" data-page="contact" id="nav-contact" class="cta"></a>
+    </nav>
+
+  </div>
+</header>
+
+
+<!-- ACCUEIL -->
+<section class="hero" id="accueil">
+
+  <div class="container">
+
+    <div class="hero-content">
+
+      <img class="hero-logo" src="ROOFCON.png" alt="ROOFCON">
+
+      <div class="kicker" id="hero-kicker"></div>
+
+      <h1 id="hero-title"></h1>
+
+      <p id="hero-text"></p>
+
+      <div class="buttons">
+
+        <a
+          class="btn primary"
+          href="#"
+          data-page="about"
+          id="hero-about">
         </a>
 
-        <div class="head">
-            <div class="kicker" id="detail-kicker"></div>
-            <h2 id="detail-title"></h2>
-            <p id="detail-intro"></p>
+        <a
+          class="btn outline"
+          href="#"
+          data-page="references"
+          id="hero-references">
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- À PROPOS -->
+<section id="about" class="about">
+
+  <div class="container">
+
+    <div class="about-intro">
+
+      <div class="kicker" id="about-kicker"></div>
+
+      <h2 id="about-title"></h2>
+
+      <p id="about-intro"></p>
+
+    </div>
+
+    <div class="poles" id="poles-grid"></div>
+
+  </div>
+
+</section>
+
+
+<!-- RÉFÉRENCES -->
+<section id="references" class="refs">
+
+  <div class="container">
+
+    <div class="head">
+
+      <div class="kicker" id="refs-kicker"></div>
+
+      <h2 id="refs-title"></h2>
+
+      <p id="refs-intro"></p>
+
+    </div>
+
+    <div class="refs-grid" id="refs-grid"></div>
+
+  </div>
+
+</section>
+
+
+<!-- DÉTAIL D'UNE CATÉGORIE -->
+<section id="reference-detail" class="reference-detail">
+
+  <div class="container">
+
+    <a
+      href="#"
+      class="detail-back"
+      onclick="showPage('references'); return false;">
+      ← <span id="detail-back-text"></span>
+    </a>
+
+    <div class="head">
+
+      <div class="kicker" id="detail-kicker"></div>
+
+      <h2 id="detail-title"></h2>
+
+      <p id="detail-intro"></p>
+
+    </div>
+
+    <div class="detail-projects" id="detail-projects"></div>
+
+  </div>
+
+</section>
+
+
+<!-- OFFRES D'EMPLOI -->
+<section id="jobs" class="jobs">
+
+  <div class="container">
+
+    <div class="head">
+
+      <div class="kicker" id="jobs-kicker"></div>
+
+      <h2 id="jobs-title"></h2>
+
+      <p id="jobs-intro"></p>
+
+    </div>
+
+    <div class="jobs-grid" id="jobs-grid"></div>
+
+  </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+
+  <div class="container">
+
+    <div class="contact-grid">
+
+      <div>
+
+        <div class="kicker" id="contact-kicker"></div>
+
+        <h2 class="contact-title" id="contact-title"></h2>
+
+        <p class="contact-intro" id="contact-intro"></p>
+
+        <div class="contact-details">
+
+          <div class="item">
+            <small id="label-phone"></small>
+            <a id="contact-phone"></a>
+          </div>
+
+          <div class="item">
+            <small id="label-email"></small>
+            <a id="contact-email"></a>
+          </div>
+
+          <div class="item">
+            <small id="label-address"></small>
+            <span id="contact-address"></span>
+          </div>
+
+          <div class="item">
+            <small id="label-hours"></small>
+            <span id="contact-hours"></span>
+          </div>
+
         </div>
 
-        <div id="detail-projects" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;"></div>
-    </div>
-</section>
-<section class="contact" id="contact"><div class="container contact-grid">
-<div><div class="kicker" id="contact-kicker"></div><h2 id="contact-title" style="font-size:clamp(34px,4.5vw,58px);line-height:1.05"></h2><p id="contact-intro" style="color:var(--gray);font-size:18px;margin-top:16px"></p><div style="margin-top:28px"><div class="item"><small>Téléphone</small><a id="contact-phone"></a></div><div class="item"><small>E-mail</small><a id="contact-email"></a></div></div></div>
-<div class="contact-card"><h3 id="contact-card-title"></h3><p id="contact-card-text"></p><a class="btn primary" id="contact-button"></a></div>
-</div></section>
+      </div>
 
-<footer><div class="container foot"><span>© 2026 ROOFCON — Tous droits réservés.</span><span id="footer-text"></span></div></footer>
+
+      <div class="contact-card">
+
+        <h3 id="contact-card-title"></h3>
+
+        <p id="contact-card-text"></p>
+
+        <form
+          class="contact-form"
+          id="contact-form">
+
+          <div>
+            <label id="form-name-label"></label>
+            <input
+              type="text"
+              id="form-name"
+              required>
+          </div>
+
+          <div>
+            <label id="form-email-label"></label>
+            <input
+              type="email"
+              id="form-email"
+              required>
+          </div>
+
+          <div>
+            <label id="form-phone-label"></label>
+            <input
+              type="text"
+              id="form-phone">
+          </div>
+
+          <div>
+            <label id="form-message-label"></label>
+            <textarea
+              id="form-message"
+              required></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="btn primary"
+            id="form-submit">
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+
+        <img
+          src="ROOFCON.png"
+          class="footer-logo"
+          alt="ROOFCON">
+
+        <div id="footer-description"></div>
+
+      </div>
+
+      <div>
+
+        <div class="footer-title" id="footer-contact-title"></div>
+
+        <div class="footer-item" id="footer-phone"></div>
+
+        <div class="footer-item" id="footer-email"></div>
+
+      </div>
+
+      <div>
+
+        <div class="footer-title" id="footer-address-title"></div>
+
+        <div class="footer-item" id="footer-address"></div>
+
+        <div class="footer-item" id="footer-hours"></div>
+
+      </div>
+
+      <div>
+
+        <div class="footer-title" id="footer-social-title"></div>
+
+        <div class="footer-social">
+
+          <a
+            id="footer-facebook"
+            target="_blank"
+            rel="noopener">
+          </a>
+
+          <a
+            id="footer-instagram"
+            target="_blank"
+            rel="noopener">
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom" id="footer-copyright"></div>
+
+  </div>
+
+</footer>
+
+
 <script>
+
 let CONTENT = null;
+
 let LANG = localStorage.getItem('roofconLang') || 'fr';
 
-function t(obj) {
-    if (typeof obj === 'string') return obj;
-    return obj && obj[LANG] ? obj[LANG] : '';
+
+/* TRADUCTION */
+
+function t(obj){
+
+  if(typeof obj === 'string'){
+    return obj;
+  }
+
+  return obj && obj[LANG] ? obj[LANG] : '';
+
 }
 
-function esc(v) {
-    return String(v ?? '').replace(/[&<>"']/g, function(m) {
-        return {
-            '&':'&amp;',
-            '<':'&lt;',
-            '>':'&gt;',
-            '"':'&quot;',
-            "'":'&#039;'
-        }[m];
-    });
+
+/* PROTECTION HTML */
+
+function esc(v){
+
+  return String(v ?? '').replace(/[&<>"']/g,function(m){
+
+    return {
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      '"':'&quot;',
+      "'":'&#039;'
+    }[m];
+
+  });
+
 }
 
-function showPage(id) {
-    document.querySelectorAll('section').forEach(function(section) {
-        section.classList.remove('active-page');
-    });
 
-    const page = document.getElementById(id);
+/* NAVIGATION */
 
-    if (page) {
-        page.classList.add('active-page');
-    }
+function showPage(id){
 
-    window.scrollTo(0, 0);
+  document.querySelectorAll('section').forEach(function(section){
+
+    section.classList.remove('active-page');
+
+  });
+
+  const page=document.getElementById(id);
+
+  if(page){
+    page.classList.add('active-page');
+  }
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
+
 }
 
-function setLang(lang) {
-    LANG = lang;
-    localStorage.setItem('roofconLang', lang);
 
-    if (CONTENT) {
-        render();
-    }
+/* LANGUE */
+
+function setLang(lang){
+
+  LANG=lang;
+
+  localStorage.setItem('roofconLang',lang);
+
+  if(CONTENT){
+    render();
+  }
+
 }
-function openReference(id) {
-    if (!CONTENT || !CONTENT.references) return;
 
-    const ref = CONTENT.references.items.find(function(x) {
-        return x.id === id;
-    });
 
-    if (!ref) return;
+/* RÉFÉRENCE */
 
-    document.getElementById('detail-kicker').textContent =
-        LANG === 'fr' ? 'Nos réalisations' : 'Unsere Referenzen';
+function openReference(id){
 
-    document.getElementById('detail-title').textContent =
-        t(ref.title);
+  if(!CONTENT || !CONTENT.references){
+    return;
+  }
 
-    document.getElementById('detail-intro').textContent =
-        LANG === 'fr'
-            ? 'Découvrez nos projets réalisés dans ce domaine.'
-            : 'Entdecken Sie unsere Projekte in diesem Bereich.';
+  const ref=CONTENT.references.items.find(function(x){
 
-    const projects = ref.projects || [];
+    return x.id===id;
 
-    if (projects.length === 0) {
+  });
 
-        document.getElementById('detail-projects').innerHTML = `
-            <div style="grid-column:1/-1;background:var(--cream);padding:50px;text-align:center;color:var(--gray);">
-                ${
-                    LANG === 'fr'
-                        ? 'Les projets seront bientôt ajoutés.'
-                        : 'Die Projekte werden bald hinzugefügt.'
-                }
-            </div>
-        `;
+  if(!ref){
+    return;
+  }
 
-    } else {
+  document.getElementById('detail-kicker').textContent=
+    LANG==='fr'
+      ? 'Nos réalisations'
+      : 'Unsere Referenzen';
 
-        document.getElementById('detail-projects').innerHTML =
-            projects.map(function(project) {
+  document.getElementById('detail-title').textContent=
+    t(ref.title);
 
-                return `
-                    <div style="background:#fff;border:1px solid var(--line);overflow:hidden;">
+  document.getElementById('detail-intro').textContent=
+    LANG==='fr'
+      ? 'Découvrez nos projets réalisés dans ce domaine.'
+      : 'Entdecken Sie unsere Projekte in diesem Bereich.';
 
-                        ${project.image ? `
-                            <img
-                                src="/${esc(project.image)}"
-                                alt="${esc(t(project.title))}"
-                                style="width:100%;height:260px;object-fit:cover;display:block;"
-                            >
-                        ` : ''}
+  document.getElementById('detail-back-text').textContent=
+    LANG==='fr'
+      ? 'Retour aux références'
+      : 'Zurück zu den Referenzen';
 
-                        <div style="padding:20px;">
+  const projects=ref.projects || [];
 
-                            <h3 style="font-size:22px;margin-bottom:8px;">
-                                ${esc(t(project.title))}
-                            </h3>
+  const container=document.getElementById('detail-projects');
 
-                            <p style="color:var(--gray);">
-                                ${esc(t(project.description))}
-                            </p>
+  if(projects.length===0){
 
-                        </div>
+    container.innerHTML=`
+      <div class="empty">
+        ${
+          LANG==='fr'
+            ? 'Les projets seront bientôt ajoutés.'
+            : 'Die Projekte werden bald hinzugefügt.'
+        }
+      </div>
+    `;
 
-                    </div>
-                `;
+  }else{
 
-            }).join('');
-    }
+    container.innerHTML=projects.map(function(project){
 
-    showPage('reference-detail');
-}
-function render() {
+      return `
 
-    const c = CONTENT;
+        <article class="project">
 
-    document.title = c.site.title;
+          ${
+            project.image
+              ? `
+                <img
+                  src="${esc(project.image)}"
+                  alt="${esc(t(project.title))}">
+              `
+              : ''
+          }
 
-    document.getElementById('top-phone').textContent = c.site.phone;
-    document.getElementById('top-email').textContent = c.site.email;
+          <div class="project-content">
 
-    document.getElementById('nav-services').textContent = t(c.nav.services);
-    document.getElementById('nav-references').textContent = t(c.nav.references);
-    document.getElementById('nav-company').textContent = t(c.nav.company);
-    document.getElementById('nav-quote').textContent = t(c.nav.quote);
+            <h3>
+              ${esc(t(project.title))}
+            </h3>
 
-    document.getElementById('hero-kicker').textContent = t(c.hero.kicker);
-    document.getElementById('hero-title').innerHTML = t(c.hero.title);
-    document.getElementById('hero-text').textContent = t(c.hero.text);
-    document.getElementById('hero-primary').textContent = t(c.hero.primary);
-    document.getElementById('hero-secondary').textContent = t(c.hero.secondary);
+            <p>
+              ${esc(t(project.description))}
+            </p>
 
-    document.getElementById('services-kicker').textContent = t(c.services.kicker);
-    document.getElementById('services-title').textContent = t(c.services.title);
-    document.getElementById('services-intro').textContent = t(c.services.intro);
+          </div>
 
-    document.getElementById('services-grid').innerHTML =
-        c.services.items.map(function(x) {
-            return `
-                <article class="service">
-                    <div class="number">${esc(x.number)}</div>
-                    <h3>${esc(t(x.title))}</h3>
-                    <p>${esc(t(x.text))}</p>
-                </article>
-            `;
-        }).join('');
+        </article>
 
-    document.getElementById('company-title').textContent = t(c.company.title);
-    document.getElementById('company-p1').textContent = t(c.company.paragraph1);
-    document.getElementById('company-p2').textContent = t(c.company.paragraph2);
-    document.getElementById('company-button').textContent = t(c.company.button);
+      `;
 
-    document.getElementById('facts-grid').innerHTML =
-        c.company.facts.map(function(x) {
-            return `
-                <div class="fact">
-                    <b>${esc(x.value)}</b>
-                    <span>${esc(t(x.label))}</span>
-                </div>
-            `;
-        }).join('');
-
-    document.getElementById('refs-kicker').textContent = t(c.references.kicker);
-    document.getElementById('refs-title').textContent = t(c.references.title);
-    document.getElementById('refs-intro').textContent = t(c.references.intro);
-
- document.getElementById('refs-grid').innerHTML =
-    c.references.items.map(function(x) {
-        return `
-            <div class="ref reference-card" data-reference-id="${esc(x.id)}" style="cursor:pointer">
-                ${x.image ? `
-                    <img src="/${esc(x.image)}"
-                         alt="${esc(t(x.title))}"
-                         style="width:100%;height:100%;object-fit:cover;display:block;">
-                ` : ''}
-                <div class="label">
-                    <small>Référence</small><br>
-                    ${esc(t(x.title))}
-                </div>
-            </div>
-        `;
     }).join('');
 
-    document.getElementById('contact-kicker').textContent = t(c.contact.kicker);
-    document.getElementById('contact-title').innerHTML = t(c.contact.title);
-    document.getElementById('contact-intro').textContent = t(c.contact.intro);
+  }
 
-    document.getElementById('contact-phone').textContent = c.site.phone;
-    document.getElementById('contact-phone').href =
-        'tel:' + c.site.phone.replace(/[^+0-9]/g, '');
+  showPage('reference-detail');
 
-    document.getElementById('contact-email').textContent = c.site.email;
-    document.getElementById('contact-email').href =
-        'mailto:' + c.site.email;
-
-    document.getElementById('contact-card-title').textContent =
-        t(c.contact.cardTitle);
-
-    document.getElementById('contact-card-text').textContent =
-        t(c.contact.cardText);
-
-    const contactButton = document.getElementById('contact-button');
-
-    contactButton.textContent = t(c.contact.button);
-    contactButton.href =
-        'mailto:' + c.site.email +
-        '?subject=' +
-        encodeURIComponent('Demande de devis ROOFCON');
-
-    document.getElementById('footer-text').textContent = t(c.footer);
-
-    document.querySelectorAll('.lang button').forEach(function(button) {
-        button.classList.toggle(
-            'active',
-            button.textContent.trim().toLowerCase() === LANG
-        );
-    });
 }
 
-document.addEventListener('click', function(e) {
 
-    const link = e.target.closest('[data-page]');
+/* AFFICHAGE PRINCIPAL */
 
-    if (link) {
-        e.preventDefault();
-        showPage(link.dataset.page);
-        return;
-    }
+function render(){
 
-    const reference = e.target.closest('.reference-card');
+  const c=CONTENT;
 
-    if (reference) {
-        const id = reference.dataset.referenceId;
-        openReference(id);
-    }
-});
+  document.title=c.site.title;
 
-fetch('./content.json?v=' + Date.now())
-    .then(function(response) {
-        if (!response.ok) {
-            throw new Error('Impossible de charger content.json');
+  /* TOP */
+
+  document.getElementById('top-phone').textContent=
+    c.site.phone;
+
+  document.getElementById('top-email').textContent=
+    c.site.email;
+
+
+  /* NAVIGATION */
+
+  document.getElementById('nav-home').textContent=
+    t(c.nav.home);
+
+  document.getElementById('nav-about').textContent=
+    t(c.nav.about);
+
+  document.getElementById('nav-references').textContent=
+    t(c.nav.references);
+
+  document.getElementById('nav-jobs').textContent=
+    t(c.nav.jobs);
+
+  document.getElementById('nav-contact').textContent=
+    t(c.nav.contact);
+
+
+  /* HERO */
+
+  document.getElementById('hero-kicker').textContent=
+    t(c.hero.kicker);
+
+  document.getElementById('hero-title').innerHTML=
+    t(c.hero.title);
+
+  document.getElementById('hero-text').textContent=
+    t(c.hero.text);
+
+  document.getElementById('hero-about').textContent=
+    t(c.hero.aboutButton);
+
+  document.getElementById('hero-references').textContent=
+    t(c.hero.referencesButton);
+
+
+  /* IMAGE HERO */
+
+  const hero=document.getElementById('accueil');
+
+  if(c.hero.image){
+
+    hero.classList.add('has-image');
+
+    hero.style.backgroundImage=
+      `
+      linear-gradient(
+        90deg,
+        rgba(20,18,18,.93) 0%,
+        rgba(20,18,18,.76) 47%,
+        rgba(20,18,18,.25) 100%
+      ),
+      url("${c.hero.image}")
+      `;
+
+  }else{
+
+    hero.classList.remove('has-image');
+
+    hero.style.backgroundImage='';
+
+  }
+
+
+  /* À PROPOS */
+
+  document.getElementById('about-kicker').textContent=
+    t(c.about.kicker);
+
+  document.getElementById('about-title').textContent=
+    t(c.about.title);
+
+  document.getElementById('about-intro').textContent=
+    t(c.about.intro);
+
+
+  document.getElementById('poles-grid').innerHTML=
+    c.about.poles.map(function(pole){
+
+      return `
+
+        <article class="pole">
+
+          ${
+            pole.image
+              ? `
+                <img
+                  class="pole-image"
+                  src="${esc(pole.image)}"
+                  alt="${esc(t(pole.title))}">
+              `
+              : ''
+          }
+
+          <div class="pole-number">
+            ${esc(pole.number)}
+          </div>
+
+          <h3>
+            ${esc(t(pole.title))}
+          </h3>
+
+          <p>
+            ${esc(t(pole.text))}
+          </p>
+
+        </article>
+
+      `;
+
+    }).join('');
+
+
+  /* RÉFÉRENCES */
+
+  document.getElementById('refs-kicker').textContent=
+    t(c.references.kicker);
+
+  document.getElementById('refs-title').textContent=
+    t(c.references.title);
+
+  document.getElementById('refs-intro').textContent=
+    t(c.references.intro);
+
+
+  document.getElementById('refs-grid').innerHTML=
+    c.references.items.map(function(ref){
+
+      return `
+
+        <article
+          class="ref reference-card"
+          data-reference-id="${esc(ref.id)}">
+
+          ${
+            ref.image
+              ? `
+                <img
+                  class="ref-image"
+                  src="${esc(ref.image)}"
+                  alt="${esc(t(ref.title))}">
+              `
+              : ''
+          }
+
+          <div class="ref-overlay"></div>
+
+          <div class="label">
+
+            <small>
+              ${
+                LANG==='fr'
+                  ? 'Référence'
+                  : 'Referenz'
+              }
+            </small>
+
+            <h3>
+              ${esc(t(ref.title))}
+            </h3>
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join('');
+
+
+  /* OFFRES D'EMPLOI */
+
+  document.getElementById('jobs-kicker').textContent=
+    t(c.jobs.kicker);
+
+  document.getElementById('jobs-title').textContent=
+    t(c.jobs.title);
+
+  document.getElementById('jobs-intro').textContent=
+    t(c.jobs.intro);
+
+
+  const jobs=c.jobs.items || [];
+
+  if(jobs.length===0){
+
+    document.getElementById('jobs-grid').innerHTML=`
+
+      <div class="empty">
+
+        ${
+          LANG==='fr'
+            ? 'Aucune offre d’emploi disponible actuellement.'
+            : 'Derzeit sind keine Stellenangebote verfügbar.'
         }
 
-        return response.json();
-    })
- .then(function(data) {
+      </div>
 
-    CONTENT = data;
-
-    render();
-
-    showPage('accueil');
-})
-.catch(function(error) {
-
-    console.error(error);
-
-    document.body.innerHTML = `
-        <div style="font-family:Arial;padding:40px">
-            <h1>Erreur</h1>
-            <p>${esc(error.message)}</p>
-        </div>
     `;
+
+  }else{
+
+    document.getElementById('jobs-grid').innerHTML=
+      jobs.map(function(job){
+
+        return `
+
+          <article class="job">
+
+            ${
+              job.image
+                ? `
+                  <img
+                    src="${esc(job.image)}"
+                    alt="${esc(t(job.title))}">
+                `
+                : ''
+            }
+
+            <div class="job-content">
+
+              <h3>
+                ${esc(t(job.title))}
+              </h3>
+
+              <p>
+                ${esc(t(job.description))}
+              </p>
+
+              <a
+                class="btn primary job-button"
+                href="mailto:${esc(c.site.email)}?subject=${encodeURIComponent('Candidature ROOFCON - '+t(job.title))}">
+
+                ${
+                  LANG==='fr'
+                    ? 'Postuler'
+                    : 'Bewerben'
+                }
+
+              </a>
+
+            </div>
+
+          </article>
+
+        `;
+
+      }).join('');
+
+  }
+
+
+  /* CONTACT */
+
+  document.getElementById('contact-kicker').textContent=
+    t(c.contact.kicker);
+
+  document.getElementById('contact-title').innerHTML=
+    t(c.contact.title);
+
+  document.getElementById('contact-intro').textContent=
+    t(c.contact.intro);
+
+  document.getElementById('contact-card-title').textContent=
+    t(c.contact.cardTitle);
+
+  document.getElementById('contact-card-text').textContent=
+    t(c.contact.cardText);
+
+
+  document.getElementById('contact-phone').textContent=
+    c.site.phone;
+
+  document.getElementById('contact-phone').href=
+    'tel:'+c.site.phone.replace(/[^+0-9]/g,'');
+
+
+  document.getElementById('contact-email').textContent=
+    c.site.email;
+
+  document.getElementById('contact-email').href=
+    'mailto:'+c.site.email;
+
+
+  document.getElementById('contact-address').textContent=
+    c.site.address;
+
+  document.getElementById('contact-hours').textContent=
+    t(c.site.hours);
+
+
+  document.getElementById('label-phone').textContent=
+    LANG==='fr' ? 'Téléphone' : 'Telefon';
+
+  document.getElementById('label-email').textContent=
+    LANG==='fr' ? 'E-mail' : 'E-Mail';
+
+  document.getElementById('label-address').textContent=
+    LANG==='fr' ? 'Adresse' : 'Adresse';
+
+  document.getElementById('label-hours').textContent=
+    LANG==='fr' ? 'Horaires' : 'Öffnungszeiten';
+
+
+  /* FORMULAIRE */
+
+  document.getElementById('form-name-label').textContent=
+    t(c.contact.form.name);
+
+  document.getElementById('form-email-label').textContent=
+    t(c.contact.form.email);
+
+  document.getElementById('form-phone-label').textContent=
+    t(c.contact.form.phone);
+
+  document.getElementById('form-message-label').textContent=
+    t(c.contact.form.message);
+
+  document.getElementById('form-submit').textContent=
+    t(c.contact.form.submit);
+
+
+  /* FOOTER */
+
+  document.getElementById('footer-description').textContent=
+    t(c.footer.description);
+
+  document.getElementById('footer-copyright').textContent=
+    t(c.footer.copyright);
+
+  document.getElementById('footer-phone').textContent=
+    c.site.phone;
+
+  document.getElementById('footer-email').textContent=
+    c.site.email;
+
+  document.getElementById('footer-address').textContent=
+    c.site.address;
+
+  document.getElementById('footer-hours').textContent=
+    t(c.site.hours);
+
+
+  document.getElementById('footer-contact-title').textContent=
+    LANG==='fr' ? 'Contact' : 'Kontakt';
+
+  document.getElementById('footer-address-title').textContent=
+    LANG==='fr' ? 'Bureau' : 'Büro';
+
+  document.getElementById('footer-social-title').textContent=
+    LANG==='fr' ? 'Réseaux sociaux' : 'Soziale Netzwerke';
+
+
+  /* FACEBOOK */
+
+  const facebook=document.getElementById('footer-facebook');
+
+  if(c.site.facebook){
+
+    facebook.href=c.site.facebook;
+    facebook.textContent='Facebook';
+    facebook.style.display='block';
+
+  }else{
+
+    facebook.style.display='none';
+
+  }
+
+
+  /* INSTAGRAM */
+
+  const instagram=document.getElementById('footer-instagram');
+
+  if(c.site.instagram){
+
+    instagram.href=c.site.instagram;
+    instagram.textContent='Instagram';
+    instagram.style.display='block';
+
+  }else{
+
+    instagram.style.display='none';
+
+  }
+
+
+  /* BOUTONS LANGUE */
+
+  document.querySelectorAll('.lang button').forEach(function(button){
+
+    button.classList.toggle(
+      'active',
+      button.textContent.trim().toLowerCase()===LANG
+    );
+
+  });
+
+}
+
+
+/* CLICS */
+
+document.addEventListener('click',function(e){
+
+  const link=e.target.closest('[data-page]');
+
+  if(link){
+
+    e.preventDefault();
+
+    showPage(link.dataset.page);
+
+    return;
+
+  }
+
+
+  const reference=e.target.closest('.reference-card');
+
+  if(reference){
+
+    openReference(
+      reference.dataset.referenceId
+    );
+
+  }
+
 });
+
+
+/* FORMULAIRE */
+
+document.getElementById('contact-form')
+.addEventListener('submit',function(e){
+
+  e.preventDefault();
+
+  const name=document.getElementById('form-name').value;
+  const email=document.getElementById('form-email').value;
+  const phone=document.getElementById('form-phone').value;
+  const message=document.getElementById('form-message').value;
+
+
+  const subject=
+    LANG==='fr'
+      ? 'Demande de contact ROOFCON'
+      : 'Kontaktanfrage ROOFCON';
+
+
+  const body=
+
+    (LANG==='fr'
+      ? 'Nom : '
+      : 'Name : ')
+
+    +name+
+
+    '\n'+
+
+    (LANG==='fr'
+      ? 'E-mail : '
+      : 'E-Mail : ')
+
+    +email+
+
+    '\n'+
+
+    (LANG==='fr'
+      ? 'Téléphone : '
+      : 'Telefon : ')
+
+    +phone+
+
+    '\n\n'+
+
+    (LANG==='fr'
+      ? 'Demande :\n'
+      : 'Anfrage :\n')
+
+    +message;
+
+
+  window.location.href=
+    'mailto:'+CONTENT.site.email+
+    '?subject='+
+    encodeURIComponent(subject)+
+    '&body='+
+    encodeURIComponent(body);
+
+});
+
+
+/* CHARGEMENT */
+
+fetch('./content.json?v='+Date.now())
+
+.then(function(response){
+
+  if(!response.ok){
+
+    throw new Error(
+      'Impossible de charger content.json'
+    );
+
+  }
+
+  return response.json();
+
+})
+
+.then(function(data){
+
+  CONTENT=data;
+
+  render();
+
+  showPage('accueil');
+
+})
+
+.catch(function(error){
+
+  console.error(error);
+
+  document.body.innerHTML=`
+
+    <div style="
+      font-family:Arial;
+      padding:40px;
+      max-width:800px;
+      margin:auto;
+    ">
+
+      <h1>Erreur ROOFCON</h1>
+
+      <p>
+        ${esc(error.message)}
+      </p>
+
+    </div>
+
+  `;
+
+});
+
 </script>
 
 </body>
