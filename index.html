@@ -1690,53 +1690,121 @@ document.getElementById('who-hallcon').textContent=
     }).join('');
 
 
-  /* RÉFÉRENCES */
+/* RÉFÉRENCES */
 
-  document.getElementById('refs-kicker').textContent=
-    t(c.references.kicker);
+document.getElementById('refs-kicker').textContent=
+  t(c.references.kicker);
 
-  document.getElementById('refs-title').textContent=
-    t(c.references.title);
+document.getElementById('refs-title').textContent=
+  t(c.references.title);
 
-  document.getElementById('refs-intro').textContent=
-    t(c.references.intro);
+document.getElementById('refs-intro').textContent=
+  t(c.references.intro);
 
 
-  document.getElementById('refs-grid').innerHTML=
-    c.references.items.map(function(ref){
+const refsGrid=
+  document.getElementById('refs-grid');
 
-      return `
+const categories=
+  document.querySelectorAll('.reference-category');
+
+
+function renderReferences(filter){
+
+  let html='';
+
+  c.references.items.forEach(function(category){
+
+    const categoryName=
+      (category.title?.fr || '').toLowerCase();
+
+    let categoryKey='';
+
+    if(categoryName.includes('charpente')){
+      categoryKey='charpentes';
+    }
+
+    else if(categoryName.includes('toiture')){
+      categoryKey='toitures';
+    }
+
+    else if(categoryName.includes('façade') ||
+            categoryName.includes('facade')){
+      categoryKey='facades';
+    }
+
+    else if(categoryName.includes('couverture')){
+      categoryKey='couvertures';
+    }
+
+
+    if(
+      filter!=='all' &&
+      filter!==categoryKey
+    ){
+      return;
+    }
+
+
+    (category.projects || []).forEach(function(project){
+
+      html+=`
 
         <article
           class="ref reference-card"
-          data-reference-id="${esc(ref.id)}">
+          data-reference-id="${esc(project.id)}">
 
           ${
-            ref.image
-              ? `
+            project.image
+              ?
+              `
                 <img
                   class="ref-image"
-                  src="${esc(ref.image)}"
-                  alt="${esc(t(ref.title))}">
+                  src="${esc(project.image)}"
+                  alt="${esc(t(project.title))}">
               `
-              : ''
+              :
+              `
+                <div class="ref-placeholder">
+
+                  <span>
+                    ROOFCON
+                  </span>
+
+                </div>
+              `
           }
 
           <div class="ref-overlay"></div>
 
-          <div class="label">
+          <div class="ref-content">
 
-            <small>
-              ${
-                LANG==='fr'
-                  ? 'Référence'
-                  : 'Referenz'
-              }
-            </small>
+            <p class="ref-category">
+
+              ${esc(t(category.title))}
+
+            </p>
 
             <h3>
-              ${esc(t(ref.title))}
+
+              ${esc(t(project.title))}
+
             </h3>
+
+            ${
+              project.description?.fr ||
+              project.description?.de
+              ?
+              `
+                <p>
+
+                  ${esc(t(project.description))}
+
+                </p>
+              `
+              :
+              ''
+            }
 
           </div>
 
@@ -1744,7 +1812,62 @@ document.getElementById('who-hallcon').textContent=
 
       `;
 
-    }).join('');
+    });
+
+  });
+
+
+  if(!html){
+
+    html=`
+
+      <div class="refs-empty">
+
+        ${
+          LANG==='fr'
+            ?
+            'Nos réalisations seront bientôt disponibles.'
+            :
+            'Unsere Referenzen werden bald verfügbar sein.'
+        }
+
+      </div>
+
+    `;
+
+  }
+
+
+  refsGrid.innerHTML=html;
+
+}
+
+
+categories.forEach(function(button){
+
+  button.addEventListener(
+    'click',
+    function(){
+
+      categories.forEach(function(item){
+
+        item.classList.remove('active');
+
+      });
+
+      button.classList.add('active');
+
+      renderReferences(
+        button.dataset.category
+      );
+
+    }
+  );
+
+});
+
+
+renderReferences('all');
 
 
 /* OFFRES D'EMPLOI */
