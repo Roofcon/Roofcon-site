@@ -1013,62 +1013,84 @@ function addProject(categoryIndex){
 
 async function selectProjectImage(categoryIndex, projectIndex, input){
 
-  const file=input.files[0];
+  const file = input.files[0];
 
   if(!file) return;
 
   try{
 
-    const s=auth();
+    const s = auth();
 
-    $('status').textContent='Envoi de la photo…';
+    $('status').textContent = 'Envoi de la photo…';
 
-    const category=C.references.items[categoryIndex];
+    const category = C.references.items[categoryIndex];
+    const project = category.projects[projectIndex];
 
-    const project=category.projects[projectIndex];
+    const extension = file.name.split('.').pop().toLowerCase();
 
-    const extension=file.name.split('.').pop().toLowerCase();
-
-    const filename=
-      project.id+
-      '-'+
-      Date.now()+
-      '.'+
+    const filename =
+      project.id +
+      '-' +
+      Date.now() +
+      '.' +
       extension;
 
-    const path=
-      'images/realisations/'+
+    const path =
+      'images/realisations/' +
       filename;
 
-    const buffer=await file.arrayBuffer();
+    const buffer = await file.arrayBuffer();
 
-    const bytes=new Uint8Array(buffer);
+    const bytes = new Uint8Array(buffer);
 
-    let binary='';
+    let binary = '';
 
-    bytes.forEach(
-      b=>binary+=String.fromCharCode(b)
-    );
+    bytes.forEach(function(b){
+      binary += String.fromCharCode(b);
+    });
 
-    const content=btoa(binary);
+    const content = btoa(binary);
 
     await api(
-      '/contents/'+
-      path,
+      '/contents/' + path,
       {
-        method:'PUT',
+        method: 'PUT',
 
-        body:JSON.stringify({
+        body: JSON.stringify({
 
-          message:'Ajouter une photo de réalisation',
+          message: 'Ajouter une photo de réalisation',
 
-          content:content,
+          content: content,
 
-          branch:s.branch
+          branch: s.branch
 
         })
-
       }
+    );
+
+    /* On enregistre immédiatement le chemin */
+    project.image = path;
+
+    /* On réaffiche le projet */
+    renderReferences();
+
+    $('status').innerHTML =
+      '<span class="success">' +
+      'Photo ajoutée ! Cliquez maintenant sur « Enregistrer et publier ». ' +
+      '</span>';
+
+  }
+  catch(e){
+
+    $('status').innerHTML =
+      '<span class="danger-text">' +
+      'Erreur : ' +
+      escapeHtml(e.message) +
+      '</span>';
+
+  }
+
+}
     );
 
 project.image=path;
