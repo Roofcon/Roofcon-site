@@ -1095,23 +1095,25 @@ function addProject(categoryIndex){
 
   }
 
-  C.references.items[categoryIndex].projects.push({
+C.references.items[categoryIndex].projects.push({
 
-    id:'project-'+Date.now(),
+  id:'project-'+Date.now(),
 
-    title:{
-      fr:'',
-      de:''
-    },
+  title:{
+    fr:'',
+    de:''
+  },
 
-    description:{
-      fr:'',
-      de:''
-    },
+  description:{
+    fr:'',
+    de:''
+  },
 
-    image:''
+  image:'',
 
-  });
+  images:[]
+
+});
 
   renderReferences();
 
