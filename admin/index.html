@@ -1011,7 +1011,84 @@ function addProject(categoryIndex){
 
 }
 
+async function selectProjectImage(categoryIndex, projectIndex, input){
 
+  const file=input.files[0];
+
+  if(!file) return;
+
+  try{
+
+    const s=auth();
+
+    $('status').textContent='Envoi de la photo…';
+
+    const category=C.references.items[categoryIndex];
+
+    const project=category.projects[projectIndex];
+
+    const extension=file.name.split('.').pop().toLowerCase();
+
+    const filename=
+      project.id+
+      '-'+
+      Date.now()+
+      '.'+
+      extension;
+
+    const path=
+      'images/realisations/'+
+      filename;
+
+    const buffer=await file.arrayBuffer();
+
+    const bytes=new Uint8Array(buffer);
+
+    let binary='';
+
+    bytes.forEach(
+      b=>binary+=String.fromCharCode(b)
+    );
+
+    const content=btoa(binary);
+
+    await api(
+      '/contents/'+
+      path,
+      {
+        method:'PUT',
+
+        body:JSON.stringify({
+
+          message:'Ajouter une photo de réalisation',
+
+          content:content,
+
+          branch:s.branch
+
+        })
+
+      }
+    );
+
+    project.image=path;
+
+    renderReferences();
+
+    $('status').innerHTML=
+      '<span class="success">Photo ajoutée avec succès !</span>';
+
+  }
+  catch(e){
+
+    $('status').innerHTML=
+      '<span class="danger-text">Erreur : '+
+      escapeHtml(e.message)+
+      '</span>';
+
+  }
+
+}
 function deleteProject(categoryIndex,projectIndex){
 
   if(!confirm('Supprimer ce projet ?')) return;
