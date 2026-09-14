@@ -1158,8 +1158,8 @@ function fill(){
   set('hero-kicker-fr',C.hero.kicker?.fr);
   set('hero-kicker-de',C.hero.kicker?.de);
 
-  bilingual('hero-title',C.hero.title);
-  bilingual('hero-text',C.hero.text);
+  bilingual('hero-title',C.hero.title || {fr:'',de:''});
+ bilingual('hero-text',C.hero.text || {fr:'',de:''});
 
   set('hero-about-fr',C.hero.aboutButton?.fr);
   set('hero-about-de',C.hero.aboutButton?.de);
@@ -1170,39 +1170,38 @@ function fill(){
 
   /* ABOUT */
 
-  bilingual('about-kicker',C.about.kicker);
-  bilingual('about-title',C.about.title);
-  bilingual('about-intro',C.about.intro);
+bilingual('about-kicker',C.about.kicker || {fr:'',de:''});
+bilingual('about-title',C.about.title || {fr:'',de:''});
+bilingual('about-intro',C.about.intro || {fr:'',de:''});
 
 
   /* REFERENCES */
 
-  bilingual('refs-kicker',C.references.kicker);
-  bilingual('refs-title',C.references.title);
-  bilingual('refs-intro',C.references.intro);
-
+bilingual('refs-kicker',C.references.kicker || {fr:'',de:''});
+bilingual('refs-title',C.references.title || {fr:'',de:''});
+bilingual('refs-intro',C.references.intro || {fr:'',de:''});
 
   /* JOBS */
 
-  bilingual('jobs-kicker',C.jobs.kicker);
-  bilingual('jobs-title',C.jobs.title);
-  bilingual('jobs-intro',C.jobs.intro);
+bilingual('jobs-kicker',C.jobs.kicker || {fr:'',de:''});
+bilingual('jobs-title',C.jobs.title || {fr:'',de:''});
+bilingual('jobs-intro',C.jobs.intro || {fr:'',de:''});
 
 
   /* CONTACT */
 
-  bilingual('contact-kicker',C.contact.kicker);
-  bilingual('contact-title',C.contact.title);
-  bilingual('contact-intro',C.contact.intro);
-  bilingual('contact-card',C.contact.cardTitle);
-  bilingual('contact-text',C.contact.cardText);
-  bilingual('contact-button',C.contact.button);
+bilingual('contact-kicker',C.contact.kicker || {fr:'',de:''});
+bilingual('contact-title',C.contact.title || {fr:'',de:''});
+bilingual('contact-intro',C.contact.intro || {fr:'',de:''});
+bilingual('contact-card',C.contact.cardTitle || {fr:'',de:''});
+bilingual('contact-text',C.contact.cardText || {fr:'',de:''});
+bilingual('contact-button',C.contact.button || {fr:'',de:''});
 
 
   /* FOOTER */
 
-  bilingual('footer-description',C.footer.description);
-  bilingual('footer-copyright',C.footer.copyright);
+bilingual('footer-description',C.footer.description || {fr:'',de:''});
+bilingual('footer-copyright',C.footer.copyright || {fr:'',de:''});
 
 
   renderPoles();
