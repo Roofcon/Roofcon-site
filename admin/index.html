@@ -1011,7 +1011,7 @@ function addProject(categoryIndex){
 
 }
 
-async function selectProjectImage(categoryIndex, projectIndex, input){
+aasync function selectProjectImage(categoryIndex, projectIndex, input){
 
   const file = input.files[0];
 
@@ -1026,7 +1026,8 @@ async function selectProjectImage(categoryIndex, projectIndex, input){
     const category = C.references.items[categoryIndex];
     const project = category.projects[projectIndex];
 
-    const extension = file.name.split('.').pop().toLowerCase();
+    const extension =
+      file.name.split('.').pop().toLowerCase();
 
     const filename =
       project.id +
@@ -1040,7 +1041,6 @@ async function selectProjectImage(categoryIndex, projectIndex, input){
       filename;
 
     const buffer = await file.arrayBuffer();
-
     const bytes = new Uint8Array(buffer);
 
     let binary = '';
@@ -1057,40 +1057,36 @@ async function selectProjectImage(categoryIndex, projectIndex, input){
         method: 'PUT',
 
         body: JSON.stringify({
-
           message: 'Ajouter une photo de réalisation',
-
           content: content,
-
           branch: s.branch
-
         })
       }
     );
 
-    /* On enregistre immédiatement le chemin */
-project.image = path;
+    project.image = path;
 
-const projectBox = input.closest('.project');
+    const projectBox = input.closest('.project');
 
-const oldPreview = projectBox.querySelector('.project-preview');
+    const oldPreview =
+      projectBox.querySelector('.project-preview');
 
-if(oldPreview){
-  oldPreview.remove();
-}
+    if(oldPreview){
+      oldPreview.remove();
+    }
 
-const img = document.createElement('img');
+    const img = document.createElement('img');
 
-img.className = 'preview project-preview';
-img.src = '../' + path;
-img.alt = '';
+    img.className = 'preview project-preview';
+    img.src = '../' + path;
+    img.alt = '';
 
-input.parentElement.appendChild(img);
+    input.parentElement.appendChild(img);
 
-$('status').innerHTML =
-  '<span class="success">' +
-  'Photo ajoutée ! Cliquez maintenant sur « Enregistrer et publier ». ' +
-  '</span>';
+    $('status').innerHTML =
+      '<span class="success">' +
+      'Photo ajoutée ! Cliquez maintenant sur « Enregistrer et publier ».' +
+      '</span>';
 
   }
   catch(e){
@@ -1104,24 +1100,17 @@ $('status').innerHTML =
   }
 
 }
-    );
 
-project.image=path;
 
-renderReferences();
+function deleteProject(categoryIndex,projectIndex){
 
-$('status').innerHTML=
-  '<span class="success">Photo ajoutée avec succès ! Cliquez maintenant sur « Enregistrer et publier ».</span>';
+  if(!confirm('Supprimer ce projet ?')) return;
 
-  }
-  catch(e){
+  C.references.items[categoryIndex]
+    .projects
+    .splice(projectIndex,1);
 
-    $('status').innerHTML=
-      '<span class="danger-text">Erreur : '+
-      escapeHtml(e.message)+
-      '</span>';
-
-  }
+  renderReferences();
 
 }
 function deleteProject(categoryIndex,projectIndex){
