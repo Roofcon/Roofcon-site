@@ -194,15 +194,16 @@
       {
         "id": "job-1789375039262",
         "title": {
-          "fr": "",
-          "de": ""
+          "fr": "OFFRE D´EMPLOI ",
+          "de": "STELLENANGEBOT"
         },
         "description": {
-          "fr": "",
-          "de": ""
+          "fr": "Nous recherchons des charpentiers/couvreurs. Venez voir notre offre. ",
+          "de": "Wir suchen Zimmerleute/Dachdecker. Schauen Sie sich unser Angebot an. "
         },
         "images": [
-          "images/jobs/job-1789375039262-1789375132913-oddsw8.png"
+          "images/jobs/job-1789375039262-1789375132913-oddsw8.png",
+          "images/jobs/job-1789375039262-1789375262575-s377p5.png"
         ]
       }
     ]
