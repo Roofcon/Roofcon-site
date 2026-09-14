@@ -1582,43 +1582,110 @@ function openReference(id){
     return;
   }
 
-  document.getElementById('detail-kicker').textContent=
+
+  /* PHOTOS DU PROJET */
+
+  const images =
+    project.images && project.images.length
+      ? project.images
+      : (project.image ? [project.image] : []);
+
+
+  currentReferenceImages = images;
+  currentReferenceIndex = 0;
+
+
+  /* TEXTES */
+
+  document.getElementById('detail-kicker').textContent =
     t(category.title);
 
-  document.getElementById('detail-title').textContent=
+  document.getElementById('detail-title').textContent =
     t(project.title);
 
-  document.getElementById('detail-intro').textContent=
+  document.getElementById('detail-intro').textContent =
     t(project.description);
 
-  document.getElementById('detail-back-text').textContent=
+  document.getElementById('detail-back-text').textContent =
     LANG==='fr'
       ? 'Retour aux références'
       : 'Zurück zu den Referenzen';
+
+
+  /* GALERIE */
+
+  let galleryHTML='';
+
+
+  if(images.length){
+
+    galleryHTML=`
+
+      <div class="reference-gallery">
+
+        <img
+          id="reference-gallery-image"
+          src="${esc(images[0])}"
+          alt="${esc(t(project.title))}"
+        >
+
+        ${
+          images.length > 1
+          ?
+          `
+
+            <button
+              type="button"
+              class="reference-gallery-button prev"
+              onclick="changeReferenceImage(-1)"
+              aria-label="Photo précédente">
+              ‹
+            </button>
+
+            <button
+              type="button"
+              class="reference-gallery-button next"
+              onclick="changeReferenceImage(1)"
+              aria-label="Photo suivante">
+              ›
+            </button>
+
+            <div
+              class="reference-gallery-counter"
+              id="reference-gallery-counter">
+              1 / ${images.length}
+            </div>
+
+          `
+          :
+          ''
+        }
+
+      </div>
+
+    `;
+
+  }
+  else{
+
+    galleryHTML=`
+
+      <div class="project-detail-placeholder">
+        ROOFCON
+      </div>
+
+    `;
+
+  }
+
+
+  /* CONTENU */
 
   document.getElementById('detail-projects').innerHTML=`
 
     <article class="project-detail">
 
-      ${
-        project.image
-          ?
-          `
-            <div class="project-detail-image">
-
-              <img
-                src="${esc(project.image)}"
-                alt="${esc(t(project.title))}">
-
-            </div>
-          `
-          :
-          `
-            <div class="project-detail-placeholder">
-              ROOFCON
-            </div>
-          `
-      }
+      ${galleryHTML}
 
       <div class="project-detail-content">
 
@@ -1648,9 +1715,73 @@ function openReference(id){
 
   `;
 
+
   showPage('reference-detail');
 
 }
+
+  let currentReferenceImages = [];
+let currentReferenceIndex = 0;
+
+  function changeReferenceImage(direction){
+
+  if(!currentReferenceImages.length){
+    return;
+  }
+
+
+  currentReferenceIndex += direction;
+
+
+  if(currentReferenceIndex < 0){
+    currentReferenceIndex =
+      currentReferenceImages.length - 1;
+  }
+
+
+  if(
+    currentReferenceIndex >=
+    currentReferenceImages.length
+  ){
+
+    currentReferenceIndex=0;
+
+  }
+
+
+  const image =
+    document.getElementById(
+      'reference-gallery-image'
+    );
+
+
+  const counter =
+    document.getElementById(
+      'reference-gallery-counter'
+    );
+
+
+  if(image){
+
+    image.src =
+      currentReferenceImages[
+        currentReferenceIndex
+      ];
+
+  }
+
+
+  if(counter){
+
+    counter.textContent =
+      (currentReferenceIndex + 1) +
+      ' / ' +
+      currentReferenceImages.length;
+
+  }
+
+}
+  
 /* AFFICHAGE PRINCIPAL */
 
 function render(){
