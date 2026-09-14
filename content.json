@@ -190,7 +190,22 @@
       "fr": "Découvrez les opportunités actuellement disponibles au sein de ROOFCON.",
       "de": "Entdecken Sie unsere aktuellen Stellenangebote bei ROOFCON."
     },
-    "items": []
+    "items": [
+      {
+        "id": "job-1789375039262",
+        "title": {
+          "fr": "",
+          "de": ""
+        },
+        "description": {
+          "fr": "",
+          "de": ""
+        },
+        "images": [
+          "images/jobs/job-1789375039262-1789375132913-oddsw8.png"
+        ]
+      }
+    ]
   },
   "contact": {
     "kicker": {
