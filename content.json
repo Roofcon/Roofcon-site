@@ -1,260 +1,253 @@
 {
-"site": {
-"title": "ROOFCON | Holzbau · Bedachung · Fassadenbau",
-"description": "ROOFCON — Façades ventilées, toitures plates, charpentes et couvertures.",
-"phone": "+352 621 765 489",
-"email": "info@roof-con.com",
-"address": "Z.A.E.R Op Stackem 8, 9952 Drinklange",
-"hours": {
-"fr": "Lundi au vendredi · 08h00 – 17h00",
-"de": "Montag bis Freitag · 08:00 – 17:00"
-},
-"facebook": "",
-"instagram": ""
-},
-
-"nav": {
-"home": {
-"fr": "Accueil",
-"de": "Startseite"
-},
-"about": {
-"fr": "À propos",
-"de": "Über uns"
-},
-"references": {
-"fr": "Références",
-"de": "Referenzen"
-},
-"jobs": {
-"fr": "Offres d'emploi",
-"de": "Stellenangebote"
-},
-"contact": {
-"fr": "Contact",
-"de": "Kontakt"
-}
-},
-
-"hero": {
-"kicker": {
-"fr": "Bienvenue chez ROOFCON",
-"de": "Willkommen bei ROOFCON"
-},
-"title": {
-"fr": "Votre projet.<br><span>Notre savoir-faire.</span>",
-"de": "Ihr Projekt.<br><span>Unser Know-how.</span>"
-},
-"text": {
-"fr": "ROOFCON vous accompagne dans vos projets autour de quatre pôles : façades ventilées, toitures plates, charpentes et couvertures.",
-"de": "ROOFCON begleitet Sie bei Ihren Projekten in vier Bereichen: hinterlüftete Fassaden, Flachdächer, Holzkonstruktionen und Dachdeckungen."
-},
-"image": "",
-"aboutButton": {
-"fr": "Qui sommes-nous ?",
-"de": "Wer sind wir?"
-},
-"referencesButton": {
-"fr": "Voir nos réalisations",
-"de": "Unsere Referenzen"
-}
-},
-
-"about": {
-"kicker": {
-"fr": "À propos de ROOFCON",
-"de": "Über ROOFCON"
-},
-"title": {
-"fr": "Un savoir-faire au service de vos projets.",
-"de": "Know-how im Dienste Ihrer Projekte."
-},
-"intro": {
-"fr": "ROOFCON intervient dans plusieurs domaines complémentaires de la construction et de l'enveloppe du bâtiment. Notre objectif : proposer des solutions durables, soignées et adaptées à chaque projet.",
-"de": "ROOFCON ist in mehreren sich ergänzenden Bereichen des Bauwesens und der Gebäudehülle tätig. Unser Ziel: langlebige, hochwertige und auf jedes Projekt abgestimmte Lösungen."
-},
-"poles": [
-{
-"id": "toitures",
-"number": "01",
-"title": {
-"fr": "Toitures plates",
-"de": "Flachdächer"
-},
-"text": {
-"fr": "Réalisation de toitures plates adaptées aux exigences de chaque bâtiment, avec une attention particulière portée à l'étanchéité, à la durabilité et aux finitions.",
-"de": "Ausführung von Flachdächern, abgestimmt auf die Anforderungen jedes Gebäudes, mit besonderem Augenmerk auf Abdichtung, Langlebigkeit und Verarbeitung."
-},
-"image": ""
-},
-{
-"id": "charpentes",
-"number": "02",
-"title": {
-"fr": "Charpentes",
-"de": "Holzkonstruktionen"
-},
-"text": {
-"fr": "Conception et réalisation de structures et charpentes bois adaptées aux contraintes techniques et architecturales de chaque projet.",
-"de": "Planung und Ausführung von Holzkonstruktionen und Dachstühlen, abgestimmt auf die technischen und architektonischen Anforderungen jedes Projekts."
-},
-"image": ""
-},
-{
-"id": "facades",
-"number": "03",
-"title": {
-"fr": "Façades ventilées",
-"de": "Hinterlüftete Fassaden"
-},
-"text": {
-"fr": "Mise en œuvre de façades ventilées alliant performance, protection du bâtiment, durabilité et qualité esthétique.",
-"de": "Ausführung hinterlüfteter Fassaden, die Leistung, Gebäudeschutz, Langlebigkeit und hochwertige Optik miteinander verbinden."
-},
-"image": ""
-},
-{
-"id": "couvertures",
-"number": "04",
-"title": {
-"fr": "Couvertures",
-"de": "Dachdeckungen"
-},
-"text": {
-"fr": "Réalisation de couvertures pour assurer la protection durable des bâtiments tout en garantissant une finition professionnelle.",
-"de": "Ausführung von Dachdeckungen zum dauerhaften Schutz von Gebäuden und für eine professionelle Fertigstellung."
-},
-"image": ""
-}
-]
-},
-
-"references": {
-"kicker": {
-"fr": "Nos réalisations",
-"de": "Unsere Referenzen"
-},
-"title": {
-"fr": "Des projets qui parlent pour nous.",
-"de": "Projekte, die für sich sprechen."
-},
-"intro": {
-"fr": "Découvrez nos réalisations classées par domaine d'activité.",
-"de": "Entdecken Sie unsere Referenzen, sortiert nach Tätigkeitsbereich."
-},
-"items": [
-{
-"id": "charpentes",
-"title": {
-"fr": "Charpentes",
-"de": "Holzkonstruktionen"
-},
-"image": "",
-"projects": []
-},
-{
-"id": "toitures",
-"title": {
-"fr": "Toitures plates",
-"de": "Flachdächer"
-},
-"image": "",
-"projects": []
-},
-{
-"id": "facades",
-"title": {
-"fr": "Façades ventilées",
-"de": "Hinterlüftete Fassaden"
-},
-"image": "",
-"projects": []
-},
-{
-"id": "couvertures",
-"title": {
-"fr": "Couvertures",
-"de": "Dachdeckungen"
-},
-"image": "",
-"projects": []
-}
-]
-},
-
-"jobs": {
-"kicker": {
-"fr": "Rejoignez ROOFCON",
-"de": "Werden Sie Teil von ROOFCON"
-},
-"title": {
-"fr": "Nos offres d'emploi",
-"de": "Unsere Stellenangebote"
-},
-"intro": {
-"fr": "Découvrez les opportunités actuellement disponibles au sein de ROOFCON.",
-"de": "Entdecken Sie unsere aktuellen Stellenangebote bei ROOFCON."
-},
-"items": []
-},
-
-"contact": {
-"kicker": {
-"fr": "Contact",
-"de": "Kontakt"
-},
-"title": {
-"fr": "Vous avez un projet ?<br>Parlons-en.",
-"de": "Sie haben ein Projekt?<br>Sprechen wir darüber."
-},
-"intro": {
-"fr": "Vous souhaitez obtenir un devis ou discuter de votre projet ? Contactez-nous directement.",
-"de": "Sie möchten ein Angebot erhalten oder über Ihr Projekt sprechen? Kontaktieren Sie uns direkt."
-},
-"cardTitle": {
-"fr": "Une question ? Un projet ?",
-"de": "Eine Frage? Ein Projekt?"
-},
-"cardText": {
-"fr": "Envoyez-nous votre demande et les principales informations concernant votre projet. Notre équipe pourra ensuite vous recontacter.",
-"de": "Senden Sie uns Ihre Anfrage und die wichtigsten Informationen zu Ihrem Projekt. Unser Team wird sich anschließend bei Ihnen melden."
-},
-"button": {
-"fr": "Envoyer ma demande",
-"de": "Anfrage senden"
-},
-"form": {
-"name": {
-"fr": "Nom",
-"de": "Name"
-},
-"email": {
-"fr": "E-mail",
-"de": "E-Mail"
-},
-"phone": {
-"fr": "Téléphone",
-"de": "Telefon"
-},
-"message": {
-"fr": "Votre demande",
-"de": "Ihre Anfrage"
-},
-"submit": {
-"fr": "Envoyer la demande",
-"de": "Anfrage senden"
-}
-}
-},
-
-"footer": {
-"description": {
-"fr": "Façades ventilées · Toitures plates · Charpentes · Couvertures",
-"de": "Hinterlüftete Fassaden · Flachdächer · Holzkonstruktionen · Dachdeckungen"
-},
-"copyright": {
-"fr": "© 2026 ROOFCON — Tous droits réservés.",
-"de": "© 2026 ROOFCON — Alle Rechte vorbehalten."
-}
-}
+  "site": {
+    "title": "ROOFCON | Holzbau · Bedachung · Fassadenbau",
+    "description": "ROOFCON — Façades ventilées, toitures plates, charpentes et couvertures.",
+    "phone": "+352 621 765 489",
+    "email": "info@roof-con.com",
+    "address": "Z.A.E.R Op Stackem 8, 9952 Drinklange",
+    "hours": {
+      "fr": "Lundi au vendredi · 08h00 – 18h00",
+      "de": "Montag bis Freitag · 08:00 – 17:00"
+    },
+    "facebook": "",
+    "instagram": ""
+  },
+  "nav": {
+    "home": {
+      "fr": "Accueil",
+      "de": "Startseite"
+    },
+    "about": {
+      "fr": "À propos",
+      "de": "Über uns"
+    },
+    "references": {
+      "fr": "Références",
+      "de": "Referenzen"
+    },
+    "jobs": {
+      "fr": "Offres d'emploi",
+      "de": "Stellenangebote"
+    },
+    "contact": {
+      "fr": "Contact",
+      "de": "Kontakt"
+    }
+  },
+  "hero": {
+    "kicker": {
+      "fr": "Bienvenue chez ROOFCON",
+      "de": ""
+    },
+    "title": {
+      "fr": "Votre projet.<br><span>Notre savoir-faire.</span>",
+      "de": "Ihr Projekt.<br><span>Unser Know-how.</span>"
+    },
+    "text": {
+      "fr": "ROOFCON vous accompagne dans vos projets autour de quatre pôles : façades ventilées, toitures plates, charpentes et couvertures.",
+      "de": "ROOFCON begleitet Sie bei Ihren Projekten in vier Bereichen: hinterlüftete Fassaden, Flachdächer, Holzkonstruktionen und Dachdeckungen."
+    },
+    "image": "",
+    "aboutButton": {
+      "fr": "Qui sommes-nous ?",
+      "de": "Wer sind wir?"
+    },
+    "referencesButton": {
+      "fr": "Voir nos réalisations",
+      "de": "Unsere Referenzen"
+    }
+  },
+  "about": {
+    "kicker": {
+      "fr": "À propos de ROOFCON",
+      "de": "Über ROOFCON"
+    },
+    "title": {
+      "fr": "Un savoir-faire au service de vos projets.",
+      "de": "Know-how im Dienste Ihrer Projekte."
+    },
+    "intro": {
+      "fr": "ROOFCON intervient dans plusieurs domaines complémentaires de la construction et de l'enveloppe du bâtiment. Notre objectif : proposer des solutions durables, soignées et adaptées à chaque projet.",
+      "de": "ROOFCON ist in mehreren sich ergänzenden Bereichen des Bauwesens und der Gebäudehülle tätig. Unser Ziel: langlebige, hochwertige und auf jedes Projekt abgestimmte Lösungen."
+    },
+    "poles": [
+      {
+        "id": "toitures",
+        "number": "01",
+        "title": {
+          "fr": "Toitures plates",
+          "de": "Flachdächer"
+        },
+        "text": {
+          "fr": "Réalisation de toitures plates adaptées aux exigences de chaque bâtiment, avec une attention particulière portée à l'étanchéité, à la durabilité et aux finitions.",
+          "de": "Ausführung von Flachdächern, abgestimmt auf die Anforderungen jedes Gebäudes, mit besonderem Augenmerk auf Abdichtung, Langlebigkeit und Verarbeitung."
+        },
+        "image": ""
+      },
+      {
+        "id": "charpentes",
+        "number": "02",
+        "title": {
+          "fr": "Charpentes",
+          "de": "Holzkonstruktionen"
+        },
+        "text": {
+          "fr": "Conception et réalisation de structures et charpentes bois adaptées aux contraintes techniques et architecturales de chaque projet.",
+          "de": "Planung und Ausführung von Holzkonstruktionen und Dachstühlen, abgestimmt auf die technischen und architektonischen Anforderungen jedes Projekts."
+        },
+        "image": ""
+      },
+      {
+        "id": "facades",
+        "number": "03",
+        "title": {
+          "fr": "Façades ventilées",
+          "de": "Hinterlüftete Fassaden"
+        },
+        "text": {
+          "fr": "Mise en œuvre de façades ventilées alliant performance, protection du bâtiment, durabilité et qualité esthétique.",
+          "de": "Ausführung hinterlüfteter Fassaden, die Leistung, Gebäudeschutz, Langlebigkeit und hochwertige Optik miteinander verbinden."
+        },
+        "image": ""
+      },
+      {
+        "id": "couvertures",
+        "number": "04",
+        "title": {
+          "fr": "Couvertures",
+          "de": "Dachdeckungen"
+        },
+        "text": {
+          "fr": "Réalisation de couvertures pour assurer la protection durable des bâtiments tout en garantissant une finition professionnelle.",
+          "de": "Ausführung von Dachdeckungen zum dauerhaften Schutz von Gebäuden und für eine professionelle Fertigstellung."
+        },
+        "image": ""
+      }
+    ]
+  },
+  "references": {
+    "kicker": {
+      "fr": "Nos réalisations",
+      "de": "Unsere Referenzen"
+    },
+    "title": {
+      "fr": "Des projets qui parlent pour nous.",
+      "de": "Projekte, die für sich sprechen."
+    },
+    "intro": {
+      "fr": "Découvrez nos réalisations classées par domaine d'activité.",
+      "de": "Entdecken Sie unsere Referenzen, sortiert nach Tätigkeitsbereich."
+    },
+    "items": [
+      {
+        "id": "charpentes",
+        "title": {
+          "fr": "Charpentes",
+          "de": "Holzkonstruktionen"
+        },
+        "image": "",
+        "projects": []
+      },
+      {
+        "id": "toitures",
+        "title": {
+          "fr": "Toitures plates",
+          "de": "Flachdächer"
+        },
+        "image": "",
+        "projects": []
+      },
+      {
+        "id": "facades",
+        "title": {
+          "fr": "Façades ventilées",
+          "de": "Hinterlüftete Fassaden"
+        },
+        "image": "",
+        "projects": []
+      },
+      {
+        "id": "couvertures",
+        "title": {
+          "fr": "Couvertures",
+          "de": "Dachdeckungen"
+        },
+        "image": "",
+        "projects": []
+      }
+    ]
+  },
+  "jobs": {
+    "kicker": {
+      "fr": "Rejoignez ROOFCON",
+      "de": "Werden Sie Teil von ROOFCON"
+    },
+    "title": {
+      "fr": "Nos offres d'emploi",
+      "de": "Unsere Stellenangebote"
+    },
+    "intro": {
+      "fr": "Découvrez les opportunités actuellement disponibles au sein de ROOFCON.",
+      "de": "Entdecken Sie unsere aktuellen Stellenangebote bei ROOFCON."
+    },
+    "items": []
+  },
+  "contact": {
+    "kicker": {
+      "fr": "Contact",
+      "de": "Kontakt"
+    },
+    "title": {
+      "fr": "Vous avez un projet ?<br>Parlons-en.",
+      "de": "Sie haben ein Projekt?<br>Sprechen wir darüber."
+    },
+    "intro": {
+      "fr": "Vous souhaitez obtenir un devis ou discuter de votre projet ? Contactez-nous directement.",
+      "de": "Sie möchten ein Angebot erhalten oder über Ihr Projekt sprechen? Kontaktieren Sie uns direkt."
+    },
+    "cardTitle": {
+      "fr": "Une question ? Un projet ?",
+      "de": "Eine Frage? Ein Projekt?"
+    },
+    "cardText": {
+      "fr": "Envoyez-nous votre demande et les principales informations concernant votre projet. Notre équipe pourra ensuite vous recontacter.",
+      "de": "Senden Sie uns Ihre Anfrage und die wichtigsten Informationen zu Ihrem Projekt. Unser Team wird sich anschließend bei Ihnen melden."
+    },
+    "button": {
+      "fr": "Envoyer ma demande",
+      "de": "Anfrage senden"
+    },
+    "form": {
+      "name": {
+        "fr": "Nom",
+        "de": "Name"
+      },
+      "email": {
+        "fr": "E-mail",
+        "de": "E-Mail"
+      },
+      "phone": {
+        "fr": "Téléphone",
+        "de": "Telefon"
+      },
+      "message": {
+        "fr": "Votre demande",
+        "de": "Ihre Anfrage"
+      },
+      "submit": {
+        "fr": "Envoyer la demande",
+        "de": "Anfrage senden"
+      }
+    }
+  },
+  "footer": {
+    "description": {
+      "fr": "Façades ventilées · Toitures plates · Charpentes · Couvertures",
+      "de": "Hinterlüftete Fassaden · Flachdächer · Holzkonstruktionen · Dachdeckungen"
+    },
+    "copyright": {
+      "fr": "© 2026 ROOFCON — Tous droits réservés.",
+      "de": "© 2026 ROOFCON — Alle Rechte vorbehalten."
+    }
+  }
 }
