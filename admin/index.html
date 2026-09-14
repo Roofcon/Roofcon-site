@@ -1,168 +1,1463 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ROOFCON — Administration</title><style>
-:root{--black:#211f20;--brown:#a27b5b;--cream:#f5f2ee;--gray:#706b67;--line:#e5dfda}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--black)}header{background:var(--black);color:white;padding:22px 5%;display:flex;justify-content:space-between;align-items:center;gap:20px}header strong{font-size:22px}main{max-width:1100px;margin:35px auto;padding:0 20px}.card{background:white;border:1px solid var(--line);padding:25px;margin-bottom:20px}h1{margin-top:0}h2{margin-top:0;font-size:24px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.full{grid-column:1/-1}label{display:block;font-weight:700;font-size:13px;margin-bottom:6px}input,textarea{width:100%;padding:11px;border:1px solid #ccc;font:inherit}textarea{min-height:90px;resize:vertical}button{border:0;background:var(--brown);color:white;padding:12px 18px;font-weight:700;cursor:pointer}button.secondary{background:var(--black)}button:disabled{opacity:.5}.service,.step,.ref{border:1px solid var(--line);padding:16px;margin:12px 0}.row{display:flex;justify-content:space-between;gap:10px;align-items:center}.status{padding:12px;background:#f0eee9;margin-bottom:20px}.hint{color:var(--gray);font-size:13px;line-height:1.5}.danger{color:#8b2c2c}.actions{display:flex;gap:10px;flex-wrap:wrap}@media(max-width:700px){.grid{grid-template-columns:1fr}.full{grid-column:auto}}
-</style></head><body>
-<header><strong>ROOFCON — Administration</strong><span>Édition du contenu</span></header>
-<main><div class="status" id="status">Connectez votre dépôt GitHub pour commencer.</div>
-<section class="card"><h1>Connexion</h1><p class="hint">Cette page fonctionne directement avec GitHub. Votre token reste dans votre navigateur et n’est jamais écrit dans le site. Utilisez un token GitHub Fine-grained avec l’accès <b>Contents: Read and write</b> uniquement sur le dépôt du site.</p><div class="grid"><div><label>Propriétaire / organisation</label><input id="owner" placeholder="ex. roofcon" autocomplete="off"></div><div><label>Nom du dépôt</label><input id="repo" placeholder="ex. roofcon-website" autocomplete="off"></div><div><label>Branche</label><input id="branch" value="main"></div><div><label>Token GitHub</label><input id="token" type="password" placeholder="github_pat_..." autocomplete="off"></div></div><br><div class="actions"><button onclick="loadContent()">Charger le contenu</button><button class="secondary" onclick="clearSettings()">Effacer la connexion</button></div></section>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ROOFCON — Administration</title>
+
+<style>
+:root{
+  --black:#211f20;
+  --brown:#a27b5b;
+  --cream:#f5f2ee;
+  --gray:#706b67;
+  --line:#e5dfda;
+  --danger:#9b3030;
+  --green:#39734a;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--cream);
+  color:var(--black);
+}
+
+header{
+  background:var(--black);
+  color:white;
+  padding:22px 5%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+
+header strong{font-size:22px}
+
+main{
+  max-width:1150px;
+  margin:35px auto;
+  padding:0 20px;
+}
+
+.card{
+  background:white;
+  border:1px solid var(--line);
+  padding:25px;
+  margin-bottom:20px;
+}
+
+h1{margin-top:0}
+h2{margin-top:0;font-size:24px}
+h3{margin-top:0}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.full{grid-column:1/-1}
+
+label{
+  display:block;
+  font-weight:700;
+  font-size:13px;
+  margin-bottom:6px;
+}
+
+input,textarea,select{
+  width:100%;
+  padding:11px;
+  border:1px solid #ccc;
+  font:inherit;
+  background:white;
+}
+
+textarea{
+  min-height:100px;
+  resize:vertical;
+}
+
+button{
+  border:0;
+  background:var(--brown);
+  color:white;
+  padding:12px 18px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+button.secondary{
+  background:var(--black);
+}
+
+button.danger{
+  background:var(--danger);
+}
+
+button:disabled{
+  opacity:.5;
+  cursor:not-allowed;
+}
+
+.status{
+  padding:12px;
+  background:#f0eee9;
+  margin-bottom:20px;
+}
+
+.hint{
+  color:var(--gray);
+  font-size:13px;
+  line-height:1.5;
+}
+
+.danger-text{color:var(--danger)}
+.success{color:var(--green)}
+
+.actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.box{
+  border:1px solid var(--line);
+  padding:18px;
+  margin:15px 0;
+  background:#faf9f7;
+}
+
+.project{
+  border:1px solid #d8d0ca;
+  padding:18px;
+  margin:15px 0;
+  background:white;
+}
+
+.category-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.preview{
+  max-width:220px;
+  max-height:140px;
+  object-fit:cover;
+  display:block;
+  margin-top:10px;
+  border:1px solid var(--line);
+}
+
+hr{
+  border:0;
+  border-top:1px solid var(--line);
+  margin:25px 0;
+}
+
+@media(max-width:700px){
+  .grid{grid-template-columns:1fr}
+  .full{grid-column:auto}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <strong>ROOFCON — Administration</strong>
+  <span>Gestion du site</span>
+</header>
+
+<main>
+
+<div class="status" id="status">
+  Connectez votre dépôt GitHub pour commencer.
+</div>
+
+<!-- CONNEXION -->
+
+<section class="card">
+
+<h1>Connexion GitHub</h1>
+
+<p class="hint">
+Cette page permet de modifier le contenu du site directement depuis GitHub.
+Votre token reste enregistré uniquement dans votre navigateur.
+</p>
+
+<div class="grid">
+
+<div>
+<label>Propriétaire / organisation</label>
+<input id="owner" placeholder="Roofcon">
+</div>
+
+<div>
+<label>Nom du dépôt</label>
+<input id="repo" placeholder="Roofcon-site">
+</div>
+
+<div>
+<label>Branche</label>
+<input id="branch" value="main">
+</div>
+
+<div>
+<label>Token GitHub</label>
+<input id="token" type="password" placeholder="github_pat_...">
+</div>
+
+</div>
+
+<br>
+
+<div class="actions">
+<button onclick="loadContent()">Charger le contenu</button>
+<button class="secondary" onclick="clearSettings()">Effacer la connexion</button>
+</div>
+
+</section>
+
 
 <div id="editor" style="display:none">
-<section class="card"><h2>Informations générales</h2><div class="grid"><div><label>Téléphone</label><input id="site-phone"></div><div><label>E-mail</label><input id="site-email"></div><div class="full"><label>Titre du site</label><input id="site-title"></div><div class="full"><label>Description SEO</label><textarea id="site-description"></textarea></div></div></section>
 
-<section class="card"><h2>Accueil</h2><div class="grid"><div class="full"><label>Accroche</label><input id="hero-kicker"></div><div><label>Titre FR (HTML autorisé pour le saut de ligne)</label><textarea id="hero-title-fr"></textarea></div><div><label>Titre DE</label><textarea id="hero-title-de"></textarea></div><div><label>Texte FR</label><textarea id="hero-text-fr"></textarea></div><div><label>Texte DE</label><textarea id="hero-text-de"></textarea></div><div><label>Bouton principal FR</label><input id="hero-primary-fr"></div><div><label>Bouton principal DE</label><input id="hero-primary-de"></div><div><label>Bouton secondaire FR</label><input id="hero-secondary-fr"></div><div><label>Bouton secondaire DE</label><input id="hero-secondary-de"></div></div></section>
+<!-- INFORMATIONS -->
 
-<section class="card"><h2>Services</h2><div class="grid"><div><label>Titre FR</label><input id="services-title-fr"></div><div><label>Titre DE</label><input id="services-title-de"></div><div><label>Introduction FR</label><textarea id="services-intro-fr"></textarea></div><div><label>Introduction DE</label><textarea id="services-intro-de"></textarea></div></div><div id="services-editor"></div></section>
+<section class="card">
 
-<section class="card"><h2>Méthode</h2><div class="grid"><div><label>Titre FR</label><input id="process-title-fr"></div><div><label>Titre DE</label><input id="process-title-de"></div><div><label>Introduction FR</label><textarea id="process-intro-fr"></textarea></div><div><label>Introduction DE</label><textarea id="process-intro-de"></textarea></div></div><div id="steps-editor"></div></section>
+<h2>Informations générales</h2>
 
-<section class="card"><h2>L’entreprise</h2><div class="grid"><div><label>Titre FR</label><input id="company-title-fr"></div><div><label>Titre DE</label><input id="company-title-de"></div><div><label>Paragraphe 1 FR</label><textarea id="company-p1-fr"></textarea></div><div><label>Paragraphe 1 DE</label><textarea id="company-p1-de"></textarea></div><div><label>Paragraphe 2 FR</label><textarea id="company-p2-fr"></textarea></div><div><label>Paragraphe 2 DE</label><textarea id="company-p2-de"></textarea></div></div><div id="facts-editor"></div></section>
+<div class="grid">
 
-<section class="card"><h2>Réalisations</h2><div class="grid"><div><label>Titre FR</label><input id="refs-title-fr"></div><div><label>Titre DE</label><input id="refs-title-de"></div><div><label>Introduction FR</label><textarea id="refs-intro-fr"></textarea></div><div><label>Introduction DE</label><textarea id="refs-intro-de"></textarea></div></div><div id="refs-editor"></div></section>
- <div style="margin-top:20px;padding:18px;border:1px solid var(--line);background:#faf9f7">
-  <h3 style="margin-top:0">Ajouter une photo</h3>
-  <p class="hint">Choisissez une photo de votre ordinateur. Elle sera ensuite envoyée dans le dossier des réalisations.</p>
-  
-  <label>Photo du projet</label>
-  <input type="file" id="ref-image" accept="image/jpeg,image/png,image/webp">
-  
-  <br><br>
-  
-  <button type="button" onclick="uploadReferenceImage()">
-    Ajouter la photo
-  </button>
-  
-  <div id="image-status" class="hint" style="margin-top:12px"></div>
+<div>
+<label>Téléphone</label>
+<input id="site-phone">
 </div>
 
-<section class="card"><h2>Contact</h2><div class="grid"><div><label>Titre FR (HTML autorisé)</label><textarea id="contact-title-fr"></textarea></div><div><label>Titre DE</label><textarea id="contact-title-de"></textarea></div><div><label>Introduction FR</label><textarea id="contact-intro-fr"></textarea></div><div><label>Introduction DE</label><textarea id="contact-intro-de"></textarea></div><div><label>Titre du bloc FR</label><input id="contact-card-title-fr"></div><div><label>Titre du bloc DE</label><input id="contact-card-title-de"></div><div><label>Texte du bloc FR</label><textarea id="contact-card-text-fr"></textarea></div><div><label>Texte du bloc DE</label><textarea id="contact-card-text-de"></textarea></div><div><label>Bouton FR</label><input id="contact-button-fr"></div><div><label>Bouton DE</label><input id="contact-button-de"></div></div></section>
+<div>
+<label>E-mail</label>
+<input id="site-email">
+</div>
 
-<section class="card"><h2>Publier</h2><p class="hint">Le bouton ci-dessous crée une nouvelle version de <b>content.json</b> dans votre dépôt. Le site public utilisera ensuite automatiquement le nouveau contenu.</p><div class="actions"><button id="save" onclick="saveContent()">Enregistrer et publier</button><button class="secondary" onclick="location.href='../'">Voir le site</button></div></section>
-</div></main>
+<div class="full">
+<label>Adresse</label>
+<input id="site-address">
+</div>
+
+<div>
+<label>Horaires FR</label>
+<input id="site-hours-fr">
+</div>
+
+<div>
+<label>Horaires DE</label>
+<input id="site-hours-de">
+</div>
+
+<div>
+<label>Facebook</label>
+<input id="site-facebook">
+</div>
+
+<div>
+<label>Instagram</label>
+<input id="site-instagram">
+</div>
+
+<div class="full">
+<label>Titre du site</label>
+<input id="site-title">
+</div>
+
+<div class="full">
+<label>Description SEO</label>
+<textarea id="site-description"></textarea>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ACCUEIL -->
+
+<section class="card">
+
+<h2>Accueil</h2>
+
+<div class="grid">
+
+<div class="full">
+<label>Petit texte</label>
+<input id="hero-kicker-fr">
+</div>
+
+<div>
+<label>Titre FR</label>
+<textarea id="hero-title-fr"></textarea>
+</div>
+
+<div>
+<label>Titre DE</label>
+<textarea id="hero-title-de"></textarea>
+</div>
+
+<div>
+<label>Texte FR</label>
+<textarea id="hero-text-fr"></textarea>
+</div>
+
+<div>
+<label>Texte DE</label>
+<textarea id="hero-text-de"></textarea>
+</div>
+
+<div>
+<label>Bouton "Qui sommes-nous ?" FR</label>
+<input id="hero-about-fr">
+</div>
+
+<div>
+<label>Bouton "Qui sommes-nous ?" DE</label>
+<input id="hero-about-de">
+</div>
+
+<div>
+<label>Bouton références FR</label>
+<input id="hero-ref-fr">
+</div>
+
+<div>
+<label>Bouton références DE</label>
+<input id="hero-ref-de">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- A PROPOS -->
+
+<section class="card">
+
+<h2>À propos</h2>
+
+<div class="grid">
+
+<div>
+<label>Petit titre FR</label>
+<input id="about-kicker-fr">
+</div>
+
+<div>
+<label>Petit titre DE</label>
+<input id="about-kicker-de">
+</div>
+
+<div>
+<label>Titre FR</label>
+<textarea id="about-title-fr"></textarea>
+</div>
+
+<div>
+<label>Titre DE</label>
+<textarea id="about-title-de"></textarea>
+</div>
+
+<div>
+<label>Introduction FR</label>
+<textarea id="about-intro-fr"></textarea>
+</div>
+
+<div>
+<label>Introduction DE</label>
+<textarea id="about-intro-de"></textarea>
+</div>
+
+</div>
+
+<div id="poles-editor"></div>
+
+</section>
+
+
+<!-- REFERENCES -->
+
+<section class="card">
+
+<h2>Références</h2>
+
+<div class="grid">
+
+<div>
+<label>Petit titre FR</label>
+<input id="refs-kicker-fr">
+</div>
+
+<div>
+<label>Petit titre DE</label>
+<input id="refs-kicker-de">
+</div>
+
+<div>
+<label>Titre FR</label>
+<textarea id="refs-title-fr"></textarea>
+</div>
+
+<div>
+<label>Titre DE</label>
+<textarea id="refs-title-de"></textarea>
+</div>
+
+<div>
+<label>Introduction FR</label>
+<textarea id="refs-intro-fr"></textarea>
+</div>
+
+<div>
+<label>Introduction DE</label>
+<textarea id="refs-intro-de"></textarea>
+</div>
+
+</div>
+
+<div id="references-editor"></div>
+
+</section>
+
+
+<!-- OFFRES D'EMPLOI -->
+
+<section class="card">
+
+<h2>Offres d'emploi</h2>
+
+<div class="grid">
+
+<div>
+<label>Petit titre FR</label>
+<input id="jobs-kicker-fr">
+</div>
+
+<div>
+<label>Petit titre DE</label>
+<input id="jobs-kicker-de">
+</div>
+
+<div>
+<label>Titre FR</label>
+<textarea id="jobs-title-fr"></textarea>
+</div>
+
+<div>
+<label>Titre DE</label>
+<textarea id="jobs-title-de"></textarea>
+</div>
+
+<div>
+<label>Introduction FR</label>
+<textarea id="jobs-intro-fr"></textarea>
+</div>
+
+<div>
+<label>Introduction DE</label>
+<textarea id="jobs-intro-de"></textarea>
+</div>
+
+</div>
+
+<div id="jobs-editor"></div>
+
+<button onclick="addJob()">+ Ajouter une offre</button>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="card">
+
+<h2>Contact</h2>
+
+<div class="grid">
+
+<div>
+<label>Petit titre FR</label>
+<input id="contact-kicker-fr">
+</div>
+
+<div>
+<label>Petit titre DE</label>
+<input id="contact-kicker-de">
+</div>
+
+<div>
+<label>Titre FR</label>
+<textarea id="contact-title-fr"></textarea>
+</div>
+
+<div>
+<label>Titre DE</label>
+<textarea id="contact-title-de"></textarea>
+</div>
+
+<div>
+<label>Introduction FR</label>
+<textarea id="contact-intro-fr"></textarea>
+</div>
+
+<div>
+<label>Introduction DE</label>
+<textarea id="contact-intro-de"></textarea>
+</div>
+
+<div>
+<label>Titre de carte FR</label>
+<input id="contact-card-fr">
+</div>
+
+<div>
+<label>Titre de carte DE</label>
+<input id="contact-card-de">
+</div>
+
+<div>
+<label>Texte FR</label>
+<textarea id="contact-text-fr"></textarea>
+</div>
+
+<div>
+<label>Texte DE</label>
+<textarea id="contact-text-de"></textarea>
+</div>
+
+<div>
+<label>Bouton FR</label>
+<input id="contact-button-fr">
+</div>
+
+<div>
+<label>Bouton DE</label>
+<input id="contact-button-de">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<section class="card">
+
+<h2>Pied de page</h2>
+
+<div class="grid">
+
+<div>
+<label>Description FR</label>
+<input id="footer-description-fr">
+</div>
+
+<div>
+<label>Description DE</label>
+<input id="footer-description-de">
+</div>
+
+<div>
+<label>Copyright FR</label>
+<input id="footer-copyright-fr">
+</div>
+
+<div>
+<label>Copyright DE</label>
+<input id="footer-copyright-de">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PUBLICATION -->
+
+<section class="card">
+
+<h2>Publier les modifications</h2>
+
+<p class="hint">
+Lorsque vous avez terminé vos modifications, cliquez sur le bouton ci-dessous.
+</p>
+
+<button id="save" onclick="saveContent()">
+Enregistrer et publier
+</button>
+
+</section>
+
+</div>
+
+</main>
+
+
 <script>
-let C=null,sha=null;const $=id=>document.getElementById(id);const val=id=>$(id).value;const set=(id,v)=>$(id).value=v??'';
-function settings(){return {owner:val('owner').trim(),repo:val('repo').trim(),branch:val('branch').trim()||'main',token:val('token').trim()}}
-function clearSettings(){['owner','repo','branch','token'].forEach(id=>localStorage.removeItem('rc_'+id));location.reload()}
-function saveSettings(){const s=settings();Object.entries(s).forEach(([k,v])=>localStorage.setItem('rc_'+k,v));return s}
-function loadSettings(){['owner','repo','branch'].forEach(k=>set(k,localStorage.getItem('rc_'+k)||''));}
-function auth(){const s=saveSettings();if(!s.owner||!s.repo||!s.token)throw Error('Veuillez renseigner le propriétaire, le dépôt et le token GitHub.');return s}
-async function api(path,opts={}){const s=auth();const r=await fetch('https://api.github.com/repos/'+encodeURIComponent(s.owner)+'/'+encodeURIComponent(s.repo)+path,{...opts,headers:{Accept:'application/vnd.github+json',Authorization:'Bearer '+s.token,'X-GitHub-Api-Version':'2022-11-28',...(opts.headers||{})}});if(!r.ok)throw Error((await r.text()).slice(0,500));return r.json()}
-function dec(b64){const bin=atob(b64.replace(/\n/g,''));const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0));return new TextDecoder().decode(bytes)}
-function enc(txt){const bytes=new TextEncoder().encode(txt);let bin='';bytes.forEach(b=>bin+=String.fromCharCode(b));return btoa(bin)}
-function setB(id,obj){set(id+'-fr',obj.fr);set(id+'-de',obj.de)}
-function getB(id){return {fr:val(id+'-fr'),de:val(id+'-de')}}
-function renderLists(){
- $('services-editor').innerHTML=C.services.items.map((x,i)=>`<div class="service"><div class="row"><b>Service ${i+1}</b></div><div class="grid"><div><label>Numéro</label><input id="s${i}-number" value="${x.number||''}"></div><div><label>Titre FR</label><input id="s${i}-title-fr"></div><div><label>Titre DE</label><input id="s${i}-title-de"></div><div><label>Texte FR</label><textarea id="s${i}-text-fr"></textarea></div><div><label>Texte DE</label><textarea id="s${i}-text-de"></textarea></div></div></div>`).join('');
- C.services.items.forEach((x,i)=>{set('s'+i+'-title-fr',x.title.fr);set('s'+i+'-title-de',x.title.de);set('s'+i+'-text-fr',x.text.fr);set('s'+i+'-text-de',x.text.de)});
- $('steps-editor').innerHTML=C.process.steps.map((x,i)=>`<div class="step"><b>Étape ${i+1}</b><div class="grid"><div><label>Titre FR</label><input id="st${i}-title-fr"></div><div><label>Titre DE</label><input id="st${i}-title-de"></div><div><label>Texte FR</label><textarea id="st${i}-text-fr"></textarea></div><div><label>Texte DE</label><textarea id="st${i}-text-de"></textarea></div></div></div>`).join('');
- C.process.steps.forEach((x,i)=>{set('st'+i+'-title-fr',x.title.fr);set('st'+i+'-title-de',x.title.de);set('st'+i+'-text-fr',x.text.fr);set('st'+i+'-text-de',x.text.de)});
- $('facts-editor').innerHTML=C.company.facts.map((x,i)=>`<div class="service"><b>Élément ${i+1}</b><div class="grid"><div><label>Valeur</label><input id="f${i}-value"></div><div><label>Texte</label><input id="f${i}-label"></div></div></div>`).join('');C.company.facts.forEach((x,i)=>{set('f'+i+'-value',x.value);set('f'+i+'-label',x.label)});
-$('refs-editor').innerHTML=C.references.items.map((x,i)=>`
-<div class="ref">
-    <b>Catégorie ${i+1}</b>
-    <div class="grid">
-        <div>
-            <label>Nom FR</label>
-            <input id="r${i}-fr">
-        </div>
-        <div>
-            <label>Nom DE</label>
-            <input id="r${i}-de">
-        </div>
-    </div>
-</div>
-`).join('');
 
-C.references.items.forEach((x,i)=>{
-    x.title = x.title || {fr:'',de:''};
+let C=null;
+let sha=null;
 
-    set('r'+i+'-fr',x.title.fr || '');
-    set('r'+i+'-de',x.title.de || '');
-});
+const $=id=>document.getElementById(id);
+
+const val=id=>$(id)?.value ?? '';
+
+const set=(id,v)=>{
+  if($(id)) $(id).value=v ?? '';
+};
+
+
+function settings(){
+
+  return {
+    owner:val('owner').trim(),
+    repo:val('repo').trim(),
+    branch:val('branch').trim() || 'main',
+    token:val('token').trim()
+  };
+
 }
+
+
+function clearSettings(){
+
+  ['owner','repo','branch','token']
+    .forEach(id=>localStorage.removeItem('rc_'+id));
+
+  location.reload();
+
+}
+
+
+function saveSettings(){
+
+  const s=settings();
+
+  Object.entries(s).forEach(([k,v])=>{
+    localStorage.setItem('rc_'+k,v);
+  });
+
+  return s;
+
+}
+
+
+function loadSettings(){
+
+  ['owner','repo','branch'].forEach(k=>{
+    set(k,localStorage.getItem('rc_'+k)||'');
+  });
+
+}
+
+
+function auth(){
+
+  const s=saveSettings();
+
+  if(!s.owner || !s.repo || !s.token){
+
+    throw Error(
+      'Veuillez renseigner le propriétaire, le dépôt et le token GitHub.'
+    );
+
+  }
+
+  return s;
+
+}
+
+
+async function api(path,opts={}){
+
+  const s=auth();
+
+  const r=await fetch(
+    'https://api.github.com/repos/'
+    +encodeURIComponent(s.owner)
+    +'/'
+    +encodeURIComponent(s.repo)
+    +path,
+    {
+      ...opts,
+      headers:{
+        Accept:'application/vnd.github+json',
+        Authorization:'Bearer '+s.token,
+        'X-GitHub-Api-Version':'2022-11-28',
+        ...(opts.headers||{})
+      }
+    }
+  );
+
+  if(!r.ok){
+
+    throw Error(
+      (await r.text()).slice(0,700)
+    );
+
+  }
+
+  return r.json();
+
+}
+
+
+function dec(b64){
+
+  const bin=atob(
+    b64.replace(/\n/g,'')
+  );
+
+  const bytes=Uint8Array.from(
+    bin,
+    c=>c.charCodeAt(0)
+  );
+
+  return new TextDecoder().decode(bytes);
+
+}
+
+
+function enc(txt){
+
+  const bytes=new TextEncoder().encode(txt);
+
+  let bin='';
+
+  bytes.forEach(
+    b=>bin+=String.fromCharCode(b)
+  );
+
+  return btoa(bin);
+
+}
+
+
+function bilingual(id,obj){
+
+  set(id+'-fr',obj?.fr);
+  set(id+'-de',obj?.de);
+
+}
+
+
+function getBilingual(id){
+
+  return {
+    fr:val(id+'-fr'),
+    de:val(id+'-de')
+  };
+
+}
+
+
+/* =========================
+   RENDER À PROPOS
+========================= */
+
+function renderPoles(){
+
+  const container=$('poles-editor');
+
+  container.innerHTML='';
+
+  C.about.poles.forEach((pole,i)=>{
+
+    const div=document.createElement('div');
+
+    div.className='box';
+
+    div.innerHTML=`
+
+      <h3>${pole.number || String(i+1).padStart(2,'0')}
+      — ${pole.title?.fr || ''}</h3>
+
+      <div class="grid">
+
+        <div>
+          <label>Numéro</label>
+          <input id="pole-${i}-number">
+        </div>
+
+        <div>
+          <label>Titre FR</label>
+          <input id="pole-${i}-title-fr">
+        </div>
+
+        <div>
+          <label>Titre DE</label>
+          <input id="pole-${i}-title-de">
+        </div>
+
+        <div>
+          <label>Texte FR</label>
+          <textarea id="pole-${i}-text-fr"></textarea>
+        </div>
+
+        <div>
+          <label>Texte DE</label>
+          <textarea id="pole-${i}-text-de"></textarea>
+        </div>
+
+      </div>
+    `;
+
+    container.appendChild(div);
+
+    set(`pole-${i}-number`,pole.number);
+    set(`pole-${i}-title-fr`,pole.title?.fr);
+    set(`pole-${i}-title-de`,pole.title?.de);
+    set(`pole-${i}-text-fr`,pole.text?.fr);
+    set(`pole-${i}-text-de`,pole.text?.de);
+
+  });
+
+}
+
+
+/* =========================
+   RENDER REFERENCES
+========================= */
+
+function renderReferences(){
+
+  const container=$('references-editor');
+
+  container.innerHTML='';
+
+  C.references.items.forEach((category,i)=>{
+
+    const div=document.createElement('div');
+
+    div.className='box';
+
+    let projects='';
+
+    (category.projects||[]).forEach((project,j)=>{
+
+      projects+=`
+
+      <div class="project">
+
+        <div class="category-title">
+
+          <h3>Projet ${j+1}</h3>
+
+          <button
+            type="button"
+            class="danger"
+            onclick="deleteProject(${i},${j})">
+            Supprimer
+          </button>
+
+        </div>
+
+        <div class="grid">
+
+          <div>
+            <label>Titre FR</label>
+            <input
+              id="ref-${i}-${j}-title-fr"
+              value="${escapeHtml(project.title?.fr||'')}">
+          </div>
+
+          <div>
+            <label>Titre DE</label>
+            <input
+              id="ref-${i}-${j}-title-de"
+              value="${escapeHtml(project.title?.de||'')}">
+          </div>
+
+          <div>
+            <label>Description FR</label>
+            <textarea id="ref-${i}-${j}-desc-fr">${escapeHtml(project.description?.fr||'')}</textarea>
+          </div>
+
+          <div>
+            <label>Description DE</label>
+            <textarea id="ref-${i}-${j}-desc-de">${escapeHtml(project.description?.de||'')}</textarea>
+          </div>
+
+        </div>
+
+        ${
+          project.image
+          ?
+          `<img class="preview" src="../${project.image}" alt="">`
+          :
+          `<p class="hint">Aucune photo pour ce projet.</p>`
+        }
+
+      </div>
+      `;
+
+    });
+
+
+    div.innerHTML=`
+
+      <div class="category-title">
+
+        <h3>
+          ${category.title?.fr || ''}
+        </h3>
+
+        <span class="hint">
+          ${category.projects?.length || 0} projet(s)
+        </span>
+
+      </div>
+
+      <div class="grid">
+
+        <div>
+          <label>Nom FR</label>
+          <input
+            id="category-${i}-fr"
+            value="${escapeHtml(category.title?.fr||'')}">
+        </div>
+
+        <div>
+          <label>Nom DE</label>
+          <input
+            id="category-${i}-de"
+            value="${escapeHtml(category.title?.de||'')}">
+        </div>
+
+      </div>
+
+      <hr>
+
+      ${projects}
+
+      <button
+        type="button"
+        onclick="addProject(${i})">
+        + Ajouter un projet
+      </button>
+
+    `;
+
+    container.appendChild(div);
+
+  });
+
+}
+
+
+/* =========================
+   PROJETS
+========================= */
+
+function addProject(categoryIndex){
+
+  if(!C.references.items[categoryIndex].projects){
+
+    C.references.items[categoryIndex].projects=[];
+
+  }
+
+  C.references.items[categoryIndex].projects.push({
+
+    id:'project-'+Date.now(),
+
+    title:{
+      fr:'',
+      de:''
+    },
+
+    description:{
+      fr:'',
+      de:''
+    },
+
+    image:''
+
+  });
+
+  renderReferences();
+
+}
+
+
+function deleteProject(categoryIndex,projectIndex){
+
+  if(!confirm('Supprimer ce projet ?')) return;
+
+  C.references.items[categoryIndex]
+    .projects
+    .splice(projectIndex,1);
+
+  renderReferences();
+
+}
+
+
+/* =========================
+   OFFRES D'EMPLOI
+========================= */
+
+function renderJobs(){
+
+  const container=$('jobs-editor');
+
+  container.innerHTML='';
+
+  (C.jobs.items||[]).forEach((job,i)=>{
+
+    const div=document.createElement('div');
+
+    div.className='box';
+
+    div.innerHTML=`
+
+      <div class="category-title">
+
+        <h3>Offre ${i+1}</h3>
+
+        <button
+          type="button"
+          class="danger"
+          onclick="deleteJob(${i})">
+          Supprimer
+        </button>
+
+      </div>
+
+      <div class="grid">
+
+        <div>
+          <label>Titre FR</label>
+          <input id="job-${i}-title-fr">
+        </div>
+
+        <div>
+          <label>Titre DE</label>
+          <input id="job-${i}-title-de">
+        </div>
+
+        <div>
+          <label>Description FR</label>
+          <textarea id="job-${i}-desc-fr"></textarea>
+        </div>
+
+        <div>
+          <label>Description DE</label>
+          <textarea id="job-${i}-desc-de"></textarea>
+        </div>
+
+      </div>
+
+    `;
+
+    container.appendChild(div);
+
+    set(`job-${i}-title-fr`,job.title?.fr);
+    set(`job-${i}-title-de`,job.title?.de);
+    set(`job-${i}-desc-fr`,job.description?.fr);
+    set(`job-${i}-desc-de`,job.description?.de);
+
+  });
+
+}
+
+
+function addJob(){
+
+  if(!C.jobs.items){
+    C.jobs.items=[];
+  }
+
+  C.jobs.items.push({
+
+    id:'job-'+Date.now(),
+
+    title:{
+      fr:'',
+      de:''
+    },
+
+    description:{
+      fr:'',
+      de:''
+    },
+
+    image:''
+
+  });
+
+  renderJobs();
+
+}
+
+
+function deleteJob(i){
+
+  if(!confirm('Supprimer cette offre ?')) return;
+
+  C.jobs.items.splice(i,1);
+
+  renderJobs();
+
+}
+
+
+/* =========================
+   ESCAPE
+========================= */
+
+function escapeHtml(value){
+
+  return String(value ?? '')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#039;');
+
+}
+
+
+/* =========================
+   REMPLISSAGE
+========================= */
+
 function fill(){
- set('site-phone',C.site.phone);set('site-email',C.site.email);set('site-title',C.site.title);set('site-description',C.site.description);set('hero-kicker',C.hero.kicker);setB('hero-title',C.hero.title);setB('hero-text',C.hero.text);setB('hero-primary',C.hero.primary);setB('hero-secondary',C.hero.secondary);setB('services-title',C.services.title);setB('services-intro',C.services.intro);setB('process-title',C.process.title);setB('process-intro',C.process.intro);setB('company-title',C.company.title);setB('company-p1',C.company.paragraph1);setB('company-p2',C.company.paragraph2);setB('refs-title',C.references.title);setB('refs-intro',C.references.intro);setB('contact-title',C.contact.title);setB('contact-intro',C.contact.intro);setB('contact-card-title',C.contact.cardTitle);setB('contact-card-text',C.contact.cardText);setB('contact-button',C.contact.button);renderLists();}
-function collect(){C.site.phone=val('site-phone');C.site.email=val('site-email');C.site.title=val('site-title');C.site.description=val('site-description');C.hero.kicker=val('hero-kicker');C.hero.title=getB('hero-title');C.hero.text=getB('hero-text');C.hero.primary=getB('hero-primary');C.hero.secondary=getB('hero-secondary');C.services.title=getB('services-title');C.services.intro=getB('services-intro');C.services.items.forEach((x,i)=>{x.number=val('s'+i+'-number');x.title={fr:val('s'+i+'-title-fr'),de:val('s'+i+'-title-de')};x.text={fr:val('s'+i+'-text-fr'),de:val('s'+i+'-text-de')}});C.process.title=getB('process-title');C.process.intro=getB('process-intro');C.process.steps.forEach((x,i)=>{x.title={fr:val('st'+i+'-title-fr'),de:val('st'+i+'-title-de')};x.text={fr:val('st'+i+'-text-fr'),de:val('st'+i+'-text-de')}});C.company.title=getB('company-title');C.company.paragraph1=getB('company-p1');C.company.paragraph2=getB('company-p2');C.company.facts.forEach((x,i)=>{x.value=val('f'+i+'-value');x.label=val('f'+i+'-label')});C.references.title=getB('refs-title');C.references.intro=getB('refs-intro');C.references.items.forEach((x,i)=>{
-    x.title={
-        fr:val('r'+i+'-fr'),
-        de:val('r'+i+'-de')
+
+  /* SITE */
+
+  set('site-phone',C.site.phone);
+  set('site-email',C.site.email);
+  set('site-address',C.site.address);
+  set('site-hours-fr',C.site.hours?.fr);
+  set('site-hours-de',C.site.hours?.de);
+  set('site-facebook',C.site.facebook);
+  set('site-instagram',C.site.instagram);
+  set('site-title',C.site.title);
+  set('site-description',C.site.description);
+
+
+  /* HERO */
+
+  set('hero-kicker-fr',C.hero.kicker?.fr);
+  set('hero-kicker-de',C.hero.kicker?.de);
+
+  bilingual('hero-title',C.hero.title);
+  bilingual('hero-text',C.hero.text);
+
+  set('hero-about-fr',C.hero.aboutButton?.fr);
+  set('hero-about-de',C.hero.aboutButton?.de);
+
+  set('hero-ref-fr',C.hero.referencesButton?.fr);
+  set('hero-ref-de',C.hero.referencesButton?.de);
+
+
+  /* ABOUT */
+
+  bilingual('about-kicker',C.about.kicker);
+  bilingual('about-title',C.about.title);
+  bilingual('about-intro',C.about.intro);
+
+
+  /* REFERENCES */
+
+  bilingual('refs-kicker',C.references.kicker);
+  bilingual('refs-title',C.references.title);
+  bilingual('refs-intro',C.references.intro);
+
+
+  /* JOBS */
+
+  bilingual('jobs-kicker',C.jobs.kicker);
+  bilingual('jobs-title',C.jobs.title);
+  bilingual('jobs-intro',C.jobs.intro);
+
+
+  /* CONTACT */
+
+  bilingual('contact-kicker',C.contact.kicker);
+  bilingual('contact-title',C.contact.title);
+  bilingual('contact-intro',C.contact.intro);
+  bilingual('contact-card',C.contact.cardTitle);
+  bilingual('contact-text',C.contact.cardText);
+  bilingual('contact-button',C.contact.button);
+
+
+  /* FOOTER */
+
+  bilingual('footer-description',C.footer.description);
+  bilingual('footer-copyright',C.footer.copyright);
+
+
+  renderPoles();
+  renderReferences();
+  renderJobs();
+
+}
+
+
+/* =========================
+   COLLECT
+========================= */
+
+function collect(){
+
+  /* SITE */
+
+  C.site.phone=val('site-phone');
+  C.site.email=val('site-email');
+  C.site.address=val('site-address');
+
+  if(!C.site.hours) C.site.hours={};
+
+  C.site.hours.fr=val('site-hours-fr');
+  C.site.hours.de=val('site-hours-de');
+
+  C.site.facebook=val('site-facebook');
+  C.site.instagram=val('site-instagram');
+
+  C.site.title=val('site-title');
+  C.site.description=val('site-description');
+
+
+  /* HERO */
+
+  C.hero.kicker={
+    fr:val('hero-kicker-fr'),
+    de:val('hero-kicker-de')
+  };
+
+  C.hero.title=getBilingual('hero-title');
+
+  C.hero.text=getBilingual('hero-text');
+
+  C.hero.aboutButton={
+    fr:val('hero-about-fr'),
+    de:val('hero-about-de')
+  };
+
+  C.hero.referencesButton={
+    fr:val('hero-ref-fr'),
+    de:val('hero-ref-de')
+  };
+
+
+  /* ABOUT */
+
+  C.about.kicker=getBilingual('about-kicker');
+  C.about.title=getBilingual('about-title');
+  C.about.intro=getBilingual('about-intro');
+
+
+  C.about.poles.forEach((pole,i)=>{
+
+    pole.number=val(`pole-${i}-number`);
+
+    pole.title={
+      fr:val(`pole-${i}-title-fr`),
+      de:val(`pole-${i}-title-de`)
     };
-});C.contact.title=getB('contact-title');C.contact.intro=getB('contact-intro');C.contact.cardTitle=getB('contact-card-title');C.contact.cardText=getB('contact-card-text');C.contact.button=getB('contact-button');}
-async function loadContent(){try{$('status').textContent='Connexion à GitHub…';const data=await api('/contents/content.json?ref='+encodeURIComponent(settings().branch));sha=data.sha;C=JSON.parse(dec(data.content));fill();$('editor').style.display='block';$('status').textContent='Contenu chargé. Vous pouvez modifier les textes puis publier.';}catch(e){$('status').innerHTML='<span class="danger">Erreur : '+e.message+'</span>';}}
-async function uploadReferenceImage(){
+
+    pole.text={
+      fr:val(`pole-${i}-text-fr`),
+      de:val(`pole-${i}-text-de`)
+    };
+
+  });
+
+
+  /* REFERENCES */
+
+  C.references.kicker=getBilingual('refs-kicker');
+  C.references.title=getBilingual('refs-title');
+  C.references.intro=getBilingual('refs-intro');
+
+
+  C.references.items.forEach((category,i)=>{
+
+    category.title={
+      fr:val(`category-${i}-fr`),
+      de:val(`category-${i}-de`)
+    };
+
+    (category.projects||[]).forEach((project,j)=>{
+
+      project.title={
+        fr:val(`ref-${i}-${j}-title-fr`),
+        de:val(`ref-${i}-${j}-title-de`)
+      };
+
+      project.description={
+        fr:val(`ref-${i}-${j}-desc-fr`),
+        de:val(`ref-${i}-${j}-desc-de`)
+      };
+
+    });
+
+  });
+
+
+  /* JOBS */
+
+  C.jobs.kicker=getBilingual('jobs-kicker');
+  C.jobs.title=getBilingual('jobs-title');
+  C.jobs.intro=getBilingual('jobs-intro');
+
+
+  (C.jobs.items||[]).forEach((job,i)=>{
+
+    job.title={
+      fr:val(`job-${i}-title-fr`),
+      de:val(`job-${i}-title-de`)
+    };
+
+    job.description={
+      fr:val(`job-${i}-desc-fr`),
+      de:val(`job-${i}-desc-de`)
+    };
+
+  });
+
+
+  /* CONTACT */
+
+  C.contact.kicker=getBilingual('contact-kicker');
+  C.contact.title=getBilingual('contact-title');
+  C.contact.intro=getBilingual('contact-intro');
+  C.contact.cardTitle=getBilingual('contact-card');
+  C.contact.cardText=getBilingual('contact-text');
+  C.contact.button=getBilingual('contact-button');
+
+
+  /* FOOTER */
+
+  C.footer.description=getBilingual('footer-description');
+  C.footer.copyright=getBilingual('footer-copyright');
+
+}
+
+
+/* =========================
+   CHARGER
+========================= */
+
+async function loadContent(){
+
   try{
-    const file=$('ref-image').files[0];
 
-    if(!file){
-      $('image-status').innerHTML='<span class="danger">Veuillez choisir une photo.</span>';
-      return;
-    }
+    $('status').textContent=
+      'Connexion à GitHub…';
 
-    if(!['image/jpeg','image/png','image/webp'].includes(file.type)){
-      $('image-status').innerHTML='<span class="danger">Format accepté : JPG, PNG ou WEBP.</span>';
-      return;
-    }
+    const data=await api(
+      '/contents/content.json?ref='+
+      encodeURIComponent(settings().branch)
+    );
 
-    if(file.size>8*1024*1024){
-      $('image-status').innerHTML='<span class="danger">La photo est trop lourde. Maximum : 8 Mo.</span>';
-      return;
-    }
+    sha=data.sha;
+
+    C=JSON.parse(dec(data.content));
+
+    fill();
+
+    $('editor').style.display='block';
+
+    $('status').innerHTML=
+      '<span class="success">Contenu chargé avec succès.</span>';
+
+  }
+  catch(e){
+
+    $('status').innerHTML=
+      '<span class="danger-text">Erreur : '+
+      escapeHtml(e.message)+
+      '</span>';
+
+  }
+
+}
+
+
+/* =========================
+   SAUVEGARDER
+========================= */
+
+async function saveContent(){
+
+  try{
+
+    collect();
 
     const s=auth();
 
-    $('image-status').textContent='Envoi de la photo vers GitHub…';
+    $('save').disabled=true;
 
-    const ext=file.name.split('.').pop().toLowerCase();
-    const safeName=file.name
-      .replace(/\.[^/.]+$/,'')
-      .toLowerCase()
-      .normalize('NFD')
-      .replace(/[\u0300-\u036f]/g,'')
-      .replace(/[^a-z0-9]+/g,'-')
-      .replace(/^-+|-+$/g,'');
+    $('status').textContent=
+      'Publication en cours…';
 
-    const fileName=(safeName||'realisation')+'-'+Date.now()+'.'+ext;
-    const path='images/realisations/'+fileName;
+    const r=await api(
+      '/contents/content.json',
+      {
+        method:'PUT',
 
-    const buffer=await file.arrayBuffer();
-    const bytes=new Uint8Array(buffer);
+        body:JSON.stringify({
 
-    let binary='';
-    const chunkSize=0x8000;
+          message:'Mettre à jour le contenu ROOFCON',
 
-    for(let i=0;i<bytes.length;i+=chunkSize){
-      binary+=String.fromCharCode(...bytes.subarray(i,i+chunkSize));
-    }
+          content:enc(
+            JSON.stringify(C,null,2)+'\n'
+          ),
 
-    const base64=btoa(binary);
+          sha:sha,
 
-    await api('/contents/'+path,{
-      method:'PUT',
-      body:JSON.stringify({
-        message:'Ajouter une photo de réalisation',
-        content:base64,
-        branch:s.branch
-      })
-    });
+          branch:s.branch
 
-    const imagePath=path;
+        })
 
-    C.references.items.push({
-      image:imagePath,
-      label:{
-        fr:file.name.replace(/\.[^/.]+$/,''),
-        de:file.name.replace(/\.[^/.]+$/,'')
       }
-    });
+    );
 
-    renderLists();
+    sha=r.content.sha;
 
-    $('ref-image').value='';
+    $('status').innerHTML=
+      '<span class="success">Publié avec succès ! Le site va se mettre à jour dans quelques instants.</span>';
 
-    $('image-status').textContent='Photo ajoutée avec succès. N’oubliez pas de cliquer sur « Enregistrer et publier ».';
-
-  }catch(e){
-    $('image-status').innerHTML='<span class="danger">Erreur : '+e.message+'</span>';
   }
-} 
-async function saveContent(){try{collect();const s=auth();$('save').disabled=true;$('status').textContent='Publication en cours…';const r=await api('/contents/content.json',{method:'PUT',body:JSON.stringify({message:'Mettre à jour le contenu ROOFCON',content:enc(JSON.stringify(C,null,2)+'\n'),sha,branch:s.branch})});sha=r.content.sha;$('status').textContent='Publié avec succès. Le site peut prendre quelques instants à se mettre à jour.';}catch(e){$('status').innerHTML='<span class="danger">Erreur de publication : '+e.message+'</span>';}finally{$('save').disabled=false;}}
+  catch(e){
+
+    $('status').innerHTML=
+      '<span class="danger-text">Erreur de publication : '+
+      escapeHtml(e.message)+
+      '</span>';
+
+  }
+  finally{
+
+    $('save').disabled=false;
+
+  }
+
+}
+
+
 loadSettings();
-</script></body></html>
+
+</script>
+
+</body>
+</html>
