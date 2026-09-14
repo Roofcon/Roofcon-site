@@ -1145,11 +1145,11 @@ C.references.items[categoryIndex].projects.push({
 
 }
 
-async function selectProjectImage(categoryIndex, projectIndex, input){
+async function selectProjectImages(categoryIndex, projectIndex, input){
 
-  const file = input.files[0];
+  const files = Array.from(input.files);
 
-  if(!file){
+  if(!files.length){
     return;
   }
 
@@ -1158,7 +1158,7 @@ async function selectProjectImage(categoryIndex, projectIndex, input){
     const s = auth();
 
     $('status').textContent =
-      'Envoi de la photo vers GitHub…';
+      'Envoi des photos vers GitHub…';
 
 
     const category =
@@ -1173,56 +1173,66 @@ async function selectProjectImage(categoryIndex, projectIndex, input){
     }
 
 
-    /* NOM DU FICHIER */
-
-    const extension =
-      file.name
-        .split('.')
-        .pop()
-        .toLowerCase();
-
-
-    const filename =
-      project.id +
-      '-' +
-      Date.now() +
-      '.' +
-      extension;
-
-
-    const path =
-      'images/realisations/' +
-      filename;
-
-
-    /* LECTURE DU FICHIER */
-
-    const buffer =
-      await file.arrayBuffer();
-
-
-    const bytes =
-      new Uint8Array(buffer);
-
-
-    let binary='';
-
-
-    for(let i=0;i<bytes.length;i++){
-
-      binary +=
-        String.fromCharCode(bytes[i]);
-
+    if(!project.images){
+      project.images=[];
     }
 
 
-    const content =
-      btoa(binary);
+    for(const file of files){
+
+      /* NOM DU FICHIER */
+
+      const extension =
+        file.name
+          .split('.')
+          .pop()
+          .toLowerCase();
 
 
-    /* ENVOI À GITHUB */
+      const filename =
+        project.id +
+        '-' +
+        Date.now() +
+        '-' +
+        Math.random()
+          .toString(36)
+          .substring(2,8) +
+        '.' +
+        extension;
 
-    const result =
+
+      const path =
+        'images/realisations/' +
+        filename;
+
+
+      /* LECTURE DU FICHIER */
+
+      const buffer =
+        await file.arrayBuffer();
+
+
+      const bytes =
+        new Uint8Array(buffer);
+
+
+      let binary='';
+
+
+      for(let i=0;i<bytes.length;i++){
+
+        binary +=
+          String.fromCharCode(bytes[i]);
+
+      }
+
+
+      const content =
+        btoa(binary);
+
+
+      /* ENVOI À GITHUB */
+
       await api(
         '/contents/' + path,
         {
@@ -1245,79 +1255,87 @@ async function selectProjectImage(categoryIndex, projectIndex, input){
       );
 
 
-    /* ENREGISTRER LE CHEMIN */
+      /* AJOUTER LA PHOTO AU PROJET */
 
-    project.image =
-      path;
+      project.images.push(path);
+
+
+      /* PREMIÈRE PHOTO = PHOTO PRINCIPALE */
+
+      if(!project.image){
+
+        project.image=path;
+
+      }
+
+    }
 
 
     /* APERÇU */
 
-    const projectBox =
-      input.closest('.project');
-
-
-    const oldPreview =
-      projectBox.querySelector(
-        '.project-preview'
+    const previewContainer =
+      document.getElementById(
+        'project-images-' +
+        categoryIndex +
+        '-' +
+        projectIndex
       );
 
 
-    if(oldPreview){
-      oldPreview.remove();
+    if(previewContainer){
+
+      previewContainer.innerHTML='';
+
+
+      project.images.forEach(function(image){
+
+        const img =
+          document.createElement('img');
+
+
+        img.className =
+          'preview project-preview';
+
+
+        img.src =
+          '../' + image +
+          '?v=' + Date.now();
+
+
+        img.alt =
+          'Aperçu du projet';
+
+
+        img.style.width =
+          '180px';
+
+        img.style.height =
+          '120px';
+
+        img.style.objectFit =
+          'cover';
+
+
+        previewContainer.appendChild(img);
+
+      });
+
     }
-
-
-    const img =
-      document.createElement('img');
-
-
-    img.className =
-      'preview project-preview';
-
-
-    img.src =
-      '../' + path +
-      '?v=' + Date.now();
-
-
-    img.alt =
-      'Aperçu du projet';
-
-
-    img.style.display =
-      'block';
-
-
-    img.style.maxWidth =
-      '400px';
-
-
-    img.style.marginTop =
-      '15px';
-
-
-    input.parentElement
-      .appendChild(img);
 
 
     $('status').innerHTML =
       '<span class="success">' +
-      'Photo envoyée avec succès ! ' +
+      files.length +
+      ' photo(s) envoyée(s) avec succès ! ' +
       'Cliquez maintenant sur « Enregistrer et publier ». ' +
       '</span>';
 
-
-    console.log(
-      'Photo GitHub :',
-      result
-    );
 
   }
   catch(e){
 
     console.error(
-      'Erreur upload photo :',
+      'Erreur upload photos :',
       e
     );
 
