@@ -1138,9 +1138,60 @@ function renderJobs(){
 
   (C.jobs.items||[]).forEach((job,i)=>{
 
+    if(!Array.isArray(job.images)){
+      job.images=[];
+
+      if(job.image){
+        job.images.push(job.image);
+        delete job.image;
+      }
+    }
+
     const div=document.createElement('div');
 
     div.className='box';
+
+    let photos='';
+
+    job.images.forEach((image,j)=>{
+
+      photos+=`
+
+        <div
+          class="job-photo"
+          style="
+            display:inline-block;
+            margin:10px;
+            vertical-align:top;
+          "
+        >
+
+          <img
+            class="preview job-preview"
+            src="../${image}"
+            alt=""
+            style="
+              display:block;
+              max-width:220px;
+              max-height:160px;
+              object-fit:cover;
+              margin-bottom:8px;
+            "
+          >
+
+          <button
+            type="button"
+            class="danger"
+            onclick="deleteJobImage(${i},${j})"
+          >
+            Supprimer
+          </button>
+
+        </div>
+
+      `;
+
+    });
 
     div.innerHTML=`
 
@@ -1151,7 +1202,8 @@ function renderJobs(){
         <button
           type="button"
           class="danger"
-          onclick="deleteJob(${i})">
+          onclick="deleteJob(${i})"
+        >
           Supprimer
         </button>
 
@@ -1181,27 +1233,28 @@ function renderJobs(){
 
       </div>
 
-      <div style="margin-top:15px">
+      <div style="margin-top:20px">
 
-        <label>Photo de l'offre</label>
+        <label>Photos de l'offre</label>
 
         <input
           type="file"
           accept="image/*"
-          onchange="selectJobImage(${i},this)"
+          multiple
+          onchange="selectJobImages(${i},this)"
         >
 
-        ${
-          job.image
-          ?
-          `<img
-            class="preview job-preview"
-            src="../${job.image}"
-            alt=""
-          >`
-          :
-          `<p class="hint">Aucune photo pour cette offre.</p>`
-        }
+        <div style="margin-top:15px">
+
+          ${
+            photos
+            ?
+            photos
+            :
+            `<p class="hint">Aucune photo pour cette offre.</p>`
+          }
+
+        </div>
 
       </div>
 
@@ -1209,97 +1262,122 @@ function renderJobs(){
 
     container.appendChild(div);
 
-    set(`job-${i}-title-fr`,job.title?.fr);
-    set(`job-${i}-title-de`,job.title?.de);
-    set(`job-${i}-desc-fr`,job.description?.fr);
-    set(`job-${i}-desc-de`,job.description?.de);
+    set(
+      `job-${i}-title-fr`,
+      job.title?.fr
+    );
+
+    set(
+      `job-${i}-title-de`,
+      job.title?.de
+    );
+
+    set(
+      `job-${i}-desc-fr`,
+      job.description?.fr
+    );
+
+    set(
+      `job-${i}-desc-de`,
+      job.description?.de
+    );
 
   });
 
 }
 
-async function selectJobImage(jobIndex,input){
 
-  const file=input.files[0];
+async function selectJobImages(jobIndex,input){
 
-  if(!file) return;
+  const files=Array.from(input.files||[]);
+
+  if(!files.length) return;
 
   try{
 
     const s=auth();
 
-    $('status').textContent='Envoi de la photo…';
+    $('status').textContent=
+      'Envoi des photos…';
 
     const job=C.jobs.items[jobIndex];
 
-    const extension=
-      file.name.split('.').pop().toLowerCase();
-
-    const filename=
-      (job.id || 'job-'+Date.now())+
-      '-' +
-      Date.now()+
-      '.'+
-      extension;
-
-    const path=
-      'images/jobs/'+
-      filename;
-
-    const buffer=await file.arrayBuffer();
-
-    const bytes=new Uint8Array(buffer);
-
-    let binary='';
-
-    bytes.forEach(function(b){
-      binary+=String.fromCharCode(b);
-    });
-
-    const content=btoa(binary);
-
-    await api(
-      '/contents/'+path,
-      {
-        method:'PUT',
-
-        body:JSON.stringify({
-
-          message:'Ajouter une photo d’offre d’emploi',
-
-          content:content,
-
-          branch:s.branch
-
-        })
-
-      }
-    );
-
-    job.image=path;
-
-    const jobBox=input.closest('.box');
-
-    const oldPreview=
-      jobBox.querySelector('.job-preview');
-
-    if(oldPreview){
-      oldPreview.remove();
+    if(!Array.isArray(job.images)){
+      job.images=[];
     }
 
-    const img=document.createElement('img');
+    for(const file of files){
 
-    img.className='preview job-preview';
+      const extension=
+        file.name
+          .split('.')
+          .pop()
+          .toLowerCase();
 
-    img.src='../'+path;
+      const filename=
+        (job.id || 'job-'+Date.now())+
+        '-' +
+        Date.now()+
+        '-' +
+        Math.random()
+          .toString(36)
+          .substring(2,8)+
+        '.'+
+        extension;
 
-    img.alt='';
+      const path=
+        'images/jobs/'+
+        filename;
 
-    input.parentElement.appendChild(img);
+      const buffer=
+        await file.arrayBuffer();
+
+      const bytes=
+        new Uint8Array(buffer);
+
+      let binary='';
+
+      bytes.forEach(function(b){
+
+        binary+=
+          String.fromCharCode(b);
+
+      });
+
+      const content=
+        btoa(binary);
+
+      await api(
+        '/contents/'+path,
+        {
+          method:'PUT',
+
+          body:JSON.stringify({
+
+            message:
+              'Ajouter une photo à une offre d’emploi',
+
+            content:content,
+
+            branch:s.branch
+
+          })
+
+        }
+      );
+
+      job.images.push(path);
+
+    }
+
+    input.value='';
+
+    renderJobs();
 
     $('status').innerHTML=
       '<span class="success">'+
-      'Photo ajoutée ! Cliquez maintenant sur « Enregistrer et publier ». '+
+      files.length+
+      ' photo(s) ajoutée(s) ! Cliquez maintenant sur « Enregistrer et publier ». '+
       '</span>';
 
   }
@@ -1312,6 +1390,30 @@ async function selectJobImage(jobIndex,input){
       '</span>';
 
   }
+
+}
+
+
+function deleteJobImage(jobIndex,imageIndex){
+
+  if(!confirm('Supprimer cette photo de l’offre ?')){
+    return;
+  }
+
+  const job=C.jobs.items[jobIndex];
+
+  if(!Array.isArray(job.images)){
+    job.images=[];
+  }
+
+  job.images.splice(imageIndex,1);
+
+  renderJobs();
+
+  $('status').innerHTML=
+    '<span class="success">'+
+    'Photo retirée. Cliquez sur « Enregistrer et publier » pour enregistrer la modification.'+
+    '</span>';
 
 }
 function addJob(){
@@ -1334,7 +1436,7 @@ function addJob(){
       de:''
     },
 
-    image:''
+    images:[]
 
   });
 
@@ -1548,26 +1650,35 @@ function collect(){
   });
 
 
-  /* JOBS */
+/* JOBS */
 
-  C.jobs.kicker=getBilingual('jobs-kicker');
-  C.jobs.title=getBilingual('jobs-title');
-  C.jobs.intro=getBilingual('jobs-intro');
+C.jobs.kicker=getBilingual('jobs-kicker');
+C.jobs.title=getBilingual('jobs-title');
+C.jobs.intro=getBilingual('jobs-intro');
 
 
-  (C.jobs.items||[]).forEach((job,i)=>{
+(C.jobs.items||[]).forEach((job,i)=>{
 
-    job.title={
-      fr:val(`job-${i}-title-fr`),
-      de:val(`job-${i}-title-de`)
-    };
+  job.title={
+    fr:val(`job-${i}-title-fr`),
+    de:val(`job-${i}-title-de`)
+  };
 
-    job.description={
-      fr:val(`job-${i}-desc-fr`),
-      de:val(`job-${i}-desc-de`)
-    };
+  job.description={
+    fr:val(`job-${i}-desc-fr`),
+    de:val(`job-${i}-desc-de`)
+  };
 
-  });
+  if(!Array.isArray(job.images)){
+    job.images=[];
+
+    if(job.image){
+      job.images.push(job.image);
+      delete job.image;
+    }
+  }
+
+});
 
 
   /* CONTACT */
