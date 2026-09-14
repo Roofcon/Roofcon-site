@@ -1181,6 +1181,30 @@ function renderJobs(){
 
       </div>
 
+      <div style="margin-top:15px">
+
+        <label>Photo de l'offre</label>
+
+        <input
+          type="file"
+          accept="image/*"
+          onchange="selectJobImage(${i},this)"
+        >
+
+        ${
+          job.image
+          ?
+          `<img
+            class="preview job-preview"
+            src="../${job.image}"
+            alt=""
+          >`
+          :
+          `<p class="hint">Aucune photo pour cette offre.</p>`
+        }
+
+      </div>
+
     `;
 
     container.appendChild(div);
@@ -1194,7 +1218,102 @@ function renderJobs(){
 
 }
 
+async function selectJobImage(jobIndex,input){
 
+  const file=input.files[0];
+
+  if(!file) return;
+
+  try{
+
+    const s=auth();
+
+    $('status').textContent='Envoi de la photo…';
+
+    const job=C.jobs.items[jobIndex];
+
+    const extension=
+      file.name.split('.').pop().toLowerCase();
+
+    const filename=
+      (job.id || 'job-'+Date.now())+
+      '-' +
+      Date.now()+
+      '.'+
+      extension;
+
+    const path=
+      'images/jobs/'+
+      filename;
+
+    const buffer=await file.arrayBuffer();
+
+    const bytes=new Uint8Array(buffer);
+
+    let binary='';
+
+    bytes.forEach(function(b){
+      binary+=String.fromCharCode(b);
+    });
+
+    const content=btoa(binary);
+
+    await api(
+      '/contents/'+path,
+      {
+        method:'PUT',
+
+        body:JSON.stringify({
+
+          message:'Ajouter une photo d’offre d’emploi',
+
+          content:content,
+
+          branch:s.branch
+
+        })
+
+      }
+    );
+
+    job.image=path;
+
+    const jobBox=input.closest('.box');
+
+    const oldPreview=
+      jobBox.querySelector('.job-preview');
+
+    if(oldPreview){
+      oldPreview.remove();
+    }
+
+    const img=document.createElement('img');
+
+    img.className='preview job-preview';
+
+    img.src='../'+path;
+
+    img.alt='';
+
+    input.parentElement.appendChild(img);
+
+    $('status').innerHTML=
+      '<span class="success">'+
+      'Photo ajoutée ! Cliquez maintenant sur « Enregistrer et publier ». '+
+      '</span>';
+
+  }
+  catch(e){
+
+    $('status').innerHTML=
+      '<span class="danger-text">'+
+      'Erreur : '+
+      escapeHtml(e.message)+
+      '</span>';
+
+  }
+
+}
 function addJob(){
 
   if(!C.jobs.items){
