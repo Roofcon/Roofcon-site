@@ -1446,87 +1446,126 @@ function openReference(id){
     return;
   }
 
-  const ref=CONTENT.references.items.find(function(x){
+  let selectedProject=null;
+  let selectedCategory=null;
 
-    return x.id===id;
+  /* Recherche du projet dans toutes les catégories */
+
+  CONTENT.references.items.forEach(function(category){
+
+    (category.projects || []).forEach(function(project){
+
+      if(project.id===id){
+
+        selectedProject=project;
+        selectedCategory=category;
+
+      }
+
+    });
 
   });
 
-  if(!ref){
+
+  /* Si aucun projet trouvé */
+
+  if(!selectedProject){
     return;
   }
 
+
+  /* CONTENU DE LA PAGE */
+
   document.getElementById('detail-kicker').textContent=
-    LANG==='fr'
-      ? 'Nos réalisations'
-      : 'Unsere Referenzen';
+    t(selectedCategory.title);
+
 
   document.getElementById('detail-title').textContent=
-    t(ref.title);
+    t(selectedProject.title);
+
 
   document.getElementById('detail-intro').textContent=
-    LANG==='fr'
-      ? 'Découvrez nos projets réalisés dans ce domaine.'
-      : 'Entdecken Sie unsere Projekte in diesem Bereich.';
+    t(selectedProject.description);
+
 
   document.getElementById('detail-back-text').textContent=
     LANG==='fr'
       ? 'Retour aux références'
       : 'Zurück zu den Referenzen';
 
-  const projects=ref.projects || [];
 
-  const container=document.getElementById('detail-projects');
+  /* PROJET */
 
-  if(projects.length===0){
+  const container=
+    document.getElementById('detail-projects');
 
-    container.innerHTML=`
-      <div class="empty">
+
+  container.innerHTML=`
+
+    <article class="project-detail">
+
+      ${
+        selectedProject.image
+          ?
+          `
+            <div class="project-detail-image">
+
+              <img
+                src="${esc(selectedProject.image)}"
+                alt="${esc(t(selectedProject.title))}">
+
+            </div>
+          `
+          :
+          `
+            <div class="project-detail-placeholder">
+              ROOFCON
+            </div>
+          `
+      }
+
+      <div class="project-detail-content">
+
+        <div class="project-detail-category">
+
+          ${esc(t(selectedCategory.title))}
+
+        </div>
+
+        <h3>
+
+          ${esc(t(selectedProject.title))}
+
+        </h3>
+
         ${
-          LANG==='fr'
-            ? 'Les projets seront bientôt ajoutés.'
-            : 'Die Projekte werden bald hinzugefügt.'
+          selectedProject.description?.fr ||
+          selectedProject.description?.de
+            ?
+            `
+              <p>
+                ${esc(t(selectedProject.description))}
+              </p>
+            `
+            :
+            ''
         }
+
       </div>
-    `;
 
-  }else{
+    </article>
 
-    container.innerHTML=projects.map(function(project){
+  `;
 
-      return `
 
-        <article class="project">
+  /* AFFICHER LA PAGE */
 
-          ${
-            project.image
-              ? `
-                <img
-                  src="${esc(project.image)}"
-                  alt="${esc(t(project.title))}">
-              `
-              : ''
-          }
+  showPage('reference-detail');
 
-          <div class="project-content">
+}
 
-            <h3>
-              ${esc(t(project.title))}
-            </h3>
 
-            <p>
-              ${esc(t(project.description))}
-            </p>
-
-          </div>
-
-        </article>
-
-      `;
-
-    }).join('');
-
-  }
+/* AFFICHAGE PRINCIPAL */
 
   showPage('reference-detail');
 
