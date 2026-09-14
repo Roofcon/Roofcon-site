@@ -1071,12 +1071,12 @@ async function selectProjectImage(categoryIndex, projectIndex, input){
       }
     );
 
-    project.image=path;
+project.image=path;
 
-    renderReferences();
+renderReferences();
 
-    $('status').innerHTML=
-      '<span class="success">Photo ajoutée avec succès !</span>';
+$('status').innerHTML=
+  '<span class="success">Photo ajoutée avec succès ! Cliquez maintenant sur « Enregistrer et publier ».</span>';
 
   }
   catch(e){
