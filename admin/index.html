@@ -909,11 +909,11 @@ function renderReferences(){
   ${
     project.image
     ?
-    `<img
-      class="preview"
-      src="../${project.image}"
-      alt=""
-    >`
+<img
+  class="preview project-preview"
+  src="../${project.image}"
+  alt=""
+>
     :
     `<p class="hint">Aucune photo pour ce projet.</p>`
   }
@@ -1069,15 +1069,28 @@ async function selectProjectImage(categoryIndex, projectIndex, input){
     );
 
     /* On enregistre immédiatement le chemin */
-    project.image = path;
+project.image = path;
 
-    /* On réaffiche le projet */
-    renderReferences();
+const projectBox = input.closest('.project');
 
-    $('status').innerHTML =
-      '<span class="success">' +
-      'Photo ajoutée ! Cliquez maintenant sur « Enregistrer et publier ». ' +
-      '</span>';
+const oldPreview = projectBox.querySelector('.project-preview');
+
+if(oldPreview){
+  oldPreview.remove();
+}
+
+const img = document.createElement('img');
+
+img.className = 'preview project-preview';
+img.src = '../' + path;
+img.alt = '';
+
+input.parentElement.appendChild(img);
+
+$('status').innerHTML =
+  '<span class="success">' +
+  'Photo ajoutée ! Cliquez maintenant sur « Enregistrer et publier ». ' +
+  '</span>';
 
   }
   catch(e){
