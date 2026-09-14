@@ -90,10 +90,10 @@
       "fr": "Notre objectif : réaliser des projets durables, soignés et adaptés à chaque client.",
       "de": "Unser Ziel: langlebige, sorgfältig ausgeführte und individuell auf jeden Kunden abgestimmte Projekte zu realisieren."
     },
-    "hallcon": {
-      "fr": "Découvrir nos projets →",
-      "de": "Entdecken Sie unsere Projekte →"
-    }
+   "hallcon": {
+  "fr": "Découvrir nos réalisations →",
+  "de": "Unsere Referenzen entdecken →"
+}
   },
   "about": {
     "kicker": {
