@@ -1446,110 +1446,65 @@ function openReference(id){
     return;
   }
 
-  let selectedProject=null;
-  let selectedCategory=null;
+  let project=null;
+  let category=null;
 
-  /* Recherche du projet dans toutes les catégories */
+  CONTENT.references.items.forEach(function(cat){
 
-  CONTENT.references.items.forEach(function(category){
+    (cat.projects || []).forEach(function(item){
 
-    (category.projects || []).forEach(function(project){
-
-      if(project.id===id){
-
-        selectedProject=project;
-        selectedCategory=category;
-
+      if(item.id===id){
+        project=item;
+        category=cat;
       }
 
     });
 
   });
 
-
-  /* Si aucun projet trouvé */
-
-  if(!selectedProject){
+  if(!project){
     return;
   }
 
-
-  /* CONTENU DE LA PAGE */
-
   document.getElementById('detail-kicker').textContent=
-    t(selectedCategory.title);
-
+    t(category.title);
 
   document.getElementById('detail-title').textContent=
-    t(selectedProject.title);
-
+    t(project.title);
 
   document.getElementById('detail-intro').textContent=
-    t(selectedProject.description);
-
+    t(project.description);
 
   document.getElementById('detail-back-text').textContent=
     LANG==='fr'
       ? 'Retour aux références'
       : 'Zurück zu den Referenzen';
 
+  document.getElementById('detail-projects').innerHTML=`
 
-  /* PROJET */
-
-  const container=
-    document.getElementById('detail-projects');
-
-
-  container.innerHTML=`
-
-    <article class="project-detail">
+    <article class="project">
 
       ${
-        selectedProject.image
+        project.image
           ?
           `
-            <div class="project-detail-image">
-
-              <img
-                src="${esc(selectedProject.image)}"
-                alt="${esc(t(selectedProject.title))}">
-
-            </div>
+            <img
+              src="${esc(project.image)}"
+              alt="${esc(t(project.title))}">
           `
           :
-          `
-            <div class="project-detail-placeholder">
-              ROOFCON
-            </div>
-          `
+          ''
       }
 
-      <div class="project-detail-content">
-
-        <div class="project-detail-category">
-
-          ${esc(t(selectedCategory.title))}
-
-        </div>
+      <div class="project-content">
 
         <h3>
-
-          ${esc(t(selectedProject.title))}
-
+          ${esc(t(project.title))}
         </h3>
 
-        ${
-          selectedProject.description?.fr ||
-          selectedProject.description?.de
-            ?
-            `
-              <p>
-                ${esc(t(selectedProject.description))}
-              </p>
-            `
-            :
-            ''
-        }
+        <p>
+          ${esc(t(project.description))}
+        </p>
 
       </div>
 
@@ -1557,15 +1512,9 @@ function openReference(id){
 
   `;
 
-
-  /* AFFICHER LA PAGE */
-
   showPage('reference-detail');
 
 }
-
-
-/* AFFICHAGE PRINCIPAL */
 
   showPage('reference-detail');
 
