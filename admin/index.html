@@ -1309,39 +1309,82 @@ async function selectProjectImages(categoryIndex, projectIndex, input){
       previewContainer.innerHTML='';
 
 
-      project.images.forEach(function(image){
+project.images.forEach(function(image, imageIndex){
 
-        const img =
-          document.createElement('img');
+  const wrapper =
+    document.createElement('div');
 
+  wrapper.style.width =
+    '180px';
 
-        img.className =
-          'preview project-preview';
-
-
-        img.src =
-          '../' + image +
-          '?v=' + Date.now();
+  wrapper.style.position =
+    'relative';
 
 
-        img.alt =
-          'Aperçu du projet';
+  const img =
+    document.createElement('img');
+
+  img.className =
+    'preview project-preview';
+
+  img.src =
+    '../' + image +
+    '?v=' + Date.now();
+
+  img.alt =
+    'Aperçu du projet';
+
+  img.style.width =
+    '180px';
+
+  img.style.height =
+    '120px';
+
+  img.style.objectFit =
+    'cover';
+
+  img.style.display =
+    'block';
 
 
-        img.style.width =
-          '180px';
+  const button =
+    document.createElement('button');
 
-        img.style.height =
-          '120px';
+  button.type =
+    'button';
 
-        img.style.objectFit =
-          'cover';
+  button.className =
+    'danger';
+
+  button.textContent =
+    '🗑 Supprimer';
+
+  button.style.width =
+    '100%';
+
+  button.style.marginTop =
+    '6px';
 
 
-        previewContainer.appendChild(img);
+  button.onclick =
+    function(){
 
-      });
+      deleteProjectImage(
+        categoryIndex,
+        projectIndex,
+        imageIndex
+      );
 
+    };
+
+
+  wrapper.appendChild(img);
+
+  wrapper.appendChild(button);
+
+  previewContainer.appendChild(wrapper);
+
+});
     }
 
 
