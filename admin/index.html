@@ -1025,27 +1025,49 @@ function renderReferences(){
   >
 
     ${
-      (
-        project.images && project.images.length
-          ? project.images
-          : (project.image ? [project.image] : [])
-      )
-      .map(function(image){
+    (
+  project.images && project.images.length
+    ? project.images
+    : (project.image ? [project.image] : [])
+)
+.map(function(image, imageIndex){
 
-        return `
-          <img
-            class="preview project-preview"
-            src="../${image}"
-            alt=""
-            style="
-              width:180px;
-              height:120px;
-              object-fit:cover;
-            "
-          >
-        `;
+  return `
+    <div
+      style="
+        width:180px;
+        position:relative;
+      "
+    >
 
-      }).join('')
+      <img
+        class="preview project-preview"
+        src="../${image}"
+        alt=""
+        style="
+          width:180px;
+          height:120px;
+          object-fit:cover;
+          display:block;
+        "
+      >
+
+      <button
+        type="button"
+        class="danger"
+        style="
+          width:100%;
+          margin-top:6px;
+        "
+        onclick="deleteProjectImage(${i},${j},${imageIndex})"
+      >
+        🗑 Supprimer
+      </button>
+
+    </div>
+  `;
+
+}).join('')
     }
 
   </div>
@@ -1361,18 +1383,137 @@ function deleteProject(categoryIndex,projectIndex){
   renderReferences();
 
 }
-function deleteProject(categoryIndex,projectIndex){
 
-  if(!confirm('Supprimer ce projet ?')) return;
+async function deleteProjectImage(
+  categoryIndex,
+  projectIndex,
+  imageIndex
+){
 
-  C.references.items[categoryIndex]
-    .projects
-    .splice(projectIndex,1);
+  if(
+    !confirm(
+      'Supprimer cette photo du projet ?'
+    )
+  ){
+    return;
+  }
 
-  renderReferences();
+  try{
+
+    const s = auth();
+
+    const category =
+      C.references.items[categoryIndex];
+
+    const project =
+      category.projects[projectIndex];
+
+    if(!project){
+      throw new Error(
+        'Projet introuvable.'
+      );
+    }
+
+    let images=[];
+
+    if(
+      Array.isArray(project.images)
+    ){
+
+      images =
+        [...project.images];
+
+    }
+    else if(project.image){
+
+      images =
+        [project.image];
+
+    }
+
+    const image =
+      images[imageIndex];
+
+    if(!image){
+      throw new Error(
+        'Photo introuvable.'
+      );
+    }
+
+    $('status').textContent =
+      'Suppression de la photo…';
+
+    const fileData =
+      await api(
+        '/contents/' + image +
+        '?ref=' + s.branch
+      );
+
+    await api(
+      '/contents/' + image,
+      {
+        method:'DELETE',
+
+        body:JSON.stringify({
+
+          message:
+            'Supprimer une photo de réalisation',
+
+          sha:
+            fileData.sha,
+
+          branch:
+            s.branch
+
+        })
+
+      }
+    );
+
+    images.splice(
+      imageIndex,
+      1
+    );
+
+    project.images =
+      images;
+
+    if(
+      project.image === image
+    ){
+
+      project.image =
+        images.length
+          ? images[0]
+          : '';
+
+    }
+
+    renderReferences();
+
+    $('status').innerHTML =
+      '<span class="success">' +
+      'Photo supprimée avec succès. ' +
+      'Cliquez maintenant sur « Enregistrer et publier ». ' +
+      '</span>';
+
+  }
+  catch(e){
+
+    console.error(
+      'Erreur suppression photo :',
+      e
+    );
+
+    $('status').innerHTML =
+      '<span class="danger-text">' +
+      'Erreur lors de la suppression : ' +
+      escapeHtml(e.message) +
+      '</span>';
+
+  }
 
 }
-
 
 /* =========================
    OFFRES D'EMPLOI
