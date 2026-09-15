@@ -184,24 +184,7 @@
           "de": "Holzkonstruktionen"
         },
         "image": "",
-        "projects": [
-          {
-            "id": "project-1789392938647",
-            "title": {
-              "fr": "test",
-              "de": "test"
-            },
-            "description": {
-              "fr": "vwunvown cow",
-              "de": "cnwevujinwivmnwo"
-            },
-            "image": "images/realisations/project-1789392938647-1789392960580.jpg",
-            "images": [
-              "images/realisations/project-1789392938647-1789394247720-kykleq.jpg",
-              "images/realisations/project-1789392938647-1789394250962-dhe5f4.jpg"
-            ]
-          }
-        ]
+        "projects": []
       },
       {
         "id": "toitures",
@@ -210,24 +193,7 @@
           "de": "Flachdächer"
         },
         "image": "",
-        "projects": [
-          {
-            "id": "project-1789452398983",
-            "title": {
-              "fr": "Test 2",
-              "de": "TEST 2 "
-            },
-            "description": {
-              "fr": "brwtbwr",
-              "de": "bwrtbwr"
-            },
-            "image": "images/realisations/project-1789452398983-1789452407866-brn4ve.jpg",
-            "images": [
-              "images/realisations/project-1789452398983-1789452407866-brn4ve.jpg",
-              "images/realisations/project-1789452398983-1789452411519-zetvy9.jpg"
-            ]
-          }
-        ]
+        "projects": []
       },
       {
         "id": "facades",
