@@ -2387,14 +2387,12 @@ function renderReferences(filter){
       categoryKey='couvertures';
     }
 
-
     if(
       filter!=='all' &&
       filter!==categoryKey
     ){
       return;
     }
-
 
     (category.projects || []).forEach(function(project){
 
@@ -2416,11 +2414,7 @@ function renderReferences(filter){
               :
               `
                 <div class="ref-placeholder">
-
-                  <span>
-                    ROOFCON
-                  </span>
-
+                  <span>ROOFCON</span>
                 </div>
               `
           }
@@ -2430,15 +2424,11 @@ function renderReferences(filter){
           <div class="ref-content">
 
             <p class="ref-category">
-
               ${esc(t(category.title))}
-
             </p>
 
             <h3>
-
               ${esc(t(project.title))}
-
             </h3>
 
             ${
@@ -2447,9 +2437,7 @@ function renderReferences(filter){
               ?
               `
                 <p>
-
                   ${esc(t(project.description))}
-
                 </p>
               `
               :
@@ -2466,8 +2454,9 @@ function renderReferences(filter){
 
   });
 
+  /* MESSAGE UNIQUEMENT APRÈS LE CLIC SUR UNE CATÉGORIE */
 
-  if(!html){
+  if(!html && filter && filter!=='all'){
 
     html=`
 
@@ -2475,10 +2464,8 @@ function renderReferences(filter){
 
         ${
           LANG==='fr'
-            ?
-            'Nos réalisations seront bientôt disponibles.'
-            :
-            'Unsere Referenzen werden bald verfügbar sein.'
+            ? 'Nos réalisations seront bientôt disponibles.'
+            : 'Unsere Referenzen werden bald verfügbar sein.'
         }
 
       </div>
@@ -2487,13 +2474,9 @@ function renderReferences(filter){
 
   }
 
-
   refsGrid.innerHTML=html;
 
 }
-
-/* AFFICHAGE INITIAL DES RÉFÉRENCES */
-renderReferences('all');
 
 /* OFFRES D'EMPLOI */
 
