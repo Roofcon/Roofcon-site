@@ -1290,18 +1290,93 @@ footer{
 
   .nav{
     min-height:76px;
+    position:relative;
   }
 
   .logo{
     width:145px;
   }
 
+  /* BOUTON MENU MOBILE */
+
+  .mobile-menu-button{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--black);
+    cursor:pointer;
+    margin-left:auto;
+    font-size:26px;
+    line-height:1;
+  }
+
+  .mobile-menu-button:hover{
+    background:var(--brown);
+    color:#fff;
+    border-color:var(--brown);
+  }
+
+  /* MENU OUVERT */
+
   .menu{
     display:none;
+    position:absolute;
+    top:76px;
+    left:0;
+    right:0;
+
+    background:#fff;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+
+    flex-direction:column;
+    align-items:stretch;
+    gap:0;
+
+    padding:8px 0;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.10);
+  }
+
+  .menu.mobile-open{
+    display:flex;
+  }
+
+  .menu a{
+    display:block;
+    width:100%;
+    padding:16px 24px;
+    font-size:15px;
+    border-bottom:1px solid #eee;
+  }
+
+  .menu a:last-child{
+    border-bottom:0;
+  }
+
+  .menu a:hover{
+    background:var(--cream);
+    color:var(--brown);
+  }
+
+  .menu .cta{
+    margin:8px 16px;
+    width:auto;
+    text-align:center;
   }
 
   .lang{
-    margin-left:auto;
+    margin-left:0;
+    margin-right:8px;
+  }
+
+  .lang button{
+    padding:6px 8px;
+    font-size:12px;
   }
 
   section{
@@ -1336,6 +1411,7 @@ footer{
   .contact-card{
     padding:28px;
   }
+
 }
 
   @media (max-width:900px){
@@ -1390,12 +1466,21 @@ footer{
       <img class="logo" src="ROOFCON.png" alt="ROOFCON">
     </a>
 
-    <div class="lang">
-      <button class="active" onclick="setLang('fr')">FR</button>
-      <button onclick="setLang('de')">DE</button>
-    </div>
+  <div class="lang">
+  <button class="active" onclick="setLang('fr')">FR</button>
+  <button onclick="setLang('de')">DE</button>
+</div>
 
-    <nav class="menu">
+<button
+  type="button"
+  class="mobile-menu-button"
+  id="mobile-menu-button"
+  aria-label="Ouvrir le menu"
+  aria-expanded="false">
+  ☰
+</button>
+
+<nav class="menu" id="main-menu">
       <a href="#" data-page="accueil" id="nav-home"></a>
       <a href="#" data-page="about" id="nav-about"></a>
       <a href="#" data-page="references" id="nav-references"></a>
@@ -1814,7 +1899,63 @@ let CONTENT = null;
 
 let LANG = localStorage.getItem('roofconLang') || 'fr';
 
+/* MENU MOBILE */
 
+const mobileMenuButton =
+  document.getElementById('mobile-menu-button');
+
+const mainMenu =
+  document.getElementById('main-menu');
+
+
+if(mobileMenuButton && mainMenu){
+
+  mobileMenuButton.addEventListener('click', function(){
+
+    const isOpen =
+      mainMenu.classList.toggle('mobile-open');
+
+    mobileMenuButton.setAttribute(
+      'aria-expanded',
+      isOpen ? 'true' : 'false'
+    );
+
+    mobileMenuButton.textContent =
+      isOpen ? '×' : '☰';
+
+  });
+
+}
+
+
+/* FERMER LE MENU APRÈS UN CLIC */
+
+document.addEventListener('click', function(e){
+
+  const link =
+    e.target.closest('#main-menu [data-page]');
+
+  if(!link){
+    return;
+  }
+
+  if(mainMenu){
+    mainMenu.classList.remove('mobile-open');
+  }
+
+  if(mobileMenuButton){
+
+    mobileMenuButton.textContent='☰';
+
+    mobileMenuButton.setAttribute(
+      'aria-expanded',
+      'false'
+    );
+
+  }
+
+});
+  
 /* TRADUCTION */
 
 function t(obj){
