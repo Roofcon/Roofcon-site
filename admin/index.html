@@ -1094,23 +1094,67 @@ function renderReferences(){
 
       </div>
 
-      <div class="grid">
+     <div class="grid">
 
-        <div>
-          <label>Nom FR</label>
-          <input
-            id="category-${i}-fr"
-            value="${escapeHtml(category.title?.fr||'')}">
+  <div>
+    <label>Nom FR</label>
+    <input
+      id="category-${i}-fr"
+      value="${escapeHtml(category.title?.fr||'')}">
+  </div>
+
+  <div>
+    <label>Nom DE</label>
+    <input
+      id="category-${i}-de"
+      value="${escapeHtml(category.title?.de||'')}">
+  </div>
+
+</div>
+
+<div style="margin-top:15px">
+
+  <label>Photo de couverture de la catégorie</label>
+
+  <input
+    type="file"
+    accept="image/*"
+    onchange="selectCategoryImage(${i},this)"
+  >
+
+  ${
+    category.image
+      ?
+      `
+        <div style="
+          margin-top:15px;
+          width:100%;
+          max-width:500px;
+        ">
+
+          <img
+            src="../${category.image}"
+            alt=""
+            style="
+              width:100%;
+              height:220px;
+              object-fit:cover;
+              display:block;
+              border-radius:4px;
+            "
+          >
+
         </div>
+      `
+      :
+      `
+        <p class="hint" style="margin-top:10px">
+          Aucune photo de couverture actuellement.
+        </p>
+      `
+  }
 
-        <div>
-          <label>Nom DE</label>
-          <input
-            id="category-${i}-de"
-            value="${escapeHtml(category.title?.de||'')}">
-        </div>
-
-      </div>
+</div>
 
       <hr>
 
@@ -1415,6 +1459,199 @@ project.images.forEach(function(image, imageIndex){
 
 }
 
+  async function selectCategoryImage(categoryIndex, input){
+
+  const file = input.files[0];
+
+  if(!file){
+    return;
+  }
+
+  try{
+
+    const s = auth();
+
+    $('status').textContent =
+      'Envoi de la photo de couverture vers GitHub…';
+
+
+    const category =
+      C.references.items[categoryIndex];
+
+
+    if(!category){
+      throw new Error('Catégorie introuvable.');
+    }
+
+
+    /* NOM DU FICHIER */
+
+    const extension =
+      file.name
+        .split('.')
+        .pop()
+        .toLowerCase();
+
+
+    const filename =
+      category.id +
+      '-cover-' +
+      Date.now() +
+      '.' +
+      extension;
+
+
+    const path =
+      'images/realisations/' +
+      filename;
+
+
+    /* LECTURE DU FICHIER */
+
+    const buffer =
+      await file.arrayBuffer();
+
+
+    const bytes =
+      new Uint8Array(buffer);
+
+
+    let binary='';
+
+
+    for(let i=0;i<bytes.length;i++){
+
+      binary +=
+        String.fromCharCode(bytes[i]);
+
+    }
+
+
+    const content =
+      btoa(binary);
+
+
+    /* ENVOI À GITHUB */
+
+    await api(
+      '/contents/' + path,
+      {
+        method:'PUT',
+
+        body:JSON.stringify({
+
+          message:
+            'Ajouter une photo de couverture',
+
+          content:
+            content,
+
+          branch:
+            s.branch
+
+        })
+
+      }
+    );
+
+
+    /* ENREGISTRER LE CHEMIN */
+
+    category.image = path;
+
+
+    /* APERÇU */
+
+    const inputContainer =
+      input.parentElement;
+
+
+    if(inputContainer){
+
+      const oldPreview =
+        inputContainer.querySelector(
+          '.category-cover-preview'
+        );
+
+
+      if(oldPreview){
+        oldPreview.remove();
+      }
+
+
+      const wrapper =
+        document.createElement('div');
+
+      wrapper.className =
+        'category-cover-preview';
+
+
+      wrapper.style.marginTop =
+        '15px';
+
+      wrapper.style.maxWidth =
+        '500px';
+
+
+      const img =
+        document.createElement('img');
+
+      img.src =
+        '../' + path +
+        '?v=' + Date.now();
+
+      img.alt =
+        'Photo de couverture';
+
+      img.style.width =
+        '100%';
+
+      img.style.height =
+        '220px';
+
+      img.style.objectFit =
+        'cover';
+
+      img.style.display =
+        'block';
+
+      img.style.borderRadius =
+        '4px';
+
+
+      wrapper.appendChild(img);
+
+      inputContainer.appendChild(wrapper);
+
+    }
+
+
+    $('status').innerHTML =
+      '<span class="success">' +
+      'Photo de couverture envoyée avec succès ! ' +
+      'Cliquez maintenant sur « Enregistrer et publier ». ' +
+      '</span>';
+
+
+  }
+  catch(e){
+
+    console.error(
+      'Erreur upload photo de couverture :',
+      e
+    );
+
+
+    $('status').innerHTML =
+      '<span class="danger-text">' +
+      'Erreur lors de l’envoi : ' +
+      escapeHtml(e.message) +
+      '</span>';
+
+  }
+
+}
+  
 function deleteProject(categoryIndex,projectIndex){
 
   if(!confirm('Supprimer ce projet ?')) return;
