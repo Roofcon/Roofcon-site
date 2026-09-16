@@ -44,8 +44,8 @@
       "de": "Ihr Projekt.<br><span>Unser Know-how.</span>"
     },
     "text": {
-      "fr": "ROOFCON vous accompagne dans vos projets autour de quatre pôles : façades ventilées, toitures plates, charpentes et couvertures.",
-      "de": "ROOFCON begleitet Sie bei Ihren Projekten in vier Bereichen: hinterlüftete Fassaden, Flachdächer, Holzkonstruktionen und Dachdeckungen."
+      "fr": "ROOFCON donne vie à vos projets en s’appuyant sur quatre expertises clés :\nles façades ventilées, les toitures plates, les charpentes et les couvertures.\nUne équipe qui transforme vos idées en réalisations solides, durables et esthétiques.",
+      "de": "ROOFCON verwirklicht Ihre Projekte und stützt sich dabei auf vier Kernkompetenzen:\nhinterlüftete Fassaden, Flachdächer, Dachstühle und Dachdeckungen.\nEin Team, das Ihre Ideen in solide, langlebige und ästhetische Lösungen umsetzt."
     },
     "image": "",
     "aboutButton": {
@@ -169,12 +169,12 @@
       "de": "Unsere Referenzen"
     },
     "title": {
-      "fr": "Des projets qui parlent pour nous.",
-      "de": "Projekte, die für sich sprechen."
+      "fr": "Des projets aboutis qui reflètent notre savoir‑faire.",
+      "de": "Erfolgreiche Projekte, die unser Know-how widerspiegeln."
     },
     "intro": {
-      "fr": "Découvrez nos réalisations classées par domaine d'activité.",
-      "de": "Entdecken Sie unsere Referenzen, sortiert nach Tätigkeitsbereich."
+      "fr": "Explorez nos réalisations, organisées par domaine d’activité.",
+      "de": "Entdecken Sie unsere Projekte, sortiert nach Tätigkeitsbereichen."
     },
     "items": [
       {
@@ -236,8 +236,8 @@
           "de": "ZIMMERER/DACHDEKKER"
         },
         "description": {
-          "fr": "Nous recherchons des charpentiers/couvreurs expérimentés. Venez découvrir notre offre. ",
-          "de": "Wir suchen erfahrene Zimmerleute und Dachdecker. Entdecken Sie unser Angebot."
+          "fr": "Nous recherchons des charpentiers/couvreurs expérimentés. Découvrez notre offre dès maintenant. ",
+          "de": "Wir suchen erfahrene Zimmerleute und Dachdecker. Entdecken Entdecken Sie unser Angebot jetzt."
         },
         "images": [
           "images/jobs/job-1789375039262-1789375132913-oddsw8.png",
