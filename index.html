@@ -2082,43 +2082,71 @@ document.getElementById('who-hallcon').textContent=
     t(c.about.intro);
 
 
-  document.getElementById('poles-grid').innerHTML=
-    c.about.poles.map(function(pole){
+ document.getElementById('poles-grid').innerHTML=
+  c.about.poles.map(function(pole){
 
-      return `
+    return `
 
-        <article class="pole">
+      <article
+        class="pole"
+        onclick="openReferenceCategory('${esc(pole.id)}')"
+        style="cursor:pointer;">
 
-          ${
-            pole.image
-              ? `
-                <img
-                  class="pole-image"
-                  src="${esc(pole.image)}"
-                  alt="${esc(t(pole.title))}">
-              `
-              : ''
-          }
+        ${
+          pole.image
+            ? `
+              <img
+                class="pole-image"
+                src="${esc(pole.image)}"
+                alt="${esc(t(pole.title))}">
+            `
+            : ''
+        }
 
-          <div class="pole-number">
-            ${esc(pole.number)}
-          </div>
+        <div class="pole-number">
+          ${esc(pole.number)}
+        </div>
 
-          <h3>
-            ${esc(t(pole.title))}
-          </h3>
+        <h3>
+          ${esc(t(pole.title))}
+        </h3>
 
-          <p>
-            ${esc(t(pole.text))}
-          </p>
+        <p>
+          ${esc(t(pole.text))}
+        </p>
 
-        </article>
+      </article>
 
-      `;
+    `;
 
-    }).join('');
+  }).join('');
 
+  function openReferenceCategory(category){
 
+  showPage('references');
+
+  document.querySelectorAll('.reference-category')
+    .forEach(function(button){
+
+      button.classList.remove('active');
+
+    });
+
+  const button =
+    document.querySelector(
+      '.reference-category[data-category="' +
+      category +
+      '"]'
+    );
+
+  if(button){
+    button.classList.add('active');
+  }
+
+  renderReferences(category);
+
+}
+  
 /* RÉFÉRENCES */
 
 document.getElementById('refs-kicker').textContent=
