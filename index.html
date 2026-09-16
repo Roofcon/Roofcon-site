@@ -2552,21 +2552,48 @@ document.getElementById('footer-instagram').innerHTML = `
   <span>Instagram</span>
 `;
 
-  /* FACEBOOK */
+/* FACEBOOK */
 
-  const facebook=document.getElementById('footer-facebook');
+const facebook =
+  document.getElementById('footer-facebook');
 
-  if(c.site.facebook){
+facebook.style.display =
+  'flex';
 
-    facebook.href=c.site.facebook;
-    facebook.textContent='Facebook';
-    facebook.style.display='block';
+if(c.site.facebook){
 
-  }else{
+  facebook.href =
+    c.site.facebook;
 
-    facebook.style.display='none';
+  facebook.target =
+    '_blank';
 
-  }
+  facebook.rel =
+    'noopener';
+
+}
+
+
+/* INSTAGRAM */
+
+const instagram =
+  document.getElementById('footer-instagram');
+
+instagram.style.display =
+  'flex';
+
+if(c.site.instagram){
+
+  instagram.href =
+    c.site.instagram;
+
+  instagram.target =
+    '_blank';
+
+  instagram.rel =
+    'noopener';
+
+}
 
 
   /* INSTAGRAM */
