@@ -1798,8 +1798,8 @@ function showPage(id){
 
 function openReferenceCategory(category){
 
- const categoryData =
-    c.references.items.find(function(item){
+const categoryData =
+    CONTENT.references.items.find(function(item){
 
       return item.id === category;
 
@@ -2517,9 +2517,9 @@ return `
 
           button.classList.add('active');
 
-          renderReferences(
-            button.dataset.category
-          );
+openReferenceCategory(
+  button.dataset.category
+);
 
         }
       );
