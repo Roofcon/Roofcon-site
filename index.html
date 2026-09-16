@@ -1071,6 +1071,28 @@ footer{
   color:var(--brown2);
 }
 
+  .top-social{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-left:4px;
+}
+
+.top-social a{
+  display:flex;
+  align-items:center;
+  color:#eee;
+  transition:.25s ease;
+}
+
+.top-social a:hover{
+  color:var(--brown2);
+}
+
+.top-social svg{
+  display:block;
+}
+  
   #footer-address a{
   color:inherit;
   text-decoration:none;
@@ -1182,8 +1204,19 @@ footer{
 <!-- TOP BAR -->
 <div class="top">
   <div class="container inner">
+
     <span id="top-phone"></span>
+
     <span id="top-email"></span>
+
+    <span class="top-social">
+
+      <span id="top-facebook"></span>
+
+      <span id="top-instagram"></span>
+
+    </span>
+
   </div>
 </div>
 
@@ -2478,6 +2511,101 @@ emailElement.innerHTML =
   c.site.email +
   '</a>';
 
+  /* TÉLÉPHONE CLIQUABLE */
+
+const topPhone =
+  document.getElementById('top-phone');
+
+topPhone.innerHTML =
+  '<a href="tel:+352621765489">' +
+  c.site.phone +
+  '</a>';
+
+
+/* E-MAIL CLIQUABLE */
+
+const topEmail =
+  document.getElementById('top-email');
+
+topEmail.innerHTML =
+  '<a href="mailto:' +
+  c.site.email +
+  '">' +
+  c.site.email +
+  '</a>';
+
+
+/* RÉSEAUX SOCIAUX BARRE DU HAUT */
+
+const topFacebook =
+  document.getElementById('top-facebook');
+
+topFacebook.innerHTML = `
+  <a
+    href="${c.site.facebook || '#'}"
+    ${c.site.facebook ? 'target="_blank" rel="noopener"' : ''}
+    aria-label="Facebook">
+
+    <svg
+      width="17"
+      height="17"
+      viewBox="0 0 24 24"
+      aria-hidden="true">
+
+      <path
+        fill="currentColor"
+        d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"/>
+
+    </svg>
+
+  </a>
+`;
+
+const topInstagram =
+  document.getElementById('top-instagram');
+
+topInstagram.innerHTML = `
+  <a
+    href="${c.site.instagram || '#'}"
+    ${c.site.instagram ? 'target="_blank" rel="noopener"' : ''}
+    aria-label="Instagram">
+
+    <svg
+      width="17"
+      height="17"
+      viewBox="0 0 24 24"
+      aria-hidden="true">
+
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        ry="5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"/>
+
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"/>
+
+      <circle
+        cx="17.5"
+        cy="6.5"
+        r="1"
+        fill="currentColor"/>
+
+    </svg>
+
+  </a>
+`;
+  
 const addressElement =
   document.getElementById('footer-address');
 
