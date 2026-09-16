@@ -1651,6 +1651,109 @@ project.images.forEach(function(image, imageIndex){
   }
 
 }
+
+  async function deleteCategoryImage(categoryIndex){
+
+  const category =
+    C.references.items[categoryIndex];
+
+  if(!category){
+    return;
+  }
+
+  if(!category.image){
+    return;
+  }
+
+  const confirmation =
+    confirm(
+      'Supprimer la photo de couverture de cette catégorie ?'
+    );
+
+  if(!confirmation){
+    return;
+  }
+
+  try{
+
+    const s = auth();
+
+    $('status').textContent =
+      'Suppression de la photo en cours…';
+
+
+    /* RÉCUPÉRER LE FICHIER */
+
+    const path =
+      category.image;
+
+
+    const file =
+      await api(
+        '/contents/' + path +
+        '?ref=' + encodeURIComponent(s.branch)
+      );
+
+
+    /* SUPPRIMER LE FICHIER DE GITHUB */
+
+    await api(
+      '/contents/' + path,
+      {
+        method:'DELETE',
+
+        body:JSON.stringify({
+
+          message:
+            'Supprimer une photo de couverture',
+
+          sha:
+            file.sha,
+
+          branch:
+            s.branch
+
+        })
+
+      }
+    );
+
+
+    /* SUPPRIMER LE CHEMIN DU CONTENU */
+
+    category.image = '';
+
+
+    /* ACTUALISER L'APERÇU */
+
+    renderReferences();
+
+
+    $('status').innerHTML =
+      '<span class="success">' +
+      'Photo de couverture supprimée. ' +
+      'Cliquez maintenant sur « Enregistrer et publier ». ' +
+      '</span>';
+
+
+  }
+  catch(e){
+
+    console.error(
+      'Erreur suppression photo de couverture :',
+      e
+    );
+
+
+    $('status').innerHTML =
+      '<span class="danger-text">' +
+      'Erreur lors de la suppression : ' +
+      escapeHtml(e.message) +
+      '</span>';
+
+  }
+
+}
   
 function deleteProject(categoryIndex,projectIndex){
 
