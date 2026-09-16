@@ -1453,10 +1453,16 @@ footer{
 
     </div>
 
-  <!-- CATÉGORIES -->
+<!-- CATÉGORIES -->
 <div
   class="reference-categories"
   id="reference-categories">
+</div>
+
+<!-- PROJETS -->
+<div
+  class="refs-grid"
+  id="refs-grid">
 </div>
 
   </div>
@@ -2301,7 +2307,6 @@ return `
     type="button"
     class="reference-category"
     data-category="${esc(category.id)}"
-    onclick="openReferenceCategory('${esc(category.id)}')"
     style="
       background-image:
         url('${esc(category.image || '')}');
