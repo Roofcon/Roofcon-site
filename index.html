@@ -1749,17 +1749,39 @@ function openReferenceCategory(category){
 
   showPage('references');
 
+  document
+    .querySelectorAll('.reference-category')
+    .forEach(function(item){
+      item.classList.remove('active');
+    });
+
   const button =
     document.querySelector(
-      '.reference-category[data-category="' +
-      category +
-      '"]'
+      '.reference-category[data-category="' + category + '"]'
     );
 
   if(button){
-    button.click();
+    button.classList.add('active');
   }
-  
+
+  renderReferences(category);
+
+  setTimeout(function(){
+
+    const projects =
+      document.getElementById('refs-grid');
+
+    if(projects){
+
+      projects.scrollIntoView({
+        behavior:'smooth',
+        block:'start'
+      });
+
+    }
+
+  }, 150);
+
 }
   
 /* LANGUE */
