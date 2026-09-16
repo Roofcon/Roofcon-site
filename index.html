@@ -2404,71 +2404,68 @@ function renderReferenceCategories(){
 
       let icon = '';
 
-      if(category.id === 'facades'){
-        icon = `
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M12 52V18L32 8L52 18V52"/>
-            <path d="M20 52V24L32 18L44 24V52"/>
-            <path d="M20 32H44"/>
-            <path d="M20 40H44"/>
-            <path d="M20 48H44"/>
-          </svg>
-        `;
-      }
-
-    if(category.id === 'toitures'){
+     if(category.id === 'facades'){
   icon = `
     <svg viewBox="0 0 64 64" aria-hidden="true">
-
-      <!-- Rouleau EPDM -->
-      <path d="M14 38H44"/>
-      <path d="M14 38V46"/>
-      <path d="M14 46H44"/>
-      
-      <path d="M44 34C50 34 54 38 54 43C54 48 50 52 44 52"/>
-      <path d="M44 34C48 34 50 36 50 40C50 44 48 46 44 46"/>
-
-      <!-- Extrémité du rouleau -->
-      <circle cx="44" cy="43" r="4"/>
-
-      <!-- Feuille EPDM déroulée -->
-      <path d="M14 38L10 34H40"/>
-      <path d="M10 34V30H40"/>
-
+      <path d="M10 54V15L32 7L54 15V54"/>
+      <path d="M17 54V20L32 15L47 20V54"/>
+      <path d="M17 28H47"/>
+      <path d="M17 36H47"/>
+      <path d="M17 44H47"/>
+      <path d="M22 20V54"/>
+      <path d="M42 20V54"/>
+      <path d="M51 22L57 22"/>
+      <path d="M51 28L57 28"/>
+      <path d="M51 34L57 34"/>
+      <path d="M51 40L57 40"/>
     </svg>
   `;
 }
 
-      if(category.id === 'charpentes'){
-        icon = `
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M8 48L32 12L56 48"/>
-            <path d="M17 48L32 26L47 48"/>
-            <path d="M24 36H40"/>
-            <path d="M20 42H44"/>
-            <path d="M32 12V52"/>
-          </svg>
-        `;
-      }
-
-     if(category.id === 'couvertures'){
+  if(category.id === 'toitures'){
   icon = `
     <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M8 24H56"/>
+      <path d="M8 30H56"/>
+      <path d="M8 36H56"/>
+      <path d="M8 42H56"/>
+      <path d="M8 48H56"/>
+      <path d="M14 24V48"/>
+      <path d="M50 24V48"/>
+      <path d="M18 18H46"/>
+      <path d="M18 18L22 14H42L46 18"/>
+      <path d="M26 14V9"/>
+      <path d="M38 14V9"/>
+      <path d="M23 54H41"/>
+    </svg>
+  `;
+}
 
-      <!-- Ardoise -->
-      <path d="M12 34L32 22L52 34L32 46Z"/>
-      <path d="M12 34V42L32 54L52 42V34"/>
-
-      <!-- Marteau de couvreur -->
-      <path d="M37 17L50 30"/>
-      <path d="M34 20L47 33"/>
-
-      <path d="M30 18L38 10L45 17L37 25Z"/>
-
-      <!-- Manche -->
-      <path d="M43 31L54 42"/>
-      <path d="M51 39L56 44"/>
-      
+   if(category.id === 'charpentes'){
+  icon = `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M7 50L32 10L57 50"/>
+      <path d="M15 50L32 23L49 50"/>
+      <path d="M21 41H43"/>
+      <path d="M25 35L39 35"/>
+      <path d="M32 10V54"/>
+      <path d="M12 50H52"/>
+      <path d="M17 50L25 37"/>
+      <path d="M47 50L39 37"/>
+    </svg>
+  `;
+}
+if(category.id === 'couvertures'){
+  icon = `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M10 39L22 27L34 39L22 51Z"/>
+      <path d="M30 39L42 27L54 39L42 51Z"/>
+      <path d="M10 39L10 47L22 59L34 47L34 39"/>
+      <path d="M30 39L30 47L42 59L54 47L54 39"/>
+      <path d="M39 12L53 26"/>
+      <path d="M35 16L49 30"/>
+      <path d="M35 16L42 9L49 16L42 23Z"/>
+      <path d="M47 30L56 39"/>
     </svg>
   `;
 }
