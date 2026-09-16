@@ -1047,6 +1047,26 @@ footer{
   color:var(--brown2);
 }
 
+  #top-phone a,
+#top-email a{
+  color:inherit;
+  text-decoration:none;
+}
+
+#top-phone a:hover,
+#top-email a:hover{
+  color:var(--brown2);
+}
+
+  #footer-address a{
+  color:inherit;
+  text-decoration:none;
+}
+
+#footer-address a:hover{
+  color:var(--brown2);
+}
+  
 .footer-bottom{
   border-top:1px solid #302d2b;
   margin-top:30px;
@@ -1900,12 +1920,28 @@ function render(){
 
   /* TOP */
 
-  document.getElementById('top-phone').textContent=
-    c.site.phone;
+/* TÉLÉPHONE CLIQUABLE */
 
-  document.getElementById('top-email').textContent=
-    c.site.email;
+const topPhone =
+  document.getElementById('top-phone');
 
+topPhone.innerHTML =
+  '<a href="tel:+352621765489">' +
+  c.site.phone +
+  '</a>';
+
+
+/* E-MAIL CLIQUABLE */
+
+const topEmail =
+  document.getElementById('top-email');
+
+topEmail.innerHTML =
+  '<a href="mailto:' +
+  c.site.email +
+  '">' +
+  c.site.email +
+  '</a>';
 
   /* NAVIGATION */
 
@@ -2429,8 +2465,15 @@ emailElement.innerHTML =
   c.site.email +
   '</a>';
 
-  document.getElementById('footer-address').textContent=
-    c.site.address;
+const addressElement =
+  document.getElementById('footer-address');
+
+addressElement.innerHTML =
+  '<a href="https://www.google.com/maps/search/?api=1&query=' +
+  encodeURIComponent(c.site.address) +
+  '" target="_blank" rel="noopener">' +
+  c.site.address +
+  '</a>';
 
   document.getElementById('footer-hours').textContent=
     t(c.site.hours);
