@@ -2217,17 +2217,28 @@ function renderReferenceCategories(){
         `;
       }
 
-      if(category.id === 'toitures'){
-        icon = `
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M8 42L32 20L56 42"/>
-            <path d="M14 42H50"/>
-            <path d="M18 42L22 52H42L46 42"/>
-            <path d="M25 28L39 28"/>
-            <path d="M28 24L36 24"/>
-          </svg>
-        `;
-      }
+    if(category.id === 'toitures'){
+  icon = `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+
+      <!-- Rouleau EPDM -->
+      <path d="M14 38H44"/>
+      <path d="M14 38V46"/>
+      <path d="M14 46H44"/>
+      
+      <path d="M44 34C50 34 54 38 54 43C54 48 50 52 44 52"/>
+      <path d="M44 34C48 34 50 36 50 40C50 44 48 46 44 46"/>
+
+      <!-- Extrémité du rouleau -->
+      <circle cx="44" cy="43" r="4"/>
+
+      <!-- Feuille EPDM déroulée -->
+      <path d="M14 38L10 34H40"/>
+      <path d="M10 34V30H40"/>
+
+    </svg>
+  `;
+}
 
       if(category.id === 'charpentes'){
         icon = `
@@ -2241,25 +2252,34 @@ function renderReferenceCategories(){
         `;
       }
 
-      if(category.id === 'couvertures'){
-        icon = `
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M18 46L34 30"/>
-            <path d="M29 51L45 35"/>
-            <path d="M13 51L23 41"/>
-            <path d="M38 25L49 14"/>
-            <path d="M46 12L53 19"/>
-            <path d="M43 15L50 22"/>
-            <path d="M11 53L18 46"/>
-          </svg>
-        `;
-      }
+     if(category.id === 'couvertures'){
+  icon = `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
 
-    return `
+      <!-- Ardoise -->
+      <path d="M12 34L32 22L52 34L32 46Z"/>
+      <path d="M12 34V42L32 54L52 42V34"/>
+
+      <!-- Marteau de couvreur -->
+      <path d="M37 17L50 30"/>
+      <path d="M34 20L47 33"/>
+
+      <path d="M30 18L38 10L45 17L37 25Z"/>
+
+      <!-- Manche -->
+      <path d="M43 31L54 42"/>
+      <path d="M51 39L56 44"/>
+      
+    </svg>
+  `;
+}
+
+return `
   <button
     type="button"
     class="reference-category"
     data-category="${esc(category.id)}"
+    onclick="openReferenceCategory('${esc(category.id)}')"
     style="
       background-image:
         url('${esc(category.image || '')}');
