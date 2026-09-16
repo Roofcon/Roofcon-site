@@ -108,60 +108,60 @@
       "fr": "ROOFCON intervient dans plusieurs domaines complémentaires de la construction et de l'enveloppe du bâtiment. Notre objectif : proposer des solutions durables, soignées et adaptées à chaque projet.",
       "de": "ROOFCON ist in mehreren sich ergänzenden Bereichen des Bauwesens und der Gebäudehülle tätig. Unser Ziel: langlebige, hochwertige und auf jedes Projekt abgestimmte Lösungen."
     },
-"poles": [
-  {
-    "id": "facades",
-    "number": "01",
-    "title": {
-      "fr": "Façades ventilées",
-      "de": "Hinterlüftete Fassaden"
-    },
-    "text": {
-      "fr": "Mise en œuvre de façades ventilées alliant performance, protection du bâtiment, durabilité et qualité esthétique.",
-      "de": "Ausführung hinterlüfteter Fassaden, die Leistung, Gebäudeschutz, Langlebigkeit und hochwertige Optik miteinander verbinden."
-    },
-    "image": ""
-  },
-  {
-    "id": "toitures",
-    "number": "02",
-    "title": {
-      "fr": "Toitures plates",
-      "de": "Flachdächer"
-    },
-    "text": {
-      "fr": "Réalisation de toitures plates adaptées aux exigences de chaque bâtiment, avec une attention particulière portée à l'étanchéité, à la durabilité et aux finitions.",
-      "de": "Ausführung von Flachdächern, abgestimmt auf die Anforderungen jedes Gebäudes, mit besonderem Augenmerk auf Abdichtung, Langlebigkeit und Verarbeitung."
-    },
-    "image": ""
-  },
-  {
-    "id": "charpentes",
-    "number": "03",
-    "title": {
-      "fr": "Charpentes",
-      "de": "Holzkonstruktionen"
-    },
-    "text": {
-      "fr": "Conception et réalisation de structures et charpentes bois adaptées aux contraintes techniques et architecturales de chaque projet.",
-      "de": "Planung und Ausführung von Holzkonstruktionen und Dachstühlen, abgestimmt auf die technischen und architektonischen Anforderungen jedes Projekts."
-    },
-    "image": ""
-  },
-  {
-    "id": "couvertures",
-    "number": "04",
-    "title": {
-      "fr": "Couvertures",
-      "de": "Dachdeckungen"
-    },
-    "text": {
-      "fr": "Réalisation de couvertures pour assurer la protection durable des bâtiments tout en garantissant une finition professionnelle.",
-      "de": "Ausführung von Dachdeckungen zum dauerhaften Schutz von Gebäuden und für une professionnelle Fertigstellung."
-    },
-    "image": ""
-  }
-]
+    "poles": [
+      {
+        "id": "facades",
+        "number": "01",
+        "title": {
+          "fr": "Façades ventilées",
+          "de": "Hinterlüftete Fassaden"
+        },
+        "text": {
+          "fr": "Mise en œuvre de façades ventilées alliant performance, protection du bâtiment, durabilité et qualité esthétique.",
+          "de": "Ausführung hinterlüfteter Fassaden, die Leistung, Gebäudeschutz, Langlebigkeit und hochwertige Optik miteinander verbinden."
+        },
+        "image": ""
+      },
+      {
+        "id": "toitures",
+        "number": "02",
+        "title": {
+          "fr": "Toitures plates",
+          "de": "Flachdächer"
+        },
+        "text": {
+          "fr": "Réalisation de toitures plates adaptées aux exigences de chaque bâtiment, avec une attention particulière portée à l'étanchéité, à la durabilité et aux finitions.",
+          "de": "Ausführung von Flachdächern, abgestimmt auf die Anforderungen jedes Gebäudes, mit besonderem Augenmerk auf Abdichtung, Langlebigkeit und Verarbeitung."
+        },
+        "image": ""
+      },
+      {
+        "id": "charpentes",
+        "number": "03",
+        "title": {
+          "fr": "Charpentes",
+          "de": "Holzkonstruktionen"
+        },
+        "text": {
+          "fr": "Conception et réalisation de structures et charpentes bois adaptées aux contraintes techniques et architecturales de chaque projet.",
+          "de": "Planung und Ausführung von Holzkonstruktionen und Dachstühlen, abgestimmt auf die technischen und architektonischen Anforderungen jedes Projekts."
+        },
+        "image": ""
+      },
+      {
+        "id": "couvertures",
+        "number": "04",
+        "title": {
+          "fr": "Couvertures",
+          "de": "Dachdeckungen"
+        },
+        "text": {
+          "fr": "Réalisation de couvertures pour assurer la protection durable des bâtiments tout en garantissant une finition professionnelle.",
+          "de": "Ausführung von Dachdeckungen zum dauerhaften Schutz von Gebäuden und für une professionnelle Fertigstellung."
+        },
+        "image": ""
+      }
+    ]
   },
   "references": {
     "kicker": {
@@ -176,44 +176,44 @@
       "fr": "Explorez nos réalisations, organisées par domaine d’activité.",
       "de": "Entdecken Sie unsere Projekte, sortiert nach Tätigkeitsbereichen."
     },
-  "items": [
-  {
-    "id": "facades",
-    "title": {
-      "fr": "Façades ventilées",
-      "de": "Hinterlüftete Fassaden"
-    },
-    "image": "",
-    "projects": []
-  },
-  {
-    "id": "toitures",
-    "title": {
-      "fr": "Toitures plates",
-      "de": "Flachdächer"
-    },
-    "image": "",
-    "projects": []
-  },
-  {
-    "id": "charpentes",
-    "title": {
-      "fr": "Charpentes",
-      "de": "Holzkonstruktionen"
-    },
-    "image": "",
-    "projects": []
-  },
-  {
-    "id": "couvertures",
-    "title": {
-      "fr": "Couvertures",
-      "de": "Dachdeckungen"
-    },
-    "image": "",
-    "projects": []
-  }
-]
+    "items": [
+      {
+        "id": "facades",
+        "title": {
+          "fr": "Façades ventilées",
+          "de": "Hinterlüftete Fassaden"
+        },
+        "image": "images/realisations/facades-cover-1789553317380.jpg",
+        "projects": []
+      },
+      {
+        "id": "toitures",
+        "title": {
+          "fr": "Toitures plates",
+          "de": "Flachdächer"
+        },
+        "image": "",
+        "projects": []
+      },
+      {
+        "id": "charpentes",
+        "title": {
+          "fr": "Charpentes",
+          "de": "Holzkonstruktionen"
+        },
+        "image": "",
+        "projects": []
+      },
+      {
+        "id": "couvertures",
+        "title": {
+          "fr": "Couvertures",
+          "de": "Dachdeckungen"
+        },
+        "image": "",
+        "projects": []
+      }
+    ]
   },
   "jobs": {
     "kicker": {
