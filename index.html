@@ -1844,40 +1844,166 @@ function showPage(id){
 
 function openReferenceCategory(category){
 
-  showPage('references');
+ const categoryData =
+    c.references.items.find(function(item){
 
-  document
-    .querySelectorAll('.reference-category')
-    .forEach(function(item){
-      item.classList.remove('active');
+      return item.id === category;
+
     });
 
-  const button =
-    document.querySelector(
-      '.reference-category[data-category="' + category + '"]'
-    );
 
-  if(button){
-    button.classList.add('active');
+  if(!categoryData){
+    return;
   }
 
-  renderReferences(category);
 
-  setTimeout(function(){
+  /* OUVRIR LA NOUVELLE VUE */
 
-    const projects =
-      document.getElementById('refs-grid');
+  showPage('reference-category-detail');
 
-    if(projects){
 
-      projects.scrollIntoView({
-        behavior:'smooth',
-        block:'start'
-      });
+  /* TITRE */
 
-    }
+  const title =
+    document.getElementById(
+      'category-detail-title'
+    );
 
-  }, 150);
+  if(title){
+
+    title.textContent =
+      t(categoryData.title);
+
+  }
+
+
+  /* PETIT TEXTE */
+
+  const intro =
+    document.getElementById(
+      'category-detail-intro'
+    );
+
+  if(intro){
+
+    intro.textContent =
+      LANG === 'fr'
+        ? 'Découvrez nos réalisations dans ce domaine.'
+        : 'Entdecken Sie unsere Projekte in diesem Bereich.';
+
+  }
+
+
+  /* KICKER */
+
+  const kicker =
+    document.getElementById(
+      'category-detail-kicker'
+    );
+
+  if(kicker){
+
+    kicker.textContent =
+      LANG === 'fr'
+        ? 'Nos réalisations'
+        : 'Unsere Referenzen';
+
+  }
+
+
+  /* PROJETS */
+
+  const projects =
+    document.getElementById(
+      'category-detail-projects'
+    );
+
+
+  if(!projects){
+    return;
+  }
+
+
+  if(!categoryData.projects ||
+     !categoryData.projects.length){
+
+    projects.innerHTML = `
+
+      <div class="refs-empty">
+
+        ${
+          LANG === 'fr'
+            ? 'Nos réalisations seront bientôt disponibles.'
+            : 'Unsere Referenzen werden bald verfügbar sein.'
+        }
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  projects.innerHTML =
+    categoryData.projects.map(function(project){
+
+      return `
+
+        <article
+          class="ref reference-card"
+          data-reference-id="${esc(project.id)}">
+
+          ${
+            project.image
+              ?
+              `
+                <img
+                  class="ref-image"
+                  src="${esc(project.image)}"
+                  alt="${esc(t(project.title))}">
+              `
+              :
+              `
+                <div class="ref-placeholder">
+                  <span>ROOFCON</span>
+                </div>
+              `
+          }
+
+          <div class="ref-overlay"></div>
+
+          <div class="ref-content">
+
+            <p class="ref-category">
+              ${esc(t(categoryData.title))}
+            </p>
+
+            <h3>
+              ${esc(t(project.title))}
+            </h3>
+
+            ${
+              project.description?.fr ||
+              project.description?.de
+              ?
+              `
+                <p>
+                  ${esc(t(project.description))}
+                </p>
+              `
+              :
+              ''
+            }
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join('');
 
 }
   
