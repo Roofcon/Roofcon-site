@@ -402,29 +402,108 @@ h1 span{
 }
 
 .reference-categories{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
   margin-bottom:45px;
 }
 
 .reference-category{
-  border:1px solid #d6d1cb;
-  background:#fff;
-  padding:14px 22px;
-  font-family:inherit;
-  font-size:14px;
-  font-weight:600;
-  color:#343434;
+  position:relative;
+  min-height:360px;
+  border:0;
+  padding:0;
+  overflow:hidden;
   cursor:pointer;
-  transition:.25s;
+  background-color:#2c2928;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  color:#fff;
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
 }
 
-.reference-category:hover,
+.reference-category::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(20,18,18,.82) 0%,
+      rgba(20,18,18,.30) 55%,
+      rgba(20,18,18,.12) 100%
+    );
+  z-index:1;
+}
+
+.reference-category:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px rgba(33,31,32,.18);
+}
+
 .reference-category.active{
-  background:#202020;
+  box-shadow:
+    inset 0 0 0 3px var(--brown);
+}
+
+.reference-category-content{
+  position:absolute;
+  inset:0;
+  z-index:2;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+
+  padding:35px 25px;
+  text-align:center;
+}
+
+.reference-category-icon{
+  width:58px;
+  height:58px;
+  margin-bottom:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.reference-category-icon svg{
+  width:52px;
+  height:52px;
+  fill:none;
+  stroke:#fff;
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.reference-category-title{
+  font-size:28px;
+  line-height:1.1;
+  font-weight:800;
   color:#fff;
-  border-color:#202020;
+}
+
+@media(max-width:800px){
+
+  .reference-categories{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+
+  .reference-category{
+    min-height:300px;
+  }
+
+  .reference-category-title{
+    font-size:24px;
+  }
+
 }
 
 .refs-grid{
@@ -1374,56 +1453,11 @@ footer{
 
     </div>
 
-    <!-- CATÉGORIES -->
-    <div class="reference-categories">
-
-<button
-  class="reference-category"
-  data-category="facades">
-
-  <span class="reference-category-title">
-    Façades ventilées
-  </span>
-
-</button>
-
-<button
-  class="reference-category"
-  data-category="toitures">
-
-  <span class="reference-category-title">
-    Toitures plates
-  </span>
-
-</button>
-
-<button
-  class="reference-category"
-  data-category="charpentes">
-
-  <span class="reference-category-title">
-    Charpentes
-  </span>
-
-</button>
-
-<button
-  class="reference-category"
-  data-category="couvertures">
-
-  <span class="reference-category-title">
-    Couvertures
-  </span>
-
-</button>
-
-    </div>
-
-    <!-- PROJETS -->
-    <div
-      class="refs-grid"
-      id="refs-grid">
-    </div>
+  <!-- CATÉGORIES -->
+<div
+  class="reference-categories"
+  id="reference-categories">
+</div>
 
   </div>
 
@@ -2158,13 +2192,126 @@ document.getElementById('refs-intro').textContent=
   t(c.references.intro);
 
 
-const refsGrid=
+const refsGrid =
   document.getElementById('refs-grid');
 
-const categories=
-  document.querySelectorAll('.reference-category');
+const categoriesContainer =
+  document.getElementById('reference-categories');
 
+function renderReferenceCategories(){
 
+  categoriesContainer.innerHTML =
+    c.references.items.map(function(category){
+
+      let icon = '';
+
+      if(category.id === 'facades'){
+        icon = `
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M12 52V18L32 8L52 18V52"/>
+            <path d="M20 52V24L32 18L44 24V52"/>
+            <path d="M20 32H44"/>
+            <path d="M20 40H44"/>
+            <path d="M20 48H44"/>
+          </svg>
+        `;
+      }
+
+      if(category.id === 'toitures'){
+        icon = `
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M8 42L32 20L56 42"/>
+            <path d="M14 42H50"/>
+            <path d="M18 42L22 52H42L46 42"/>
+            <path d="M25 28L39 28"/>
+            <path d="M28 24L36 24"/>
+          </svg>
+        `;
+      }
+
+      if(category.id === 'charpentes'){
+        icon = `
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M8 48L32 12L56 48"/>
+            <path d="M17 48L32 26L47 48"/>
+            <path d="M24 36H40"/>
+            <path d="M20 42H44"/>
+            <path d="M32 12V52"/>
+          </svg>
+        `;
+      }
+
+      if(category.id === 'couvertures'){
+        icon = `
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M18 46L34 30"/>
+            <path d="M29 51L45 35"/>
+            <path d="M13 51L23 41"/>
+            <path d="M38 25L49 14"/>
+            <path d="M46 12L53 19"/>
+            <path d="M43 15L50 22"/>
+            <path d="M11 53L18 46"/>
+          </svg>
+        `;
+      }
+
+    return `
+  <button
+    type="button"
+    class="reference-category"
+    data-category="${esc(category.id)}"
+    style="
+      background-image:
+        url('${esc(category.image || '')}');
+    "
+  >
+
+    <div class="reference-category-content">
+
+      <div class="reference-category-icon">
+        ${icon}
+      </div>
+
+      <span class="reference-category-title">
+        ${esc(t(category.title))}
+      </span>
+
+    </div>
+
+  </button>
+`;
+
+    }).join('');
+
+  document
+    .querySelectorAll('.reference-category')
+    .forEach(function(button){
+
+      button.addEventListener(
+        'click',
+        function(){
+
+          document
+            .querySelectorAll('.reference-category')
+            .forEach(function(item){
+              item.classList.remove('active');
+            });
+
+          button.classList.add('active');
+
+          renderReferences(
+            button.dataset.category
+          );
+
+        }
+      );
+
+    });
+
+}
+
+  renderReferenceCategories();
+  
 function renderReferences(filter){
 
   let html='';
@@ -2297,34 +2444,6 @@ function renderReferences(filter){
   refsGrid.innerHTML=html;
 
 }
-
-
-categories.forEach(function(button){
-
-  button.addEventListener(
-    'click',
-    function(){
-
-      categories.forEach(function(item){
-
-        item.classList.remove('active');
-
-      });
-
-      button.classList.add('active');
-
-      renderReferences(
-        button.dataset.category
-      );
-
-    }
-  );
-
-});
-
-
-renderReferences('facades');
-
 
 /* OFFRES D'EMPLOI */
 
