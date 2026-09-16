@@ -176,44 +176,44 @@
       "fr": "Explorez nos réalisations, organisées par domaine d’activité.",
       "de": "Entdecken Sie unsere Projekte, sortiert nach Tätigkeitsbereichen."
     },
-    "items": [
-      {
-        "id": "charpentes",
-        "title": {
-          "fr": "Charpentes",
-          "de": "Holzkonstruktionen"
-        },
-        "image": "",
-        "projects": []
-      },
-      {
-        "id": "toitures",
-        "title": {
-          "fr": "Toitures plates",
-          "de": "Flachdächer"
-        },
-        "image": "",
-        "projects": []
-      },
-      {
-        "id": "facades",
-        "title": {
-          "fr": "Façades ventilées",
-          "de": "Hinterlüftete Fassaden"
-        },
-        "image": "",
-        "projects": []
-      },
-      {
-        "id": "couvertures",
-        "title": {
-          "fr": "Couvertures",
-          "de": "Dachdeckungen"
-        },
-        "image": "",
-        "projects": []
-      }
-    ]
+  "items": [
+  {
+    "id": "facades",
+    "title": {
+      "fr": "Façades ventilées",
+      "de": "Hinterlüftete Fassaden"
+    },
+    "image": "",
+    "projects": []
+  },
+  {
+    "id": "toitures",
+    "title": {
+      "fr": "Toitures plates",
+      "de": "Flachdächer"
+    },
+    "image": "",
+    "projects": []
+  },
+  {
+    "id": "charpentes",
+    "title": {
+      "fr": "Charpentes",
+      "de": "Holzkonstruktionen"
+    },
+    "image": "",
+    "projects": []
+  },
+  {
+    "id": "couvertures",
+    "title": {
+      "fr": "Couvertures",
+      "de": "Dachdeckungen"
+    },
+    "image": "",
+    "projects": []
+  }
+]
   },
   "jobs": {
     "kicker": {
