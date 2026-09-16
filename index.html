@@ -2517,28 +2517,37 @@ const topFacebook =
   document.getElementById('top-facebook');
 
 topFacebook.innerHTML = `
-  <span
+  <a
+    href="${c.site.facebook || '#'}"
+    ${c.site.facebook ? 'target="_blank" rel="noopener"' : ''}
     aria-label="Facebook"
     title="Facebook">
+
     <svg
       width="17"
       height="17"
       viewBox="0 0 24 24"
       aria-hidden="true">
+
       <path
         fill="currentColor"
         d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"/>
+
     </svg>
-  </span>
+
+  </a>
 `;
 
 const topInstagram =
   document.getElementById('top-instagram');
 
 topInstagram.innerHTML = `
-  <span
+  <a
+    href="${c.site.instagram || '#'}"
+    ${c.site.instagram ? 'target="_blank" rel="noopener"' : ''}
     aria-label="Instagram"
     title="Instagram">
+
     <svg
       width="17"
       height="17"
@@ -2571,7 +2580,8 @@ topInstagram.innerHTML = `
         fill="currentColor"/>
 
     </svg>
-  </span>
+
+  </a>
 `;
   
 const addressElement =
