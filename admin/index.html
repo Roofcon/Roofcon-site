@@ -1122,30 +1122,46 @@ function renderReferences(){
     onchange="selectCategoryImage(${i},this)"
   >
 
-  ${
-    category.image
-      ?
-      `
-        <div style="
-          margin-top:15px;
-          width:100%;
-          max-width:500px;
-        ">
+${
+  category.image
+    ?
+    `
+      <div style="
+        margin-top:15px;
+        width:100%;
+        max-width:500px;
+      ">
 
-          <img
-            src="../${category.image}"
-            alt=""
-            style="
-              width:100%;
-              height:220px;
-              object-fit:cover;
-              display:block;
-              border-radius:4px;
-            "
-          >
+        <img
+          src="../${category.image}"
+          alt=""
+          style="
+            width:100%;
+            height:220px;
+            object-fit:cover;
+            display:block;
+            border-radius:4px;
+          "
+        >
 
-        </div>
-      `
+        <button
+          type="button"
+          onclick="deleteCategoryImage(${i})"
+          style="
+            margin-top:10px;
+            background:#8b2e2e;
+            color:#fff;
+            border:0;
+            padding:10px 15px;
+            cursor:pointer;
+            border-radius:4px;
+          "
+        >
+          Supprimer la photo
+        </button>
+
+      </div>
+    `
       :
       `
         <p class="hint" style="margin-top:10px">
