@@ -929,6 +929,62 @@ h1 span{
   background:var(--line);
 }
 
+  .job-gallery{
+  position:relative;
+  overflow:hidden;
+}
+
+.job-gallery-image{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  cursor:pointer;
+}
+
+.job-gallery-arrow{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+
+  width:42px;
+  height:42px;
+
+  border:0;
+  border-radius:50%;
+
+  background:rgba(20,18,18,.65);
+  color:#fff;
+
+  font-size:32px;
+  line-height:1;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+
+  z-index:5;
+
+  transition:
+    background .2s ease,
+    transform .2s ease;
+}
+
+.job-gallery-arrow:hover{
+  background:rgba(20,18,18,.9);
+  transform:translateY(-50%) scale(1.08);
+}
+
+.job-gallery-prev{
+  left:15px;
+}
+
+.job-gallery-next{
+  right:15px;
+}
+  
 .job-gallery img{
   width:100%;
   height:240px;
@@ -2697,23 +2753,40 @@ if(jobs.length===0){
             images.length
               ?
               `
-                <div class="job-gallery">
-
-                  ${images.map(function(image,index){
-
-                    return `
-
-                     <img
-  src="${esc(image)}"
-  alt="${esc(t(job.title))} - Photo ${index+1}"
-  onclick="openJobImage('${esc(image)}')"
+            <div
+  class="job-gallery"
+  data-job-id="${esc(job.id)}"
+  data-index="0"
 >
 
-                    `;
+  <img
+    class="job-gallery-image"
+    src="${esc(images[0])}"
+    alt="${esc(t(job.title))}"
+    onclick="openJobImage('${esc(images[0])}')"
+  >
 
-                  }).join('')}
+  ${
+    images.length > 1
+      ? `
+        <button
+          type="button"
+          class="job-gallery-arrow job-gallery-prev"
+          onclick="changeJobImage('${esc(job.id)}', -1); event.stopPropagation();">
+          ‹
+        </button>
 
-                </div>
+        <button
+          type="button"
+          class="job-gallery-arrow job-gallery-next"
+          onclick="changeJobImage('${esc(job.id)}', 1); event.stopPropagation();">
+          ›
+        </button>
+      `
+      : ''
+  }
+
+</div>
               `
               :
               ''
@@ -3196,6 +3269,60 @@ fetch('./content.json?v='+Date.now())
   `;
 
 });
+
+  function changeJobImage(jobId, direction){
+
+  const job =
+    CONTENT.jobs.items.find(function(item){
+      return item.id === jobId;
+    });
+
+  if(!job || !Array.isArray(job.images) || job.images.length < 2){
+    return;
+  }
+
+  const gallery =
+    document.querySelector(
+      '.job-gallery[data-job-id="' + jobId + '"]'
+    );
+
+  if(!gallery){
+    return;
+  }
+
+  const image =
+    gallery.querySelector('.job-gallery-image');
+
+  if(!image){
+    return;
+  }
+
+  let currentIndex =
+    parseInt(gallery.dataset.index || '0', 10);
+
+  currentIndex += direction;
+
+  if(currentIndex < 0){
+    currentIndex = job.images.length - 1;
+  }
+
+  if(currentIndex >= job.images.length){
+    currentIndex = 0;
+  }
+
+  gallery.dataset.index = currentIndex;
+
+  image.src = job.images[currentIndex];
+
+  image.alt =
+    t(job.title) + ' - Photo ' + (currentIndex + 1);
+
+  image.onclick = function(){
+    openJobImage(job.images[currentIndex]);
+  };
+
+}
+  
 function openJobImage(image){
 
   const lightbox=document.createElement('div');
