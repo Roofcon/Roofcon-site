@@ -1711,7 +1711,23 @@ function showPage(id){
 
 }
 
+function openReferenceCategory(category){
 
+  showPage('references');
+
+  const button =
+    document.querySelector(
+      '.reference-category[data-category="' +
+      category +
+      '"]'
+    );
+
+  if(button){
+    button.click();
+  }
+  
+}
+  
 /* LANGUE */
 
 function setLang(lang){
@@ -2129,32 +2145,6 @@ document.getElementById('who-hallcon').textContent=
     `;
 
   }).join('');
-
-  function openReferenceCategory(category){
-
-  showPage('references');
-
-  document.querySelectorAll('.reference-category')
-    .forEach(function(button){
-
-      button.classList.remove('active');
-
-    });
-
-  const button =
-    document.querySelector(
-      '.reference-category[data-category="' +
-      category +
-      '"]'
-    );
-
-  if(button){
-    button.classList.add('active');
-  }
-
-  renderReferences(category);
-
-}
   
 /* RÉFÉRENCES */
 
