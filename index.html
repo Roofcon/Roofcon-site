@@ -906,7 +906,7 @@ h1 span{
 
 .jobs-grid{
   display:grid;
-  grid-template-columns:1fr;
+  grid-template-columns:repeat(3,1fr);
   gap:20px;
 }
 
@@ -926,7 +926,7 @@ h1 span{
 .job-gallery{
   position:relative;
   width:100%;
-  height:360px;
+  height:240px;
   overflow:hidden;
   display:block;
 }
@@ -1337,6 +1337,27 @@ footer{
     padding:28px;
   }
 }
+
+  @media (max-width:900px){
+
+  .jobs-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media (max-width:600px){
+
+  .jobs-grid{
+    grid-template-columns:1fr;
+  }
+
+  .job-gallery{
+    height:240px;
+  }
+
+}
+  
 </style>
 </head>
 
