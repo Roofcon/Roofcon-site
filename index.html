@@ -2175,32 +2175,24 @@ function showPage(id){
   setTimeout(function(){
 
     if(page){
+
       page.querySelectorAll('.reveal').forEach(function(element){
         element.classList.remove('visible');
       });
 
       setTimeout(function(){
 
-        if(page){
-          page.querySelectorAll('.reveal').forEach(function(element){
-            element.classList.add('visible');
-          });
-        }
+        page.querySelectorAll('.reveal').forEach(function(element){
+          element.classList.add('visible');
+        });
 
       },50);
+
     }
 
   },50);
+
 }
-
-  window.scrollTo({
-    top:0,
-    behavior:'smooth'
-  });
-}
-```
-
-
   function initReveal(){
 
   const elements = document.querySelectorAll(
