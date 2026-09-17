@@ -341,12 +341,31 @@ Votre token reste enregistré uniquement dans votre navigateur.
 </div>
 
 <div>
+  
 <label>Bouton références DE</label>
 <input id="hero-ref-de">
 </div>
 
 </div>
+<div class="full" style="margin-top:15px">
 
+  <label>Image de fond du Hero</label>
+
+  <input
+    type="file"
+    id="hero-image-input"
+    accept="image/*"
+    onchange="selectHeroImage(this)"
+  >
+
+  <p class="hint">
+    Choisissez une image qui sera utilisée comme arrière-plan de la page d'accueil.
+  </p>
+
+  <div id="hero-image-preview" style="margin-top:15px"></div>
+
+</div>
+  
 </section>
 
 <!-- QUI SOMMES-NOUS -->
@@ -1475,6 +1494,102 @@ project.images.forEach(function(image, imageIndex){
 
 }
 
+  async function selectHeroImage(input){
+
+  const file = input.files[0];
+
+  if(!file){
+    return;
+  }
+
+  try{
+
+    const s = auth();
+
+    $('status').textContent =
+      'Envoi de l’image du Hero vers GitHub…';
+
+    const extension =
+      file.name
+        .split('.')
+        .pop()
+        .toLowerCase();
+
+    const filename =
+      'hero-' +
+      Date.now() +
+      '.' +
+      extension;
+
+    const path =
+      'images/hero/' +
+      filename;
+
+    const buffer =
+      await file.arrayBuffer();
+
+    const bytes =
+      new Uint8Array(buffer);
+
+    let binary = '';
+
+    for(let i = 0; i < bytes.length; i++){
+      binary +=
+        String.fromCharCode(bytes[i]);
+    }
+
+    const content =
+      btoa(binary);
+
+    await api(
+      '/contents/' + path,
+      {
+        method:'PUT',
+        body:JSON.stringify({
+          message:
+            'Modifier l’image du Hero',
+          content:content,
+          branch:s.branch
+        })
+      }
+    );
+
+    C.hero.image = path;
+
+    $('hero-image-preview').innerHTML =
+      `
+      <p class="hint">
+        Nouvelle image sélectionnée :
+      </p>
+
+      <img
+        src="../${path}"
+        style="
+          max-width:100%;
+          max-height:280px;
+          border-radius:12px;
+          display:block;
+          margin-top:10px;
+        "
+      >
+      `;
+
+    $('status').textContent =
+      'Image du Hero envoyée sur GitHub. Cliquez maintenant sur « Enregistrer et publier ».';
+
+    input.value = '';
+
+  }catch(e){
+
+    $('status').textContent =
+      'Erreur : ' + e.message;
+
+    console.error(e);
+
+  }
+
+}
+  
   async function selectCategoryImage(categoryIndex, input){
 
   const file = input.files[0];
@@ -2293,6 +2408,28 @@ function fill(){
   set('hero-ref-fr',C.hero.referencesButton?.fr);
   set('hero-ref-de',C.hero.referencesButton?.de);
 
+  if(C.hero.image){
+
+  $('hero-image-preview').innerHTML =
+    `
+    <p class="hint">
+      Image actuelle du Hero :
+    </p>
+
+    <img
+      src="../${C.hero.image}"
+      style="
+        max-width:100%;
+        max-height:280px;
+        border-radius:12px;
+        display:block;
+        margin-top:10px;
+      "
+    >
+    `;
+
+}
+  
 /* QUI SOMMES-NOUS */
 
 if(C.who){
