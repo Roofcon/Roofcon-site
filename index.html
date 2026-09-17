@@ -712,13 +712,23 @@ h1 span{
 .detail-back{
   display:inline-flex;
   align-items:center;
-  gap:10px;
+  gap:8px;
   margin-bottom:55px;
   color:#222;
   font-size:14px;
   font-weight:700;
   text-decoration:none;
   transition:.25s ease;
+}
+
+.back-arrow{
+  display:inline-block;
+  font-size:20px;
+  line-height:1;
+}
+
+.detail-back:hover{
+  transform:translateX(-4px);
 }
 
 .detail-back:hover{
@@ -1809,8 +1819,9 @@ footer{
 <a
   href="#"
   class="detail-back"
-onclick="showPage(currentReferenceCategoryId); return false;"
-  ← <span>Retour aux références</span>
+  onclick="showPage('references'); return false;">
+  <span class="back-arrow">←</span>
+  <span>Retour aux références</span>
 </a>
 
     <div class="head">
@@ -1844,12 +1855,13 @@ onclick="showPage(currentReferenceCategoryId); return false;"
 
   <div class="container">
 
-    <a
-      href="#"
-      class="detail-back"
-onclick="openReferenceCategory(currentReferenceCategoryId); return false;"
-      ← <span id="detail-back-text"></span>
-    </a>
+   <a
+  href="#"
+  class="detail-back"
+  onclick="openReferenceCategory(currentReferenceCategoryId); return false;">
+  <span class="back-arrow">←</span>
+  <span id="detail-back-text"></span>
+</a>
 
     <div class="head">
 
