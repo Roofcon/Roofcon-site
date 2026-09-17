@@ -160,7 +160,20 @@
           "de": "Ausführung von Dachdeckungen zum dauerhaften Schutz von Gebäuden und für une professionnelle Fertigstellung."
         },
         "image": ""
-      }
+      },
+      {
+  "id": "maisons",
+  "number": "05",
+  "title": {
+    "fr": "Maisons / Annexes",
+    "de": "Häuser / Anbauten"
+  },
+  "text": {
+    "fr": "Construction et réalisation d'annexes et de projets résidentiels.",
+    "de": "Bau und Umsetzung von Anbauten und Wohnprojekten."
+  },
+  "image": ""
+}
     ]
   },
   "references": {
