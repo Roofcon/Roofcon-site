@@ -229,7 +229,16 @@
         },
         "image": "",
         "projects": []
-      }
+      },
+      {
+  "id": "maisons",
+  "title": {
+    "fr": "Maisons / Annexes",
+    "de": "Häuser / Anbauten"
+  },
+  "image": "images/maisons.jpg",
+  "projects": []
+}
     ]
   },
   "jobs": {
