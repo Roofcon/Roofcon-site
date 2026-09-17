@@ -1742,9 +1742,9 @@ footer{
             <a id="contact-phone"></a>
           </div>
 
-        <div class="item">
+      <div class="item">
   <small id="label-email"></small>
-  <span id="contact-email"></span>
+  <a id="contact-email" href="#"></a>
 </div>
 
           <div class="item">
@@ -3002,9 +3002,11 @@ if(jobs.length===0){
     'tel:'+c.site.phone.replace(/[^+0-9]/g,'');
 
 
-  document.getElementById('contact-email').textContent=
-    c.site.email;
+document.getElementById('contact-email').textContent=
+  c.site.email;
 
+document.getElementById('contact-email').href=
+  'mailto:'+c.site.email;
 
   document.getElementById('contact-address').textContent=
     c.site.address;
