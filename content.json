@@ -197,24 +197,7 @@
           "de": "Hinterlüftete Fassaden"
         },
         "image": "",
-        "projects": [
-          {
-            "id": "project-1789557040553",
-            "title": {
-              "fr": "Projet test façade",
-              "de": "Testprojekt Fassade"
-            },
-            "description": {
-              "fr": "",
-              "de": ""
-            },
-            "image": "images/realisations/project-1789557040553-1789557089723-z66bva.jpg",
-            "images": [
-              "images/realisations/project-1789557040553-1789557089723-z66bva.jpg",
-              "images/realisations/project-1789557040553-1789557092406-zyqntl.jpg"
-            ]
-          }
-        ]
+        "projects": []
       },
       {
         "id": "toitures",
