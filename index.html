@@ -2800,8 +2800,7 @@ document.getElementById('who-hallcon').textContent=
   document.getElementById('about-intro').textContent=
     t(c.about.intro);
 
-
- document.getElementById('poles-grid').innerHTML=
+document.getElementById('poles-grid').innerHTML=
   c.about.poles.map(function(pole){
 
     return `
@@ -2809,18 +2808,19 @@ document.getElementById('who-hallcon').textContent=
       <article
         class="pole"
         onclick="openReferenceCategory('${esc(pole.id)}')"
-        style="cursor:pointer;">
-
-        ${
-          pole.image
-            ? `
-              <img
-                class="pole-image"
-                src="${esc(pole.image)}"
-                alt="${esc(t(pole.title))}">
-            `
-            : ''
-        }
+        style="
+          cursor:pointer;
+          ${
+            pole.image
+              ? `background-image:
+                   linear-gradient(
+                     rgba(20,18,18,.55),
+                     rgba(20,18,18,.70)
+                   ),
+                   url('${esc(pole.image)}');`
+              : ''
+          }
+        ">
 
         <div class="pole-number">
           ${esc(pole.number)}
