@@ -63,32 +63,32 @@
       "de": "Wer sind wir?"
     },
     "title": {
-      "fr": "ROOFCON est synonyme d'une longue expérience, d'un savoir-faire technique et d'un savoir-faire artisanal de haute qualité. ",
-      "de": "ROOFCON steht für langjährige Erfahrung, technisches Know-how und hochwertiges Handwerk. "
+      "fr": "ROOFCON",
+      "de": "ROOFCON "
     },
     "intro": {
+      "fr": "Synonyme d'une longue expérience, d'un savoir-faire technique et d'un savoir-faire artisanal de haute qualité.",
+      "de": "Steht langjährige Erfahrung, technisches Know-how und hochwertiges Handwerk. "
+    },
+    "text1": {
       "fr": "Derrière ROOFCON se cachent Brück et Gregor Schütz. Après de nombreuses années passées dans différents domaines de la construction en bois, de la couverture et des façades, nous avons mis en commun nos compétences afin de mener à bien des projets de manière globale. ",
       "de": "Hinter ROOFCON stehen Brück und Gregor Schütz. Nach vielen Jahren in unterschiedlichen Bereichen des Holz-, Dach- und Fassadenbaus haben wir unsere Kompetenzen gebündelt, um Projekte ganzheitlich umzusetzen."
     },
-    "text1": {
+    "text2": {
       "fr": "Notre atout : une offre tout-en-un.",
       "de": "Unsere Stärke: Alles aus einer Hand. "
     },
-    "text2": {
+    "text3": {
       "fr": "De l’entretien initial au conseil et à l’estimation, en passant par la conception, le développement, les calculs statiques et les plans techniques, tout est réalisé au sein de notre propre équipe. ",
       "de": "Vom Erstgespräch über Beratung und Kalkulation bis hin zur Planung, Entwicklung, statischen Berechnung und technischen Zeichnung - alles entsteht bei uns im eigenen Team. "
     },
-    "text3": {
+    "text4": {
       "fr": "La charpenterie, la fabrication et le montage de structures en bois complexes, ainsi que la réalisation dans les règles de l’art de nos travaux de toiture et de façade, sont également assurés par notre équipe.",
       "de": "Auch Abbund, Fertigung und Montage komplexer Holzkonstruktionen sowie die fachgerechte Ausführung unserer Dach- und Fassadenarbeiten erfolgen durch unser Team."
     },
-    "text4": {
+    "objective": {
       "fr": "Nous concevons, calculons, dessinons, fabriquons et construisons. Avec un interlocuteur unique et une exigence commune en matière de qualité.",
       "de": "Wir planen, berechnen, zeichnen, fertigen und bauen. Mit einem Ansprechpartner und einem gemeinsamen Qualitätsanspruch."
-    },
-    "objective": {
-      "fr": "Notre objectif : réaliser des projets durables, soignés et adaptés à chaque client.",
-      "de": "Unser Ziel: langlebige, sorgfältig ausgeführte und individuell auf jeden Kunden abgestimmte Projekte zu realisieren."
     },
     "hallcon": {
       "fr": "Découvrir nos réalisations →",
