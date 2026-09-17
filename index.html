@@ -2155,7 +2155,6 @@ function esc(v){
 
 /* NAVIGATION */
 
-```javascript
 function showPage(id){
 
   document.querySelectorAll('section').forEach(function(section){
@@ -2166,27 +2165,33 @@ function showPage(id){
 
   if(page){
     page.classList.add('active-page');
+  }
 
-    // Réinitialise les animations
-    page.querySelectorAll('.reveal').forEach(function(element){
-      element.classList.remove('visible');
-    });
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
 
-    // Relance les animations
-    setTimeout(function(){
+  setTimeout(function(){
 
+    if(page){
       page.querySelectorAll('.reveal').forEach(function(element){
-
-        const rect = element.getBoundingClientRect();
-
-        if(rect.top < window.innerHeight){
-          element.classList.add('visible');
-        }
-
+        element.classList.remove('visible');
       });
 
-    },100);
-  }
+      setTimeout(function(){
+
+        if(page){
+          page.querySelectorAll('.reveal').forEach(function(element){
+            element.classList.add('visible');
+          });
+        }
+
+      },50);
+    }
+
+  },50);
+}
 
   window.scrollTo({
     top:0,
