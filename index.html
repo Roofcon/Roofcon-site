@@ -1806,12 +1806,12 @@ footer{
 
   <div class="container">
 
-    <a
-      href="#"
-      class="detail-back"
+<a
+  href="#"
+  class="detail-back"
 onclick="showPage(currentReferenceCategoryId); return false;"
-      ← <span>Retour aux références</span>
-    </a>
+  ← <span>Retour aux références</span>
+</a>
 
     <div class="head">
 
@@ -1847,7 +1847,7 @@ onclick="showPage(currentReferenceCategoryId); return false;"
     <a
       href="#"
       class="detail-back"
-      onclick="showPage('references'); return false;">
+onclick="openReferenceCategory(currentReferenceCategoryId); return false;"
       ← <span id="detail-back-text"></span>
     </a>
 
@@ -2225,6 +2225,8 @@ function showPage(id){
   
 function openReferenceCategory(category){
 
+  currentReferenceCategoryId = category;
+  
 const categoryData =
     CONTENT.references.items.find(function(item){
 
