@@ -2155,26 +2155,46 @@ function esc(v){
 
 /* NAVIGATION */
 
+```javascript
 function showPage(id){
 
   document.querySelectorAll('section').forEach(function(section){
-
     section.classList.remove('active-page');
-
   });
 
   const page=document.getElementById(id);
 
   if(page){
     page.classList.add('active-page');
+
+    // Réinitialise les animations
+    page.querySelectorAll('.reveal').forEach(function(element){
+      element.classList.remove('visible');
+    });
+
+    // Relance les animations
+    setTimeout(function(){
+
+      page.querySelectorAll('.reveal').forEach(function(element){
+
+        const rect = element.getBoundingClientRect();
+
+        if(rect.top < window.innerHeight){
+          element.classList.add('visible');
+        }
+
+      });
+
+    },100);
   }
 
   window.scrollTo({
     top:0,
     behavior:'smooth'
   });
-
 }
+```
+
 
   function initReveal(){
 
