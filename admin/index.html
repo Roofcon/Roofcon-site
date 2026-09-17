@@ -940,6 +940,28 @@ function renderPoles(){
           <textarea id="pole-${i}-text-de"></textarea>
         </div>
 
+        <div class="full" style="margin-top:15px">
+
+          <label>Image de fond du département</label>
+
+          <input
+            type="file"
+            id="pole-${i}-image-input"
+            accept="image/*"
+            onchange="selectPoleImage(${i},this)"
+          >
+
+          <p class="hint">
+            Choisissez l'image qui sera utilisée en arrière-plan de ce département.
+          </p>
+
+          <div
+            id="pole-${i}-image-preview"
+            style="margin-top:15px"
+          ></div>
+
+        </div>
+
       </div>
     `;
 
@@ -950,6 +972,28 @@ function renderPoles(){
     set(`pole-${i}-title-de`,pole.title?.de);
     set(`pole-${i}-text-fr`,pole.text?.fr);
     set(`pole-${i}-text-de`,pole.text?.de);
+
+    if(pole.image){
+
+      $(`pole-${i}-image-preview`).innerHTML=
+        `
+        <p class="hint">
+          Image actuelle :
+        </p>
+
+        <img
+          src="../${pole.image}"
+          style="
+            max-width:100%;
+            max-height:220px;
+            border-radius:12px;
+            display:block;
+            margin-top:10px;
+          "
+        >
+        `;
+
+    }
 
   });
 
@@ -1583,6 +1627,109 @@ project.images.forEach(function(image, imageIndex){
 
     $('status').textContent =
       'Erreur : ' + e.message;
+
+    console.error(e);
+
+  }
+
+}
+
+  async function selectPoleImage(poleIndex,input){
+
+  const file=input.files[0];
+
+  if(!file){
+    return;
+  }
+
+  try{
+
+    const s=auth();
+
+    $('status').textContent=
+      'Envoi de l’image du département vers GitHub…';
+
+    const pole=C.about.poles[poleIndex];
+
+    if(!pole){
+      throw new Error('Département introuvable.');
+    }
+
+    const extension=
+      file.name
+        .split('.')
+        .pop()
+        .toLowerCase();
+
+    const filename=
+      (pole.id || 'pole-'+(poleIndex+1))+
+      '-'+
+      Date.now()+
+      '.'+
+      extension;
+
+    const path=
+      'images/poles/'+
+      filename;
+
+    const buffer=
+      await file.arrayBuffer();
+
+    const bytes=
+      new Uint8Array(buffer);
+
+    let binary='';
+
+    for(let i=0;i<bytes.length;i++){
+      binary+=
+        String.fromCharCode(bytes[i]);
+    }
+
+    const content=
+      btoa(binary);
+
+    await api(
+      '/contents/'+path,
+      {
+        method:'PUT',
+        body:JSON.stringify({
+          message:
+            'Modifier l’image d’un département',
+          content:content,
+          branch:s.branch
+        })
+      }
+    );
+
+    pole.image=path;
+
+    $(`pole-${poleIndex}-image-preview`).innerHTML=
+      `
+      <p class="hint">
+        Nouvelle image :
+      </p>
+
+      <img
+        src="../${path}"
+        style="
+          max-width:100%;
+          max-height:220px;
+          border-radius:12px;
+          display:block;
+          margin-top:10px;
+        "
+      >
+      `;
+
+    $('status').textContent=
+      'Image envoyée sur GitHub. Cliquez maintenant sur « Enregistrer et publier ».';
+
+    input.value='';
+
+  }catch(e){
+
+    $('status').textContent=
+      'Erreur : '+e.message;
 
     console.error(e);
 
