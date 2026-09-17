@@ -2404,7 +2404,9 @@ function setLang(lang){
 
 
 /* RÉFÉRENCE */
-
+  
+let currentReferenceCategoryId = null;
+  
 function openReference(id){
 
   if(!CONTENT || !CONTENT.references){
@@ -2431,7 +2433,8 @@ function openReference(id){
     return;
   }
 
-
+currentReferenceCategoryId = category.id;
+  
   /* PHOTOS DU PROJET */
 
   const images =
@@ -2455,10 +2458,10 @@ function openReference(id){
   document.getElementById('detail-intro').textContent =
     t(project.description);
 
-  document.getElementById('detail-back-text').textContent =
-    LANG==='fr'
-      ? 'Retour aux références'
-      : 'Zurück zu den Referenzen';
+ document.getElementById('detail-back-text').textContent =
+  LANG==='fr'
+    ? 'Retour aux projets'
+    : 'Zurück zu den Projekten';
 
 
   /* GALERIE */
