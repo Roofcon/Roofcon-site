@@ -107,10 +107,18 @@ header{
   color:var(--brown);
 }
 
-  .contact-card .item a{
+.contact-card .item a#contact-phone,
+.contact-card .item a#contact-email{
   color:inherit;
   text-decoration:none;
-  transition:color .2s ease, text-decoration-color .2s ease;
+  transition:color .2s ease, text-decoration .2s ease;
+}
+
+.contact-card .item a#contact-phone:hover,
+.contact-card .item a#contact-email:hover{
+  color:var(--brown) !important;
+  text-decoration:underline;
+  text-underline-offset:3px;
 }
 
 .contact-card .item a:hover{
