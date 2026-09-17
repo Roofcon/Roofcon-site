@@ -162,18 +162,18 @@
         "image": ""
       },
       {
-  "id": "maisons",
-  "number": "05",
-  "title": {
-    "fr": "Maisons / Annexes",
-    "de": "Häuser / Anbauten"
-  },
-  "text": {
-    "fr": "Construction et réalisation d'annexes et de projets résidentiels.",
-    "de": "Bau und Umsetzung von Anbauten und Wohnprojekten."
-  },
-  "image": ""
-}
+        "id": "maisons",
+        "number": "05",
+        "title": {
+          "fr": "Maisons / Annexes",
+          "de": "Häuser / Anbauten"
+        },
+        "text": {
+          "fr": "Construction et réalisation d'annexes et de projets résidentiels.",
+          "de": "Bau und Umsetzung von Anbauten und Wohnprojekten."
+        },
+        "image": ""
+      }
     ]
   },
   "references": {
@@ -244,14 +244,14 @@
         "projects": []
       },
       {
-  "id": "maisons",
-  "title": {
-    "fr": "Maisons / Annexes",
-    "de": "Häuser / Anbauten"
-  },
-  "image": "images/maisons.jpg",
-  "projects": []
-}
+        "id": "maisons",
+        "title": {
+          "fr": "Maisons / Annexes",
+          "de": "Häuser / Anbauten"
+        },
+        "image": "images/maisons.jpg",
+        "projects": []
+      }
     ]
   },
   "jobs": {
