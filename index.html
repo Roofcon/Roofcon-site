@@ -360,7 +360,7 @@ h1 span{
 
 .poles{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(5,1fr);
   gap:16px;
 }
 
@@ -427,9 +427,21 @@ h1 span{
 
 .reference-categories{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:repeat(6,1fr);
   gap:24px;
   margin-bottom:45px;
+}
+
+.reference-category{
+  grid-column:span 2;
+}
+
+.reference-category:nth-child(4){
+  grid-column:2 / span 2;
+}
+
+.reference-category:nth-child(5){
+  grid-column:4 / span 2;
 }
 
 .reference-category{
@@ -522,6 +534,12 @@ h1 span{
 
   .reference-category{
     min-height:300px;
+    grid-column:auto;
+  }
+
+  .reference-category:nth-child(4),
+  .reference-category:nth-child(5){
+    grid-column:auto;
   }
 
   .reference-category-title{
