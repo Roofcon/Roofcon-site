@@ -2699,7 +2699,17 @@ if(category.id === 'couvertures'){
     </svg>
   `;
 }
-
+if(category.id === 'maisons'){
+  icon = `
+    <svg viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M8 30L32 10L56 30"/>
+      <path d="M14 27V54H50V27"/>
+      <path d="M25 54V38H39V54"/>
+      <path d="M19 33H27V40H19Z"/>
+      <path d="M37 33H45V40H37Z"/>
+    </svg>
+  `;
+}
 return `
   <button
     type="button"
@@ -2785,6 +2795,12 @@ function renderReferences(filter){
       categoryKey='couvertures';
     }
 
+    else if(categoryName.includes('maison') ||
+        categoryName.includes('häuser') ||
+        categoryName.includes('anbauten')){
+  categoryKey='maisons';
+}
+    
     if(
       filter!=='all' &&
       filter!==categoryKey
