@@ -976,6 +976,89 @@ h1 span{
 
 }
 
+  /* ============================= */
+/* LA MÉTHODE ROOFCON */
+/* ============================= */
+
+.methode{
+  background:#f5f5f3;
+  padding:100px 0;
+}
+
+.methode .head{
+  margin-bottom:55px;
+  max-width:850px;
+}
+
+.methode .head h2{
+  max-width:750px;
+}
+
+.methode-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:18px;
+}
+
+.methode-card{
+  background:#ffffff;
+  padding:32px 26px 35px;
+  min-height:250px;
+  border-top:3px solid #222;
+}
+
+.methode-number{
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.12em;
+  color:#777;
+  margin-bottom:35px;
+}
+
+.methode-card h3{
+  margin:0 0 16px;
+  font-size:20px;
+  letter-spacing:.04em;
+}
+
+.methode-card p{
+  margin:0;
+  font-size:15px;
+  line-height:1.7;
+  color:#666;
+}
+
+
+/* TABLETTE */
+
+@media (max-width:1000px){
+
+  .methode-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width:600px){
+
+  .methode{
+    padding:70px 0;
+  }
+
+  .methode-grid{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .methode-card{
+    min-height:auto;
+  }
+
+}
+  
 /* JOBS */
 
 .jobs{
@@ -1896,7 +1979,119 @@ footer{
 
 </section>
 
+<!-- LA MÉTHODE ROOFCON -->
+<section id="methode" class="methode">
 
+  <div class="container">
+
+    <div class="head">
+
+      <div class="kicker">
+        LA MÉTHODE ROOFCON
+      </div>
+
+      <h2>
+        Un projet bien réalisé commence par une méthode maîtrisée.
+      </h2>
+
+    </div>
+
+    <div class="methode-grid">
+
+      <article class="methode-card">
+
+        <div class="methode-number">
+          01
+        </div>
+
+        <h3>
+          ÉCOUTER
+        </h3>
+
+        <p>
+          Comprendre votre projet, vos besoins et vos contraintes.
+        </p>
+
+      </article>
+
+
+      <article class="methode-card">
+
+        <div class="methode-number">
+          02
+        </div>
+
+        <h3>
+          CONCEVOIR
+        </h3>
+
+        <p>
+          Définir les solutions techniques adaptées à votre projet.
+        </p>
+
+      </article>
+
+
+      <article class="methode-card">
+
+        <div class="methode-number">
+          03
+        </div>
+
+        <h3>
+          PRÉPARER
+        </h3>
+
+        <p>
+          Anticiper chaque étape pour un chantier organisé et efficace.
+        </p>
+
+      </article>
+
+
+      <article class="methode-card">
+
+        <div class="methode-number">
+          04
+        </div>
+
+        <h3>
+          RÉALISER
+        </h3>
+
+        <p>
+          Mettre notre savoir-faire au service d'une réalisation soignée et durable.
+        </p>
+
+      </article>
+
+
+      <article class="methode-card">
+
+        <div class="methode-number">
+          05
+        </div>
+
+        <h3>
+          ACCOMPAGNER
+        </h3>
+
+        <p>
+          Vous accompagner jusqu'à la finalisation de votre projet.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- OFFRES D'EMPLOI -->
+<section id="jobs" class="jobs">
+  
 <!-- OFFRES D'EMPLOI -->
 <section id="jobs" class="jobs">
 
