@@ -189,19 +189,15 @@ section.active-page{
   align-items:center;
   overflow:hidden;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(20,18,18,.96) 0%,
-      rgba(20,18,18,.82) 45%,
-      rgba(20,18,18,.30) 100%
-    ),
-    linear-gradient(
-      135deg,
-      #292626 0%,
-      #685344 55%,
-      #b29273 100%
-    );
+  background:transparent;
+}
+
+.hero.active-page{
+  display:flex;
+}
+
+.hero.has-image{
+  background:transparent;
 }
 
 .hero.active-page{
@@ -214,6 +210,14 @@ section.active-page{
   background-repeat:no-repeat;
 }
 
+  /* FOND UNIQUE DE LA PAGE D'ACCUEIL */
+
+.hero{
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+  
 .hero:before{
   content:"";
   position:absolute;
@@ -982,9 +986,7 @@ h1 span{
 
 .methode{
   padding:100px 0;
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
+  background:transparent;
 }
 
 .methode .head{
@@ -1814,6 +1816,92 @@ footer{
 
     </div>
 
+
+    <!-- LA MÉTHODE ROOFCON -->
+    <div class="methode">
+
+      <div class="head">
+
+        <div class="kicker">
+          LA MÉTHODE ROOFCON
+        </div>
+
+        <h2>
+          Un projet bien réalisé commence par une méthode maîtrisée.
+        </h2>
+
+      </div>
+
+      <div class="methode-grid">
+
+        <article class="methode-card">
+
+          <div class="methode-number">01</div>
+
+          <h3>ÉCOUTER</h3>
+
+          <p>
+            Comprendre votre projet, vos besoins et vos contraintes.
+          </p>
+
+        </article>
+
+
+        <article class="methode-card">
+
+          <div class="methode-number">02</div>
+
+          <h3>CONCEVOIR</h3>
+
+          <p>
+            Définir les solutions techniques adaptées à votre projet.
+          </p>
+
+        </article>
+
+
+        <article class="methode-card">
+
+          <div class="methode-number">03</div>
+
+          <h3>PRÉPARER</h3>
+
+          <p>
+            Anticiper chaque étape pour un chantier organisé et efficace.
+          </p>
+
+        </article>
+
+
+        <article class="methode-card">
+
+          <div class="methode-number">04</div>
+
+          <h3>RÉALISER</h3>
+
+          <p>
+            Mettre notre savoir-faire au service d'une réalisation soignée et durable.
+          </p>
+
+        </article>
+
+
+        <article class="methode-card">
+
+          <div class="methode-number">05</div>
+
+          <h3>ACCOMPAGNER</h3>
+
+          <p>
+            Vous accompagner jusqu'à la finalisation de votre projet.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
   </div>
 
 </section>
@@ -1981,114 +2069,7 @@ footer{
 
 </section>
 
-<!-- LA MÉTHODE ROOFCON -->
-<section id="methode" class="methode">
 
-  <div class="container">
-
-    <div class="head">
-
-      <div class="kicker">
-        LA MÉTHODE ROOFCON
-      </div>
-
-      <h2>
-        Un projet bien réalisé commence par une méthode maîtrisée.
-      </h2>
-
-    </div>
-
-    <div class="methode-grid">
-
-      <article class="methode-card">
-
-        <div class="methode-number">
-          01
-        </div>
-
-        <h3>
-          ÉCOUTER
-        </h3>
-
-        <p>
-          Comprendre votre projet, vos besoins et vos contraintes.
-        </p>
-
-      </article>
-
-
-      <article class="methode-card">
-
-        <div class="methode-number">
-          02
-        </div>
-
-        <h3>
-          CONCEVOIR
-        </h3>
-
-        <p>
-          Définir les solutions techniques adaptées à votre projet.
-        </p>
-
-      </article>
-
-
-      <article class="methode-card">
-
-        <div class="methode-number">
-          03
-        </div>
-
-        <h3>
-          PRÉPARER
-        </h3>
-
-        <p>
-          Anticiper chaque étape pour un chantier organisé et efficace.
-        </p>
-
-      </article>
-
-
-      <article class="methode-card">
-
-        <div class="methode-number">
-          04
-        </div>
-
-        <h3>
-          RÉALISER
-        </h3>
-
-        <p>
-          Mettre notre savoir-faire au service d'une réalisation soignée et durable.
-        </p>
-
-      </article>
-
-
-      <article class="methode-card">
-
-        <div class="methode-number">
-          05
-        </div>
-
-        <h3>
-          ACCOMPAGNER
-        </h3>
-
-        <p>
-          Vous accompagner jusqu'à la finalisation de votre projet.
-        </p>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
   
 <!-- OFFRES D'EMPLOI -->
 <section id="jobs" class="jobs">
@@ -2387,20 +2368,6 @@ function showPage(id){
 
 if(page){
   page.classList.add('active-page');
-}
-
-/* LA MÉTHODE ROOFCON EST VISIBLE UNIQUEMENT SUR ACCUEIL */
-
-const methode=document.getElementById('methode');
-
-if(methode){
-
-  if(id === 'accueil'){
-    methode.classList.add('active-page');
-  }else{
-    methode.classList.remove('active-page');
-  }
-
 }
 
   window.scrollTo({
@@ -2941,25 +2908,33 @@ topEmail.innerHTML =
     t(c.hero.referencesButton);
 
 
-  /* IMAGE HERO */
+ /* IMAGE UNIQUE — PAGE D'ACCUEIL */
 
-  const hero=document.getElementById('accueil');
+const accueil =
+  document.getElementById('accueil');
 
-  if(c.hero.image){
+if(c.hero.image){
 
-    hero.classList.add('has-image');
+  accueil.classList.add('has-image');
 
-    hero.style.backgroundImage=
-      `
-      linear-gradient(
-        90deg,
-        rgba(20,18,18,.93) 0%,
-        rgba(20,18,18,.76) 47%,
-        rgba(20,18,18,.25) 100%
-      ),
-      url("${c.hero.image}")
-      `;
+  accueil.style.backgroundImage =
+    `
+    linear-gradient(
+      90deg,
+      rgba(20,18,18,.93) 0%,
+      rgba(20,18,18,.76) 47%,
+      rgba(20,18,18,.25) 100%
+    ),
+    url("${c.hero.image}")
+    `;
 
+}else{
+
+  accueil.classList.remove('has-image');
+
+  accueil.style.backgroundImage = '';
+
+}
 
     /* IMAGE DE FOND — LA MÉTHODE ROOFCON */
 
