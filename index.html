@@ -981,8 +981,10 @@ h1 span{
 /* ============================= */
 
 .methode{
-  background:#f5f5f3;
   padding:100px 0;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
 
 .methode .head{
@@ -2957,6 +2959,26 @@ topEmail.innerHTML =
       ),
       url("${c.hero.image}")
       `;
+
+
+    /* IMAGE DE FOND — LA MÉTHODE ROOFCON */
+
+    const methode =
+      document.getElementById('methode');
+
+    if(methode){
+
+      methode.style.backgroundImage =
+        `
+        linear-gradient(
+          rgba(20,18,18,.72),
+          rgba(20,18,18,.72)
+        ),
+        url("${c.hero.image}")
+        `;
+
+    }
+
 
   }else{
 
