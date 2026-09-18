@@ -2908,16 +2908,15 @@ topEmail.innerHTML =
     t(c.hero.referencesButton);
 
 
- /* IMAGE UNIQUE — PAGE D'ACCUEIL */
+/* IMAGE HERO */
 
-const accueil =
-  document.getElementById('accueil');
+const hero=document.getElementById('accueil');
 
 if(c.hero.image){
 
-  accueil.classList.add('has-image');
+  hero.classList.add('has-image');
 
-  accueil.style.backgroundImage =
+  hero.style.backgroundImage=
     `
     linear-gradient(
       90deg,
@@ -2930,12 +2929,12 @@ if(c.hero.image){
 
 }else{
 
-  accueil.classList.remove('has-image');
+  hero.classList.remove('has-image');
 
-  accueil.style.backgroundImage = '';
+  hero.style.backgroundImage='';
 
 }
-
+  
     /* IMAGE DE FOND — LA MÉTHODE ROOFCON */
 
     const methode =
