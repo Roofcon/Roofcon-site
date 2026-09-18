@@ -1823,9 +1823,7 @@ footer{
 
       <div class="head">
 
-        <div class="kicker">
-          LA MÉTHODE ROOFCON
-        </div>
+      <div class="kicker" id="methode-kicker"></div>
 
        <h2 id="methode-title"></h2>
 
@@ -2344,6 +2342,76 @@ function esc(v){
 
 }
 
+  /* LA MÉTHODE ROOFCON */
+
+function renderMethode(){
+
+  document.getElementById('methode-kicker').textContent =
+    LANG === 'fr'
+      ? 'LA MÉTHODE ROOFCON'
+      : 'DIE ROOFCON-METHODE';
+
+  document.getElementById('methode-title').textContent =
+    LANG === 'fr'
+      ? 'Un projet bien réalisé commence par une méthode maîtrisée.'
+      : 'Ein gut umgesetztes Projekt beginnt mit einer durchdachten Methode.';
+
+
+  document.getElementById('methode-title-1').textContent =
+    LANG === 'fr'
+      ? 'ÉCOUTER'
+      : 'ZUHÖREN';
+
+  document.getElementById('methode-text-1').textContent =
+    LANG === 'fr'
+      ? 'Comprendre votre projet, vos besoins et vos contraintes.'
+      : 'Ihr Projekt, Ihre Bedürfnisse und Ihre Anforderungen verstehen.';
+
+
+  document.getElementById('methode-title-2').textContent =
+    LANG === 'fr'
+      ? 'CONCEVOIR'
+      : 'PLANEN';
+
+  document.getElementById('methode-text-2').textContent =
+    LANG === 'fr'
+      ? 'Définir les solutions techniques adaptées à votre projet.'
+      : 'Die passenden technischen Lösungen für Ihr Projekt definieren.';
+
+
+  document.getElementById('methode-title-3').textContent =
+    LANG === 'fr'
+      ? 'PRÉPARER'
+      : 'VORBEREITEN';
+
+  document.getElementById('methode-text-3').textContent =
+    LANG === 'fr'
+      ? 'Anticiper chaque étape pour un chantier organisé et efficace.'
+      : 'Jeden Schritt vorausschauend planen für eine organisierte und effiziente Baustelle.';
+
+
+  document.getElementById('methode-title-4').textContent =
+    LANG === 'fr'
+      ? 'RÉALISER'
+      : 'UMSETZEN';
+
+  document.getElementById('methode-text-4').textContent =
+    LANG === 'fr'
+      ? "Mettre notre savoir-faire au service d'une réalisation soignée et durable."
+      : 'Unser Know-how für eine hochwertige und nachhaltige Umsetzung einsetzen.';
+
+
+  document.getElementById('methode-title-5').textContent =
+    LANG === 'fr'
+      ? 'ACCOMPAGNER'
+      : 'BEGLEITEN';
+
+  document.getElementById('methode-text-5').textContent =
+    LANG === 'fr'
+      ? "Vous accompagner jusqu'à la finalisation de votre projet."
+      : 'Sie bis zur Fertigstellung Ihres Projekts begleiten.';
+
+}
 
 /* NAVIGATION */
 
