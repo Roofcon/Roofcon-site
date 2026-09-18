@@ -2976,7 +2976,20 @@ topEmail.innerHTML =
   document.getElementById('nav-contact').textContent=
     t(c.nav.contact);
 
+/* BOUTON RETOUR RÉFÉRENCE */
 
+const detailBackText =
+  document.getElementById('detail-back-text');
+
+if(detailBackText){
+
+  detailBackText.textContent =
+    LANG === 'fr'
+      ? 'Retour aux projets'
+      : 'Zurück zu den Projekten';
+
+}
+  
   /* HERO */
 
   document.getElementById('hero-kicker').textContent=
