@@ -368,6 +368,133 @@ Votre token reste enregistré uniquement dans votre navigateur.
   
 </section>
 
+  <!-- LA MÉTHODE ROOFCON -->
+
+<section class="card">
+
+<h2>La méthode ROOFCON</h2>
+
+<div class="grid">
+
+<div class="full">
+<label>Titre général FR</label>
+<input id="methode-title-fr">
+</div>
+
+<div class="full">
+<label>Titre général DE</label>
+<input id="methode-title-de">
+</div>
+
+
+<div>
+<label>Étape 01 — Titre FR</label>
+<input id="methode-title-1-fr">
+</div>
+
+<div>
+<label>Étape 01 — Titre DE</label>
+<input id="methode-title-1-de">
+</div>
+
+<div>
+<label>Étape 01 — Texte FR</label>
+<textarea id="methode-text-1-fr"></textarea>
+</div>
+
+<div>
+<label>Étape 01 — Texte DE</label>
+<textarea id="methode-text-1-de"></textarea>
+</div>
+
+
+<div>
+<label>Étape 02 — Titre FR</label>
+<input id="methode-title-2-fr">
+</div>
+
+<div>
+<label>Étape 02 — Titre DE</label>
+<input id="methode-title-2-de">
+</div>
+
+<div>
+<label>Étape 02 — Texte FR</label>
+<textarea id="methode-text-2-fr"></textarea>
+</div>
+
+<div>
+<label>Étape 02 — Texte DE</label>
+<textarea id="methode-text-2-de"></textarea>
+</div>
+
+
+<div>
+<label>Étape 03 — Titre FR</label>
+<input id="methode-title-3-fr">
+</div>
+
+<div>
+<label>Étape 03 — Titre DE</label>
+<input id="methode-title-3-de">
+</div>
+
+<div>
+<label>Étape 03 — Texte FR</label>
+<textarea id="methode-text-3-fr"></textarea>
+</div>
+
+<div>
+<label>Étape 03 — Texte DE</label>
+<textarea id="methode-text-3-de"></textarea>
+</div>
+
+
+<div>
+<label>Étape 04 — Titre FR</label>
+<input id="methode-title-4-fr">
+</div>
+
+<div>
+<label>Étape 04 — Titre DE</label>
+<input id="methode-title-4-de">
+</div>
+
+<div>
+<label>Étape 04 — Texte FR</label>
+<textarea id="methode-text-4-fr"></textarea>
+</div>
+
+<div>
+<label>Étape 04 — Texte DE</label>
+<textarea id="methode-text-4-de"></textarea>
+</div>
+
+
+<div>
+<label>Étape 05 — Titre FR</label>
+<input id="methode-title-5-fr">
+</div>
+
+<div>
+<label>Étape 05 — Titre DE</label>
+<input id="methode-title-5-de">
+</div>
+
+<div>
+<label>Étape 05 — Texte FR</label>
+<textarea id="methode-text-5-fr"></textarea>
+</div>
+
+<div>
+<label>Étape 05 — Texte DE</label>
+<textarea id="methode-text-5-de"></textarea>
+</div>
+
+</div>
+
+</section>
+  
 <!-- QUI SOMMES-NOUS -->
 
 <section class="card">
@@ -2549,6 +2676,157 @@ function fill(){
   bilingual('hero-title',C.hero.title || {fr:'',de:''});
  bilingual('hero-text',C.hero.text || {fr:'',de:''});
 
+  /* LA MÉTHODE ROOFCON */
+
+const methode = C.methode || {};
+
+set(
+  'methode-kicker-fr',
+  methode.kicker?.fr || 'LA MÉTHODE ROOFCON'
+);
+
+set(
+  'methode-kicker-de',
+  methode.kicker?.de || 'DIE ROOFCON-METHODE'
+);
+
+set(
+  'methode-title-fr',
+  methode.title?.fr ||
+  'Un projet bien réalisé commence par une méthode maîtrisée.'
+);
+
+set(
+  'methode-title-de',
+  methode.title?.de ||
+  'Ein gut umgesetztes Projekt beginnt mit einer durchdachten Methode.'
+);
+
+
+/* CARTE 01 */
+
+set(
+  'methode-title-1-fr',
+  methode.card1?.title?.fr || 'ÉCOUTER'
+);
+
+set(
+  'methode-title-1-de',
+  methode.card1?.title?.de || 'ZUHÖREN'
+);
+
+set(
+  'methode-text-1-fr',
+  methode.card1?.text?.fr ||
+  'Comprendre votre projet, vos besoins et vos contraintes.'
+);
+
+set(
+  'methode-text-1-de',
+  methode.card1?.text?.de ||
+  'Ihr Projekt, Ihre Bedürfnisse und Ihre Anforderungen verstehen.'
+);
+
+
+/* CARTE 02 */
+
+set(
+  'methode-title-2-fr',
+  methode.card2?.title?.fr || 'CONCEVOIR'
+);
+
+set(
+  'methode-title-2-de',
+  methode.card2?.title?.de || 'PLANEN'
+);
+
+set(
+  'methode-text-2-fr',
+  methode.card2?.text?.fr ||
+  'Définir les solutions techniques adaptées à votre projet.'
+);
+
+set(
+  'methode-text-2-de',
+  methode.card2?.text?.de ||
+  'Die passenden technischen Lösungen für Ihr Projekt definieren.'
+);
+
+
+/* CARTE 03 */
+
+set(
+  'methode-title-3-fr',
+  methode.card3?.title?.fr || 'PRÉPARER'
+);
+
+set(
+  'methode-title-3-de',
+  methode.card3?.title?.de || 'VORBEREITEN'
+);
+
+set(
+  'methode-text-3-fr',
+  methode.card3?.text?.fr ||
+  'Anticiper chaque étape pour un chantier organisé et efficace.'
+);
+
+set(
+  'methode-text-3-de',
+  methode.card3?.text?.de ||
+  'Jeden Schritt vorausschauend planen für eine organisierte und effiziente Baustelle.'
+);
+
+
+/* CARTE 04 */
+
+set(
+  'methode-title-4-fr',
+  methode.card4?.title?.fr || 'RÉALISER'
+);
+
+set(
+  'methode-title-4-de',
+  methode.card4?.title?.de || 'UMSETZEN'
+);
+
+set(
+  'methode-text-4-fr',
+  methode.card4?.text?.fr ||
+  "Mettre notre savoir-faire au service d'une réalisation soignée et durable."
+);
+
+set(
+  'methode-text-4-de',
+  methode.card4?.text?.de ||
+  'Unser Know-how für eine hochwertige und nachhaltige Umsetzung einsetzen.'
+);
+
+
+/* CARTE 05 */
+
+set(
+  'methode-title-5-fr',
+  methode.card5?.title?.fr || 'ACCOMPAGNER'
+);
+
+set(
+  'methode-title-5-de',
+  methode.card5?.title?.de || 'BEGLEITEN'
+);
+
+set(
+  'methode-text-5-fr',
+  methode.card5?.text?.fr ||
+  "Vous accompagner jusqu'à la finalisation de votre projet."
+);
+
+set(
+  'methode-text-5-de',
+  methode.card5?.text?.de ||
+  'Sie bis zur Fertigstellung Ihres Projekts begleiten.'
+);
+  
   set('hero-about-fr',C.hero.aboutButton?.fr);
   set('hero-about-de',C.hero.aboutButton?.de);
 
@@ -2706,6 +2984,92 @@ function collect(){
 
   C.hero.text=getBilingual('hero-text');
 
+  /* LA MÉTHODE ROOFCON */
+
+if(!C.methode){
+  C.methode={};
+}
+
+C.methode.kicker={
+  fr:val('methode-kicker-fr'),
+  de:val('methode-kicker-de')
+};
+
+C.methode.title={
+  fr:val('methode-title-fr'),
+  de:val('methode-title-de')
+};
+
+
+/* CARTE 01 */
+
+C.methode.card1={
+  title:{
+    fr:val('methode-title-1-fr'),
+    de:val('methode-title-1-de')
+  },
+  text:{
+    fr:val('methode-text-1-fr'),
+    de:val('methode-text-1-de')
+  }
+};
+
+
+/* CARTE 02 */
+
+C.methode.card2={
+  title:{
+    fr:val('methode-title-2-fr'),
+    de:val('methode-title-2-de')
+  },
+  text:{
+    fr:val('methode-text-2-fr'),
+    de:val('methode-text-2-de')
+  }
+};
+
+
+/* CARTE 03 */
+
+C.methode.card3={
+  title:{
+    fr:val('methode-title-3-fr'),
+    de:val('methode-title-3-de')
+  },
+  text:{
+    fr:val('methode-text-3-fr'),
+    de:val('methode-text-3-de')
+  }
+};
+
+
+/* CARTE 04 */
+
+C.methode.card4={
+  title:{
+    fr:val('methode-title-4-fr'),
+    de:val('methode-title-4-de')
+  },
+  text:{
+    fr:val('methode-text-4-fr'),
+    de:val('methode-text-4-de')
+  }
+};
+
+
+/* CARTE 05 */
+
+C.methode.card5={
+  title:{
+    fr:val('methode-title-5-fr'),
+    de:val('methode-title-5-de')
+  },
+  text:{
+    fr:val('methode-text-5-fr'),
+    de:val('methode-text-5-de')
+  }
+};
+  
   C.hero.aboutButton={
     fr:val('hero-about-fr'),
     de:val('hero-about-de')
