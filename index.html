@@ -1998,7 +1998,7 @@ footer{
   class="detail-back"
   onclick="showPage('references'); return false;">
   <span class="back-arrow">←</span>
-  <span>Retour aux références</span>
+  <span id="category-detail-back-text">Retour aux références</span>
 </a>
 
     <div class="head">
@@ -2932,6 +2932,20 @@ function render(){
 
   const c=CONTENT;
 
+  /* BOUTON RETOUR AUX RÉFÉRENCES */
+
+const categoryBackText =
+  document.getElementById('category-detail-back-text');
+
+if(categoryBackText){
+
+  categoryBackText.textContent =
+    LANG === 'fr'
+      ? 'Retour aux références'
+      : 'Zurück zu den Referenzen';
+
+}
+  
   document.title=c.site.title;
 
   /* TOP */
