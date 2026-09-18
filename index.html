@@ -2381,11 +2381,25 @@ function showPage(id){
     section.classList.remove('active-page');
   });
 
-  const page=document.getElementById(id);
+ const page=document.getElementById(id);
 
-  if(page){
-    page.classList.add('active-page');
+if(page){
+  page.classList.add('active-page');
+}
+
+/* LA MÉTHODE ROOFCON EST VISIBLE UNIQUEMENT SUR ACCUEIL */
+
+const methode=document.getElementById('methode');
+
+if(methode){
+
+  if(id === 'accueil'){
+    methode.classList.add('active-page');
+  }else{
+    methode.classList.remove('active-page');
   }
+
+}
 
   window.scrollTo({
     top:0,
