@@ -255,7 +255,7 @@
         "id": "job-1789375039262",
         "title": {
           "fr": "COUVREURS/CHARPENTIERS",
-          "de": "ZIMMERER/DACHDEKKER"
+          "de": "ZIMMERER/DACHDECKER"
         },
         "description": {
           "fr": "Nous recherchons des charpentiers/couvreurs expérimentés. Découvrez notre offre dès maintenant. ",
@@ -324,6 +324,66 @@
     "copyright": {
       "fr": "© 2026 ROOFCON — Tous droits réservés.",
       "de": "© 2026 ROOFCON — Alle Rechte vorbehalten."
+    }
+  },
+  "methode": {
+    "kicker": {
+      "fr": "",
+      "de": ""
+    },
+    "title": {
+      "fr": "Un projet bien réalisé commence par une méthode maîtrisée.",
+      "de": "Ein gut umgesetztes Projekt beginnt mit einer durchdachten Methode."
+    },
+    "card1": {
+      "title": {
+        "fr": "ÉCOUTER",
+        "de": "ZUHÖREN"
+      },
+      "text": {
+        "fr": "Comprendre votre projet, vos besoins et vos contraintes.",
+        "de": "Ihr Projekt, Ihre Bedürfnisse und Ihre Anforderungen verstehen."
+      }
+    },
+    "card2": {
+      "title": {
+        "fr": "CONCEVOIR",
+        "de": "PLANEN"
+      },
+      "text": {
+        "fr": "Définir les solutions techniques adaptées à votre projet.",
+        "de": "Die passenden technischen Lösungen für Ihr Projekt definieren."
+      }
+    },
+    "card3": {
+      "title": {
+        "fr": "PRÉPARER",
+        "de": "VORBEREITEN"
+      },
+      "text": {
+        "fr": "Anticiper chaque étape pour un chantier organisé et efficace.",
+        "de": "Jeden Schritt vorausschauend planen für eine organisierte und effiziente Baustelle."
+      }
+    },
+    "card4": {
+      "title": {
+        "fr": "RÉALISER",
+        "de": "UMSETZEN"
+      },
+      "text": {
+        "fr": "Mettre notre savoir-faire au service d'une réalisation soignée et durable.",
+        "de": "Unser Know-how für eine hochwertige und nachhaltige Umsetzung einsetzen."
+      }
+    },
+    "card5": {
+      "title": {
+        "fr": "ACCOMPAGNER",
+        "de": "BEGLEITEN"
+      },
+      "text": {
+        "fr": "Vous accompagner jusqu'à la finalisation de votre projet.",
+        "de": "Sie bis zur Fertigstellung Ihres Projekts begleiten."
+      }
     }
   }
 }
