@@ -1309,36 +1309,6 @@ function renderPoles(){
   }
 
 });
-    if(marker){
-
-      marker.setLatLng([
-        lat,
-        lng
-      ]);
-
-    }else{
-
-      marker =
-        L.marker([
-          lat,
-          lng
-        ]).addTo(map);
-
-    }
-
-    const position =
-      document.getElementById(
-        `project-position-${categoryIndex}-${projectIndex}`
-      );
-
-    if(position){
-
-      position.textContent =
-        `Position : ${lat}, ${lng}`;
-
-    }
-
-  });
 
   setTimeout(function(){
 
