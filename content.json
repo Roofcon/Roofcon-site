@@ -197,26 +197,7 @@
           "de": "Hinterlüftete Fassaden"
         },
         "image": "",
-        "projects": [
-          {
-            "id": "project-1790585840639",
-            "title": {
-              "fr": "test carte ",
-              "de": ""
-            },
-            "description": {
-              "fr": "",
-              "de": ""
-            },
-            "image": "images/realisations/project-1790585840639-1790585864382-ooked9.jpg",
-            "images": [
-              "images/realisations/project-1790585840639-1790585864382-ooked9.jpg"
-            ],
-            "latitude": 50.1549115,
-            "longitude": 5.5274567,
-            "address": "10 rue de la Grange, 6980 La roche en ardenne, Belgique"
-          }
-        ]
+        "projects": []
       },
       {
         "id": "toitures",
@@ -405,20 +386,5 @@
       }
     }
   },
-  "mapProjects": [
-    {
-      "id": "map-1790587843538",
-      "title": {
-        "fr": "test 2",
-        "de": ""
-      },
-      "description": {
-        "fr": "",
-        "de": ""
-      },
-      "latitude": 50.1540692,
-      "longitude": 5.5318831,
-      "address": "10, Rue Louette, Ronchampay, Beausaint, La Roche-en-Ardenne, Marche-en-Famenne, Luxembourg, Wallonie, 6980, Belgique"
-    }
-  ]
+  "mapProjects": []
 }
