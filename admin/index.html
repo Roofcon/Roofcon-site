@@ -1687,6 +1687,181 @@ ${
 
 function renderMapProjects(){
 
+  function initMapProjectMap(index){
+
+  const project =
+    C.mapProjects[index];
+
+  const mapElement =
+    document.getElementById(
+      `map-project-map-${index}`
+    );
+
+  if(
+    !mapElement ||
+    !project ||
+    typeof L === 'undefined'
+  ){
+    return;
+  }
+
+  const defaultLat =
+    Number(project.lat) || 49.8153;
+
+  const defaultLng =
+    Number(project.lng) || 6.1296;
+
+  const map =
+    L.map(mapElement).setView(
+      [defaultLat, defaultLng],
+      project.lat && project.lng ? 15 : 9
+    );
+
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+      attribution:
+        '&copy; OpenStreetMap contributors'
+    }
+  ).addTo(map);
+
+  let marker = null;
+
+  if(project.lat && project.lng){
+
+    marker =
+      L.marker([
+        Number(project.lat),
+        Number(project.lng)
+      ]).addTo(map);
+
+  }
+
+  map.on('click', function(e){
+
+    const lat =
+      Number(e.latlng.lat.toFixed(6));
+
+    const lng =
+      Number(e.latlng.lng.toFixed(6));
+
+    project.lat = lat;
+    project.lng = lng;
+
+    if(marker){
+
+      marker.setLatLng([
+        lat,
+        lng
+      ]);
+
+    }else{
+
+      marker =
+        L.marker([
+          lat,
+          lng
+        ]).addTo(map);
+
+    }
+
+    const position =
+      document.getElementById(
+        `map-project-position-${index}`
+      );
+
+    if(position){
+
+      position.textContent =
+        `Position : ${lat}, ${lng}`;
+
+    }
+
+  });
+
+  setTimeout(function(){
+
+    map.invalidateSize();
+
+  },100);
+
+}
+
+  async function locateMapProject(index){
+
+  const project =
+    C.mapProjects[index];
+
+  const addressInput =
+    document.getElementById(
+      `map-project-${index}-address`
+    );
+
+  if(!addressInput){
+    return;
+  }
+
+  const address =
+    addressInput.value.trim();
+
+  if(!address){
+
+    alert(
+      'Veuillez entrer une adresse.'
+    );
+
+    return;
+  }
+
+  try{
+
+    const response =
+      await fetch(
+        'https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=' +
+        encodeURIComponent(address),
+        {
+          headers:{
+            'Accept':'application/json'
+          }
+        }
+      );
+
+    const results =
+      await response.json();
+
+    if(!results.length){
+
+      alert(
+        'Adresse introuvable. Vérifiez l’adresse saisie.'
+      );
+
+      return;
+    }
+
+    const lat =
+      Number(results[0].lat);
+
+    const lng =
+      Number(results[0].lon);
+
+    project.lat = lat;
+    project.lng = lng;
+    project.address = address;
+
+    renderMapProjects();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      'Impossible de localiser cette adresse.'
+    );
+
+  }
+
+}
+  
 function addMapProject(){
 
   if(!C.mapProjects){
@@ -1695,9 +1870,13 @@ function addMapProject(){
 
   C.mapProjects.push({
 
-    id:'map-project-'+Date.now(),
+    id:
+      'map-project-' +
+      Date.now(),
 
     name:'',
+
+    address:'',
 
     lat:'',
 
