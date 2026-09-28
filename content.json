@@ -197,24 +197,7 @@
           "de": "Hinterlüftete Fassaden"
         },
         "image": "",
-        "projects": [
-          {
-            "id": "project-1790588592411",
-            "title": {
-              "fr": "Beaujean Shannon ",
-              "de": ""
-            },
-            "description": {
-              "fr": "construction \n",
-              "de": ""
-            },
-            "image": "",
-            "images": [],
-            "latitude": 50.1549115,
-            "longitude": 5.5274567,
-            "address": "10 rue de la Grange, 6980 La roche en ardenne, Belgique"
-          }
-        ]
+        "projects": []
       },
       {
         "id": "toitures",
