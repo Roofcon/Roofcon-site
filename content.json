@@ -208,8 +208,10 @@
               "fr": "test carte",
               "de": ""
             },
-            "image": "",
-            "images": [],
+            "image": "images/realisations/project-1790582330647-1790584673243-vzyk1i.jpg",
+            "images": [
+              "images/realisations/project-1790582330647-1790584673243-vzyk1i.jpg"
+            ],
             "latitude": 49.594181,
             "longitude": 5.814074,
             "address": "83, Rue Grande, Messancy, Metzig, Arlon, Luxembourg, Wallonie, 6780, Belgique"
