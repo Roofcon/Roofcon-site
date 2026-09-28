@@ -1736,6 +1736,32 @@ footer{
   border-radius:12px;
   overflow:hidden;
 }
+
+  .chantier-map-section{
+  margin-top:90px;
+  padding-top:60px;
+  border-top:1px solid rgba(255,255,255,.15);
+}
+
+.chantier-map-section .head h2{
+  color:#fff;
+}
+
+.chantier-map{
+  width:100%;
+  height:450px;
+  border-radius:12px;
+  overflow:hidden;
+  margin-top:30px;
+}
+
+@media(max-width:800px){
+
+  .chantier-map{
+    height:320px;
+  }
+
+}
   
 </style>
   <link
@@ -1910,6 +1936,29 @@ footer{
 
     </div>
 
+    <!-- CARTE DES CHANTIERS -->
+
+<div class="chantier-map-section">
+
+  <div class="head">
+
+    <div class="kicker">
+      NOS CHANTIERS
+    </div>
+
+    <h2>
+      Retrouvez nos réalisations sur la carte.
+    </h2>
+
+  </div>
+
+  <div
+    id="chantier-map"
+    class="chantier-map">
+  </div>
+
+</div>
+    
   </div>
 
 </section>
@@ -3311,30 +3360,28 @@ openReferenceCategory(
 
 renderReferenceCategories();
 
-function initProjectMap(categoryIndex, projectIndex){
+  let chantierMap = null;
+let chantierMarkers = [];
 
-  const project =
-    c.references.items[categoryIndex].projects[projectIndex];
+function initChantierMap(){
 
   const mapElement =
-    document.getElementById(
-      `project-map-${categoryIndex}-${projectIndex}`
-    );
+    document.getElementById('chantier-map');
 
-  if(!mapElement || !project){
+  if(!mapElement || typeof L === 'undefined'){
     return;
   }
 
-  const defaultLat =
-    project.latitude || 49.8153;
+  if(chantierMap){
+    chantierMap.remove();
+    chantierMap = null;
+    chantierMarkers = [];
+  }
 
-  const defaultLng =
-    project.longitude || 6.1296;
-
-  const map =
+  chantierMap =
     L.map(mapElement).setView(
-      [defaultLat, defaultLng],
-      project.latitude ? 15 : 9
+      [49.8153, 6.1296],
+      9
     );
 
   L.tileLayer(
@@ -3343,57 +3390,96 @@ function initProjectMap(categoryIndex, projectIndex){
       attribution:
         '&copy; OpenStreetMap contributors'
     }
-  ).addTo(map);
+  ).addTo(chantierMap);
 
-  let marker = null;
+  const positions = [];
 
-  if(project.latitude && project.longitude){
+  CONTENT.references.items.forEach(function(category){
 
-    marker =
-      L.marker([
-        project.latitude,
+    (category.projects || []).forEach(function(project){
+
+      if(
+        project.latitude &&
         project.longitude
-      ]).addTo(map);
+      ){
 
-  }
+        const lat =
+          Number(project.latitude);
 
-  map.on('click',function(e){
+        const lng =
+          Number(project.longitude);
 
-    const lat =
-      Number(e.latlng.lat.toFixed(6));
+        if(
+          !Number.isNaN(lat) &&
+          !Number.isNaN(lng)
+        ){
 
-    const lng =
-      Number(e.latlng.lng.toFixed(6));
+          const marker =
+            L.marker([
+              lat,
+              lng
+            ]).addTo(chantierMap);
 
-    project.latitude = lat;
-    project.longitude = lng;
+          const title =
+            t(project.title) ||
+            'Réalisation ROOFCON';
 
-    if(marker){
-      marker.setLatLng([lat,lng]);
-    }else{
+          const categoryTitle =
+            t(category.title) ||
+            '';
 
-      marker =
-        L.marker([lat,lng])
-          .addTo(map);
+          marker.bindPopup(`
+            <strong>${esc(title)}</strong>
+            ${
+              categoryTitle
+                ? `<br><span>${esc(categoryTitle)}</span>`
+                : ''
+            }
+          `);
 
-    }
+          chantierMarkers.push(marker);
 
-    const position =
-      document.getElementById(
-        `project-position-${categoryIndex}-${projectIndex}`
-      );
+          positions.push([
+            lat,
+            lng
+          ]);
 
-    if(position){
+        }
 
-      position.textContent =
-        `Position : ${lat}, ${lng}`;
+      }
 
-    }
+    });
 
   });
 
-}
+  if(positions.length === 1){
 
+    chantierMap.setView(
+      positions[0],
+      13
+    );
+
+  }
+
+  else if(positions.length > 1){
+
+    chantierMap.fitBounds(
+      positions,
+      {
+        padding:[40,40]
+      }
+    );
+
+  }
+
+  setTimeout(function(){
+
+    chantierMap.invalidateSize();
+
+  },100);
+
+}
+  
 function renderReferences(filter){
 
   let html='';
@@ -3471,38 +3557,6 @@ c.references.items.forEach(function(category,i){
           <h3>
   ${esc(t(project.title))}
 </h3>
-
-<div
-  id="project-map-${i}-${j}"
-  class="project-map">
-</div>
-
-<p
-  class="hint"
-  id="project-position-${i}-${j}"
-  style="margin-top:8px;">
-  ${
-    project.latitude && project.longitude
-      ? `Position : ${project.latitude}, ${project.longitude}`
-      : 'Aucune position sélectionnée.'
-  }
-</p>
-
-<div
-  id="project-map-${i}-${j}"
-  class="project-map">
-</div>
-
-<p
-  class="hint"
-  id="project-position-${i}-${j}"
-  style="margin-top:8px;">
-  ${
-    project.latitude && project.longitude
-      ? `Position : ${project.latitude}, ${project.longitude}`
-      : 'Aucune position sélectionnée.'
-  }
-</p>
 
 ${
   project.description?.fr ||
@@ -4097,11 +4151,15 @@ fetch('./content.json?v='+Date.now())
 })
 
 .then(function(data){
- CONTENT=data;
-render();
-showPage('accueil');
-initReveal();
+  CONTENT=data;
 
+  render();
+
+  initChantierMap();
+
+  showPage('accueil');
+
+  initReveal();
 })
 
 .catch(function(error){
