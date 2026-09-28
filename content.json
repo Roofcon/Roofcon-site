@@ -197,7 +197,24 @@
           "de": "Hinterlüftete Fassaden"
         },
         "image": "",
-        "projects": []
+        "projects": [
+          {
+            "id": "project-1790585840639",
+            "title": {
+              "fr": "",
+              "de": ""
+            },
+            "description": {
+              "fr": "",
+              "de": ""
+            },
+            "image": "",
+            "images": [],
+            "latitude": 50.1549115,
+            "longitude": 5.5274567,
+            "address": "10 rue de la Grange, 6980 La roche en ardenne, Belgique"
+          }
+        ]
       },
       {
         "id": "toitures",
