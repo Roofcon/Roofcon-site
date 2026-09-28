@@ -1259,26 +1259,38 @@ function renderReferences(){
     <textarea id="ref-${i}-${j}-desc-de">${escapeHtml(project.description?.de||'')}</textarea>
   </div>
 
-  <div>
-    <label>Latitude</label>
+ <div style="grid-column:1/-1">
+
+  <label>Adresse du chantier</label>
+
+  <div style="
+    display:flex;
+    gap:10px;
+    align-items:center;
+  ">
+
     <input
-      type="number"
-      step="any"
-      id="ref-${i}-${j}-lat"
-      value="${project.latitude ?? ''}"
-      placeholder="Ex. 49.6116">
+      type="text"
+      id="ref-${i}-${j}-address"
+      value="${escapeHtml(project.address || '')}"
+      placeholder="Ex. 12 rue de Luxembourg, 6700 Arlon, Belgique"
+      style="flex:1;"
+    >
+
+    <button
+      type="button"
+      onclick="locateProject(${i},${j})"
+    >
+      📍 Localiser
+    </button>
+
   </div>
 
-  <div>
-    <label>Longitude</label>
-    <input
-      type="number"
-      step="any"
-      id="ref-${i}-${j}-lng"
-      value="${project.longitude ?? ''}"
-      placeholder="Ex. 6.1319">
-  </div>
+  <p class="hint" style="margin-top:8px;">
+    Entrez l'adresse du chantier puis cliquez sur « Localiser ».
+  </p>
 
+</div>
 </div>
 <div style="margin-top:20px">
 
