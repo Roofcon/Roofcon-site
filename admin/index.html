@@ -1280,6 +1280,31 @@ function renderReferences(){
   </div>
 
 </div>
+<div style="margin-top:20px">
+
+  <label>Localisation du chantier</label>
+
+  <p class="hint">
+    Cliquez directement sur la carte pour placer précisément le chantier.
+  </p>
+
+  <div
+    id="project-map-${i}-${j}"
+    class="project-map">
+  </div>
+
+  <p
+    class="hint"
+    id="project-position-${i}-${j}"
+    style="margin-top:8px;">
+    ${
+      project.latitude && project.longitude
+        ? `Position : ${project.latitude}, ${project.longitude}`
+        : 'Aucune position sélectionnée.'
+    }
+  </p>
+
+</div>
 <div style="margin-top:15px">
 
   <label>Photos du projet</label>
@@ -1386,21 +1411,6 @@ function renderReferences(){
     <input
       id="category-${i}-de"
       value="${escapeHtml(category.title?.de||'')}">
-  </div>
-
-</div>
-
-<div style="margin-top:20px">
-
-  <label>Localisation du chantier</label>
-
-  <p class="hint">
-    Cliquez directement sur la carte pour placer précisément le chantier.
-  </p>
-
-  <div
-    id="project-map-${i}-${j}"
-    class="project-map">
   </div>
 
 </div>
