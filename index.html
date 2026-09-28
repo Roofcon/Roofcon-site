@@ -2917,9 +2917,10 @@ const categoryData =
 
       return `
 
-        <article
-          class="ref reference-card"
-          data-reference-id="${esc(project.id)}">
+       <article
+  class="ref reference-card"
+  data-reference-id="${esc(project.id)}"
+  data-project-id="${esc(project.id)}">
 
           ${
             project.image
