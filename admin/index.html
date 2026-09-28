@@ -1338,6 +1338,92 @@ function renderPoles(){
 
 }
 
+  function initMapMarkerMap(index){
+
+  const mapElement =
+    document.getElementById(
+      'map-marker-map-' + index
+    );
+
+  if(
+    !mapElement ||
+    typeof L === 'undefined'
+  ){
+    return;
+  }
+
+  const marker =
+    C.mapProjects[index];
+
+  if(!marker){
+    return;
+  }
+
+  const lat =
+    Number(marker.latitude) || 49.8153;
+
+  const lng =
+    Number(marker.longitude) || 6.1296;
+
+  const map =
+    L.map(mapElement).setView(
+      [lat, lng],
+      marker.latitude && marker.longitude
+        ? 13
+        : 9
+    );
+
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+      attribution:
+        '&copy; OpenStreetMap contributors'
+    }
+  ).addTo(map);
+
+  const leafletMarker =
+    L.marker(
+      [lat, lng],
+      {
+        draggable:true
+      }
+    ).addTo(map);
+
+  leafletMarker.on(
+    'dragend',
+    function(){
+
+      const position =
+        leafletMarker.getLatLng();
+
+      C.mapProjects[index].latitude =
+        position.lat;
+
+      C.mapProjects[index].longitude =
+        position.lng;
+
+      renderMapMarkers();
+
+    }
+  );
+
+  map.on(
+    'click',
+    function(e){
+
+      C.mapProjects[index].latitude =
+        e.latlng.lat;
+
+      C.mapProjects[index].longitude =
+        e.latlng.lng;
+
+      renderMapMarkers();
+
+    }
+  );
+
+}
+  
   async function locateProject(categoryIndex, projectIndex){
 
   const project =
@@ -1438,7 +1524,7 @@ function renderPoles(){
             <label>Titre FR</label>
             <input
               type="text"
-              value="${esc(marker.title?.fr || '')}"
+              value="${escapeHtml(marker.title?.fr || '')}"
               oninput="C.mapProjects[${index}].title.fr=this.value">
           </div>
 
@@ -1446,7 +1532,7 @@ function renderPoles(){
             <label>Titre DE</label>
             <input
               type="text"
-              value="${esc(marker.title?.de || '')}"
+              value="${escapeHtml(marker.title?.de || '')}"
               oninput="C.mapProjects[${index}].title.de=this.value">
           </div>
 
@@ -1458,7 +1544,7 @@ function renderPoles(){
 
           <textarea
             oninput="C.mapProjects[${index}].description.fr=this.value"
-            rows="3">${esc(marker.description?.fr || '')}</textarea>
+            rows="3">${escapeHtml(marker.description?.fr || '')}</textarea>
 
         </div>
 
@@ -1468,9 +1554,61 @@ function renderPoles(){
 
           <textarea
             oninput="C.mapProjects[${index}].description.de=this.value"
-            rows="3">${esc(marker.description?.de || '')}</textarea>
+            rows="3">${escapeHtml(marker.description?.de || '')}</textarea>
 
         </div>
+
+id="0nq4wp"
+<div style="margin-top:15px;">
+
+  <label>Adresse</label>
+
+  <input
+    type="text"
+    value="${escapeHtml(marker.address || '')}"
+    oninput="C.mapProjects[${index}].address=this.value">
+
+  <button
+    type="button"
+    onclick="locateMapMarker(${index})"
+    style="margin-top:10px;">
+
+    📍 Localiser
+
+  </button>
+
+</div>
+
+<div
+  id="map-marker-map-${index}"
+  class="project-map">
+</div>
+
+<div class="project-coordinates">
+
+  <div>
+
+    <label>Latitude</label>
+
+    <input
+      type="text"
+      value="${marker.latitude ?? ''}"
+      readonly>
+
+  </div>
+
+  <div>
+
+    <label>Longitude</label>
+
+    <input
+      type="text"
+      value="${marker.longitude ?? ''}"
+      readonly>
+
+  </div>
+
+</div>
 
         <button
           type="button"
@@ -1487,6 +1625,12 @@ function renderPoles(){
 
   container.innerHTML = html;
 
+    C.mapProjects.forEach(function(marker, index){
+
+  initMapMarkerMap(index);
+
+});
+    
 }
   
 function renderReferences(){
