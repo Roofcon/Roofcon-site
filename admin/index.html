@@ -4,7 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ROOFCON — Administration</title>
+  
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
 
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+  
 <style>
 :root{
   --black:#211f20;
@@ -166,7 +175,48 @@ hr{
   .grid{grid-template-columns:1fr}
   .full{grid-column:auto}
 }
+
+ /* CARTE DES CHANTIERS */
+
+.project-map{
+  width:100%;
+  height:350px;
+  margin-top:15px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  overflow:hidden;
+}
+
+.project-coordinates{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:12px;
+}
+
+@media(max-width:700px){
+  .project-coordinates{
+    grid-template-columns:1fr;
+  }
+}
+  
 </style>
+
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<style>
+.project-map{
+  width:100%;
+  height:350px;
+  border:1px solid var(--line);
+  margin-top:10px;
+  z-index:1;
+}
+</style>
+  
 </head>
 
 <body>
@@ -686,6 +736,25 @@ Votre token reste enregistré uniquement dans votre navigateur.
 
 </section>
 
+  <!-- CARTE DES RÉALISATIONS -->
+
+<section class="card">
+
+  <h2>Carte des réalisations</h2>
+
+  <p class="hint">
+    Ajoutez les lieux de vos chantiers. Le point pourra ensuite être affiché sur la carte du site.
+  </p>
+
+  <div id="map-projects-editor"></div>
+
+  <button
+    type="button"
+    onclick="addMapProject()">
+    + Ajouter un chantier
+  </button>
+
+</section>
 
 <!-- OFFRES D'EMPLOI -->
 
@@ -1130,7 +1199,7 @@ function renderPoles(){
 /* =========================
    RENDER REFERENCES
 ========================= */
-
+  
 function renderReferences(){
 
   const container=$('references-editor');
@@ -1164,34 +1233,53 @@ function renderReferences(){
 
         </div>
 
-        <div class="grid">
+       <div class="grid">
 
-          <div>
-            <label>Titre FR</label>
-            <input
-              id="ref-${i}-${j}-title-fr"
-              value="${escapeHtml(project.title?.fr||'')}">
-          </div>
+  <div>
+    <label>Titre FR</label>
+    <input
+      id="ref-${i}-${j}-title-fr"
+      value="${escapeHtml(project.title?.fr||'')}">
+  </div>
 
-          <div>
-            <label>Titre DE</label>
-            <input
-              id="ref-${i}-${j}-title-de"
-              value="${escapeHtml(project.title?.de||'')}">
-          </div>
+  <div>
+    <label>Titre DE</label>
+    <input
+      id="ref-${i}-${j}-title-de"
+      value="${escapeHtml(project.title?.de||'')}">
+  </div>
 
-          <div>
-            <label>Description FR</label>
-            <textarea id="ref-${i}-${j}-desc-fr">${escapeHtml(project.description?.fr||'')}</textarea>
-          </div>
+  <div>
+    <label>Description FR</label>
+    <textarea id="ref-${i}-${j}-desc-fr">${escapeHtml(project.description?.fr||'')}</textarea>
+  </div>
 
-          <div>
-            <label>Description DE</label>
-            <textarea id="ref-${i}-${j}-desc-de">${escapeHtml(project.description?.de||'')}</textarea>
-          </div>
+  <div>
+    <label>Description DE</label>
+    <textarea id="ref-${i}-${j}-desc-de">${escapeHtml(project.description?.de||'')}</textarea>
+  </div>
 
-        </div>
+  <div>
+    <label>Latitude</label>
+    <input
+      type="number"
+      step="any"
+      id="ref-${i}-${j}-lat"
+      value="${project.latitude ?? ''}"
+      placeholder="Ex. 49.6116">
+  </div>
 
+  <div>
+    <label>Longitude</label>
+    <input
+      type="number"
+      step="any"
+      id="ref-${i}-${j}-lng"
+      value="${project.longitude ?? ''}"
+      placeholder="Ex. 6.1319">
+  </div>
+
+</div>
 <div style="margin-top:15px">
 
   <label>Photos du projet</label>
@@ -1302,6 +1390,21 @@ function renderReferences(){
 
 </div>
 
+<div style="margin-top:20px">
+
+  <label>Localisation du chantier</label>
+
+  <p class="hint">
+    Cliquez directement sur la carte pour placer précisément le chantier.
+  </p>
+
+  <div
+    id="project-map-${i}-${j}"
+    class="project-map">
+  </div>
+
+</div>
+
 <div style="margin-top:15px">
 
   <label>Photo de couverture de la catégorie</label>
@@ -1374,12 +1477,167 @@ ${
 
     `;
 
+   container.appendChild(div);
+
+(category.projects || []).forEach((project,j)=>{
+  initProjectMap(i,j);
+});
+
+});
+
+}
+
+  /* =========================
+   CARTE DES RÉALISATIONS
+========================= */
+
+function renderMapProjects(){
+
+  const container = $('map-projects-editor');
+
+  if(!container) return;
+
+  container.innerHTML = '';
+
+  if(!C.mapProjects){
+    C.mapProjects = [];
+  }
+
+  C.mapProjects.forEach((project,i)=>{
+
+    const div = document.createElement('div');
+
+    div.className = 'project';
+
+    div.innerHTML = `
+
+      <div class="category-title">
+
+        <h3>
+          Chantier ${i+1}
+        </h3>
+
+        <button
+          type="button"
+          class="danger"
+          onclick="deleteMapProject(${i})">
+          Supprimer
+        </button>
+
+      </div>
+
+      <div class="grid">
+
+        <div class="full">
+          <label>Nom du projet</label>
+          <input
+            id="map-project-${i}-name"
+            value="${escapeHtml(project.name || '')}"
+            placeholder="Ex. Résidence Luxembourg">
+        </div>
+
+        <div>
+          <label>Latitude</label>
+          <input
+            id="map-project-${i}-lat"
+            type="number"
+            step="any"
+            value="${project.lat ?? ''}">
+        </div>
+
+        <div>
+          <label>Longitude</label>
+          <input
+            id="map-project-${i}-lng"
+            type="number"
+            step="any"
+            value="${project.lng ?? ''}">
+        </div>
+
+        <div>
+          <label>Projet disponible sur le site ?</label>
+
+          <select id="map-project-${i}-link">
+
+            <option value="">
+              Aucun lien
+            </option>
+
+            ${
+              (C.references?.items || [])
+               .flatMap(category =>
+  (category.projects || []).map(project => ({
+    id: project.id,
+    title: project.title?.fr || 'Projet sans nom'
+  }))
+)
+                .map(project => `
+                  <option
+                    value="${escapeHtml(project.id || '')}"
+                    ${project.id === project.linkProjectId ? 'selected' : ''}>
+                    ${escapeHtml(project.title)}
+                  </option>
+                `)
+                .join('')
+            }
+
+          </select>
+
+        </div>
+
+      </div>
+
+      <p class="hint">
+        Les coordonnées seront utilisées pour placer précisément le point sur la carte.
+      </p>
+
+    `;
+
     container.appendChild(div);
 
   });
 
 }
 
+
+function addMapProject(){
+
+  if(!C.mapProjects){
+    C.mapProjects = [];
+  }
+
+  C.mapProjects.push({
+
+    id:'map-project-'+Date.now(),
+
+    name:'',
+
+    lat:'',
+
+    lng:'',
+
+    linkProjectId:''
+
+  });
+
+  renderMapProjects();
+
+}
+
+
+function deleteMapProject(index){
+
+  if(!C.mapProjects) return;
+
+  if(!confirm('Supprimer ce chantier de la carte ?')){
+    return;
+  }
+
+  C.mapProjects.splice(index,1);
+
+  renderMapProjects();
+
+}
 
 /* =========================
    PROJETS
@@ -2942,6 +3200,15 @@ bilingual('footer-description',C.footer.description || {fr:'',de:''});
 bilingual('footer-copyright',C.footer.copyright || {fr:'',de:''});
 
 
+  if(!C.mapProjects){
+  C.mapProjects = [];
+}
+
+renderPoles();
+renderReferences();
+renderMapProjects();
+renderJobs();
+  
   renderPoles();
   renderReferences();
   renderJobs();
@@ -3155,6 +3422,27 @@ C.about.kicker=getBilingual('about-kicker');
 
   });
 
+  /* CARTE DES RÉALISATIONS */
+
+if(!C.mapProjects){
+  C.mapProjects = [];
+}
+
+C.mapProjects.forEach((project,i)=>{
+
+  project.name =
+    val(`map-project-${i}-name`);
+
+  project.lat =
+    val(`map-project-${i}-lat`);
+
+  project.lng =
+    val(`map-project-${i}-lng`);
+
+  project.linkProjectId =
+    val(`map-project-${i}-link`);
+
+});
 
 /* JOBS */
 
@@ -3311,5 +3599,7 @@ loadSettings();
 
 </script>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
 </body>
 </html>
