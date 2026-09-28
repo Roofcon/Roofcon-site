@@ -740,6 +740,26 @@ Votre token reste enregistré uniquement dans votre navigateur.
 <div id="references-editor"></div>
 
 </section>
+
+  <!-- POINTS SUR LA CARTE -->
+
+<section class="card">
+
+  <h2>Points sur la carte</h2>
+
+  <p class="hint">
+    Ajoutez des marqueurs indépendants des réalisations présentées dans les références.
+  </p>
+
+  <div id="map-markers-editor"></div>
+
+  <button
+    type="button"
+    onclick="addMapMarker()">
+    + Ajouter un marqueur
+  </button>
+
+</section>
   
 <!-- OFFRES D'EMPLOI -->
 
@@ -1388,6 +1408,86 @@ function renderPoles(){
   }
 
 }
+
+  function renderMapMarkers(){
+
+  const container =
+    document.getElementById('map-markers-editor');
+
+  if(!container){
+    return;
+  }
+
+  if(!C.mapProjects){
+    C.mapProjects = [];
+  }
+
+  let html = '';
+
+  C.mapProjects.forEach(function(marker, index){
+
+    html += `
+      <div class="map-marker-editor"
+           style="border:1px solid var(--line); padding:20px; margin-top:15px; border-radius:6px;">
+
+        <h3>Marqueur ${index + 1}</h3>
+
+        <div class="grid">
+
+          <div>
+            <label>Titre FR</label>
+            <input
+              type="text"
+              value="${esc(marker.title?.fr || '')}"
+              oninput="C.mapProjects[${index}].title.fr=this.value">
+          </div>
+
+          <div>
+            <label>Titre DE</label>
+            <input
+              type="text"
+              value="${esc(marker.title?.de || '')}"
+              oninput="C.mapProjects[${index}].title.de=this.value">
+          </div>
+
+        </div>
+
+        <div style="margin-top:15px;">
+
+          <label>Description FR</label>
+
+          <textarea
+            oninput="C.mapProjects[${index}].description.fr=this.value"
+            rows="3">${esc(marker.description?.fr || '')}</textarea>
+
+        </div>
+
+        <div style="margin-top:15px;">
+
+          <label>Description DE</label>
+
+          <textarea
+            oninput="C.mapProjects[${index}].description.de=this.value"
+            rows="3">${esc(marker.description?.de || '')}</textarea>
+
+        </div>
+
+        <button
+          type="button"
+          onclick="C.mapProjects.splice(${index},1); renderMapMarkers();">
+
+          Supprimer
+
+        </button>
+
+      </div>
+    `;
+
+  });
+
+  container.innerHTML = html;
+
+}
   
 function renderReferences(){
 
@@ -1737,6 +1837,72 @@ C.references.items[categoryIndex].projects.push({
 
 }
 
+  function addProject(categoryIndex){
+
+  if(!C.references.items[categoryIndex].projects){
+
+    C.references.items[categoryIndex].projects=[];
+
+  }
+
+  C.references.items[categoryIndex].projects.push({
+
+    id:'project-'+Date.now(),
+
+    title:{
+      fr:'',
+      de:''
+    },
+
+    description:{
+      fr:'',
+      de:''
+    },
+
+    image:'',
+
+    images:[]
+
+  });
+
+  renderReferences();
+
+}
+
+
+function addMapMarker(){
+
+  if(!C.mapProjects){
+    C.mapProjects = [];
+  }
+
+  C.mapProjects.push({
+
+    id:'map-'+Date.now(),
+
+    title:{
+      fr:'',
+      de:''
+    },
+
+    description:{
+      fr:'',
+      de:''
+    },
+
+    latitude:null,
+    longitude:null,
+    address:''
+
+  });
+
+  renderMapMarkers();
+
+}
+
+
+async function selectProjectImages(categoryIndex, projectIndex, input){
+  
 async function selectProjectImages(categoryIndex, projectIndex, input){
 
   const files = Array.from(input.files);
@@ -3263,6 +3429,7 @@ bilingual('footer-copyright',C.footer.copyright || {fr:'',de:''});
 
 renderPoles();
 renderReferences();
+renderMapMarkers();
 renderJobs();
   
   renderPoles();
