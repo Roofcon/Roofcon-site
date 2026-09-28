@@ -1728,8 +1728,21 @@ footer{
   opacity:1;
   transform:translateY(0);
 }
+
+  .project-map{
+  width:100%;
+  height:280px;
+  margin-top:20px;
+  border-radius:12px;
+  overflow:hidden;
+}
   
 </style>
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+  
 </head>
 
 <body>
@@ -3296,13 +3309,96 @@ openReferenceCategory(
 
 }
 
-  renderReferenceCategories();
-  
+renderReferenceCategories();
+
+function initProjectMap(categoryIndex, projectIndex){
+
+  const project =
+    c.references.items[categoryIndex].projects[projectIndex];
+
+  const mapElement =
+    document.getElementById(
+      `project-map-${categoryIndex}-${projectIndex}`
+    );
+
+  if(!mapElement || !project){
+    return;
+  }
+
+  const defaultLat =
+    project.latitude || 49.8153;
+
+  const defaultLng =
+    project.longitude || 6.1296;
+
+  const map =
+    L.map(mapElement).setView(
+      [defaultLat, defaultLng],
+      project.latitude ? 15 : 9
+    );
+
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+      attribution:
+        '&copy; OpenStreetMap contributors'
+    }
+  ).addTo(map);
+
+  let marker = null;
+
+  if(project.latitude && project.longitude){
+
+    marker =
+      L.marker([
+        project.latitude,
+        project.longitude
+      ]).addTo(map);
+
+  }
+
+  map.on('click',function(e){
+
+    const lat =
+      Number(e.latlng.lat.toFixed(6));
+
+    const lng =
+      Number(e.latlng.lng.toFixed(6));
+
+    project.latitude = lat;
+    project.longitude = lng;
+
+    if(marker){
+      marker.setLatLng([lat,lng]);
+    }else{
+
+      marker =
+        L.marker([lat,lng])
+          .addTo(map);
+
+    }
+
+    const position =
+      document.getElementById(
+        `project-position-${categoryIndex}-${projectIndex}`
+      );
+
+    if(position){
+
+      position.textContent =
+        `Position : ${lat}, ${lng}`;
+
+    }
+
+  });
+
+}
+
 function renderReferences(filter){
 
   let html='';
 
-  c.references.items.forEach(function(category){
+c.references.items.forEach(function(category,i){
 
     const categoryName=
       (category.title?.fr || '').toLowerCase();
@@ -3339,7 +3435,7 @@ function renderReferences(filter){
       return;
     }
 
-    (category.projects || []).forEach(function(project){
+(category.projects || []).forEach(function(project,j){
 
       html+=`
 
@@ -3372,22 +3468,54 @@ function renderReferences(filter){
               ${esc(t(category.title))}
             </p>
 
-            <h3>
-              ${esc(t(project.title))}
-            </h3>
+          <h3>
+  ${esc(t(project.title))}
+</h3>
 
-            ${
-              project.description?.fr ||
-              project.description?.de
-              ?
-              `
-                <p>
-                  ${esc(t(project.description))}
-                </p>
-              `
-              :
-              ''
-            }
+<div
+  id="project-map-${i}-${j}"
+  class="project-map">
+</div>
+
+<p
+  class="hint"
+  id="project-position-${i}-${j}"
+  style="margin-top:8px;">
+  ${
+    project.latitude && project.longitude
+      ? `Position : ${project.latitude}, ${project.longitude}`
+      : 'Aucune position sélectionnée.'
+  }
+</p>
+
+<div
+  id="project-map-${i}-${j}"
+  class="project-map">
+</div>
+
+<p
+  class="hint"
+  id="project-position-${i}-${j}"
+  style="margin-top:8px;">
+  ${
+    project.latitude && project.longitude
+      ? `Position : ${project.latitude}, ${project.longitude}`
+      : 'Aucune position sélectionnée.'
+  }
+</p>
+
+${
+  project.description?.fr ||
+  project.description?.de
+  ?
+  `
+    <p>
+      ${esc(t(project.description))}
+    </p>
+  `
+  :
+  ''
+}
 
           </div>
 
@@ -3419,7 +3547,17 @@ function renderReferences(filter){
 
   }
 
-  refsGrid.innerHTML=html;
+ refsGrid.innerHTML=html;
+
+c.references.items.forEach(function(category,i){
+
+  (category.projects || []).forEach(function(project,j){
+
+    initProjectMap(i,j);
+
+  });
+
+});
 
 }
 
@@ -4075,5 +4213,9 @@ function openJobImage(image){
 }
 </script>
 
+  <script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+  
 </body>
 </html>
