@@ -313,7 +313,10 @@
       "submit": {
         "fr": "Envoyer la demande",
         "de": "Anfrage senden"
-      }
+      },
+      "map": {
+  "projects": []
+}
     }
   },
   "footer": {
