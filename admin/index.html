@@ -3263,7 +3263,6 @@ bilingual('footer-copyright',C.footer.copyright || {fr:'',de:''});
 
 renderPoles();
 renderReferences();
-renderMapProjects();
 renderJobs();
   
   renderPoles();
@@ -3463,7 +3462,7 @@ C.about.kicker=getBilingual('about-kicker');
       de:val(`category-${i}-de`)
     };
 
-    (category.projects||[]).forEach((project,j)=>{
+        (category.projects||[]).forEach((project,j)=>{
 
       project.title={
         fr:val(`ref-${i}-${j}-title-fr`),
@@ -3475,10 +3474,10 @@ C.about.kicker=getBilingual('about-kicker');
         de:val(`ref-${i}-${j}-desc-de`)
       };
 
-    });
+      project.address =
+        val(`ref-${i}-${j}-address`);
 
-    project.address =
-  val(`ref-${i}-${j}-address`);
+    });
     
 /* JOBS */
 
