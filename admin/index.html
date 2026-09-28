@@ -1687,113 +1687,6 @@ ${
 
 function renderMapProjects(){
 
-  const container = $('map-projects-editor');
-
-  if(!container) return;
-
-  container.innerHTML = '';
-
-  if(!C.mapProjects){
-    C.mapProjects = [];
-  }
-
-  C.mapProjects.forEach((project,i)=>{
-
-    const div = document.createElement('div');
-
-    div.className = 'project';
-
-    div.innerHTML = `
-
-      <div class="category-title">
-
-        <h3>
-          Chantier ${i+1}
-        </h3>
-
-        <button
-          type="button"
-          class="danger"
-          onclick="deleteMapProject(${i})">
-          Supprimer
-        </button>
-
-      </div>
-
-      <div class="grid">
-
-        <div class="full">
-          <label>Nom du projet</label>
-          <input
-            id="map-project-${i}-name"
-            value="${escapeHtml(project.name || '')}"
-            placeholder="Ex. Résidence Luxembourg">
-        </div>
-
-        <div>
-          <label>Latitude</label>
-          <input
-            id="map-project-${i}-lat"
-            type="number"
-            step="any"
-            value="${project.lat ?? ''}">
-        </div>
-
-        <div>
-          <label>Longitude</label>
-          <input
-            id="map-project-${i}-lng"
-            type="number"
-            step="any"
-            value="${project.lng ?? ''}">
-        </div>
-
-        <div>
-          <label>Projet disponible sur le site ?</label>
-
-          <select id="map-project-${i}-link">
-
-            <option value="">
-              Aucun lien
-            </option>
-
-            ${
-              (C.references?.items || [])
-               .flatMap(category =>
-  (category.projects || []).map(project => ({
-    id: project.id,
-    title: project.title?.fr || 'Projet sans nom'
-  }))
-)
-                .map(project => `
-                  <option
-                    value="${escapeHtml(project.id || '')}"
-                    ${project.id === project.linkProjectId ? 'selected' : ''}>
-                    ${escapeHtml(project.title)}
-                  </option>
-                `)
-                .join('')
-            }
-
-          </select>
-
-        </div>
-
-      </div>
-
-      <p class="hint">
-        Les coordonnées seront utilisées pour placer précisément le point sur la carte.
-      </p>
-
-    `;
-
-    container.appendChild(div);
-
-  });
-
-}
-
-
 function addMapProject(){
 
   if(!C.mapProjects){
@@ -1817,7 +1710,6 @@ function addMapProject(){
   renderMapProjects();
 
 }
-
 
 function deleteMapProject(index){
 
