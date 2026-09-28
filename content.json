@@ -314,11 +314,18 @@
         "fr": "Envoyer la demande",
         "de": "Anfrage senden"
       },
-      "map": {
-  "projects": []
-}
+     "map": {
+  "projects": [
+    {
+      "id": "chantier-1",
+      "name": "Nom du projet",
+      "lat": 0,
+      "lng": 0,
+      "referenceId": "",
+      "show": true
     }
-  },
+  ]
+},
   "footer": {
     "description": {
       "fr": "Façades ventilées · Toitures plates · Charpentes · Couvertures · Maisons · Annexes ",
