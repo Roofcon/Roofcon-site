@@ -405,5 +405,20 @@
       }
     }
   },
-  "mapProjects": []
+  "mapProjects": [
+    {
+      "id": "map-1790587843538",
+      "title": {
+        "fr": "test 2",
+        "de": ""
+      },
+      "description": {
+        "fr": "",
+        "de": ""
+      },
+      "latitude": 50.1549115,
+      "longitude": 5.5274567,
+      "address": "10, Rue de la Grange, Ronchampay, Beausaint, La Roche-en-Ardenne, Marche-en-Famenne, Luxembourg, Wallonie, 6980, Belgique"
+    }
+  ]
 }
