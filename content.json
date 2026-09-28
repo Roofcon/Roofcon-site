@@ -208,8 +208,10 @@
               "fr": "",
               "de": ""
             },
-            "image": "",
-            "images": [],
+            "image": "images/realisations/project-1790585840639-1790585864382-ooked9.jpg",
+            "images": [
+              "images/realisations/project-1790585840639-1790585864382-ooked9.jpg"
+            ],
             "latitude": 50.1549115,
             "longitude": 5.5274567,
             "address": "10 rue de la Grange, 6980 La roche en ardenne, Belgique"
