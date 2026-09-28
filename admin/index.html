@@ -1680,14 +1680,191 @@ ${
 });
 
 }
-
-  /* =========================
+/* =========================
    CARTE DES RÉALISATIONS
 ========================= */
 
 function renderMapProjects(){
 
-  function initMapProjectMap(index){
+  const container =
+    $('map-projects-editor');
+
+  if(!container){
+    return;
+  }
+
+  container.innerHTML = '';
+
+  if(!C.mapProjects){
+    C.mapProjects = [];
+  }
+
+  C.mapProjects.forEach((project,i)=>{
+
+    const div =
+      document.createElement('div');
+
+    div.className = 'project';
+
+    let projectOptions =
+      '<option value="">— Aucun projet lié —</option>';
+
+    C.references.items.forEach((category)=>{
+
+      (category.projects || []).forEach((refProject)=>{
+
+        const selected =
+          project.linkProjectId === refProject.id
+            ? 'selected'
+            : '';
+
+        const title =
+          refProject.title?.fr ||
+          'Projet sans titre';
+
+        projectOptions += `
+          <option
+            value="${escapeHtml(refProject.id)}"
+            ${selected}>
+            ${escapeHtml(title)}
+          </option>
+        `;
+
+      });
+
+    });
+
+    div.innerHTML = `
+
+      <div class="category-title">
+
+        <h3>
+          Chantier ${i+1}
+        </h3>
+
+        <button
+          type="button"
+          class="danger"
+          onclick="deleteMapProject(${i})">
+          Supprimer
+        </button>
+
+      </div>
+
+
+      <div class="grid">
+
+        <div>
+
+          <label>
+            Nom du chantier
+          </label>
+
+          <input
+            id="map-project-${i}-name"
+            value="${escapeHtml(project.name || '')}"
+            placeholder="Ex. Chantier Luxembourg">
+
+        </div>
+
+
+        <div>
+
+          <label>
+            Projet lié
+          </label>
+
+          <select
+            id="map-project-${i}-link">
+
+            ${projectOptions}
+
+          </select>
+
+          <p class="hint">
+            Facultatif : laisse ce champ vide si ce chantier
+            n'a pas de fiche dans Références.
+          </p>
+
+        </div>
+
+
+        <div style="grid-column:1/-1">
+
+          <label>
+            Adresse du chantier
+          </label>
+
+          <div style="
+            display:flex;
+            gap:10px;
+            align-items:center;
+          ">
+
+            <input
+              type="text"
+              id="map-project-${i}-address"
+              value="${escapeHtml(project.address || '')}"
+              placeholder="Ex. Luxembourg-ville"
+              style="flex:1;"
+            >
+
+            <button
+              type="button"
+              onclick="locateMapProject(${i})">
+              📍 Localiser
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div style="margin-top:20px">
+
+        <label>
+          Localisation du chantier
+        </label>
+
+        <p class="hint">
+          Clique directement sur la carte pour placer précisément
+          le chantier.
+        </p>
+
+        <div
+          id="map-project-map-${i}"
+          class="project-map">
+        </div>
+
+        <p
+          class="hint"
+          id="map-project-position-${i}"
+          style="margin-top:8px;">
+
+          ${
+            project.lat && project.lng
+              ? `Position : ${project.lat}, ${project.lng}`
+              : 'Aucune position sélectionnée.'
+          }
+
+        </p>
+
+      </div>
+
+    `;
+
+    container.appendChild(div);
+
+    initMapProjectMap(i);
+
+  });
+
+}
+
+
+function initMapProjectMap(index){
 
   const project =
     C.mapProjects[index];
@@ -1737,7 +1914,7 @@ function renderMapProjects(){
 
   }
 
-  map.on('click', function(e){
+  map.on('click',function(e){
 
     const lat =
       Number(e.latlng.lat.toFixed(6));
@@ -1787,7 +1964,8 @@ function renderMapProjects(){
 
 }
 
-  async function locateMapProject(index){
+
+async function locateMapProject(index){
 
   const project =
     C.mapProjects[index];
@@ -1861,7 +2039,8 @@ function renderMapProjects(){
   }
 
 }
-  
+
+
 function addMapProject(){
 
   if(!C.mapProjects){
@@ -1890,11 +2069,18 @@ function addMapProject(){
 
 }
 
+
 function deleteMapProject(index){
 
-  if(!C.mapProjects) return;
+  if(!C.mapProjects){
+    return;
+  }
 
-  if(!confirm('Supprimer ce chantier de la carte ?')){
+  if(
+    !confirm(
+      'Supprimer ce chantier de la carte ?'
+    )
+  ){
     return;
   }
 
@@ -1903,7 +2089,6 @@ function deleteMapProject(index){
   renderMapProjects();
 
 }
-
 /* =========================
    PROJETS
 ========================= */
