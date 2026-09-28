@@ -2524,6 +2524,36 @@ let chantierMarkers = [];
 
 function initChantierMap(){
 
+    const mapTitle =
+    document.getElementById('map-title');
+
+  const mapSubtitle =
+    document.getElementById('map-subtitle');
+
+  if(mapTitle && mapSubtitle){
+
+    if(LANG === 'de'){
+
+      mapTitle.textContent =
+        'UNSERE BAUSTELLEN';
+
+      mapSubtitle.textContent =
+        'Entdecken Sie unsere Projekte auf der Karte.';
+
+    }
+
+    else{
+
+      mapTitle.textContent =
+        'NOS CHANTIERS';
+
+      mapSubtitle.textContent =
+        'Retrouvez nos réalisations sur la carte.';
+
+    }
+
+  }
+  
   const mapElement =
     document.getElementById('chantier-map');
 
