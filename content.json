@@ -197,7 +197,23 @@
           "de": "Hinterlüftete Fassaden"
         },
         "image": "",
-        "projects": []
+        "projects": [
+          {
+            "id": "project-1790582330647",
+            "title": {
+              "fr": "",
+              "de": ""
+            },
+            "description": {
+              "fr": "",
+              "de": ""
+            },
+            "image": "",
+            "images": [],
+            "latitude": 50.155657,
+            "longitude": 5.528475
+          }
+        ]
       },
       {
         "id": "toitures",
@@ -310,13 +326,13 @@
         "fr": "Votre demande",
         "de": "Ihre Anfrage"
       },
-     "submit": {
-  "fr": "Envoyer la demande",
-  "de": "Anfrage senden"
-}
-}
-},
-"footer": {
+      "submit": {
+        "fr": "Envoyer la demande",
+        "de": "Anfrage senden"
+      }
+    }
+  },
+  "footer": {
     "description": {
       "fr": "Façades ventilées · Toitures plates · Charpentes · Couvertures · Maisons · Annexes ",
       "de": "Hinterlüftete Fassaden · Flachdächer · Holzkonstruktionen · Dachdeckungen · Häuser · Anbauten"
@@ -385,5 +401,6 @@
         "de": "Sie bis zur Fertigstellung Ihres Projekts begleiten."
       }
     }
-  }
+  },
+  "mapProjects": []
 }
