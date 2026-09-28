@@ -1495,6 +1495,72 @@ function renderPoles(){
 
 }
 
+  async function locateMapMarker(index){
+
+  const marker =
+    C.mapProjects[index];
+
+  if(!marker){
+    return;
+  }
+
+  const address =
+    marker.address?.trim();
+
+  if(!address){
+    alert('Veuillez entrer une adresse.');
+    return;
+  }
+
+  try{
+
+    const response =
+      await fetch(
+        'https://nominatim.openstreetmap.org/search?format=json&limit=1&q=' +
+        encodeURIComponent(address)
+      );
+
+    const results =
+      await response.json();
+
+    if(!results.length){
+
+      alert(
+        'Adresse introuvable. Essayez avec une adresse plus précise.'
+      );
+
+      return;
+
+    }
+
+    const result =
+      results[0];
+
+    C.mapProjects[index].latitude =
+      Number(result.lat);
+
+    C.mapProjects[index].longitude =
+      Number(result.lon);
+
+    C.mapProjects[index].address =
+      result.display_name || address;
+
+    renderMapMarkers();
+
+  }
+
+  catch(error){
+
+    console.error(error);
+
+    alert(
+      'Impossible de localiser cette adresse.'
+    );
+
+  }
+
+}
+  
   function renderMapMarkers(){
 
   const container =
