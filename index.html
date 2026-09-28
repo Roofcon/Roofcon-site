@@ -2611,6 +2611,64 @@ function initChantierMap(){
 
   });
 
+  if(CONTENT.mapProjects){
+
+  CONTENT.mapProjects.forEach(function(marker){
+
+    if(
+      marker.latitude &&
+      marker.longitude
+    ){
+
+      const lat =
+        Number(marker.latitude);
+
+      const lng =
+        Number(marker.longitude);
+
+      if(
+        !Number.isNaN(lat) &&
+        !Number.isNaN(lng)
+      ){
+
+        const mapMarker =
+          L.marker([
+            lat,
+            lng
+          ]).addTo(chantierMap);
+
+        const title =
+          t(marker.title) ||
+          'Point ROOFCON';
+
+        const description =
+          t(marker.description) ||
+          '';
+
+        mapMarker.bindPopup(`
+          <strong>${esc(title)}</strong>
+          ${
+            description
+              ? `<br><span>${esc(description)}</span>`
+              : ''
+          }
+        `);
+
+        chantierMarkers.push(mapMarker);
+
+        positions.push([
+          lat,
+          lng
+        ]);
+
+      }
+
+    }
+
+  });
+
+}
+  
   if(positions.length === 1){
 
     chantierMap.setView(
