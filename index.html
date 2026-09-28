@@ -2579,22 +2579,20 @@ function initChantierMap(){
               lng
             ]).addTo(chantierMap);
 
-          const title =
-            t(project.title) ||
-            'Réalisation ROOFCON';
+         const title =
+  t(project.title) ||
+  'Réalisation ROOFCON';
 
-          const categoryTitle =
-            t(category.title) ||
-            '';
-
-          marker.bindPopup(`
-            <strong>${esc(title)}</strong>
-            ${
-              categoryTitle
-                ? `<br><span>${esc(categoryTitle)}</span>`
-                : ''
-            }
-          `);
+marker.bindPopup(`
+  <strong>${esc(title)}</strong>
+  <br>
+  <button
+    type="button"
+    onclick="openMapProject('${category.id}', '${project.id}')"
+    style="margin-top:8px; cursor:pointer;">
+    Voir la réalisation
+  </button>
+`);
 
           chantierMarkers.push(marker);
 
@@ -2692,6 +2690,49 @@ function initChantierMap(){
   setTimeout(function(){
 
     chantierMap.invalidateSize();
+
+  },100);
+
+}
+
+  function openMapProject(categoryId, projectId){
+
+  showPage('references');
+
+  setTimeout(function(){
+
+    const categoryIndex =
+      CONTENT.references.items.findIndex(
+        function(category){
+          return category.id === categoryId;
+        }
+      );
+
+    if(categoryIndex === -1){
+      return;
+    }
+
+    renderReferences();
+
+    setTimeout(function(){
+
+      const projectElement =
+        document.querySelector(
+          '[data-project-id="' + projectId + '"]'
+        );
+
+      if(projectElement){
+
+        projectElement.scrollIntoView({
+          behavior:'smooth',
+          block:'center'
+        });
+
+        projectElement.click();
+
+      }
+
+    },100);
 
   },100);
 
@@ -3591,7 +3632,8 @@ c.references.items.forEach(function(category,i){
 
         <article
           class="ref reference-card"
-          data-reference-id="${esc(project.id)}">
+        data-reference-id="${esc(project.id)}"
+data-project-id="${esc(project.id)}">
 
           ${
             project.image
