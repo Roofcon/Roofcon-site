@@ -2697,44 +2697,7 @@ marker.bindPopup(`
 
   function openMapProject(categoryId, projectId){
 
-  showPage('references');
-
-  setTimeout(function(){
-
-    const categoryIndex =
-      CONTENT.references.items.findIndex(
-        function(category){
-          return category.id === categoryId;
-        }
-      );
-
-    if(categoryIndex === -1){
-      return;
-    }
-
-    renderReferences();
-
-    setTimeout(function(){
-
-      const projectElement =
-        document.querySelector(
-          '[data-project-id="' + projectId + '"]'
-        );
-
-      if(projectElement){
-
-        projectElement.scrollIntoView({
-          behavior:'smooth',
-          block:'center'
-        });
-
-        projectElement.click();
-
-      }
-
-    },100);
-
-  },100);
+  openReference(projectId);
 
 }
   
