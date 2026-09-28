@@ -1300,6 +1300,77 @@ function renderPoles(){
   },100);
 
 }
+
+  async function locateProject(categoryIndex, projectIndex){
+
+  const project =
+    C.references.items[categoryIndex].projects[projectIndex];
+
+  const addressInput =
+    document.getElementById(
+      `ref-${categoryIndex}-${projectIndex}-address`
+    );
+
+  if(!addressInput){
+    return;
+  }
+
+  const address =
+    addressInput.value.trim();
+
+  if(!address){
+    alert('Veuillez entrer une adresse.');
+    return;
+  }
+
+  try{
+
+    const response =
+      await fetch(
+        'https://nominatim.openstreetmap.org/search?format=jsonv2&limit=1&q=' +
+        encodeURIComponent(address),
+        {
+          headers:{
+            'Accept':'application/json'
+          }
+        }
+      );
+
+    const results =
+      await response.json();
+
+    if(!results.length){
+
+      alert(
+        'Adresse introuvable. Vérifiez l’adresse saisie.'
+      );
+
+      return;
+    }
+
+    const lat =
+      Number(results[0].lat);
+
+    const lng =
+      Number(results[0].lon);
+
+    project.latitude = lat;
+    project.longitude = lng;
+    project.address = address;
+
+    renderReferences();
+
+  }catch(error){
+
+    console.error(error);
+
+    alert(
+      'Impossible de localiser cette adresse.'
+    );
+
+  }
+
+}
   
 function renderReferences(){
 
