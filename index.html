@@ -2515,6 +2515,126 @@ function renderMethode(){
   
 /* NAVIGATION */
 
+    let chantierMap = null;
+let chantierMarkers = [];
+
+function initChantierMap(){
+
+  const mapElement =
+    document.getElementById('chantier-map');
+
+  if(!mapElement || typeof L === 'undefined'){
+    return;
+  }
+
+  if(chantierMap){
+    chantierMap.remove();
+    chantierMap = null;
+    chantierMarkers = [];
+  }
+
+  chantierMap =
+    L.map(mapElement).setView(
+      [49.8153, 6.1296],
+      9
+    );
+
+  L.tileLayer(
+    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    {
+      attribution:
+        '&copy; OpenStreetMap contributors'
+    }
+  ).addTo(chantierMap);
+
+  const positions = [];
+
+  CONTENT.references.items.forEach(function(category){
+
+    (category.projects || []).forEach(function(project){
+
+      if(
+        project.latitude &&
+        project.longitude
+      ){
+
+        const lat =
+          Number(project.latitude);
+
+        const lng =
+          Number(project.longitude);
+
+        if(
+          !Number.isNaN(lat) &&
+          !Number.isNaN(lng)
+        ){
+
+          const marker =
+            L.marker([
+              lat,
+              lng
+            ]).addTo(chantierMap);
+
+          const title =
+            t(project.title) ||
+            'Réalisation ROOFCON';
+
+          const categoryTitle =
+            t(category.title) ||
+            '';
+
+          marker.bindPopup(`
+            <strong>${esc(title)}</strong>
+            ${
+              categoryTitle
+                ? `<br><span>${esc(categoryTitle)}</span>`
+                : ''
+            }
+          `);
+
+          chantierMarkers.push(marker);
+
+          positions.push([
+            lat,
+            lng
+          ]);
+
+        }
+
+      }
+
+    });
+
+  });
+
+  if(positions.length === 1){
+
+    chantierMap.setView(
+      positions[0],
+      13
+    );
+
+  }
+
+  else if(positions.length > 1){
+
+    chantierMap.fitBounds(
+      positions,
+      {
+        padding:[40,40]
+      }
+    );
+
+  }
+
+  setTimeout(function(){
+
+    chantierMap.invalidateSize();
+
+  },100);
+
+}
+  
 function showPage(id){
 
   document.querySelectorAll('section').forEach(function(section){
@@ -3360,125 +3480,7 @@ openReferenceCategory(
 
 renderReferenceCategories();
 
-  let chantierMap = null;
-let chantierMarkers = [];
 
-function initChantierMap(){
-
-  const mapElement =
-    document.getElementById('chantier-map');
-
-  if(!mapElement || typeof L === 'undefined'){
-    return;
-  }
-
-  if(chantierMap){
-    chantierMap.remove();
-    chantierMap = null;
-    chantierMarkers = [];
-  }
-
-  chantierMap =
-    L.map(mapElement).setView(
-      [49.8153, 6.1296],
-      9
-    );
-
-  L.tileLayer(
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    {
-      attribution:
-        '&copy; OpenStreetMap contributors'
-    }
-  ).addTo(chantierMap);
-
-  const positions = [];
-
-  CONTENT.references.items.forEach(function(category){
-
-    (category.projects || []).forEach(function(project){
-
-      if(
-        project.latitude &&
-        project.longitude
-      ){
-
-        const lat =
-          Number(project.latitude);
-
-        const lng =
-          Number(project.longitude);
-
-        if(
-          !Number.isNaN(lat) &&
-          !Number.isNaN(lng)
-        ){
-
-          const marker =
-            L.marker([
-              lat,
-              lng
-            ]).addTo(chantierMap);
-
-          const title =
-            t(project.title) ||
-            'Réalisation ROOFCON';
-
-          const categoryTitle =
-            t(category.title) ||
-            '';
-
-          marker.bindPopup(`
-            <strong>${esc(title)}</strong>
-            ${
-              categoryTitle
-                ? `<br><span>${esc(categoryTitle)}</span>`
-                : ''
-            }
-          `);
-
-          chantierMarkers.push(marker);
-
-          positions.push([
-            lat,
-            lng
-          ]);
-
-        }
-
-      }
-
-    });
-
-  });
-
-  if(positions.length === 1){
-
-    chantierMap.setView(
-      positions[0],
-      13
-    );
-
-  }
-
-  else if(positions.length > 1){
-
-    chantierMap.fitBounds(
-      positions,
-      {
-        padding:[40,40]
-      }
-    );
-
-  }
-
-  setTimeout(function(){
-
-    chantierMap.invalidateSize();
-
-  },100);
-
-}
   
 function renderReferences(filter){
 
