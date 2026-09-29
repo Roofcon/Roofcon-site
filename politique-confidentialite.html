@@ -547,34 +547,26 @@ content="width=device-width, initial-scale=1.0"
 
 <script>
 
-  const LANG =
-    localStorage.getItem('roofconLang') || 'fr';
+  const langue = localStorage.getItem('roofconLang');
 
-  const fr =
-    document.getElementById('content-fr');
+  const francais = document.getElementById('content-fr');
+  const allemand = document.getElementById('content-de');
 
-  const de =
-    document.getElementById('content-de');
+  if (langue === 'de') {
 
-  if(LANG === 'de'){
-
-    fr.hidden = true;
-    de.hidden = false;
+    francais.style.display = 'none';
+    allemand.style.display = 'block';
 
     document.documentElement.lang = 'de';
+    document.title = 'Datenschutzerklärung | ROOFCON';
 
-    document.title =
-      'Datenschutzerklärung | ROOFCON';
+  } else {
 
-  }else{
-
-    fr.hidden = false;
-    de.hidden = true;
+    francais.style.display = 'block';
+    allemand.style.display = 'none';
 
     document.documentElement.lang = 'fr';
-
-    document.title =
-      'Politique de confidentialité | ROOFCON';
+    document.title = 'Politique de confidentialité | ROOFCON';
 
   }
 
