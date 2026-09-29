@@ -259,21 +259,6 @@ section.active-page{
   color:#fff;
   padding:90px 0;
 }
-
-    .hero-content{
-    width:100%;
-    max-width:100%;
-    overflow:visible;
-  }
-
-  .hero p{
-    width:100%;
-    max-width:100%;
-    white-space:normal;
-    overflow:visible;
-    word-break:normal;
-    overflow-wrap:break-word;
-  }
   
 .hero-logo{
   width:min(300px,65vw);
@@ -1514,15 +1499,6 @@ footer{
     line-height:1.2;
   }
 
-  .hero p{
-  height:auto !important;
-  max-height:none !important;
-  min-height:0 !important;
-  overflow:visible !important;
-  display:block !important;
-  white-space:normal !important;
-}
-  
   /* BOUTON MENU MOBILE */
 
   .mobile-menu-button{
@@ -1620,10 +1596,6 @@ footer{
   h1{
     letter-spacing:-2px;
   }
-
-.hero p{
-  font-size:17px;
-}
 
 .hero p{
   font-size:17px;
@@ -3422,6 +3394,9 @@ if(detailBackText){
   document.getElementById('hero-title').innerHTML=
     t(c.hero.title);
 
+  document.getElementById('hero-text').textContent=
+  t(c.hero.text);
+  
   document.getElementById('hero-about').textContent=
     t(c.hero.aboutButton);
 
