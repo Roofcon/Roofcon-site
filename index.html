@@ -2342,26 +2342,25 @@ footer{
 
   <div id="footer-copyright"></div>
 
-  <div class="footer-legal">
+ <div class="footer-legal">
 
-    <a href="mentions-legales.html">
-      Mentions légales
-    </a>
+  <a href="mentions-legales.html" id="footer-legal-1">
+    Mentions légales
+  </a>
 
-    <span>·</span>
+  <span>·</span>
 
-    <a href="politique-confidentialite.html">
-      Politique de confidentialité
-    </a>
+  <a href="politique-confidentialite.html" id="footer-legal-2">
+    Politique de confidentialité
+  </a>
 
-    <span>·</span>
+  <span>·</span>
 
-    <a href="politique-cookies.html">
-      Politique des cookies
-    </a>
+  <a href="politique-cookies.html" id="footer-legal-3">
+    Politique des cookies
+  </a>
 
-  </div>
-
+</div>
 </div>
 
   </div>
@@ -3963,6 +3962,38 @@ document.getElementById('contact-email').href=
   document.getElementById('footer-copyright').textContent=
     t(c.footer.copyright);
 
+  /* LIENS LÉGAUX */
+
+const footerLegal1 =
+  document.getElementById('footer-legal-1');
+
+const footerLegal2 =
+  document.getElementById('footer-legal-2');
+
+const footerLegal3 =
+  document.getElementById('footer-legal-3');
+
+if(footerLegal1){
+  footerLegal1.textContent =
+    LANG === 'fr'
+      ? 'Mentions légales'
+      : 'Impressum';
+}
+
+if(footerLegal2){
+  footerLegal2.textContent =
+    LANG === 'fr'
+      ? 'Politique de confidentialité'
+      : 'Datenschutzerklärung';
+}
+
+if(footerLegal3){
+  footerLegal3.textContent =
+    LANG === 'fr'
+      ? 'Politique des cookies'
+      : 'Cookie-Richtlinie';
+}
+  
  /* TÉLÉPHONE CLIQUABLE */
 
 const phoneElement =
