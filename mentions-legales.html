@@ -63,27 +63,6 @@
       font-weight: bold;
     }
 
-    .language {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 40px;
-    }
-
-    .language button {
-      border: 1px solid #ccc;
-      background: #fff;
-      padding: 7px 12px;
-      cursor: pointer;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    .language button.active {
-      background: #6b4f3a;
-      color: #fff;
-      border-color: #6b4f3a;
-    }
-
     .info {
       background: #fff;
       padding: 25px;
@@ -118,23 +97,6 @@
     <a class="back" href="index.html" id="back-link">
       ← Retour au site ROOFCON
     </a>
-
-    <div class="language">
-
-      <button
-        id="fr-btn"
-        onclick="setLang('fr')">
-        FR
-      </button>
-
-      <button
-        id="de-btn"
-        onclick="setLang('de')">
-        DE
-      </button>
-
-    </div>
-
 
     <!-- FRANÇAIS -->
 
@@ -386,118 +348,28 @@
 
 <script>
 
-  let LANG = localStorage.getItem('roofconLang') || 'fr';
+  const langue = localStorage.getItem('roofconLang');
 
+  const francais = document.getElementById('content-fr');
+  const allemand = document.getElementById('content-de');
 
-  function setLang(lang) {
+  if (langue === 'de') {
 
-    LANG = lang;
+    francais.style.display = 'none';
+    allemand.style.display = 'block';
 
-    localStorage.setItem('roofconLang', lang);
+    document.documentElement.lang = 'de';
+    document.title = 'Impressum | ROOFCON';
 
-    renderLanguage();
+  } else {
 
-  }
+    francais.style.display = 'block';
+    allemand.style.display = 'none';
 
-
-  function renderLanguage() {
-
-    const fr = document.getElementById('content-fr');
-    const de = document.getElementById('content-de');
-
-    const frBtn = document.getElementById('fr-btn');
-    const deBtn = document.getElementById('de-btn');
-
-    const back = document.getElementById('back-link');
-
-    const legal1 = document.getElementById('footer-legal-1');
-    const legal2 = document.getElementById('footer-legal-2');
-    const legal3 = document.getElementById('footer-legal-3');
-
-
-    /* SÉCURITÉ */
-
-    if (!fr || !de || !frBtn || !deBtn || !back) {
-      console.error('Erreur : éléments de traduction manquants.');
-      return;
-    }
-
-
-    /* ALLEMAND */
-
-    if (LANG === 'de') {
-
-      fr.style.display = 'none';
-      de.style.display = 'block';
-
-      frBtn.classList.remove('active');
-      deBtn.classList.add('active');
-
-      back.textContent =
-        '← Zurück zur ROOFCON-Website';
-
-      if (legal1) {
-        legal1.textContent = 'Impressum';
-      }
-
-      if (legal2) {
-        legal2.textContent = 'Datenschutzerklärung';
-      }
-
-      if (legal3) {
-        legal3.textContent = 'Cookie-Richtlinie';
-      }
-
-      document.documentElement.lang = 'de';
-
-      document.title = 'Impressum | ROOFCON';
-
-    }
-
-
-    /* FRANÇAIS */
-
-    else {
-
-      fr.style.display = 'block';
-      de.style.display = 'none';
-
-      deBtn.classList.remove('active');
-      frBtn.classList.add('active');
-
-      back.textContent =
-        '← Retour au site ROOFCON';
-
-      if (legal1) {
-        legal1.textContent = 'Mentions légales';
-      }
-
-      if (legal2) {
-        legal2.textContent =
-          'Politique de confidentialité';
-      }
-
-      if (legal3) {
-        legal3.textContent =
-          'Politique des cookies';
-      }
-
-      document.documentElement.lang = 'fr';
-
-      document.title = 'Mentions légales | ROOFCON';
-
-    }
+    document.documentElement.lang = 'fr';
+    document.title = 'Mentions légales | ROOFCON';
 
   }
-
-
-  /* INITIALISATION */
-
-  document.addEventListener('DOMContentLoaded', function() {
-
-    renderLanguage();
-
-  });
 
 </script>
 </body>
