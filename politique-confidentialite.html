@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="fr">
+
 <head>
 
   <meta charset="UTF-8">
@@ -72,6 +73,27 @@ content="width=device-width, initial-scale=1.0"
       margin:25px 0;
     }
 
+    .language-switch{
+      display:flex;
+      gap:8px;
+      margin-bottom:30px;
+    }
+
+    .language-switch button{
+      border:1px solid #ccc;
+      background:#fff;
+      padding:7px 12px;
+      cursor:pointer;
+      font-weight:bold;
+      border-radius:4px;
+    }
+
+    .language-switch button.active{
+      background:#6b4f3a;
+      color:#fff;
+      border-color:#6b4f3a;
+    }
+
     @media(max-width:600px){
 
       .container{
@@ -97,225 +119,540 @@ content="width=device-width, initial-scale=1.0"
   <main class="container">
 
 ```
-<a class="back" href="index.html">
-  ← Retour au site ROOFCON
-</a>
+<div class="language-switch">
 
-<h1>Politique de confidentialité</h1>
+  <button id="fr-btn" onclick="setLang('fr')">
+    FR
+  </button>
 
-<p>
-  ROOFCON Sàrl accorde une importance particulière à la protection
-  des données personnelles des utilisateurs de son site internet.
-  La présente politique explique quelles données peuvent être
-  collectées, dans quelles finalités et quels sont les droits des
-  personnes concernées.
-</p>
+  <button id="de-btn" onclick="setLang('de')">
+    DE
+  </button>
 
-<h2>1. Responsable du traitement</h2>
+</div>
 
-<div class="info">
+
+<!-- ========================= -->
+<!-- FRANÇAIS -->
+<!-- ========================= -->
+
+<div id="content-fr">
+
+  <a class="back" id="back-link-fr" href="index.html">
+    ← Retour au site ROOFCON
+  </a>
+
+  <h1>Politique de confidentialité</h1>
+
+  <p>
+    ROOFCON Sàrl accorde une importance particulière à la protection
+    des données personnelles des utilisateurs de son site internet.
+    La présente politique explique quelles données peuvent être
+    collectées, dans quelles finalités et quels sont les droits des
+    personnes concernées.
+  </p>
+
+  <h2>1. Responsable du traitement</h2>
+
+  <div class="info">
+
+    <p>
+      <strong>ROOFCON Sàrl</strong><br>
+      Z.A.E.R. Op Stackem 8<br>
+      L-9952 Drinklange<br>
+      Luxembourg
+    </p>
+
+    <p>
+      RCS Luxembourg : B312305<br>
+      Téléphone : +352 621 765 489<br>
+      E-mail :
+      <a href="mailto:info@roof-con.com">
+        info@roof-con.com
+      </a>
+    </p>
+
+    <p>
+      Les gérants de la société sont Joël Brück et Gregor Schütz.
+    </p>
+
+  </div>
+
+  <h2>2. Données personnelles susceptibles d’être collectées</h2>
+
+  <p>
+    Lorsque vous utilisez le formulaire de contact du site, les
+    informations que vous choisissez de renseigner peuvent notamment
+    comprendre :
+  </p>
+
+  <ul>
+    <li>nom et prénom ;</li>
+    <li>adresse e-mail ;</li>
+    <li>numéro de téléphone ;</li>
+    <li>contenu de votre message.</li>
+  </ul>
+
+  <p>
+    Nous vous invitons à ne pas transmettre, via le formulaire de
+    contact, de données personnelles qui ne seraient pas nécessaires
+    au traitement de votre demande.
+  </p>
+
+  <h2>3. Finalités du traitement</h2>
+
+  <p>
+    Les données transmises par l'intermédiaire du formulaire de contact
+    sont utilisées afin de :
+  </p>
+
+  <ul>
+    <li>répondre à vos demandes ;</li>
+    <li>prendre contact avec vous lorsque cela est nécessaire ;</li>
+    <li>échanger avec vous dans le cadre d’un projet ou d’une demande
+      professionnelle.</li>
+  </ul>
+
+  <h2>4. Base juridique</h2>
+
+  <p>
+    Les données personnelles sont traitées lorsque cela est nécessaire
+    pour répondre à votre demande, prendre les mesures nécessaires
+    avant la conclusion éventuelle d’un contrat ou, selon le cas,
+    sur la base de l’intérêt légitime de ROOFCON à assurer ses
+    communications et relations professionnelles.
+  </p>
+
+  <h2>5. Transmission des données</h2>
+
+  <p>
+    ROOFCON ne vend ni ne loue vos données personnelles à des tiers.
+    Les données peuvent être communiquées uniquement lorsque cela est
+    nécessaire au traitement de votre demande, lorsque la loi
+    l’exige ou lorsque cela est nécessaire au fonctionnement technique
+    du site et des services utilisés.
+  </p>
+
+  <h2>6. Formulaire de contact</h2>
+
+  <p>
+    Le formulaire de contact présent sur le site prépare un message
+    électronique à l'aide de l'application de messagerie configurée
+    sur votre appareil. Les informations saisies sont ainsi transmises
+    à l'adresse e-mail professionnelle de ROOFCON afin de permettre
+    le traitement de votre demande.
+  </p>
+
+  <h2>7. Carte et services externes</h2>
+
+  <p>
+    Le site utilise la bibliothèque Leaflet ainsi que des données
+    cartographiques fournies par OpenStreetMap afin d'afficher une
+    carte présentant certains chantiers ou localisations.
+  </p>
+
+  <p>
+    Le chargement de ces ressources peut entraîner une communication
+    technique avec les serveurs des services concernés. Ces services
+    sont utilisés uniquement pour permettre l'affichage et le
+    fonctionnement de la carte.
+  </p>
+
+  <h2>8. Préférence de langue</h2>
+
+  <p>
+    Le site permet de choisir entre le français et l'allemand.
+    La langue sélectionnée peut être enregistrée localement dans le
+    navigateur de l'utilisateur afin de conserver sa préférence lors
+    de sa navigation.
+  </p>
+
+  <p>
+    Cette fonctionnalité n'est pas utilisée à des fins de publicité,
+    de profilage ou de suivi de navigation.
+  </p>
+
+  <h2>9. Cookies et outils de suivi</h2>
+
+  <p>
+    Le site ROOFCON n'utilise actuellement pas de cookies publicitaires
+    ni d'outil d'analyse tel que Google Analytics ou Google Tag Manager.
+  </p>
+
+  <p>
+    Pour plus d'informations concernant le fonctionnement technique
+    du site, veuillez consulter notre
+    <a href="politique-cookies.html">
+      Politique des cookies
+    </a>.
+  </p>
+
+  <h2>10. Durée de conservation</h2>
+
+  <p>
+    Les données reçues dans le cadre d'une demande de contact sont
+    conservées pendant la durée nécessaire au traitement de cette
+    demande et, lorsque cela est nécessaire, pendant la durée
+    correspondant aux obligations légales applicables ou à la
+    gestion de la relation professionnelle.
+  </p>
+
+  <h2>11. Vos droits</h2>
+
+  <p>
+    Conformément à la réglementation applicable en matière de
+    protection des données, vous disposez notamment, selon les
+    conditions prévues par la réglementation, d'un droit d'accès,
+    de rectification, d'effacement, de limitation du traitement,
+    d'opposition et, lorsque les conditions sont réunies, de
+    portabilité de vos données.
+  </p>
+
+  <p>
+    Vous pouvez exercer vos droits en adressant votre demande à :
+  </p>
 
   <p>
     <strong>ROOFCON Sàrl</strong><br>
     Z.A.E.R. Op Stackem 8<br>
     L-9952 Drinklange<br>
-    Luxembourg
-  </p>
-
-  <p>
-    RCS Luxembourg : B312305<br>
-    Téléphone : +352 621 765 489<br>
-    E-mail :
+    Luxembourg<br>
     <a href="mailto:info@roof-con.com">
       info@roof-con.com
     </a>
   </p>
 
+  <h2>12. Réclamation auprès de l'autorité de contrôle</h2>
+
   <p>
-    Les gérants de la société sont Joël Brück et Gregor Schütz.
+    Si vous estimez que le traitement de vos données personnelles
+    n'est pas conforme à la réglementation applicable, vous pouvez
+    également introduire une réclamation auprès de la Commission
+    nationale pour la protection des données (CNPD) au Luxembourg.
+    La CNPD est l'autorité de contrôle luxembourgeoise en matière de
+    protection des données.
+  </p>
+
+  <h2>13. Modification de la présente politique</h2>
+
+  <p>
+    ROOFCON peut être amenée à modifier la présente politique de
+    confidentialité afin de tenir compte de l'évolution du site,
+    de ses services ou de la réglementation applicable.
+  </p>
+
+  <p>
+    <strong>Dernière mise à jour : septembre 2026</strong>
+  </p>
+
+  <p style="margin-top:40px;">
+    <a href="mentions-legales.html">
+      Mentions légales
+    </a>
+    &nbsp; · &nbsp;
+    <a href="politique-cookies.html">
+      Politique des cookies
+    </a>
   </p>
 
 </div>
 
-<h2>2. Données personnelles susceptibles d’être collectées</h2>
 
-<p>
-  Lorsque vous utilisez le formulaire de contact du site, les
-  informations que vous choisissez de renseigner peuvent notamment
-  comprendre :
-</p>
+<!-- ========================= -->
+<!-- DEUTSCH -->
+<!-- ========================= -->
 
-<ul>
-  <li>nom et prénom ;</li>
-  <li>adresse e-mail ;</li>
-  <li>numéro de téléphone ;</li>
-  <li>contenu de votre message.</li>
-</ul>
+<div id="content-de" style="display:none;">
 
-<p>
-  Nous vous invitons à ne pas transmettre, via le formulaire de
-  contact, de données personnelles qui ne seraient pas nécessaires
-  au traitement de votre demande.
-</p>
-
-<h2>3. Finalités du traitement</h2>
-
-<p>
-  Les données transmises par l'intermédiaire du formulaire de contact
-  sont utilisées afin de :
-</p>
-
-<ul>
-  <li>répondre à vos demandes ;</li>
-  <li>prendre contact avec vous lorsque cela est nécessaire ;</li>
-  <li>échanger avec vous dans le cadre d’un projet ou d’une demande
-  professionnelle.</li>
-</ul>
-
-<h2>4. Base juridique</h2>
-
-<p>
-  Les données personnelles sont traitées lorsque cela est nécessaire
-  pour répondre à votre demande, prendre les mesures nécessaires
-  avant la conclusion éventuelle d’un contrat ou, selon le cas,
-  sur la base de l’intérêt légitime de ROOFCON à assurer ses
-  communications et relations professionnelles.
-</p>
-
-<h2>5. Transmission des données</h2>
-
-<p>
-  ROOFCON ne vend ni ne loue vos données personnelles à des tiers.
-  Les données peuvent être communiquées uniquement lorsque cela est
-  nécessaire au traitement de votre demande, lorsque la loi
-  l’exige ou lorsque cela est nécessaire au fonctionnement technique
-  du site et des services utilisés.
-</p>
-
-<h2>6. Formulaire de contact</h2>
-
-<p>
-  Le formulaire de contact présent sur le site prépare un message
-  électronique à l'aide de l'application de messagerie configurée
-  sur votre appareil. Les informations saisies sont ainsi transmises
-  à l'adresse e-mail professionnelle de ROOFCON afin de permettre
-  le traitement de votre demande.
-</p>
-
-<h2>7. Carte et services externes</h2>
-
-<p>
-  Le site utilise la bibliothèque Leaflet ainsi que des données
-  cartographiques fournies par OpenStreetMap afin d'afficher une
-  carte présentant certains chantiers ou localisations.
-</p>
-
-<p>
-  Le chargement de ces ressources peut entraîner une communication
-  technique avec les serveurs des services concernés. Ces services
-  sont utilisés uniquement pour permettre l'affichage et le
-  fonctionnement de la carte.
-</p>
-
-<h2>8. Préférence de langue</h2>
-
-<p>
-  Le site permet de choisir entre le français et l'allemand.
-  La langue sélectionnée peut être enregistrée localement dans le
-  navigateur de l'utilisateur afin de conserver sa préférence lors
-  de sa navigation.
-</p>
-
-<p>
-  Cette fonctionnalité n'est pas utilisée à des fins de publicité,
-  de profilage ou de suivi de navigation.
-</p>
-
-<h2>9. Cookies et outils de suivi</h2>
-
-<p>
-  Le site ROOFCON n'utilise actuellement pas de cookies publicitaires
-  ni d'outil d'analyse tel que Google Analytics ou Google Tag Manager.
-</p>
-
-<p>
-  Pour plus d'informations concernant le fonctionnement technique
-  du site, veuillez consulter notre
-  <a href="politique-cookies.html">
-    Politique des cookies
-  </a>.
-</p>
-
-<h2>10. Durée de conservation</h2>
-
-<p>
-  Les données reçues dans le cadre d'une demande de contact sont
-  conservées pendant la durée nécessaire au traitement de cette
-  demande et, lorsque cela est nécessaire, pendant la durée
-  correspondant aux obligations légales applicables ou à la
-  gestion de la relation professionnelle.
-</p>
-
-<h2>11. Vos droits</h2>
-
-<p>
-  Conformément à la réglementation applicable en matière de
-  protection des données, vous disposez notamment, selon les
-  conditions prévues par la réglementation, d'un droit d'accès,
-  de rectification, d'effacement, de limitation du traitement,
-  d'opposition et, lorsque les conditions sont réunies, de
-  portabilité de vos données.
-</p>
-
-<p>
-  Vous pouvez exercer vos droits en adressant votre demande à :
-</p>
-
-<p>
-  <strong>ROOFCON Sàrl</strong><br>
-  Z.A.E.R. Op Stackem 8<br>
-  L-9952 Drinklange<br>
-  Luxembourg<br>
-  <a href="mailto:info@roof-con.com">
-    info@roof-con.com
+  <a class="back" id="back-link-de" href="index.html">
+    ← Zurück zur ROOFCON-Website
   </a>
-</p>
 
-<h2>12. Réclamation auprès de l'autorité de contrôle</h2>
+  <h1>Datenschutzerklärung</h1>
 
-<p>
-  Si vous estimez que le traitement de vos données personnelles
-  n'est pas conforme à la réglementation applicable, vous pouvez
-  également introduire une réclamation auprès de la Commission
-  nationale pour la protection des données (CNPD) au Luxembourg.
-  La CNPD est l'autorité de contrôle luxembourgeoise en matière de
-  protection des données.
-</p>
+  <p>
+    ROOFCON Sàrl legt großen Wert auf den Schutz der personenbezogenen
+    Daten der Nutzer ihrer Website. Diese Datenschutzerklärung erläutert,
+    welche Daten möglicherweise erhoben werden, zu welchen Zwecken sie
+    verarbeitet werden und welche Rechte den betroffenen Personen zustehen.
+  </p>
 
-<h2>13. Modification de la présente politique</h2>
+  <h2>1. Verantwortlicher für die Datenverarbeitung</h2>
 
-<p>
-  ROOFCON peut être amenée à modifier la présente politique de
-  confidentialité afin de tenir compte de l'évolution du site,
-  de ses services ou de la réglementation applicable.
-</p>
+  <div class="info">
 
-<p>
-  <strong>Dernière mise à jour : septembre 2026</strong>
-</p>
+    <p>
+      <strong>ROOFCON Sàrl</strong><br>
+      Z.A.E.R. Op Stackem 8<br>
+      L-9952 Drinklange<br>
+      Luxemburg
+    </p>
 
-<p style="margin-top:40px;">
-  <a href="mentions-legales.html">
-    Mentions légales
-  </a>
-  &nbsp; · &nbsp;
-  <a href="politique-cookies.html">
-    Politique des cookies
-  </a>
-</p>
+    <p>
+      RCS Luxemburg: B312305<br>
+      Telefon: +352 621 765 489<br>
+      E-Mail:
+      <a href="mailto:info@roof-con.com">
+        info@roof-con.com
+      </a>
+    </p>
+
+    <p>
+      Geschäftsführer der Gesellschaft sind Joël Brück und Gregor Schütz.
+    </p>
+
+  </div>
+
+  <h2>2. Möglicherweise erhobene personenbezogene Daten</h2>
+
+  <p>
+    Wenn Sie das Kontaktformular der Website verwenden, können die von
+    Ihnen freiwillig angegebenen Informationen insbesondere Folgendes
+    umfassen:
+  </p>
+
+  <ul>
+    <li>Vor- und Nachname;</li>
+    <li>E-Mail-Adresse;</li>
+    <li>Telefonnummer;</li>
+    <li>Inhalt Ihrer Nachricht.</li>
+  </ul>
+
+  <p>
+    Wir bitten Sie, über das Kontaktformular keine personenbezogenen
+    Daten zu übermitteln, die für die Bearbeitung Ihrer Anfrage nicht
+    erforderlich sind.
+  </p>
+
+  <h2>3. Zwecke der Verarbeitung</h2>
+
+  <p>
+    Die über das Kontaktformular übermittelten Daten werden verwendet,
+    um:
+  </p>
+
+  <ul>
+    <li>Ihre Anfragen zu beantworten;</li>
+    <li>bei Bedarf mit Ihnen Kontakt aufzunehmen;</li>
+    <li>mit Ihnen im Rahmen eines Projekts oder einer beruflichen Anfrage
+      zu kommunizieren.</li>
+  </ul>
+
+  <h2>4. Rechtsgrundlage</h2>
+
+  <p>
+    Personenbezogene Daten werden verarbeitet, soweit dies erforderlich
+    ist, um Ihre Anfrage zu beantworten, vor einem möglichen
+    Vertragsabschluss erforderliche Maßnahmen zu treffen oder,
+    je nach Fall, auf Grundlage des berechtigten Interesses von ROOFCON
+    an der Aufrechterhaltung ihrer Kommunikation und Geschäftsbeziehungen.
+  </p>
+
+  <h2>5. Weitergabe von Daten</h2>
+
+  <p>
+    ROOFCON verkauft oder vermietet Ihre personenbezogenen Daten nicht
+    an Dritte. Daten können nur weitergegeben werden, wenn dies für die
+    Bearbeitung Ihrer Anfrage erforderlich ist, gesetzlich vorgeschrieben
+    ist oder für den technischen Betrieb der Website und der verwendeten
+    Dienste erforderlich ist.
+  </p>
+
+  <h2>6. Kontaktformular</h2>
+
+  <p>
+    Das auf der Website vorhandene Kontaktformular erstellt mithilfe
+    der auf Ihrem Gerät eingerichteten E-Mail-Anwendung eine
+    E-Mail-Nachricht. Die eingegebenen Informationen werden dadurch an
+    die geschäftliche E-Mail-Adresse von ROOFCON übermittelt, damit Ihre
+    Anfrage bearbeitet werden kann.
+  </p>
+
+  <h2>7. Karte und externe Dienste</h2>
+
+  <p>
+    Die Website verwendet die Bibliothek Leaflet sowie Kartendaten von
+    OpenStreetMap, um eine Karte mit bestimmten Baustellen oder
+    Standorten anzuzeigen.
+  </p>
+
+  <p>
+    Das Laden dieser Ressourcen kann eine technische Kommunikation mit
+    den Servern der betreffenden Dienste verursachen. Diese Dienste
+    werden ausschließlich verwendet, um die Anzeige und Funktion der
+    Karte zu ermöglichen.
+  </p>
+
+  <h2>8. Spracheinstellung</h2>
+
+  <p>
+    Die Website ermöglicht die Auswahl zwischen Französisch und Deutsch.
+    Die ausgewählte Sprache kann lokal im Browser des Nutzers gespeichert
+    werden, um die bevorzugte Sprache während der Navigation beizubehalten.
+  </p>
+
+  <p>
+    Diese Funktion wird nicht für Werbung, Profilbildung oder
+    Navigations-Tracking verwendet.
+  </p>
+
+  <h2>9. Cookies und Tracking-Tools</h2>
+
+  <p>
+    Die ROOFCON-Website verwendet derzeit keine Werbe-Cookies und keine
+    Analyse-Tools wie Google Analytics oder Google Tag Manager.
+  </p>
+
+  <p>
+    Weitere Informationen über die technische Funktionsweise der Website
+    finden Sie in unserer
+    <a href="politique-cookies.html">
+      Cookie-Richtlinie
+    </a>.
+  </p>
+
+  <h2>10. Dauer der Speicherung</h2>
+
+  <p>
+    Die im Rahmen einer Kontaktanfrage erhaltenen Daten werden so lange
+    gespeichert, wie dies für die Bearbeitung der Anfrage erforderlich
+    ist, und, soweit erforderlich, für die Dauer der geltenden gesetzlichen
+    Aufbewahrungspflichten oder zur Verwaltung der Geschäftsbeziehung.
+  </p>
+
+  <h2>11. Ihre Rechte</h2>
+
+  <p>
+    Gemäß den geltenden Datenschutzbestimmungen haben Sie insbesondere,
+    unter den gesetzlich vorgesehenen Voraussetzungen, das Recht auf
+    Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung,
+    Widerspruch und, sofern die Voraussetzungen erfüllt sind, auf
+    Datenübertragbarkeit.
+  </p>
+
+  <p>
+    Sie können Ihre Rechte geltend machen, indem Sie Ihre Anfrage an
+    folgende Adresse richten:
+  </p>
+
+  <p>
+    <strong>ROOFCON Sàrl</strong><br>
+    Z.A.E.R. Op Stackem 8<br>
+    L-9952 Drinklange<br>
+    Luxemburg<br>
+    <a href="mailto:info@roof-con.com">
+      info@roof-con.com
+    </a>
+  </p>
+
+  <h2>12. Beschwerde bei der Aufsichtsbehörde</h2>
+
+  <p>
+    Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer
+    personenbezogenen Daten nicht mit den geltenden Datenschutzbestimmungen
+    übereinstimmt, können Sie auch eine Beschwerde bei der
+    Nationalen Datenschutzkommission (CNPD) in Luxemburg einreichen.
+    Die CNPD ist die luxemburgische Aufsichtsbehörde für den Datenschutz.
+  </p>
+
+  <h2>13. Änderungen dieser Datenschutzerklärung</h2>
+
+  <p>
+    ROOFCON kann diese Datenschutzerklärung ändern, um Entwicklungen
+    der Website, ihrer Dienstleistungen oder der geltenden gesetzlichen
+    Bestimmungen Rechnung zu tragen.
+  </p>
+
+  <p>
+    <strong>Letzte Aktualisierung: September 2026</strong>
+  </p>
+
+  <p style="margin-top:40px;">
+    <a href="mentions-legales.html">
+      Impressum
+    </a>
+    &nbsp; · &nbsp;
+    <a href="politique-cookies.html">
+      Cookie-Richtlinie
+    </a>
+  </p>
+
+</div>
 ```
 
   </main>
 
+  <script>
+
+    let LANG =
+      localStorage.getItem('roofconLang') || 'fr';
+
+
+    function setLang(lang){
+
+      LANG = lang;
+
+      localStorage.setItem('roofconLang', lang);
+
+      renderLanguage();
+
+    }
+
+
+    function renderLanguage(){
+
+      const fr =
+        document.getElementById('content-fr');
+
+      const de =
+        document.getElementById('content-de');
+
+      const frBtn =
+        document.getElementById('fr-btn');
+
+      const deBtn =
+        document.getElementById('de-btn');
+
+
+      if(LANG === 'de'){
+
+        fr.style.display = 'none';
+
+        de.style.display = 'block';
+
+        frBtn.classList.remove('active');
+
+        deBtn.classList.add('active');
+
+        document.documentElement.lang = 'de';
+
+        document.title =
+          'Datenschutzerklärung | ROOFCON';
+
+      }else{
+
+        fr.style.display = 'block';
+
+        de.style.display = 'none';
+
+        deBtn.classList.remove('active');
+
+        frBtn.classList.add('active');
+
+        document.documentElement.lang = 'fr';
+
+        document.title =
+          'Politique de confidentialité | ROOFCON';
+
+      }
+
+    }
+
+
+    renderLanguage();
+
+  </script>
+
 </body>
+
 </html>
