@@ -3418,14 +3418,32 @@ if(detailBackText){
   document.getElementById('hero-title').innerHTML=
     t(c.hero.title);
 
- const heroText = document.getElementById('hero-text');
-heroText.textContent = t(c.hero.text);
+const heroText = document.getElementById('hero-text');
+const heroTextContent = t(c.hero.text);
 
 if (window.innerWidth <= 750) {
-  heroText.innerHTML = t(c.hero.text).replace(
-    'De l’étude à la réalisation,',
-    'De l’étude à la réalisation,<br>'
-  );
+
+  const comma = heroTextContent.indexOf(',');
+
+  if (comma !== -1) {
+    heroText.textContent = '';
+
+    heroText.appendChild(
+      document.createTextNode(heroTextContent.substring(0, comma + 1))
+    );
+
+    heroText.appendChild(document.createElement('br'));
+
+    heroText.appendChild(
+      document.createTextNode(heroTextContent.substring(comma + 1).trim())
+    );
+
+  } else {
+    heroText.textContent = heroTextContent;
+  }
+
+} else {
+  heroText.textContent = heroTextContent;
 }
 
   document.getElementById('hero-about').textContent=
