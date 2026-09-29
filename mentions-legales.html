@@ -384,106 +384,122 @@
   </main>
 
 
-  <script>
+<script>
 
-    let LANG =
-      localStorage.getItem('roofconLang') || 'fr';
-
-
-    function setLang(lang) {
-
-      LANG = lang;
-
-      localStorage.setItem(
-        'roofconLang',
-        lang
-      );
-
-      renderLanguage();
-
-    }
+  let LANG = localStorage.getItem('roofconLang') || 'fr';
 
 
-    function renderLanguage() {
+  function setLang(lang) {
 
-      const fr =
-        document.getElementById('content-fr');
+    LANG = lang;
 
-      const de =
-        document.getElementById('content-de');
-
-      const frBtn =
-        document.getElementById('fr-btn');
-
-      const deBtn =
-        document.getElementById('de-btn');
-
-      const back =
-        document.getElementById('back-link');
-
-      const legal1 =
-        document.getElementById('footer-legal-1');
-
-      const legal2 =
-        document.getElementById('footer-legal-2');
-
-      const legal3 =
-        document.getElementById('footer-legal-3');
-
-
-      if (LANG === 'de') {
-
-        fr.style.display = 'none';
-        de.style.display = 'block';
-
-        frBtn.classList.remove('active');
-        deBtn.classList.add('active');
-
-        back.textContent =
-          '← Zurück zur ROOFCON-Website';
-
-        legal1.textContent =
-          'Impressum';
-
-        legal2.textContent =
-          'Datenschutzerklärung';
-
-        legal3.textContent =
-          'Cookie-Richtlinie';
-
-        document.documentElement.lang = 'de';
-
-      } else {
-
-        fr.style.display = 'block';
-        de.style.display = 'none';
-
-        deBtn.classList.remove('active');
-        frBtn.classList.add('active');
-
-        back.textContent =
-          '← Retour au site ROOFCON';
-
-        legal1.textContent =
-          'Mentions légales';
-
-        legal2.textContent =
-          'Politique de confidentialité';
-
-        legal3.textContent =
-          'Politique des cookies';
-
-        document.documentElement.lang = 'fr';
-
-      }
-
-    }
-
+    localStorage.setItem('roofconLang', lang);
 
     renderLanguage();
 
-  </script>
+  }
 
+
+  function renderLanguage() {
+
+    const fr = document.getElementById('content-fr');
+    const de = document.getElementById('content-de');
+
+    const frBtn = document.getElementById('fr-btn');
+    const deBtn = document.getElementById('de-btn');
+
+    const back = document.getElementById('back-link');
+
+    const legal1 = document.getElementById('footer-legal-1');
+    const legal2 = document.getElementById('footer-legal-2');
+    const legal3 = document.getElementById('footer-legal-3');
+
+
+    /* SÉCURITÉ */
+
+    if (!fr || !de || !frBtn || !deBtn || !back) {
+      console.error('Erreur : éléments de traduction manquants.');
+      return;
+    }
+
+
+    /* ALLEMAND */
+
+    if (LANG === 'de') {
+
+      fr.style.display = 'none';
+      de.style.display = 'block';
+
+      frBtn.classList.remove('active');
+      deBtn.classList.add('active');
+
+      back.textContent =
+        '← Zurück zur ROOFCON-Website';
+
+      if (legal1) {
+        legal1.textContent = 'Impressum';
+      }
+
+      if (legal2) {
+        legal2.textContent = 'Datenschutzerklärung';
+      }
+
+      if (legal3) {
+        legal3.textContent = 'Cookie-Richtlinie';
+      }
+
+      document.documentElement.lang = 'de';
+
+      document.title = 'Impressum | ROOFCON';
+
+    }
+
+
+    /* FRANÇAIS */
+
+    else {
+
+      fr.style.display = 'block';
+      de.style.display = 'none';
+
+      deBtn.classList.remove('active');
+      frBtn.classList.add('active');
+
+      back.textContent =
+        '← Retour au site ROOFCON';
+
+      if (legal1) {
+        legal1.textContent = 'Mentions légales';
+      }
+
+      if (legal2) {
+        legal2.textContent =
+          'Politique de confidentialité';
+      }
+
+      if (legal3) {
+        legal3.textContent =
+          'Politique des cookies';
+      }
+
+      document.documentElement.lang = 'fr';
+
+      document.title = 'Mentions légales | ROOFCON';
+
+    }
+
+  }
+
+
+  /* INITIALISATION */
+
+  document.addEventListener('DOMContentLoaded', function() {
+
+    renderLanguage();
+
+  });
+
+</script>
 </body>
 
 </html>
