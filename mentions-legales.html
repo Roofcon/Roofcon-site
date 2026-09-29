@@ -95,8 +95,8 @@
   <main class="container">
 
     <a class="back" href="index.html" id="back-link">
-      ← Retour au site ROOFCON
-    </a>
+  ← Retour au site ROOFCON
+</a>
 
     <!-- FRANÇAIS -->
 
@@ -353,10 +353,20 @@
   const francais = document.getElementById('content-fr');
   const allemand = document.getElementById('content-de');
 
+ <script>
+
+  const langue = localStorage.getItem('roofconLang');
+
+  const francais = document.getElementById('content-fr');
+  const allemand = document.getElementById('content-de');
+  const back = document.getElementById('back-link');
+
   if (langue === 'de') {
 
     francais.style.display = 'none';
     allemand.style.display = 'block';
+
+    back.textContent = '← Zurück zur ROOFCON-Website';
 
     document.documentElement.lang = 'de';
     document.title = 'Impressum | ROOFCON';
@@ -366,10 +376,14 @@
     francais.style.display = 'block';
     allemand.style.display = 'none';
 
+    back.textContent = '← Retour au site ROOFCON';
+
     document.documentElement.lang = 'fr';
     document.title = 'Mentions légales | ROOFCON';
 
   }
+
+</script>
 
 </script>
 </body>
