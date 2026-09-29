@@ -1915,7 +1915,7 @@ footer{
 
       <h1 id="hero-title"></h1>
 
-      <p id="hero-text"></p>
+<p id="hero-text"><span id="hero-text-line1"></span><span id="hero-text-line2"></span></p>
 
       <div class="buttons">
 
@@ -3394,8 +3394,11 @@ if(detailBackText){
   document.getElementById('hero-title').innerHTML=
     t(c.hero.title);
 
-  document.getElementById('hero-text').textContent=
-  t(c.hero.text);
+const heroText = t(c.hero.text);
+
+document.getElementById('hero-text').innerHTML =
+  `<span class="hero-text-line1">${esc(heroText.split(',')[0] + ',')}</span>` +
+  `<span class="hero-text-line2">${esc(heroText.split(',').slice(1).join(',').trim())}</span>`;
   
   document.getElementById('hero-about').textContent=
     t(c.hero.aboutButton);
