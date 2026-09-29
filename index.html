@@ -3418,8 +3418,15 @@ if(detailBackText){
   document.getElementById('hero-title').innerHTML=
     t(c.hero.title);
 
-  document.getElementById('hero-text').textContent=
-    t(c.hero.text);
+ const heroText = document.getElementById('hero-text');
+heroText.textContent = t(c.hero.text);
+
+if (window.innerWidth <= 750) {
+  heroText.innerHTML = t(c.hero.text).replace(
+    'De l’étude à la réalisation,',
+    'De l’étude à la réalisation,<br>'
+  );
+}
 
   document.getElementById('hero-about').textContent=
     t(c.hero.aboutButton);
