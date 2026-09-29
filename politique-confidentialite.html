@@ -118,19 +118,6 @@ content="width=device-width, initial-scale=1.0"
 
   <main class="container">
 
-<div class="language-switch">
-
-  <button id="fr-btn" onclick="setLang('fr')">
-    FR
-  </button>
-
-  <button id="de-btn" onclick="setLang('de')">
-    DE
-  </button>
-
-</div>
-
-
 <!-- ========================= -->
 <!-- FRANÇAIS -->
 <!-- ========================= -->
@@ -579,63 +566,40 @@ content="width=device-width, initial-scale=1.0"
 
   </main>
 
- <script>
+<script>
 
-  let LANG = localStorage.getItem('roofconLang') || 'fr';
+  const LANG =
+    localStorage.getItem('roofconLang') || 'fr';
 
-  function setLang(lang){
+  const fr =
+    document.getElementById('content-fr');
 
-    LANG = lang;
+  const de =
+    document.getElementById('content-de');
 
-    localStorage.setItem('roofconLang', lang);
+  if(LANG === 'de'){
 
-    renderLanguage();
+    fr.hidden = true;
+    de.hidden = false;
 
-  }
+    document.documentElement.lang = 'de';
 
-  function renderLanguage(){
+    document.title =
+      'Datenschutzerklärung | ROOFCON';
 
-    const fr = document.getElementById('content-fr');
-    const de = document.getElementById('content-de');
+  }else{
 
-    const frBtn = document.getElementById('fr-btn');
-    const deBtn = document.getElementById('de-btn');
+    fr.hidden = false;
+    de.hidden = true;
 
-    if(LANG === 'de'){
+    document.documentElement.lang = 'fr';
 
-      fr.hidden = true;
-      de.hidden = false;
-
-      frBtn.classList.remove('active');
-      deBtn.classList.add('active');
-
-      document.documentElement.lang = 'de';
-
-      document.title = 'Datenschutzerklärung | ROOFCON';
-
-    }else{
-
-      fr.hidden = false;
-      de.hidden = true;
-
-      frBtn.classList.add('active');
-      deBtn.classList.remove('active');
-
-      document.documentElement.lang = 'fr';
-
-      document.title = 'Politique de confidentialité | ROOFCON';
-
-    }
+    document.title =
+      'Politique de confidentialité | ROOFCON';
 
   }
-
-  renderLanguage();
 
 </script>
-
-    renderLanguage();
-
-  </script>
 
 </body>
 
