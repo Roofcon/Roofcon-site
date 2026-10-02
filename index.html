@@ -3058,30 +3058,41 @@ if(CONTENT.currentProjects){
           t(project.description) ||
           '';
 
-        marker.bindPopup(`
-          <div class="map-popup-current">
+       marker.bindPopup(`
+  <div class="map-popup-current">
 
-            <strong>
-              ${esc(title)}
-            </strong>
+    <strong>${esc(title)}</strong>
 
-            <div class="map-popup-label">
-              ${
-                LANG === 'fr'
-                  ? 'PROJET EN COURS'
-                  : 'AKTUELLES PROJEKT'
-              }
-            </div>
+    <div class="map-popup-label">
+      ${
+        LANG === 'fr'
+          ? 'PROJET EN COURS'
+          : 'AKTUELLES PROJEKT'
+      }
+    </div>
 
-            ${
-              description
-                ? `<span>${esc(description)}</span>`
-                : ''
-            }
-
+    ${
+      project.address
+        ? `
+          <div style="margin-top:8px;">
+            📍 ${esc(project.address)}
           </div>
-        `);
+        `
+        : ''
+    }
 
+    ${
+      description
+        ? `
+          <div style="margin-top:8px;">
+            ${esc(description)}
+          </div>
+        `
+        : ''
+    }
+
+  </div>
+`);
         chantierMarkers.push(marker);
 
         positions.push([
