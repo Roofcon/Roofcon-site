@@ -3229,7 +3229,28 @@ if(CONTENT.currentProjects){
 
 }
 
-  function openCurrentProject(projectId){
+ window.openCurrentProject = function(projectId){
+
+  const currentProjects =
+    CONTENT.currentProjects;
+
+  if(
+    !currentProjects ||
+    !Array.isArray(currentProjects.items)
+  ){
+    return;
+  }
+
+  const index =
+    currentProjects.items.findIndex(
+      function(project){
+        return project.id === projectId;
+      }
+    );
+
+  if(index === -1){
+    return;
+  }
 
   const section =
     document.getElementById(
@@ -3239,11 +3260,6 @@ if(CONTENT.currentProjects){
   if(!section){
     return;
   }
-
-  section.scrollIntoView({
-    behavior:'smooth',
-    block:'start'
-  });
 
   const projects =
     document.querySelectorAll(
@@ -3258,37 +3274,29 @@ if(CONTENT.currentProjects){
 
   });
 
-  const currentProject =
-    CONTENT.currentProjects &&
-    CONTENT.currentProjects.items
-      ? CONTENT.currentProjects.items.find(
-          function(project){
-            return project.id === projectId;
-          }
-        )
-      : null;
+  section.scrollIntoView({
+    behavior:'smooth',
+    block:'start'
+  });
 
-  if(!currentProject){
-    return;
+  if(projects[index]){
+
+    setTimeout(function(){
+
+      projects[index].classList.add(
+        'current-project-highlight'
+      );
+
+      projects[index].scrollIntoView({
+        behavior:'smooth',
+        block:'center'
+      });
+
+    },500);
+
   }
 
-  const index =
-    CONTENT.currentProjects.items.indexOf(
-      currentProject
-    );
-
-  if(
-    index < 0 ||
-    !projects[index]
-  ){
-    return;
-  }
-
-  projects[index].classList.add(
-    'current-project-highlight'
-  );
-
-}
+};
   
 function showPage(id){
 
