@@ -2064,7 +2064,7 @@ ${
    CARTE DES RÉALISATIONS
 ========================= */
 
-  /* =========================
+/* =========================
    PROJETS EN COURS
 ========================= */
 
@@ -2101,7 +2101,6 @@ function renderCurrentProjects(){
     project.images.forEach(function(image,j){
 
       photos += `
-
         <div
           style="
             display:inline-block;
@@ -2131,7 +2130,6 @@ function renderCurrentProjects(){
           </button>
 
         </div>
-
       `;
 
     });
@@ -2174,13 +2172,65 @@ function renderCurrentProjects(){
           <textarea id="current-${i}-desc-de"></textarea>
         </div>
 
-        <div>
-          <label>Adresse / localisation</label>
-          <input
-            id="current-${i}-address"
-            placeholder="Ex. Luxembourg, Belgique..."
+        <div class="full">
+
+          <label>Adresse du chantier</label>
+
+          <div
+            style="
+              display:flex;
+              gap:10px;
+              align-items:center;
+            "
           >
+
+            <input
+              id="current-${i}-address"
+              placeholder="Ex. Rue des Artisans 10, 4700 Eupen, Belgique"
+              style="flex:1;"
+            >
+
+            <button
+              type="button"
+              onclick="locateCurrentProject(${i})"
+            >
+              📍 Localiser
+            </button>
+
+          </div>
+
+          <p class="hint" style="margin-top:8px;">
+            Entrez l'adresse puis cliquez sur « Localiser ».
+            Vous pouvez ensuite déplacer précisément le marqueur sur la carte.
+          </p>
+
         </div>
+
+      </div>
+
+      <div style="margin-top:20px">
+
+        <label>Localisation du chantier</label>
+
+        <div
+          id="current-project-map-${i}"
+          class="project-map"
+        ></div>
+
+        <p
+          class="hint"
+          id="current-project-position-${i}"
+          style="margin-top:8px;"
+        >
+          ${
+            project.latitude &&
+            project.longitude
+              ?
+              `Position : ${project.latitude}, ${project.longitude}`
+              :
+              'Aucune position sélectionnée.'
+          }
+        </p>
 
       </div>
 
@@ -2226,298 +2276,9 @@ function renderCurrentProjects(){
       project.address || ''
     );
 
-  });
-
-}
-
-
-/* AJOUTER UN PROJET */
-
-function addCurrentProject(){
-
-  if(!C.currentProjects){
-    C.currentProjects = {
-      kicker:{
-        fr:'',
-        de:''
-      },
-      title:{
-        fr:'Projet en cours',
-        de:'Aktuelle Projekte'
-      },
-      intro:{
-        fr:'',
-        de:''
-      },
-      items:[]
-    };
-  }
-
-  if(!Array.isArray(C.currentProjects.items)){
-    C.currentProjects.items=[];
-  }
-
-  C.currentProjects.items.push({
-
-    id:'current-project-'+Date.now(),
-
-    title:{
-      fr:'',
-      de:''
-    },
-
-    description:{
-      fr:'',
-      de:''
-    },
-
-    address:'',
-
-    images:[]
+    initCurrentProjectMap(i);
 
   });
-
-  renderCurrentProjects();
-
-}
-
-
-/* SUPPRIMER UN PROJET */
-
-function deleteCurrentProject(index){
-
-  if(
-    !confirm(
-      'Supprimer ce projet en cours ?'
-    )
-  ){
-    return;
-  }
-
-  C.currentProjects.items.splice(
-    index,
-    1
-  );
-
-  renderCurrentProjects();
-
-}
-
-
-/* AJOUTER LES PHOTOS */
-
-async function selectCurrentProjectImages(
-  projectIndex,
-  input
-){
-
-  const files =
-    Array.from(input.files);
-
-  if(!files.length){
-    return;
-  }
-
-  try{
-
-    const s=auth();
-
-    $('status').textContent =
-      'Envoi des photos vers GitHub…';
-
-    const project =
-      C.currentProjects.items[
-        projectIndex
-      ];
-
-    if(!project){
-      throw new Error(
-        'Projet introuvable.'
-      );
-    }
-
-    if(!Array.isArray(project.images)){
-      project.images=[];
-    }
-
-    for(const file of files){
-
-      const extension =
-        file.name
-          .split('.')
-          .pop()
-          .toLowerCase();
-
-      const filename =
-        project.id +
-        '-' +
-        Date.now() +
-        '-' +
-        Math.random()
-          .toString(36)
-          .substring(2,8) +
-        '.' +
-        extension;
-
-      const path =
-        'images/projets-en-cours/' +
-        filename;
-
-      const buffer =
-        await file.arrayBuffer();
-
-      const bytes =
-        new Uint8Array(buffer);
-
-      let binary='';
-
-      for(let i=0;i<bytes.length;i++){
-
-        binary +=
-          String.fromCharCode(
-            bytes[i]
-          );
-
-      }
-
-      const content =
-        btoa(binary);
-
-      await api(
-        '/contents/' + path,
-        {
-          method:'PUT',
-
-          body:JSON.stringify({
-
-            message:
-              'Ajouter une photo à un projet en cours',
-
-            content:content,
-
-            branch:s.branch
-
-          })
-
-        }
-      );
-
-      project.images.push(path);
-
-    }
-
-    input.value='';
-
-    renderCurrentProjects();
-
-    $('status').innerHTML =
-      '<span class="success">' +
-      files.length +
-      ' photo(s) ajoutée(s) ! Cliquez maintenant sur « Enregistrer et publier ». ' +
-      '</span>';
-
-  }
-  catch(e){
-
-    $('status').innerHTML =
-      '<span class="danger-text">' +
-      'Erreur : ' +
-      escapeHtml(e.message) +
-      '</span>';
-
-  }
-
-}
-
-
-/* SUPPRIMER UNE PHOTO */
-
-async function deleteCurrentProjectImage(
-  projectIndex,
-  imageIndex
-){
-
-  if(
-    !confirm(
-      'Supprimer cette photo du projet ?'
-    )
-  ){
-    return;
-  }
-
-  try{
-
-    const s=auth();
-
-    const project =
-      C.currentProjects.items[
-        projectIndex
-      ];
-
-    if(!project){
-      throw new Error(
-        'Projet introuvable.'
-      );
-    }
-
-    const image =
-      project.images[imageIndex];
-
-    if(!image){
-      throw new Error(
-        'Photo introuvable.'
-      );
-    }
-
-    const fileData =
-      await api(
-        '/contents/' +
-        image +
-        '?ref=' +
-        s.branch
-      );
-
-    await api(
-      '/contents/' + image,
-      {
-        method:'DELETE',
-
-        body:JSON.stringify({
-
-          message:
-            'Supprimer une photo de projet en cours',
-
-          sha:fileData.sha,
-
-          branch:s.branch
-
-        })
-
-      }
-    );
-
-    project.images.splice(
-      imageIndex,
-      1
-    );
-
-    renderCurrentProjects();
-
-    $('status').innerHTML =
-      '<span class="success">' +
-      'Photo supprimée. Cliquez sur « Enregistrer et publier ». ' +
-      '</span>';
-
-  }
-  catch(e){
-
-    $('status').innerHTML =
-      '<span class="danger-text">' +
-      'Erreur : ' +
-      escapeHtml(e.message) +
-      '</span>';
-
-  }
 
 }
   
