@@ -4527,6 +4527,53 @@ async function loadContent(){
 }
 
 window.loadContent = loadContent;
+
+  /* =========================
+   GÉOCODER UNE ADRESSE
+========================= */
+
+async function geocodeAddress(address){
+
+  const url =
+    'https://nominatim.openstreetmap.org/search' +
+    '?format=jsonv2' +
+    '&limit=1' +
+    '&addressdetails=1' +
+    '&q=' +
+    encodeURIComponent(address);
+
+  const response =
+    await fetch(url);
+
+  if(!response.ok){
+
+    throw new Error(
+      'Impossible de rechercher cette adresse.'
+    );
+
+  }
+
+  const results =
+    await response.json();
+
+  if(!results.length){
+
+    return null;
+
+  }
+
+  return {
+
+    latitude:
+      Number(results[0].lat),
+
+    longitude:
+      Number(results[0].lon)
+
+  };
+
+}
+  
 /* =========================
    SAUVEGARDER
 ========================= */
