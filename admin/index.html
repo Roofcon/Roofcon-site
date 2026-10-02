@@ -4606,28 +4606,55 @@ async function saveContent(){
 
     const s=auth();
 
-    const r=await api(
-      '/contents/content.json',
-      {
-        method:'PUT',
+   const r=await api(
+  '/contents/content.json',
+  {
+    method:'PUT',
 
-        body:JSON.stringify({
+    body:JSON.stringify({
 
-          message:
-            'Mettre à jour le contenu ROOFCON',
+      message:
+        'Mettre à jour le contenu ROOFCON',
 
-          content:enc(
-            JSON.stringify(C,null,2)+'\n'
-          ),
+      content:enc(
+        JSON.stringify(C,null,2)+'\n'
+      ),
 
-          sha:sha,
+      sha:sha,
 
-          branch:s.branch
+      branch:s.branch
 
-        })
+    })
 
-      }
-    );
+  }
+);
+
+sha=r.content.sha;
+
+$('status').innerHTML =
+  '<span class="success">' +
+  'Publié avec succès ! Le site va se mettre à jour dans quelques instants.' +
+  '</span>';
+
+  }
+
+  catch(e){
+
+    $('status').innerHTML =
+      '<span class="danger-text">' +
+      'Erreur de publication : ' +
+      escapeHtml(e.message) +
+      '</span>';
+
+  }
+
+  finally{
+
+    $('save').disabled=false;
+
+  }
+
+}
 
 loadSettings();
 
