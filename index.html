@@ -3951,13 +3951,12 @@ if(jobs.length===0){
   document.getElementById('contact-card-text').textContent=
     t(c.contact.cardText);
 
-
-  document.getElementById('contact-phone').textContent=
+document.getElementById('contact-phone').innerHTML =
+    '<strong>Joël Brück</strong><br>' +
     c.site.phone;
 
-  document.getElementById('contact-phone').href=
-    'tel:'+c.site.phone.replace(/[^+0-9]/g,'');
-
+document.getElementById('contact-phone').href =
+    'tel:' + c.site.phone.replace(/[^+0-9]/g,'');
 
 document.getElementById('contact-email').textContent=
   c.site.email;
