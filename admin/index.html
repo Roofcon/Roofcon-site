@@ -696,6 +696,60 @@ Votre token reste enregistré uniquement dans votre navigateur.
 
 </section>
 
+  <!-- PROJETS EN COURS -->
+
+<section class="card">
+
+  <h2>Projets en cours</h2>
+
+  <p class="hint">
+    Ajoutez ici les projets actuellement en cours de réalisation.
+    Ils seront automatiquement affichés sur le site avant les références.
+  </p>
+
+  <div class="grid">
+
+    <div>
+      <label>Petit titre FR</label>
+      <input id="current-kicker-fr">
+    </div>
+
+    <div>
+      <label>Petit titre DE</label>
+      <input id="current-kicker-de">
+    </div>
+
+    <div>
+      <label>Titre FR</label>
+      <input id="current-title-fr">
+    </div>
+
+    <div>
+      <label>Titre DE</label>
+      <input id="current-title-de">
+    </div>
+
+    <div>
+      <label>Introduction FR</label>
+      <textarea id="current-intro-fr"></textarea>
+    </div>
+
+    <div>
+      <label>Introduction DE</label>
+      <textarea id="current-intro-de"></textarea>
+    </div>
+
+  </div>
+
+  <div id="current-projects-editor"></div>
+
+  <button
+    type="button"
+    onclick="addCurrentProject()">
+    + Ajouter un projet en cours
+  </button>
+
+</section>
 
 <!-- REFERENCES -->
 
@@ -2010,6 +2064,463 @@ ${
    CARTE DES RÉALISATIONS
 ========================= */
 
+  /* =========================
+   PROJETS EN COURS
+========================= */
+
+function renderCurrentProjects(){
+
+  const container =
+    $('current-projects-editor');
+
+  if(!container){
+    return;
+  }
+
+  container.innerHTML='';
+
+  const data =
+    C.currentProjects || {};
+
+  const items =
+    data.items || [];
+
+  items.forEach(function(project,i){
+
+    if(!Array.isArray(project.images)){
+      project.images=[];
+    }
+
+    const div =
+      document.createElement('div');
+
+    div.className='box';
+
+    let photos='';
+
+    project.images.forEach(function(image,j){
+
+      photos += `
+
+        <div
+          style="
+            display:inline-block;
+            margin:10px;
+            vertical-align:top;
+          "
+        >
+
+          <img
+            src="https://raw.githubusercontent.com/Roofcon/Roofcon-site/main/${image}?v=${Date.now()}"
+            alt=""
+            style="
+              display:block;
+              max-width:220px;
+              max-height:160px;
+              object-fit:cover;
+              margin-bottom:8px;
+            "
+          >
+
+          <button
+            type="button"
+            class="danger"
+            onclick="deleteCurrentProjectImage(${i},${j})"
+          >
+            Supprimer
+          </button>
+
+        </div>
+
+      `;
+
+    });
+
+    div.innerHTML = `
+
+      <div class="category-title">
+
+        <h3>Projet ${i+1}</h3>
+
+        <button
+          type="button"
+          class="danger"
+          onclick="deleteCurrentProject(${i})"
+        >
+          Supprimer
+        </button>
+
+      </div>
+
+      <div class="grid">
+
+        <div>
+          <label>Titre FR</label>
+          <input id="current-${i}-title-fr">
+        </div>
+
+        <div>
+          <label>Titre DE</label>
+          <input id="current-${i}-title-de">
+        </div>
+
+        <div>
+          <label>Description FR</label>
+          <textarea id="current-${i}-desc-fr"></textarea>
+        </div>
+
+        <div>
+          <label>Description DE</label>
+          <textarea id="current-${i}-desc-de"></textarea>
+        </div>
+
+        <div>
+          <label>Adresse / localisation</label>
+          <input
+            id="current-${i}-address"
+            placeholder="Ex. Luxembourg, Belgique..."
+          >
+        </div>
+
+      </div>
+
+      <h4>Photos</h4>
+
+      <div>
+        ${photos}
+      </div>
+
+      <input
+        type="file"
+        accept="image/*"
+        multiple
+        onchange="selectCurrentProjectImages(${i},this)"
+      >
+
+    `;
+
+    container.appendChild(div);
+
+    set(
+      `current-${i}-title-fr`,
+      project.title?.fr || ''
+    );
+
+    set(
+      `current-${i}-title-de`,
+      project.title?.de || ''
+    );
+
+    set(
+      `current-${i}-desc-fr`,
+      project.description?.fr || ''
+    );
+
+    set(
+      `current-${i}-desc-de`,
+      project.description?.de || ''
+    );
+
+    set(
+      `current-${i}-address`,
+      project.address || ''
+    );
+
+  });
+
+}
+
+
+/* AJOUTER UN PROJET */
+
+function addCurrentProject(){
+
+  if(!C.currentProjects){
+    C.currentProjects = {
+      kicker:{
+        fr:'',
+        de:''
+      },
+      title:{
+        fr:'Projet en cours',
+        de:'Aktuelle Projekte'
+      },
+      intro:{
+        fr:'',
+        de:''
+      },
+      items:[]
+    };
+  }
+
+  if(!Array.isArray(C.currentProjects.items)){
+    C.currentProjects.items=[];
+  }
+
+  C.currentProjects.items.push({
+
+    id:'current-project-'+Date.now(),
+
+    title:{
+      fr:'',
+      de:''
+    },
+
+    description:{
+      fr:'',
+      de:''
+    },
+
+    address:'',
+
+    images:[]
+
+  });
+
+  renderCurrentProjects();
+
+}
+
+
+/* SUPPRIMER UN PROJET */
+
+function deleteCurrentProject(index){
+
+  if(
+    !confirm(
+      'Supprimer ce projet en cours ?'
+    )
+  ){
+    return;
+  }
+
+  C.currentProjects.items.splice(
+    index,
+    1
+  );
+
+  renderCurrentProjects();
+
+}
+
+
+/* AJOUTER LES PHOTOS */
+
+async function selectCurrentProjectImages(
+  projectIndex,
+  input
+){
+
+  const files =
+    Array.from(input.files);
+
+  if(!files.length){
+    return;
+  }
+
+  try{
+
+    const s=auth();
+
+    $('status').textContent =
+      'Envoi des photos vers GitHub…';
+
+    const project =
+      C.currentProjects.items[
+        projectIndex
+      ];
+
+    if(!project){
+      throw new Error(
+        'Projet introuvable.'
+      );
+    }
+
+    if(!Array.isArray(project.images)){
+      project.images=[];
+    }
+
+    for(const file of files){
+
+      const extension =
+        file.name
+          .split('.')
+          .pop()
+          .toLowerCase();
+
+      const filename =
+        project.id +
+        '-' +
+        Date.now() +
+        '-' +
+        Math.random()
+          .toString(36)
+          .substring(2,8) +
+        '.' +
+        extension;
+
+      const path =
+        'images/projets-en-cours/' +
+        filename;
+
+      const buffer =
+        await file.arrayBuffer();
+
+      const bytes =
+        new Uint8Array(buffer);
+
+      let binary='';
+
+      for(let i=0;i<bytes.length;i++){
+
+        binary +=
+          String.fromCharCode(
+            bytes[i]
+          );
+
+      }
+
+      const content =
+        btoa(binary);
+
+      await api(
+        '/contents/' + path,
+        {
+          method:'PUT',
+
+          body:JSON.stringify({
+
+            message:
+              'Ajouter une photo à un projet en cours',
+
+            content:content,
+
+            branch:s.branch
+
+          })
+
+        }
+      );
+
+      project.images.push(path);
+
+    }
+
+    input.value='';
+
+    renderCurrentProjects();
+
+    $('status').innerHTML =
+      '<span class="success">' +
+      files.length +
+      ' photo(s) ajoutée(s) ! Cliquez maintenant sur « Enregistrer et publier ». ' +
+      '</span>';
+
+  }
+  catch(e){
+
+    $('status').innerHTML =
+      '<span class="danger-text">' +
+      'Erreur : ' +
+      escapeHtml(e.message) +
+      '</span>';
+
+  }
+
+}
+
+
+/* SUPPRIMER UNE PHOTO */
+
+async function deleteCurrentProjectImage(
+  projectIndex,
+  imageIndex
+){
+
+  if(
+    !confirm(
+      'Supprimer cette photo du projet ?'
+    )
+  ){
+    return;
+  }
+
+  try{
+
+    const s=auth();
+
+    const project =
+      C.currentProjects.items[
+        projectIndex
+      ];
+
+    if(!project){
+      throw new Error(
+        'Projet introuvable.'
+      );
+    }
+
+    const image =
+      project.images[imageIndex];
+
+    if(!image){
+      throw new Error(
+        'Photo introuvable.'
+      );
+    }
+
+    const fileData =
+      await api(
+        '/contents/' +
+        image +
+        '?ref=' +
+        s.branch
+      );
+
+    await api(
+      '/contents/' + image,
+      {
+        method:'DELETE',
+
+        body:JSON.stringify({
+
+          message:
+            'Supprimer une photo de projet en cours',
+
+          sha:fileData.sha,
+
+          branch:s.branch
+
+        })
+
+      }
+    );
+
+    project.images.splice(
+      imageIndex,
+      1
+    );
+
+    renderCurrentProjects();
+
+    $('status').innerHTML =
+      '<span class="success">' +
+      'Photo supprimée. Cliquez sur « Enregistrer et publier ». ' +
+      '</span>';
+
+  }
+  catch(e){
+
+    $('status').innerHTML =
+      '<span class="danger-text">' +
+      'Erreur : ' +
+      escapeHtml(e.message) +
+      '</span>';
+
+  }
+
+}
+  
 /* =========================
    PROJETS
 ========================= */
@@ -3604,7 +4115,31 @@ bilingual('about-kicker',C.about.kicker || {fr:'',de:''});
 bilingual('about-title',C.about.title || {fr:'',de:''});
 bilingual('about-intro',C.about.intro || {fr:'',de:''});
 
+/* PROJETS EN COURS */
 
+const currentProjects =
+  C.currentProjects || {};
+
+bilingual(
+  'current-kicker',
+  currentProjects.kicker || {fr:'',de:''}
+);
+
+bilingual(
+  'current-title',
+  currentProjects.title || {
+    fr:'Projet en cours',
+    de:'Aktuelle Projekte'
+  }
+);
+
+bilingual(
+  'current-intro',
+  currentProjects.intro || {fr:'',de:''}
+);
+
+renderCurrentProjects();
+  
   /* REFERENCES */
 
 bilingual('refs-kicker',C.references.kicker || {fr:'',de:''});
@@ -3820,7 +4355,57 @@ C.about.kicker=getBilingual('about-kicker');
 
   });
 
+  /* PROJETS EN COURS */
 
+if(!C.currentProjects){
+  C.currentProjects = {
+    kicker:{
+      fr:'',
+      de:''
+    },
+    title:{
+      fr:'Projet en cours',
+      de:'Aktuelle Projekte'
+    },
+    intro:{
+      fr:'',
+      de:''
+    },
+    items:[]
+  };
+}
+
+C.currentProjects.kicker =
+  getBilingual('current-kicker');
+
+C.currentProjects.title =
+  getBilingual('current-title');
+
+C.currentProjects.intro =
+  getBilingual('current-intro');
+
+  C.currentProjects.items =
+  C.currentProjects.items || [];
+
+C.currentProjects.items.forEach(
+  function(project,i){
+
+    project.title={
+      fr:val(`current-${i}-title-fr`),
+      de:val(`current-${i}-title-de`)
+    };
+
+    project.description={
+      fr:val(`current-${i}-desc-fr`),
+      de:val(`current-${i}-desc-de`)
+    };
+
+    project.address =
+      val(`current-${i}-address`);
+
+  }
+);
+  
   /* REFERENCES */
 
   C.references.kicker=getBilingual('refs-kicker');
