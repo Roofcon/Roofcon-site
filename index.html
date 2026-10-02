@@ -3105,22 +3105,21 @@ if(CONTENT.currentProjects){
         : ''
     }
 
-    <button
-      type="button"
-      class="current-project-button"
-      data-project-id="${esc(project.id)}"
-      style="
-        margin-top:10px;
-        cursor:pointer;
-      "
-    >
-      ${
-        LANG === 'fr'
-          ? 'Voir le projet'
-          : 'Projekt ansehen'
-      }
-    </button>
-
+  <button
+  type="button"
+  class="current-project-button"
+  onclick="openCurrentProject('${esc(project.id)}')"
+  style="
+    margin-top:10px;
+    cursor:pointer;
+  "
+>
+  ${
+    LANG === 'fr'
+      ? 'Voir le projet'
+      : 'Projekt ansehen'
+  }
+</button>
   </div>
 `);
 
@@ -3256,60 +3255,199 @@ if(CONTENT.currentProjects){
 
 }
 
- window.openCurrentProject = function(projectId){
-
-  const currentProjects =
-    CONTENT.currentProjects;
+window.openCurrentProject = function(id){
 
   if(
-    !currentProjects ||
-    !Array.isArray(currentProjects.items)
+    !CONTENT ||
+    !CONTENT.currentProjects ||
+    !Array.isArray(CONTENT.currentProjects.items)
   ){
     return;
   }
 
-  const index =
-    currentProjects.items.findIndex(
-      function(project){
-        return project.id === projectId;
+  /* RECHERCHER LE PROJET */
+
+  const project =
+    CONTENT.currentProjects.items.find(
+      function(item){
+        return item.id === id;
       }
     );
 
-  if(index === -1){
+  if(!project){
     return;
   }
 
-  const section =
-    document.getElementById(
-      'current-projects'
-    );
 
-  if(!section){
-    return;
+  /* PHOTOS DU PROJET */
+
+  const images =
+    project.images && project.images.length
+      ? project.images
+      : [];
+
+
+  currentReferenceImages = images;
+  currentReferenceIndex = 0;
+
+
+  /* TEXTES */
+
+  document.getElementById(
+    'detail-kicker'
+  ).textContent =
+    LANG === 'fr'
+      ? 'Projet en cours'
+      : 'Aktuelles Projekt';
+
+
+  document.getElementById(
+    'detail-title'
+  ).textContent =
+    t(project.title);
+
+
+  document.getElementById(
+    'detail-intro'
+  ).textContent =
+    t(project.description);
+
+
+  document.getElementById(
+    'detail-back-text'
+  ).textContent =
+    LANG === 'fr'
+      ? 'Retour aux projets en cours'
+      : 'Zurück zu den aktuellen Projekten';
+
+
+  /* GALERIE */
+
+  let galleryHTML = '';
+
+
+  if(images.length){
+
+    galleryHTML = `
+
+      <div class="reference-gallery">
+
+        <img
+          id="reference-gallery-image"
+          src="${esc(images[0])}"
+          alt="${esc(t(project.title))}"
+        >
+
+        ${
+          images.length > 1
+          ?
+          `
+
+            <button
+              type="button"
+              class="reference-gallery-button prev"
+              onclick="changeReferenceImage(-1)"
+              aria-label="Photo précédente">
+              ‹
+            </button>
+
+            <button
+              type="button"
+              class="reference-gallery-button next"
+              onclick="changeReferenceImage(1)"
+              aria-label="Photo suivante">
+              ›
+            </button>
+
+            <div
+              class="reference-gallery-counter"
+              id="reference-gallery-counter">
+              1 / ${images.length}
+            </div>
+
+          `
+          :
+          ''
+        }
+
+      </div>
+
+    `;
+
+  }
+  else{
+
+    galleryHTML = `
+
+      <div class="project-detail-placeholder">
+        ROOFCON
+      </div>
+
+    `;
+
   }
 
-  const projects =
-    document.querySelectorAll(
-      '#current-projects-grid .current-project'
-    );
 
-  section.scrollIntoView({
-    behavior:'smooth',
-    block:'start'
-  });
+  /* CONTENU */
 
-  if(projects[index]){
+  document.getElementById(
+    'detail-projects'
+  ).innerHTML = `
 
-    setTimeout(function(){
+    <article class="project-detail">
 
-      projects[index].scrollIntoView({
-        behavior:'smooth',
-        block:'center'
-      });
+      ${galleryHTML}
 
-    },500);
+      <div class="project-detail-content">
 
-  }
+        <div class="project-detail-category">
+          ${
+            LANG === 'fr'
+              ? 'Projet en cours'
+              : 'Aktuelles Projekt'
+          }
+        </div>
+
+        <h3>
+          ${esc(t(project.title))}
+        </h3>
+
+        ${
+          t(project.description)
+            ?
+            `
+              <p>
+                ${esc(
+                  t(project.description)
+                )}
+              </p>
+            `
+            :
+            ''
+        }
+
+        ${
+          project.address
+            ?
+            `
+              <div class="project-detail-location">
+                📍 ${esc(project.address)}
+              </div>
+            `
+            :
+            ''
+        }
+
+      </div>
+
+    </article>
+
+  `;
+
+
+  /* OUVRIR LA PAGE DÉTAIL */
+
+  showPage('reference-detail');
 
 };
   
