@@ -549,11 +549,6 @@ h1 span{
   color:rgba(255,255,255,.88);
 }
 
-  .current-project-highlight{
-  outline:3px solid #c46a2b;
-  outline-offset:5px;
-}
-
  .leaflet-popup-content-wrapper,
 .leaflet-popup-content{
   pointer-events:auto !important;
@@ -3266,72 +3261,131 @@ if(CONTENT.currentProjects){
 
 }
 
- window.openCurrentProject = function(projectId){
-
-  const currentProjects =
-    CONTENT.currentProjects;
+ window.openCurrentProject = function(id){
 
   if(
-    !currentProjects ||
-    !Array.isArray(currentProjects.items)
+    !CONTENT ||
+    !CONTENT.currentProjects ||
+    !Array.isArray(CONTENT.currentProjects.items)
   ){
     return;
   }
 
-  const index =
-    currentProjects.items.findIndex(
-      function(project){
-        return project.id === projectId;
+  const project =
+    CONTENT.currentProjects.items.find(
+      function(item){
+        return item.id === id;
       }
     );
 
-  if(index === -1){
+  if(!project){
     return;
   }
 
-  const section =
-    document.getElementById(
-      'current-projects'
-    );
+  /* PHOTOS */
 
-  if(!section){
+  const images =
+    Array.isArray(project.images)
+      ? project.images
+      : [];
+
+  currentReferenceImages = images;
+  currentReferenceIndex = 0;
+
+  /* OUVRIR LA PAGE DETAIL */
+
+  showPage('reference-detail');
+
+  /* TEXTES */
+
+  const kicker =
+    document.getElementById('detail-kicker');
+
+  if(kicker){
+
+    kicker.textContent =
+      LANG === 'fr'
+        ? 'Projet en cours'
+        : 'Aktuelles Projekt';
+
+  }
+
+  const title =
+    document.getElementById('detail-title');
+
+  if(title){
+
+    title.textContent =
+      t(project.title);
+
+  }
+
+  const intro =
+    document.getElementById('detail-intro');
+
+  if(intro){
+
+    intro.textContent =
+      t(project.description);
+
+  }
+
+  const back =
+    document.getElementById('detail-back-text');
+
+  if(back){
+
+    back.textContent =
+      LANG === 'fr'
+        ? 'Retour aux projets en cours'
+        : 'Zurück zu den aktuellen Projekten';
+
+  }
+
+  /* ADRESSE */
+
+  const address =
+    document.getElementById('detail-address');
+
+  if(address){
+
+    address.textContent =
+      project.address
+        ? '📍 ' + project.address
+        : '';
+
+  }
+
+  /* GALERIE */
+
+  const gallery =
+    document.getElementById('detail-gallery');
+
+  if(!gallery){
     return;
   }
 
-  const projects =
-    document.querySelectorAll(
-      '#current-projects-grid .current-project'
-    );
+  if(!images.length){
 
-  projects.forEach(function(projectElement){
+    gallery.innerHTML = '';
 
-    projectElement.classList.remove(
-      'current-project-highlight'
-    );
-
-  });
-
-  section.scrollIntoView({
-    behavior:'smooth',
-    block:'start'
-  });
-
-  if(projects[index]){
-
-    setTimeout(function(){
-
-      projects[index].classList.add(
-        'current-project-highlight'
-      );
-
-      projects[index].scrollIntoView({
-        behavior:'smooth',
-        block:'center'
-      });
-
-    },500);
+    return;
 
   }
+
+  gallery.innerHTML =
+    images.map(function(image,index){
+
+      return `
+        <img
+          src="${esc(image)}"
+          alt="${esc(t(project.title))}"
+          class="detail-gallery-image"
+          onclick="openCurrentProjectImage(${index})"
+        >
+      `;
+
+    }).join('');
 
 };
   
@@ -4136,7 +4190,13 @@ if(currentItems.length === 0){
           : '';
 
       return `
-        <article class="current-project">
+    return `
+  <article
+    class="current-project"
+    data-current-project-id="${esc(project.id)}"
+    onclick="openCurrentProject('${esc(project.id)}')"
+    style="cursor:pointer;"
+  >
           ${
             image
               ?
