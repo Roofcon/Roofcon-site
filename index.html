@@ -3609,20 +3609,25 @@ topEmail.innerHTML =
 
   /* NAVIGATION */
 
-  document.getElementById('nav-home').textContent=
-    t(c.nav.home);
+document.getElementById('nav-home').textContent =
+  t(c.nav.home);
 
-  document.getElementById('nav-about').textContent=
-    t(c.nav.about);
+document.getElementById('nav-about').textContent =
+  t(c.nav.about);
 
-  document.getElementById('nav-references').textContent=
-    t(c.nav.references);
+document.getElementById('nav-current-projects').textContent =
+  LANG === 'fr'
+    ? 'Projets en cours'
+    : 'Aktuelle Projekte';
 
-  document.getElementById('nav-jobs').textContent=
-    t(c.nav.jobs);
+document.getElementById('nav-references').textContent =
+  t(c.nav.references);
 
-  document.getElementById('nav-contact').textContent=
-    t(c.nav.contact);
+document.getElementById('nav-jobs').textContent =
+  t(c.nav.jobs);
+
+document.getElementById('nav-contact').textContent =
+  t(c.nav.contact);
 
 /* BOUTON RETOUR RÉFÉRENCE */
 
