@@ -3069,6 +3069,14 @@ if(CONTENT.currentProjects){
             }
           ).addTo(chantierMap);
 
+        marker.on('click', function(){
+
+  window.openCurrentProject(
+    project.id
+  );
+
+});
+        
         const title =
           t(project.title) ||
           'Projet en cours';
