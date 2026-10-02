@@ -386,5 +386,36 @@
       }
     }
   },
-  "mapProjects": []
+  "mapProjects": [],
+  "currentProjects": {
+    "kicker": {
+      "fr": "",
+      "de": ""
+    },
+    "title": {
+      "fr": "Projet en cours",
+      "de": "Aktuelle Projekte"
+    },
+    "intro": {
+      "fr": "",
+      "de": ""
+    },
+    "items": [
+      {
+        "id": "current-project-1790932043557",
+        "title": {
+          "fr": "",
+          "de": ""
+        },
+        "description": {
+          "fr": "",
+          "de": ""
+        },
+        "address": "",
+        "images": [
+          "images/projets-en-cours/current-project-1790932043557-1790932092924-2hip5e.jpg"
+        ]
+      }
+    ]
+  }
 }
