@@ -392,9 +392,10 @@
       "fr": "",
       "de": ""
     },
-    "title": {
-      "fr": "Projet en cours",
-      "de": "Aktuelle Projekte"
+   "kicker": {
+  "fr": "PROJETS EN COURS",
+  "de": "AKTUELLE PROJEKTE"
+}
     },
     "intro": {
       "fr": "",
