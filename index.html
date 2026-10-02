@@ -2096,14 +2096,43 @@ footer{
 </button>
 
 <nav class="menu" id="main-menu">
-    <a href="#" data-page="accueil">Accueil</a>
-<a href="#" data-page="about">À propos</a>
-<a href="#" data-page="current-projects" id="nav-current-projects"></a>
-<a href="#" data-page="references">Références</a>
-<a href="#" data-page="jobs">Offres d'emploi</a>
-<a href="#" data-page="contact">Contact</a>
-    </nav>
 
+  <a href="#" data-page="accueil" id="nav-home">
+    Accueil
+  </a>
+
+  <a href="#" data-page="about" id="nav-about">
+    À propos
+  </a>
+
+  <a
+    href="#"
+    data-page="current-projects"
+    id="nav-current-projects">
+  </a>
+
+  <a
+    href="#"
+    data-page="references"
+    id="nav-references">
+    Références
+  </a>
+
+  <a
+    href="#"
+    data-page="jobs"
+    id="nav-jobs">
+    Offres d'emploi
+  </a>
+
+  <a
+    href="#"
+    data-page="contact"
+    id="nav-contact">
+    Contact
+  </a>
+
+</nav>
   </div>
 </header>
 
@@ -3607,27 +3636,62 @@ topEmail.innerHTML =
   c.site.email +
   '</a>';
 
-  /* NAVIGATION */
+/* NAVIGATION */
 
-document.getElementById('nav-home').textContent =
-  t(c.nav.home);
+const navHome =
+  document.getElementById('nav-home');
 
-document.getElementById('nav-about').textContent =
-  t(c.nav.about);
+if(navHome){
+  navHome.textContent =
+    t(c.nav.home);
+}
 
-document.getElementById('nav-current-projects').textContent =
-  LANG === 'fr'
-    ? 'Projets en cours'
-    : 'Aktuelle Projekte';
 
-document.getElementById('nav-references').textContent =
-  t(c.nav.references);
+const navAbout =
+  document.getElementById('nav-about');
 
-document.getElementById('nav-jobs').textContent =
-  t(c.nav.jobs);
+if(navAbout){
+  navAbout.textContent =
+    t(c.nav.about);
+}
 
-document.getElementById('nav-contact').textContent =
-  t(c.nav.contact);
+
+const navCurrentProjects =
+  document.getElementById('nav-current-projects');
+
+if(navCurrentProjects){
+  navCurrentProjects.textContent =
+    LANG === 'fr'
+      ? 'Projets en cours'
+      : 'Aktuelle Projekte';
+}
+
+
+const navReferences =
+  document.getElementById('nav-references');
+
+if(navReferences){
+  navReferences.textContent =
+    t(c.nav.references);
+}
+
+
+const navJobs =
+  document.getElementById('nav-jobs');
+
+if(navJobs){
+  navJobs.textContent =
+    t(c.nav.jobs);
+}
+
+
+const navContact =
+  document.getElementById('nav-contact');
+
+if(navContact){
+  navContact.textContent =
+    t(c.nav.contact);
+}
 
 /* BOUTON RETOUR RÉFÉRENCE */
 
