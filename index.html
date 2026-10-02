@@ -554,10 +554,18 @@ h1 span{
   outline-offset:5px;
 }
 
-  .map-popup-current button{
-  position:relative;
-  z-index:9999;
-  pointer-events:auto;
+ .leaflet-popup-content-wrapper,
+.leaflet-popup-content{
+  pointer-events:auto !important;
+}
+
+.map-popup-current{
+  pointer-events:auto !important;
+}
+
+.map-popup-current button{
+  pointer-events:auto !important;
+  cursor:pointer !important;
 }
   
 .current-project-location{
@@ -3069,7 +3077,7 @@ if(CONTENT.currentProjects){
           t(project.description) ||
           '';
 
-    marker.bindPopup(`
+   marker.bindPopup(`
   <div class="map-popup-current">
 
     <strong>${esc(title)}</strong>
@@ -3102,17 +3110,15 @@ if(CONTENT.currentProjects){
         : ''
     }
 
-   <button
-  type="button"
-  onclick="event.stopPropagation(); openCurrentProject('${project.id}'); return false;"
-  style="
-    margin-top:10px;
-    cursor:pointer;
-    position:relative;
-    z-index:9999;
-    pointer-events:auto;
-  "
->
+    <button
+      type="button"
+      class="current-project-button"
+      data-project-id="${esc(project.id)}"
+      style="
+        margin-top:10px;
+        cursor:pointer;
+      "
+    >
       ${
         LANG === 'fr'
           ? 'Voir le projet'
@@ -3122,6 +3128,29 @@ if(CONTENT.currentProjects){
 
   </div>
 `);
+
+        marker.on('popupopen', function(){
+
+  const button =
+    document.querySelector(
+      '.current-project-button[data-project-id="' +
+      project.id +
+      '"]'
+    );
+
+  if(button){
+
+    button.onclick = function(){
+
+      window.openCurrentProject(
+        project.id
+      );
+
+    };
+
+  }
+
+});
         chantierMarkers.push(marker);
 
         positions.push([
