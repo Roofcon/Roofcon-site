@@ -549,6 +549,11 @@ h1 span{
   color:rgba(255,255,255,.88);
 }
 
+  .current-project-highlight{
+  outline:3px solid #c46a2b;
+  outline-offset:5px;
+}
+  
 .current-project-location{
   margin-top:13px;
   font-size:13px;
@@ -3058,7 +3063,7 @@ if(CONTENT.currentProjects){
           t(project.description) ||
           '';
 
-       marker.bindPopup(`
+    marker.bindPopup(`
   <div class="map-popup-current">
 
     <strong>${esc(title)}</strong>
@@ -3090,6 +3095,21 @@ if(CONTENT.currentProjects){
         `
         : ''
     }
+
+    <button
+      type="button"
+      onclick="openCurrentProject('${project.id}')"
+      style="
+        margin-top:10px;
+        cursor:pointer;
+      "
+    >
+      ${
+        LANG === 'fr'
+          ? 'Voir le projet'
+          : 'Projekt ansehen'
+      }
+    </button>
 
   </div>
 `);
@@ -3197,6 +3217,67 @@ if(CONTENT.currentProjects){
   function openMapProject(categoryId, projectId){
 
   openReference(projectId);
+
+}
+
+  function openCurrentProject(projectId){
+
+  const section =
+    document.getElementById(
+      'current-projects'
+    );
+
+  if(!section){
+    return;
+  }
+
+  section.scrollIntoView({
+    behavior:'smooth',
+    block:'start'
+  });
+
+  const projects =
+    document.querySelectorAll(
+      '#current-projects-grid .current-project'
+    );
+
+  projects.forEach(function(projectElement){
+
+    projectElement.classList.remove(
+      'current-project-highlight'
+    );
+
+  });
+
+  const currentProject =
+    CONTENT.currentProjects &&
+    CONTENT.currentProjects.items
+      ? CONTENT.currentProjects.items.find(
+          function(project){
+            return project.id === projectId;
+          }
+        )
+      : null;
+
+  if(!currentProject){
+    return;
+  }
+
+  const index =
+    CONTENT.currentProjects.items.indexOf(
+      currentProject
+    );
+
+  if(
+    index < 0 ||
+    !projects[index]
+  ){
+    return;
+  }
+
+  projects[index].classList.add(
+    'current-project-highlight'
+  );
 
 }
   
