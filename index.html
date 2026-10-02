@@ -448,6 +448,102 @@ h1 span{
   font-size:15px;
 }
 
+  /* PROJETS EN COURS */
+
+.current-projects{
+  background:#fff;
+  padding:100px 0;
+}
+
+.current-projects .head{
+  max-width:800px;
+  margin-bottom:50px;
+}
+
+.current-projects-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+.current-project{
+  position:relative;
+  overflow:hidden;
+  min-height:420px;
+  background:#d8d4cf;
+  border-radius:0;
+}
+
+.current-project img{
+  width:100%;
+  height:420px;
+  object-fit:cover;
+  display:block;
+}
+
+.current-project-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(0,0,0,.78),
+    rgba(0,0,0,.05) 70%
+  );
+}
+
+.current-project-content{
+  position:absolute;
+  left:32px;
+  right:32px;
+  bottom:28px;
+  z-index:2;
+  color:#fff;
+}
+
+.current-project-content h3{
+  margin:0 0 8px;
+  font-size:25px;
+  line-height:1.15;
+}
+
+.current-project-content p{
+  margin:0;
+  font-size:14px;
+  line-height:1.6;
+  opacity:.9;
+}
+
+.current-project-location{
+  margin-top:10px;
+  font-size:13px;
+  font-weight:700;
+  opacity:.85;
+}
+
+@media(max-width:800px){
+
+  .current-projects{
+    padding:70px 0;
+  }
+
+  .current-projects-grid{
+    grid-template-columns:1fr;
+  }
+
+  .current-project,
+  .current-project img{
+    min-height:340px;
+    height:340px;
+  }
+
+  .current-project-content{
+    left:22px;
+    right:22px;
+    bottom:22px;
+  }
+
+}
+  
 /* REFERENCES */
 
 .refs{
@@ -2099,7 +2195,36 @@ footer{
 
 </section>
 
+<!-- PROJET EN COURS -->
 
+<section id="current-projects" class="current-projects">
+
+  <div class="container">
+
+    <div class="head">
+
+      <div
+        class="kicker"
+        id="current-projects-kicker">
+      </div>
+
+      <h2 id="current-projects-title">
+      </h2>
+
+      <p id="current-projects-intro">
+      </p>
+
+    </div>
+
+    <div
+      class="current-projects-grid"
+      id="current-projects-grid">
+    </div>
+
+  </div>
+
+</section>
+  
 <!-- RÉFÉRENCES -->
 <section id="references" class="refs">
 
@@ -3516,6 +3641,139 @@ document.getElementById('poles-grid').innerHTML=
     `;
 
   }).join('');
+
+  /* PROJETS EN COURS */
+
+const currentProjects =
+  c.currentProjects || {};
+
+document.getElementById(
+  'current-projects-kicker'
+).textContent =
+  t(
+    currentProjects.kicker || {
+      fr:'PROJET EN COURS',
+      de:'AKTUELLE PROJEKTE'
+    }
+  );
+
+document.getElementById(
+  'current-projects-title'
+).textContent =
+  t(
+    currentProjects.title || {
+      fr:'Projet en cours',
+      de:'Aktuelle Projekte'
+    }
+  );
+
+document.getElementById(
+  'current-projects-intro'
+).textContent =
+  t(
+    currentProjects.intro || {
+      fr:'',
+      de:''
+    }
+  );
+
+const currentProjectsGrid =
+  document.getElementById(
+    'current-projects-grid'
+  );
+
+const currentItems =
+  currentProjects.items || [];
+
+const currentProjectsSection =
+  document.getElementById(
+    'current-projects'
+  );
+
+if(currentItems.length === 0){
+
+  currentProjectsSection.style.display =
+    'none';
+
+  currentProjectsGrid.innerHTML='';
+
+}else{
+
+  currentProjectsSection.style.display =
+    'block';
+
+  currentProjectsGrid.innerHTML =
+    currentItems.map(function(project){
+
+      const image =
+        Array.isArray(project.images) &&
+        project.images.length
+          ? project.images[0]
+          : '';
+
+      return `
+
+        <article class="current-project">
+
+          ${
+            image
+              ?
+              `
+                <img
+                  src="${esc(image)}"
+                  alt="${esc(t(project.title))}">
+              `
+              :
+              ''
+          }
+
+          <div
+            class="current-project-overlay">
+          </div>
+
+          <div
+            class="current-project-content">
+
+            <h3>
+              ${esc(t(project.title))}
+            </h3>
+
+            ${
+              t(project.description)
+                ?
+                `
+                  <p>
+                    ${esc(
+                      t(project.description)
+                    )}
+                  </p>
+                `
+                :
+                ''
+            }
+
+            ${
+              project.address
+                ?
+                `
+                  <div
+                    class="current-project-location">
+                    ${esc(project.address)}
+                  </div>
+                `
+                :
+                ''
+            }
+
+          </div>
+
+        </article>
+
+      `;
+
+    }).join('');
+
+}
   
 /* RÉFÉRENCES */
 
