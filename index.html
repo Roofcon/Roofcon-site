@@ -2096,11 +2096,12 @@ footer{
 </button>
 
 <nav class="menu" id="main-menu">
-      <a href="#" data-page="accueil" id="nav-home"></a>
-      <a href="#" data-page="about" id="nav-about"></a>
-      <a href="#" data-page="references" id="nav-references"></a>
-      <a href="#" data-page="jobs" id="nav-jobs"></a>
-      <a href="#" data-page="contact" id="nav-contact" class="cta"></a>
+    <a href="#" data-page="accueil">Accueil</a>
+<a href="#" data-page="about">À propos</a>
+<a href="#" data-page="current-projects">Projets en cours</a>
+<a href="#" data-page="references">Références</a>
+<a href="#" data-page="jobs">Offres d'emploi</a>
+<a href="#" data-page="contact">Contact</a>
     </nav>
 
   </div>
@@ -3072,17 +3073,19 @@ function showPage(id){
     page.classList.add('active-page');
   }
 
-  /* PROJETS EN COURS UNIQUEMENT SUR L'ACCUEIL */
+  /* PROJETS EN COURS */
 
-  const currentProjectsSection =
-    document.getElementById('current-projects');
+const currentProjectsSection =
+  document.getElementById('current-projects');
 
-  if(currentProjectsSection){
+if(currentProjectsSection){
 
-    currentProjectsSection.style.display =
-      id === 'accueil' ? 'block' : 'none';
+  currentProjectsSection.style.display =
+    id === 'accueil' || id === 'current-projects'
+      ? 'block'
+      : 'none';
 
-  }
+}
 
   window.scrollTo({
     top:0,
