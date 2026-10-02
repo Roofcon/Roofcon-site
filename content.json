@@ -400,24 +400,6 @@
       "fr": "",
       "de": ""
     },
-    "items": [
-      {
-        "id": "current-project-1790932043557",
-        "title": {
-          "fr": "Construction d'une maison en ossature bois",
-          "de": "Bau eines Hauses en ossature bois"
-        },
-        "description": {
-          "fr": "Réalisation d'une maison en ossature bois au Luxembourg.",
-          "de": "Bau eines Hauses in Holzrahmenbauweise in Luxemburg."
-        },
-        "address": "Rue ronchampay 5 6980 La roche ",
-        "latitude": 50.1556762,
-        "longitude": 5.5284619,
-        "images": [
-          "images/projets-en-cours/current-project-1790932043557-1790932092924-2hip5e.jpg"
-        ]
-      }
-    ]
+    "items": []
   }
 }
