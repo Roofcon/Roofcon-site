@@ -593,6 +593,20 @@ h1 span{
 
 }
 
+  .current-project-map-marker{
+  background:transparent;
+  border:none;
+}
+
+.current-project-map-marker div{
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  background:#c46a2b;
+  border:4px solid #fff;
+  box-shadow:0 2px 8px rgba(0,0,0,.45);
+}
+  
 /* MOBILE */
 
 @media(max-width:800px){
@@ -2998,6 +3012,91 @@ marker.bindPopup(`
 
   });
 
+  /* PROJETS EN COURS */
+
+if(CONTENT.currentProjects){
+
+  (CONTENT.currentProjects.items || []).forEach(function(project){
+
+    if(
+      project.latitude &&
+      project.longitude
+    ){
+
+      const lat =
+        Number(project.latitude);
+
+      const lng =
+        Number(project.longitude);
+
+      if(
+        !Number.isNaN(lat) &&
+        !Number.isNaN(lng)
+      ){
+
+        const currentProjectIcon =
+          L.divIcon({
+            className:'current-project-map-marker',
+            html:'<div></div>',
+            iconSize:[22,22],
+            iconAnchor:[11,11]
+          });
+
+        const marker =
+          L.marker(
+            [lat,lng],
+            {
+              icon:currentProjectIcon
+            }
+          ).addTo(chantierMap);
+
+        const title =
+          t(project.title) ||
+          'Projet en cours';
+
+        const description =
+          t(project.description) ||
+          '';
+
+        marker.bindPopup(`
+          <div class="map-popup-current">
+
+            <strong>
+              ${esc(title)}
+            </strong>
+
+            <div class="map-popup-label">
+              ${
+                LANG === 'fr'
+                  ? 'PROJET EN COURS'
+                  : 'AKTUELLES PROJEKT'
+              }
+            </div>
+
+            ${
+              description
+                ? `<span>${esc(description)}</span>`
+                : ''
+            }
+
+          </div>
+        `);
+
+        chantierMarkers.push(marker);
+
+        positions.push([
+          lat,
+          lng
+        ]);
+
+      }
+
+    }
+
+  });
+
+}
+  
   if(CONTENT.mapProjects){
 
   CONTENT.mapProjects.forEach(function(marker){
