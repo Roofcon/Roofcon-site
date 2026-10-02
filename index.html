@@ -3102,20 +3102,6 @@ function showPage(id){
     page.classList.add('active-page');
   }
 
-   /* PROJETS EN COURS UNIQUEMENT SUR L'ACCUEIL */
-
-  const currentProjectsSection =
-    document.getElementById('current-projects');
-
-  if(currentProjectsSection){
-
-    currentProjectsSection.style.display =
-      id === 'accueil'
-        ? 'block'
-        : 'none';
-
-  }
-
   window.scrollTo({
     top:0,
     behavior:'smooth'
@@ -3894,9 +3880,6 @@ if(currentItems.length === 0){
   currentProjectsGrid.innerHTML='';
 
 }else{
-
-  currentProjectsSection.style.display =
-    'none';
 
   currentProjectsGrid.innerHTML =
     currentItems.map(function(project){
