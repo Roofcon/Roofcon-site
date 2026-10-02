@@ -3063,14 +3063,6 @@ if(CONTENT.currentProjects){
               icon:currentProjectIcon
             }
           ).addTo(chantierMap);
-
-        marker.on('click', function(){
-
-  window.openCurrentProject(
-    project.id
-  );
-
-});
         
         const title =
           t(project.title) ||
@@ -3132,7 +3124,7 @@ if(CONTENT.currentProjects){
   </div>
 `);
 
-        marker.on('popupopen', function(){
+       marker.on('popupopen', function(){
 
   const button =
     document.querySelector(
@@ -3143,7 +3135,9 @@ if(CONTENT.currentProjects){
 
   if(button){
 
-    button.onclick = function(){
+    button.onclick = function(event){
+
+      event.stopPropagation();
 
       window.openCurrentProject(
         project.id
@@ -3154,6 +3148,7 @@ if(CONTENT.currentProjects){
   }
 
 });
+        
         chantierMarkers.push(marker);
 
         positions.push([
