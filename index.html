@@ -448,8 +448,6 @@ h1 span{
   font-size:15px;
 }
 
-  /* PROJETS EN COURS */
-
 /* ================================
    PROJETS EN COURS
 ================================ */
@@ -461,8 +459,6 @@ h1 span{
   color:#fff;
 }
 
-/* Ligne de séparation avec la section précédente */
-
 .current-projects::before{
   content:"";
   display:block;
@@ -471,8 +467,6 @@ h1 span{
   background:#fff;
   margin-bottom:65px;
 }
-
-/* EN-TÊTE */
 
 .current-projects .head{
   max-width:820px;
@@ -494,15 +488,11 @@ h1 span{
   max-width:700px;
 }
 
-/* GRILLE */
-
 .current-projects-grid{
   display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:28px;
 }
-
-/* CARTE */
 
 .current-project{
   position:relative;
@@ -510,8 +500,6 @@ h1 span{
   min-height:440px;
   background:#302e2c;
 }
-
-/* IMAGE */
 
 .current-project img{
   width:100%;
@@ -521,13 +509,9 @@ h1 span{
   transition:transform .6s ease;
 }
 
-/* EFFET AU SURVOL */
-
 .current-project:hover img{
   transform:scale(1.04);
 }
-
-/* VOILE */
 
 .current-project-overlay{
   position:absolute;
@@ -540,8 +524,6 @@ h1 span{
       rgba(0,0,0,.02) 80%
     );
 }
-
-/* CONTENU */
 
 .current-project-content{
   position:absolute;
@@ -572,6 +554,43 @@ h1 span{
   font-size:13px;
   font-weight:700;
   color:rgba(255,255,255,.72);
+}
+
+@media(max-width:800px){
+
+  .current-projects{
+    padding:75px 0 80px;
+  }
+
+  .current-projects::before{
+    margin-bottom:45px;
+  }
+
+  .current-projects .head{
+    margin-bottom:38px;
+  }
+
+  .current-projects-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .current-project,
+  .current-project img{
+    min-height:340px;
+    height:340px;
+  }
+
+  .current-project-content{
+    left:22px;
+    right:22px;
+    bottom:22px;
+  }
+
+  .current-project-content h3{
+    font-size:22px;
+  }
+
 }
 
 /* MOBILE */
