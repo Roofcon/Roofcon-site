@@ -3066,11 +3066,23 @@ function showPage(id){
     section.classList.remove('active-page');
   });
 
- const page=document.getElementById(id);
+  const page = document.getElementById(id);
 
-if(page){
-  page.classList.add('active-page');
-}
+  if(page){
+    page.classList.add('active-page');
+  }
+
+  /* PROJETS EN COURS UNIQUEMENT SUR L'ACCUEIL */
+
+  const currentProjectsSection =
+    document.getElementById('current-projects');
+
+  if(currentProjectsSection){
+
+    currentProjectsSection.style.display =
+      id === 'accueil' ? 'block' : 'none';
+
+  }
 
   window.scrollTo({
     top:0,
@@ -3754,7 +3766,7 @@ document.getElementById('poles-grid').innerHTML=
 
   }).join('');
 
-  /* PROJETS EN COURS */
+ /* PROJETS EN COURS */
 
 const currentProjects =
   c.currentProjects || {};
@@ -3764,7 +3776,7 @@ document.getElementById(
 ).textContent =
   t(
     currentProjects.kicker || {
-      fr:'PROJET EN COURS',
+      fr:'PROJETS EN COURS',
       de:'AKTUELLE PROJEKTE'
     }
   );
@@ -3812,7 +3824,7 @@ if(currentItems.length === 0){
 }else{
 
   currentProjectsSection.style.display =
-    'block';
+    'none';
 
   currentProjectsGrid.innerHTML =
     currentItems.map(function(project){
@@ -3824,9 +3836,7 @@ if(currentItems.length === 0){
           : '';
 
       return `
-
         <article class="current-project">
-
           ${
             image
               ?
@@ -3839,12 +3849,9 @@ if(currentItems.length === 0){
               ''
           }
 
-          <div
-            class="current-project-overlay">
-          </div>
+          <div class="current-project-overlay"></div>
 
-          <div
-            class="current-project-content">
+          <div class="current-project-content">
 
             <h3>
               ${esc(t(project.title))}
@@ -3878,13 +3885,9 @@ if(currentItems.length === 0){
             }
 
           </div>
-
         </article>
-
       `;
-
     }).join('');
-
 }
   
 /* RÉFÉRENCES */
