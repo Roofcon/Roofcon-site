@@ -3073,19 +3073,19 @@ function showPage(id){
     page.classList.add('active-page');
   }
 
-  /* PROJETS EN COURS */
+   /* PROJETS EN COURS UNIQUEMENT SUR L'ACCUEIL */
 
-const currentProjectsSection =
-  document.getElementById('current-projects');
+  const currentProjectsSection =
+    document.getElementById('current-projects');
 
-if(currentProjectsSection){
+  if(currentProjectsSection){
 
-  currentProjectsSection.style.display =
-    id === 'accueil' || id === 'current-projects'
-      ? 'block'
-      : 'none';
+    currentProjectsSection.style.display =
+      id === 'accueil'
+        ? 'block'
+        : 'none';
 
-}
+  }
 
   window.scrollTo({
     top:0,
