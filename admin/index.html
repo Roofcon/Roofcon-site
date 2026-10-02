@@ -2286,7 +2286,7 @@ function renderCurrentProjects(){
    CARTE PROJET EN COURS
 ========================= */
 
-function initCurrentProjectMap(index){
+window.initCurrentProjectMap = function(index){
 
   const project =
     C.currentProjects.items[index];
@@ -2424,10 +2424,9 @@ function initCurrentProjectMap(index){
 
   },100);
 
-}
+};
 
-
-function updateCurrentProjectPosition(
+window.updateCurrentProjectPosition = function(
   index,
   lat,
   lng
@@ -2445,7 +2444,7 @@ function updateCurrentProjectPosition(
 
   }
 
-}
+};
 
   /* =========================
    LOCALISER PROJET EN COURS
