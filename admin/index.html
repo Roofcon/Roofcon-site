@@ -4629,56 +4629,6 @@ async function saveContent(){
       }
     );
 
-    sha=r.content.sha;
-
-    $('status').innerHTML =
-      '<span class="success">' +
-      'Publié avec succès ! Le site va se mettre à jour dans quelques instants.' +
-      '</span>';
-
-  }
-
-  catch(e){
-
-    $('status').innerHTML =
-      '<span class="danger-text">' +
-      'Erreur de publication : ' +
-      escapeHtml(e.message) +
-      '</span>';
-
-  }
-
-  finally{
-
-    $('save').disabled=false;
-
-  }
-
-}
-
-    sha=r.content.sha;
-
-    $('status').innerHTML=
-      '<span class="success">Publié avec succès ! Le site va se mettre à jour dans quelques instants.</span>';
-
-  }
-  catch(e){
-
-    $('status').innerHTML=
-      '<span class="danger-text">Erreur de publication : '+
-      escapeHtml(e.message)+
-      '</span>';
-
-  }
-  finally{
-
-    $('save').disabled=false;
-
-  }
-
-}
-
-
 loadSettings();
 
 </script>
