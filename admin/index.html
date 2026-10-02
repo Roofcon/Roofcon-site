@@ -2282,6 +2282,47 @@ function renderCurrentProjects(){
 
 }
 
+  function deleteCurrentProject(index){
+
+  if(
+    !C.currentProjects ||
+    !Array.isArray(C.currentProjects.items)
+  ){
+    return;
+  }
+
+  const project =
+    C.currentProjects.items[index];
+
+  if(!project){
+    return;
+  }
+
+  const title =
+    project.title?.fr ||
+    project.title?.de ||
+    'ce projet';
+
+  const confirmed =
+    confirm(
+      'Voulez-vous vraiment supprimer le projet "' +
+      title +
+      '" ?'
+    );
+
+  if(!confirmed){
+    return;
+  }
+
+  C.currentProjects.items.splice(
+    index,
+    1
+  );
+
+  renderCurrentProjects();
+
+}
+  
   /* =========================
    CARTE PROJET EN COURS
 ========================= */
