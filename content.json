@@ -388,37 +388,34 @@
   },
   "mapProjects": [],
 
-  "currentProjects": {
- "kicker": {
-  "fr": "PROJETS EN COURS",
-  "de": "AKTUELLE PROJEKTE"
-}
-    },
-   "title": {
-  "fr": "Nos projets en cours",
-  "de": "Unsere aktuellen Projekte"
-}
-    },
-    "intro": {
-      "fr": "",
-      "de": ""
-    },
-    "items": [
-      {
-        "id": "current-project-1790932043557",
-        "title": {
-          "fr": "Construction d'une maison en ossature bois",
-          "de": "Bau eines Hauses in Holzrahmenbauweise"
-        },
-        "description": {
-          "fr": "Réalisation d'une maison en ossature bois au Luxembourg.",
-          "de": "Bau d'une maison en ossature bois au Luxembourg."
-        },
-        "address": "",
-        "images": [
-          "images/projets-en-cours/current-project-1790932043557-1790932092924-2hip5e.jpg"
-        ]
-      }
-    ]
-  }
+"currentProjects": {
+  "kicker": {
+    "fr": "PROJETS EN COURS",
+    "de": "AKTUELLE PROJEKTE"
+  },
+  "title": {
+    "fr": "Nos projets en cours",
+    "de": "Unsere aktuellen Projekte"
+  },
+  "intro": {
+    "fr": "",
+    "de": ""
+  },
+  "items": [
+    {
+      "id": "current-project-1790932043557",
+      "title": {
+        "fr": "Construction d'une maison en ossature bois",
+        "de": "Bau eines Hauses in Holzrahmenbauweise"
+      },
+      "description": {
+        "fr": "Réalisation d'une maison en ossature bois au Luxembourg.",
+        "de": "Bau d'une maison en ossature bois au Luxembourg."
+      },
+      "address": "",
+      "images": [
+        "images/projets-en-cours/current-project-1790932043557-1790932092924-2hip5e.jpg"
+      ]
+    }
+  ]
 }
