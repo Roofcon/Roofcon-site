@@ -402,21 +402,23 @@
     "de": ""
   },
   "items": [
-    {
-      "id": "current-project-1790932043557",
-      "title": {
-        "fr": "Construction d'une maison en ossature bois",
-        "de": "Bau eines Hauses in Holzrahmenbauweise"
-      },
-      "description": {
-        "fr": "Réalisation d'une maison en ossature bois au Luxembourg.",
-        "de": "Bau d'une maison en ossature bois au Luxembourg."
-      },
-      "address": "",
-           "images": [
-        "images/projets-en-cours/current-project-1790932043557-1790932092924-2hip5e.jpg"
-      ]
-    }
+   {
+  "id": "current-project-1790932043557",
+  "title": {
+    "fr": "Construction d'une maison en ossature bois",
+    "de": "Bau eines Hauses en ossature bois"
+  },
+  "description": {
+    "fr": "Réalisation d'une maison en ossature bois au Luxembourg.",
+    "de": "Bau einer maison en ossature bois au Luxembourg."
+  },
+  "address": "",
+  "latitude": 49.XXXX,
+  "longitude": 6.XXXX,
+  "images": [
+    "images/projets-en-cours/current-project-1790932043557-1790932092924-2hip5e.jpg"
+  ]
+}
   ]
 }
 }
