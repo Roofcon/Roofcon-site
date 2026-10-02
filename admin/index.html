@@ -4531,18 +4531,121 @@ window.loadContent = loadContent;
    SAUVEGARDER
 ========================= */
 
+  async function geocodeAddress(address){
+
+  const url =
+    'https://nominatim.openstreetmap.org/search' +
+    '?format=jsonv2' +
+    '&limit=1' +
+    '&q=' +
+    encodeURIComponent(address);
+
+  const response =
+    await fetch(url);
+
+  if(!response.ok){
+
+    throw new Error(
+      'Impossible de rechercher cette adresse.'
+    );
+
+  }
+
+  const results =
+    await response.json();
+
+  if(!results.length){
+
+    return null;
+
+  }
+
+  return {
+
+    latitude:
+      Number(results[0].lat),
+
+    longitude:
+      Number(results[0].lon)
+
+  };
+
+}
+  
 async function saveContent(){
 
   try{
 
     collect();
 
-    const s=auth();
+    const currentProjects =
+      C.currentProjects?.items || [];
 
     $('save').disabled=true;
 
-    $('status').textContent=
+    $('status').textContent =
+      'Recherche des positions des chantiers…';
+
+    for(
+      let i=0;
+      i<currentProjects.length;
+      i++
+    ){
+
+      const project =
+        currentProjects[i];
+
+      const address =
+        (project.address || '').trim();
+
+      if(!address){
+
+        project.latitude=null;
+        project.longitude=null;
+
+        continue;
+
+      }
+
+      const coordinates =
+        await geocodeAddress(address);
+
+      if(coordinates){
+
+        project.latitude =
+          coordinates.latitude;
+
+        project.longitude =
+          coordinates.longitude;
+
+      }else{
+
+        project.latitude=null;
+        project.longitude=null;
+
+      }
+
+      /*
+        Nominatim demande de rester sous
+        1 requête par seconde.
+      */
+
+      if(i < currentProjects.length - 1){
+
+        await new Promise(function(resolve){
+
+          setTimeout(resolve,1100);
+
+        });
+
+      }
+
+    }
+
+    $('status').textContent =
       'Publication en cours…';
+
+    const s=auth();
 
     const r=await api(
       '/contents/content.json',
@@ -4551,7 +4654,8 @@ async function saveContent(){
 
         body:JSON.stringify({
 
-          message:'Mettre à jour le contenu ROOFCON',
+          message:
+            'Mettre à jour le contenu ROOFCON',
 
           content:enc(
             JSON.stringify(C,null,2)+'\n'
@@ -4565,6 +4669,33 @@ async function saveContent(){
 
       }
     );
+
+    sha=r.content.sha;
+
+    $('status').innerHTML =
+      '<span class="success">' +
+      'Publié avec succès ! Le site va se mettre à jour dans quelques instants.' +
+      '</span>';
+
+  }
+
+  catch(e){
+
+    $('status').innerHTML =
+      '<span class="danger-text">' +
+      'Erreur de publication : ' +
+      escapeHtml(e.message) +
+      '</span>';
+
+  }
+
+  finally{
+
+    $('save').disabled=false;
+
+  }
+
+}
 
     sha=r.content.sha;
 
