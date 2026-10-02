@@ -389,13 +389,15 @@
   "mapProjects": [],
 
   "currentProjects": {
-    "kicker": {
-      "fr": "PROJETS EN COURS",
-      "de": "AKTUELLE PROJEKTE"
+ "kicker": {
+  "fr": "PROJETS EN COURS",
+  "de": "AKTUELLE PROJEKTE"
+}
     },
-    "title": {
-      "fr": "Nos projets en cours",
-      "de": "Unsere aktuellen Projekte"
+   "title": {
+  "fr": "Nos projets en cours",
+  "de": "Unsere aktuellen Projekte"
+}
     },
     "intro": {
       "fr": "",
