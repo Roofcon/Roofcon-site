@@ -3258,6 +3258,7 @@ if(CONTENT.currentProjects){
 window.openCurrentProject = function(id){
 
   currentDetailType = 'current';
+  currentCurrentProjectId = id;
 
   if(
     !CONTENT ||
@@ -3722,46 +3723,16 @@ function setLang(lang){
 
     initChantierMap();
 
-    /* METTRE À JOUR LA PAGE DÉTAIL SI ELLE EST OUVERTE */
-
-    const detailPage =
-      document.getElementById('reference-detail');
+    /* SI UN PROJET EN COURS EST OUVERT */
 
     if(
-      detailPage &&
-      detailPage.classList.contains('active-page')
+      currentDetailType === 'current' &&
+      currentCurrentProjectId
     ){
 
-      if(currentDetailType === 'current'){
-
-        /*
-         * Retrouver le projet en cours actuellement affiché
-         */
-        const title =
-          document.getElementById('detail-title');
-
-        if(title){
-
-          const project =
-            CONTENT.currentProjects.items.find(
-              function(item){
-
-                return (
-                  t(item.title) === title.textContent
-                );
-
-              }
-            );
-
-          if(project){
-
-            openCurrentProject(project.id);
-
-          }
-
-        }
-
-      }
+      openCurrentProject(
+        currentCurrentProjectId
+      );
 
     }
 
@@ -3773,7 +3744,8 @@ function setLang(lang){
 /* RÉFÉRENCE */
   
 let currentReferenceCategoryId = null;
-let currentDetailType = 'reference';  
+let currentDetailType = 'reference';
+let currentCurrentProjectId = null;
 function openReference(id){
 
   if(!CONTENT || !CONTENT.references){
