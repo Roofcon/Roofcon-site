@@ -397,9 +397,25 @@
       "de": "Unsere aktuellen Projekte"
     },
     "intro": {
-      "fr": "",
-      "de": ""
+      "fr": "Découvrez les projets que nos équipes réalisent actuellement. Chaque chantier témoigne de notre savoir-faire, de notre précision et de notre engagement pour un travail de qualité.",
+      "de": "Entdecken Sie die Projekte, die unsere Teams derzeit realisieren. Jedes Bauvorhaben steht für unser Know-how, unsere Präzision und unseren Anspruch an hochwertige Arbeit."
     },
-    "items": []
+    "items": [
+      {
+        "id": "current-project-1791179907640",
+        "title": {
+          "fr": "Nouveau projet",
+          "de": "Neues Projekt"
+        },
+        "description": {
+          "fr": "",
+          "de": ""
+        },
+        "address": "",
+        "latitude": null,
+        "longitude": null,
+        "images": []
+      }
+    ]
   }
 }
