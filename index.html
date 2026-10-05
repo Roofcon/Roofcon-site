@@ -3712,17 +3712,61 @@ const categoryData =
 
 function setLang(lang){
 
-  LANG=lang;
+  LANG = lang;
 
-  localStorage.setItem('roofconLang',lang);
+  localStorage.setItem('roofconLang', lang);
 
- if(CONTENT){
+  if(CONTENT){
 
-  render();
+    render();
 
-  initChantierMap();
+    initChantierMap();
 
-}
+    /* METTRE À JOUR LA PAGE DÉTAIL SI ELLE EST OUVERTE */
+
+    const detailPage =
+      document.getElementById('reference-detail');
+
+    if(
+      detailPage &&
+      detailPage.classList.contains('active-page')
+    ){
+
+      if(currentDetailType === 'current'){
+
+        /*
+         * Retrouver le projet en cours actuellement affiché
+         */
+        const title =
+          document.getElementById('detail-title');
+
+        if(title){
+
+          const project =
+            CONTENT.currentProjects.items.find(
+              function(item){
+
+                return (
+                  t(item.title) === title.textContent
+                );
+
+              }
+            );
+
+          if(project){
+
+            openCurrentProject(project.id);
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
 }
 
 
