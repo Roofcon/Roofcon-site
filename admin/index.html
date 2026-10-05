@@ -2287,6 +2287,48 @@ function renderCurrentProjects(){
 
 }
 
+  function addCurrentProject(){
+
+  if(!C.currentProjects){
+    C.currentProjects = {};
+  }
+
+  if(!Array.isArray(C.currentProjects.items)){
+    C.currentProjects.items = [];
+  }
+
+  const project = {
+
+    id:
+      'current-project-' +
+      Date.now(),
+
+    title:{
+      fr:'Nouveau projet',
+      de:'Neues Projekt'
+    },
+
+    description:{
+      fr:'',
+      de:''
+    },
+
+    address:'',
+
+    latitude:null,
+
+    longitude:null,
+
+    images:[]
+
+  };
+
+  C.currentProjects.items.push(project);
+
+  renderCurrentProjects();
+
+}
+  
   function deleteCurrentProject(index){
 
   if(
