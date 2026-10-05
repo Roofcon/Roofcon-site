@@ -2470,10 +2470,10 @@ footer{
 
   <div class="container">
 
-   <a
+  <a
   href="#"
   class="detail-back"
-  onclick="openReferenceCategory(currentReferenceCategoryId); return false;">
+  onclick="goBackFromDetail(); return false;">
   <span class="back-arrow">←</span>
   <span id="detail-back-text"></span>
 </a>
@@ -3450,7 +3450,27 @@ window.openCurrentProject = function(id){
   showPage('reference-detail');
 
 };
-  
+
+
+/* RETOUR DEPUIS UNE PAGE DÉTAIL */
+
+function goBackFromDetail(){
+
+  if(currentDetailType === 'current'){
+
+    showPage('current-projects');
+
+    return;
+
+  }
+
+  openReferenceCategory(
+    currentReferenceCategoryId
+  );
+
+}
+
+
 function showPage(id){
 
   document.querySelectorAll('section').forEach(function(section){
@@ -3588,7 +3608,22 @@ const categoryData =
         : 'Unsere Referenzen';
 
   }
+  
+function goBackFromDetail(){
 
+  if(currentDetailType === 'current'){
+
+    showPage('current-projects');
+
+    return;
+
+  }
+
+  openReferenceCategory(
+    currentReferenceCategoryId
+  );
+
+}
 
   /* PROJETS */
 
@@ -3708,7 +3743,7 @@ function setLang(lang){
 /* RÉFÉRENCE */
   
 let currentReferenceCategoryId = null;
-  
+let currentDetailType = 'reference';  
 function openReference(id){
 
   if(!CONTENT || !CONTENT.references){
