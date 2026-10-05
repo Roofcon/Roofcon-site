@@ -3728,13 +3728,22 @@ function setLang(lang){
 
   if(CONTENT){
 
+    /* CHANGER LA LANGUE DU SITE */
+
     render();
 
     initChantierMap();
 
-    /* SI UN PROJET EN COURS EST OUVERT */
+
+    /* METTRE À JOUR LA FICHE SI ELLE EST ACTUELLEMENT OUVERTE */
+
+    const detailPage =
+      document.getElementById('reference-detail');
+
 
     if(
+      detailPage &&
+      detailPage.classList.contains('active-page') &&
       currentDetailType === 'current' &&
       currentCurrentProjectId
     ){
