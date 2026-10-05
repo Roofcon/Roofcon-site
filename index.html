@@ -3257,6 +3257,8 @@ if(CONTENT.currentProjects){
 
 window.openCurrentProject = function(id){
 
+  currentDetailType = 'current';
+
   if(
     !CONTENT ||
     !CONTENT.currentProjects ||
@@ -3608,22 +3610,6 @@ const categoryData =
         : 'Unsere Referenzen';
 
   }
-  
-function goBackFromDetail(){
-
-  if(currentDetailType === 'current'){
-
-    showPage('current-projects');
-
-    return;
-
-  }
-
-  openReferenceCategory(
-    currentReferenceCategoryId
-  );
-
-}
 
   /* PROJETS */
 
