@@ -352,7 +352,15 @@
   const francais = document.getElementById('content-fr');
   const allemand = document.getElementById('content-de');
   const back = document.getElementById('back-link');
+const footerLegal1 =
+  document.getElementById('footer-legal-1');
 
+const footerLegal2 =
+  document.getElementById('footer-legal-2');
+
+const footerLegal3 =
+  document.getElementById('footer-legal-3');
+   
   if (langue === 'de') {
 
     francais.style.display = 'none';
@@ -360,6 +368,10 @@
 
     back.textContent = '← Zurück zur ROOFCON-Website';
 
+    footerLegal1.textContent = 'Impressum';
+footerLegal2.textContent = 'Datenschutzerklärung';
+footerLegal3.textContent = 'Cookie-Richtlinie';
+    
     document.documentElement.lang = 'de';
     document.title = 'Impressum | ROOFCON';
 
@@ -370,6 +382,10 @@
 
     back.textContent = '← Retour au site ROOFCON';
 
+    footerLegal1.textContent = 'Mentions légales';
+footerLegal2.textContent = 'Politique de confidentialité';
+footerLegal3.textContent = 'Politique des cookies';
+    
     document.documentElement.lang = 'fr';
     document.title = 'Mentions légales | ROOFCON';
 
