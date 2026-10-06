@@ -3815,6 +3815,19 @@ function setLang(lang){
 
     }
 
+    if(
+  detailPage &&
+  detailPage.classList.contains('active-page') &&
+  currentDetailType === 'reference' &&
+  currentReferenceProjectId
+){
+
+  openReference(
+    currentReferenceProjectId
+  );
+
+}
+    
   }
 
 }
