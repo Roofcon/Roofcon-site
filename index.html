@@ -3829,7 +3829,21 @@ function setLang(lang){
   );
 
 }
-    
+ const categoryDetailPage =
+  document.getElementById('reference-category-detail');
+
+if(
+  categoryDetailPage &&
+  categoryDetailPage.classList.contains('active-page') &&
+  currentReferenceCategoryId
+){
+
+  openReferenceCategory(
+    currentReferenceCategoryId,
+    referenceCategoryOrigin
+  );
+
+}   
   }
 
 }
