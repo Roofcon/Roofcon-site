@@ -2959,11 +2959,11 @@ function renderMethode(){
 
   /* PETIT TITRE */
 
-  document.getElementById('methode-kicker').textContent =
-    t(methode.kicker || {
-      fr:'LA MÉTHODE ROOFCON',
-      de:'DIE ROOFCON-METHODE'
-    });
+ document.getElementById('methode-kicker').textContent =
+  t(methode.kicker) ||
+  (LANG === 'fr'
+    ? 'LA MÉTHODE ROOFCON'
+    : 'DIE ROOFCON-METHODE');
 
 
   /* TITRE */
