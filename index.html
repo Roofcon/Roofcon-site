@@ -1342,23 +1342,32 @@ h1 span{
 
 /* Titre */
 .methode-card h3{
-  margin:0 0 12px;
+  position:relative;
+  z-index:2;
+
+  width:max-content;
+  max-width:100%;
+  margin:0 auto 12px;
+  padding:4px 10px;
+
   text-align:center;
 
   font-size:18px;
   font-weight:700;
   letter-spacing:.06em;
 
-  position:relative;
-  z-index:2;
-
-  text-shadow:
-    0 1px 3px rgba(255,255,255,.9);
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(3px);
 }
 
 /* Texte */
 .methode-card p{
-  margin:0;
+  position:relative;
+  z-index:2;
+
+  max-width:220px;
+  margin:0 auto;
+  padding:6px 10px;
 
   text-align:center;
 
@@ -1366,11 +1375,8 @@ h1 span{
   line-height:1.65;
   color:#444;
 
-  position:relative;
-  z-index:2;
-
-  text-shadow:
-    0 1px 3px rgba(255,255,255,.9);
+  background:rgba(255,255,255,.58);
+  backdrop-filter:blur(3px);
 }
 
 /* TABLETTE */
