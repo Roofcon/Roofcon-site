@@ -3581,6 +3581,22 @@ function openReferenceCategory(category, origin){
 
   currentReferenceCategoryId = category;
   referenceCategoryOrigin = origin || 'references';
+
+    const categoryBackText =
+    document.getElementById('category-detail-back-text');
+
+  if(categoryBackText){
+
+    categoryBackText.textContent =
+      referenceCategoryOrigin === 'about'
+        ? (LANG === 'fr'
+            ? 'Retour aux pôles'
+            : 'Zurück zu den Bereichen')
+        : (LANG === 'fr'
+            ? 'Retour aux références'
+            : 'Zurück zu den Referenzen');
+
+  }
   
 const categoryData =
     CONTENT.references.items.find(function(item){
