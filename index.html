@@ -434,6 +434,26 @@ h1 span{
   letter-spacing:2px;
 }
 
+  .pole-discover{
+  margin-top: 18px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.pole-discover:hover{
+  opacity: .7;
+}
+  
 .pole h3{
   font-size:18px;
   line-height:1.2;
@@ -4207,9 +4227,7 @@ document.getElementById('poles-grid').innerHTML=
 
       <article
         class="pole"
-        onclick="openReferenceCategory('${esc(pole.id)}')"
         style="
-          cursor:pointer;
           ${
             pole.image
               ? `background-image:
@@ -4234,12 +4252,20 @@ document.getElementById('poles-grid').innerHTML=
           ${esc(t(pole.text))}
         </p>
 
+        <button
+          type="button"
+          class="pole-discover"
+          onclick="openReferenceCategory('${esc(pole.id)}'); event.stopPropagation();">
+
+          ${LANG === 'fr' ? 'Découvrir' : 'Entdecken'}
+
+        </button>
+
       </article>
 
     `;
 
   }).join('');
-
  /* PROJETS EN COURS */
 
 const currentProjects =
