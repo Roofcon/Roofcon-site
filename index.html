@@ -3826,6 +3826,7 @@ let currentReferenceCategoryId = null;
 let referenceCategoryOrigin = 'references';
 let currentDetailType = 'reference';
 let currentCurrentProjectId = null;
+  let currentReferenceProjectId = null;
 function openReference(id){
 
   if(!CONTENT || !CONTENT.references){
@@ -3848,11 +3849,13 @@ function openReference(id){
 
   });
 
-  if(!project){
-    return;
-  }
+ if(!project){
+  return;
+}
 
 currentReferenceCategoryId = category.id;
+currentReferenceProjectId = project.id;
+currentDetailType = 'reference';
   
   /* PHOTOS DU PROJET */
 
@@ -4081,6 +4084,17 @@ if(categoryBackText){
         : 'Zurück zu den Referenzen';
 
   }
+
+}
+
+  /* ACTUALISER LE PROJET OUVERT LORS DU CHANGEMENT DE LANGUE */
+
+if(
+  currentDetailType === 'reference' &&
+  currentReferenceProjectId
+){
+
+  openReference(currentReferenceProjectId);
 
 }
   
