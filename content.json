@@ -408,10 +408,10 @@
           "de": "Neues Projekt"
         },
         "description": {
-          "fr": "projet",
+          "fr": "",
           "de": ""
         },
-        "address": "rue ronchampay 5 6980 La roche",
+        "address": "",
         "latitude": null,
         "longitude": null,
         "images": []
