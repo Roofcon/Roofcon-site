@@ -399,6 +399,7 @@ h1 span{
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:16px;
+  align-items: stretch;
 }
 
 .pole{
@@ -432,8 +433,6 @@ h1 span{
   color:var(--brown2);
   font-weight:900;
   letter-spacing:2px;
-  display: flex;
-flex-direction: column;
 }
 
 .pole-discover{
@@ -1911,6 +1910,9 @@ footer{
     .pole{
     min-height:auto;
     padding:22px;
+    display: flex;
+flex-direction: column;
+height: 100%; 
   }
 
   .pole-image{
