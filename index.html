@@ -614,6 +614,27 @@ h1 span{
   color:rgba(255,255,255,.72);
 }
 
+  .current-project-content::after{
+  content:'VOIR LE PROJET  →';
+  display:block;
+
+  margin-top:22px;
+
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.12em;
+  color:rgba(255,255,255,.85);
+
+  transition:
+    transform .25s ease,
+    color .25s ease;
+}
+
+.current-project:hover .current-project-content::after{
+  transform:translateX(5px);
+  color:#fff;
+}
+  
 @media(max-width:800px){
 
   .current-projects{
