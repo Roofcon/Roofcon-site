@@ -2463,11 +2463,17 @@ footer{
 <a
   href="#"
   class="detail-back"
-  onclick="showPage('references'); return false;">
+  onclick="
+    showPage(
+      referenceCategoryOrigin === 'about'
+        ? 'about'
+        : 'references'
+    );
+    return false;
+  ">
   <span class="back-arrow">←</span>
   <span id="category-detail-back-text">Retour aux références</span>
 </a>
-
     <div class="head">
 
       <div
@@ -3571,9 +3577,10 @@ function showPage(id){
 
 }
   
-function openReferenceCategory(category){
+function openReferenceCategory(category, origin){
 
   currentReferenceCategoryId = category;
+  referenceCategoryOrigin = origin || 'references';
   
 const categoryData =
     CONTENT.references.items.find(function(item){
@@ -3782,6 +3789,7 @@ function setLang(lang){
 /* RÉFÉRENCE */
   
 let currentReferenceCategoryId = null;
+let referenceCategoryOrigin = 'references';
 let currentDetailType = 'reference';
 let currentCurrentProjectId = null;
 function openReference(id){
@@ -4017,17 +4025,28 @@ function render(){
 
   const c=CONTENT;
 
-  /* BOUTON RETOUR AUX RÉFÉRENCES */
+ /* BOUTON RETOUR */
 
 const categoryBackText =
   document.getElementById('category-detail-back-text');
 
 if(categoryBackText){
 
-  categoryBackText.textContent =
-    LANG === 'fr'
-      ? 'Retour aux références'
-      : 'Zurück zu den Referenzen';
+  if(referenceCategoryOrigin === 'about'){
+
+    categoryBackText.textContent =
+      LANG === 'fr'
+        ? 'Retour aux pôles'
+        : 'Zurück zu den Bereichen';
+
+  }else{
+
+    categoryBackText.textContent =
+      LANG === 'fr'
+        ? 'Retour aux références'
+        : 'Zurück zu den Referenzen';
+
+  }
 
 }
   
@@ -4255,7 +4274,7 @@ document.getElementById('poles-grid').innerHTML=
         <button
           type="button"
           class="pole-discover"
-          onclick="openReferenceCategory('${esc(pole.id)}'); event.stopPropagation();">
+      onclick="openReferenceCategory('${esc(pole.id)}', 'about'); event.stopPropagation();"
 
           ${LANG === 'fr' ? 'Découvrir' : 'Entdecken'}
 
@@ -4538,7 +4557,8 @@ return `
           button.classList.add('active');
 
 openReferenceCategory(
-  button.dataset.category
+  button.dataset.category,
+  'references'
 );
 
         }
