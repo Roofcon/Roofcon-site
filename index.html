@@ -4274,7 +4274,7 @@ document.getElementById('poles-grid').innerHTML=
         <button
           type="button"
           class="pole-discover"
-      onclick="openReferenceCategory('${esc(pole.id)}', 'about'); event.stopPropagation();"
+          onclick="openReferenceCategory('${esc(pole.id)}', 'about'); event.stopPropagation();">
 
           ${LANG === 'fr' ? 'Découvrir' : 'Entdecken'}
 
@@ -4285,6 +4285,7 @@ document.getElementById('poles-grid').innerHTML=
     `;
 
   }).join('');
+  
  /* PROJETS EN COURS */
 
 const currentProjects =
