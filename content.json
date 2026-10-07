@@ -17,10 +17,10 @@
       "fr": "Accueil",
       "de": "Startseite"
     },
-    "about": {
-      "fr": "  Nos pôles",
-      "de": "Unsere Bereiche"
-    },
+   "about": {
+  "fr": "Nos services",
+  "de": "Unsere Leistungen"
+}
     "references": {
       "fr": "Références",
       "de": "Referenzen"
@@ -96,10 +96,10 @@
     }
   },
   "about": {
-    "kicker": {
-      "fr": "À propos de ROOFCON",
-      "de": "Über ROOFCON"
-    },
+   "kicker": {
+  "fr": "Nos services",
+  "de": "Unsere Leistungen"
+}
     "title": {
       "fr": "Un savoir-faire au service de vos projets.",
       "de": "Know-how im Dienste Ihrer Projekte."
