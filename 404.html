@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>ROOFCON</title>
+</head>
+
+<body>
+
+<script>
+
+  const requestedPath =
+    window.location.pathname;
+
+  window.location.replace(
+    '/?page=' +
+    encodeURIComponent(requestedPath)
+  );
+
+</script>
+
+</body>
+</html>
