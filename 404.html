@@ -6,7 +6,8 @@
   <title>ROOFCON</title>
 
   <script>
-    const path = window.location.pathname;
+    const path =
+      window.location.pathname.replace(/\/$/, '');
 
     const routes = {
       '/services': 'about',
@@ -16,9 +17,12 @@
       '/contact': 'contact'
     };
 
-    const page = routes[path] || 'accueil';
+    const page =
+      routes[path] || 'accueil';
 
-    window.location.replace('/?page=' + page);
+    window.location.replace(
+      '/?page=' + page
+    );
   </script>
 </head>
 
