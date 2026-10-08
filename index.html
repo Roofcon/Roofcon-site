@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ROOFCON | Charpente, toiture, façade ventilée & construction bois au Luxembourg</title>
+<title>ROOFCON | Construction bois, toitures & façades au Luxembourg</title>
 
 <meta
-  name="description"
-  content="ROOFCON accompagne vos projets de construction et de rénovation au Luxembourg et dans la Grande Région : charpentes, toitures plates, couvertures, façades ventilées et constructions en ossature bois."
->
+ <meta name="description" content="ROOFCON accompagne vos projets de construction et de rénovation au Luxembourg et dans la Grande Région : charpentes, toitures, couvertures, façades ventilées et constructions en ossature bois.">
 
 <meta name="robots" content="index, follow">
 
@@ -4579,6 +4577,51 @@ let CONTENT = null;
 
 let LANG = localStorage.getItem('roofconLang') || 'fr';
 let currentServiceInfoId = null;
+
+  function updateSEO(page){
+
+  if(!CONTENT || !CONTENT.seo) return;
+
+  const seoMap = {
+    'accueil': 'home',
+    'about': 'services',
+    'references': 'references',
+    'current-projects': 'currentProjects',
+    'jobs': 'jobs',
+    'contact': 'contact'
+  };
+
+  const seoKey = seoMap[page];
+
+  if(!seoKey || !CONTENT.seo[seoKey]) return;
+
+  const seo = CONTENT.seo[seoKey];
+
+  const title =
+    seo.title && seo.title[LANG]
+      ? seo.title[LANG]
+      : '';
+
+  const description =
+    seo.description && seo.description[LANG]
+      ? seo.description[LANG]
+      : '';
+
+  if(title){
+    document.title = title;
+  }
+
+  const metaDescription =
+    document.querySelector('meta[name="description"]');
+
+  if(metaDescription && description){
+    metaDescription.setAttribute(
+      'content',
+      description
+    );
+  }
+}
+  
 /* MENU MOBILE */
 
 const mobileMenuButton =
@@ -5630,6 +5673,8 @@ function openServiceInfo(serviceId){
 }
   
 function showPage(id){
+
+  updateSEO(id);
 
   const sections =
     document.querySelectorAll('section');
