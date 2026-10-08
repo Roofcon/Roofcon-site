@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
+  <title>ROOFCON</title>
+
+  <script>
+    const path = window.location.pathname;
+
+    const routes = {
+      '/services': 'about',
+      '/realisations': 'references',
+      '/projets-en-cours': 'current-projects',
+      '/emploi': 'jobs',
+      '/contact': 'contact'
+    };
+
+    const page = routes[path] || 'accueil';
+
+    window.location.replace('/?page=' + page);
+  </script>
+</head>
+
+<body></body>
+</html>
