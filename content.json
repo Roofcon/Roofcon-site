@@ -732,5 +732,74 @@
         "images": []
       }
     ]
+   },
+
+  "seo": {
+    "home": {
+      "title": {
+        "fr": "ROOFCON | Construction bois, toitures & façades au Luxembourg",
+        "de": "ROOFCON | Holzbau, Dächer & Fassaden in Luxemburg"
+      },
+      "description": {
+        "fr": "ROOFCON accompagne vos projets de construction et de rénovation au Luxembourg et dans la Grande Région : charpentes, toitures, couvertures, façades ventilées et constructions en ossature bois.",
+        "de": "ROOFCON begleitet Ihre Bau- und Renovierungsprojekte in Luxemburg und der Großregion: Holzbau, Dachkonstruktionen, Dacheindeckungen, hinterlüftete Fassaden und Holzrahmenbau."
+      }
+    },
+
+    "services": {
+      "title": {
+        "fr": "Nos services | Toiture, charpente & façade ventilée | ROOFCON",
+        "de": "Unsere Leistungen | Dach, Holzbau & Fassaden | ROOFCON"
+      },
+      "description": {
+        "fr": "Découvrez les services de ROOFCON au Luxembourg : façades ventilées, toitures plates, charpentes, couvertures et constructions en ossature bois.",
+        "de": "Entdecken Sie die Leistungen von ROOFCON in Luxemburg: hinterlüftete Fassaden, Flachdächer, Holzbau, Dacheindeckungen und Holzrahmenbau."
+      }
+    },
+
+    "references": {
+      "title": {
+        "fr": "Réalisations | Projets de construction au Luxembourg | ROOFCON",
+        "de": "Referenzen | Bauprojekte in Luxemburg | ROOFCON"
+      },
+      "description": {
+        "fr": "Découvrez les réalisations de ROOFCON : façades ventilées, toitures, charpentes, couvertures et constructions en ossature bois au Luxembourg.",
+"de": "Entdecken Sie die Referenzen von ROOFCON: hinterlüftete Fassaden, Dächer, Holzbau, Dacheindeckungen und Holzrahmenbau in Luxemburg."
+      }
+    },
+
+    "currentProjects": {
+      "title": {
+        "fr": "Projets en cours | Chantiers ROOFCON au Luxembourg",
+        "de": "Aktuelle Projekte | Baustellen von ROOFCON in Luxemburg"
+      },
+      "description": {
+        "fr": "Découvrez les projets actuellement réalisés par les équipes ROOFCON sur leurs chantiers au Luxembourg.",
+        "de": "Entdecken Sie die aktuellen Bauprojekte, die von den Teams von ROOFCON in Luxemburg realisiert werden."
+      }
+    },
+
+    "jobs": {
+      "title": {
+        "fr": "Offres d'emploi | Rejoindre ROOFCON au Luxembourg",
+        "de": "Karriere | Arbeiten bei ROOFCON in Luxemburg"
+      },
+      "description": {
+        "fr": "Découvrez les opportunités professionnelles chez ROOFCON au Luxembourg et rejoignez une équipe spécialisée dans la construction, la toiture et le bois.",
+        "de": "Entdecken Sie berufliche Möglichkeiten bei ROOFCON in Luxemburg und werden Sie Teil eines Teams für Bau, Dach und Holzbau."
+      }
+    },
+
+    "contact": {
+      "title": {
+        "fr": "Contact | ROOFCON Luxembourg",
+        "de": "Kontakt | ROOFCON Luxemburg"
+      },
+      "description": {
+        "fr": "Contactez ROOFCON pour vos projets de construction, toiture, charpente, façade ventilée ou ossature bois au Luxembourg.",
+        "de": "Kontaktieren Sie ROOFCON für Ihre Bau-, Dach-, Holzbau-, Fassaden- oder Holzrahmenbauprojekte in Luxemburg."
+      }
+    }
   }
+}
 }
