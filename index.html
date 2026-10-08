@@ -6186,34 +6186,7 @@ const homeCurrentGrid =
 const homeCurrentItems =
   c.currentProjects &&
   Array.isArray(c.currentProjects.items)
-    ? c.currentProjects.items.filter(function(project){
-
-        const title =
-          t(project.title).trim();
-
-        const description =
-          t(project.description).trim();
-
-        const address =
-          String(project.address || '').trim();
-
-        const hasImage =
-          Array.isArray(project.images) &&
-          project.images.length > 0;
-
-        const isPlaceholder =
-          (
-            title === 'Nouveau projet' ||
-            title === 'Neues Projekt' ||
-            title === ''
-          ) &&
-          !description &&
-          !address &&
-          !hasImage;
-
-        return !isPlaceholder;
-
-      })
+    ? c.currentProjects.items
     : [];
 
 if(homeCurrentKicker){
