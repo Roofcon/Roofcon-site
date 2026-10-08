@@ -21,10 +21,7 @@
   "fr": "Nos services",
   "de": "Unsere Leistungen"
 },
-"references": {
-      "fr": "Références",
-      "de": "Referenzen"
-    },
+"references": {"fr":"Réalisations","de":"Projekte"},
     "jobs": {
       "fr": "Offres d'emploi",
       "de": "Stellenangebote"
