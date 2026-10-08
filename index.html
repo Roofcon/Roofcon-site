@@ -3408,10 +3408,13 @@ footer{
 
 .home-current-preview{
   background:#1c1b1a;
-  margin-left:calc((100vw - 100%) / -2);
-  margin-right:calc((100vw - 100%) / -2);
+  position:relative;
+  left:50%;
+  width:100vw;
+  transform:translateX(-50%);
   padding-left:max(24px,calc((100vw - 1200px) / 2));
   padding-right:max(24px,calc((100vw - 1200px) / 2));
+  box-sizing:border-box;
 }
 
 .home-current-grid{
@@ -3702,19 +3705,12 @@ footer{
 
       <div class="buttons">
 
-        <a
-          class="btn primary"
-          href="#"
-          data-page="about"
-          id="hero-about">
-        </a>
-
-        <a
-          class="btn outline"
-          href="#"
-          data-page="references"
-          id="hero-references">
-        </a>
+       <a
+  class="btn primary"
+  href="#"
+  data-page="who"
+  id="hero-about">
+</a>
 
       </div>
 
@@ -6094,9 +6090,8 @@ if(homeReferencesLink){
 
 if(homeReferencesGrid){
 
-  homeReferencesGrid.innerHTML =
-    (c.references.items || []).slice(0,4).map(function(category){
-
+ homeReferencesGrid.innerHTML =
+  (c.references.items || []).slice(0,5).map(function(category){
       return `
         <article
           class="home-reference-card"
