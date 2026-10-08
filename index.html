@@ -7903,177 +7903,18 @@ fetch('./content.json?v='+Date.now())
 
 })
 
-.then(function(data){
-  CONTENT=data;
-render();
-initChantierMap();
+  .then(function(data){
 
+  CONTENT = data;
 
-/* ================================
-   DÉTERMINER LA PAGE DEPUIS L'URL
-================================ */
+  render();
 
-CONTENT = data;
+  initChantierMap();
 
-render();
+  showPage('accueil');
 
-initChantierMap();
+  initReveal();
 
-showPage('accueil');
-
-initReveal();
-/* ================================
-   PAGE DEMANDÉE PAR UNE URL
-================================ */
-
-const urlParams =
-  new URLSearchParams(
-    window.location.search
-  );
-
-const requestedPage =
-  urlParams.get('page');
-
-
-const pageFromUrl = {
-
-  about: 'about',
-  references: 'references',
-  'current-projects': 'current-projects',
-  jobs: 'jobs',
-  contact: 'contact'
-
-};
-
-
-const initialPage =
-  pageFromUrl[requestedPage] || 'accueil';
-
-
-showPage(initialPage);
-
-
-/* ================================
-   REMETTRE L'URL PROPRE
-================================ */
-
-if(requestedPage){
-
-  const cleanUrls = {
-
-    about: '/services',
-    references: '/realisations',
-    'current-projects': '/projets-en-cours',
-    jobs: '/emploi',
-    contact: '/contact'
-
-  };
-
-  const cleanUrl =
-    cleanUrls[requestedPage] || '/';
-
-  history.replaceState(
-    { page: initialPage },
-    '',
-    cleanUrl
-  );
-
-}
-
-
-initReveal();
-  
-/* ================================
-   PAGE À AFFICHER AU DÉMARRAGE
-================================ */
-
-let initialPage = 'accueil';
-
-const currentPath =
-  window.location.pathname;
-
-const params =
-  new URLSearchParams(
-    window.location.search
-  );
-
-const requestedPage =
-  params.get('page');
-
-
-/* URL DIRECTE */
-
-if(currentPath === '/services'){
-  initialPage = 'about';
-}
-
-else if(currentPath === '/realisations'){
-  initialPage = 'references';
-}
-
-else if(currentPath === '/projets-en-cours'){
-  initialPage = 'current-projects';
-}
-
-else if(currentPath === '/emploi'){
-  initialPage = 'jobs';
-}
-
-else if(currentPath === '/contact'){
-  initialPage = 'contact';
-}
-
-
-/* REDIRECTION 404 */
-
-else if(requestedPage === '/services'){
-  initialPage = 'about';
-}
-
-else if(requestedPage === '/realisations'){
-  initialPage = 'references';
-}
-
-else if(requestedPage === '/projets-en-cours'){
-  initialPage = 'current-projects';
-}
-
-else if(requestedPage === '/emploi'){
-  initialPage = 'jobs';
-}
-
-else if(requestedPage === '/contact'){
-  initialPage = 'contact';
-}
-
-
-console.log(
-  'PAGE INITIALE :',
-  initialPage
-);
-
-
-/* AFFICHER LA BONNE PAGE */
-
-showPage(initialPage);
-
-
-/* NETTOYER L'URL APRÈS LA REDIRECTION 404 */
-
-if(requestedPage){
-
-  const cleanUrl =
-    requestedPage;
-
-  history.replaceState(
-    {page: initialPage},
-    '',
-    cleanUrl
-  );
-
-}
-
-initReveal();
 })
 
 .catch(function(error){
