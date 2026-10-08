@@ -6127,44 +6127,41 @@ if(homeReferencesGrid){
 
  homeReferencesGrid.innerHTML =
   (c.references.items || []).slice(0,5).map(function(category){
-      return `
-        <article
-          class="home-reference-card"
-          onclick="openReferenceCategory('${esc(category.id)}','references')"
-          style="cursor:pointer;"
-        >
+     return `
+  <article
+    class="home-reference-card"
+    onclick="openReferenceCategory('${esc(category.id)}','references')"
+    style="cursor:pointer;"
+  >
 
-          ${
-            category.image
-              ?
-              `
-                <img
-                  class="home-reference-card-image"
-                  src="${esc(category.image)}"
-                  alt="${esc(t(category.title))}"
-                  loading="lazy"
-                >
-              `
-              :
-              ''
-          }
+    <div class="home-reference-number">
+      ${esc(category.number || String(
+        (c.references.items || []).indexOf(category) + 1
+      ).padStart(2,'0'))}
+    </div>
 
-          <div class="home-reference-card-overlay"></div>
+    <div class="home-reference-card-content">
 
-          <div class="home-reference-card-content">
+      <h3>
+        ${esc(t(category.title))}
+      </h3>
 
-            <h3>
-              ${esc(t(category.title))}
-            </h3>
+      ${
+        category.description
+          ?
+          `
+            <p>
+              ${esc(t(category.description))}
+            </p>
+          `
+          :
+          ''
+      }
 
-          </div>
+    </div>
 
-        </article>
-      `;
-
-    }).join('');
-
-}
+  </article>
+`;
 
 
 /* =========================================================
