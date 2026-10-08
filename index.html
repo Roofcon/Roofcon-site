@@ -4577,7 +4577,7 @@ footer{
 let CONTENT = null;
 
 let LANG = localStorage.getItem('roofconLang') || 'fr';
-
+let currentServiceInfoId = null;
 /* MENU MOBILE */
 
 const mobileMenuButton =
@@ -5422,7 +5422,9 @@ function goBackFromDetail(){
 }
 
 function openServiceInfo(serviceId){
-
+  
+  currentServiceInfoId = serviceId;
+  
   const service =
     (CONTENT.about.poles || []).find(function(pole){
       return pole.id === serviceId;
@@ -5982,6 +5984,22 @@ if(
 
 }
 
+      /* METTRE À JOUR LA FICHE SERVICE SI ELLE EST OUVERTE */
+
+    const serviceInfoPage =
+      document.getElementById('service-info');
+
+    if(
+      serviceInfoPage &&
+      serviceInfoPage.classList.contains('active-page') &&
+      currentServiceInfoId
+    ){
+
+      openServiceInfo(
+        currentServiceInfoId
+      );
+
+    }
 
 /* RÉFÉRENCE */
   
