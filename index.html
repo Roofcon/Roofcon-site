@@ -854,6 +854,170 @@ h1 span{
 .pole-more:hover::after{
   transform:translateX(3px);
 }
+
+  /* =========================================================
+   INFORMATIONS SUR UN SERVICE
+========================================================= */
+
+.service-info{
+  background:#f4f2ef;
+  color:#202020;
+  padding:90px 0 120px;
+}
+
+.service-info .detail-back{
+  margin-bottom:65px;
+}
+
+.service-info-head{
+  max-width:900px;
+  margin-bottom:80px;
+}
+
+.service-info-head .kicker{
+  color:#777;
+  margin-bottom:18px;
+}
+
+.service-info-head h2{
+  max-width:850px;
+
+  margin:0 0 25px;
+
+  color:#202020;
+
+  font-size:clamp(46px,6vw,82px);
+  line-height:.96;
+
+  letter-spacing:-.045em;
+}
+
+.service-info-head p{
+  max-width:720px;
+
+  margin:0;
+
+  color:#666;
+
+  font-size:18px;
+  line-height:1.75;
+}
+
+.service-info-content{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:20px;
+}
+
+.service-info-block{
+  grid-column:span 4;
+
+  padding:35px;
+
+  background:#fff;
+  border:1px solid #ddd8d2;
+}
+
+.service-info-block h3{
+  margin:0 0 20px;
+
+  color:#202020;
+
+  font-size:24px;
+  line-height:1.1;
+
+  letter-spacing:-.02em;
+}
+
+.service-info-block p{
+  margin:0;
+
+  color:#666;
+
+  font-size:15px;
+  line-height:1.75;
+}
+
+.service-info-block ul{
+  margin:0;
+  padding:0;
+
+  list-style:none;
+}
+
+.service-info-block li{
+  position:relative;
+
+  padding:13px 0 13px 20px;
+
+  border-bottom:1px solid #e5e1dc;
+
+  color:#555;
+
+  font-size:15px;
+  line-height:1.5;
+}
+
+.service-info-block li:first-child{
+  border-top:1px solid #e5e1dc;
+}
+
+.service-info-block li::before{
+  content:'→';
+
+  position:absolute;
+  left:0;
+  top:13px;
+
+  color:#8a8179;
+}
+
+.service-info-actions{
+  margin-top:55px;
+
+  display:flex;
+  justify-content:flex-start;
+}
+
+.service-info-actions .pole-discover{
+  color:#202020;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:900px){
+
+  .service-info-content{
+    grid-template-columns:1fr;
+  }
+
+  .service-info-block{
+    grid-column:span 1;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .service-info{
+    padding:65px 0 90px;
+  }
+
+  .service-info-head{
+    margin-bottom:55px;
+  }
+
+  .service-info-head h2{
+    font-size:46px;
+  }
+
+  .service-info-block{
+    padding:28px;
+  }
+
+}
+  
 /* =========================================================
    RÉALISATIONS — EN-TÊTE
 ========================================================= */
