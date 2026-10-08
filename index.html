@@ -7905,14 +7905,40 @@ fetch('./content.json?v='+Date.now())
 
 .then(function(data){
   CONTENT=data;
+render();
+initChantierMap();
 
-  render();
 
-  initChantierMap();
+/* ================================
+   DÉTERMINER LA PAGE DEPUIS L'URL
+================================ */
 
-  showPage('accueil');
+const urlParams =
+  new URLSearchParams(
+    window.location.search
+  );
 
-  initReveal();
+const requestedPage =
+  urlParams.get('page');
+
+const pageFromUrl = {
+
+  '/': 'accueil',
+  '/services': 'about',
+  '/realisations': 'references',
+  '/projets-en-cours': 'current-projects',
+  '/emploi': 'jobs',
+  '/contact': 'contact'
+
+};
+
+const initialPage =
+  pageFromUrl[requestedPage] || 'accueil';
+
+
+showPage(initialPage);
+
+initReveal();
 })
 
 .catch(function(error){
