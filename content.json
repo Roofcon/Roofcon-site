@@ -105,74 +105,391 @@
       "fr": "ROOFCON intervient dans plusieurs domaines complémentaires de la construction et de l'enveloppe du bâtiment. Notre objectif : proposer des solutions durables, soignées et adaptées à chaque projet.",
       "de": "ROOFCON ist in mehreren sich ergänzenden Bereichen des Bauwesens und der Gebäudehülle tätig. Unser Ziel: langlebige, hochwertige und auf jedes Projekt abgestimmte Lösungen."
     },
-    "poles": [
-      {
-        "id": "facades",
-        "number": "01",
-        "title": {
-          "fr": "Façades ventilées",
-          "de": "Hinterlüftete Fassaden"
-        },
-        "text": {
-          "fr": "Réalisation de façades ventilées pour bâtiments résidentiels, professionnels et industriels, avec des solutions durables et adaptées à chaque projet.",
-          "de": "Realisierung von hinterlüfteten Fassaden für Wohn-, Gewerbe- und Industriegebäude mit nachhaltigen und auf jedes Projekt zugeschnittenen Lösungen."
-        },
-        "image": ""
+   "poles": [
+  {
+    "id": "facades",
+    "number": "01",
+    "title": {
+      "fr": "Façades ventilées",
+      "de": "Hinterlüftete Fassaden"
+    },
+    "text": {
+      "fr": "Réalisation de façades ventilées pour bâtiments résidentiels, professionnels et industriels, avec des solutions durables et adaptées à chaque projet.",
+      "de": "Realisierung von hinterlüfteten Fassaden für Wohn-, Gewerbe- und Industriegebäude mit nachhaltigen und auf jedes Projekt zugeschnittenen Lösungen."
+    },
+    "image": "",
+    "infoWhat": {
+      "title": {
+        "fr": "Qu'est-ce qu'une façade ventilée ?",
+        "de": "Was ist eine hinterlüftete Fassade?"
       },
-      {
-        "id": "toitures",
-        "number": "02",
-        "title": {
-          "fr": "Toitures plates",
-          "de": "Flachdächer"
-        },
-        "text": {
-          "fr": "Conception et réalisation de toitures plates, avec des solutions adaptées aux exigences techniques et à la construction neuve comme à la rénovation.",
-          "de": "Planung und Ausführung von Flachdächern mit Lösungen, die auf die technischen Anforderungen zugeschnitten sind und sich sowohl für Neubauten als auch für Sanierungen eignen."
-        },
-        "image": ""
-      },
-      {
-        "id": "charpentes",
-        "number": "03",
-        "title": {
-          "fr": "Charpentes",
-          "de": "Holzkonstruktionen"
-        },
-        "text": {
-          "fr": "Conception et réalisation de charpentes en bois pour maisons, bâtiments professionnels et projets sur mesure, au Luxembourg et dans la Grande Région.",
-          "de": "Planung und Ausführung von Holzrahmenkonstruktionen für Wohnhäuser, Gewerbegebäude und maßgeschneiderte Projekte in Luxemburg und der Großregion."
-        },
-        "image": ""
-      },
-      {
-        "id": "couvertures",
-        "number": "04",
-        "title": {
-          "fr": "Couvertures",
-          "de": "Dachdeckungen"
-        },
-        "text": {
-          "fr": "Réalisation et rénovation de couvertures de toiture, avec une attention particulière portée à l'étanchéité, à la qualité des matériaux et aux finitions.",
-          "de": "Errichtung und Sanierung von Dächern unter besonderer Berücksichtigung der Abdichtung, der Materialqualität und der Ausführung."
-        },
-        "image": ""
-      },
-      {
-        "id": "maisons",
-        "number": "05",
-        "title": {
-          "fr": "Maisons & annexes en ossature bois",
-          "de": "Häuser & Anbauten in Holzrahmenbauweise"
-        },
-        "text": {
-          "fr": "Construction de maisons et d'annexes en ossature bois, conçues selon les besoins du projet et réalisées avec des solutions adaptées à chaque construction.",
-          "de": "Bau von Häusern und Anbauten in Holzrahmenbauweise, die entsprechend den Anforderungen des jeweiligen Projekts entworfen und mit auf jedes Bauvorhaben zugeschnittenen Lösungen realisiert werden."
-        },
-        "image": ""
+      "text": {
+        "fr": "Une façade ventilée est un système de façade dans lequel le revêtement extérieur est séparé du bâtiment par une lame d'air. Cette conception permet notamment de favoriser la ventilation de la façade et la gestion de l'humidité, tout en offrant une grande liberté dans le choix des matériaux et de l'aspect extérieur.",
+        "de": "Eine hinterlüftete Fassade ist ein Fassadensystem, bei dem die äußere Bekleidung durch einen Luftspalt vom Gebäude getrennt ist. Diese Konstruktion unterstützt die Belüftung der Fassade und den Feuchteschutz und bietet gleichzeitig große gestalterische Freiheit bei der Auswahl der Materialien und der Außenansicht."
       }
-    ]
+    },
+    "infoWork": {
+      "title": {
+        "fr": "Ce que fait ROOFCON",
+        "de": "Was ROOFCON leistet"
+      },
+      "items": [
+        {
+          "fr": "Préparation de la structure de façade",
+          "de": "Vorbereitung der Fassadenunterkonstruktion"
+        },
+        {
+          "fr": "Mise en place de l'isolation",
+          "de": "Anbringung der Dämmung"
+        },
+        {
+          "fr": "Création de la lame d'air ventilée",
+          "de": "Herstellung der hinterlüfteten Ebene"
+        },
+        {
+          "fr": "Pose de la structure porteuse",
+          "de": "Montage der Unterkonstruktion"
+        },
+        {
+          "fr": "Pose du revêtement extérieur",
+          "de": "Montage der Außenbekleidung"
+        },
+        {
+          "fr": "Réalisation des finitions",
+          "de": "Ausführung der Abschlussarbeiten"
+        }
+      ]
+    },
+    "infoBenefits": {
+      "title": {
+        "fr": "Les avantages",
+        "de": "Die Vorteile"
+      },
+      "items": [
+        {
+          "fr": "Une meilleure gestion de l'humidité",
+          "de": "Verbesserter Feuchteschutz"
+        },
+        {
+          "fr": "Une solution durable pour l'enveloppe du bâtiment",
+          "de": "Eine langlebige Lösung für die Gebäudehülle"
+        },
+        {
+          "fr": "Une grande liberté dans le choix des matériaux",
+          "de": "Große Freiheit bei der Materialauswahl"
+        },
+        {
+          "fr": "Une esthétique adaptée à chaque projet",
+          "de": "Eine Gestaltung passend zu jedem Projekt"
+        }
+      ]
+    }
   },
+
+  {
+    "id": "toitures",
+    "number": "02",
+    "title": {
+      "fr": "Toitures plates",
+      "de": "Flachdächer"
+    },
+    "text": {
+      "fr": "Conception et réalisation de toitures plates, avec des solutions adaptées aux exigences techniques et à la construction neuve comme à la rénovation.",
+      "de": "Planung und Ausführung von Flachdächern mit Lösungen, die auf die technischen Anforderungen zugeschnitten sind und sich sowohl für Neubauten als auch für Sanierungen eignen."
+    },
+    "image": "",
+    "infoWhat": {
+      "title": {
+        "fr": "Qu'est-ce qu'une toiture plate ?",
+        "de": "Was ist ein Flachdach?"
+      },
+      "text": {
+        "fr": "Une toiture plate est une toiture à faible pente, conçue pour assurer l'évacuation des eaux tout en permettant différentes solutions techniques pour l'isolation, l'étanchéité et la finition. Elle est couramment utilisée aussi bien pour les bâtiments résidentiels que professionnels.",
+        "de": "Ein Flachdach ist ein Dach mit geringer Neigung, das für die kontrollierte Ableitung von Niederschlagswasser ausgelegt ist. Es ermöglicht unterschiedliche Lösungen für Dämmung, Abdichtung und Dachaufbau und wird sowohl bei Wohn- als auch bei Gewerbegebäuden eingesetzt."
+      }
+    },
+    "infoWork": {
+      "title": {
+        "fr": "Ce que fait ROOFCON",
+        "de": "Was ROOFCON leistet"
+      },
+      "items": [
+        {
+          "fr": "Préparation du support",
+          "de": "Vorbereitung des Untergrunds"
+        },
+        {
+          "fr": "Mise en œuvre de l'isolation",
+          "de": "Ausführung der Dämmung"
+        },
+        {
+          "fr": "Réalisation du système d'étanchéité",
+          "de": "Ausführung des Abdichtungssystems"
+        },
+        {
+          "fr": "Traitement des relevés et points singuliers",
+          "de": "Ausführung von Anschlüssen und Detailbereichen"
+        },
+        {
+          "fr": "Réalisation des finitions",
+          "de": "Ausführung der Abschlussarbeiten"
+        }
+      ]
+    },
+    "infoBenefits": {
+      "title": {
+        "fr": "Les avantages",
+        "de": "Die Vorteile"
+      },
+      "items": [
+        {
+          "fr": "Une solution adaptée aux constructions modernes",
+          "de": "Eine Lösung für moderne Bauvorhaben"
+        },
+        {
+          "fr": "Une utilisation optimale de la surface du bâtiment",
+          "de": "Optimale Nutzung der Gebäudefläche"
+        },
+        {
+          "fr": "Des solutions adaptées à chaque configuration",
+          "de": "Lösungen für unterschiedliche Gebäudekonfigurationen"
+        },
+        {
+          "fr": "Une attention particulière portée à l'étanchéité",
+          "de": "Besondere Aufmerksamkeit für die Abdichtung"
+        }
+      ]
+    }
+  },
+
+  {
+    "id": "charpentes",
+    "number": "03",
+    "title": {
+      "fr": "Charpentes",
+      "de": "Holzkonstruktionen"
+    },
+    "text": {
+      "fr": "Conception et réalisation de charpentes en bois pour maisons, bâtiments professionnels et projets sur mesure, au Luxembourg et dans la Grande Région.",
+      "de": "Planung und Ausführung von Holzkonstruktionen für Wohnhäuser, Gewerbegebäude und maßgeschneiderte Projekte in Luxemburg und der Großregion."
+    },
+    "image": "",
+    "infoWhat": {
+      "title": {
+        "fr": "Qu'est-ce qu'une charpente ?",
+        "de": "Was ist eine Holzkonstruktion?"
+      },
+      "text": {
+        "fr": "La charpente constitue la structure porteuse d'une toiture. Elle reprend les charges de la couverture et les transmet au bâtiment. Le bois permet de réaliser des structures adaptées à différentes formes de toitures, de constructions et de projets sur mesure.",
+        "de": "Die Holzkonstruktion bildet die tragende Struktur eines Daches. Sie nimmt die Lasten der Dachdeckung auf und leitet sie in das Gebäude weiter. Holz ermöglicht Konstruktionen für unterschiedliche Dachformen, Gebäude und individuelle Bauvorhaben."
+      }
+    },
+    "infoWork": {
+      "title": {
+        "fr": "Ce que fait ROOFCON",
+        "de": "Was ROOFCON leistet"
+      },
+      "items": [
+        {
+          "fr": "Préparation et fabrication des éléments en bois",
+          "de": "Vorbereitung und Fertigung der Holzelemente"
+        },
+        {
+          "fr": "Assemblage des éléments de charpente",
+          "de": "Montage der Konstruktionselemente"
+        },
+        {
+          "fr": "Mise en place de la structure sur chantier",
+          "de": "Montage der Konstruktion auf der Baustelle"
+        },
+        {
+          "fr": "Adaptation aux contraintes du projet",
+          "de": "Anpassung an die Anforderungen des Projekts"
+        },
+        {
+          "fr": "Réalisation des détails et finitions",
+          "de": "Ausführung der Details und Abschlussarbeiten"
+        }
+      ]
+    },
+    "infoBenefits": {
+      "title": {
+        "fr": "Les avantages",
+        "de": "Die Vorteile"
+      },
+      "items": [
+        {
+          "fr": "Une structure adaptée au projet",
+          "de": "Eine an das Projekt angepasste Konstruktion"
+        },
+        {
+          "fr": "Un matériau naturellement adapté à la construction",
+          "de": "Ein natürlich geeigneter Baustoff"
+        },
+        {
+          "fr": "Une grande liberté de conception",
+          "de": "Große gestalterische Freiheit"
+        },
+        {
+          "fr": "Une construction précise et durable",
+          "de": "Präzise und langlebige Konstruktionen"
+        }
+      ]
+    }
+  },
+
+  {
+    "id": "couvertures",
+    "number": "04",
+    "title": {
+      "fr": "Couvertures",
+      "de": "Dachdeckungen"
+    },
+    "text": {
+      "fr": "Réalisation et rénovation de couvertures de toiture, avec une attention particulière portée à l'étanchéité, à la qualité des matériaux et aux finitions.",
+      "de": "Errichtung und Sanierung von Dachdeckungen unter besonderer Berücksichtigung der Abdichtung, der Materialqualität und der Ausführung."
+    },
+    "image": "",
+    "infoWhat": {
+      "title": {
+        "fr": "Qu'est-ce qu'une couverture de toiture ?",
+        "de": "Was ist eine Dachdeckung?"
+      },
+      "text": {
+        "fr": "La couverture est la partie extérieure du toit qui protège le bâtiment contre les intempéries. Elle peut être réalisée avec différents matériaux selon le type de bâtiment, les contraintes techniques et l'esthétique recherchée.",
+        "de": "Die Dachdeckung bildet die äußere Schutzschicht des Daches und schützt das Gebäude vor Witterungseinflüssen. Je nach Gebäude, technischen Anforderungen und gewünschter Gestaltung kommen unterschiedliche Materialien zum Einsatz."
+      }
+    },
+    "infoWork": {
+      "title": {
+        "fr": "Ce que fait ROOFCON",
+        "de": "Was ROOFCON leistet"
+      },
+      "items": [
+        {
+          "fr": "Préparation du support de couverture",
+          "de": "Vorbereitung des Untergrunds"
+        },
+        {
+          "fr": "Pose des éléments de couverture",
+          "de": "Verlegung der Dacheindeckung"
+        },
+        {
+          "fr": "Réalisation des raccords et finitions",
+          "de": "Ausführung von Anschlüssen und Abschlussarbeiten"
+        },
+        {
+          "fr": "Rénovation de couvertures existantes",
+          "de": "Sanierung bestehender Dachdeckungen"
+        },
+        {
+          "fr": "Contrôle des détails assurant la protection du bâtiment",
+          "de": "Kontrolle der für den Gebäudeschutz wichtigen Details"
+        }
+      ]
+    },
+    "infoBenefits": {
+      "title": {
+        "fr": "Les avantages",
+        "de": "Die Vorteile"
+      },
+      "items": [
+        {
+          "fr": "Une protection essentielle contre les intempéries",
+          "de": "Wesentlicher Schutz vor Witterungseinflüssen"
+        },
+        {
+          "fr": "Des matériaux adaptés à chaque projet",
+          "de": "Geeignete Materialien für jedes Projekt"
+        },
+        {
+          "fr": "Une attention particulière portée aux finitions",
+          "de": "Besondere Aufmerksamkeit für die Ausführung"
+        },
+        {
+          "fr": "Des solutions pour la construction neuve et la rénovation",
+          "de": "Lösungen für Neubau und Sanierung"
+        }
+      ]
+    }
+  },
+
+  {
+    "id": "maisons",
+    "number": "05",
+    "title": {
+      "fr": "Maisons & annexes en ossature bois",
+      "de": "Häuser & Anbauten in Holzrahmenbauweise"
+    },
+    "text": {
+      "fr": "Construction de maisons et d'annexes en ossature bois, conçues selon les besoins du projet et réalisées avec des solutions adaptées à chaque construction.",
+      "de": "Bau von Häusern und Anbauten in Holzrahmenbauweise, die entsprechend den Anforderungen des jeweiligen Projekts entworfen und mit auf jedes Bauvorhaben zugeschnittenen Lösungen realisiert werden."
+    },
+    "image": "",
+    "infoWhat": {
+      "title": {
+        "fr": "Qu'est-ce qu'une construction en ossature bois ?",
+        "de": "Was ist eine Holzrahmenbauweise?"
+      },
+      "text": {
+        "fr": "L'ossature bois est un système constructif basé sur une structure porteuse composée de montés et de traverses en bois. Cette méthode permet de réaliser des constructions légères, précises et adaptées à de nombreux projets, des maisons aux extensions et annexes.",
+        "de": "Die Holzrahmenbauweise basiert auf einer tragenden Konstruktion aus Holzständern und Querhölzern. Diese Bauweise ermöglicht leichte, präzise und vielseitig einsetzbare Konstruktionen – von Wohnhäusern bis hin zu Erweiterungen und Anbauten."
+      }
+    },
+    "infoWork": {
+      "title": {
+        "fr": "Ce que fait ROOFCON",
+        "de": "Was ROOFCON leistet"
+      },
+      "items": [
+        {
+          "fr": "Préparation des éléments d'ossature",
+          "de": "Vorbereitung der Holzrahmenelemente"
+        },
+        {
+          "fr": "Assemblage de la structure bois",
+          "de": "Montage der Holzrahmenkonstruktion"
+        },
+        {
+          "fr": "Mise en place de l'ossature sur chantier",
+          "de": "Montage der Holzrahmenkonstruktion auf der Baustelle"
+        },
+        {
+          "fr": "Intégration des différents éléments constructifs",
+          "de": "Integration der verschiedenen Bauelemente"
+        },
+        {
+          "fr": "Réalisation des finitions selon le projet",
+          "de": "Ausführung der Abschlussarbeiten entsprechend dem Projekt"
+        }
+      ]
+    },
+    "infoBenefits": {
+      "title": {
+        "fr": "Les avantages",
+        "de": "Die Vorteile"
+      },
+      "items": [
+        {
+          "fr": "Une construction légère et précise",
+          "de": "Eine leichte und präzise Bauweise"
+        },
+        {
+          "fr": "Une grande liberté dans la conception",
+          "de": "Große gestalterische Freiheit"
+        },
+        {
+          "fr": "Une solution adaptée aux maisons comme aux extensions",
+          "de": "Eine Lösung für Häuser und Erweiterungen"
+        },
+        {
+          "fr": "Une construction rapide à mettre en œuvre",
+          "de": "Eine schnell umsetzbare Bauweise"
+        }
+      ]
+    }
+  }
+],
   "references": {
     "kicker": {
       "fr": "Nos réalisations",
