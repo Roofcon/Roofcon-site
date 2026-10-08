@@ -6034,14 +6034,27 @@ document.getElementById('poles-grid').innerHTML =
           ${esc(t(pole.text))}
         </p>
 
-        <button
-          type="button"
-          class="pole-discover"
-          onclick="openReferenceCategory('${esc(pole.id)}', 'about'); event.stopPropagation();">
+       <div class="pole-actions">
 
-          ${LANG === 'fr' ? 'Découvrir' : 'Entdecken'}
+  <button
+    type="button"
+    class="pole-discover"
+    onclick="openReferenceCategory('${esc(pole.id)}', 'about'); event.stopPropagation();">
 
-        </button>
+    ${LANG === 'fr' ? 'Découvrir' : 'Entdecken'}
+
+  </button>
+
+  <button
+    type="button"
+    class="pole-more"
+    onclick="openServiceInfo('${esc(pole.id)}'); event.stopPropagation();">
+
+    ${LANG === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
+
+  </button>
+
+</div>
 
       </article>
 
