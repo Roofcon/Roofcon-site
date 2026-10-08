@@ -5932,6 +5932,67 @@ function setLang(lang){
 
   localStorage.setItem('roofconLang', lang);
 
+  const currentPath =
+  window.location.pathname.replace(/^\/+|\/+$/g, '');
+
+const languageRoutes = {
+  '/services': {
+    fr: '/services',
+    de: '/leistungen'
+  },
+  '/leistungen': {
+    fr: '/services',
+    de: '/leistungen'
+  },
+
+  '/realisations': {
+    fr: '/realisations',
+    de: '/referenzen'
+  },
+  '/referenzen': {
+    fr: '/realisations',
+    de: '/referenzen'
+  },
+
+  '/projets-en-cours': {
+    fr: '/projets-en-cours',
+    de: '/aktuelle-projekte'
+  },
+  '/aktuelle-projekte': {
+    fr: '/projets-en-cours',
+    de: '/aktuelle-projekte'
+  },
+
+  '/emploi': {
+    fr: '/emploi',
+    de: '/karriere'
+  },
+  '/karriere': {
+    fr: '/emploi',
+    de: '/karriere'
+  },
+
+  '/contact': {
+    fr: '/contact',
+    de: '/kontakt'
+  },
+  '/kontakt': {
+    fr: '/contact',
+    de: '/kontakt'
+  }
+};
+
+const route =
+  languageRoutes[currentPath];
+
+if(route && route[lang]){
+  history.replaceState(
+    { page: route[lang] },
+    '',
+    route[lang]
+  );
+}
+  
   if(!CONTENT) return;
 
 
