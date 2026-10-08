@@ -5664,10 +5664,7 @@ function showPage(id){
   const newUrl =
     pageUrls[id] || '/';
 
-  if(
-  window.location.pathname !== newUrl &&
-  !window.location.search
-){
+  if(window.location.pathname !== newUrl){
 
   history.pushState(
     { page: id },
@@ -7922,7 +7919,10 @@ render();
 
 initChantierMap();
 
+showPage('accueil');
 
+initReveal();
+  
 /* ================================
    PAGE À AFFICHER AU DÉMARRAGE
 ================================ */
