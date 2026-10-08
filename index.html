@@ -5421,7 +5421,44 @@ function goBackFromDetail(){
 
 }
 
+function openServiceInfo(serviceId){
 
+  const service =
+    (CONTENT.about.poles || []).find(function(pole){
+      return pole.id === serviceId;
+    });
+
+  if(!service) return;
+
+  const title =
+    document.getElementById('service-info-title');
+
+  const intro =
+    document.getElementById('service-info-intro');
+
+  const kicker =
+    document.getElementById('service-info-kicker');
+
+  if(kicker){
+    kicker.textContent =
+      LANG === 'fr'
+        ? 'EN SAVOIR PLUS'
+        : 'MEHR ERFAHREN';
+  }
+
+  if(title){
+    title.textContent =
+      t(service.title);
+  }
+
+  if(intro){
+    intro.textContent =
+      t(service.text);
+  }
+
+  showPage('service-info');
+}
+  
 function showPage(id){
 
   const sections =
