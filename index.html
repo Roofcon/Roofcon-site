@@ -5923,84 +5923,114 @@ function setLang(lang){
   LANG = lang;
 
   console.log('LANGUE CHANGÉE :', LANG);
-  
+
   localStorage.setItem('roofconLang', lang);
 
-  if(CONTENT){
-
-    /* CHANGER LA LANGUE DU SITE */
-
-    render();
-
-    initChantierMap();
+  if(!CONTENT) return;
 
 
-    /* METTRE À JOUR LA FICHE SI ELLE EST ACTUELLEMENT OUVERTE */
+  /* ================================
+     MÉMORISER LA PAGE ACTUELLE
+  ================================ */
 
-    const detailPage =
-      document.getElementById('reference-detail');
+  const serviceInfoPage =
+    document.getElementById('service-info');
+
+  const wasServiceInfoOpen =
+    serviceInfoPage &&
+    serviceInfoPage.classList.contains('active-page');
+
+  const savedServiceInfoId =
+    currentServiceInfoId;
 
 
-    if(
-      detailPage &&
-      detailPage.classList.contains('active-page') &&
-      currentDetailType === 'current' &&
+  /* ================================
+     CHANGER LA LANGUE DU SITE
+  ================================ */
+
+  render();
+
+  initChantierMap();
+
+
+  /* ================================
+     FICHE PROJET EN COURS
+  ================================ */
+
+  const detailPage =
+    document.getElementById('reference-detail');
+
+  if(
+    detailPage &&
+    detailPage.classList.contains('active-page') &&
+    currentDetailType === 'current' &&
+    currentCurrentProjectId
+  ){
+
+    openCurrentProject(
       currentCurrentProjectId
-    ){
+    );
 
-      openCurrentProject(
-        currentCurrentProjectId
-      );
+  }
 
-    }
 
-    if(
-  detailPage &&
-  detailPage.classList.contains('active-page') &&
-  currentDetailType === 'reference' &&
-  currentReferenceProjectId
-){
+  /* ================================
+     FICHE RÉALISATION
+  ================================ */
 
-  openReference(
+  if(
+    detailPage &&
+    detailPage.classList.contains('active-page') &&
+    currentDetailType === 'reference' &&
     currentReferenceProjectId
-  );
+  ){
 
-}
- const categoryDetailPage =
-  document.getElementById('reference-category-detail');
+    openReference(
+      currentReferenceProjectId
+    );
 
-if(
-  categoryDetailPage &&
-  categoryDetailPage.classList.contains('active-page') &&
-  currentReferenceCategoryId
-){
+  }
 
-  openReferenceCategory(
-    currentReferenceCategoryId,
-    referenceCategoryOrigin
-  );
 
-}   
+  /* ================================
+     CATÉGORIE RÉALISATIONS
+  ================================ */
+
+  const categoryDetailPage =
+    document.getElementById(
+      'reference-category-detail'
+    );
+
+  if(
+    categoryDetailPage &&
+    categoryDetailPage.classList.contains('active-page') &&
+    currentReferenceCategoryId
+  ){
+
+    openReferenceCategory(
+      currentReferenceCategoryId,
+      referenceCategoryOrigin
+    );
+
+  }
+
+
+  /* ================================
+     FICHE SERVICE
+  ================================ */
+
+  if(
+    wasServiceInfoOpen &&
+    savedServiceInfoId
+  ){
+
+    openServiceInfo(
+      savedServiceInfoId
+    );
+
   }
 
 }
-
-      /* METTRE À JOUR LA FICHE SERVICE SI ELLE EST OUVERTE */
-
-    const serviceInfoPage =
-      document.getElementById('service-info');
-
-    if(
-      serviceInfoPage &&
-      serviceInfoPage.classList.contains('active-page') &&
-      currentServiceInfoId
-    ){
-
-      openServiceInfo(
-        currentServiceInfoId
-      );
-
-    }
 
 /* RÉFÉRENCE */
   
