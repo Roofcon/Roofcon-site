@@ -6,23 +6,21 @@
   <title>ROOFCON</title>
 
   <script>
-    const path =
-      window.location.pathname.replace(/\/$/, '');
+    const path = window.location.pathname
+      .replace(/^\/+|\/+$/g, '');
 
     const routes = {
-  '/services': 'about',
-  '/realisations': 'references',
-  '/projets-en-cours': 'current-projects',
-  '/projets-en-cours.html': 'current-projects',
-  '/emploi': 'jobs',
-  '/contact': 'contact'
-};
+      'services': 'about',
+      'realisations': 'references',
+      'projets-en-cours': 'current-projects',
+      'emploi': 'jobs',
+      'contact': 'contact'
+    };
 
-    const page =
-      routes[path] || 'accueil';
+    const page = routes[path] || 'accueil';
 
     window.location.replace(
-      '/?page=' + page
+      '/?page=' + encodeURIComponent(page)
     );
   </script>
 </head>
