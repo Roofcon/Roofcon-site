@@ -7916,30 +7916,102 @@ initChantierMap();
    DÉTERMINER LA PAGE DEPUIS L'URL
 ================================ */
 
-const urlParams =
+CONTENT = data;
+
+render();
+
+initChantierMap();
+
+
+/* ================================
+   PAGE À AFFICHER AU DÉMARRAGE
+================================ */
+
+let initialPage = 'accueil';
+
+const currentPath =
+  window.location.pathname;
+
+const params =
   new URLSearchParams(
     window.location.search
   );
 
 const requestedPage =
-  urlParams.get('page');
+  params.get('page');
 
-const pageFromUrl = {
 
-  '/': 'accueil',
-  '/services': 'about',
-  '/realisations': 'references',
-  '/projets-en-cours': 'current-projects',
-  '/emploi': 'jobs',
-  '/contact': 'contact'
+/* URL DIRECTE */
 
-};
+if(currentPath === '/services'){
+  initialPage = 'about';
+}
 
-const initialPage =
-  pageFromUrl[requestedPage] || 'accueil';
+else if(currentPath === '/realisations'){
+  initialPage = 'references';
+}
 
+else if(currentPath === '/projets-en-cours'){
+  initialPage = 'current-projects';
+}
+
+else if(currentPath === '/emploi'){
+  initialPage = 'jobs';
+}
+
+else if(currentPath === '/contact'){
+  initialPage = 'contact';
+}
+
+
+/* REDIRECTION 404 */
+
+else if(requestedPage === '/services'){
+  initialPage = 'about';
+}
+
+else if(requestedPage === '/realisations'){
+  initialPage = 'references';
+}
+
+else if(requestedPage === '/projets-en-cours'){
+  initialPage = 'current-projects';
+}
+
+else if(requestedPage === '/emploi'){
+  initialPage = 'jobs';
+}
+
+else if(requestedPage === '/contact'){
+  initialPage = 'contact';
+}
+
+
+console.log(
+  'PAGE INITIALE :',
+  initialPage
+);
+
+
+/* AFFICHER LA BONNE PAGE */
 
 showPage(initialPage);
+
+
+/* NETTOYER L'URL APRÈS LA REDIRECTION 404 */
+
+if(requestedPage){
+
+  const cleanUrl =
+    requestedPage;
+
+  history.replaceState(
+    {page: initialPage},
+    '',
+    cleanUrl
+  );
+
+}
 
 initReveal();
 })
