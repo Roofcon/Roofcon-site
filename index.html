@@ -5430,20 +5430,31 @@ function openServiceInfo(serviceId){
 
   if(!service) return;
 
+
+  /* ================================
+     EN-TÊTE
+  ================================ */
+
+  const kicker =
+    document.getElementById('service-info-kicker');
+
   const title =
     document.getElementById('service-info-title');
 
   const intro =
     document.getElementById('service-info-intro');
 
-  const kicker =
-    document.getElementById('service-info-kicker');
+  const back =
+    document.getElementById('service-info-back');
+
 
   if(kicker){
+
     kicker.textContent =
       LANG === 'fr'
         ? 'EN SAVOIR PLUS'
         : 'MEHR ERFAHREN';
+
   }
 
   if(title){
@@ -5456,7 +5467,163 @@ function openServiceInfo(serviceId){
       t(service.text);
   }
 
+  if(back){
+
+    back.textContent =
+      LANG === 'fr'
+        ? 'Retour aux services'
+        : 'Zurück zu den Leistungen';
+
+  }
+
+
+  /* ================================
+     QU'EST-CE QUE C'EST ?
+  ================================ */
+
+  const whatTitle =
+    document.getElementById(
+      'service-info-what-title'
+    );
+
+  const whatText =
+    document.getElementById(
+      'service-info-what-text'
+    );
+
+
+  if(whatTitle && service.infoWhat){
+
+    whatTitle.textContent =
+      t(service.infoWhat.title);
+
+  }
+
+  if(whatText && service.infoWhat){
+
+    whatText.textContent =
+      t(service.infoWhat.text);
+
+  }
+
+
+  /* ================================
+     CE QUE FAIT ROOFCON
+  ================================ */
+
+  const workTitle =
+    document.getElementById(
+      'service-info-work-title'
+    );
+
+  const workList =
+    document.getElementById(
+      'service-info-work-list'
+    );
+
+
+  if(workTitle && service.infoWork){
+
+    workTitle.textContent =
+      t(service.infoWork.title);
+
+  }
+
+  if(workList && service.infoWork){
+
+    workList.innerHTML =
+      (service.infoWork.items || [])
+        .map(function(item){
+
+          return `
+            <li>
+              ${esc(t(item))}
+            </li>
+          `;
+
+        })
+        .join('');
+
+  }
+
+
+  /* ================================
+     LES AVANTAGES
+  ================================ */
+
+  const benefitsTitle =
+    document.getElementById(
+      'service-info-benefits-title'
+    );
+
+  const benefitsList =
+    document.getElementById(
+      'service-info-benefits-list'
+    );
+
+
+  if(benefitsTitle && service.infoBenefits){
+
+    benefitsTitle.textContent =
+      t(service.infoBenefits.title);
+
+  }
+
+  if(benefitsList && service.infoBenefits){
+
+    benefitsList.innerHTML =
+      (service.infoBenefits.items || [])
+        .map(function(item){
+
+          return `
+            <li>
+              ${esc(t(item))}
+            </li>
+          `;
+
+        })
+        .join('');
+
+  }
+
+
+  /* ================================
+     BOUTON RÉALISATIONS
+  ================================ */
+
+  const discoverButton =
+    document.getElementById(
+      'service-info-discover'
+    );
+
+
+  if(discoverButton){
+
+    discoverButton.textContent =
+      LANG === 'fr'
+        ? 'Découvrir les réalisations'
+        : 'Projekte entdecken';
+
+
+    discoverButton.onclick =
+      function(){
+
+        openReferenceCategory(
+          service.id,
+          'about'
+        );
+
+      };
+
+  }
+
+
+  /* ================================
+     AFFICHER LA PAGE
+  ================================ */
+
   showPage('service-info');
+
 }
   
 function showPage(id){
