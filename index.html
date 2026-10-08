@@ -6096,6 +6096,7 @@ const homeReferencesLink =
 const homeReferencesGrid =
   document.getElementById('home-references-grid');
 
+
 if(homeReferencesKicker){
 
   homeReferencesKicker.textContent =
@@ -6104,6 +6105,7 @@ if(homeReferencesKicker){
       : 'UNSERE PROJEKTE';
 
 }
+
 
 if(homeReferencesTitle){
 
@@ -6114,6 +6116,7 @@ if(homeReferencesTitle){
 
 }
 
+
 if(homeReferencesLink){
 
   homeReferencesLink.textContent =
@@ -6123,46 +6126,57 @@ if(homeReferencesLink){
 
 }
 
+
 if(homeReferencesGrid){
 
- homeReferencesGrid.innerHTML =
-  (c.references.items || []).slice(0,5).map(function(category){
-     return `
-  <article
-    class="home-reference-card"
-    onclick="openReferenceCategory('${esc(category.id)}','references')"
-    style="cursor:pointer;"
-  >
+  homeReferencesGrid.innerHTML =
+    (c.references.items || [])
+      .slice(0,5)
+      .map(function(category){
 
-    <div class="home-reference-number">
-      ${esc(category.number || String(
-        (c.references.items || []).indexOf(category) + 1
-      ).padStart(2,'0'))}
-    </div>
+        return `
+          <article
+            class="home-reference-card"
+            onclick="openReferenceCategory('${esc(category.id)}','references')"
+            style="cursor:pointer;"
+          >
 
-    <div class="home-reference-card-content">
+            <div class="home-reference-number">
+              ${esc(
+                category.number ||
+                String(
+                  (c.references.items || []).indexOf(category) + 1
+                ).padStart(2,'0')
+              )}
+            </div>
 
-      <h3>
-        ${esc(t(category.title))}
-      </h3>
+            <div class="home-reference-card-content">
 
-      ${
-        category.description
-          ?
-          `
-            <p>
-              ${esc(t(category.description))}
-            </p>
-          `
-          :
-          ''
-      }
+              <h3>
+                ${esc(t(category.title))}
+              </h3>
 
-    </div>
+              ${
+                category.description
+                  ?
+                  `
+                    <p>
+                      ${esc(t(category.description))}
+                    </p>
+                  `
+                  :
+                  ''
+              }
 
-  </article>
-`;
+            </div>
 
+          </article>
+        `;
+
+      })
+      .join('');
+
+}
 
 /* =========================================================
    ACCUEIL — APERÇU DES PROJETS EN COURS
