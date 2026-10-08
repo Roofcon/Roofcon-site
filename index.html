@@ -5664,15 +5664,18 @@ function showPage(id){
   const newUrl =
     pageUrls[id] || '/';
 
-  if(window.location.pathname !== newUrl){
+  if(
+  window.location.pathname !== newUrl &&
+  !window.location.search
+){
 
-    history.pushState(
-      { page: id },
-      '',
-      newUrl
-    );
+  history.pushState(
+    { page: id },
+    '',
+    newUrl
+  );
 
-  }
+}
 
   /* ================================
      SCROLL
