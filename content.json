@@ -178,14 +178,14 @@
       "fr": "Nos réalisations",
       "de": "Unsere Projekte"
     },
-    "title": {
-      "fr": "Découvrez une sélection de nos réalisations",
-      "de": "Entdecken Sie eine Auswahl unserer Projekte"
-    },
-    "intro": {
-      "fr": "Qu’il s’agisse de charpentes, de toitures, de couvertures, de façades ventilées ou de constructions en ossature bois. Chaque projet témoigne de notre savoir-faire technique et de notre exigence de qualité.",
-      "de": "Ob Dachstühle, Dächer, Dachdeckungen, hinterlüftete Fassaden oder Holzrahmenbau – jedes Projekt zeugt von unserem technischen Know-how und unserem hohen Qualitätsanspruch."
-    },
+   "title":{
+  "fr":"Des projets qui témoignent de notre savoir-faire.",
+  "de":"Projekte, die unser Know-how zeigen."
+},
+   "intro":{
+  "fr":"Découvrez une sélection de nos réalisations en charpente, toiture, couverture, façade ventilée et construction en ossature bois.",
+  "de":"Entdecken Sie eine Auswahl unserer Projekte in den Bereichen Holzbau, Dächer, Dachdeckungen, hinterlüftete Fassaden und Holzrahmenbau."
+},
     "items": [
       {
         "id": "facades",
