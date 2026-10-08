@@ -7919,7 +7919,65 @@ render();
 
 initChantierMap();
 
-showPage('accueil');
+
+/* ================================
+   PAGE DEMANDÉE PAR UNE URL
+================================ */
+
+const urlParams =
+  new URLSearchParams(
+    window.location.search
+  );
+
+const requestedPage =
+  urlParams.get('page');
+
+
+const pageFromUrl = {
+
+  about: 'about',
+  references: 'references',
+  'current-projects': 'current-projects',
+  jobs: 'jobs',
+  contact: 'contact'
+
+};
+
+
+const initialPage =
+  pageFromUrl[requestedPage] || 'accueil';
+
+
+showPage(initialPage);
+
+
+/* ================================
+   REMETTRE L'URL PROPRE
+================================ */
+
+if(requestedPage){
+
+  const cleanUrls = {
+
+    about: '/services',
+    references: '/realisations',
+    'current-projects': '/projets-en-cours',
+    jobs: '/emploi',
+    contact: '/contact'
+
+  };
+
+  const cleanUrl =
+    cleanUrls[requestedPage] || '/';
+
+  history.replaceState(
+    { page: initialPage },
+    '',
+    cleanUrl
+  );
+
+}
+
 
 initReveal();
   
