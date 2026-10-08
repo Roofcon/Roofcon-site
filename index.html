@@ -5650,15 +5650,13 @@ function showPage(id){
      URL DE LA PAGE
   ================================ */
 
-   const pageUrls = {
-
+  const pageUrls = {
   accueil: '/',
-  about: '/services',
-  references: '/realisations',
-  'current-projects': '/projets-en-cours',
-  jobs: '/emploi',
-  contact: '/contact'
-
+  about: LANG === 'de' ? '/leistungen' : '/services',
+  references: LANG === 'de' ? '/referenzen' : '/realisations',
+  'current-projects': LANG === 'de' ? '/aktuelle-projekte' : '/projets-en-cours',
+  jobs: LANG === 'de' ? '/karriere' : '/emploi',
+  contact: LANG === 'de' ? '/kontakt' : '/contact'
 };
 
   const newUrl =
