@@ -4577,6 +4577,64 @@ let CONTENT = null;
 let LANG = localStorage.getItem('roofconLang') || 'fr';
 let currentServiceInfoId = null;
 
+  function updateHreflang(page){
+
+  const routes = {
+    'accueil': {
+      fr: '/',
+      de: '/'
+    },
+    'about': {
+      fr: '/services',
+      de: '/leistungen'
+    },
+    'references': {
+      fr: '/realisations',
+      de: '/referenzen'
+    },
+    'current-projects': {
+      fr: '/projets-en-cours',
+      de: '/aktuelle-projekte'
+    },
+    'jobs': {
+      fr: '/emploi',
+      de: '/karriere'
+    },
+    'contact': {
+      fr: '/contact',
+      de: '/kontakt'
+    }
+  };
+
+  const route = routes[page];
+
+  if(!route) return;
+
+  const frLink =
+    document.querySelector('link[hreflang="fr"]');
+
+  const deLink =
+    document.querySelector('link[hreflang="de"]');
+
+  const defaultLink =
+    document.querySelector('link[hreflang="x-default"]');
+
+  if(frLink){
+    frLink.href =
+      'https://roof-con.com' + route.fr;
+  }
+
+  if(deLink){
+    deLink.href =
+      'https://roof-con.com' + route.de;
+  }
+
+  if(defaultLink){
+    defaultLink.href =
+      'https://roof-con.com' + route.fr;
+  }
+}
+  
   function updateSEO(page){
 
   if(!CONTENT || !CONTENT.seo) return;
@@ -5674,6 +5732,7 @@ function openServiceInfo(serviceId){
 function showPage(id){
 
   updateSEO(id);
+  updateHreflang(id);
 
   const sections =
     document.querySelectorAll('section');
