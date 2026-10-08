@@ -10,11 +10,20 @@
       .replace(/^\/+|\/+$/g, '');
 
     const routes = {
+
+      /* 🇫🇷 Français */
       'services': 'about',
       'realisations': 'references',
       'projets-en-cours': 'current-projects',
       'emploi': 'jobs',
-      'contact': 'contact'
+      'contact': 'contact',
+
+      /* 🇩🇪 Deutsch */
+      'leistungen': 'about',
+      'referenzen': 'references',
+      'aktuelle-projekte': 'current-projects',
+      'karriere': 'jobs',
+      'kontakt': 'contact'
     };
 
     const page = routes[path] || 'accueil';
