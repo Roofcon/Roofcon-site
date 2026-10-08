@@ -5986,11 +5986,13 @@ const route =
   languageRoutes[currentPath];
 
 if(route && route[lang]){
+
   history.replaceState(
     { page: route[lang] },
     '',
     route[lang]
   );
+
 }
   
   if(!CONTENT) return;
