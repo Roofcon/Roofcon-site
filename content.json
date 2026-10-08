@@ -69,7 +69,7 @@
     },
     "text1": {
       "fr": "Derrière ROOFCON se trouvent Joël Brück et Gregor Schütz. Après de nombreuses années d’expérience dans différents domaines de la construction en bois, de la charpente, de la couverture et des façades, nous avons réuni nos compétences afin de mener à bien des projets de manière globale.",
-      "de": "Hinter ROOFCON stehen Brück und Gregor Schütz. Nach langjähriger Erfahrung in verschiedenen Bereichen des Holzbaus, des Zimmerhandwerks, des Dachdeckerhandwerks und des Fassadenbaus haben wir unsere Kompetenzen gebündelt, um Projekte ganzheitlich umzusetzen."
+      "de": "Hinter ROOFCON stehen Joël Brück und Gregor Schütz. Nach langjähriger Erfahrung in verschiedenen Bereichen des Holzbaus, des Zimmerhandwerks, des Dachdeckerhandwerks und des Fassadenbaus haben wir unsere Kompetenzen gebündelt, um Projekte ganzheitlich umzusetzen."
     },
     "text2": {
       "fr": "Notre atout : une offre tout-en-un.",
@@ -432,7 +432,7 @@
         "de": "Was ist eine Holzrahmenbauweise?"
       },
       "text": {
-        "fr": "L'ossature bois est un système constructif basé sur une structure porteuse composée de montés et de traverses en bois. Cette méthode permet de réaliser des constructions légères, précises et adaptées à de nombreux projets, des maisons aux extensions et annexes.",
+        "fr": "L'ossature bois est un système constructif basé sur une structure porteuse composée de montants et de traverses en bois. Cette méthode permet de réaliser des constructions légères, précises et adaptées à de nombreux projets, des maisons aux extensions et annexes.",
         "de": "Die Holzrahmenbauweise basiert auf einer tragenden Konstruktion aus Holzständern und Querhölzern. Diese Bauweise ermöglicht leichte, präzise und vielseitig einsetzbare Konstruktionen – von Wohnhäusern bis hin zu Erweiterungen und Anbauten."
       }
     },
@@ -488,9 +488,10 @@
         }
       ]
     }
-  }
-],
-  "references": {
+   }
+]
+},
+"references": {
     "kicker": {
       "fr": "Nos réalisations",
       "de": "Unsere Projekte"
