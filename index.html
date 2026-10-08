@@ -5634,41 +5634,53 @@ function showPage(id){
   const sections =
     document.querySelectorAll('section');
 
-  /* ================================
-     NETTOYER L'AFFICHAGE
-  ================================ */
-
   sections.forEach(function(section){
-
     section.classList.remove('active-page');
     section.classList.remove('home-visible');
-
   });
-
-
-  /* ================================
-     AFFICHER LA PAGE
-  ================================ */
 
   const page =
     document.getElementById(id);
 
   if(page){
-
     page.classList.add('active-page');
+  }
+
+  /* ================================
+     URL DE LA PAGE
+  ================================ */
+
+  const pageUrls = {
+
+    accueil: '/',
+    about: '/services',
+    references: '/realisations',
+    jobs: '/emploi',
+    contact: '/contact'
+
+  };
+
+  const newUrl =
+    pageUrls[id] || '/';
+
+  if(window.location.pathname !== newUrl){
+
+    history.pushState(
+      { page: id },
+      '',
+      newUrl
+    );
 
   }
 
-
   /* ================================
-     RETOUR EN HAUT
+     SCROLL
   ================================ */
 
   window.scrollTo({
     top:0,
     behavior:'smooth'
   });
-
 
   /* ================================
      ANIMATIONS
@@ -5681,20 +5693,15 @@ function showPage(id){
     page
       .querySelectorAll('.reveal')
       .forEach(function(element){
-
         element.classList.remove('visible');
-
       });
-
 
     setTimeout(function(){
 
       page
         .querySelectorAll('.reveal')
         .forEach(function(element){
-
           element.classList.add('visible');
-
         });
 
     },50);
