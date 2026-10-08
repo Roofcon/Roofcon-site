@@ -5892,6 +5892,337 @@ document.getElementById('poles-grid').innerHTML =
     `;
 
   }).join('');
+
+  /* =========================================================
+   ACCUEIL — APERÇU DES SERVICES
+========================================================= */
+
+const homeServicesKicker =
+  document.getElementById('home-services-kicker');
+
+const homeServicesTitle =
+  document.getElementById('home-services-title');
+
+const homeServicesLink =
+  document.getElementById('home-services-link');
+
+const homeServicesGrid =
+  document.getElementById('home-services-grid');
+
+if(homeServicesKicker){
+
+  homeServicesKicker.textContent =
+    LANG === 'fr'
+      ? 'NOS SERVICES'
+      : 'UNSERE LEISTUNGEN';
+
+}
+
+if(homeServicesTitle){
+
+  homeServicesTitle.textContent =
+    LANG === 'fr'
+      ? 'Des solutions adaptées à chaque projet.'
+      : 'Lösungen für jedes Projekt.';
+
+}
+
+if(homeServicesLink){
+
+  homeServicesLink.textContent =
+    LANG === 'fr'
+      ? 'Voir tous les services'
+      : 'Alle Leistungen ansehen';
+
+}
+
+if(homeServicesGrid){
+
+  homeServicesGrid.innerHTML =
+    (c.about.poles || []).map(function(pole){
+
+      return `
+        <article class="home-service-card">
+
+          <div class="home-service-number">
+            ${esc(pole.number)}
+          </div>
+
+          <h3>
+            ${esc(t(pole.title))}
+          </h3>
+
+          <p>
+            ${esc(t(pole.text))}
+          </p>
+
+        </article>
+      `;
+
+    }).join('');
+
+}
+
+
+/* =========================================================
+   ACCUEIL — APERÇU DES RÉALISATIONS
+========================================================= */
+
+const homeReferencesKicker =
+  document.getElementById('home-references-kicker');
+
+const homeReferencesTitle =
+  document.getElementById('home-references-title');
+
+const homeReferencesLink =
+  document.getElementById('home-references-link');
+
+const homeReferencesGrid =
+  document.getElementById('home-references-grid');
+
+if(homeReferencesKicker){
+
+  homeReferencesKicker.textContent =
+    LANG === 'fr'
+      ? 'NOS RÉALISATIONS'
+      : 'UNSERE PROJEKTE';
+
+}
+
+if(homeReferencesTitle){
+
+  homeReferencesTitle.textContent =
+    LANG === 'fr'
+      ? 'Des réalisations qui parlent de notre savoir-faire.'
+      : 'Projekte, die unser Know-how zeigen.';
+
+}
+
+if(homeReferencesLink){
+
+  homeReferencesLink.textContent =
+    LANG === 'fr'
+      ? 'Voir toutes les réalisations'
+      : 'Alle Projekte ansehen';
+
+}
+
+if(homeReferencesGrid){
+
+  homeReferencesGrid.innerHTML =
+    (c.references.items || []).slice(0,4).map(function(category){
+
+      return `
+        <article
+          class="home-reference-card"
+          onclick="openReferenceCategory('${esc(category.id)}','references')"
+          style="cursor:pointer;"
+        >
+
+          ${
+            category.image
+              ?
+              `
+                <img
+                  class="home-reference-card-image"
+                  src="${esc(category.image)}"
+                  alt="${esc(t(category.title))}"
+                  loading="lazy"
+                >
+              `
+              :
+              ''
+          }
+
+          <div class="home-reference-card-overlay"></div>
+
+          <div class="home-reference-card-content">
+
+            <h3>
+              ${esc(t(category.title))}
+            </h3>
+
+          </div>
+
+        </article>
+      `;
+
+    }).join('');
+
+}
+
+
+/* =========================================================
+   ACCUEIL — APERÇU DES PROJETS EN COURS
+========================================================= */
+
+const homeCurrentPreview =
+  document.getElementById('home-current-preview');
+
+const homeCurrentKicker =
+  document.getElementById('home-current-kicker');
+
+const homeCurrentTitle =
+  document.getElementById('home-current-title');
+
+const homeCurrentLink =
+  document.getElementById('home-current-link');
+
+const homeCurrentGrid =
+  document.getElementById('home-current-grid');
+
+const homeCurrentItems =
+  c.currentProjects &&
+  Array.isArray(c.currentProjects.items)
+    ? c.currentProjects.items
+    : [];
+
+if(homeCurrentKicker){
+
+  homeCurrentKicker.textContent =
+    LANG === 'fr'
+      ? 'PROJETS EN COURS'
+      : 'AKTUELLE PROJEKTE';
+
+}
+
+if(homeCurrentTitle){
+
+  homeCurrentTitle.textContent =
+    LANG === 'fr'
+      ? 'Ce que nos équipes réalisent actuellement.'
+      : 'Was unsere Teams derzeit realisieren.';
+
+}
+
+if(homeCurrentLink){
+
+  homeCurrentLink.textContent =
+    LANG === 'fr'
+      ? 'Voir les projets en cours'
+      : 'Aktuelle Projekte ansehen';
+
+}
+
+if(homeCurrentPreview){
+
+  if(homeCurrentItems.length === 0){
+
+    homeCurrentPreview.style.display = 'none';
+
+  }else{
+
+    homeCurrentPreview.style.display = '';
+
+  }
+
+}
+
+if(homeCurrentGrid){
+
+  homeCurrentGrid.innerHTML =
+    homeCurrentItems
+      .slice(0,2)
+      .map(function(project){
+
+        const image =
+          Array.isArray(project.images) &&
+          project.images.length
+            ? project.images[0]
+            : '';
+
+        return `
+          <article
+            class="home-current-card"
+            onclick="openCurrentProject('${esc(project.id)}')"
+            style="cursor:pointer;"
+          >
+
+            ${
+              image
+                ?
+                `
+                  <img
+                    class="home-current-card-image"
+                    src="${esc(image)}"
+                    alt="${esc(t(project.title))}"
+                    loading="lazy"
+                  >
+                `
+                :
+                ''
+            }
+
+            <div class="home-current-card-overlay"></div>
+
+            <div class="home-current-card-content">
+
+              <h3>
+                ${esc(t(project.title))}
+              </h3>
+
+              ${
+                t(project.description)
+                  ?
+                  `
+                    <p>
+                      ${esc(t(project.description))}
+                    </p>
+                  `
+                  :
+                  ''
+              }
+
+            </div>
+
+          </article>
+        `;
+
+      })
+      .join('');
+
+}
+
+
+/* =========================================================
+   ACCUEIL — CONTACT
+========================================================= */
+
+const homeContactKicker =
+  document.getElementById('home-contact-kicker');
+
+const homeContactTitle =
+  document.getElementById('home-contact-title');
+
+const homeContactLink =
+  document.getElementById('home-contact-link');
+
+if(homeContactKicker){
+
+  homeContactKicker.textContent =
+    LANG === 'fr'
+      ? 'UN PROJET ?'
+      : 'EIN PROJEKT?';
+
+}
+
+if(homeContactTitle){
+
+  homeContactTitle.textContent =
+    LANG === 'fr'
+      ? 'Parlons de votre projet.'
+      : 'Sprechen wir über Ihr Projekt.';
+
+}
+
+if(homeContactLink){
+
+  homeContactLink.textContent =
+    LANG === 'fr'
+      ? 'Nous contacter'
+      : 'Kontakt aufnehmen';
+
+}
   
  /* PROJETS EN COURS */
 
