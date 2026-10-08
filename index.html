@@ -5932,8 +5932,8 @@ function setLang(lang){
 
   localStorage.setItem('roofconLang', lang);
 
-  const currentPath =
-  window.location.pathname.replace(/^\/+|\/+$/g, '');
+ const currentPath =
+  '/' + window.location.pathname.replace(/^\/+|\/+$/g, '');
 
 const languageRoutes = {
   '/services': {
