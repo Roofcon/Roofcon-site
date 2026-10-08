@@ -3,25 +3,25 @@
     "title": "ROOFCON | Holzbau · Bedachung · Fassadenbau",
     "description": "ROOFCON — Façades ventilées, toitures plates, charpentes et couvertures.",
     "phone": "+352 621 765 489",
-    "email": "info@roof-con.com",
+"email": "info@roof-con.com",
     "address": "Z.A.E.R Op Stackem 8, 9952 Drinklange",
     "hours": {
       "fr": "Lundi au vendredi · 07h30 – 17h30",
       "de": "Montag bis Freitag · 07:30 – 17:30"
     },
-    "facebook": "https://www.facebook.com/profile.php?id=61594591794889",
-    "instagram": "https://www.instagram.com/roofcon.lu/"
+"facebook": "https://www.facebook.com/profile.php?id=61594591794889",
+"instagram": "https://www.instagram.com/roofcon.lu/"
   },
   "nav": {
     "home": {
       "fr": "Accueil",
       "de": "Startseite"
     },
-   "about": {
+  "about": {
   "fr": "Nos services",
   "de": "Unsere Leistungen"
-}
-    "references": {
+},
+"references": {
       "fr": "Références",
       "de": "Referenzen"
     },
@@ -40,8 +40,8 @@
       "de": "Willkommen bei ROOFCON"
     },
     "title": {
-      "fr": "Planifier, calculer, dessiner, fabriquer, construire .<br><span>Tel est notre devise.</span>",
-      "de": "Planen, berechnen, zeichnen, fertigen, bauen.<br><span>Das ist unser Motto.</span>"
+   "fr": "Planifier, calculer, dessiner, fabriquer, construire.<br><span>Tel est notre devise.</span>",
+"de": "Planen, berechnen, zeichnen, fertigen, bauen.<br><span>Das ist unser Motto.</span>"
     },
     "text": {
       "fr": "ROOFCON accompagne vos projets de construction et de rénovation au Luxembourg et dans la Grande Région. Notre savoir-faire couvre les façades ventilées, les toitures plates, les charpentes, les couvertures ainsi que les maisons et annexes en ossature bois. Nous mettons notre expertise technique et notre expérience au service de réalisations solides, durables et soignées.",
@@ -99,8 +99,8 @@
    "kicker": {
   "fr": "Nos services",
   "de": "Unsere Leistungen"
-}
-    "title": {
+},
+"title": {
       "fr": "Un savoir-faire au service de vos projets.",
       "de": "Know-how im Dienste Ihrer Projekte."
     },
@@ -274,8 +274,8 @@
       "de": "Kontakt"
     },
     "title": {
-      "fr": "Vous avez un projet ?<br>Parlons-en.",
-      "de": "Sie haben ein Projekt?<br>Sprechen wir darüber."
+"fr": "Vous avez un projet ?<br>Parlons-en.",
+"de": "Sie haben ein Projekt?<br>Sprechen wir darüber."
     },
     "intro": {
       "fr": "Vous souhaitez obtenir un devis ou discuter de votre projet ? Contactez-nous directement.",
