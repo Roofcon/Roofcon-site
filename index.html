@@ -413,7 +413,9 @@ h1 span{
 .who-content .btn{
   margin-top:10px;
 }
-/* ABOUT */
+/* ================================
+   NOS SERVICES
+================================ */
 
 .about{
   background:var(--black);
@@ -421,109 +423,224 @@ h1 span{
 }
 
 .about-intro{
-  max-width:850px;
-  margin-bottom:50px;
+  max-width:900px;
+  margin-bottom:70px;
 }
 
 .about-intro h2{
-  font-size:clamp(34px,4.5vw,58px);
-  line-height:1.05;
-  margin-bottom:20px;
+  font-size:clamp(38px,5vw,72px);
+  line-height:1;
+  margin-bottom:25px;
+  letter-spacing:-.03em;
 }
 
 .about-intro p{
+  max-width:720px;
   color:#c9c4c0;
   font-size:18px;
+  line-height:1.7;
 }
+
+/* GRILLE DES SERVICES */
 
 .poles{
   display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:16px;
-  align-items: stretch;
+  grid-template-columns:repeat(12,1fr);
+  gap:18px;
 }
 
+/* CARTE */
+
 .pole{
-  background:#2c2928;
-  border:1px solid #403b39;
-  min-height:330px;
+  grid-column:span 4;
+
+  background:#262322;
+  border:1px solid #3b3634;
+
+  min-height:430px;
   padding:30px;
+
   position:relative;
   overflow:hidden;
 
   display:flex;
   flex-direction:column;
 
-  transition:transform .25s ease, box-shadow .25s ease;
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    background .35s ease;
 }
+
+.pole:nth-child(4),
+.pole:nth-child(5){
+  grid-column:span 6;
+  min-height:390px;
+}
+
 .pole:hover{
-  transform:translateY(-4px);
-  box-shadow:0 12px 30px rgba(0,0,0,.12);
+  transform:translateY(-6px);
+  background:#2c2928;
+  border-color:#5a514d;
 }
-  
+
+/* IMAGE */
+
 .pole-image{
   width:calc(100% + 60px);
-  height:170px;
+  height:210px;
+
   object-fit:cover;
-  margin:-30px -30px 25px;
+
+  margin:-30px -30px 28px;
+
   display:block;
+
+  transition:transform .6s ease;
 }
+
+.pole:hover .pole-image{
+  transform:scale(1.035);
+}
+
+/* NUMÉRO */
 
 .pole-number{
-  font-size:13px;
+  font-size:11px;
   color:var(--brown2);
-  font-weight:900;
-  letter-spacing:2px;
+  font-weight:800;
+  letter-spacing:.2em;
+  margin-bottom:18px;
 }
 
-.pole-discover{
-  margin-top: auto;
-  padding-top: 22px;
-  border: none;
-  background: none;
-  color: #fff;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  transition: gap .25s ease, opacity .25s ease;
-}
+/* TITRE */
 
-.pole-discover::after{
-  content: '→';
-  font-size: 16px;
-  line-height: 1;
-  transition: transform .25s ease;
-}
-
-.pole-discover:hover{
-  opacity: .8;
-  gap: 13px;
-}
-
-.pole-discover:hover::after{
-  transform: translateX(2px);
-}
-  
 .pole h3{
-  font-size:18px;
-  line-height:1.2;
-  margin:18px 0 10px;
-  text-align:center;
+  font-size:clamp(21px,2vw,28px);
+  line-height:1.08;
+
+  margin:0 0 15px;
+
+  text-align:left;
+
+  letter-spacing:-.02em;
+
   overflow-wrap:normal;
   word-break:normal;
 }
 
+/* DESCRIPTION */
+
 .pole p{
+  max-width:520px;
+
   color:#c9c4c0;
+
   font-size:15px;
+  line-height:1.65;
+
+  margin:0;
 }
 
+/* BOUTON */
+
+.pole-discover{
+  margin-top:auto;
+
+  padding-top:28px;
+
+  border:none;
+  background:none;
+
+  color:#fff;
+
+  font-family:inherit;
+  font-size:11px;
+  font-weight:700;
+
+  text-transform:uppercase;
+  letter-spacing:.14em;
+
+  cursor:pointer;
+
+  display:inline-flex;
+  align-items:center;
+
+  gap:10px;
+
+  transition:
+    gap .3s ease,
+    opacity .3s ease;
+}
+
+.pole-discover::after{
+  content:'→';
+
+  font-size:17px;
+  line-height:1;
+
+  transition:transform .3s ease;
+}
+
+.pole-discover:hover{
+  opacity:.8;
+  gap:15px;
+}
+
+.pole-discover:hover::after{
+  transform:translateX(3px);
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media(max-width:1000px){
+
+  .poles{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .pole,
+  .pole:nth-child(4),
+  .pole:nth-child(5){
+    grid-column:span 1;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .about-intro{
+    margin-bottom:45px;
+  }
+
+  .about-intro h2{
+    font-size:42px;
+  }
+
+  .about-intro p{
+    font-size:16px;
+  }
+
+  .poles{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .pole,
+  .pole:nth-child(4),
+  .pole:nth-child(5){
+    grid-column:span 1;
+    min-height:390px;
+  }
+
+  .pole-image{
+    height:190px;
+  }
+
+}
 /* ================================
    PROJETS EN COURS
 ================================ */
