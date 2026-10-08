@@ -4352,107 +4352,190 @@ function esc(v){
 
 /* LA MÉTHODE ROOFCON */
 
-if(document.getElementById('methode-kicker')){
-  renderMethode();
-}
+function renderMethode(){
 
   const methode = CONTENT.methode || {};
 
 
   /* PETIT TITRE */
 
- document.getElementById('methode-kicker').textContent =
-  t(methode.kicker) ||
-  (LANG === 'fr'
-    ? 'LA MÉTHODE ROOFCON'
-    : 'DIE ROOFCON-METHODE');
+  const methodeKicker =
+    document.getElementById('methode-kicker');
+
+  if(!methodeKicker){
+    return;
+  }
+
+  methodeKicker.textContent =
+    t(methode.kicker) ||
+    (LANG === 'fr'
+      ? 'LA MÉTHODE ROOFCON'
+      : 'DIE ROOFCON-METHODE');
 
 
   /* TITRE */
 
-  document.getElementById('methode-title').textContent =
-    t(methode.title || {
-      fr:'Un projet bien réalisé commence par une méthode maîtrisée.',
-      de:'Ein gut umgesetztes Projekt beginnt mit einer durchdachten Methode.'
-    });
+  const methodeTitle =
+    document.getElementById('methode-title');
+
+  if(methodeTitle){
+
+    methodeTitle.textContent =
+      t(methode.title || {
+        fr:'Un projet bien réalisé commence par une méthode maîtrisée.',
+        de:'Ein gut umgesetztes Projekt beginnt mit einer durchdachten Methode.'
+      });
+
+  }
 
 
   /* CARTE 01 */
 
-  document.getElementById('methode-title-1').textContent =
-    t(methode.card1?.title || {
-      fr:'ÉCOUTER',
-      de:'ZUHÖREN'
-    });
+  const methodeTitle1 =
+    document.getElementById('methode-title-1');
 
-  document.getElementById('methode-text-1').textContent =
-    t(methode.card1?.text || {
-      fr:'Comprendre votre projet, vos besoins et vos contraintes.',
-      de:'Ihr Projekt, Ihre Bedürfnisse und Ihre Anforderungen verstehen.'
-    });
+  const methodeText1 =
+    document.getElementById('methode-text-1');
+
+  if(methodeTitle1){
+
+    methodeTitle1.textContent =
+      t(methode.card1?.title || {
+        fr:'ÉCOUTER',
+        de:'ZUHÖREN'
+      });
+
+  }
+
+  if(methodeText1){
+
+    methodeText1.textContent =
+      t(methode.card1?.text || {
+        fr:'Comprendre votre projet, vos besoins et vos contraintes.',
+        de:'Ihr Projekt, Ihre Bedürfnisse und Ihre Anforderungen verstehen.'
+      });
+
+  }
 
 
   /* CARTE 02 */
 
-  document.getElementById('methode-title-2').textContent =
-    t(methode.card2?.title || {
-      fr:'CONCEVOIR',
-      de:'PLANEN'
-    });
+  const methodeTitle2 =
+    document.getElementById('methode-title-2');
 
-  document.getElementById('methode-text-2').textContent =
-    t(methode.card2?.text || {
-      fr:'Définir les solutions techniques adaptées à votre projet.',
-      de:'Die passenden technischen Lösungen für Ihr Projekt definieren.'
-    });
+  const methodeText2 =
+    document.getElementById('methode-text-2');
+
+  if(methodeTitle2){
+
+    methodeTitle2.textContent =
+      t(methode.card2?.title || {
+        fr:'CONCEVOIR',
+        de:'PLANEN'
+      });
+
+  }
+
+  if(methodeText2){
+
+    methodeText2.textContent =
+      t(methode.card2?.text || {
+        fr:'Définir les solutions techniques adaptées à votre projet.',
+        de:'Die passenden technischen Lösungen für Ihr Projekt definieren.'
+      });
+
+  }
 
 
   /* CARTE 03 */
 
-  document.getElementById('methode-title-3').textContent =
-    t(methode.card3?.title || {
-      fr:'PRÉPARER',
-      de:'VORBEREITEN'
-    });
+  const methodeTitle3 =
+    document.getElementById('methode-title-3');
 
-  document.getElementById('methode-text-3').textContent =
-    t(methode.card3?.text || {
-      fr:'Anticiper chaque étape pour un chantier organisé et efficace.',
-      de:'Jeden Schritt vorausschauend planen für eine organisierte und effiziente Baustelle.'
-    });
+  const methodeText3 =
+    document.getElementById('methode-text-3');
+
+  if(methodeTitle3){
+
+    methodeTitle3.textContent =
+      t(methode.card3?.title || {
+        fr:'PRÉPARER',
+        de:'VORBEREITEN'
+      });
+
+  }
+
+  if(methodeText3){
+
+    methodeText3.textContent =
+      t(methode.card3?.text || {
+        fr:'Anticiper chaque étape pour un chantier organisé et efficace.',
+        de:'Jeden Schritt vorausschauend planen für eine organisierte und effiziente Baustelle.'
+      });
+
+  }
 
 
   /* CARTE 04 */
 
-  document.getElementById('methode-title-4').textContent =
-    t(methode.card4?.title || {
-      fr:'RÉALISER',
-      de:'UMSETZEN'
-    });
+  const methodeTitle4 =
+    document.getElementById('methode-title-4');
 
-  document.getElementById('methode-text-4').textContent =
-    t(methode.card4?.text || {
-      fr:"Mettre notre savoir-faire au service d'une réalisation soignée et durable.",
-      de:'Unser Know-how für eine hochwertige und nachhaltige Umsetzung einsetzen.'
-    });
+  const methodeText4 =
+    document.getElementById('methode-text-4');
+
+  if(methodeTitle4){
+
+    methodeTitle4.textContent =
+      t(methode.card4?.title || {
+        fr:'RÉALISER',
+        de:'UMSETZEN'
+      });
+
+  }
+
+  if(methodeText4){
+
+    methodeText4.textContent =
+      t(methode.card4?.text || {
+        fr:"Mettre notre savoir-faire au service d'une réalisation soignée et durable.",
+        de:'Unser Know-how für eine hochwertige und nachhaltige Umsetzung einsetzen.'
+      });
+
+  }
 
 
   /* CARTE 05 */
 
-  document.getElementById('methode-title-5').textContent =
-    t(methode.card5?.title || {
-      fr:'ACCOMPAGNER',
-      de:'BEGLEITEN'
-    });
+  const methodeTitle5 =
+    document.getElementById('methode-title-5');
 
-  document.getElementById('methode-text-5').textContent =
-    t(methode.card5?.text || {
-      fr:"Vous accompagner jusqu'à la finalisation de votre projet.",
-      de:'Sie bis zur Fertigstellung Ihres Projekts begleiten.'
-    });
+  const methodeText5 =
+    document.getElementById('methode-text-5');
+
+  if(methodeTitle5){
+
+    methodeTitle5.textContent =
+      t(methode.card5?.title || {
+        fr:'ACCOMPAGNER',
+        de:'BEGLEITEN'
+      });
+
+  }
+
+  if(methodeText5){
+
+    methodeText5.textContent =
+      t(methode.card5?.text || {
+        fr:"Vous accompagner jusqu'à la finalisation de votre projet.",
+        de:'Sie bis zur Fertigstellung Ihres Projekts begleiten.'
+      });
+
+  }
 
 }
-  
+
+
 /* NAVIGATION */
 
     let chantierMap = null;
