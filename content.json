@@ -702,19 +702,19 @@
     }
   },
   "mapProjects": [],
-  "currentProjects": {
-    "kicker": {
-      "fr": "PROJETS EN COURS",
-      "de": "AKTUELLE PROJEKTE"
-    },
-    "title": {
-      "fr": "Nos projets en cours",
-      "de": "Unsere aktuellen Projekte"
-    },
-    "intro": {
-      "fr": "Découvrez les projets que nos équipes réalisent actuellement. Chaque chantier témoigne de notre savoir-faire, de notre précision et de notre engagement pour un travail de qualité.",
-      "de": "Entdecken Sie die Projekte, die unsere Teams derzeit realisieren. Jedes Bauvorhaben steht für unser Know-how, unsere Präzision und unseren Anspruch an hochwertige Arbeit."
-    },
+ "currentProjects": {
+  "kicker": {
+    "fr": "PROJETS EN COURS",
+    "de": "AKTUELLE PROJEKTE"
+  },
+  "title": {
+    "fr": "Des projets actuellement en réalisation",
+    "de": "Aktuelle Projekte in der Umsetzung"
+  },
+  "intro": {
+    "fr": "Découvrez quelques-uns des projets actuellement réalisés par les équipes ROOFCON au Luxembourg et dans la Grande Région. De la préparation à la mise en œuvre sur chantier, nos équipes assurent chaque étape avec la même exigence de précision, de qualité et de savoir-faire.",
+    "de": "Entdecken Sie eine Auswahl der Projekte, die derzeit von den ROOFCON-Teams in Luxemburg und der Großregion umgesetzt werden. Von der Vorbereitung bis zur Ausführung auf der Baustelle begleiten unsere Teams jeden Schritt mit dem gleichen Anspruch an Präzision, Qualität und handwerkliches Know-how."
+  },
     "items": [
       {
         "id": "current-project-1791179907640",
