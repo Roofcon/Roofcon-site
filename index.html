@@ -3210,6 +3210,365 @@ footer{
   margin-top:30px;
 }
 
+  /* =========================================================
+   ACCUEIL — APERÇUS
+========================================================= */
+
+.home-preview{
+  margin-top:120px;
+  padding-top:90px;
+  border-top:1px solid rgba(255,255,255,.16);
+}
+
+.home-preview-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:40px;
+  margin-bottom:45px;
+}
+
+.home-preview-head h2{
+  color:#fff;
+  font-size:clamp(38px,5vw,68px);
+  line-height:.98;
+  letter-spacing:-.04em;
+  margin:0;
+  max-width:800px;
+}
+
+.home-preview-link{
+  flex-shrink:0;
+  color:#fff;
+  text-decoration:none;
+  font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding-bottom:7px;
+  border-bottom:1px solid rgba(255,255,255,.45);
+  transition:
+    opacity .3s ease,
+    gap .3s ease;
+}
+
+.home-preview-link::after{
+  content:'→';
+  font-size:17px;
+  line-height:1;
+}
+
+.home-preview-link:hover{
+  opacity:.7;
+  gap:15px;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.home-services-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:16px;
+}
+
+.home-service-card{
+  grid-column:span 4;
+  min-height:310px;
+  padding:30px;
+  background:#262322;
+  border:1px solid #3b3634;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  transition:
+    transform .4s ease,
+    background .4s ease,
+    border-color .4s ease;
+}
+
+.home-service-card:nth-child(4),
+.home-service-card:nth-child(5){
+  grid-column:span 6;
+}
+
+.home-service-card:hover{
+  transform:translateY(-6px);
+  background:#2c2928;
+  border-color:#5a514d;
+}
+
+.home-service-number{
+  position:absolute;
+  top:25px;
+  right:28px;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.18em;
+  color:var(--brown2);
+}
+
+.home-service-card h3{
+  color:#fff;
+  font-size:clamp(24px,2.5vw,36px);
+  line-height:1;
+  letter-spacing:-.03em;
+  margin:0 0 12px;
+  max-width:400px;
+}
+
+.home-service-card p{
+  color:#c9c4c0;
+  font-size:14px;
+  line-height:1.6;
+  max-width:480px;
+  margin:0;
+}
+
+
+/* =========================================================
+   RÉALISATIONS
+========================================================= */
+
+.home-references-preview{
+  color:#fff;
+}
+
+.home-references-grid{
+  display:grid;
+  grid-template-columns:repeat(12,1fr);
+  gap:16px;
+}
+
+.home-reference-card{
+  grid-column:span 6;
+  min-height:390px;
+  position:relative;
+  overflow:hidden;
+  background:#262322;
+  border:1px solid #3b3634;
+  display:flex;
+  align-items:flex-end;
+  padding:32px;
+  transition:transform .45s ease;
+}
+
+.home-reference-card:hover{
+  transform:translateY(-6px);
+}
+
+.home-reference-card-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .7s ease;
+}
+
+.home-reference-card:hover .home-reference-card-image{
+  transform:scale(1.04);
+}
+
+.home-reference-card-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.82),
+      rgba(0,0,0,.05) 70%
+    );
+}
+
+.home-reference-card-content{
+  position:relative;
+  z-index:2;
+}
+
+.home-reference-card-content h3{
+  color:#fff;
+  font-size:clamp(27px,3vw,45px);
+  line-height:1;
+  letter-spacing:-.035em;
+  margin:0;
+}
+
+
+/* =========================================================
+   PROJETS EN COURS
+========================================================= */
+
+.home-current-preview{
+  background:#1c1b1a;
+  margin-left:calc((100vw - 100%) / -2);
+  margin-right:calc((100vw - 100%) / -2);
+  padding-left:max(24px,calc((100vw - 1200px) / 2));
+  padding-right:max(24px,calc((100vw - 1200px) / 2));
+}
+
+.home-current-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.home-current-card{
+  min-height:360px;
+  position:relative;
+  overflow:hidden;
+  background:#262322;
+  border:1px solid #3b3634;
+}
+
+.home-current-card-image{
+  width:100%;
+  height:100%;
+  min-height:360px;
+  object-fit:cover;
+}
+
+.home-current-card-overlay{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      to top,
+      rgba(0,0,0,.82),
+      rgba(0,0,0,.08) 70%
+    );
+}
+
+.home-current-card-content{
+  position:absolute;
+  left:30px;
+  right:30px;
+  bottom:28px;
+  z-index:2;
+}
+
+.home-current-card-content h3{
+  color:#fff;
+  font-size:30px;
+  line-height:1;
+  margin:0 0 10px;
+}
+
+.home-current-card-content p{
+  color:#ddd;
+  font-size:14px;
+  margin:0;
+}
+
+
+/* =========================================================
+   CONTACT — FIN DE PAGE
+========================================================= */
+
+.home-contact-preview{
+  margin-top:120px;
+  padding:75px 0 110px;
+  border-top:1px solid rgba(255,255,255,.16);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:40px;
+}
+
+.home-contact-preview h2{
+  color:#fff;
+  font-size:clamp(38px,5vw,70px);
+  line-height:.95;
+  letter-spacing:-.04em;
+  margin:0;
+  max-width:750px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1000px){
+
+  .home-service-card,
+  .home-service-card:nth-child(4),
+  .home-service-card:nth-child(5){
+    grid-column:span 6;
+  }
+
+  .home-preview-head{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:25px;
+  }
+
+}
+
+
+@media(max-width:650px){
+
+  .home-preview{
+    margin-top:80px;
+    padding-top:65px;
+  }
+
+  .home-preview-head h2{
+    font-size:42px;
+  }
+
+  .home-services-grid,
+  .home-references-grid{
+    grid-template-columns:1fr;
+  }
+
+  .home-service-card,
+  .home-service-card:nth-child(4),
+  .home-service-card:nth-child(5),
+  .home-reference-card{
+    grid-column:span 1;
+  }
+
+  .home-service-card{
+    min-height:270px;
+  }
+
+  .home-reference-card{
+    min-height:300px;
+  }
+
+  .home-current-grid{
+    grid-template-columns:1fr;
+  }
+
+  .home-current-card{
+    min-height:300px;
+  }
+
+  .home-current-card-image{
+    min-height:300px;
+  }
+
+  .home-contact-preview{
+    margin-top:80px;
+    padding:60px 0 80px;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .home-contact-preview h2{
+    font-size:42px;
+  }
+
+}
+  
 @media(max-width:800px){
 
   .chantier-map-section{
@@ -3222,6 +3581,7 @@ footer{
   }
 
 }
+
   
 </style>
   <link
@@ -3323,6 +3683,7 @@ footer{
 
   <div class="container">
 
+    <!-- HERO -->
     <div class="hero-content">
 
       <img
@@ -3334,14 +3695,17 @@ footer{
 
       <h1 id="hero-title"></h1>
 
-<p id="hero-text"><span id="hero-text-line1"></span><span id="hero-text-line2"></span></p>
+      <p id="hero-text">
+        <span id="hero-text-line1"></span>
+        <span id="hero-text-line2"></span>
+      </p>
 
       <div class="buttons">
 
         <a
           class="btn primary"
           href="#"
-          data-page="who"
+          data-page="about"
           id="hero-about">
         </a>
 
@@ -3357,100 +3721,124 @@ footer{
     </div>
 
 
-    <!-- LA MÉTHODE ROOFCON -->
-    <div class="methode">
+    <!-- APERÇU DES SERVICES -->
+    <div class="home-preview home-services-preview">
 
-      <div class="head">
+      <div class="home-preview-head">
 
-      <div class="kicker" id="methode-kicker"></div>
+        <div>
 
-       <h2 id="methode-title"></h2>
+          <div class="kicker">
+            <span id="home-services-kicker"></span>
+          </div>
+
+          <h2 id="home-services-title"></h2>
+
+        </div>
+
+        <a
+          href="#"
+          data-page="about"
+          class="home-preview-link"
+          id="home-services-link">
+        </a>
 
       </div>
 
-      <div class="methode-grid">
-
-        <article class="methode-card">
-
-          <div class="methode-number">01</div>
-
-         <h3 id="methode-title-1"></h3>
-
-<p id="methode-text-1"></p>
-
-        </article>
-
-
-        <article class="methode-card">
-
-          <div class="methode-number">02</div>
-
-         <h3 id="methode-title-2"></h3>
-
-<p id="methode-text-2"></p>
-
-        </article>
-
-
-        <article class="methode-card">
-
-          <div class="methode-number">03</div>
-
-         <h3 id="methode-title-3"></h3>
-
-<p id="methode-text-3"></p>
-
-        </article>
-
-
-        <article class="methode-card">
-
-          <div class="methode-number">04</div>
-
-         <h3 id="methode-title-4"></h3>
-
-<p id="methode-text-4"></p>
-
-        </article>
-
-
-        <article class="methode-card">
-
-          <div class="methode-number">05</div>
-
-        <h3 id="methode-title-5"></h3>
-
-<p id="methode-text-5"></p>
-
-        </article>
-
+      <div
+        class="home-services-grid"
+        id="home-services-grid">
       </div>
 
     </div>
 
-    <!-- CARTE DES CHANTIERS -->
 
-<div class="chantier-map-section">
+    <!-- APERÇU DES RÉALISATIONS -->
+    <div class="home-preview home-references-preview">
 
-  <div class="head">
+      <div class="home-preview-head">
 
-   <div class="kicker" id="map-title">
-  NOS CHANTIERS
-</div>
+        <div>
 
-<h2 id="map-subtitle">
-  Retrouvez nos réalisations sur la carte.
-</h2>
+          <div class="kicker">
+            <span id="home-references-kicker"></span>
+          </div>
 
-  </div>
+          <h2 id="home-references-title"></h2>
 
-  <div
-    id="chantier-map"
-    class="chantier-map">
-  </div>
+        </div>
 
-</div>
-    
+        <a
+          href="#"
+          data-page="references"
+          class="home-preview-link"
+          id="home-references-link">
+        </a>
+
+      </div>
+
+      <div
+        class="home-references-grid"
+        id="home-references-grid">
+      </div>
+
+    </div>
+
+
+    <!-- PROJETS EN COURS -->
+    <div
+      class="home-preview home-current-preview"
+      id="home-current-preview">
+
+      <div class="home-preview-head">
+
+        <div>
+
+          <div class="kicker">
+            <span id="home-current-kicker"></span>
+          </div>
+
+          <h2 id="home-current-title"></h2>
+
+        </div>
+
+        <a
+          href="#"
+          data-page="current-projects"
+          class="home-preview-link"
+          id="home-current-link">
+        </a>
+
+      </div>
+
+      <div
+        class="home-current-grid"
+        id="home-current-grid">
+      </div>
+
+    </div>
+
+
+    <!-- CONTACT -->
+    <div class="home-contact-preview">
+
+      <div>
+
+        <div class="kicker" id="home-contact-kicker"></div>
+
+        <h2 id="home-contact-title"></h2>
+
+      </div>
+
+      <a
+        href="#"
+        data-page="contact"
+        class="btn primary"
+        id="home-contact-link">
+      </a>
+
+    </div>
+
   </div>
 
 </section>
