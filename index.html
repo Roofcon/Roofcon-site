@@ -227,18 +227,6 @@ section{
 section.active-page{
   display:block;
 }
-
-  /* ACCUEIL = PAGE LONGUE */
-
-section.home-visible{
-  display:block;
-}
-
-/* Le hero reste un bloc flex */
-
-.hero.home-visible{
-  display:flex;
-}
   
 /* HERO */
 
@@ -4663,49 +4651,15 @@ function showPage(id){
 
 
   /* ================================
-     ACCUEIL = PAGE LONGUE
+     AFFICHER LA PAGE
   ================================ */
 
-  if(id === 'accueil'){
+  const page =
+    document.getElementById(id);
 
-    const homeSections = [
-      'accueil',
-      'who',
-      'about',
-      'current-projects',
-      'references',
-      'contact'
-    ];
+  if(page){
 
-    homeSections.forEach(function(sectionId){
-
-      const section =
-        document.getElementById(sectionId);
-
-      if(section){
-
-        section.classList.add('home-visible');
-
-      }
-
-    });
-
-  }
-
-  /* ================================
-     AUTRES PAGES
-  ================================ */
-
-  else{
-
-    const page =
-      document.getElementById(id);
-
-    if(page){
-
-      page.classList.add('active-page');
-
-    }
+    page.classList.add('active-page');
 
   }
 
@@ -4726,54 +4680,26 @@ function showPage(id){
 
   setTimeout(function(){
 
-    let visibleSections;
+    if(!page) return;
 
-    if(id === 'accueil'){
+    page
+      .querySelectorAll('.reveal')
+      .forEach(function(element){
 
-      visibleSections =
-        document.querySelectorAll(
-          'section.home-visible'
-        );
+        element.classList.remove('visible');
 
-    }else{
-
-      const page =
-        document.getElementById(id);
-
-      visibleSections =
-        page
-          ? [page]
-          : [];
-
-    }
-
-
-    visibleSections.forEach(function(section){
-
-      section
-        .querySelectorAll('.reveal')
-        .forEach(function(element){
-
-          element.classList.remove('visible');
-
-        });
-
-    });
+      });
 
 
     setTimeout(function(){
 
-      visibleSections.forEach(function(section){
+      page
+        .querySelectorAll('.reveal')
+        .forEach(function(element){
 
-        section
-          .querySelectorAll('.reveal')
-          .forEach(function(element){
+          element.classList.add('visible');
 
-            element.classList.add('visible');
-
-          });
-
-      });
+        });
 
     },50);
 
