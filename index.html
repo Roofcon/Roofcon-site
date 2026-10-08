@@ -804,8 +804,9 @@ h1 span{
   padding-top:28px;
 
   display:flex;
-  align-items:center;
-  gap:28px;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:16px;
 }
 
 .pole-discover,
@@ -6497,16 +6498,7 @@ document.getElementById('poles-grid').innerHTML =
           ${esc(t(pole.text))}
         </p>
 
-       <div class="pole-actions">
-
-  <button
-    type="button"
-    class="pole-discover"
-    onclick="openReferenceCategory('${esc(pole.id)}', 'about'); event.stopPropagation();">
-
-    ${LANG === 'fr' ? 'Découvrir' : 'Entdecken'}
-
-  </button>
+      <div class="pole-actions">
 
   <button
     type="button"
@@ -6514,6 +6506,15 @@ document.getElementById('poles-grid').innerHTML =
     onclick="openServiceInfo('${esc(pole.id)}'); event.stopPropagation();">
 
     ${LANG === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
+
+  </button>
+
+  <button
+    type="button"
+    class="pole-discover"
+    onclick="openReferenceCategory('${esc(pole.id)}', 'about'); event.stopPropagation();">
+
+    ${LANG === 'fr' ? 'Découvrir' : 'Entdecken'}
 
   </button>
 
