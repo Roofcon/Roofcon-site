@@ -7911,12 +7911,30 @@ fetch('./content.json?v='+Date.now())
 
   initChantierMap();
 
-  showPage('accueil');
+  const params =
+    new URLSearchParams(window.location.search);
+
+  const requestedPage =
+    params.get('page');
+
+  const pageFromUrl = {
+    about: 'about',
+    references: 'references',
+    'current-projects': 'current-projects',
+    jobs: 'jobs',
+    contact: 'contact'
+  };
+
+  const initialPage =
+    pageFromUrl[requestedPage] || 'accueil';
+
+  console.log('PAGE INITIALE :', initialPage);
+
+  showPage(initialPage);
 
   initReveal();
 
 })
-
 .catch(function(error){
 
   console.error(error);
