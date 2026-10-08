@@ -228,6 +228,18 @@ section.active-page{
   display:block;
 }
 
+  /* ACCUEIL = PAGE LONGUE */
+
+section.home-visible{
+  display:block;
+}
+
+/* Le hero reste un bloc flex */
+
+.hero.home-visible{
+  display:flex;
+}
+  
 /* HERO */
 
 .hero{
@@ -4635,38 +4647,135 @@ function goBackFromDetail(){
 
 function showPage(id){
 
-  document.querySelectorAll('section').forEach(function(section){
+  const sections =
+    document.querySelectorAll('section');
+
+  /* ================================
+     NETTOYER L'AFFICHAGE
+  ================================ */
+
+  sections.forEach(function(section){
+
     section.classList.remove('active-page');
+    section.classList.remove('home-visible');
+
   });
 
-  const page = document.getElementById(id);
 
-  if(page){
-    page.classList.add('active-page');
+  /* ================================
+     ACCUEIL = PAGE LONGUE
+  ================================ */
+
+  if(id === 'accueil'){
+
+    const homeSections = [
+      'accueil',
+      'who',
+      'about',
+      'current-projects',
+      'references',
+      'contact'
+    ];
+
+    homeSections.forEach(function(sectionId){
+
+      const section =
+        document.getElementById(sectionId);
+
+      if(section){
+
+        section.classList.add('home-visible');
+
+      }
+
+    });
+
   }
+
+  /* ================================
+     AUTRES PAGES
+  ================================ */
+
+  else{
+
+    const page =
+      document.getElementById(id);
+
+    if(page){
+
+      page.classList.add('active-page');
+
+    }
+
+  }
+
+
+  /* ================================
+     RETOUR EN HAUT
+  ================================ */
 
   window.scrollTo({
     top:0,
     behavior:'smooth'
   });
 
+
+  /* ================================
+     ANIMATIONS
+  ================================ */
+
   setTimeout(function(){
 
-    if(page){
+    let visibleSections;
 
-      page.querySelectorAll('.reveal').forEach(function(element){
-        element.classList.remove('visible');
-      });
+    if(id === 'accueil'){
 
-      setTimeout(function(){
+      visibleSections =
+        document.querySelectorAll(
+          'section.home-visible'
+        );
 
-        page.querySelectorAll('.reveal').forEach(function(element){
-          element.classList.add('visible');
-        });
+    }else{
 
-      },50);
+      const page =
+        document.getElementById(id);
+
+      visibleSections =
+        page
+          ? [page]
+          : [];
 
     }
+
+
+    visibleSections.forEach(function(section){
+
+      section
+        .querySelectorAll('.reveal')
+        .forEach(function(element){
+
+          element.classList.remove('visible');
+
+        });
+
+    });
+
+
+    setTimeout(function(){
+
+      visibleSections.forEach(function(section){
+
+        section
+          .querySelectorAll('.reveal')
+          .forEach(function(element){
+
+            element.classList.add('visible');
+
+          });
+
+      });
+
+    },50);
 
   },50);
 
