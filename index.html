@@ -795,13 +795,21 @@ h1 span{
   margin:0;
 }
 
-/* BOUTON */
+/* ================================
+   ACTIONS
+================================ */
 
-.pole-discover{
+.pole-actions{
   margin-top:auto;
-
   padding-top:28px;
 
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.pole-discover,
+.pole-more{
   border:none;
   background:none;
 
@@ -826,7 +834,8 @@ h1 span{
     opacity .3s ease;
 }
 
-.pole-discover::after{
+.pole-discover::after,
+.pole-more::after{
   content:'→';
 
   font-size:17px;
@@ -835,15 +844,16 @@ h1 span{
   transition:transform .3s ease;
 }
 
-.pole-discover:hover{
+.pole-discover:hover,
+.pole-more:hover{
   opacity:.8;
   gap:15px;
 }
 
-.pole-discover:hover::after{
+.pole-discover:hover::after,
+.pole-more:hover::after{
   transform:translateX(3px);
 }
-
 /* =========================================================
    RÉALISATIONS — EN-TÊTE
 ========================================================= */
