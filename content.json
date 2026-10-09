@@ -554,16 +554,16 @@
   },
   "jobs": {
     "kicker": {
-      "fr": "Rejoignez ROOFCON",
-      "de": "Werden Sie Teil von ROOFCON"
+      "fr": "Offres d’emploi",
+      "de": "Stellenangebote"
     },
     "title": {
-      "fr": "Nos offres d'emploi",
-      "de": "Unsere Stellenangebote"
+      "fr": "Rejoignez l’équipe ROOFCON",
+      "de": "Werden Sie Teil des ROOFCON-Teams"
     },
     "intro": {
-      "fr": "Découvrez les opportunités actuellement disponibles au sein de ROOFCON.",
-      "de": "Entdecken Sie unsere aktuellen Stellenangebote bei ROOFCON."
+      "fr": "Découvrez les opportunités professionnelles chez ROOFCON et participez à des projets variés dans les domaines de la construction bois, de la charpente, de la toiture et des façades ventilées. Nous recherchons des personnes motivées, attachées au travail bien fait et désireuses de mettre leur savoir-faire au service de réalisations de qualité.",
+      "de": "Entdecken Sie berufliche Möglichkeiten bei ROOFCON und arbeiten Sie an vielseitigen Projekten in den Bereichen Holzbau, Dachkonstruktionen, Dachdeckerarbeiten und hinterlüftete Fassaden mit. Wir suchen motivierte Menschen, die Wert auf sorgfältige Arbeit legen und ihre Fähigkeiten bei hochwertigen Bauprojekten einbringen möchten."
     },
     "items": [
       {
