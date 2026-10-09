@@ -2140,19 +2140,13 @@ function renderCurrentProjects(){
 
         <h3>Projet ${i+1}</h3>
 
-       <button
+      <button
   type="button"
-  onclick="alert('Le bouton fonctionne')"
-  style="
-    position:relative;
-    z-index:99999;
-    pointer-events:auto;
-    cursor:pointer;
-  "
+  class="danger"
+  onclick="deleteCurrentProject(${i})"
 >
   Supprimer
 </button>
-
       </div>
 
       <div class="grid">
