@@ -4638,7 +4638,9 @@ footer{
 
 let CONTENT = null;
 
-let LANG = localStorage.getItem('roofconLang') || 'fr';
+let LANG = new URLSearchParams(window.location.search).get('lang')
+  || localStorage.getItem('roofconLang')
+  || 'fr';
 let currentServiceInfoId = null;
 
   function updateHreflang(page){
