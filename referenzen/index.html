@@ -1,55 +1,470 @@
+
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Referenzen | Bauprojekte in Luxemburg | ROOFCON</title>
-
-  <meta
-    name="description"
-    content="Entdecken Sie die Referenzen von ROOFCON: hinterlüftete Fassaden, Dächer, Holzbau, Dacheindeckungen und Holzrahmenbau in Luxemburg."
-  >
-
+  <title>Referenzen | Dach, Holzbau und Fassaden | ROOFCON</title>
+  <meta name="description" content="Entdecken Sie die Tätigkeitsbereiche von ROOFCON in Luxemburg: hinterlüftete Fassaden, Flachdächer, Dachstühle, Dacheindeckungen und Holzrahmenbau.">
   <meta name="robots" content="index, follow">
 
-  <link
-    rel="canonical"
-    href="https://roof-con.com/referenzen"
-  >
+  <link rel="canonical" href="https://roof-con.com/referenzen/">
+  <link rel="alternate" hreflang="fr" href="https://roof-con.com/realisations/">
+  <link rel="alternate" hreflang="de" href="https://roof-con.com/referenzen/">
+  <link rel="alternate" hreflang="x-default" href="https://roof-con.com/realisations/">
 
-  <link
-    rel="alternate"
-    hreflang="fr"
-    href="https://roof-con.com/realisations"
-  >
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Referenzen | ROOFCON">
+  <meta property="og:description" content="Ein Überblick über die Tätigkeitsbereiche von ROOFCON in Luxemburg.">
+  <meta property="og:url" content="https://roof-con.com/referenzen/">
+  <meta property="og:image" content="https://roof-con.com/ROOFCON.png">
 
-  <link
-    rel="alternate"
-    hreflang="de"
-    href="https://roof-con.com/referenzen"
-  >
+  <style>
+    :root {
+      --black: #211f20;
+      --brown: #a27b5b;
+      --brown2: #c3a080;
+      --cream: #f5f2ee;
+      --gray: #706b67;
+      --line: #e5dfda;
+    }
 
-  <link
-    rel="alternate"
-    hreflang="x-default"
-    href="https://roof-con.com/realisations"
-  >
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <script>
-localStorage.setItem('roofconLang', 'de');
-window.location.replace('/?page=references');
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .top {
+      background: var(--black);
+      color: #eee;
+      font-size: 13px;
+      padding: 8px 0;
+      text-align: right;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      width: 190px;
+      max-width: 40vw;
+      display: block;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .menu a:hover {
+      color: var(--brown);
+    }
+
+    .menu .cta {
+      background: var(--brown);
+      color: #fff;
+      padding: 12px 18px;
+    }
+
+    .lang {
+      display: flex;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .lang a {
+      border: 1px solid var(--line);
+      padding: 6px 9px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .lang .active {
+      background: var(--brown);
+      color: #fff;
+      border-color: var(--brown);
+    }
+
+    .hero {
+      background: var(--black);
+      color: #fff;
+      padding: 100px 0 110px;
+    }
+
+    .kicker {
+      color: var(--brown2);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      max-width: 950px;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -2px;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 780px;
+      color: #d5d0cc;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .references {
+      padding: 95px 0 110px;
+      background: var(--cream);
+    }
+
+    .section-head {
+      max-width: 850px;
+      margin-bottom: 45px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(32px, 4.5vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+
+    .section-head p {
+      color: var(--gray);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 32px;
+      min-height: 220px;
+    }
+
+    .number {
+      color: var(--brown);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 22px;
+    }
+
+    .card h2 {
+      font-size: 25px;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .note {
+      margin-top: 28px;
+      padding: 24px;
+      background: #fff;
+      border-left: 3px solid var(--brown);
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    .cta-section {
+      background: var(--black);
+      color: #fff;
+      padding: 75px 0;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .cta-section p {
+      color: #c9c4c0;
+      margin-bottom: 10px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 14px 22px;
+      background: var(--brown);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .button:hover {
+      background: #806044;
+    }
+
+    footer {
+      background: #171616;
+      color: #aaa;
+      padding: 35px 0;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer a:hover {
+      color: var(--brown2);
+    }
+
+    @media (max-width: 850px) {
+      .nav {
+        flex-wrap: wrap;
+        padding: 16px 0;
+        gap: 14px;
+      }
+
+      .menu {
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+        font-size: 13px;
+      }
+
+      .lang {
+        margin-left: auto;
+      }
+
+      .hero {
+        padding: 75px 0 85px;
+      }
+
+      .references {
+        padding: 70px 0 80px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .logo {
+        width: 145px;
+      }
+
+      .menu {
+        gap: 10px 14px;
+      }
+
+      .hero p,
+      .section-head p {
+        font-size: 16px;
+      }
+
+      .card {
+        padding: 25px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Referenzen von ROOFCON",
+    "url": "https://roof-con.com/referenzen/",
+    "inLanguage": "de",
+    "about": {
+      "@type": "Organization",
+      "@id": "https://roof-con.com/#organization",
+      "name": "ROOFCON",
+      "url": "https://roof-con.com/"
+    }
+  }
   </script>
-
 </head>
 
 <body>
+  <div class="top">
+    <div class="container">
+      <a href="tel:+352621765489">+352 621 765 489</a>
+      &nbsp; | &nbsp;
+      <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+    </div>
+  </div>
 
-  <p>ROOFCON — Referenzen</p>
+  <header>
+    <div class="container nav">
+      <a href="/" aria-label="ROOFCON Startseite">
+        <img class="logo" src="../ROOFCON.png" alt="ROOFCON">
+      </a>
 
+      <nav class="menu" aria-label="Hauptnavigation">
+        <a href="/">Startseite</a>
+        <a href="/leistungen/">Unsere Bereiche</a>
+        <a href="/aktuelle-projekte/">Aktuelle Projekte</a>
+        <a href="/referenzen/" aria-current="page">Referenzen</a>
+        <a href="/karriere/">Karriere</a>
+        <a class="cta" href="/kontakt/">Kontakt</a>
+      </nav>
+
+      <div class="lang" aria-label="Sprache">
+        <a href="/realisations/" lang="fr">FR</a>
+        <a class="active" href="/referenzen/" lang="de">DE</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="kicker">ROOFCON · Referenzen</div>
+        <h1>Unsere Arbeit im Überblick</h1>
+        <p>
+          ROOFCON ist in verschiedenen Bereichen des Bauwesens tätig.
+          Hier finden Sie einen Überblick über unsere Fachgebiete rund
+          um Fassaden, Dächer und Holzkonstruktionen.
+        </p>
+      </div>
+    </section>
+
+    <section class="references">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Unsere Fachgebiete</div>
+          <h2>Bereiche unserer Tätigkeit</h2>
+          <p>
+            Die folgenden Bereiche zeigen, welche Arten von Arbeiten
+            ROOFCON ausführt. Sie sind keine Liste einzelner, namentlich
+            genannter Bauprojekte.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <div class="number">01 / FASSADEN</div>
+            <h2>Hinterlüftete Fassaden</h2>
+            <p>
+              Fassadenkonstruktionen mit Hinterlüftung, bei denen
+              Funktionalität, Schutz und Gestaltung zusammenspielen.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">02 / FLACHDÄCHER</div>
+            <h2>Flachdächer</h2>
+            <p>
+              Fachgerechte Ausführung von Flachdacharbeiten mit Augenmerk
+              auf Abdichtung, Anschlüsse und Details.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">03 / HOLZBAU</div>
+            <h2>Holzdachstühle und Tragkonstruktionen</h2>
+            <p>
+              Herstellung und Montage von Holzkonstruktionen für Dächer
+              und weitere Bauvorhaben.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">04 / DACHDECKUNG</div>
+            <h2>Dacheindeckungen</h2>
+            <p>
+              Dachdeckungsarbeiten zum Schutz des Gebäudes vor Witterung,
+              mit sorgfältig ausgeführten Anschlüssen und Details.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="number">05 / HOLZRAHMENBAU</div>
+            <h2>Häuser und Anbauten in Holzrahmenbauweise</h2>
+            <p>
+              Holzrahmenkonstruktionen für Häuser und Anbauten,
+              abgestimmt auf die Anforderungen des jeweiligen Projekts.
+            </p>
+          </article>
+        </div>
+
+        <div class="note">
+          Hinweis: Diese Seite beschreibt die Tätigkeitsbereiche von
+          ROOFCON. Konkrete Projektbeispiele werden ergänzt, wenn
+          entsprechende freigegebene Informationen und Bilder vorliegen.
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Sie möchten ein Projekt mit uns besprechen?</h2>
+        <p>
+          Kontaktieren Sie ROOFCON, um Ihre Anforderungen mit unserem Team
+          zu besprechen.
+        </p>
+        <a class="button" href="/kontakt/">Kontakt aufnehmen →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© ROOFCON — Holzbau · Bedachung · Fassadenbau</span>
+      <span>
+        <a href="/mentions-legales/">Impressum</a>
+        &nbsp; · &nbsp;
+        <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+      </span>
+    </div>
+  </footer>
 </body>
-
 </html>
