@@ -2281,6 +2281,81 @@ function renderCurrentProjects(){
 
 }
 
+  
+async function selectCurrentProjectImages(index, input){
+
+  const files = Array.from(input.files || []);
+  if(!files.length) return;
+
+  try{
+    const s = auth();
+    const project = C.currentProjects.items[index];
+
+    if(!project) throw new Error('Projet introuvable.');
+    if(!Array.isArray(project.images)) project.images = [];
+
+    $('status').textContent = 'Envoi des photos vers GitHub…';
+
+    for(const file of files){
+      const extension = file.name.split('.').pop().toLowerCase();
+      const filename = (project.id || 'current-project-' + Date.now())
+        + '-' + Date.now() + '-' 
+        + Math.random().toString(36).substring(2,8)
+        + '.' + extension;
+
+      const path = 'images/projets-en-cours/' + filename;
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      let binary = '';
+      bytes.forEach(b => binary += String.fromCharCode(b));
+
+      await api('/contents/' + path, {
+        method: 'PUT',
+        body: JSON.stringify({
+          message: 'Ajouter une photo à un projet en cours',
+          content: btoa(binary),
+          branch: s.branch
+        })
+      });
+
+      project.images.push(path);
+    }
+
+    input.value = '';
+    renderCurrentProjects();
+
+    $('status').innerHTML =
+      '<span class="success">Photos envoyées. Cliquez sur « Enregistrer et publier » pour enregistrer les modifications.</span>';
+
+  }catch(e){
+    console.error(e);
+    $('status').innerHTML =
+      '<span class="danger-text">Erreur lors de l’envoi : ' +
+      escapeHtml(e.message) + '</span>';
+  }
+}
+
+async function deleteCurrentProjectImage(projectIndex, imageIndex){
+
+  const project = C.currentProjects?.items?.[projectIndex];
+  if(!project || !Array.isArray(project.images)) return;
+
+  const image = project.images[imageIndex];
+  if(!image) return;
+
+  if(!confirm('Retirer cette photo du projet ?')) return;
+
+  project.images.splice(imageIndex, 1);
+
+  if(project.image === image){
+    project.image = project.images[0] || '';
+  }
+
+  renderCurrentProjects();
+
+  $('status').innerHTML =
+    '<span class="success">Photo retirée. Cliquez sur « Enregistrer et publier » pour enregistrer la modification.</span>';
+}
+  
   function addCurrentProject(){
 
   if(!C.currentProjects){
