@@ -298,6 +298,51 @@
       line-height: 1.65;
       margin: 0;
     }
+    
+.card .pole-actions {
+  margin-top: auto;
+  padding-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.card .pole-discover,
+.card .pole-more {
+  border: none;
+  background: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: gap .3s ease, opacity .3s ease;
+}
+
+.card .pole-discover::after,
+.card .pole-more::after {
+  content: '→';
+  font-size: 17px;
+  line-height: 1;
+  transition: transform .3s ease;
+}
+
+.card .pole-discover:hover,
+.card .pole-more:hover {
+  opacity: .8;
+  gap: 15px;
+}
+
+.card .pole-discover:hover::after,
+.card .pole-more:hover::after {
+  transform: translateX(3px);
+}
     /* APPEL À L'ACTION */
 
     .cta-section {
@@ -584,8 +629,8 @@
     <section class="services">
       <div class="container">
         <div class="section-head">
-          <div class="kicker">Nos compétences</div>
-          <h2>Des solutions adaptées à chaque projet</h2>
+         <div class="kicker">Nos services</div>
+<h2>Nos services en construction bois, toiture, charpente, couvertures et façade</h2>
           <p>
             Chaque intervention demande une préparation rigoureuse, une
             bonne coordination et une réalisation soignée. Découvrez les
@@ -598,50 +643,86 @@
             <span class="number">01 / FAÇADES</span>
             <h3>Façades ventilées</h3>
             <p>
-              Réalisation de façades ventilées avec une attention portée
-              à la préparation du support, à la structure porteuse et à
-              la pose du revêtement extérieur.
+             Réalisation de façades ventilées pour bâtiments résidentiels, professionnels et industriels. ROOFCON assure la mise en œuvre de solutions adaptées à l'architecture du bâtiment, aux exigences techniques et au choix des matériaux, avec une attention particulière portée à la qualité des finitions.
             </p>
+            
+<div class="pole-actions">
+  <a class="pole-discover" href="/services/facades-ventilees/">
+    En savoir plus
+  </a>
+  <a class="pole-more" href="/realisations/">
+    Découvrir
+  </a>
+</div>
           </article>
 
           <article class="card">
             <span class="number">02 / TOITURES</span>
             <h3>Toitures plates</h3>
             <p>
-              Mise en œuvre de systèmes de toiture plate, avec une attention
-              particulière à l’isolation, à l’étanchéité et aux finitions
-              adaptées au bâtiment.
+              Conception et réalisation de toitures plates pour les constructions neuves comme pour les projets de rénovation. ROOFCON met en œuvre des solutions adaptées à chaque bâtiment, en accordant une attention particulière à l'isolation, à l'étanchéité, aux raccords et aux détails techniques.
             </p>
+            
+<div class="pole-actions">
+  <a class="pole-discover" href="/services/toitures-plates/">
+    En savoir plus
+  </a>
+  <a class="pole-more" href="/realisations/">
+    Découvrir
+  </a>
+</div>
           </article>
 
           <article class="card">
             <span class="number">03 / CHARPENTES</span>
             <h3>Charpentes en bois</h3>
             <p>
-              Préparation et réalisation de structures de charpente en bois,
-              en coordination avec les autres étapes du chantier et les
-              exigences du projet.
+             Conception et réalisation de charpentes et de structures en bois pour maisons, bâtiments professionnels et projets sur mesure. De la préparation des éléments à leur assemblage et leur mise en place sur chantier, ROOFCON réalise des structures adaptées aux contraintes et aux exigences de chaque projet.
+
             </p>
+            
+<div class="pole-actions">
+  <a class="pole-discover" href="/services/charpentes/">
+    En savoir plus
+  </a>
+  <a class="pole-more" href="/realisations/">
+    Découvrir
+  </a>
+</div>
           </article>
 
           <article class="card">
             <span class="number">04 / COUVERTURES</span>
             <h3>Couvertures</h3>
             <p>
-              Réalisation de couvertures de toiture et de leurs finitions,
-              pour contribuer à la protection du bâtiment contre les
-              intempéries.
+             Réalisation et rénovation de couvertures de toiture pour différents types de bâtiments. ROOFCON veille à la qualité de la mise en œuvre, à la protection du bâtiment contre les intempéries et à la précision des raccords et finitions, aussi bien en construction neuve qu'en rénovation.
             </p>
+            
+<div class="pole-actions">
+  <a class="pole-discover" href="/services/couvertures/">
+    En savoir plus
+  </a>
+  <a class="pole-more" href="/realisations/">
+    Découvrir
+  </a>
+</div>
           </article>
 
           <article class="card">
             <span class="number">05 / OSSATURE BOIS</span>
             <h3>Maisons et annexes en ossature bois</h3>
             <p>
-              Réalisation d’ouvrages en ossature bois pour des projets de
-              construction ou d’extension, selon les plans et les contraintes
-              propres à chaque chantier.
+             Construction de maisons, extensions et annexes en ossature bois, conçues selon les besoins de chaque projet. ROOFCON prend en charge la réalisation des structures bois avec une approche précise et adaptée aux contraintes du bâtiment, de la préparation des éléments jusqu'à leur mise en œuvre sur chantier.
             </p>
+            
+<div class="pole-actions">
+  <a class="pole-discover" href="/services/ossature-bois/">
+    En savoir plus
+  </a>
+  <a class="pole-more" href="/realisations/">
+    Découvrir
+  </a>
+</div>
           </article>
         </div>
       </div>
