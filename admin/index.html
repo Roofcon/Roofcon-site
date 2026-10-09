@@ -656,7 +656,7 @@ Votre token reste enregistré uniquement dans votre navigateur.
 
 <section class="card">
 
-<h2>À propos</h2>
+<h2>Nos services</h2>
 
 <div class="grid">
 
@@ -2640,38 +2640,6 @@ async function locateCurrentProject(index){
    PROJETS
 ========================= */
 
-function addProject(categoryIndex){
-
-  if(!C.references.items[categoryIndex].projects){
-
-    C.references.items[categoryIndex].projects=[];
-
-  }
-
-C.references.items[categoryIndex].projects.push({
-
-  id:'project-'+Date.now(),
-
-  title:{
-    fr:'',
-    de:''
-  },
-
-  description:{
-    fr:'',
-    de:''
-  },
-
-  image:'',
-
-  images:[]
-
-});
-
-  renderReferences();
-
-}
-
   function addProject(categoryIndex){
 
   if(!C.references.items[categoryIndex].projects){
@@ -4288,10 +4256,6 @@ renderReferences();
 renderMapMarkers();
 renderJobs();
   
-  renderPoles();
-  renderReferences();
-  renderJobs();
-
 }
 
 
