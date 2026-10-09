@@ -1,14 +1,7 @@
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://roof-con.com/</loc></url>
-  <url><loc>https://roof-con.com/services/</loc></url>
-  <url><loc>https://roof-con.com/realisations/</loc></url>
-  <url><loc>https://roof-con.com/projets-en-cours/</loc></url>
-  <url><loc>https://roof-con.com/emploi/</loc></url>
-  <url><loc>https://roof-con.com/contact/</loc></url>
-  <url><loc>https://roof-con.com/leistungen/</loc></url>
-  <url><loc>https://roof-con.com/referenzen/</loc></url>
-  <url><loc>https://roof-con.com/aktuelle-projekte/</loc></url>
-  <url><loc>https://roof-con.com/karriere/</loc></url>
-  <url><loc>https://roof-con.com/kontakt/</loc></url>
+  <url>
+    <loc>https://roof-con.com/</loc>
+  </url>
 </urlset>
