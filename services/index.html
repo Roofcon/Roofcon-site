@@ -20,6 +20,11 @@
   <meta property="og:url" content="https://roof-con.com/services/">
   <meta property="og:image" content="https://roof-con.com/ROOFCON.png">
 
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Charpentes, toitures et façades au Luxembourg | ROOFCON">
+  <meta name="twitter:description" content="Découvrez les activités de ROOFCON au Luxembourg.">
+  <meta name="twitter:image" content="https://roof-con.com/ROOFCON.png">
+
   <style>
     :root {
       --black: #211f20;
@@ -36,6 +41,10 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: Arial, Helvetica, sans-serif;
       color: var(--black);
@@ -48,25 +57,49 @@
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+    }
+
     .container {
       width: min(1180px, 92%);
       margin: auto;
     }
 
+    /* BARRE DE CONTACT */
+
     .top {
       background: var(--black);
       color: #eee;
       font-size: 13px;
-      padding: 8px 0;
-      text-align: right;
     }
+
+    .top .inner {
+      min-height: 38px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .top a {
+      color: inherit;
+      transition: color .25s ease;
+    }
+
+    .top a:hover {
+      color: var(--brown2);
+    }
+
+    /* NAVIGATION */
 
     header {
       background: #fff;
       border-bottom: 1px solid var(--line);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 30;
     }
 
     .nav {
@@ -74,7 +107,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
     }
 
     .logo {
@@ -86,9 +119,13 @@
     .menu {
       display: flex;
       align-items: center;
-      gap: 22px;
+      gap: 25px;
       font-size: 14px;
       font-weight: 800;
+    }
+
+    .menu a {
+      transition: color .25s ease, background .25s ease;
     }
 
     .menu a:hover {
@@ -101,6 +138,11 @@
       padding: 12px 18px;
     }
 
+    .menu .cta:hover {
+      background: var(--black);
+      color: #fff;
+    }
+
     .lang {
       display: flex;
       gap: 4px;
@@ -109,9 +151,10 @@
 
     .lang a {
       border: 1px solid var(--line);
-      padding: 6px 9px;
+      padding: 7px 10px;
       font-size: 12px;
       font-weight: 800;
+      transition: background .25s ease, color .25s ease;
     }
 
     .lang .active {
@@ -120,114 +163,153 @@
       border-color: var(--brown);
     }
 
+    /* INTRODUCTION */
+
     .hero {
       background: var(--black);
       color: #fff;
-      padding: 100px 0 110px;
+      padding: 92px 0 45px;
     }
 
     .kicker {
       color: var(--brown2);
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 800;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
-    h1 {
-      max-width: 950px;
-      font-size: clamp(40px, 6vw, 72px);
-      line-height: 1.02;
-      letter-spacing: -2px;
-      margin-bottom: 28px;
+    .hero .kicker,
+    .section-head .kicker {
+      text-align: center;
+    }
+
+    .hero h1 {
+      max-width: 1000px;
+      margin: 0 auto 25px;
+      font-size: clamp(34px, 4vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      text-align: center;
     }
 
     .hero p {
-      max-width: 760px;
-      color: #d5d0cc;
+      max-width: 900px;
+      margin: 0 auto;
+      color: #c9c4c0;
       font-size: 18px;
-      line-height: 1.8;
+      line-height: 1.7;
+      text-align: center;
     }
 
+    /* NOS PÔLES */
+
     .services {
-      padding: 95px 0 110px;
-      background: #f4f2ef;
+      background: var(--black);
+      color: #fff;
+      padding: 45px 0 110px;
     }
 
     .section-head {
-      max-width: 850px;
-      margin-bottom: 48px;
+      max-width: 900px;
+      margin: 0 auto 65px;
+      text-align: center;
     }
 
     .section-head h2 {
-      font-size: clamp(32px, 4.5vw, 54px);
-      line-height: 1.08;
-      letter-spacing: -1.5px;
-      margin-bottom: 20px;
+      font-size: clamp(34px, 4vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -.02em;
+      margin-bottom: 25px;
     }
 
     .section-head p {
-      color: var(--gray);
-      font-size: 17px;
-      line-height: 1.8;
+      color: #c9c4c0;
+      font-size: 18px;
+      line-height: 1.7;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(12, minmax(0, 1fr));
       gap: 18px;
     }
 
     .card {
-      background: #fff;
-      border: 1px solid var(--line);
-      padding: 35px;
-      min-height: 240px;
-      transition: transform .25s ease, border-color .25s ease;
+      grid-column: span 4;
+      background: #262322;
+      border: 1px solid #3b3634;
+      color: #fff;
+      padding: 30px;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        background .35s ease;
+    }
+
+    .card:nth-child(4),
+    .card:nth-child(5) {
+      grid-column: span 6;
+      min-height: 280px;
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--brown);
+      transform: translateY(-6px);
+      background: #2c2928;
+      border-color: #5a514d;
     }
 
     .number {
       display: block;
-      color: var(--brown);
+      color: var(--brown2);
       font-size: 11px;
       font-weight: 800;
-      letter-spacing: 3px;
-      margin-bottom: 22px;
+      letter-spacing: .2em;
+      margin-bottom: 18px;
     }
 
-    .card h2 {
-      font-size: clamp(23px, 3vw, 32px);
-      line-height: 1.15;
-      margin-bottom: 16px;
+    .card h3 {
+      font-size: clamp(21px, 2vw, 28px);
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      margin: 0 0 15px;
+      overflow-wrap: normal;
+      word-break: normal;
     }
 
     .card p {
-      color: var(--gray);
+      color: #c9c4c0;
       font-size: 15px;
-      line-height: 1.8;
+      line-height: 1.65;
+      margin: 0;
     }
 
+    /* APPEL À L'ACTION */
+
     .cta-section {
-      background: var(--black);
+      background: #262322;
       color: #fff;
       padding: 75px 0;
+      border-top: 1px solid #3b3634;
     }
 
     .cta-section h2 {
+      max-width: 850px;
       font-size: clamp(30px, 4vw, 48px);
       line-height: 1.1;
+      letter-spacing: -.02em;
       margin-bottom: 18px;
     }
 
     .cta-section p {
       color: #c9c4c0;
       margin-bottom: 28px;
+      max-width: 760px;
+      line-height: 1.7;
     }
 
     .button {
@@ -235,8 +317,9 @@
       padding: 14px 22px;
       background: var(--brown);
       color: #fff;
+      font-size: 13px;
       font-weight: 800;
-      transition: background .2s ease;
+      transition: background .25s ease, color .25s ease;
     }
 
     .button:hover {
@@ -244,23 +327,93 @@
       color: var(--black);
     }
 
+    /* PIED DE PAGE */
+
     footer {
       background: #171616;
       color: #aaa;
-      padding: 35px 0;
+      padding: 40px 0;
       font-size: 13px;
     }
 
-    .footer-inner {
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    .footer-logo {
+      width: 150px;
+      max-width: 100%;
+      background: #fff;
+      padding: 7px;
+      margin-bottom: 15px;
+    }
+
+    .footer-title {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .footer-item {
+      margin-bottom: 7px;
+    }
+
+    .footer-item a,
+    .footer-social a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-item a:hover,
+    .footer-social a:hover,
+    .footer-legal a:hover {
+      color: var(--brown2);
+    }
+
+    .footer-social a {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 9px;
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #302d2b;
+      margin-top: 30px;
+      padding-top: 20px;
+      color: #777;
+    }
+
+    .footer-legal {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
-    footer a:hover {
-      color: var(--brown2);
+    .footer-legal a {
+      color: #777;
+      text-decoration: none;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1000px) {
+      .nav {
+        gap: 16px;
+      }
+
+      .menu {
+        gap: 14px;
+        font-size: 13px;
+      }
+
+      .logo {
+        width: 165px;
+      }
     }
 
     @media (max-width: 850px) {
@@ -283,185 +436,74 @@
       }
 
       .hero {
-        padding: 75px 0 85px;
+        padding: 70px 0 40px;
       }
 
       .services {
-        padding: 70px 0 80px;
+        padding: 35px 0 80px;
       }
 
       .grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .card {
-        padding: 28px;
-        min-height: 0;
+      .card,
+      .card:nth-child(4),
+      .card:nth-child(5) {
+        grid-column: span 1;
+        min-height: 280px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
       }
     }
 
-    @media (max-width: 500px) {
-      .logo {
-        width: 145px;
+    @media (max-width: 600px) {
+      .top .inner {
+        justify-content: center;
+        gap: 8px 18px;
+        padding: 8px 0;
       }
 
-      .menu {
-        gap: 10px 14px;
+      .hero {
+        padding: 60px 0 35px;
+      }
+
+      .hero h1 {
+        font-size: clamp(32px, 9vw, 42px);
       }
 
       .hero p,
       .section-head p {
         font-size: 16px;
       }
+
+      .section-head {
+        margin-bottom: 40px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card,
+      .card:nth-child(4),
+      .card:nth-child(5) {
+        grid-column: span 1;
+        min-height: 0;
+        padding: 28px;
+      }
+
+      .cta-section {
+        padding: 55px 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
     }
-    
-/* ================================
-   HARMONISATION AVEC LE SITE ROOFCON
-================================ */
-
-.hero {
-  padding: 92px 0 45px;
-}
-
-.hero .kicker,
-.section-head .kicker {
-  text-align: center;
-}
-
-.hero h1 {
-  max-width: 1000px;
-  margin: 0 auto 25px;
-  font-size: clamp(34px, 4vw, 58px);
-  line-height: 1.05;
-  letter-spacing: -.02em;
-  text-align: center;
-}
-
-.hero p {
-  max-width: 900px;
-  margin: 0 auto;
-  color: #c9c4c0;
-  font-size: 18px;
-  line-height: 1.7;
-  text-align: center;
-}
-
-.services {
-  padding: 45px 0 110px;
-  background: var(--black);
-  color: #fff;
-}
-
-.section-head {
-  max-width: 900px;
-  margin: 0 auto 65px;
-  text-align: center;
-}
-
-.section-head h2 {
-  font-size: clamp(34px, 4vw, 58px);
-  line-height: 1.05;
-  letter-spacing: -.02em;
-  margin-bottom: 25px;
-}
-
-.section-head p {
-  color: #c9c4c0;
-  font-size: 18px;
-  line-height: 1.7;
-}
-
-.grid {
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-}
-
-.card {
-  grid-column: span 4;
-  background: #262322;
-  border: 1px solid #3b3634;
-  color: #fff;
-  padding: 30px;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  transition:
-    transform .35s ease,
-    border-color .35s ease,
-    background .35s ease;
-}
-
-.card:nth-child(4),
-.card:nth-child(5) {
-  grid-column: span 6;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  background: #2c2928;
-  border-color: #5a514d;
-}
-
-.number {
-  color: var(--brown2);
-  letter-spacing: .2em;
-}
-
-.card h2 {
-  font-size: clamp(21px, 2vw, 28px);
-  line-height: 1.08;
-  letter-spacing: -.02em;
-  margin: 0 0 15px;
-}
-
-.card p {
-  color: #c9c4c0;
-  font-size: 15px;
-  line-height: 1.65;
-  margin: 0;
-}
-
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .card,
-  .card:nth-child(4),
-  .card:nth-child(5) {
-    grid-column: span 1;
-  }
-}
-
-@media (max-width: 650px) {
-  .hero {
-    padding: 65px 0 35px;
-  }
-
-  .services {
-    padding: 35px 0 80px;
-  }
-
-  .hero p,
-  .section-head p {
-    font-size: 16px;
-  }
-
-  .section-head {
-    margin-bottom: 40px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .card,
-  .card:nth-child(4),
-  .card:nth-child(5) {
-    grid-column: span 1;
-    min-height: 0;
-    padding: 28px;
-  }
-}
   </style>
 
   <script type="application/ld+json">
@@ -482,11 +524,15 @@
 </head>
 
 <body>
+
   <div class="top">
-    <div class="container">
-      <a href="tel:+352621765489">+352 621 765 489</a>
-      &nbsp; | &nbsp;
-      <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+    <div class="container inner">
+      <div id="top-phone">
+        <a href="tel:+352621765489">+352 621 765 489</a>
+      </div>
+      <div id="top-email">
+        <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+      </div>
     </div>
   </div>
 
@@ -496,7 +542,7 @@
         <img class="logo" src="../ROOFCON.png" alt="ROOFCON">
       </a>
 
-      <nav class="menu" aria-label="Navigation principale">
+      <nav class="menu" id="main-menu" aria-label="Navigation principale">
         <a href="/">Accueil</a>
         <a href="/services/" aria-current="page">Nos pôles</a>
         <a href="/projets-en-cours/">Projets en cours</a>
@@ -506,7 +552,7 @@
       </nav>
 
       <div class="lang" aria-label="Langue">
-        <a class="active" href="/services/" lang="fr">FR</a>
+        <a class="active" href="/services/" lang="fr" aria-current="page">FR</a>
         <a href="/leistungen/" lang="de">DE</a>
       </div>
     </div>
@@ -541,7 +587,7 @@
         <div class="grid">
           <article class="card">
             <span class="number">01 / FAÇADES</span>
-            <h2>Façades ventilées</h2>
+            <h3>Façades ventilées</h3>
             <p>
               Réalisation de façades ventilées avec une attention portée
               à la préparation du support, à la structure porteuse et à
@@ -551,7 +597,7 @@
 
           <article class="card">
             <span class="number">02 / TOITURES</span>
-            <h2>Toitures plates</h2>
+            <h3>Toitures plates</h3>
             <p>
               Mise en œuvre de systèmes de toiture plate, avec une attention
               particulière à l’isolation, à l’étanchéité et aux finitions
@@ -561,7 +607,7 @@
 
           <article class="card">
             <span class="number">03 / CHARPENTES</span>
-            <h2>Charpentes en bois</h2>
+            <h3>Charpentes en bois</h3>
             <p>
               Préparation et réalisation de structures de charpente en bois,
               en coordination avec les autres étapes du chantier et les
@@ -571,7 +617,7 @@
 
           <article class="card">
             <span class="number">04 / COUVERTURES</span>
-            <h2>Couvertures</h2>
+            <h3>Couvertures</h3>
             <p>
               Réalisation de couvertures de toiture et de leurs finitions,
               pour contribuer à la protection du bâtiment contre les
@@ -581,7 +627,7 @@
 
           <article class="card">
             <span class="number">05 / OSSATURE BOIS</span>
-            <h2>Maisons et annexes en ossature bois</h2>
+            <h3>Maisons et annexes en ossature bois</h3>
             <p>
               Réalisation d’ouvrages en ossature bois pour des projets de
               construction ou d’extension, selon les plans et les contraintes
@@ -605,14 +651,77 @@
   </main>
 
   <footer>
-    <div class="container footer-inner">
-      <span>© ROOFCON — Holzbau · Bedachung · Fassadenbau</span>
-      <span>
-        <a href="/mentions-legales/">Mentions légales</a>
-        &nbsp; · &nbsp;
-        <a href="mailto:info@roof-con.com">info@roof-con.com</a>
-      </span>
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <img
+            src="../ROOFCON.png"
+            class="footer-logo"
+            alt="ROOFCON">
+
+          <p>
+            ROOFCON — Charpentes, toitures, couvertures et façades
+            au Luxembourg.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-title">Contact</div>
+          <div class="footer-item">
+            <a href="tel:+352621765489">+352 621 765 489</a>
+          </div>
+          <div class="footer-item">
+            <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Adresse et horaires</div>
+          <div class="footer-item">
+            Z.A.E.R. Op Stackem 8<br>
+            9952 Drinklange, Luxembourg
+          </div>
+          <div class="footer-item">
+            Lundi–vendredi : 07h30–17h30
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title">Réseaux sociaux</div>
+          <div class="footer-social">
+            <a
+              href="https://www.facebook.com/profile.php?id=61594591794889"
+              target="_blank"
+              rel="noopener noreferrer">
+              Facebook ↗
+            </a>
+            <a
+              href="https://www.instagram.com/roofcon.lu/"
+              target="_blank"
+              rel="noopener noreferrer">
+              Instagram ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>© ROOFCON — Holzbau · Bedachung · Fassadenbau</div>
+
+        <div class="footer-legal">
+          <a href="/mentions-legales/">Mentions légales</a>
+          <span>·</span>
+          <a href="/politique-confidentialite/">Politique de confidentialité</a>
+          <span>·</span>
+          <a href="/politique-cookies/">Politique des cookies</a>
+        </div>
+      </div>
+
     </div>
   </footer>
+
 </body>
 </html>
