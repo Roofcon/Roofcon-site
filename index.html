@@ -8173,6 +8173,17 @@ else if(frenchPaths.includes(currentPath)){
   const requestedPage =
     params.get('page');
 
+    const requestedLang =
+  params.get('lang');
+
+if (requestedLang === 'de') {
+  LANG = 'de';
+  localStorage.setItem('roofconLang', 'de');
+} else if (requestedLang === 'fr') {
+  LANG = 'fr';
+  localStorage.setItem('roofconLang', 'fr');
+}
+    
   const pageFromUrl = {
     about: 'about',
     references: 'references',
