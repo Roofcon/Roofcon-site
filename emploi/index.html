@@ -1,54 +1,482 @@
+
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Offres d'emploi | Rejoindre ROOFCON au Luxembourg</title>
-
-  <meta
-    name="description"
-    content="Découvrez les opportunités professionnelles chez ROOFCON au Luxembourg et rejoignez une équipe spécialisée dans la construction, la toiture et le bois."
-  >
-
+  <title>Offres d'emploi au Luxembourg | Charpentiers et couvreurs | ROOFCON</title>
+  <meta name="description" content="Rejoignez ROOFCON au Luxembourg. Découvrez nos métiers dans la charpente, la couverture, les toitures plates et les façades ventilées.">
   <meta name="robots" content="index, follow">
 
-  <link
-    rel="canonical"
-    href="https://roof-con.com/emploi"
-  >
+  <link rel="canonical" href="https://roof-con.com/emploi/">
+  <link rel="alternate" hreflang="fr" href="https://roof-con.com/emploi/">
+  <link rel="alternate" hreflang="de" href="https://roof-con.com/karriere/">
+  <link rel="alternate" hreflang="x-default" href="https://roof-con.com/emploi/">
 
-  <link
-    rel="alternate"
-    hreflang="fr"
-    href="https://roof-con.com/emploi"
-  >
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Rejoindre ROOFCON | Offres d'emploi">
+  <meta property="og:description" content="Découvrez les métiers et les possibilités de candidature chez ROOFCON au Luxembourg.">
+  <meta property="og:url" content="https://roof-con.com/emploi/">
+  <meta property="og:image" content="https://roof-con.com/ROOFCON.png">
 
-  <link
-    rel="alternate"
-    hreflang="de"
-    href="https://roof-con.com/karriere"
-  >
+  <style>
+    :root {
+      --black: #211f20;
+      --brown: #a27b5b;
+      --brown2: #c3a080;
+      --cream: #f5f2ee;
+      --gray: #706b67;
+      --line: #e5dfda;
+    }
 
-  <link
-    rel="alternate"
-    hreflang="x-default"
-    href="https://roof-con.com/emploi"
-  >
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  <script>
-    window.location.replace('/?page=jobs');
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .top {
+      background: var(--black);
+      color: #eee;
+      font-size: 13px;
+      padding: 8px 0;
+      text-align: right;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      width: 190px;
+      max-width: 40vw;
+      display: block;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .menu a:hover {
+      color: var(--brown);
+    }
+
+    .menu .cta {
+      background: var(--brown);
+      color: #fff;
+      padding: 12px 18px;
+    }
+
+    .lang {
+      display: flex;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .lang a {
+      border: 1px solid var(--line);
+      padding: 6px 9px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .lang .active {
+      background: var(--brown);
+      color: #fff;
+      border-color: var(--brown);
+    }
+
+    .hero {
+      background: var(--black);
+      color: #fff;
+      padding: 100px 0 110px;
+    }
+
+    .kicker {
+      color: var(--brown2);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      max-width: 950px;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -2px;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 780px;
+      color: #d5d0cc;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .jobs {
+      padding: 95px 0 110px;
+      background: var(--cream);
+    }
+
+    .section-head {
+      max-width: 850px;
+      margin-bottom: 45px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(32px, 4.5vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+
+    .section-head p {
+      color: var(--gray);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .job-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .job-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 35px;
+    }
+
+    .job-number {
+      display: block;
+      color: var(--brown);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      margin-bottom: 22px;
+    }
+
+    .job-card h2 {
+      font-size: clamp(24px, 3vw, 32px);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .job-card p {
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .job-card ul {
+      margin: 20px 0 0 20px;
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    .job-card li {
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    .application {
+      margin-top: 35px;
+      background: #fff;
+      padding: 30px;
+      border-left: 3px solid var(--brown);
+    }
+
+    .application h2 {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    .application p {
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      background: var(--brown);
+      color: #fff;
+      font-weight: 800;
+    }
+
+    .button:hover {
+      background: var(--black);
+    }
+
+    .cta-section {
+      background: var(--black);
+      color: #fff;
+      padding: 75px 0;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .cta-section p {
+      color: #c9c4c0;
+      margin-bottom: 28px;
+    }
+
+    footer {
+      background: #171616;
+      color: #aaa;
+      padding: 35px 0;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer a:hover {
+      color: var(--brown2);
+    }
+
+    @media (max-width: 850px) {
+      .nav {
+        flex-wrap: wrap;
+        padding: 16px 0;
+        gap: 14px;
+      }
+
+      .menu {
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+        font-size: 13px;
+      }
+
+      .lang {
+        margin-left: auto;
+      }
+
+      .hero {
+        padding: 75px 0 85px;
+      }
+
+      .jobs {
+        padding: 70px 0 80px;
+      }
+
+      .job-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .job-card {
+        padding: 28px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .logo {
+        width: 145px;
+      }
+
+      .menu {
+        gap: 10px 14px;
+      }
+
+      .hero p,
+      .section-head p {
+        font-size: 16px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Offres d'emploi chez ROOFCON",
+    "url": "https://roof-con.com/emploi/",
+    "description": "Informations sur les métiers et les candidatures chez ROOFCON au Luxembourg.",
+    "inLanguage": "fr",
+    "about": {
+      "@type": "Organization",
+      "name": "ROOFCON",
+      "url": "https://roof-con.com/"
+    }
+  }
   </script>
-
 </head>
 
 <body>
+  <div class="top">
+    <div class="container">
+      <a href="tel:+352621765489">+352 621 765 489</a>
+      &nbsp; | &nbsp;
+      <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+    </div>
+  </div>
 
-  <p>ROOFCON — Offres d'emploi</p>
+  <header>
+    <div class="container nav">
+      <a href="/" aria-label="Accueil ROOFCON">
+        <img class="logo" src="../ROOFCON.png" alt="ROOFCON">
+      </a>
 
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="/services/">Nos pôles</a>
+        <a href="/projets-en-cours/">Projets en cours</a>
+        <a href="/realisations/">Références</a>
+        <a href="/emploi/" aria-current="page">Offres d'emploi</a>
+        <a class="cta" href="/contact/">Contact</a>
+      </nav>
+
+      <div class="lang" aria-label="Langue">
+        <a class="active" href="/emploi/" lang="fr">FR</a>
+        <a href="/karriere/" lang="de">DE</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="kicker">ROOFCON · Recrutement</div>
+        <h1>Construisons la suite ensemble</h1>
+        <p>
+          ROOFCON intervient dans les domaines de la charpente, de la
+          couverture, des toitures plates et des façades ventilées.
+          Nous souhaitons rencontrer des personnes motivées par le travail
+          de chantier, la qualité d’exécution et le travail en équipe.
+        </p>
+      </div>
+    </section>
+
+    <section class="jobs">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Nos métiers</div>
+          <h2>Rejoindre les équipes ROOFCON</h2>
+          <p>
+            Vous avez de l’expérience dans le bâtiment ou souhaitez mettre
+            votre savoir-faire au service de projets variés ? Découvrez
+            les métiers liés à nos activités.
+          </p>
+        </div>
+
+        <div class="job-grid">
+          <article class="job-card">
+            <span class="job-number">01 / TOITURE</span>
+            <h2>Couvreurs</h2>
+            <p>
+              Participation aux travaux de couverture, à la préparation
+              des supports et à la réalisation des finitions de toiture,
+              dans le respect des consignes de sécurité.
+            </p>
+            <ul>
+              <li>Travaux de couverture et finitions</li>
+              <li>Soin du détail et respect des règles de sécurité</li>
+              <li>Esprit d’équipe et fiabilité</li>
+            </ul>
+          </article>
+
+          <article class="job-card">
+            <span class="job-number">02 / CONSTRUCTION BOIS</span>
+            <h2>Charpentiers</h2>
+            <p>
+              Participation à la préparation et au montage de structures
+              en bois, en suivant les plans et les instructions techniques
+              propres à chaque chantier.
+            </p>
+            <ul>
+              <li>Lecture de plans appréciée</li>
+              <li>Précision et intérêt pour la construction bois</li>
+              <li>Autonomie et travail en équipe</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="application">
+          <h2>Vous souhaitez rejoindre ROOFCON ?</h2>
+          <p>
+            Envoyez votre candidature et quelques informations sur votre
+            expérience par e-mail. Vous pouvez joindre votre CV et préciser
+            le métier qui vous intéresse.
+          </p>
+          <a class="button" href="mailto:info@roof-con.com?subject=Candidature%20ROOFCON">
+            Envoyer ma candidature →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Un savoir-faire à partager ?</h2>
+        <p>
+          Contactez-nous pour présenter votre profil et échanger sur
+          les possibilités au sein de ROOFCON.
+        </p>
+        <a class="button" href="mailto:info@roof-con.com?subject=Candidature%20ROOFCON">
+          Contacter ROOFCON →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© ROOFCON — Holzbau · Bedachung · Fassadenbau</span>
+      <span>
+        <a href="/mentions-legales/">Mentions légales</a>
+        &nbsp; · &nbsp;
+        <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+      </span>
+    </div>
+  </footer>
 </body>
-
 </html>
