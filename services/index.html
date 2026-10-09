@@ -1,30 +1,470 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Nos services | Toiture, charpente & façade ventilée | ROOFCON</title>
-
-  <meta
-    name="description"
-    content="Découvrez les services de ROOFCON au Luxembourg : façades ventilées, toitures plates, charpentes, couvertures et constructions en ossature bois."
-  >
-
+  <title>Charpentes, toitures et façades au Luxembourg | ROOFCON</title>
+  <meta name="description" content="Découvrez les activités de ROOFCON au Luxembourg : charpentes en bois, toitures plates, couvertures, façades ventilées et constructions en ossature bois.">
   <meta name="robots" content="index, follow">
 
-  <link rel="canonical" href="https://roof-con.com/services">
+  <link rel="canonical" href="https://roof-con.com/services/">
+  <link rel="alternate" hreflang="fr" href="https://roof-con.com/services/">
+  <link rel="alternate" hreflang="de" href="https://roof-con.com/leistungen/">
+  <link rel="alternate" hreflang="x-default" href="https://roof-con.com/services/">
 
-  <link rel="alternate" hreflang="fr" href="https://roof-con.com/services">
-  <link rel="alternate" hreflang="de" href="https://roof-con.com/leistungen">
-  <link rel="alternate" hreflang="x-default" href="https://roof-con.com/services">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Charpentes, toitures et façades au Luxembourg | ROOFCON">
+  <meta property="og:description" content="Les activités de ROOFCON : charpentes, toitures, couvertures, façades ventilées et ossature bois au Luxembourg.">
+  <meta property="og:url" content="https://roof-con.com/services/">
+  <meta property="og:image" content="https://roof-con.com/ROOFCON.png">
 
-  <script>
-    window.location.replace('/?page=about');
+  <style>
+    :root {
+      --black: #211f20;
+      --brown: #a27b5b;
+      --brown2: #c3a080;
+      --cream: #f5f2ee;
+      --gray: #706b67;
+      --line: #e5dfda;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      line-height: 1.6;
+      background: #fff;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .top {
+      background: var(--black);
+      color: #eee;
+      font-size: 13px;
+      padding: 8px 0;
+      text-align: right;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      width: 190px;
+      max-width: 40vw;
+      display: block;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .menu a:hover {
+      color: var(--brown);
+    }
+
+    .menu .cta {
+      background: var(--brown);
+      color: #fff;
+      padding: 12px 18px;
+    }
+
+    .lang {
+      display: flex;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .lang a {
+      border: 1px solid var(--line);
+      padding: 6px 9px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .lang .active {
+      background: var(--brown);
+      color: #fff;
+      border-color: var(--brown);
+    }
+
+    .hero {
+      background: var(--black);
+      color: #fff;
+      padding: 100px 0 110px;
+    }
+
+    .kicker {
+      color: var(--brown2);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      max-width: 950px;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.02;
+      letter-spacing: -2px;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      color: #d5d0cc;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .services {
+      padding: 95px 0 110px;
+      background: #f4f2ef;
+    }
+
+    .section-head {
+      max-width: 850px;
+      margin-bottom: 48px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(32px, 4.5vw, 54px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+
+    .section-head p {
+      color: var(--gray);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 35px;
+      min-height: 240px;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--brown);
+    }
+
+    .number {
+      display: block;
+      color: var(--brown);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      margin-bottom: 22px;
+    }
+
+    .card h2 {
+      font-size: clamp(23px, 3vw, 32px);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .card p {
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .cta-section {
+      background: var(--black);
+      color: #fff;
+      padding: 75px 0;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .cta-section p {
+      color: #c9c4c0;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 22px;
+      background: var(--brown);
+      color: #fff;
+      font-weight: 800;
+      transition: background .2s ease;
+    }
+
+    .button:hover {
+      background: #fff;
+      color: var(--black);
+    }
+
+    footer {
+      background: #171616;
+      color: #aaa;
+      padding: 35px 0;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer a:hover {
+      color: var(--brown2);
+    }
+
+    @media (max-width: 850px) {
+      .nav {
+        flex-wrap: wrap;
+        padding: 16px 0;
+        gap: 14px;
+      }
+
+      .menu {
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+        font-size: 13px;
+      }
+
+      .lang {
+        margin-left: auto;
+      }
+
+      .hero {
+        padding: 75px 0 85px;
+      }
+
+      .services {
+        padding: 70px 0 80px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 28px;
+        min-height: 0;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .logo {
+        width: 145px;
+      }
+
+      .menu {
+        gap: 10px 14px;
+      }
+
+      .hero p,
+      .section-head p {
+        font-size: 16px;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Charpentes, toitures et façades au Luxembourg",
+    "url": "https://roof-con.com/services/",
+    "description": "Les activités de ROOFCON au Luxembourg : charpentes, toitures, couvertures, façades ventilées et constructions en ossature bois.",
+    "inLanguage": "fr",
+    "about": {
+      "@type": "Organization",
+      "name": "ROOFCON",
+      "url": "https://roof-con.com/"
+    }
+  }
   </script>
 </head>
 
 <body>
-  <p>ROOFCON — Nos services</p>
+  <div class="top">
+    <div class="container">
+      <a href="tel:+352621765489">+352 621 765 489</a>
+      &nbsp; | &nbsp;
+      <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="/" aria-label="Accueil ROOFCON">
+        <img class="logo" src="../ROOFCON.png" alt="ROOFCON">
+      </a>
+
+      <nav class="menu" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="/services/" aria-current="page">Nos pôles</a>
+        <a href="/projets-en-cours/">Projets en cours</a>
+        <a href="/realisations/">Références</a>
+        <a href="/emploi/">Offres d'emploi</a>
+        <a class="cta" href="/contact/">Contact</a>
+      </nav>
+
+      <div class="lang" aria-label="Langue">
+        <a class="active" href="/services/" lang="fr">FR</a>
+        <a href="/leistungen/" lang="de">DE</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="kicker">ROOFCON · Luxembourg</div>
+        <h1>Charpentes, toitures et façades : nos pôles d’activité</h1>
+        <p>
+          ROOFCON accompagne les projets de construction et de rénovation
+          au Luxembourg et dans la Grande Région. Nos équipes interviennent
+          dans les domaines de la charpente, de la couverture, des toitures
+          plates, des façades ventilées et de l’ossature bois.
+        </p>
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Nos compétences</div>
+          <h2>Des solutions adaptées à chaque projet</h2>
+          <p>
+            Chaque intervention demande une préparation rigoureuse, une
+            bonne coordination et une réalisation soignée. Découvrez les
+            domaines dans lesquels ROOFCON met son savoir-faire en œuvre.
+          </p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <span class="number">01 / FAÇADES</span>
+            <h2>Façades ventilées</h2>
+            <p>
+              Réalisation de façades ventilées avec une attention portée
+              à la préparation du support, à la structure porteuse et à
+              la pose du revêtement extérieur.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">02 / TOITURES</span>
+            <h2>Toitures plates</h2>
+            <p>
+              Mise en œuvre de systèmes de toiture plate, avec une attention
+              particulière à l’isolation, à l’étanchéité et aux finitions
+              adaptées au bâtiment.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">03 / CHARPENTES</span>
+            <h2>Charpentes en bois</h2>
+            <p>
+              Préparation et réalisation de structures de charpente en bois,
+              en coordination avec les autres étapes du chantier et les
+              exigences du projet.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">04 / COUVERTURES</span>
+            <h2>Couvertures</h2>
+            <p>
+              Réalisation de couvertures de toiture et de leurs finitions,
+              pour contribuer à la protection du bâtiment contre les
+              intempéries.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="number">05 / OSSATURE BOIS</span>
+            <h2>Maisons et annexes en ossature bois</h2>
+            <p>
+              Réalisation d’ouvrages en ossature bois pour des projets de
+              construction ou d’extension, selon les plans et les contraintes
+              propres à chaque chantier.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2>Vous avez un projet au Luxembourg ?</h2>
+        <p>
+          Contactez ROOFCON pour échanger sur votre projet de construction
+          ou de rénovation.
+        </p>
+        <a class="button" href="/contact/">Contacter ROOFCON →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© ROOFCON — Holzbau · Bedachung · Fassadenbau</span>
+      <span>
+        <a href="/mentions-legales/">Mentions légales</a>
+        &nbsp; · &nbsp;
+        <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+      </span>
+    </div>
+  </footer>
 </body>
 </html>
