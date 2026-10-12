@@ -6799,8 +6799,9 @@ document.getElementById('poles-grid').innerHTML =
           ${LANG === 'fr'
             ? 'En savoir plus sur les charpentes'
             : 'Mehr über den Dachstuhlbau'}
-        </a>
-      `
+       `  
+      : pole.id === 'couvertures'
+? <a class="pole-more" href="${LANG === 'fr' ? '/couvertures/' : '/de/dachdeckungen/'}" onclick="event.stopPropagation();"> ${LANG === 'fr' ? 'En savoir plus sur les couvertures' : 'Mehr über Dachdeckungen'} </a>
       : `
         <button
           type="button"
