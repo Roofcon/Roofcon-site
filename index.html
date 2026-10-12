@@ -6766,6 +6766,7 @@ document.getElementById('poles-grid').innerHTML =
           ${esc(t(pole.text))}
         </p>
 
+
 <div class="pole-actions">
 
   ${
@@ -6779,14 +6780,24 @@ document.getElementById('poles-grid').innerHTML =
             : 'Mehr über hinterlüftete Fassaden'}
         </a>
       `
-      : `
-        <button
-          type="button"
-          class="pole-more"
-          onclick="openServiceInfo('${esc(pole.id)}'); event.stopPropagation();">
-          ${LANG === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
-        </button>
-      `
+      : pole.id === 'toitures-plates'
+        ? `
+          <a
+            class="pole-more"
+            href="/toitures-plates/">
+            ${LANG === 'fr'
+              ? 'En savoir plus sur les toitures plates'
+              : 'Mehr über Flachdächer'}
+          </a>
+        `
+        : `
+          <button
+            type="button"
+            class="pole-more"
+            onclick="openServiceInfo('${esc(pole.id)}'); event.stopPropagation();">
+            ${LANG === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
+          </button>
+        `
   }
 
   <button
@@ -6799,7 +6810,6 @@ document.getElementById('poles-grid').innerHTML =
   </button>
 
 </div>
-
       </article>
 
     `;
