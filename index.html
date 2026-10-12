@@ -6830,6 +6830,14 @@ document.getElementById('poles-grid').innerHTML =
             : 'Mehr über Holzhäuser in Holzrahmenbauweise'}
         </a>
       `
+     :  
+        <button
+          type="button"
+          class="pole-more"
+          onclick="openServiceInfo('${esc(pole.id)}'); event.stopPropagation();">
+          ${LANG === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
+        </button>
+      
   }
 
   <button
