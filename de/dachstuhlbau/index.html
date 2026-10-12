@@ -2,22 +2,30 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Dachstuhlbau in Luxemburg | ROOFCON</title>
-  <meta name="description" content="ROOFCON begleitet Sie bei Ihrem Dachstuhlprojekt in Luxemburg. Entdecken Sie unsere Arbeitsweise und kontaktieren Sie uns für Ihr Bauvorhaben.">
+
+  <meta name="description" content="ROOFCON begleitet Ihre Dachstuhlprojekte in Luxemburg. Entdecken Sie unsere Arbeitsweise, die einzelnen Umsetzungsschritte und kontaktieren Sie uns für Ihr Projekt.">
+
   <meta name="robots" content="index, follow">
+
   <link rel="canonical" href="https://roof-con.com/de/dachstuhlbau/">
 
-  <link rel="alternate" hreflang="fr-LU" href="https://roof-con.com/charpentes/">
-  <link rel="alternate" hreflang="de-LU" href="https://roof-con.com/de/dachstuhlbau/">
-  <link rel="alternate" hreflang="x-default" href="https://roof-con.com/charpentes/">
+  <link rel="alternate" hreflang="fr-LU"
+        href="https://roof-con.com/charpentes/">
+
+  <link rel="alternate" hreflang="de-LU"
+        href="https://roof-con.com/de/dachstuhlbau/">
+
+  <link rel="alternate" hreflang="x-default"
+        href="https://roof-con.com/charpentes/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_LU">
   <meta property="og:site_name" content="ROOFCON">
   <meta property="og:title" content="Dachstuhlbau in Luxemburg | ROOFCON">
-  <meta property="og:description" content="ROOFCON begleitet Sie bei Ihrem Dachstuhlprojekt in Luxemburg.">
+  <meta property="og:description" content="ROOFCON begleitet Ihre Dachstuhlprojekte in Luxemburg – von der Baustellenvorbereitung bis zur Montage der Konstruktion.">
   <meta property="og:url" content="https://roof-con.com/de/dachstuhlbau/">
   <meta property="og:image" content="https://roof-con.com/ROOFCON.png">
 
@@ -30,14 +38,18 @@
     "name": "ROOFCON",
     "url": "https://roof-con.com/",
     "logo": "https://roof-con.com/ROOFCON.png",
-    "telephone": "+352 621 765 489",
     "email": "info@roof-con.com",
+    "telephone": "+352 621 765 489",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Z.A.E.R. Op Stackem 8",
       "postalCode": "9952",
       "addressLocality": "Drinklange",
       "addressCountry": "LU"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Luxembourg"
     },
     "knowsAbout": [
       "Dachstuhlbau",
@@ -71,10 +83,11 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
       color: var(--black);
       background: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -82,42 +95,46 @@
       text-decoration: none;
     }
 
+    a:focus-visible {
+      outline: 2px solid var(--brown);
+      outline-offset: 5px;
+    }
+
     img {
-      display: block;
       max-width: 100%;
+      height: auto;
     }
 
     .container {
-      width: min(var(--container), calc(100% - 48px));
-      margin-inline: auto;
+      width: min(var(--container), 92%);
+      margin: 0 auto;
     }
 
     .topbar {
+      padding: 8px 0;
       background: var(--black);
-      color: rgba(255,255,255,.75);
-      font-size: 11px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
+      color: #e8e1db;
+      font-size: 12px;
+      letter-spacing: 0.08em;
     }
 
     .topbar-inner {
-      min-height: 36px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      align-items: center;
+      gap: 16px;
     }
 
-    .topbar a {
-      color: var(--white);
+    .topbar a:hover {
+      color: var(--brown-light);
     }
 
     .header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255,255,255,.97);
-      border-bottom: 1px solid var(--line);
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid rgba(33, 31, 32, 0.08);
       backdrop-filter: blur(12px);
     }
 
@@ -130,22 +147,31 @@
     }
 
     .logo {
-      width: 150px;
+      display: inline-flex;
+      align-items: center;
       flex-shrink: 0;
+    }
+
+    .logo img {
+      display: block;
+      width: 174px;
+      max-height: 66px;
+      object-fit: contain;
     }
 
     .nav {
       display: flex;
       align-items: center;
-      gap: 30px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
+      justify-content: flex-end;
+      gap: 28px;
     }
 
     .nav a {
-      transition: color .2s ease;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      transition: color 0.2s ease;
     }
 
     .nav a:hover {
@@ -153,204 +179,266 @@
     }
 
     .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--black);
+      padding: 7px 9px;
+      font-family: inherit;
       font-size: 11px;
       font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
-    .lang-switch a {
-      color: var(--gray);
+    .lang-switch:hover,
+    .lang-switch.active {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
     }
 
-    .lang-switch a.active {
-      color: var(--brown);
+    .nav .nav-cta {
+      padding: 12px 18px;
+      background: var(--black);
+      color: var(--white);
+      transition: background 0.2s ease;
+    }
+
+    .nav .nav-cta:hover {
+      background: var(--brown);
+      color: var(--white);
     }
 
     .hero {
       position: relative;
       overflow: hidden;
-      background:
-        radial-gradient(ellipse at 80% 20%, rgba(162,123,91,.22), transparent 42%),
-        var(--black);
+      isolation: isolate;
       color: var(--white);
-      padding: 110px 0 120px;
+      background:
+        radial-gradient(
+          ellipse at 85% 25%,
+          rgba(162, 123, 91, 0.23),
+          transparent 42%
+        ),
+        linear-gradient(115deg, #211f20 0%, #302b28 100%);
     }
 
     .hero::before {
       content: "";
       position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: .12;
+      z-index: -1;
+      top: -15%;
+      right: -8%;
+      width: 49%;
+      height: 135%;
+      opacity: 0.42;
+      transform: skewX(-13deg);
       background: repeating-linear-gradient(
-        135deg,
+        90deg,
         transparent 0,
-        transparent 60px,
-        rgba(255,255,255,.18) 61px,
-        transparent 62px
+        transparent 28px,
+        rgba(255, 255, 255, 0.12) 29px,
+        rgba(255, 255, 255, 0.12) 31px
       );
+      border-left: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      right: 8%;
+      width: 1px;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.14);
     }
 
     .hero-content {
-      position: relative;
-      max-width: 850px;
+      max-width: 780px;
+      padding: 112px 0 120px;
     }
 
     .eyebrow {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 13px;
+      margin: 0 0 24px;
       color: var(--brown-light);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
     }
 
     .eyebrow::before {
       content: "";
-      width: 32px;
+      width: 35px;
       height: 1px;
-      background: var(--brown-light);
+      background: currentColor;
     }
 
-    h1 {
-      margin: 28px 0;
-      font-size: clamp(46px, 7vw, 86px);
-      line-height: .98;
-      letter-spacing: -.055em;
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.15;
       font-weight: 500;
     }
 
+    h1 {
+      max-width: 800px;
+      margin-bottom: 28px;
+      font-size: clamp(42px, 6vw, 76px);
+      letter-spacing: -0.045em;
+    }
+
     h1 span {
-      display: block;
       color: var(--brown-light);
     }
 
-    .hero-text {
-      max-width: 650px;
-      color: rgba(255,255,255,.72);
+    .hero-intro {
+      max-width: 630px;
+      margin-bottom: 35px;
+      color: #e1dcd8;
       font-size: 17px;
       line-height: 1.9;
     }
 
-    .hero-actions {
+    .button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 35px;
+      gap: 13px;
     }
 
     .button {
       display: inline-flex;
-      min-height: 52px;
+      min-height: 50px;
       align-items: center;
       justify-content: center;
-      padding: 0 24px;
+      padding: 13px 22px;
+      border: 1px solid transparent;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .1em;
+      letter-spacing: 0.09em;
+      text-align: center;
       text-transform: uppercase;
-      transition: background .2s ease, color .2s ease, border-color .2s ease;
+      transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
     }
 
     .button-primary {
       background: var(--brown);
       color: var(--white);
-      border: 1px solid var(--brown);
     }
 
     .button-primary:hover {
       background: var(--brown-light);
-      border-color: var(--brown-light);
+      color: var(--black);
     }
 
     .button-outline {
+      border-color: rgba(255, 255, 255, 0.45);
       color: var(--white);
-      border: 1px solid rgba(255,255,255,.35);
     }
 
     .button-outline:hover {
       border-color: var(--white);
-      background: rgba(255,255,255,.06);
+      background: var(--white);
+      color: var(--black);
     }
 
     .intro-section {
-      padding: 110px 0;
+      padding: 105px 0;
     }
 
     .two-columns {
       display: grid;
-      grid-template-columns: .85fr 1.15fr;
-      gap: 100px;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 85px;
       align-items: start;
     }
 
     .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 23px;
       color: var(--brown);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .16em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
+    .section-label::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+    }
+
     h2 {
-      margin: 18px 0 25px;
-      font-size: clamp(34px, 4.4vw, 54px);
-      font-weight: 500;
-      line-height: 1.12;
-      letter-spacing: -.04em;
+      margin-bottom: 25px;
+      font-size: clamp(32px, 4vw, 49px);
+      letter-spacing: -0.035em;
+    }
+
+    h2 span {
+      color: var(--brown);
     }
 
     .lead {
-      margin: 0;
-      font-size: 20px;
-      line-height: 1.65;
+      color: var(--gray);
+      font-size: 18px;
+      line-height: 1.85;
     }
 
     .body-copy {
       color: var(--gray);
-      font-size: 15px;
     }
 
-    .body-copy p {
-      margin: 0 0 18px;
+    .body-copy p:last-child {
+      margin-bottom: 0;
     }
 
     .detail-section {
-      padding: 110px 0 120px;
+      padding: 100px 0;
       background: var(--cream);
     }
 
     .section-heading {
-      max-width: 720px;
-      margin: 0 auto 60px;
+      max-width: 760px;
+      margin: 0 auto 55px;
       text-align: center;
     }
 
-    .section-heading h2 {
-      margin-bottom: 18px;
+    .section-heading .section-label {
+      justify-content: center;
     }
 
-    .section-heading p {
-      margin: 0;
+    .section-heading > p:last-child {
       color: var(--gray);
-      font-size: 16px;
     }
 
     .feature-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
     }
 
     .feature-card {
-      min-height: 245px;
-      padding: 32px;
+      min-height: 250px;
+      padding: 30px;
+      border: 1px solid var(--line);
       background: var(--white);
     }
 
@@ -358,47 +446,36 @@
       display: block;
       margin-bottom: 28px;
       color: var(--brown);
-      font-size: 12px;
-      letter-spacing: .12em;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
     }
 
     .feature-card h3 {
-      margin: 0 0 12px;
-      font-size: 20px;
-      line-height: 1.3;
-      font-weight: 500;
+      margin-bottom: 15px;
+      font-size: 23px;
     }
 
     .feature-card p {
-      margin: 0;
+      margin-bottom: 0;
       color: var(--gray);
       font-size: 14px;
-      line-height: 1.8;
     }
 
     .method-section {
-      padding: 110px 0 120px;
+      padding: 105px 0;
     }
 
     .method-layout {
       display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 100px;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 90px;
       align-items: start;
     }
 
     .method-intro {
       position: sticky;
-      top: 135px;
-    }
-
-    .method-intro p {
-      color: var(--gray);
-      font-size: 15px;
-    }
-
-    .method-intro .button {
-      margin-top: 15px;
+      top: 125px;
     }
 
     .method-list {
@@ -407,97 +484,115 @@
 
     .method-item {
       display: grid;
-      grid-template-columns: 54px 1fr;
-      gap: 22px;
-      padding: 30px 0;
+      grid-template-columns: 48px 1fr;
+      gap: 20px;
+      padding: 27px 0;
       border-bottom: 1px solid var(--line);
     }
 
-    .number {
+    .method-item .number {
       color: var(--brown);
       font-size: 13px;
-      letter-spacing: .1em;
+      font-weight: 700;
     }
 
     .method-item h3 {
-      margin: 0 0 10px;
+      margin-bottom: 9px;
       font-size: 21px;
-      font-weight: 500;
     }
 
     .method-item p {
-      margin: 0;
+      margin-bottom: 0;
       color: var(--gray);
       font-size: 14px;
     }
 
     .cta-section {
-      padding: 90px 0;
+      position: relative;
+      overflow: hidden;
+      padding: 86px 0;
       background: var(--black);
       color: var(--white);
     }
 
+    .cta-section::after {
+      content: "";
+      position: absolute;
+      top: -90px;
+      right: -60px;
+      width: 340px;
+      height: 500px;
+      transform: rotate(25deg);
+      border: 1px solid rgba(195, 160, 128, 0.22);
+      pointer-events: none;
+    }
+
     .cta-inner {
+      position: relative;
+      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 50px;
+      gap: 40px;
     }
 
-    .cta-inner h2 {
-      margin: 16px 0;
+    .cta-copy {
+      max-width: 720px;
     }
 
-    .cta-inner p {
-      max-width: 620px;
-      color: rgba(255,255,255,.7);
+    .cta-copy h2 {
+      margin-bottom: 16px;
+    }
+
+    .cta-copy p:last-child {
+      margin-bottom: 0;
+      color: #d5ceca;
     }
 
     .cta-actions {
       display: flex;
-      flex-shrink: 0;
       flex-direction: column;
-      gap: 12px;
+      align-items: flex-start;
+      gap: 13px;
+      flex-shrink: 0;
+    }
+
+    .cta-phone {
+      color: #e7d5c4;
+      font-size: 14px;
     }
 
     .footer {
-      padding: 50px 0 25px;
-      background: #181617;
-      color: rgba(255,255,255,.65);
+      padding: 34px 0;
+      background: #181717;
+      color: #d8d2cd;
     }
 
     .footer-inner {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr;
-      gap: 50px;
-      padding-bottom: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .footer-logo {
-      width: 145px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .footer-logo img {
+      width: 135px;
+      max-height: 55px;
+      object-fit: contain;
       filter: brightness(0) invert(1);
-      opacity: .9;
-    }
-
-    .footer p {
-      max-width: 330px;
-      font-size: 13px;
-    }
-
-    .footer h3 {
-      margin: 0 0 15px;
-      color: var(--white);
-      font-size: 11px;
-      letter-spacing: .13em;
-      text-transform: uppercase;
     }
 
     .footer-links {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 9px;
-      font-size: 13px;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 12px;
     }
 
     .footer-links a:hover {
@@ -505,23 +600,42 @@
     }
 
     .copyright {
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,.12);
+      width: 100%;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      color: #aaa39d;
       font-size: 11px;
     }
 
     @media (max-width: 900px) {
+      .header-inner {
+        min-height: 76px;
+      }
+
+      .logo img {
+        width: 145px;
+      }
+
       .nav {
         gap: 16px;
       }
 
+      .nav a {
+        font-size: 10px;
+      }
+
       .two-columns,
       .method-layout {
-        gap: 50px;
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .method-intro {
+        position: static;
       }
 
       .feature-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .cta-inner {
@@ -531,61 +645,73 @@
 
       .cta-actions {
         flex-direction: row;
+        align-items: center;
         flex-wrap: wrap;
       }
     }
 
     @media (max-width: 600px) {
-      .container {
-        width: min(var(--container), calc(100% - 36px));
+      .topbar-inner {
+        justify-content: center;
+        text-align: center;
       }
 
-      .topbar-inner {
-        min-height: 40px;
-        font-size: 9px;
+      .topbar-location {
+        display: none;
       }
 
       .header-inner {
-        min-height: 74px;
-        gap: 12px;
-        flex-wrap: wrap;
-        padding: 12px 0;
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
       }
 
-      .logo {
-        width: 120px;
+      .logo img {
+        width: 135px;
       }
 
       .nav {
-        order: 3;
         width: 100%;
-        justify-content: space-between;
-        gap: 10px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px 18px;
+      }
+
+      .nav a {
         font-size: 10px;
       }
 
-      .hero {
-        padding: 80px 0 90px;
+      .nav .nav-cta {
+        padding: 8px 11px;
       }
 
-      .hero-text {
+      .hero-content {
+        padding: 76px 0 85px;
+      }
+
+      .hero::before {
+        right: -25%;
+        width: 75%;
+        opacity: 0.25;
+      }
+
+      h1 {
+        font-size: clamp(39px, 11vw, 56px);
+      }
+
+      .hero-intro {
         font-size: 15px;
       }
 
       .intro-section,
-      .detail-section,
       .method-section {
         padding: 75px 0;
       }
 
-      .two-columns,
-      .method-layout {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .method-intro {
-        position: static;
+      .detail-section {
+        padding: 75px 0;
       }
 
       .feature-grid {
@@ -594,28 +720,34 @@
 
       .feature-card {
         min-height: auto;
+        padding: 25px;
       }
 
       .section-heading {
         margin-bottom: 35px;
       }
 
+      .method-item {
+        grid-template-columns: 32px 1fr;
+        gap: 14px;
+      }
+
       .cta-section {
         padding: 70px 0;
       }
 
-      .footer-inner {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
       .cta-actions {
-        width: 100%;
+        align-items: flex-start;
         flex-direction: column;
       }
 
-      .cta-actions .button {
-        width: 100%;
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-links {
+        gap: 12px 18px;
       }
     }
 
@@ -627,285 +759,403 @@
       *,
       *::before,
       *::after {
-        transition-duration: .01ms !important;
+        transition-duration: 0.01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
+
   <div class="topbar">
     <div class="container topbar-inner">
-      <span>Holzbau · Dächer · Fassaden</span>
+      <span class="topbar-location">Holzbau · Dächer · Fassaden</span>
       <a href="tel:+352621765489">+352 621 765 489</a>
     </div>
   </div>
 
   <header class="header">
     <div class="container header-inner">
-      <a href="/" aria-label="ROOFCON Startseite">
-        <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
+
+      <a class="logo" href="/" aria-label="ROOFCON – Startseite">
+        <img src="/ROOFCON.png" alt="ROOFCON – Holzbau, Bedachung und Fassadenbau">
       </a>
 
       <nav class="nav" aria-label="Hauptnavigation">
         <a href="/">Startseite</a>
         <a href="/?realisation=facades">Referenzen</a>
-        <a href="mailto:info@roof-con.com">Kontakt</a>
+        <a href="mailto:info@roof-con.com" class="nav-cta">Kontakt</a>
+
+        <a
+          href="/charpentes/"
+          id="lang-fr"
+          class="lang-switch"
+          lang="fr"
+          hreflang="fr-LU">FR</a>
+
+        <a
+          href="/de/dachstuhlbau/"
+          id="lang-de"
+          class="lang-switch active"
+          aria-current="page"
+          lang="de"
+          hreflang="de-LU">DE</a>
       </nav>
 
-      <div class="lang-switch" aria-label="Sprache auswählen">
-        <a href="/charpentes/">FR</a>
-        <span>|</span>
-        <a class="active" href="/de/dachstuhlbau/" aria-current="page">DE</a>
-      </div>
     </div>
   </header>
 
   <main>
+
     <section class="hero">
-      <div class="container hero-content">
-        <div class="eyebrow">Dachstuhlbau · Luxemburg</div>
+      <div class="container">
+        <div class="hero-content">
 
-        <h1>
-          Dachstuhlbau
-          <span>in Luxemburg</span>
-        </h1>
+          <p class="eyebrow">Dachstuhlbau · Luxemburg</p>
 
-        <p class="hero-text">
-          Eine durchdachte Dachkonstruktion bildet die Grundlage für ein
-          dauerhaftes und zuverlässiges Gebäude. ROOFCON begleitet Ihr
-          Projekt mit einer sorgfältigen Planung und einer präzisen Umsetzung.
-        </p>
+          <h1>
+            <span>Dachstuhlbau</span><br>
+            <span>in Luxemburg</span>
+          </h1>
 
-        <div class="hero-actions">
-          <a class="button button-primary" href="#kontakt">Projekt besprechen</a>
-          <a class="button button-outline" href="#verstehen">Mehr erfahren</a>
+          <p class="hero-intro">
+            Der Dachstuhl bildet die wesentliche Tragstruktur Ihres Daches.
+            ROOFCON begleitet Ihre Projekte mit besonderem Augenmerk auf
+            die Vorbereitung, die fachgerechte Ausführung und präzise
+            Verbindungen der einzelnen Bauteile.
+          </p>
+
+          <div class="button-row">
+            <a
+              class="button button-primary"
+              href="mailto:info@roof-con.com?subject=Dachstuhlprojekt">
+              Projekt besprechen
+            </a>
+
+            <a
+              class="button button-outline"
+              href="#verstehen">
+              Mehr über Dachstühle erfahren
+            </a>
+          </div>
+
         </div>
       </div>
     </section>
 
     <section class="intro-section" id="verstehen">
       <div class="container two-columns">
-        <div>
-          <div class="section-label">Dachstuhlbau</div>
-          <h2>Eine Konstruktion, die zum Gebäude passt</h2>
-        </div>
 
         <div>
+          <p class="section-label">Das Prinzip verstehen</p>
+
+          <h2>
+            <span>Eine Konstruktion,</span><br>
+            <span>die zum Gebäude passt</span>
+          </h2>
+        </div>
+
+        <div class="body-copy">
           <p class="lead">
-            Jeder Dachstuhl muss auf das Gebäude, seine Nutzung und die
-            baulichen Anforderungen abgestimmt sein.
+            Der Dachstuhl bildet die tragende Struktur des Daches.
+            Seine Planung und Ausführung müssen auf die Eigenschaften
+            des Gebäudes und die Anforderungen des Projekts abgestimmt sein.
           </p>
 
-          <div class="body-copy">
-            <p>
-              Der Dachstuhl trägt die Dachkonstruktion und bildet eine
-              wesentliche Grundlage für die Stabilität des gesamten Daches.
-              Deshalb müssen Planung, Abmessungen und Ausführung sorgfältig
-              aufeinander abgestimmt werden.
-            </p>
+          <p>
+            Je nach Gebäude und Planung besteht der Dachstuhl aus
+            verschiedenen Bauteilen, die präzise positioniert und
+            miteinander verbunden werden müssen. Eine sorgfältige
+            Baustellenvorbereitung trägt zu einem reibungslosen
+            Montageablauf bei.
+          </p>
 
-            <p>
-              ROOFCON legt Wert auf eine durchdachte Vorbereitung, eine
-              präzise Ausführung und eine gute Abstimmung mit den anderen
-              Gewerken auf der Baustelle.
-            </p>
-          </div>
+          <p>
+            Die Organisation, die Verbindungen, die Ausrichtung und die
+            Koordination mit den Dacharbeiten sind wichtige Aspekte,
+            damit eine stimmige und fachgerechte Konstruktion entsteht.
+          </p>
         </div>
+
       </div>
     </section>
 
     <section class="detail-section">
       <div class="container">
+
         <div class="section-heading">
-          <div class="section-label">Unsere Arbeitsweise</div>
-          <h2>Eine solide Konstruktion bis ins Detail</h2>
+
+          <p class="section-label">Die wichtigsten Aspekte</p>
+
+          <h2>
+            <span>Eine solide Konstruktion,</span><br>
+            <span>bis ins Detail durchdacht</span>
+          </h2>
+
           <p>
-            Bei der Ausführung eines Dachstuhls kommt es auf die richtige
-            Vorbereitung, präzise Verbindungen und eine saubere Umsetzung an.
+            Jedes Bauteil trägt zur Stabilität und zur Abstimmung der
+            weiteren Arbeitsschritte auf der Baustelle bei.
           </p>
+
         </div>
 
         <div class="feature-grid">
+
           <article class="feature-card">
-            <span class="feature-number">01 / KONSTRUKTION</span>
-            <h3>Stabilität und Tragfähigkeit</h3>
+
+            <div class="feature-number">01 / KONSTRUKTION</div>
+
+            <h3>Eine passende Konstruktion</h3>
+
             <p>
-              Die Konstruktion wird auf die Anforderungen des Gebäudes und
-              die vorgesehenen Belastungen abgestimmt.
+              Die Ausführung des Dachstuhls wird auf das Gebäude,
+              die Planung und die spezifischen Anforderungen des
+              jeweiligen Projekts abgestimmt.
             </p>
+
           </article>
 
           <article class="feature-card">
-            <span class="feature-number">02 / VORBEREITUNG</span>
-            <h3>Präzise Planung</h3>
+
+            <span class="feature-number">VORBEREITUNG</span>
+
+            <h3>Eine gut organisierte Baustelle</h3>
+
             <p>
-              Eine sorgfältige Vorbereitung hilft, Maße, Bauteile und
-              Arbeitsabläufe aufeinander abzustimmen.
+              Eine sorgfältige Vorbereitung hilft, die Bedingungen
+              auf der Baustelle einzuschätzen, die Montageschritte
+              zu planen und die notwendigen Arbeiten zu koordinieren.
             </p>
+
           </article>
 
           <article class="feature-card">
-            <span class="feature-number">03 / VERBINDUNGEN</span>
-            <h3>Sorgfältige Ausführung</h3>
+
+            <span class="feature-number">VERBINDUNGEN</span>
+
+            <h3>Präzise Verbindungen</h3>
+
             <p>
-              Die einzelnen Konstruktionselemente müssen präzise
-              zusammenpassen und fachgerecht verbunden werden.
+              Die einzelnen Bauteile müssen sorgfältig positioniert
+              und verbunden werden, damit die geplante Konstruktion
+              fachgerecht umgesetzt werden kann.
             </p>
+
           </article>
 
           <article class="feature-card">
-            <span class="feature-number">04 / AUSRICHTUNG</span>
-            <h3>Saubere Linien</h3>
+
+            <span class="feature-number">AUSRICHTUNG</span>
+
+            <h3>Genau positionierte Bauteile</h3>
+
             <p>
-              Eine genaue Ausrichtung ist entscheidend für die Qualität
-              und das Erscheinungsbild der Dachkonstruktion.
+              Die Kontrolle von Ausrichtung, Höhen und Anpassungen
+              trägt zur Qualität und zur Stimmigkeit der gesamten
+              Dachkonstruktion bei.
             </p>
+
           </article>
 
           <article class="feature-card">
-            <span class="feature-number">05 / ANPASSUNG</span>
-            <h3>Individuelle Anforderungen</h3>
+
+            <span class="feature-number">ANPASSUNG</span>
+
+            <h3>Auf das Gebäude abgestimmt</h3>
+
             <p>
-              Jede Baustelle bringt eigene Gegebenheiten mit, die bei der
-              Vorbereitung und Umsetzung berücksichtigt werden müssen.
+              Bei der Ausführung werden die Dachform, die Abmessungen
+              und die besonderen Gegebenheiten jeder Baustelle
+              berücksichtigt.
             </p>
+
           </article>
 
           <article class="feature-card">
-            <span class="feature-number">06 / KOORDINATION</span>
-            <h3>Abstimmung auf der Baustelle</h3>
+
+            <span class="feature-number">KOORDINATION</span>
+
+            <h3>Abstimmung mit den Dacharbeiten</h3>
+
             <p>
-              Eine gute Zusammenarbeit mit den anderen Gewerken unterstützt
-              einen reibungslosen Bauablauf.
+              Der Dachstuhl wird unter Berücksichtigung der folgenden
+              Arbeitsschritte vorbereitet, insbesondere der für das
+              Projekt vorgesehenen Dacheindeckung.
             </p>
+
           </article>
+
         </div>
       </div>
     </section>
 
     <section class="method-section">
       <div class="container method-layout">
+
         <div class="method-intro">
-          <div class="section-label">Unser Vorgehen</div>
-          <h2>Von der Vorbereitung bis zur Umsetzung</h2>
-          <p>
-            Ein klarer Ablauf hilft dabei, die verschiedenen Arbeitsschritte
-            zu koordinieren und die Ausführung sorgfältig vorzubereiten.
+
+          <p class="section-label">Unsere Arbeitsweise</p>
+
+          <h2>
+            <span>Von der Vorbereitung</span><br>
+            <span>bis zur Umsetzung</span>
+          </h2>
+
+          <p class="body-copy">
+            Ein Dachstuhlprojekt erfordert eine gute Abstimmung zwischen
+            der Planung, den Konstruktionselementen und den einzelnen
+            Arbeitsschritten auf der Baustelle. Unsere Vorgehensweise
+            wird an die Besonderheiten jedes Projekts angepasst.
           </p>
-          <a class="button button-primary" href="#kontakt">Kontakt aufnehmen</a>
+
+          <a
+            class="button button-primary"
+            href="mailto:info@roof-con.com?subject=Anfrage%20zum%20Dachstuhlbau">
+            ROOFCON kontaktieren
+          </a>
+
         </div>
 
         <div class="method-list">
+
           <article class="method-item">
-            <div class="number">01</div>
+            <span class="number">01</span>
             <div>
-              <h3>Analyse des Projekts</h3>
+              <h3>Das Projekt analysieren</h3>
               <p>
-                Wir berücksichtigen die baulichen Gegebenheiten, die
-                Anforderungen des Gebäudes und den vorgesehenen Ablauf.
+                Die Pläne, die baulichen Gegebenheiten und die
+                Rahmenbedingungen werden geprüft, bevor die Arbeiten
+                auf der Baustelle beginnen.
               </p>
             </div>
           </article>
 
           <article class="method-item">
-            <div class="number">02</div>
+            <span class="number">02</span>
             <div>
-              <h3>Vorbereitung der Arbeiten</h3>
+              <h3>Die Ausführung vorbereiten</h3>
               <p>
-                Die erforderlichen Arbeitsschritte und die Umsetzung auf
-                der Baustelle werden sorgfältig vorbereitet.
+                Die Arbeitsschritte werden organisiert, der Materialbedarf
+                wird berücksichtigt und die Montage wird sorgfältig
+                vorbereitet.
               </p>
             </div>
           </article>
 
           <article class="method-item">
-            <div class="number">03</div>
+            <span class="number">03</span>
             <div>
-              <h3>Ausführung des Dachstuhls</h3>
+              <h3>Die Bauteile montieren</h3>
               <p>
-                Die Konstruktionselemente werden entsprechend den
-                Projektanforderungen montiert und ausgerichtet.
+                Der Dachstuhl wird montiert. Dabei wird besonders auf
+                die Verbindungen, die Ausrichtung und die erforderlichen
+                Anpassungen geachtet.
               </p>
             </div>
           </article>
 
           <article class="method-item">
-            <div class="number">04</div>
+            <span class="number">04</span>
             <div>
-              <h3>Abstimmung der nächsten Schritte</h3>
+              <h3>Die Ausführung abstimmen</h3>
               <p>
-                Die Arbeiten werden mit den nachfolgenden Gewerken
-                abgestimmt, damit der Bauablauf weitergeführt werden kann.
+                Die Positionierung der Bauteile wird kontrolliert und
+                die weiteren Arbeiten werden mit den anderen Gewerken
+                auf der Baustelle abgestimmt.
               </p>
             </div>
           </article>
+
         </div>
       </div>
     </section>
 
     <section class="cta-section" id="kontakt">
       <div class="container cta-inner">
-        <div>
-          <div class="section-label">Ihr Bauvorhaben</div>
-          <h2>Sie planen ein Dachstuhlprojekt?</h2>
+
+        <div class="cta-copy">
+
+          <p class="section-label">Ihr Projekt in Luxemburg</p>
+
+          <h2>
+            <span>Sie planen ein</span><br>
+            <span>Dachstuhlprojekt?</span>
+          </h2>
+
           <p>
-            Kontaktieren Sie ROOFCON, um Ihr Vorhaben zu besprechen und
-            die nächsten Schritte zu klären.
+            Kontaktieren Sie ROOFCON, um uns Ihr Projekt vorzustellen
+            und Ihre Anforderungen mit uns zu besprechen.
           </p>
+
         </div>
 
         <div class="cta-actions">
-          <a class="button button-primary" href="mailto:info@roof-con.com">
-            E-Mail senden
+
+          <a
+            class="button button-primary"
+            href="mailto:info@roof-con.com?subject=Dachstuhlprojekt">
+            Informationen anfragen
           </a>
-          <a class="button button-outline" href="tel:+352621765489">
+
+          <a class="cta-phone" href="tel:+352621765489">
             +352 621 765 489
           </a>
+
+          <a class="cta-phone" href="mailto:info@roof-con.com">
+            info@roof-con.com
+          </a>
+
         </div>
+
       </div>
     </section>
+
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div>
-          <a href="/">
-            <img class="footer-logo" src="/ROOFCON.png" alt="ROOFCON">
-          </a>
-          <p>
-            ROOFCON — Holzbau, Dächer und Fassaden in Luxemburg.
-          </p>
-        </div>
+    <div class="container footer-inner">
 
-        <div>
-          <h3>Navigation</h3>
-          <div class="footer-links">
-            <a href="/">Startseite</a>
-            <a href="/?realisation=facades">Referenzen</a>
-            <a href="mailto:info@roof-con.com">Kontakt</a>
-          </div>
-        </div>
+      <a
+        class="footer-logo"
+        href="/"
+        aria-label="ROOFCON – Startseite">
+        <img src="/ROOFCON.png" alt="ROOFCON">
+      </a>
 
-        <div>
-          <h3>Folgen Sie uns</h3>
-          <div class="footer-links">
-            <a href="https://www.instagram.com/roofcon.lu/" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="https://www.facebook.com/profile.php?id=61594591794889" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="/mentions-legales.html">Impressum</a>
-          </div>
-        </div>
-      </div>
+      <nav class="footer-links" aria-label="Fußnavigation">
+
+        <a href="/">Startseite</a>
+
+        <a href="/?realisation=facades">Referenzen</a>
+
+        <a
+          href="https://www.instagram.com/roofcon.lu/"
+          target="_blank"
+          rel="noopener noreferrer">
+          Instagram
+        </a>
+
+        <a
+          href="https://www.facebook.com/profile.php?id=61594591794889"
+          target="_blank"
+          rel="noopener noreferrer">
+          Facebook
+        </a>
+
+        <a href="/mentions-legales.html">Impressum</a>
+
+      </nav>
 
       <div class="copyright">
-        © <span id="year"></span> ROOFCON. Alle Rechte vorbehalten.
+        © <span id="year"></span> ROOFCON — Alle Rechte vorbehalten.
       </div>
+
     </div>
   </footer>
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
