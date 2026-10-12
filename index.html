@@ -6773,29 +6773,31 @@ document.getElementById('poles-grid').innerHTML =
 
 <div class="pole-actions">
 
-  ${
+ 
+${
     pole.id === 'facades'
       ? `
         <a
           class="pole-more"
-          href="/facades-ventilees/">
+          href="/facades-ventilees/"
+          onclick="event.stopPropagation();">
           ${LANG === 'fr'
             ? 'En savoir plus sur les façades ventilées'
             : 'Mehr über hinterlüftete Fassaden'}
         </a>
       `
-: pole.id === 'toitures'
-        ? `
-          <a
-            class="pole-more"
-            href="/toitures-plates/">
-            ${LANG === 'fr'
-              ? 'En savoir plus sur les toitures plates'
-              : 'Mehr über Flachdächer'}
-          </a>
-        `
-   
-    : pole.id === 'charpentes'
+      : pole.id === 'toitures'
+      ? `
+        <a
+          class="pole-more"
+          href="/toitures-plates/"
+          onclick="event.stopPropagation();">
+          ${LANG === 'fr'
+            ? 'En savoir plus sur les toitures plates'
+            : 'Mehr über Flachdächer'}
+        </a>
+      `
+      : pole.id === 'charpentes'
       ? `
         <a
           class="pole-more"
@@ -6806,8 +6808,7 @@ document.getElementById('poles-grid').innerHTML =
             : 'Mehr über den Dachstuhlbau'}
         </a>
       `
-    
-    : pole.id === 'couvertures'
+      : pole.id === 'couvertures'
       ? `
         <a
           class="pole-more"
@@ -6818,8 +6819,7 @@ document.getElementById('poles-grid').innerHTML =
             : 'Mehr über Dachdeckungen'}
         </a>
       `
-
-    : pole.id === 'maisons'
+      : pole.id === 'maisons'
       ? `
         <a
           class="pole-more"
@@ -6830,16 +6830,8 @@ document.getElementById('poles-grid').innerHTML =
             : 'Mehr über Holzhäuser in Holzrahmenbauweise'}
         </a>
       `
-     :  
-        <button
-          type="button"
-          class="pole-more"
-          onclick="openServiceInfo('${esc(pole.id)}'); event.stopPropagation();">
-          ${LANG === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
-        </button>
-      
-  }
-
+      : ''
+}
   <button
     type="button"
     class="pole-discover"
