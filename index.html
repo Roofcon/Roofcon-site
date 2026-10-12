@@ -6766,16 +6766,28 @@ document.getElementById('poles-grid').innerHTML =
           ${esc(t(pole.text))}
         </p>
 
-      <div class="pole-actions">
+<div class="pole-actions">
 
-  <button
-    type="button"
-    class="pole-more"
-    onclick="openServiceInfo('${esc(pole.id)}'); event.stopPropagation();">
-
-    ${LANG === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
-
-  </button>
+  ${
+    pole.id === 'facades'
+      ? `
+        <a
+          class="pole-more"
+          href="/facades-ventilees/">
+          ${LANG === 'fr'
+            ? 'En savoir plus sur les façades ventilées'
+            : 'Mehr über hinterlüftete Fassaden'}
+        </a>
+      `
+      : `
+        <button
+          type="button"
+          class="pole-more"
+          onclick="openServiceInfo('${esc(pole.id)}'); event.stopPropagation();">
+          ${LANG === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
+        </button>
+      `
+  }
 
   <button
     type="button"
