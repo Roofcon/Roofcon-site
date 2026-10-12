@@ -6818,14 +6818,17 @@ document.getElementById('poles-grid').innerHTML =
             : 'Mehr über Dachdeckungen'}
         </a>
       `
-    
-    : ` 
-        <button
-          type="button"
+
+    : pole.id === 'maisons'
+      ? `
+        <a
           class="pole-more"
-          onclick="openServiceInfo('${esc(pole.id)}'); event.stopPropagation();">
-          ${LANG === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
-        </button>
+          href="${LANG === 'fr' ? '/maisons-annexes-ossature-bois/' : '/de/holzhaeuser-anbauten/'}"
+          onclick="event.stopPropagation();">
+          ${LANG === 'fr'
+            ? 'En savoir plus sur les maisons en ossature bois'
+            : 'Mehr über Holzhäuser in Holzrahmenbauweise'}
+        </a>
       `
   }
 
