@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Couvertures | ROOFCON Luxembourg</title>
+  <meta name="description" content="ROOFCON réalise des couvertures de toiture au Luxembourg : mise en œuvre, rénovation et finitions adaptées à chaque bâtiment.">
+  <link rel="canonical" href="https://roof-con.com/couvertures/">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Couvertures | ROOFCON">
+  <meta property="og:description" content="Le savoir-faire ROOFCON pour des couvertures de toiture durables et soignées.">
+  <meta property="og:url" content="https://roof-con.com/couvertures/">
+  <meta property="og:image" content="https://roof-con.com/ROOFCON.png">
+
+  <link rel="icon" href="/ROOFCON.png">
+
+  <style>
+    :root {
+      --black: #211f20;
+      --brown: #a27b5b;
+      --brown2: #c3a080;
+      --cream: #f5f2ee;
+      --white: #ffffff;
+      --text: #34302d;
+      --muted: #77716b;
+      --line: rgba(33,31,32,.15);
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--container), 92%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--black);
+      color: rgba(255,255,255,.8);
+      font-size: 12px;
+      letter-spacing: .06em;
+    }
+
+    .topbar-inner {
+      min-height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .topbar a:hover {
+      color: var(--brown2);
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.97);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo img {
+      display: block;
+      width: 155px;
+      max-height: 66px;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 27px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--brown);
+    }
+
+    .languages {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-left: 3px;
+    }
+
+    .lang-switch {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .08em;
+    }
+
+    .lang-switch.active {
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+      color: var(--white);
+      padding: 105px 0 112px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      right: -7%;
+      top: -40%;
+      width: 55%;
+      height: 180%;
+      border-left: 1px solid rgba(195,160,128,.38);
+      transform: skewX(-23deg);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: 8%;
+      top: -35%;
+      width: 25%;
+      height: 170%;
+      border-left: 1px solid rgba(195,160,128,.18);
+      transform: skewX(-23deg);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--brown2);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 35px;
+      height: 1px;
+      background: var(--brown2);
+    }
+
+    h1, h2, h3 {
+      font-weight: 500;
+      line-height: 1.15;
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      font-size: clamp(42px, 6vw, 76px);
+      letter-spacing: -.045em;
+      margin-bottom: 26px;
+    }
+
+    .hero h1 span {
+      color: var(--brown2);
+    }
+
+    .hero-intro {
+      position: relative;
+      z-index: 1;
+      max-width: 650px;
+      color: rgba(255,255,255,.72);
+      font-size: 16px;
+    }
+
+    .hero-bottom {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 38px;
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .hero-bottom::before {
+      content: "";
+      width: 42px;
+      height: 1px;
+      background: var(--brown2);
+    }
+
+    section {
+      padding: 95px 0;
+    }
+
+    .section-kicker {
+      color: var(--brown);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      max-width: 800px;
+      color: var(--black);
+      font-size: clamp(32px, 4vw, 50px);
+      letter-spacing: -.035em;
+      margin-bottom: 25px;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr .85fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .intro-note {
+      border-left: 2px solid var(--brown);
+      padding: 10px 0 10px 28px;
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .expertise {
+      background: var(--cream);
+    }
+
+    .section-head {
+      margin-bottom: 48px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .card {
+      min-height: 235px;
+      background: var(--white);
+      padding: 32px 28px;
+      transition: background .25s ease;
+    }
+
+    .card:hover {
+      background: #fbf9f6;
+    }
+
+    .card-number {
+      color: var(--brown);
+      font-size: 12px;
+      letter-spacing: .12em;
+      margin-bottom: 28px;
+    }
+
+    .card h3 {
+      color: var(--black);
+      font-size: 21px;
+      margin-bottom: 14px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 80px;
+    }
+
+    .method-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .method-item {
+      display: grid;
+      grid-template-columns: 55px 1fr;
+      gap: 20px;
+      padding: 25px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .method-number {
+      color: var(--brown);
+      font-size: 13px;
+      letter-spacing: .1em;
+      padding-top: 3px;
+    }
+
+    .method-item h3 {
+      color: var(--black);
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .method-item p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cta {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .cta .section-kicker {
+      color: var(--brown2);
+    }
+
+    .cta h2 {
+      max-width: 700px;
+      font-size: clamp(32px, 4vw, 48px);
+      letter-spacing: -.035em;
+      margin-bottom: 18px;
+    }
+
+    .cta p {
+      max-width: 640px;
+      color: rgba(255,255,255,.68);
+      font-size: 15px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 52px;
+      padding: 14px 24px;
+      border: 1px solid var(--brown2);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .btn:hover {
+      background: var(--brown2);
+      color: var(--black);
+    }
+
+    .footer {
+      background: #171617;
+      color: rgba(255,255,255,.7);
+      padding: 50px 0 25px;
+      font-size: 13px;
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 50px;
+      padding-bottom: 35px;
+    }
+
+    .footer-logo {
+      width: 145px;
+      max-height: 65px;
+      object-fit: contain;
+      object-position: left;
+      margin-bottom: 18px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer h3 {
+      color: var(--white);
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    .footer p {
+      margin-bottom: 8px;
+    }
+
+    .footer a:hover {
+      color: var(--brown2);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.14);
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-size: 11px;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        align-items: flex-start;
+        padding: 17px 0;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        gap: 16px 22px;
+      }
+
+      .intro-grid,
+      .method-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar-inner {
+        padding: 9px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .logo img {
+        width: 135px;
+      }
+
+      .nav-links {
+        gap: 12px 17px;
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 75px 0 80px;
+      }
+
+      section {
+        padding: 68px 0;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: auto;
+        padding: 27px 24px;
+      }
+
+      .card-number {
+        margin-bottom: 18px;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Couvertures | ROOFCON",
+    "url": "https://roof-con.com/couvertures/",
+    "description": "ROOFCON réalise des couvertures de toiture au Luxembourg.",
+    "inLanguage": "fr-LU",
+    "publisher": {
+      "@type": "Organization",
+      "name": "ROOFCON",
+      "url": "https://roof-con.com/",
+      "logo": "https://roof-con.com/ROOFCON.png",
+      "telephone": "+352621765489",
+      "email": "info@roof-con.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Z.A.E.R. Op Stackem 8",
+        "postalCode": "9952",
+        "addressLocality": "Drinklange",
+        "addressCountry": "LU"
+      }
+    }
+  }
+  </script>
+
+</head>
+
+<body>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>ROOFCON — Holzbau · Bedachung · Fassadenbau</span>
+      <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="/" aria-label="ROOFCON — Accueil">
+        <img src="/ROOFCON.png" alt="ROOFCON">
+      </a>
+
+```
+  <nav class="nav-links" aria-label="Navigation principale">
+    <a href="/">Accueil</a>
+    <a href="/#poles">Nos pôles</a>
+    <a href="/?realisation=couvertures">Réalisations</a>
+    <a href="/#jobs">Offres d'emploi</a>
+    <a href="/#contact">Contact</a>
+
+    <div class="languages">
+      <a href="/couvertures/" class="lang-switch active" aria-current="page" lang="fr">FR</a>
+      <a href="/de/dachdeckungen/" class="lang-switch" lang="de" hreflang="de-LU">DE</a>
+    </div>
+  </nav>
+</div>
+```
+
+  </header>
+
+  <main>
+
+```
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Le savoir-faire ROOFCON</div>
+
+    <h1>
+      Des couvertures<br>
+      <span>pensées pour durer.</span>
+    </h1>
+
+    <p class="hero-intro">
+      La couverture protège le bâtiment des intempéries et participe
+      à son caractère architectural. ROOFCON met son savoir-faire au
+      service de toitures réalisées avec soin, dans le respect du projet
+      et des exigences du chantier.
+    </p>
+
+    <div class="hero-bottom">
+      Couvertures de toiture · Luxembourg
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container intro-grid">
+    <div>
+      <div class="section-kicker">Notre métier</div>
+      <h2 class="section-title">
+        Une toiture bien réalisée commence par les bons choix.
+      </h2>
+      <p class="section-intro">
+        Chaque toiture présente ses particularités. La forme du bâtiment,
+        les matériaux choisis et les détails de finition doivent être
+        pris en compte pour obtenir un résultat cohérent et durable.
+      </p>
+    </div>
+
+    <div class="intro-note">
+      De la préparation aux finitions, chaque étape compte pour assurer
+      une couverture soignée et adaptée au bâtiment.
+    </div>
+  </div>
+</section>
+
+<section class="expertise">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-kicker">Nos compétences</div>
+      <h2 class="section-title">
+        Les détails font la différence.
+      </h2>
+      <p class="section-intro">
+        Nos interventions s’organisent autour des différentes étapes
+        nécessaires à la réalisation d’une couverture de toiture.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <article class="card">
+        <div class="card-number">01 / PRÉPARATION</div>
+        <h3>Analyse du projet</h3>
+        <p>
+          Prendre en compte la configuration de la toiture, les plans
+          et les contraintes propres au bâtiment avant le démarrage
+          des travaux.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">02 / SUPPORT</div>
+        <h3>Préparation du support</h3>
+        <p>
+          Préparer les éléments nécessaires à la pose et vérifier
+          que le support est adapté au système de couverture prévu.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">03 / MATÉRIAUX</div>
+        <h3>Mise en œuvre</h3>
+        <p>
+          Mettre en place les matériaux de couverture selon les
+          caractéristiques du projet et les règles de mise en œuvre.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">04 / ÉTANCHÉITÉ</div>
+        <h3>Points singuliers</h3>
+        <p>
+          Porter une attention particulière aux raccords, aux
+          pénétrations et aux jonctions qui demandent une exécution
+          précise.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">05 / FINITIONS</div>
+        <h3>Finitions de toiture</h3>
+        <p>
+          Soigner les rives, les faîtages et les raccordements pour
+          obtenir un ensemble propre et cohérent.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-number">06 / CONTRÔLE</div>
+        <h3>Vérification du résultat</h3>
+        <p>
+          Contrôler les éléments réalisés et les finitions avant
+          la fin de l’intervention sur le chantier.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container method-grid">
+    <div>
+      <div class="section-kicker">Notre méthode</div>
+      <h2 class="section-title">
+        De la préparation à la réalisation.
+      </h2>
+      <p class="section-intro">
+        Une organisation claire permet de coordonner les interventions
+        et de garder une vision précise des différentes étapes du chantier.
+      </p>
+    </div>
+
+    <div class="method-list">
+
+      <article class="method-item">
+        <div class="method-number">01</div>
+        <div>
+          <h3>Planifier</h3>
+          <p>
+            Étudier le projet, les plans, les matériaux et les
+            contraintes avant le début des travaux.
+          </p>
+        </div>
+      </article>
+
+      <article class="method-item">
+        <div class="method-number">02</div>
+        <div>
+          <h3>Préparer</h3>
+          <p>
+            Organiser le chantier et préparer les supports ainsi
+            que les éléments nécessaires à l’intervention.
+          </p>
+        </div>
+      </article>
+
+      <article class="method-item">
+        <div class="method-number">03</div>
+        <div>
+          <h3>Réaliser</h3>
+          <p>
+            Mettre en œuvre la couverture avec attention, en respectant
+            les exigences techniques du projet.
+          </p>
+        </div>
+      </article>
+
+      <article class="method-item">
+        <div class="method-number">04</div>
+        <div>
+          <h3>Vérifier</h3>
+          <p>
+            Contrôler le travail réalisé et apporter le soin nécessaire
+            aux raccords et aux finitions.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta-inner">
+    <div>
+      <div class="section-kicker">Un projet de toiture ?</div>
+      <h2>Parlons de votre projet.</h2>
+      <p>
+        Vous souhaitez échanger avec ROOFCON au sujet d’un projet
+        de couverture ? Contactez-nous pour nous présenter vos besoins.
+      </p>
+    </div>
+
+    <a class="btn" href="mailto:info@roof-con.com?subject=Projet%20de%20couverture">
+      Nous contacter
+    </a>
+  </div>
+</section>
+```
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+
+
+    <div>
+      <a href="/" aria-label="ROOFCON — Accueil">
+        <img class="footer-logo" src="/ROOFCON.png" alt="ROOFCON">
+      </a>
+      <p>
+        Planifier, calculer, dessiner, fabriquer, construire.
+        Tel est notre devise.
+      </p>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+      <p>ROOFCON</p>
+      <p>Z.A.E.R. Op Stackem 8</p>
+      <p>9952 Drinklange, Luxembourg</p>
+      <p><a href="tel:+352621765489">+352 621 765 489</a></p>
+      <p><a href="mailto:info@roof-con.com">info@roof-con.com</a></p>
+    </div>
+
+    <div>
+      <h3>Navigation</h3>
+      <p><a href="/">Accueil</a></p>
+      <p><a href="/#poles">Nos pôles</a></p>
+      <p><a href="/?realisation=couvertures">Réalisations</a></p>
+      <p><a href="/#contact">Contact</a></p>
+      <p><a href="/mentions-legales.html">Mentions légales</a></p>
+      <p><a href="https://www.instagram.com/roofcon.lu/" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+      <p><a href="https://www.facebook.com/profile.php?id=61594591794889" target="_blank" rel="noopener noreferrer">Facebook</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> ROOFCON. Tous droits réservés.</span>
+    <span>Holzbau · Bedachung · Fassadenbau</span>
+  </div>
+</div>
+
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
