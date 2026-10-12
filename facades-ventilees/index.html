@@ -794,8 +794,21 @@
   <a href="/" data-fr="Accueil" data-de="Startseite">Accueil</a>
   <a href="/?realisation=facades" data-fr="Réalisations" data-de="Referenzen">Réalisations</a>
   <a href="mailto:info@roof-con.com" class="nav-cta" data-fr="Nous contacter" data-de="Kontakt">Nous contacter</a>
-  <button type="button" id="lang-fr" class="lang-switch" onclick="setLanguage('fr')">FR</button>
-  <button type="button" id="lang-de" class="lang-switch" onclick="setLanguage('de')">DE</button>
+
+  <a
+    href="/facades-ventilees/"
+    id="lang-fr"
+    class="lang-switch active"
+    aria-current="page"
+    lang="fr">FR</a>
+
+  <a
+    href="/de/hinterlueftete-fassaden/"
+    id="lang-de"
+    class="lang-switch"
+    lang="de"
+    hreflang="de-LU">DE</a>
+
 </nav>
 
     </div>
@@ -1202,27 +1215,6 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
-
-  function setLanguage(lang) {
-    document.documentElement.lang = lang;
-
-    document.querySelectorAll('[data-fr][data-de]').forEach(function(element) {
-      element.textContent = element.getAttribute('data-' + lang);
-    });
-
-    document.querySelectorAll('.lang-switch').forEach(function(button) {
-      button.classList.toggle('active', button.id === 'lang-' + lang);
-    });
-
-    document.title = lang === 'fr'
-      ? 'Façades ventilées au Luxembourg | ROOFCON'
-      : 'Hinterlüftete Fassaden in Luxemburg | ROOFCON';
-
-    localStorage.setItem('roofconLang', lang);
-  }
-
-  const savedLang = localStorage.getItem('roofconLang') || 'fr';
-  setLanguage(savedLang);
 </script>
 
 </body>
