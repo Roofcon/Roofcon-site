@@ -6790,14 +6790,25 @@ document.getElementById('poles-grid').innerHTML =
               : 'Mehr über Flachdächer'}
           </a>
         `
-        : `
-          <button
-            type="button"
-            class="pole-more"
-            onclick="openServiceInfo('${esc(pole.id)}'); event.stopPropagation();">
-            ${LANG === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
-          </button>
-        `
+    : pole.id === 'charpentes'
+      ? `
+        <a
+          class="pole-more"
+          href="${LANG === 'fr' ? '/charpentes/' : '/de/dachstuhlbau/'}"
+          onclick="event.stopPropagation();">
+          ${LANG === 'fr'
+            ? 'En savoir plus sur les charpentes'
+            : 'Mehr über den Dachstuhlbau'}
+        </a>
+      `
+      : `
+        <button
+          type="button"
+          class="pole-more"
+          onclick="openServiceInfo('${esc(pole.id)}'); event.stopPropagation();">
+          ${LANG === 'fr' ? 'En savoir plus' : 'Mehr erfahren'}
+        </button>
+      `
   }
 
   <button
