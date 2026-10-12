@@ -6780,7 +6780,7 @@ document.getElementById('poles-grid').innerHTML =
             : 'Mehr über hinterlüftete Fassaden'}
         </a>
       `
-      : pole.id === 'toitures-plates'
+: t(pole.title).toLowerCase().includes('toiture')
         ? `
           <a
             class="pole-more"
