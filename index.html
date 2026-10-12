@@ -8216,14 +8216,24 @@ if (requestedLang === 'de') {
     contact: 'contact'
   };
 
-  const initialPage =
-    pageFromUrl[requestedPage] || 'accueil';
+ const initialPage =
+  pageFromUrl[requestedPage] || 'accueil';
 
-  console.log('PAGE INITIALE :', initialPage);
+const requestedCategory =
+  new URLSearchParams(window.location.search).get('realisation');
 
+console.log('PAGE INITIALE :', initialPage);
+
+if (
+  requestedCategory === 'facades' ||
+  requestedCategory === 'toitures'
+) {
+  openReferenceCategory(requestedCategory, 'references');
+} else {
   showPage(initialPage);
+}
 
-  initReveal();
+initReveal();
 
 })
 .catch(function(error){
