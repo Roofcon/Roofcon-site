@@ -1078,9 +1078,30 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function setLanguage(lang) {
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll('[data-fr][data-de]').forEach(function(element) {
+      element.textContent = element.getAttribute('data-' + lang);
+    });
+
+    document.querySelectorAll('.lang-switch').forEach(function(button) {
+      button.classList.toggle('active', button.id === 'lang-' + lang);
+    });
+
+    document.title = lang === 'fr'
+      ? 'Façades ventilées au Luxembourg | ROOFCON'
+      : 'Hinterlüftete Fassaden in Luxemburg | ROOFCON';
+
+    localStorage.setItem('roofconLang', lang);
+  }
+
+  const savedLang = localStorage.getItem('roofconLang') || 'fr';
+  setLanguage(savedLang);
+</script>
 
 </body>
 </html>
