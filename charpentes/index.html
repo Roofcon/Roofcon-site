@@ -1,493 +1,33 @@
 <!DOCTYPE html>
+
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Charpentes au Luxembourg | ROOFCON</title>
-  <meta name="description" content="ROOFCON réalise des travaux de charpente au Luxembourg : préparation, fabrication et mise en œuvre de structures adaptées à chaque projet.">
+  <meta name="description" content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg. Découvrez notre approche, les étapes de réalisation et contactez-nous pour votre projet.">
   <meta name="robots" content="index, follow">
-
   <link rel="canonical" href="https://roof-con.com/charpentes/">
-
-  <link rel="alternate" hreflang="fr-LU"
-        href="https://roof-con.com/charpentes/">
-  <link rel="alternate" hreflang="de-LU"
-        href="https://roof-con.com/de/dachstuhlbau/">
-  <link rel="alternate" hreflang="x-default"
-        href="https://roof-con.com/charpentes/">
+  <link rel="alternate" hreflang="fr-LU" href="https://roof-con.com/charpentes/">
+  <link rel="alternate" hreflang="de-LU" href="https://roof-con.com/de/dachstuhlbau/">
+  <link rel="alternate" hreflang="x-default" href="https://roof-con.com/charpentes/">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_LU">
   <meta property="og:site_name" content="ROOFCON">
   <meta property="og:title" content="Charpentes au Luxembourg | ROOFCON">
-  <meta property="og:description" content="Découvrez le savoir-faire de ROOFCON dans la réalisation de charpentes au Luxembourg.">
+  <meta property="og:description" content="Découvrez le savoir-faire de ROOFCON en charpente au Luxembourg.">
   <meta property="og:url" content="https://roof-con.com/charpentes/">
   <meta property="og:image" content="https://roof-con.com/ROOFCON.png">
-  <meta name="theme-color" content="#211f20">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Charpentes au Luxembourg | ROOFCON">
+  <meta name="twitter:description" content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg.">
+  <meta name="twitter:image" content="https://roof-con.com/ROOFCON.png">
 
   <link rel="icon" href="/favicon.ico">
-
-  <style>
-    :root {
-      --dark: #211f20;
-      --dark-soft: #2b2928;
-      --cream: #f2eee7;
-      --white: #ffffff;
-      --muted: #bdb7af;
-      --accent: #b8a58b;
-      --line: rgba(255,255,255,.16);
-      --max-width: 1200px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--white);
-      background: var(--dark);
-      line-height: 1.7;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    header {
-      position: relative;
-      z-index: 10;
-      background: var(--dark);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .header-inner {
-      min-height: 92px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .logo img {
-      width: 170px;
-      max-height: 65px;
-      object-fit: contain;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      font-size: 12px;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      transition: color .2s ease;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: var(--accent);
-    }
-
-    .languages {
-      display: flex;
-      gap: 10px;
-      padding-left: 18px;
-      border-left: 1px solid var(--line);
-    }
-
-    .languages a {
-      padding: 4px 0;
-      color: var(--muted);
-    }
-
-    .languages a.active {
-      color: var(--white);
-      border-bottom: 1px solid var(--accent);
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      padding: 110px 0 105px;
-      background:
-        radial-gradient(ellipse at 85% 20%, rgba(184,165,139,.13), transparent 40%),
-        linear-gradient(135deg, #211f20, #302c29);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      width: 340px;
-      height: 340px;
-      right: -100px;
-      bottom: -190px;
-      border: 1px solid rgba(184,165,139,.22);
-      border-radius: 50%;
-      box-shadow: 0 0 0 35px rgba(184,165,139,.025),
-                  0 0 0 70px rgba(184,165,139,.025);
-      pointer-events: none;
-    }
-
-    .eyebrow {
-      margin: 0 0 22px;
-      color: var(--accent);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3, p {
-      margin-top: 0;
-    }
-
-    h1 {
-      max-width: 850px;
-      margin-bottom: 25px;
-      font-size: clamp(42px, 6vw, 76px);
-      font-weight: 500;
-      line-height: 1.08;
-      letter-spacing: -2px;
-    }
-
-    .hero-text {
-      max-width: 670px;
-      margin-bottom: 35px;
-      color: #d1cbc4;
-      font-size: 17px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 50px;
-      padding: 13px 24px;
-      background: var(--cream);
-      color: var(--dark);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      transition: background .2s ease, transform .2s ease;
-    }
-
-    .button:hover {
-      background: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .section {
-      padding: 95px 0;
-    }
-
-    .section-light {
-      color: var(--dark);
-      background: var(--cream);
-    }
-
-    .section-heading {
-      max-width: 760px;
-      margin-bottom: 45px;
-    }
-
-    .section-heading h2 {
-      margin-bottom: 20px;
-      font-size: clamp(30px, 4vw, 46px);
-      font-weight: 500;
-      line-height: 1.2;
-      letter-spacing: -1px;
-    }
-
-    .section-heading p {
-      color: #69635c;
-      font-size: 16px;
-    }
-
-    .section-dark .section-heading p {
-      color: #c4beb7;
-    }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 70px;
-      align-items: start;
-    }
-
-    .intro-copy p {
-      color: #d0cac3;
-      font-size: 16px;
-    }
-
-    .intro-note {
-      padding: 32px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.025);
-    }
-
-    .intro-note h3 {
-      margin-bottom: 15px;
-      color: var(--accent);
-      font-size: 18px;
-      font-weight: 500;
-    }
-
-    .intro-note p {
-      margin-bottom: 0;
-      color: #d0cac3;
-      font-size: 14px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      min-height: 245px;
-      padding: 30px;
-      border: 1px solid rgba(33,31,32,.13);
-      background: rgba(255,255,255,.35);
-    }
-
-    .card-number {
-      margin-bottom: 28px;
-      color: #95836c;
-      font-size: 12px;
-      letter-spacing: 2px;
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 1.35;
-    }
-
-    .card p {
-      margin-bottom: 0;
-      color: #69635c;
-      font-size: 14px;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 25px;
-    }
-
-    .step {
-      padding-top: 22px;
-      border-top: 1px solid var(--line);
-    }
-
-    .step-number {
-      margin-bottom: 20px;
-      color: var(--accent);
-      font-size: 13px;
-      letter-spacing: 2px;
-    }
-
-    .step h3 {
-      margin-bottom: 12px;
-      font-size: 19px;
-      font-weight: 500;
-    }
-
-    .step p {
-      margin-bottom: 0;
-      color: #c4beb7;
-      font-size: 14px;
-    }
-
-    .cta {
-      padding: 85px 0;
-      color: var(--dark);
-      background: var(--accent);
-    }
-
-    .cta-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-
-    .cta h2 {
-      max-width: 650px;
-      margin-bottom: 12px;
-      font-size: clamp(30px, 4vw, 44px);
-      font-weight: 500;
-      line-height: 1.2;
-    }
-
-    .cta p {
-      margin-bottom: 0;
-      color: #38322c;
-    }
-
-    .cta .button {
-      flex-shrink: 0;
-      background: var(--dark);
-      color: var(--white);
-    }
-
-    .cta .button:hover {
-      background: #3a3531;
-    }
-
-    footer {
-      padding: 35px 0;
-      background: #191818;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .footer-brand {
-      color: var(--white);
-      font-size: 12px;
-      letter-spacing: 1.5px;
-    }
-
-    .footer-details {
-      color: var(--muted);
-      font-size: 12px;
-      text-align: right;
-    }
-
-    .footer-details a:hover {
-      color: var(--accent);
-    }
-
-    @media (max-width: 900px) {
-      .header-inner {
-        padding: 20px 0;
-        flex-direction: column;
-        gap: 18px;
-      }
-
-      nav {
-        justify-content: center;
-        gap: 16px 22px;
-      }
-
-      .intro-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-
-      .cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .steps {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        row-gap: 40px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        width: calc(100% - 36px);
-      }
-
-      .header-inner {
-        min-height: 0;
-      }
-
-      .logo img {
-        width: 145px;
-      }
-
-      nav {
-        gap: 14px 18px;
-      }
-
-      nav a {
-        font-size: 10px;
-      }
-
-      .languages {
-        padding-left: 12px;
-      }
-
-      .hero {
-        padding: 75px 0 80px;
-      }
-
-      h1 {
-        font-size: 43px;
-        letter-spacing: -1.2px;
-      }
-
-      .hero-text {
-        font-size: 15px;
-      }
-
-      .section {
-        padding: 68px 0;
-      }
-
-      .cards,
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      .card {
-        min-height: 0;
-      }
-
-      .cta {
-        padding: 65px 0;
-      }
-
-      .cta-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 25px;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .footer-details {
-        text-align: left;
-      }
-    }
-  </style>
+  <link rel="apple-touch-icon" href="/ROOFCON.png">
 
   <script type="application/ld+json">
   {
@@ -496,11 +36,12 @@
     "name": "ROOFCON",
     "url": "https://roof-con.com/",
     "logo": "https://roof-con.com/ROOFCON.png",
+    "image": "https://roof-con.com/ROOFCON.png",
     "telephone": "+352 621 765 489",
     "email": "info@roof-con.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Z.A.E.R. Op Stackem 8",
+      "streetAddress": "Z.A.E.R Op Stackem 8",
       "postalCode": "9952",
       "addressLocality": "Drinklange",
       "addressCountry": "LU"
@@ -516,260 +57,1013 @@
     ]
   }
   </script>
+
+  <style>
+    :root {
+      --black: #211f20;
+      --soft-black: #292625;
+      --brown: #a27b5b;
+      --light-brown: #c3a080;
+      --cream: #f5f2ee;
+      --white: #ffffff;
+      --gray: #706b67;
+      --line: #e5dfda;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--black);
+      background: var(--white);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(var(--container), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--black);
+      color: var(--white);
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+
+    .topbar-inner {
+      min-height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .topbar-location {
+      color: #d4cec8;
+    }
+
+    .topbar-inner a {
+      color: var(--white);
+      white-space: nowrap;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, .97);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      flex: 0 0 auto;
+    }
+
+    .logo img {
+      width: 175px;
+      height: auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav > a:not(.nav-cta):not(.lang-switch) {
+      transition: color .2s ease;
+    }
+
+    .nav > a:not(.nav-cta):not(.lang-switch):hover {
+      color: var(--brown);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      background: var(--black);
+      color: var(--white);
+      transition: background .2s ease;
+    }
+
+    .nav-cta:hover {
+      background: var(--brown);
+    }
+
+    .lang-switch {
+      color: var(--gray);
+      margin-left: -18px;
+    }
+
+    .lang-switch.active {
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--black);
+      color: var(--white);
+      padding: 112px 0 118px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .16;
+      background:
+        repeating-linear-gradient(
+          135deg,
+          transparent 0,
+          transparent 74px,
+          rgba(255, 255, 255, .17) 75px,
+          transparent 76px,
+          transparent 150px
+        );
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      right: -130px;
+      bottom: -300px;
+      border: 1px solid rgba(195, 160, 128, .35);
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 25px;
+      color: var(--light-brown);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: var(--light-brown);
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      margin: 0 0 25px;
+      font-size: clamp(40px, 5.2vw, 70px);
+      font-weight: 500;
+      letter-spacing: -.045em;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      max-width: 670px;
+      margin: 0;
+      color: #d4cfca;
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 36px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 14px 22px;
+      border: 1px solid transparent;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .button-primary {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .button-primary:hover {
+      background: var(--light-brown);
+      color: var(--black);
+    }
+
+    .button-outline {
+      border-color: rgba(255, 255, 255, .38);
+      color: var(--white);
+    }
+
+    .button-outline:hover {
+      border-color: var(--white);
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .intro-section {
+      padding: 105px 0;
+      background: var(--cream);
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 95px;
+      align-items: start;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 23px;
+      color: var(--brown);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .section-label::before {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--brown);
+    }
+
+    .intro-section h2,
+    .detail-section h2,
+    .method-section h2 {
+      margin: 0;
+      font-size: clamp(30px, 3.2vw, 43px);
+      font-weight: 500;
+      letter-spacing: -.035em;
+      line-height: 1.2;
+    }
+
+    .intro-copy p {
+      margin: 0 0 19px;
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.95;
+    }
+
+    .intro-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .detail-section {
+      padding: 105px 0 115px;
+      background: var(--white);
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 48px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 20px;
+    }
+
+    .section-heading > p {
+      max-width: 650px;
+      margin: 0;
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .feature-card {
+      min-height: 245px;
+      padding: 32px 30px;
+      background: var(--white);
+      transition: background .2s ease;
+    }
+
+    .feature-card:hover {
+      background: #faf8f5;
+    }
+
+    .detail-number {
+      margin-bottom: 24px;
+      color: var(--brown);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 12px;
+      font-size: 19px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--gray);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .method-section {
+      padding: 105px 0 115px;
+      background: var(--cream);
+    }
+
+    .method-layout {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 95px;
+      align-items: start;
+    }
+
+    .method-intro > p {
+      margin: 24px 0 0;
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.95;
+    }
+
+    .method-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .method-item {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 22px;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .method-number {
+      padding-top: 3px;
+      color: var(--brown);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .method-item h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .method-item p {
+      margin: 0;
+      color: var(--gray);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .cta-section {
+      position: relative;
+      overflow: hidden;
+      padding: 78px 0;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .cta-section::after {
+      content: "";
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      right: 6%;
+      top: -190px;
+      border: 1px solid rgba(195, 160, 128, .25);
+      transform: rotate(45deg);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 45px;
+    }
+
+    .cta-copy {
+      max-width: 650px;
+    }
+
+    .cta-copy .section-label {
+      margin-bottom: 18px;
+    }
+
+    .cta-copy h2 {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 3.4vw, 42px);
+      font-weight: 500;
+      letter-spacing: -.035em;
+      line-height: 1.2;
+    }
+
+    .cta-copy p {
+      margin: 0;
+      color: #d4cfca;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 190px;
+    }
+
+    .cta-actions .button {
+      text-align: center;
+    }
+
+    .footer {
+      padding: 55px 0 24px;
+      background: #191818;
+      color: var(--white);
+    }
+
+    .footer-main {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 60px;
+      padding-bottom: 45px;
+    }
+
+    .footer-logo img {
+      width: 165px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-about p {
+      max-width: 330px;
+      margin: 22px 0 0;
+      color: #b8b1ab;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .footer h3 {
+      margin: 0 0 20px;
+      color: var(--light-brown);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 11px;
+    }
+
+    .footer-links a,
+    .footer-contact a,
+    .footer-contact p {
+      margin: 0;
+      color: #d4cfca;
+      font-size: 13px;
+      line-height: 1.8;
+      transition: color .2s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-contact a:hover {
+      color: var(--light-brown);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, .13);
+      color: #a8a19b;
+      font-size: 11px;
+    }
+
+    .footer-bottom a {
+      color: #d4cfca;
+    }
+
+    .footer-bottom a:hover {
+      color: var(--light-brown);
+    }
+
+    @media (max-width: 900px) {
+      .header-inner {
+        min-height: 78px;
+        gap: 18px;
+      }
+
+      .logo img {
+        width: 145px;
+      }
+
+      .nav {
+        gap: 17px;
+      }
+
+      .two-columns,
+      .method-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr 1fr;
+        gap: 38px;
+      }
+
+      .footer-about {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(100% - 36px, var(--container));
+      }
+
+      .topbar-inner {
+        min-height: 34px;
+        font-size: 10px;
+      }
+
+      .topbar-location {
+        max-width: 65%;
+      }
+
+      .header-inner {
+        min-height: 72px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 13px 0;
+      }
+
+      .logo img {
+        width: 132px;
+      }
+
+      .nav {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        font-size: 11px;
+      }
+
+      .nav-cta {
+        padding: 9px 12px;
+      }
+
+      .lang-switch {
+        margin-left: -8px;
+      }
+
+      .hero {
+        padding: 78px 0 82px;
+      }
+
+      .hero h1 {
+        font-size: clamp(37px, 10vw, 50px);
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+
+      .intro-section,
+      .detail-section,
+      .method-section {
+        padding: 72px 0;
+      }
+
+      .intro-section h2,
+      .detail-section h2,
+      .method-section h2 {
+        font-size: 32px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-card {
+        min-height: auto;
+        padding: 27px 24px;
+      }
+
+      .section-heading {
+        margin-bottom: 32px;
+      }
+
+      .method-item {
+        grid-template-columns: 36px 1fr;
+        gap: 14px;
+      }
+
+      .cta-section {
+        padding: 65px 0;
+      }
+
+      .cta-inner {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 28px;
+      }
+
+      .cta-actions {
+        width: 100%;
+      }
+
+      .footer-main {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .footer-about {
+        grid-column: auto;
+      }
+
+      .footer-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
 
-  <header>
-    <div class="container header-inner">
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span class="topbar-location">Construction bois · Toitures · Façades</span>
+      <a href="tel:+352621765489">+352 621 765 489</a>
+    </div>
+  </div>
 
-      <a class="logo" href="/" aria-label="ROOFCON - Accueil">
-        <img src="/ROOFCON.png" alt="ROOFCON — Holzbau, Bedachung und Fassadenbau">
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="/" aria-label="ROOFCON – accueil">
+        <img src="/ROOFCON.png" alt="ROOFCON – Construction bois, toitures et façades">
       </a>
 
-      <nav aria-label="Navigation principale">
-        <a href="/">Accueil</a>
-        <a href="/#references">Références</a>
-        <a href="/#contact">Contact</a>
+```
+  <nav class="nav" aria-label="Navigation principale">
+    <a href="/" data-fr="Accueil" data-de="Startseite">Accueil</a>
+    <a href="/?realisation=facades" data-fr="Réalisations" data-de="Referenzen">Réalisations</a>
+    <a href="mailto:info@roof-con.com" class="nav-cta" data-fr="Nous contacter" data-de="Kontakt">Nous contacter</a>
+    <a href="/charpentes/" id="lang-fr" class="lang-switch active" aria-current="page" lang="fr">FR</a>
+    <a href="/de/dachstuhlbau/" id="lang-de" class="lang-switch" lang="de" hreflang="de-LU">DE</a>
+  </nav>
+</div>
+```
 
-        <div class="languages" aria-label="Choisir la langue">
-          <a href="/charpentes/" class="active" aria-current="page" lang="fr">FR</a>
-          <a href="/de/dachstuhlbau/" lang="de" hreflang="de-LU">DE</a>
-        </div>
-      </nav>
-
-    </div>
   </header>
 
   <main>
-
     <section class="hero">
       <div class="container">
+        <div class="hero-content">
+          <div class="eyebrow">Le savoir-faire ROOFCON</div>
 
-        <p class="eyebrow">ROOFCON · Construction bois</p>
+```
+      <h1>Charpentes au Luxembourg</h1>
 
-        <h1>La charpente, la structure de votre toiture.</h1>
+      <p>
+        La charpente constitue la structure essentielle de votre toiture.
+        ROOFCON vous accompagne dans vos projets avec une attention
+        particulière portée à la préparation, à la précision et à la qualité
+        de mise en œuvre.
+      </p>
 
-        <p class="hero-text">
-          La charpente constitue un élément essentiel de tout projet de toiture.
-          ROOFCON accompagne vos projets de charpente avec une attention
-          particulière portée à la préparation, à la précision et à la mise
-          en œuvre sur chantier.
+      <div class="hero-actions">
+        <a href="#comprendre" class="button button-primary">Découvrir notre savoir-faire</a>
+        <a href="#contact" class="button button-outline">Parler de votre projet</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro-section" id="comprendre">
+  <div class="container two-columns">
+    <div>
+      <div class="section-label">Notre métier</div>
+      <h2>Une structure pensée pour chaque projet</h2>
+    </div>
+
+    <div class="intro-copy">
+      <p>
+        Une charpente doit répondre aux caractéristiques du bâtiment et
+        aux exigences du projet. Sa préparation et sa mise en œuvre
+        demandent méthode, précision et coordination entre les différentes
+        étapes du chantier.
+      </p>
+
+      <p>
+        Chez ROOFCON, nous accordons une attention particulière à la
+        compréhension des plans, à l'organisation du montage et au soin
+        apporté aux assemblages. Chaque étape contribue à la cohérence
+        de l'ensemble de la structure.
+      </p>
+
+      <p>
+        Notre approche tient compte de la configuration du bâtiment, des
+        contraintes du chantier et de la coordination avec les travaux de
+        toiture, selon les besoins du projet.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="detail-section">
+  <div class="container">
+    <div class="section-heading">
+      <div class="section-label">Notre savoir-faire</div>
+      <h2>Une charpente soignée dans ses moindres détails</h2>
+      <p>
+        De la préparation du chantier au montage, chaque étape demande
+        une exécution rigoureuse. L'objectif : obtenir une structure
+        cohérente, adaptée au bâtiment et prête pour la suite des travaux.
+      </p>
+    </div>
+
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="detail-number">01</div>
+        <h3>Compréhension de la structure</h3>
+        <p>
+          Analyser les plans et la configuration du bâtiment pour
+          comprendre les éléments qui composent la charpente.
         </p>
+      </article>
 
-        <a class="button" href="#contact-charpente">
-          Parler de votre projet
-        </a>
+      <article class="feature-card">
+        <div class="detail-number">02</div>
+        <h3>Préparation du chantier</h3>
+        <p>
+          Organiser les différentes étapes, anticiper les contraintes
+          d'accès et préparer les conditions nécessaires au montage.
+        </p>
+      </article>
 
-      </div>
-    </section>
+      <article class="feature-card">
+        <div class="detail-number">03</div>
+        <h3>Assemblages précis</h3>
+        <p>
+          Accorder une attention particulière aux assemblages et au
+          positionnement des éléments qui composent la structure.
+        </p>
+      </article>
 
-    <section class="section section-dark">
-      <div class="container intro-grid">
+      <article class="feature-card">
+        <div class="detail-number">04</div>
+        <h3>Alignements et ajustements</h3>
+        <p>
+          Contrôler la mise en place des éléments et effectuer les
+          ajustements nécessaires au bon déroulement du montage.
+        </p>
+      </article>
 
-        <div class="intro-copy">
-          <p class="eyebrow">Notre savoir-faire</p>
+      <article class="feature-card">
+        <div class="detail-number">05</div>
+        <h3>Adaptation au bâtiment</h3>
+        <p>
+          Tenir compte de la forme de la toiture, des dimensions et des
+          particularités du projet pour adapter la mise en œuvre.
+        </p>
+      </article>
 
-          <h2>Une structure pensée pour votre projet.</h2>
+      <article class="feature-card">
+        <div class="detail-number">06</div>
+        <h3>Coordination avec la toiture</h3>
+        <p>
+          Préparer la continuité avec les étapes suivantes, notamment
+          les travaux de couverture, selon l'organisation du chantier.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
 
-          <p>
-            La réalisation d'une charpente demande une préparation rigoureuse
-            et une bonne coordination avec les autres éléments du bâtiment.
-            Chaque projet doit tenir compte de sa configuration, de ses
-            dimensions et des contraintes techniques du chantier.
-          </p>
+<section class="method-section">
+  <div class="container method-layout">
+    <div class="method-intro">
+      <div class="section-label">Notre méthode</div>
+      <h2>Un travail organisé étape par étape</h2>
+      <p>
+        Une bonne organisation permet de mieux anticiper les contraintes
+        et d'assurer une progression cohérente du chantier. Les étapes
+        sont adaptées aux caractéristiques de chaque projet.
+      </p>
+    </div>
 
-          <p>
-            Chez ROOFCON, nous accordons de l'importance à la précision
-            du travail, à la qualité de l'exécution et à la coordination
-            des différentes étapes, de la préparation jusqu'à la pose.
-          </p>
-        </div>
-
-        <aside class="intro-note">
-          <h3>Le bois au cœur du projet</h3>
-          <p>
-            Une charpente bien préparée contribue à la stabilité de la toiture
-            et à la bonne coordination des travaux qui suivent. La conception
-            et la mise en œuvre doivent être adaptées aux caractéristiques
-            de chaque bâtiment.
-          </p>
-        </aside>
-
-      </div>
-    </section>
-
-    <section class="section section-light">
-      <div class="container">
-
-        <div class="section-heading">
-          <p class="eyebrow">Le pôle charpentes</p>
-
-          <h2>Les étapes essentielles d'un travail de charpente.</h2>
-
-          <p>
-            De la préparation du projet à la mise en place de la structure,
-            chaque étape contribue au bon déroulement du chantier.
-          </p>
-        </div>
-
-        <div class="cards">
-
-          <article class="card">
-            <div class="card-number">01</div>
-            <h3>Préparation du projet</h3>
-            <p>
-              Analyse des plans, des dimensions et des contraintes afin
-              de préparer l'intervention et d'anticiper les besoins du chantier.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-number">02</div>
-            <h3>Préparation de la structure</h3>
-            <p>
-              Préparation des éléments de charpente selon les plans
-              et les caractéristiques du projet.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-number">03</div>
-            <h3>Montage et mise en place</h3>
-            <p>
-              Mise en œuvre de la structure sur chantier, avec une attention
-              portée à l'assemblage, à l'alignement et à la précision.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-number">04</div>
-            <h3>Coordination avec la toiture</h3>
-            <p>
-              Préparation de la suite des travaux pour permettre
-              l'enchaînement avec les différentes couches de toiture.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-number">05</div>
-            <h3>Précision d'exécution</h3>
-            <p>
-              Une attention portée aux détails et à la cohérence
-              de la structure tout au long de l'intervention.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-number">06</div>
-            <h3>Adaptation au bâtiment</h3>
-            <p>
-              Chaque projet est abordé en tenant compte de sa configuration
-              et de ses particularités techniques.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-dark">
-      <div class="container">
-
-        <div class="section-heading">
-          <p class="eyebrow">Notre méthode</p>
-
-          <h2>De la préparation à la réalisation.</h2>
-
-          <p>
-            Une organisation claire permet de coordonner les interventions
-            et de travailler avec méthode à chaque étape du projet.
-          </p>
-        </div>
-
-        <div class="steps">
-
-          <article class="step">
-            <div class="step-number">ÉTAPE 01</div>
-            <h3>Planifier</h3>
-            <p>
-              Comprendre le projet, ses dimensions et les contraintes
-              à prendre en compte.
-            </p>
-          </article>
-
-          <article class="step">
-            <div class="step-number">ÉTAPE 02</div>
-            <h3>Préparer</h3>
-            <p>
-              Organiser les éléments et les interventions nécessaires
-              à la réalisation.
-            </p>
-          </article>
-
-          <article class="step">
-            <div class="step-number">ÉTAPE 03</div>
-            <h3>Mettre en œuvre</h3>
-            <p>
-              Réaliser le montage de la charpente avec méthode
-              et précision.
-            </p>
-          </article>
-
-          <article class="step">
-            <div class="step-number">ÉTAPE 04</div>
-            <h3>Coordonner</h3>
-            <p>
-              Préparer la continuité du chantier avec les autres travaux
-              liés à la toiture.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="cta" id="contact-charpente">
-      <div class="container cta-inner">
-
+    <div class="method-list">
+      <article class="method-item">
+        <div class="method-number">01</div>
         <div>
-          <p class="eyebrow">Votre projet</p>
-
-          <h2>Vous avez un projet de charpente ?</h2>
-
+          <h3>Étude du projet</h3>
           <p>
-            Contactez ROOFCON pour échanger sur votre projet
-            et ses besoins.
+            Prendre connaissance des plans, de la configuration du bâtiment
+            et des particularités à prendre en compte avant le démarrage.
           </p>
         </div>
+      </article>
 
-        <a class="button" href="mailto:info@roof-con.com?subject=Projet%20de%20charpente">
-          Nous contacter
-        </a>
+      <article class="method-item">
+        <div class="method-number">02</div>
+        <div>
+          <h3>Préparation de la mise en œuvre</h3>
+          <p>
+            Organiser le chantier, prévoir les moyens nécessaires et
+            préparer les différentes étapes du montage.
+          </p>
+        </div>
+      </article>
 
-      </div>
-    </section>
+      <article class="method-item">
+        <div class="method-number">03</div>
+        <div>
+          <h3>Montage de la charpente</h3>
+          <p>
+            Mettre en place les éléments de la structure en veillant
+            aux assemblages, aux alignements et aux ajustements.
+          </p>
+        </div>
+      </article>
+
+      <article class="method-item">
+        <div class="method-number">04</div>
+        <div>
+          <h3>Contrôle et coordination</h3>
+          <p>
+            Vérifier le travail réalisé et organiser la continuité avec
+            les autres interventions prévues sur le chantier.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <div class="container cta-inner">
+    <div class="cta-copy">
+      <div class="section-label">Votre projet</div>
+      <h2>Vous avez un projet de charpente ?</h2>
+      <p>
+        Contactez ROOFCON pour échanger sur votre projet au Luxembourg
+        et nous présenter vos besoins.
+      </p>
+    </div>
+
+    <div class="cta-actions">
+      <a href="mailto:info@roof-con.com?subject=Projet%20de%20charpente" class="button button-primary">
+        Nous contacter
+      </a>
+      <a href="tel:+352621765489" class="button button-outline">
+        +352 621 765 489
+      </a>
+    </div>
+  </div>
+</section>
+```
 
   </main>
 
-  <footer>
-    <div class="container footer-inner">
-
-      <div class="footer-brand">
-        ROOFCON · CONSTRUCTION & TOITURE
-      </div>
-
-      <div class="footer-details">
-        <div>Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg</div>
-        <div>
-          <a href="tel:+352621765489">+352 621 765 489</a>
-          ·
-          <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-main">
+        <div class="footer-about">
+          <a class="footer-logo" href="/" aria-label="ROOFCON – accueil">
+            <img src="/ROOFCON.png" alt="ROOFCON">
+          </a>
+          <p>
+            ROOFCON vous accompagne dans vos projets de construction bois,
+            de toiture et de façade au Luxembourg.
+          </p>
         </div>
-        <div>© <span id="year"></span> ROOFCON. Tous droits réservés.</div>
-      </div>
 
+```
+    <div>
+      <h3>Navigation</h3>
+      <div class="footer-links">
+        <a href="/">Accueil</a>
+        <a href="/?realisation=facades">Réalisations</a>
+        <a href="/charpentes/">Charpentes</a>
+        <a href="mailto:info@roof-con.com">Contact</a>
+      </div>
     </div>
+
+    <div class="footer-contact">
+      <h3>Contact</h3>
+      <p>ROOFCON</p>
+      <p>Z.A.E.R Op Stackem 8</p>
+      <p>9952 Drinklange, Luxembourg</p>
+      <p><a href="tel:+352621765489">+352 621 765 489</a></p>
+      <p><a href="mailto:info@roof-con.com">info@roof-con.com</a></p>
+      <div class="footer-links" style="margin-top: 14px;">
+        <a href="https://www.instagram.com/roofcon.lu/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61594591794889" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© <span id="year"></span> ROOFCON — Tous droits réservés.</span>
+    <a href="/mentions-legales.html">Mentions légales</a>
+  </div>
+</div>
+```
+
   </footer>
 
   <script>
