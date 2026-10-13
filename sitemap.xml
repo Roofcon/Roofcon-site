@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://roof-con.com/</loc>
+    <loc>https://www.roof-con.com/</loc>
   </url>
   <url>
-    <loc>https://roof-con.com/facades-ventilees/</loc>
+    <loc>https://www.roof-con.com/de/</loc>
   </url>
   <url>
-    <loc>https://roof-con.com/toitures-plates/</loc>
+    <loc>https://www.roof-con.com/facades-ventilees/</loc>
+  </url>
+  <url>
+    <loc>https://www.roof-con.com/toitures-plates/</loc>
+  </url>
+  <url>
+    <loc>https://www.roof-con.com/charpentes/</loc>
+  </url>
+  <url>
+    <loc>https://www.roof-con.com/de/dachstuhlbau/</loc>
+  </url>
+  <url>
+    <loc>https://www.roof-con.com/couvertures/</loc>
+  </url>
+  <url>
+    <loc>https://www.roof-con.com/de/dachdeckungen/</loc>
+  </url>
+  <url>
+    <loc>https://www.roof-con.com/maisons-annexes-ossature-bois/</loc>
+  </url>
+  <url>
+    <loc>https://www.roof-con.com/de/holzhaeuser-anbauten/</loc>
+  </url>
+  <url>
+    <loc>https://www.roof-con.com/mentions-legales.html</loc>
   </url>
 </urlset>
