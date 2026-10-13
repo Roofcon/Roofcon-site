@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -10,7 +11,13 @@
     <loc>https://www.roof-con.com/facades-ventilees/</loc>
   </url>
   <url>
+    <loc>https://www.roof-con.com/de/hinterlueftete-fassaden/</loc>
+  </url>
+  <url>
     <loc>https://www.roof-con.com/toitures-plates/</loc>
+  </url>
+  <url>
+    <loc>https://www.roof-con.com/de/flachdaecher/</loc>
   </url>
   <url>
     <loc>https://www.roof-con.com/charpentes/</loc>
