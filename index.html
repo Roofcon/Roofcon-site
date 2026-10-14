@@ -682,72 +682,66 @@ h1 span{
 
 }
 
-/* ACCUEIL — QUI SOMMES-NOUS + CARTE CÔTE À CÔTE */
+  
+/* CARTE PLUS HAUTE ET PLUS COMPACTE SUR L'ACCUEIL */
 
-.who-layout{
-  display:grid;
-  grid-template-columns:minmax(0, 1fr) minmax(320px, 0.9fr);
-  gap:50px;
-  align-items:center;
+.hero-content {
+  position: relative;
 }
 
-.who-left{
-  min-width:0;
+.home-map {
+  width: min(390px, 100%);
+  margin-top: 28px;
 }
 
-.who-left .head{
-  margin-bottom:30px;
+.home-map-heading {
+  margin-bottom: 10px;
 }
 
-.who-left .who-content{
-  max-width:none;
-  width:100%;
-  margin:0;
-  display:block;
+.home-map-heading .kicker {
+  font-size: 11px;
 }
 
-.who-left .who-content::before,
-.who-left .who-content::after{
-  display:none;
+.home-map-heading p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
-.who-left .who-content p{
-  grid-column:auto;
+.home-map .chantier-map {
+  width: 100%;
+  height: 230px;
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.who-map{
-  min-width:0;
-}
-
-.who-map-heading{
-  margin-bottom:16px;
-}
-
-.who-map-heading p{
-  margin:8px 0 0;
-  color:#5f5b58;
-  font-size:15px;
-  line-height:1.6;
-}
-
-.who-map .chantier-map{
-  width:100%;
-  height:380px;
-  margin-top:0;
-  border-radius:12px;
-  overflow:hidden;
-}
-
-@media(max-width:900px){
-  .who-layout{
-    grid-template-columns:1fr;
-    gap:35px;
+/* Sur écran large : carte à droite du contenu d'accueil */
+@media (min-width: 901px) {
+  .hero-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 350px;
+    column-gap: 45px;
+    align-items: center;
   }
 
-  .who-map .chantier-map{
-    height:300px;
+  .home-map {
+    width: 100%;
+    margin-top: 0;
   }
 }
+
+/* Sur téléphone : carte sous le contenu */
+@media (max-width: 900px) {
+  .home-map {
+    margin-top: 30px;
+  }
+
+  .home-map .chantier-map {
+    height: 210px;
+  }
+}
+
 
 /* ================================
    NOS SERVICES
@@ -4096,6 +4090,18 @@ footer{
 
     </div>
 
+    
+<div class="home-map">
+
+  <div class="home-map-heading">
+    <div class="kicker" id="map-title"></div>
+    <p id="map-subtitle"></p>
+  </div>
+
+  <div id="chantier-map" class="chantier-map"></div>
+
+</div>
+
 
     <!-- APERÇU DES SERVICES -->
     <div class="home-preview home-services-preview">
@@ -4193,19 +4199,6 @@ footer{
       </div>
 
     </div>
-
-
-<!-- CARTE DES CHANTIERS SUR L'ACCUEIL -->
-<div class="home-map">
-
-  <div class="home-map-heading">
-    <div class="kicker" id="map-title"></div>
-    <p id="map-subtitle"></p>
-  </div>
-
-  <div id="chantier-map" class="chantier-map"></div>
-
-</div>
 
     <!-- CONTACT -->
     <div class="home-contact-preview">
