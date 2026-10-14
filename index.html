@@ -682,7 +682,7 @@ h1 span{
 
 }
 
-/* QUI SOMMES-NOUS — TEXTE + CARTE */
+/* ACCUEIL — QUI SOMMES-NOUS + CARTE CÔTE À CÔTE */
 
 .who-layout{
   display:grid;
@@ -691,25 +691,28 @@ h1 span{
   align-items:center;
 }
 
-.who-layout .who-content{
+.who-left{
+  min-width:0;
+}
+
+.who-left .head{
+  margin-bottom:30px;
+}
+
+.who-left .who-content{
   max-width:none;
   width:100%;
-  min-width:0;
-  grid-template-columns:1fr;
-  column-gap:0;
+  margin:0;
+  display:block;
 }
 
-.who-layout .who-content::before{
+.who-left .who-content::before,
+.who-left .who-content::after{
   display:none;
 }
 
-.who-layout .who-content::after{
-  display:none;
-}
-
-.who-layout .who-content p,
-.who-layout .who-content .btn{
-  grid-column:1;
+.who-left .who-content p{
+  grid-column:auto;
 }
 
 .who-map{
@@ -718,10 +721,6 @@ h1 span{
 
 .who-map-heading{
   margin-bottom:16px;
-}
-
-.who-map-heading .kicker{
-  color:#282624;
 }
 
 .who-map-heading p{
@@ -733,13 +732,11 @@ h1 span{
 
 .who-map .chantier-map{
   width:100%;
-  height:340px;
+  height:380px;
   margin-top:0;
   border-radius:12px;
   overflow:hidden;
 }
-
-/* AFFICHAGE MOBILE */
 
 @media(max-width:900px){
   .who-layout{
@@ -4222,55 +4219,59 @@ footer{
 
 </section>
 
-<!-- QUI SOMMES-NOUS -->
+<!-- QUI-SOMMES-NOUS + CARTE SUR LA PAGE D'ACCUEIL -->
 <section id="who" class="who">
 
   <div class="container">
 
-    <div class="head">
+    <div class="who-layout">
 
-      <div class="kicker" id="who-kicker"></div>
+      <div class="who-left">
 
-      <h2 id="who-title"></h2>
+        <div class="head">
 
-      <p id="who-intro"></p>
+          <div class="kicker" id="who-kicker"></div>
+
+          <h2 id="who-title"></h2>
+
+          <p id="who-intro"></p>
+
+        </div>
+
+        <div class="who-content">
+
+          <p id="who-text-1"></p>
+          <p id="who-text-2"></p>
+          <p id="who-text-3"></p>
+          <p id="who-text-4"></p>
+
+          <p>
+            <strong id="who-objective"></strong>
+          </p>
+
+          <a
+            href="#"
+            data-page="references"
+            class="btn primary"
+            id="who-hallcon">
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="who-map">
+
+        <div class="who-map-heading">
+          <div class="kicker" id="map-title"></div>
+          <p id="map-subtitle"></p>
+        </div>
+
+        <div id="chantier-map" class="chantier-map"></div>
+
+      </div>
 
     </div>
-
-<div class="who-layout">
-
-  <div class="who-content">
-
-    <p id="who-text-1"></p>
-    <p id="who-text-2"></p>
-    <p id="who-text-3"></p>
-    <p id="who-text-4"></p>
-
-    <p>
-      <strong id="who-objective"></strong>
-    </p>
-
-    <a
-      href="#"
-      data-page="references"
-      class="btn primary"
-      id="who-hallcon">
-    </a>
-
-  </div>
-
-  <div class="who-map">
-
-    <div class="who-map-heading">
-      <div class="kicker" id="map-title"></div>
-      <p id="map-subtitle"></p>
-    </div>
-
-    <div id="chantier-map" class="chantier-map"></div>
-
-  </div>
-
-</div>
 
   </div>
 
