@@ -725,9 +725,9 @@
           "fr": "",
           "de": ""
         },
-        "address": "rue ronchampay 5 6980 La roche",
-        "latitude": 50.1556762,
-        "longitude": 5.5284619,
+        "address": "",
+        "latitude": null,
+        "longitude": null,
         "images": [
           "images/projets-en-cours/current-project-1791179907640-1791549024832-ccv5ci.jpeg"
         ]
