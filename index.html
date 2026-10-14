@@ -682,66 +682,67 @@ h1 span{
 
 }
 
-  
-/* CARTE PLUS HAUTE ET PLUS COMPACTE SUR L'ACCUEIL */
+/* CARTE SUR L'ACCUEIL — SANS DÉPLACER LE TEXTE */
 
-.hero-content {
+#accueil {
   position: relative;
 }
 
-.home-map {
-  width: min(390px, 100%);
-  margin-top: 28px;
+/* Le contenu d'origine garde sa disposition */
+#accueil .hero-content {
+  display: block;
 }
 
-.home-map-heading {
-  margin-bottom: 10px;
+/* Carte positionnée indépendamment à droite */
+#accueil .home-map {
+  position: absolute;
+  top: 50%;
+  right: max(5%, calc((100% - 1200px) / 2));
+  transform: translateY(-50%);
+  width: 440px;
+  max-width: 38%;
+  margin: 0;
+  z-index: 2;
 }
 
-.home-map-heading .kicker {
-  font-size: 11px;
+#accueil .home-map-heading {
+  margin-bottom: 12px;
 }
 
-.home-map-heading p {
-  margin: 5px 0 0;
-  font-size: 13px;
+#accueil .home-map-heading p {
+  margin: 6px 0 0;
+  font-size: 14px;
   line-height: 1.5;
 }
 
-.home-map .chantier-map {
+#accueil .home-map .chantier-map {
   width: 100%;
-  height: 230px;
+  height: 320px;
   margin: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
-/* Sur écran large : carte à droite du contenu d'accueil */
-@media (min-width: 901px) {
-  .hero-content {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 350px;
-    column-gap: 45px;
-    align-items: center;
-  }
-
-  .home-map {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-
-/* Sur téléphone : carte sous le contenu */
+/* Sur les écrans plus petits, la carte passe sous le contenu */
 @media (max-width: 900px) {
-  .home-map {
-    margin-top: 30px;
+  #accueil .home-map {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 35px 0 0;
   }
 
-  .home-map .chantier-map {
-    height: 210px;
+  #accueil .home-map .chantier-map {
+    height: 300px;
   }
+
+  #accueil.hero {
+  min-height: 760px;
 }
-
+}
 
 /* ================================
    NOS SERVICES
