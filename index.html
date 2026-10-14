@@ -683,47 +683,41 @@ h1 span{
 }
 
 
-/* CARTE DES CHANTIERS */
 
-#home-map-section {
-  padding: 90px 0 100px;
-  background: #f4f2ef;
-}
-
-#home-map-section .container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding-left: 24px;
-  padding-right: 24px;
-}
-
-#home-map-section .home-map-heading {
-  margin-bottom: 25px;
-}
-
-#home-map-section .chantier-map {
+/* CARTE DES CHANTIERS SUR LA PAGE D'ACCUEIL */
+.home-map-section {
   width: 100%;
-  height: 600px;
-  margin: 0;
-  border-radius: 14px;
+  margin: 70px 0 90px;
+}
+
+.home-map-heading {
+  margin-bottom: 20px;
+}
+
+.home-map-heading p {
+  margin: 8px 0 0;
+  color: #5f5b58;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.home-map-section .chantier-map {
+  width: 100%;
+  height: 420px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
-@media (max-width: 900px) {
-  #home-map-section {
-    padding: 55px 0;
+@media (max-width: 768px) {
+  .home-map-section {
+    margin: 45px 0 60px;
   }
 
-  #home-map-section .chantier-map {
-    height: 420px;
+  .home-map-section .chantier-map {
+    height: 300px;
   }
 }
 
-@media (max-width: 600px) {
-  #home-map-section .chantier-map {
-    height: 320px;
-  }
-}
 
 
 /* ================================
@@ -4170,6 +4164,20 @@ footer{
 
     </div>
 
+    
+    <!-- CARTE DES CHANTIERS -->
+    <div class="home-map-section">
+
+      <div class="home-map-heading">
+        <div class="kicker" id="map-title"></div>
+        <p id="map-subtitle"></p>
+      </div>
+
+      <div id="chantier-map" class="chantier-map"></div>
+
+    </div>
+    </div>
+  
     <!-- CONTACT -->
     <div class="home-contact-preview">
 
@@ -4193,20 +4201,6 @@ footer{
   </div>
 
 
-</section>
-
-<!-- CARTE DES CHANTIERS -->
-<section id="home-map-section" class="home-map-section">
-  <div class="container">
-
-    <div class="home-map-heading">
-      <div class="kicker" id="map-title"></div>
-      <p id="map-subtitle"></p>
-    </div>
-
-    <div id="chantier-map" class="chantier-map"></div>
-
-  </div>
 </section>
 
 <!-- QUI-SOMMES-NOUS -->
