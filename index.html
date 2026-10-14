@@ -406,32 +406,32 @@ h1 span{
   max-width:1000px;
 }
 
-
-/* ================================
+/* =========================================
    QUI SOMMES-NOUS — ROOFCON
-================================ */
+   Style architectural sans photo
+========================================= */
 
 .who {
   position: relative;
-  background: #f4f2ef;
-  padding: 100px 0 120px;
   overflow: hidden;
+  background: #f4f2ef;
+  padding: 110px 0 125px;
 }
-
-/* STRUCTURE GÉNÉRALE */
 
 .who .container {
   max-width: 1320px;
 }
 
+/* STRUCTURE */
+
 .who-layout {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-  gap: clamp(45px, 7vw, 110px);
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  column-gap: clamp(45px, 8vw, 120px);
   align-items: start;
 }
 
-/* INTRODUCTION */
+/* COLONNE GAUCHE */
 
 .who-left {
   min-width: 0;
@@ -439,8 +439,8 @@ h1 span{
 
 .who-left .head {
   position: relative;
-  margin-bottom: 38px;
-  padding-top: 22px;
+  margin: 0;
+  padding-top: 25px;
 }
 
 .who-left .head::before {
@@ -448,13 +448,13 @@ h1 span{
   position: absolute;
   top: 0;
   left: 0;
-  width: 48px;
+  width: 52px;
   height: 2px;
   background: #282624;
 }
 
 .who-left .head .kicker {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
   color: #817a74;
   font-size: 11px;
   font-weight: 800;
@@ -463,33 +463,34 @@ h1 span{
 }
 
 .who-left .head h2 {
-  margin: 0 0 24px;
-  max-width: 520px;
+  max-width: 480px;
+  margin: 0 0 25px;
   color: #242321;
-  font-size: clamp(36px, 4vw, 58px);
-  line-height: 1.04;
-  letter-spacing: -.045em;
+  font-size: clamp(38px, 4.5vw, 66px);
+  line-height: 1.02;
+  letter-spacing: -.055em;
   font-weight: 700;
 }
 
 .who-left .head > p {
+  max-width: 430px;
   margin: 0;
-  max-width: 480px;
   color: #625e5a;
   font-size: 17px;
   line-height: 1.8;
 }
 
-/* TEXTE EXISTANT */
+/* COLONNE DROITE : TEXTES */
 
 .who-left .who-content {
   display: block;
   width: 100%;
-  max-width: 600px;
+  max-width: none;
   margin: 0;
+  padding: 0;
   color: #625e5a;
   font-size: 16px;
-  line-height: 1.85;
+  line-height: 1.9;
 }
 
 .who-left .who-content::before,
@@ -498,25 +499,31 @@ h1 span{
 }
 
 .who-left .who-content p {
-  margin: 0 0 22px;
-  max-width: 100%;
+  margin: 0 0 25px;
   color: #625e5a;
   font-size: 16px;
-  line-height: 1.85;
+  line-height: 1.9;
 }
 
 .who-left .who-content p:first-of-type {
   margin-top: 0;
-  margin-bottom: 26px;
+  margin-bottom: 32px;
   color: #292826;
-  font-size: clamp(22px, 2.2vw, 29px);
+  font-size: clamp(22px, 2.3vw, 30px);
   line-height: 1.35;
-  letter-spacing: -.025em;
+  letter-spacing: -.03em;
 }
 
 .who-left .who-content strong {
   color: #292826;
   font-weight: 700;
+}
+
+/* DEVISE / TEXTE IMPORTANT */
+
+.who-left .who-content p:has(strong) {
+  padding-top: 22px;
+  border-top: 1px solid #d8d3cd;
 }
 
 /* BOUTON */
@@ -527,7 +534,7 @@ h1 span{
   justify-content: center;
   width: max-content;
   max-width: 100%;
-  margin-top: 12px;
+  margin-top: 10px;
   padding: 15px 21px;
   border: 1px solid #282624;
   background: #282624;
@@ -545,94 +552,78 @@ h1 span{
   color: #282624;
 }
 
-/* EMPLACEMENT PHOTO À DROITE
-   La photo sera ajoutée à l'étape HTML. */
+/* PETIT DÉTAIL GRAPHIQUE */
 
-.who-visual {
-  position: relative;
-  min-width: 0;
-  padding-top: 24px;
-}
-
-.who-visual img {
-  display: block;
-  width: 100%;
-  height: 650px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.who-visual-caption {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  padding-top: 14px;
-  border-top: 1px solid #d5d0ca;
-  margin-top: 14px;
-  color: #625e5a;
-  font-size: 11px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+.who::after {
+  content: "ROOFCON";
+  position: absolute;
+  right: -12px;
+  bottom: 5px;
+  color: rgba(40, 38, 36, .035);
+  font-size: clamp(80px, 15vw, 220px);
+  font-weight: 800;
+  letter-spacing: -.08em;
+  line-height: 1;
+  pointer-events: none;
 }
 
 /* TABLETTE */
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
   .who {
-    padding: 75px 0 85px;
+    padding: 80px 0 95px;
   }
 
   .who-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
-    gap: 35px;
+    grid-template-columns: 1fr;
+    row-gap: 42px;
   }
 
-  .who-visual img {
-    height: 520px;
+  .who-left .head h2 {
+    max-width: 650px;
+  }
+
+  .who-left .head > p {
+    max-width: 650px;
+  }
+
+  .who-left .who-content {
+    max-width: 760px;
   }
 }
 
 /* MOBILE */
 
-@media (max-width: 720px) {
+@media (max-width: 600px) {
   .who {
-    padding: 55px 0 65px;
+    padding: 60px 0 75px;
   }
 
   .who-layout {
-    grid-template-columns: 1fr;
-    gap: 38px;
+    row-gap: 32px;
   }
 
   .who-left .head {
-    margin-bottom: 28px;
+    padding-top: 20px;
   }
 
   .who-left .head h2 {
-    font-size: clamp(34px, 9vw, 46px);
+    font-size: clamp(36px, 10vw, 48px);
   }
 
   .who-left .head > p,
   .who-left .who-content,
   .who-left .who-content p {
     font-size: 15px;
+    line-height: 1.8;
   }
 
   .who-left .who-content p:first-of-type {
     font-size: 23px;
   }
 
-  .who-visual {
-    padding-top: 0;
-  }
-
-  .who-visual img {
-    height: 380px;
-  }
-
-  .who-visual-caption {
-    font-size: 10px;
+  .who-left .who-content .btn {
+    white-space: normal;
   }
 }
 
