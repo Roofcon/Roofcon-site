@@ -53,8 +53,8 @@
       "de": "Wer sind wir?"
     },
     "referencesButton": {
-      "fr": "Voir nos réalisations",
-      "de": "Unsere Referenzen"
+      "fr": "",
+      "de": ""
     }
   },
   "who": {
@@ -725,9 +725,9 @@
           "fr": "",
           "de": ""
         },
-        "address": "",
-        "latitude": null,
-        "longitude": null,
+        "address": "rue ronchampay 5 6980 La roche",
+        "latitude": 50.1556762,
+        "longitude": 5.5284619,
         "images": [
           "images/projets-en-cours/current-project-1791179907640-1791549024832-ccv5ci.jpeg"
         ]
