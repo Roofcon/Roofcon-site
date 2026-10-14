@@ -406,280 +406,234 @@ h1 span{
   max-width:1000px;
 }
 
-/* ================================
-   QUI SOMMES-NOUS
-================================ */
-
-.who{
-  position:relative;
-
-  background:#f4f2ef;
-
-  padding:120px 0 130px;
-
-  overflow:hidden;
-}
-
 
 /* ================================
-   STRUCTURE
+   QUI SOMMES-NOUS — ROOFCON
 ================================ */
 
-.who-content{
-  position:relative;
-
-  max-width:1100px;
-
-  margin:0;
-
-  display:grid;
-
-  grid-template-columns:minmax(260px, .75fr) minmax(420px, 1.25fr);
-
-  column-gap:100px;
-
-  align-items:start;
-
-  font-size:17px;
-
-  color:#5f5b58;
+.who {
+  position: relative;
+  background: #f4f2ef;
+  padding: 100px 0 120px;
+  overflow: hidden;
 }
 
+/* STRUCTURE GÉNÉRALE */
 
-/* ================================
-   TITRE / INTRO
-================================ */
-
-.who-content::before{
-  content:"À PROPOS DE ROOFCON";
-
-  display:block;
-
-  grid-column:1;
-
-  color:#817a74;
-
-  font-size:11px;
-
-  font-weight:800;
-
-  letter-spacing:.18em;
-
-  text-transform:uppercase;
-
-  margin-bottom:25px;
+.who .container {
+  max-width: 1320px;
 }
 
-
-/* ================================
-   TEXTE
-================================ */
-
-.who-content p{
-  grid-column:2;
-
-  margin:0 0 25px;
-
-  max-width:720px;
-
-  font-size:17px;
-
-  line-height:1.8;
-
-  color:#625e5a;
+.who-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(45px, 7vw, 110px);
+  align-items: start;
 }
 
-.who-content p:first-of-type{
-  margin-top:0;
+/* INTRODUCTION */
+
+.who-left {
+  min-width: 0;
 }
 
-
-/* ================================
-   TEXTE IMPORTANT
-================================ */
-
-.who-content strong{
-  color:#202020;
-
-  font-weight:700;
+.who-left .head {
+  position: relative;
+  margin-bottom: 38px;
+  padding-top: 22px;
 }
 
-
-/* ================================
-   PREMIER PARAGRAPHE
-================================ */
-
-.who-content p:first-of-type{
-  font-size:clamp(24px,2.5vw,34px);
-
-  line-height:1.25;
-
-  letter-spacing:-.025em;
-
-  color:#222;
-
-  margin-bottom:35px;
+.who-left .head::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 2px;
+  background: #282624;
 }
 
-
-/* ================================
-   BOUTON
-================================ */
-
-.who-content .btn{
-  grid-column:2;
-
-  display:inline-flex;
-
-  width:max-content;
-
-  margin-top:10px;
-
-  padding:14px 22px;
-
-  border:1px solid #282624;
-
-  background:#282624;
-
-  color:#fff;
-
-  text-decoration:none;
-
-  font-size:11px;
-
-  font-weight:800;
-
-  letter-spacing:.14em;
-
-  text-transform:uppercase;
-
-  transition:
-    background .3s ease,
-    color .3s ease,
-    transform .3s ease;
+.who-left .head .kicker {
+  margin-bottom: 20px;
+  color: #817a74;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
 }
 
-.who-content .btn:hover{
-  background:transparent;
-
-  color:#282624;
-
-  transform:translateY(-2px);
+.who-left .head h2 {
+  margin: 0 0 24px;
+  max-width: 520px;
+  color: #242321;
+  font-size: clamp(36px, 4vw, 58px);
+  line-height: 1.04;
+  letter-spacing: -.045em;
+  font-weight: 700;
 }
 
-
-/* ================================
-   LIGNE DÉCORATIVE
-================================ */
-
-.who-content::after{
-  content:"";
-
-  position:absolute;
-
-  left:0;
-
-  top:52px;
-
-  width:55px;
-
-  height:2px;
-
-  background:#282624;
+.who-left .head > p {
+  margin: 0;
+  max-width: 480px;
+  color: #625e5a;
+  font-size: 17px;
+  line-height: 1.8;
 }
 
+/* TEXTE EXISTANT */
 
-/* ================================
-   TABLETTE
-================================ */
-
-@media(max-width:900px){
-
-  .who{
-    padding:90px 0 100px;
-  }
-
-  .who-content{
-    grid-template-columns:1fr;
-
-    column-gap:0;
-
-    max-width:750px;
-  }
-
-  .who-content::before{
-    grid-column:1;
-
-    margin-bottom:30px;
-  }
-
-  .who-content::after{
-    top:52px;
-  }
-
-  .who-content p{
-    grid-column:1;
-
-    max-width:700px;
-  }
-
-  .who-content .btn{
-    grid-column:1;
-  }
-
+.who-left .who-content {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 0;
+  color: #625e5a;
+  font-size: 16px;
+  line-height: 1.85;
 }
 
+.who-left .who-content::before,
+.who-left .who-content::after {
+  display: none;
+}
 
-/* ================================
-   MOBILE
-================================ */
+.who-left .who-content p {
+  margin: 0 0 22px;
+  max-width: 100%;
+  color: #625e5a;
+  font-size: 16px;
+  line-height: 1.85;
+}
 
-@media(max-width:600px){
+.who-left .who-content p:first-of-type {
+  margin-top: 0;
+  margin-bottom: 26px;
+  color: #292826;
+  font-size: clamp(22px, 2.2vw, 29px);
+  line-height: 1.35;
+  letter-spacing: -.025em;
+}
 
-  .who{
-    padding:75px 0 85px;
+.who-left .who-content strong {
+  color: #292826;
+  font-weight: 700;
+}
+
+/* BOUTON */
+
+.who-left .who-content .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  margin-top: 12px;
+  padding: 15px 21px;
+  border: 1px solid #282624;
+  background: #282624;
+  color: #fff;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transition: background .25s ease, color .25s ease;
+}
+
+.who-left .who-content .btn:hover {
+  background: transparent;
+  color: #282624;
+}
+
+/* EMPLACEMENT PHOTO À DROITE
+   La photo sera ajoutée à l'étape HTML. */
+
+.who-visual {
+  position: relative;
+  min-width: 0;
+  padding-top: 24px;
+}
+
+.who-visual img {
+  display: block;
+  width: 100%;
+  height: 650px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.who-visual-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 14px;
+  border-top: 1px solid #d5d0ca;
+  margin-top: 14px;
+  color: #625e5a;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* TABLETTE */
+
+@media (max-width: 1000px) {
+  .who {
+    padding: 75px 0 85px;
   }
 
-  .who-content{
-    font-size:16px;
+  .who-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
+    gap: 35px;
   }
 
-  .who-content::before{
-    font-size:10px;
+  .who-visual img {
+    height: 520px;
+  }
+}
 
-    letter-spacing:.16em;
+/* MOBILE */
 
-    margin-bottom:28px;
+@media (max-width: 720px) {
+  .who {
+    padding: 55px 0 65px;
   }
 
-  .who-content::after{
-    width:45px;
+  .who-layout {
+    grid-template-columns: 1fr;
+    gap: 38px;
   }
 
-  .who-content p:first-of-type{
-    font-size:25px;
-
-    line-height:1.2;
-
-    margin-bottom:28px;
+  .who-left .head {
+    margin-bottom: 28px;
   }
 
-  .who-content p{
-    font-size:15px;
-
-    line-height:1.75;
-
-    margin-bottom:20px;
+  .who-left .head h2 {
+    font-size: clamp(34px, 9vw, 46px);
   }
 
-  .who-content .btn{
-    margin-top:8px;
-
-    padding:13px 18px;
-
-    font-size:10px;
+  .who-left .head > p,
+  .who-left .who-content,
+  .who-left .who-content p {
+    font-size: 15px;
   }
 
+  .who-left .who-content p:first-of-type {
+    font-size: 23px;
+  }
+
+  .who-visual {
+    padding-top: 0;
+  }
+
+  .who-visual img {
+    height: 380px;
+  }
+
+  .who-visual-caption {
+    font-size: 10px;
+  }
 }
 
 /* CARTE DES CHANTIERS SUR LA PAGE D'ACCUEIL */
