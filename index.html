@@ -681,7 +681,77 @@ h1 span{
   }
 
 }
-  
+
+/* QUI SOMMES-NOUS — TEXTE + CARTE */
+
+.who-layout{
+  display:grid;
+  grid-template-columns:minmax(0, 1fr) minmax(320px, 0.9fr);
+  gap:50px;
+  align-items:center;
+}
+
+.who-layout .who-content{
+  max-width:none;
+  width:100%;
+  min-width:0;
+  grid-template-columns:1fr;
+  column-gap:0;
+}
+
+.who-layout .who-content::before{
+  display:none;
+}
+
+.who-layout .who-content::after{
+  display:none;
+}
+
+.who-layout .who-content p,
+.who-layout .who-content .btn{
+  grid-column:1;
+}
+
+.who-map{
+  min-width:0;
+}
+
+.who-map-heading{
+  margin-bottom:16px;
+}
+
+.who-map-heading .kicker{
+  color:#282624;
+}
+
+.who-map-heading p{
+  margin:8px 0 0;
+  color:#5f5b58;
+  font-size:15px;
+  line-height:1.6;
+}
+
+.who-map .chantier-map{
+  width:100%;
+  height:340px;
+  margin-top:0;
+  border-radius:12px;
+  overflow:hidden;
+}
+
+/* AFFICHAGE MOBILE */
+
+@media(max-width:900px){
+  .who-layout{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .who-map .chantier-map{
+    height:300px;
+  }
+}
+
 /* ================================
    NOS SERVICES
 ================================ */
