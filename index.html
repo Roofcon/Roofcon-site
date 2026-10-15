@@ -6474,9 +6474,16 @@ if(navHome){
 const navAbout =
   document.getElementById('nav-about');
 
-if(navAbout){
+if (navAbout) {
   navAbout.textContent =
-    t(c.nav.about);
+    LANG === 'fr'
+      ? 'Nos services'
+      : 'Leistungen';
+
+  navAbout.href =
+    LANG === 'fr'
+      ? '/services/'
+      : '/leistungen/';
 }
 
 const navCurrentProjects =
