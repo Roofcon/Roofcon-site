@@ -8093,8 +8093,31 @@ const frenchPaths = [
   'contact'
 ];
 
-const params = new URLSearchParams(window.location.search);
-const requestedLang = params.get('lang');
+
+const germanPaths = [
+  'leistungen',
+  'referenzen',
+  'aktuelle-projekte',
+  'karriere',
+  'kontakt'
+];
+
+const frenchPaths = [
+  'services',
+  'realisations',
+  'projets-en-cours',
+  'emploi',
+  'contact'
+];
+
+const params =
+  new URLSearchParams(window.location.search);
+
+const requestedPage =
+  params.get('page');
+
+const requestedLang =
+  params.get('lang');
 
 if (germanPaths.includes(currentPath)) {
   LANG = 'de';
@@ -8108,7 +8131,6 @@ if (germanPaths.includes(currentPath)) {
 } else {
   LANG = localStorage.getItem('roofconLang') || 'fr';
 }
-
     
   render();
 
