@@ -69,82 +69,183 @@
       text-decoration: none;
     }
 
-    /* EN-TÊTE ET MENU */
+/* HEADER — STYLE ORIGINAL ROOFCON */
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, .97);
-      border-bottom: 1px solid var(--line);
-    }
+header {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
 
-    .nav {
-      min-height: 92px;
-      display: flex;
-      align-items: center;
-      gap: 22px;
-    }
+.nav {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-    .logo {
-      display: block;
-      width: 165px;
-      height: auto;
-    }
+.logo {
+  width: 190px;
+  display: block;
+  height: auto;
+}
 
-    .lang {
-      display: flex;
-      gap: 5px;
-      margin-left: auto;
-    }
+.mobile-menu-button {
+  display: none;
+}
 
-    .lang button {
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--black);
-      padding: 7px 10px;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 700;
-    }
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 14px;
+  font-weight: 800;
+}
 
-    .lang button.active {
-      background: var(--black);
-      color: #fff;
-      border-color: var(--black);
-    }
+.menu a {
+  color: var(--black);
+  text-decoration: none;
+  transition: color .2s ease, background-color .2s ease;
+}
 
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      font-size: 13px;
-    }
+.menu a:hover {
+  color: var(--brown);
+}
 
-    .menu a {
-      text-decoration: none;
-      white-space: nowrap;
-      transition: color .2s ease, background-color .2s ease;
-    }
+.menu .cta {
+  background: var(--brown);
+  color: #fff;
+  padding: 12px 18px;
+}
 
-    .menu a:hover { color: var(--brown); }
+.menu .cta:hover {
+  background: var(--black);
+  color: #fff;
+}
 
-    .menu .cta {
-      background: var(--brown);
-      color: #fff;
-      padding: 12px 17px;
-      transition: background-color .25s ease, transform .25s ease,
-                  box-shadow .25s ease;
-    }
+.lang {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
 
-    .menu .cta:hover {
-      transform: translateY(-2px);
-      background: var(--black);
-      color: #fff;
-      box-shadow: 0 6px 16px rgba(33, 31, 32, .18);
-    }
+.lang button {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--black);
+  padding: 7px 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
 
-    .mobile-menu-button { display: none; }
+.lang button.active {
+  background: var(--brown);
+  color: #fff;
+  border-color: var(--brown);
+}
+
+/* HEADER MOBILE */
+
+@media (max-width: 1000px) {
+  .nav {
+    gap: 14px;
+  }
+
+  .menu {
+    gap: 14px;
+    font-size: 12px;
+  }
+
+  .logo {
+    width: 145px;
+  }
+}
+
+@media (max-width: 750px) {
+  .top {
+    display: none;
+  }
+
+  .nav {
+    min-height: 76px;
+    position: relative;
+  }
+
+  .logo {
+    width: 145px;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--black);
+    cursor: pointer;
+    margin-left: auto;
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
+  }
+
+  .menu.mobile-open {
+    display: flex;
+  }
+
+  .menu a {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu a:last-child {
+    border-bottom: 0;
+  }
+
+  .menu a:hover {
+    background: var(--cream);
+    color: var(--brown);
+  }
+
+  .menu .cta {
+    margin: 8px 16px;
+    width: auto;
+    text-align: center;
+  }
+
+  .lang {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .lang button {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+}
 
 /* SECTION SERVICES */
 
