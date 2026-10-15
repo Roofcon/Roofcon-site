@@ -1,13 +1,840 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noindex">
-  <title>ROOFCON</title>
-  <script>
-    window.location.replace('/?page=about&lang=de');
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Leistungen | Dachstuhlbau, Bedachung & Fassadenbau | ROOFCON</title>
+  <meta name="description" content="Entdecken Sie die Leistungen von ROOFCON in Luxemburg: hinterlüftete Fassaden, Flachdächer, Dachstuhlbau, Dachdeckungen und Holzrahmenbau.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://roof-con.com/leistungen/">
+  <link rel="alternate" hreflang="fr-LU" href="https://roof-con.com/services/">
+  <link rel="alternate" hreflang="de-LU" href="https://roof-con.com/leistungen/">
+  <link rel="alternate" hreflang="x-default" href="https://roof-con.com/services/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Leistungen | ROOFCON">
+  <meta property="og:description" content="Hinterlüftete Fassaden, Flachdächer, Dachstuhlbau, Dachdeckungen und Holzrahmenbau in Luxemburg.">
+  <meta property="og:url" content="https://roof-con.com/leistungen/">
+
+  <style>
+    :root {
+      --black: #211f20;
+      --brown: #a27b5b;
+      --brown2: #c3a080;
+      --cream: #f5f2ee;
+      --white: #fff;
+      --gray: #706b67;
+      --line: #e5dfda;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--black);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    button { font: inherit; }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .top {
+      background: var(--black);
+      color: #ddd;
+      font-size: 12px;
+      padding: 8px 0;
+    }
+
+    .top-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .top a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+
+    .nav {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      width: 190px;
+      display: block;
+      height: auto;
+    }
+
+    .mobile-menu-button { display: none; }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .menu a {
+      color: var(--black);
+      text-decoration: none;
+      transition: color .2s ease, background-color .2s ease;
+    }
+
+    .menu a:hover { color: var(--brown); }
+
+    .menu .cta {
+      background: var(--brown);
+      color: #fff;
+      padding: 12px 18px;
+    }
+
+    .menu .cta:hover {
+      background: var(--black);
+      color: #fff;
+    }
+
+    .lang {
+      display: flex;
+      gap: 4px;
+      margin-left: auto;
+    }
+
+    .lang button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--black);
+      padding: 7px 10px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .lang button.active {
+      background: var(--brown);
+      color: #fff;
+      border-color: var(--brown);
+    }
+
+    /* SERVICES */
+
+    .about {
+      background: var(--black);
+      color: #fff;
+      padding: 92px 0;
+    }
+
+    .about-intro {
+      max-width: none;
+      margin: 0 auto 70px;
+      text-align: center;
+    }
+
+    .about-intro .kicker {
+      color: var(--brown2);
+      margin-bottom: 18px;
+    }
+
+    .about-intro h1 {
+      font-size: clamp(34px, 4vw, 58px);
+      line-height: 1.05;
+      margin: 0 auto 25px;
+      letter-spacing: -.02em;
+      max-width: none;
+      text-align: center;
+      color: #fff;
+    }
+
+    .about-intro p {
+      max-width: none;
+      margin: 0 auto;
+      color: #c9c4c0;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .poles {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .pole {
+      grid-column: span 4;
+      background: #262322;
+      border: 1px solid #3b3634;
+      min-height: 430px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .35s ease, border-color .35s ease, background .35s ease;
+    }
+
+    .pole:nth-child(4),
+    .pole:nth-child(5) {
+      grid-column: span 6;
+      min-height: 390px;
+    }
+
+    .pole:hover {
+      transform: translateY(-6px);
+      background: #2c2928;
+      border-color: #5a514d;
+    }
+
+    .pole-image {
+      width: calc(100% + 60px);
+      height: 210px;
+      object-fit: cover;
+      margin: -30px -30px 28px;
+      display: block;
+      transition: transform .6s ease;
+    }
+
+    .pole:hover .pole-image { transform: scale(1.035); }
+
+    .pole-number {
+      font-size: 11px;
+      color: var(--brown2);
+      font-weight: 800;
+      letter-spacing: .2em;
+      margin-bottom: 18px;
+    }
+
+    .pole h2 {
+      color: #fff;
+      font-size: clamp(21px, 2vw, 28px);
+      line-height: 1.08;
+      margin: 0 0 15px;
+      text-align: left;
+      letter-spacing: -.02em;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
+    .pole p {
+      max-width: 520px;
+      color: #c9c4c0;
+      font-size: 15px;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .pole-actions {
+      margin-top: auto;
+      padding-top: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .pole-discover,
+    .pole-more {
+      border: none;
+      background: none;
+      color: #fff;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      transition: gap .3s ease, opacity .3s ease;
+    }
+
+    .pole-discover::after,
+    .pole-more::after {
+      content: '→';
+      font-size: 17px;
+      line-height: 1;
+      transition: transform .3s ease;
+    }
+
+    .pole-discover:hover,
+    .pole-more:hover {
+      opacity: .8;
+      gap: 15px;
+    }
+
+    .pole-discover:hover::after,
+    .pole-more:hover::after {
+      transform: translateX(3px);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #171616;
+      color: #aaa;
+      padding: 40px 0;
+      font-size: 13px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    .footer-logo {
+      width: 150px;
+      background: #fff;
+      padding: 7px;
+      margin-bottom: 15px;
+    }
+
+    .footer-title {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .footer-item { margin-bottom: 7px; }
+
+    .footer-item a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-item a:hover,
+    .footer-social a:hover { color: var(--brown2); }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 10px;
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #302d2b;
+      margin-top: 30px;
+      padding-top: 20px;
+      color: #777;
+    }
+
+    .footer-legal {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal a {
+      color: #777;
+      text-decoration: none;
+    }
+
+    .footer-legal a:hover { color: var(--brown2); }
+
+    @media (max-width: 1000px) {
+      .nav { gap: 14px; }
+      .menu { gap: 14px; font-size: 12px; }
+      .logo { width: 145px; }
+
+      .poles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+      .pole,
+      .pole:nth-child(4),
+      .pole:nth-child(5) {
+        grid-column: span 1;
+      }
+
+      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 750px) {
+      .top { display: none; }
+
+      .nav {
+        min-height: 76px;
+        position: relative;
+      }
+
+      .logo { width: 145px; }
+
+      .mobile-menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--black);
+        cursor: pointer;
+        margin-left: auto;
+        font-size: 26px;
+        line-height: 1;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
+      }
+
+      .menu.mobile-open { display: flex; }
+
+      .menu a {
+        display: block;
+        width: 100%;
+        padding: 16px 24px;
+        font-size: 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .menu a:last-child { border-bottom: 0; }
+
+      .menu a:hover {
+        background: var(--cream);
+        color: var(--brown);
+      }
+
+      .menu .cta {
+        margin: 8px 16px;
+        width: auto;
+        text-align: center;
+      }
+
+      .lang { margin-left: auto; margin-right: 0; }
+      .lang button { padding: 6px 8px; font-size: 12px; }
+
+      .about { padding: 65px 0; }
+      .about-intro h1 { letter-spacing: -1px; }
+      .about-intro p { font-size: 16px; }
+
+      .poles,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pole,
+      .pole:nth-child(4),
+      .pole:nth-child(5) {
+        grid-column: span 1;
+        min-height: 0;
+        padding: 22px;
+      }
+
+      .pole h2 { margin-bottom: 8px; }
+      .pole p { margin-bottom: 18px; }
+      .pole-image { height: 190px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
-<body></body>
+
+<body>
+  <div class="top">
+    <div class="container top-inner">
+      <span>ROOFCON — Holzbau · Bedachung · Fassadenbau</span>
+      <span>
+        <a href="tel:+352621765489">+352 621 765 489</a>
+        ·
+        <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+      </span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="/" aria-label="ROOFCON — Startseite">
+        <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
+      </a>
+
+      <div class="lang" aria-label="Sprache wählen">
+        <button type="button" id="lang-fr" aria-pressed="false">FR</button>
+        <button type="button" id="lang-de" class="active" aria-pressed="true">DE</button>
+      </div>
+
+      <button
+        type="button"
+        class="mobile-menu-button"
+        id="mobile-menu-button"
+        aria-label="Menü öffnen"
+        aria-expanded="false"
+      >☰</button>
+
+      <nav class="menu" id="main-menu" aria-label="Hauptnavigation">
+        <a href="/">Startseite</a>
+        <a href="/leistungen/" aria-current="page">Leistungen</a>
+        <a href="/aktuelle-projekte/">Aktuelle Projekte</a>
+        <a href="/referenzen/">Referenzen</a>
+        <a href="/karriere/">Karriere</a>
+        <a href="/kontakt/" class="cta">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="about">
+      <div class="container">
+        <div class="about-intro">
+          <div class="kicker" id="about-kicker"></div>
+          <h1 id="about-title"></h1>
+          <p id="about-intro"></p>
+        </div>
+        <div class="poles" id="poles-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="/ROOFCON.png" class="footer-logo" alt="ROOFCON">
+          <div id="footer-description"></div>
+        </div>
+
+        <div>
+          <div class="footer-title" id="footer-contact-title"></div>
+          <div class="footer-item" id="footer-phone"></div>
+          <div class="footer-item" id="footer-email"></div>
+        </div>
+
+        <div>
+          <div class="footer-title" id="footer-address-title"></div>
+          <div class="footer-item" id="footer-address"></div>
+          <div class="footer-item" id="footer-hours"></div>
+        </div>
+
+        <div>
+          <div class="footer-title" id="footer-social-title"></div>
+          <div class="footer-social">
+            <a id="footer-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a id="footer-instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div id="footer-copyright"></div>
+        <div class="footer-legal">
+          <a href="/impressum.html" id="footer-legal-1">Impressum</a> ·
+          <a href="/datenschutz.html" id="footer-legal-2">Datenschutzerklärung</a> ·
+          <a href="/cookies.html" id="footer-legal-3">Cookie-Richtlinie</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const CONTENT_URL = "/content.json";
+
+    const menu = document.getElementById("main-menu");
+    const mobileButton = document.getElementById("mobile-menu-button");
+
+    let CONTENT = null;
+    let LANG = "de";
+
+    function escapeHTML(value) {
+      return String(value ?? "").replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[character]);
+    }
+
+    function localized(value) {
+      if (value && typeof value === "object") {
+        return value[LANG] ?? value.de ?? value.fr ?? "";
+      }
+      return value ?? "";
+    }
+
+    function assetURL(path) {
+      if (!path) return "";
+      if (/^(https?:)?\/\//i.test(path) || path.startsWith("/")) return path;
+      return "/" + path.replace(/^\.?\//, "");
+    }
+
+    function renderServices() {
+      const about = CONTENT.about;
+
+      document.getElementById("about-kicker").textContent =
+        localized(about.kicker);
+
+      document.getElementById("about-title").textContent =
+        localized(about.title);
+
+      document.getElementById("about-intro").textContent =
+        localized(about.intro);
+
+      const detailLinks = {
+        facades: {
+          fr: "/facades-ventilees/",
+          de: "/de/hinterlueftete-fassaden/",
+          textFr: "En savoir plus sur les façades ventilées",
+          textDe: "Mehr über hinterlüftete Fassaden"
+        },
+        toitures: {
+          fr: "/toitures-plates/",
+          de: "/de/flachdaecher/",
+          textFr: "En savoir plus sur les toitures plates",
+          textDe: "Mehr über Flachdächer"
+        },
+        charpentes: {
+          fr: "/charpentes/",
+          de: "/de/dachstuhlbau/",
+          textFr: "En savoir plus sur les charpentes",
+          textDe: "Mehr über den Dachstuhlbau"
+        },
+        couvertures: {
+          fr: "/couvertures/",
+          de: "/de/dachdeckungen/",
+          textFr: "En savoir plus sur les couvertures",
+          textDe: "Mehr über Dachdeckungen"
+        },
+        maisons: {
+          fr: "/maisons-annexes-ossature-bois/",
+          de: "/de/holzhaeuser-anbauten/",
+          textFr: "En savoir plus sur les maisons en ossature bois",
+          textDe: "Mehr über Holzhäuser in Holzrahmenbauweise"
+        }
+      };
+
+      document.getElementById("poles-grid").innerHTML =
+        about.poles.map(pole => {
+          const title = localized(pole.title);
+          const text = localized(pole.text);
+          const link = detailLinks[pole.id];
+          const detailHref = link ? link[LANG] : "#";
+          const moreText = link
+            ? (LANG === "fr" ? link.textFr : link.textDe)
+            : "";
+
+          const image = pole.image
+            ? `<img class="pole-image" src="${escapeHTML(assetURL(pole.image))}" alt="${escapeHTML(title)}" loading="lazy">`
+            : "";
+
+          return `
+            <article class="pole reveal">
+              ${image}
+              <div class="pole-number">${escapeHTML(pole.number)}</div>
+              <h2>${escapeHTML(title)}</h2>
+              <p>${escapeHTML(text)}</p>
+              <div class="pole-actions">
+                <a class="pole-more" href="${escapeHTML(detailHref)}">${escapeHTML(moreText)}</a>
+                <a class="pole-discover" href="${LANG === "fr" ? "/realisations/" : "/referenzen/"}">${LANG === "fr" ? "Découvrir" : "Entdecken"}</a>
+              </div>
+            </article>
+          `;
+        }).join("");
+
+      setupReveal();
+    }
+
+    function setupReveal() {
+      const elements = document.querySelectorAll(".reveal");
+
+      if (!("IntersectionObserver" in window)) {
+        elements.forEach(element => element.classList.add("visible"));
+        return;
+      }
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      elements.forEach(element => observer.observe(element));
+    }
+
+    function renderFooter() {
+      const site = CONTENT.site;
+      const footer = CONTENT.footer;
+
+      document.getElementById("footer-description").textContent =
+        localized(footer.description);
+
+      document.getElementById("footer-contact-title").textContent = "Kontakt";
+      document.getElementById("footer-address-title").textContent = "Adresse";
+      document.getElementById("footer-social-title").textContent = "Folgen Sie uns";
+
+      document.getElementById("footer-phone").innerHTML =
+        `<a href="tel:${escapeHTML(site.phone.replace(/\s/g, ""))}">${escapeHTML(site.phone)}</a>`;
+
+      document.getElementById("footer-email").innerHTML =
+        `<a href="mailto:${escapeHTML(site.email)}">${escapeHTML(site.email)}</a>`;
+
+      document.getElementById("footer-address").textContent =
+        site.address + ", Luxemburg";
+
+      document.getElementById("footer-hours").textContent =
+        localized(site.hours);
+
+      document.getElementById("footer-facebook").href = site.facebook;
+      document.getElementById("footer-instagram").href = site.instagram;
+
+      document.getElementById("footer-copyright").textContent =
+        localized(footer.copyright);
+    }
+
+    function renderNavigation() {
+      const nav = CONTENT.nav;
+      const links = menu.querySelectorAll("a");
+
+      links[0].textContent = localized(nav.home) || "Startseite";
+      links[1].textContent = localized(nav.about) || "Leistungen";
+      links[2].textContent = "Aktuelle Projekte";
+      links[3].textContent = localized(nav.references) || "Referenzen";
+      links[4].textContent = localized(nav.jobs) || "Karriere";
+      links[5].textContent = localized(nav.contact) || "Kontakt";
+
+      links[0].href = "/";
+      links[1].href = "/leistungen/";
+      links[2].href = "/aktuelle-projekte/";
+      links[3].href = "/referenzen/";
+      links[4].href = "/karriere/";
+      links[5].href = "/kontakt/";
+    }
+
+    function updateSEO() {
+      const seo = CONTENT.seo.services;
+
+      document.title = localized(seo.title) ||
+        "Leistungen | Dachstuhlbau, Bedachung & Fassadenbau | ROOFCON";
+
+      document.querySelector('meta[name="description"]').content =
+        localized(seo.description) ||
+        "Entdecken Sie die Leistungen von ROOFCON in Luxemburg.";
+
+      const canonical = "https://roof-con.com/leistungen/";
+
+      document.querySelector('link[rel="canonical"]').href = canonical;
+
+      document.querySelector('meta[property="og:title"]').content =
+        document.title;
+
+      document.querySelector('meta[property="og:description"]').content =
+        document.querySelector('meta[name="description"]').content;
+
+      document.querySelector('meta[property="og:url"]').content = canonical;
+    }
+
+    function setLanguage(lang) {
+      if (lang === "fr") {
+        window.location.href = "/services/";
+        return;
+      }
+
+      LANG = "de";
+      document.documentElement.lang = "de";
+
+      document.getElementById("lang-fr").classList.remove("active");
+      document.getElementById("lang-de").classList.add("active");
+
+      document.getElementById("lang-fr").setAttribute("aria-pressed", "false");
+      document.getElementById("lang-de").setAttribute("aria-pressed", "true");
+
+      renderServices();
+      renderFooter();
+      renderNavigation();
+      updateSEO();
+
+      menu.classList.remove("mobile-open");
+      mobileButton.setAttribute("aria-expanded", "false");
+      mobileButton.textContent = "☰";
+    }
+
+    document.getElementById("lang-fr").addEventListener(
+      "click", () => setLanguage("fr")
+    );
+
+    document.getElementById("lang-de").addEventListener(
+      "click", () => setLanguage("de")
+    );
+
+    mobileButton.addEventListener("click", () => {
+      const isOpen = menu.classList.toggle("mobile-open");
+      mobileButton.setAttribute("aria-expanded", String(isOpen));
+      mobileButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    fetch(CONTENT_URL, { cache: "no-store" })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("content.json konnte nicht geladen werden: " + response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        CONTENT = data;
+        setLanguage("de");
+      })
+      .catch(error => {
+        console.error(error);
+        document.getElementById("about-title").textContent =
+          "Die Leistungen konnten nicht geladen werden. Bitte versuchen Sie es später erneut.";
+      });
+  </script>
+</body>
 </html>
