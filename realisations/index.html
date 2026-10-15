@@ -1165,16 +1165,11 @@
           projects.push({ project, category });
         });
       });
-
-      if (!projects.length) {
-        container.innerHTML = `
-          <div class="refs-empty">
-            ${LANG === "fr"
-              ? "Nos réalisations seront bientôt disponibles."
-              : "Unsere Referenzen werden bald verfügbar sein."}
-          </div>`;
-        return;
-      }
+     
+if (!projects.length) {
+  container.innerHTML = "";
+  return;
+}
 
       container.innerHTML = projects.map(item =>
         projectCardHTML(item.project, item.category)
