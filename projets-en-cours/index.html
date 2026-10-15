@@ -669,12 +669,31 @@
     <div class="current-project-overlay"></div>
 
     <div class="current-project-content">
-      <h2 id="project-title">Nouveau projet</h2>
+<h2 id="project-title">Nouveau projet</h2>
+
+<a
+  href="#projet"
+  class="current-project-button"
+  onclick="event.preventDefault(); document.getElementById('projet').scrollIntoView({behavior:'smooth'});"
+>
+  Voir le projet →
+</a>
     </div>
   </a>
 </div>
       </div>
     </section>
+    <section id="projet" class="project-detail-section">
+  <div class="project-detail-inner">
+    <p class="project-detail-kicker">PROJET EN COURS</p>
+    <h2>Nouveau projet</h2>
+    <img
+      src="/images/projets-en-cours/current-project-1791179907640-1791549024832-ccv5ci.jpeg"
+      alt="Projet en cours réalisé par ROOFCON"
+      loading="lazy"
+    >
+  </div>
+</section>
   </main>
 
   <footer>
