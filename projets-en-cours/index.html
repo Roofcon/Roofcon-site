@@ -830,7 +830,10 @@
       menuButton.textContent = open ? '×' : '☰';
     });
 
-    setLanguage('fr');
+const initialLanguage = new URLSearchParams(window.location.search).get('lang')
+  || (window.location.pathname.startsWith('/aktuelle-projekte') ? 'de' : 'fr');
+
+setLanguage(initialLanguage);
   </script>
 </body>
 </html>
