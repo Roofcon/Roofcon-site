@@ -816,9 +816,21 @@
       document.getElementById('mobile-menu-button').textContent = '☰';
     }
 
-    document.querySelectorAll('[data-lang]').forEach(button => {
-      button.addEventListener('click', () => setLanguage(button.dataset.lang));
-    });
+document.querySelectorAll('[data-lang]').forEach(button => {
+  button.addEventListener('click', () => {
+    const targetLang = button.dataset.lang;
+
+    const targetPath = targetLang === 'de'
+      ? '/aktuelle-projekte/'
+      : '/projets-en-cours/';
+
+    if (window.location.pathname !== targetPath) {
+      window.location.href = targetPath;
+    } else {
+      setLanguage(targetLang);
+    }
+  });
+});
 
     const menuButton = document.getElementById('mobile-menu-button');
     const mainMenu = document.getElementById('main-menu');
