@@ -8073,26 +8073,8 @@ fetch('./content.json?v='+Date.now())
 
   CONTENT = data;
 
-  
 const currentPath =
   window.location.pathname.replace(/^\/+|\/+$/g, '');
-
-const germanPaths = [
-  'leistungen',
-  'referenzen',
-  'aktuelle-projekte',
-  'karriere',
-  'kontakt'
-];
-
-const frenchPaths = [
-  'services',
-  'realisations',
-  'projets-en-cours',
-  'emploi',
-  'contact'
-];
-
 
 const germanPaths = [
   'leistungen',
@@ -8131,7 +8113,7 @@ if (germanPaths.includes(currentPath)) {
 } else {
   LANG = localStorage.getItem('roofconLang') || 'fr';
 }
-    
+   
   render();
 
   initChantierMap();
