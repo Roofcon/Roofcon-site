@@ -247,101 +247,133 @@ header {
   }
 }
 
-/* SECTION SERVICES */
+/* ================================
+   NOS SERVICES — STYLE ORIGINAL
+================================ */
 
 .about {
-  position: relative;
-  background: #a27b5b;
+  background: var(--black);
   color: #fff;
-  padding: 92px 0 100px;
+  padding: 92px 0;
 }
 
 .about-intro {
-  max-width: 900px;
-  margin: 0 auto 65px;
+  max-width: none;
+  margin: 0 auto 70px;
   text-align: center;
 }
 
 .about-intro .kicker {
-  color: #fff;
+  color: var(--brown2);
   margin-bottom: 18px;
 }
 
 .about-intro h1 {
-  margin: 0 auto 24px;
-  max-width: 900px;
+  font-size: clamp(34px, 4vw, 58px);
+  line-height: 1.05;
+  margin: 0 auto 25px;
+  letter-spacing: -.02em;
+  max-width: none;
+  text-align: center;
   color: #fff;
-  font-size: clamp(42px, 5vw, 68px);
-  line-height: 1;
-  letter-spacing: -.045em;
 }
 
 .about-intro p {
-  max-width: 760px;
+  max-width: none;
   margin: 0 auto;
-  color: rgba(255,255,255,.88);
-  font-size: 17px;
-  line-height: 1.75;
+  color: #c9c4c0;
+  font-size: 18px;
+  line-height: 1.7;
 }
+
+/* GRILLE DES SERVICES */
 
 .poles {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 18px;
   align-items: stretch;
 }
 
+/* CARTES */
+
 .pole {
-  grid-column: span 2;
-  min-width: 0;
-  min-height: 340px;
+  grid-column: span 4;
+  background: #262322;
+  border: 1px solid #3b3634;
+  min-height: 430px;
   padding: 30px;
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  background: #211f20;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.15);
-  transition: transform .3s ease, box-shadow .3s ease,
-              border-color .3s ease;
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    background .35s ease;
 }
 
-/* Deuxième rangée : deux cartes centrées */
-
-.pole:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-
+.pole:nth-child(4),
 .pole:nth-child(5) {
-  grid-column: 4 / span 2;
+  grid-column: span 6;
+  min-height: 390px;
 }
 
 .pole:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 18px 35px rgba(0,0,0,.18);
-  border-color: rgba(255,255,255,.55);
+  transform: translateY(-6px);
+  background: #2c2928;
+  border-color: #5a514d;
 }
 
+/* IMAGES : aucune image si le champ est vide */
+
+.pole-image {
+  width: calc(100% + 60px);
+  height: 210px;
+  object-fit: cover;
+  margin: -30px -30px 28px;
+  display: block;
+  transition: transform .6s ease;
+}
+
+.pole:hover .pole-image {
+  transform: scale(1.035);
+}
+
+/* NUMÉROS */
+
 .pole-number {
-  color: #c3a080;
-  font-size: 13px;
+  font-size: 11px;
+  color: var(--brown2);
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: .2em;
   margin-bottom: 18px;
 }
 
+/* TITRES */
+
 .pole h2 {
   color: #fff;
-  font-size: 24px;
-  line-height: 1.2;
+  font-size: clamp(21px, 2vw, 28px);
+  line-height: 1.08;
   margin: 0 0 15px;
+  text-align: left;
+  letter-spacing: -.02em;
+  overflow-wrap: normal;
+  word-break: normal;
 }
 
+/* DESCRIPTIONS */
+
 .pole p {
-  color: rgba(255,255,255,.82);
-  font-size: 14px;
-  line-height: 1.75;
+  max-width: 520px;
+  color: #c9c4c0;
+  font-size: 15px;
+  line-height: 1.65;
   margin: 0;
 }
+
+/* ACTIONS */
 
 .pole-actions {
   margin-top: auto;
@@ -389,7 +421,7 @@ header {
   transform: translateX(3px);
 }
 
-/* RESPONSIVE */
+/* TABLETTES */
 
 @media (max-width: 1000px) {
   .poles {
@@ -403,9 +435,11 @@ header {
   }
 }
 
+/* MOBILES */
+
 @media (max-width: 650px) {
   .about {
-    padding: 65px 0 80px;
+    padding: 65px 0;
   }
 
   .about-intro {
@@ -429,7 +463,11 @@ header {
   .pole:nth-child(4),
   .pole:nth-child(5) {
     grid-column: span 1;
-    min-height: 0;
+    min-height: 390px;
+  }
+
+  .pole-image {
+    height: 190px;
   }
 }
     /* ANIMATIONS */
