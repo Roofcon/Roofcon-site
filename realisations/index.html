@@ -1,13 +1,1512 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noindex">
-  <title>ROOFCON</title>
-  <script>
-window.location.replace('/?page=references&lang=fr');
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Réalisations | Charpente, toiture & façade | ROOFCON</title>
+  <meta name="description" content="Découvrez les réalisations de ROOFCON au Luxembourg : façades ventilées, toitures plates, charpentes, couvertures et constructions en ossature bois.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://roof-con.com/realisations/">
+  <link rel="alternate" hreflang="fr-LU" href="https://roof-con.com/realisations/">
+  <link rel="alternate" hreflang="de-LU" href="https://roof-con.com/referenzen/">
+  <link rel="alternate" hreflang="x-default" href="https://roof-con.com/realisations/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Réalisations | ROOFCON">
+  <meta property="og:description" content="Découvrez les projets et réalisations de ROOFCON au Luxembourg.">
+  <meta property="og:url" content="https://roof-con.com/realisations/">
+
+  <style>
+    :root {
+      --black: #211f20;
+      --brown: #a27b5b;
+      --brown2: #c3a080;
+      --cream: #f5f2ee;
+      --white: #fff;
+      --gray: #706b67;
+      --line: #e5dfda;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--black);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    button { font: inherit; }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    .top {
+      background: var(--black);
+      color: #ddd;
+      font-size: 12px;
+      padding: 8px 0;
+    }
+
+    .top-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .top a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+
+    .nav {
+      min-height: 92px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      width: 190px;
+      display: block;
+      height: auto;
+    }
+
+    .mobile-menu-button { display: none; }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .menu a {
+      color: var(--black);
+      text-decoration: none;
+      transition: color .2s ease, background-color .2s ease;
+    }
+
+    .menu a:hover { color: var(--brown); }
+
+    .menu .cta {
+      background: var(--brown);
+      color: #fff;
+      padding: 12px 18px;
+    }
+
+    .menu .cta:hover {
+      background: var(--black);
+      color: #fff;
+    }
+
+    .lang {
+      display: flex;
+      gap: 4px;
+      margin-left: auto;
+    }
+
+    .lang button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--black);
+      padding: 7px 10px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .lang button.active {
+      background: var(--brown);
+      color: #fff;
+      border-color: var(--brown);
+    }
+
+    /* INTRODUCTION */
+
+    .refs {
+      background: var(--black);
+      color: #fff;
+      padding: 92px 0 110px;
+      min-height: 500px;
+    }
+
+    .about-intro {
+      max-width: 900px;
+      margin: 0 auto 70px;
+      text-align: center;
+    }
+
+    .kicker {
+      color: var(--brown2);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .about-intro h1 {
+      font-size: clamp(38px, 5vw, 66px);
+      line-height: 1.03;
+      margin: 0 auto 25px;
+      letter-spacing: -.035em;
+      color: #fff;
+    }
+
+    .about-intro p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: #c9c4c0;
+      font-size: 18px;
+      line-height: 1.75;
+    }
+
+    /* CATÉGORIES */
+
+    .reference-categories {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 70px;
+    }
+
+    .reference-category {
+      position: relative;
+      grid-column: span 4;
+      min-height: 390px;
+      border: 0;
+      padding: 0;
+      overflow: hidden;
+      cursor: pointer;
+      background-color: #292624;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #fff;
+      text-align: left;
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    .reference-category:nth-child(4),
+    .reference-category:nth-child(5) {
+      grid-column: span 6;
+      min-height: 420px;
+    }
+
+    .reference-category::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(15,14,13,.9) 0%,
+        rgba(15,14,13,.42) 48%,
+        rgba(15,14,13,.05) 100%
+      );
+      z-index: 1;
+      transition: background .4s ease;
+    }
+
+    .reference-category:hover::after {
+      background: linear-gradient(
+        to top,
+        rgba(15,14,13,.94) 0%,
+        rgba(15,14,13,.35) 55%,
+        rgba(15,14,13,.02) 100%
+      );
+    }
+
+    .reference-category:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 45px rgba(0,0,0,.2);
+    }
+
+    .reference-category-content {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: 35px;
+    }
+
+    .reference-category-icon {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .reference-category-icon svg {
+      width: 46px;
+      height: 46px;
+      fill: none;
+      stroke: #fff;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .reference-category-title {
+      max-width: 500px;
+      font-size: clamp(25px, 2.5vw, 36px);
+      line-height: 1.05;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -.025em;
+    }
+
+    /* PROJETS */
+
+    .refs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .ref {
+      position: relative;
+      min-height: 480px;
+      overflow: hidden;
+      background: #d8d4cf;
+      cursor: pointer;
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    .ref:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 40px rgba(0,0,0,.2);
+    }
+
+    .ref img,
+    .ref-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .7s ease;
+    }
+
+    .ref:hover img,
+    .ref:hover .ref-image {
+      transform: scale(1.045);
+    }
+
+    .ref::after,
+    .ref-overlay {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(
+        to top,
+        rgba(15,14,13,.88) 0%,
+        rgba(15,14,13,.30) 55%,
+        rgba(15,14,13,.02) 100%
+      );
+      pointer-events: none;
+    }
+
+    .ref-content {
+      position: absolute;
+      left: 32px;
+      right: 32px;
+      bottom: 30px;
+      z-index: 2;
+      color: #fff;
+    }
+
+    .ref-content h2,
+    .ref-content h3 {
+      margin: 0 0 8px;
+      font-size: clamp(24px, 2.5vw, 34px);
+      line-height: 1.08;
+      letter-spacing: -.02em;
+      color: #fff;
+    }
+
+    .ref-content p {
+      max-width: 600px;
+      margin: 0;
+      color: rgba(255,255,255,.85);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .ref-category {
+      margin-bottom: 10px !important;
+      color: var(--brown2) !important;
+      font-size: 11px !important;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+    }
+
+    .refs-empty {
+      grid-column: 1 / -1;
+      padding: 35px;
+      background: #262322;
+      color: #c9c4c0;
+      text-align: center;
+    }
+
+    /* VUES DÉTAIL */
+
+    .reference-category-detail,
+    .reference-detail {
+      display: none;
+      background: #f4f2ef;
+      padding: 90px 0 120px;
+      min-height: 60vh;
+    }
+
+    .reference-category-detail.visible,
+    .reference-detail.visible {
+      display: block;
+    }
+
+    .refs.hidden { display: none; }
+
+    .detail-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 55px;
+      color: #222;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+
+    .detail-back:hover {
+      transform: translateX(-5px);
+      opacity: .7;
+    }
+
+    .back-arrow {
+      display: inline-block;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .reference-category-detail .head,
+    .reference-detail .head {
+      max-width: 850px;
+      margin-bottom: 55px;
+    }
+
+    .reference-category-detail .kicker,
+    .reference-detail .kicker {
+      color: #777;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .reference-category-detail h1,
+    .reference-detail h1 {
+      margin: 0 0 22px;
+      color: #202020;
+      font-size: clamp(42px, 5.5vw, 76px);
+      line-height: .98;
+      letter-spacing: -.035em;
+    }
+
+    .reference-category-detail .head p,
+    .reference-detail .head p {
+      max-width: 720px;
+      color: #666;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+
+    .detail-projects {
+      display: block;
+      max-width: 1200px;
+    }
+
+    .project-detail {
+      background: #fff;
+      border: 1px solid #ddd8d2;
+      overflow: hidden;
+    }
+
+    .reference-gallery {
+      position: relative;
+      width: 100%;
+      background: #ddd8d2;
+      overflow: hidden;
+    }
+
+    .reference-gallery img {
+      width: 100%;
+      height: 650px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .reference-gallery-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(0,0,0,.5);
+      color: #fff;
+      font-size: 28px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background .25s ease;
+    }
+
+    .reference-gallery-button:hover {
+      background: rgba(0,0,0,.8);
+    }
+
+    .reference-gallery-button.prev { left: 20px; }
+    .reference-gallery-button.next { right: 20px; }
+
+    .reference-gallery-counter {
+      position: absolute;
+      right: 20px;
+      bottom: 18px;
+      padding: 7px 11px;
+      background: rgba(0,0,0,.65);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      border-radius: 3px;
+    }
+
+    .project-detail-content {
+      padding: 45px 50px 55px;
+    }
+
+    .project-detail-category {
+      color: #8a8179;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .project-detail-content h2 {
+      margin: 0 0 20px;
+      color: #202020;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+    }
+
+    .project-detail-content p {
+      max-width: 850px;
+      margin: 0;
+      color: #666;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .project-detail-placeholder {
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #d8d4cf;
+      color: #777;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: .15em;
+    }
+
+    /* PIED DE PAGE */
+
+    footer {
+      background: #171616;
+      color: #aaa;
+      padding: 40px 0;
+      font-size: 13px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    .footer-logo {
+      width: 150px;
+      background: #fff;
+      padding: 7px;
+      margin-bottom: 15px;
+    }
+
+    .footer-title {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .footer-item { margin-bottom: 7px; }
+
+    .footer-item a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-item a:hover,
+    .footer-social a:hover {
+      color: var(--brown2);
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 10px;
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #302d2b;
+      margin-top: 30px;
+      padding-top: 20px;
+      color: #777;
+    }
+
+    .footer-legal {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal a {
+      color: #777;
+      text-decoration: none;
+    }
+
+    .footer-legal a:hover { color: var(--brown2); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1000px) {
+      .nav { gap: 14px; }
+      .menu { gap: 14px; font-size: 12px; }
+      .logo { width: 145px; }
+
+      .reference-categories {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .reference-category,
+      .reference-category:nth-child(4),
+      .reference-category:nth-child(5) {
+        grid-column: span 1;
+        min-height: 360px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 750px) {
+      .top { display: none; }
+
+      .nav {
+        min-height: 76px;
+        position: relative;
+      }
+
+      .logo { width: 145px; }
+
+      .mobile-menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--black);
+        cursor: pointer;
+        margin-left: auto;
+        font-size: 26px;
+        line-height: 1;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0;
+        box-shadow: 0 10px 25px rgba(0,0,0,.1);
+      }
+
+      .menu.mobile-open { display: flex; }
+
+      .menu a {
+        display: block;
+        width: 100%;
+        padding: 16px 24px;
+        font-size: 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .menu a:last-child { border-bottom: 0; }
+
+      .menu a:hover {
+        background: var(--cream);
+        color: var(--brown);
+      }
+
+      .menu .cta {
+        margin: 8px 16px;
+        width: auto;
+        text-align: center;
+      }
+
+      .lang {
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      .lang button {
+        padding: 6px 8px;
+        font-size: 12px;
+      }
+
+      .refs { padding: 65px 0 80px; }
+
+      .about-intro { margin-bottom: 45px; }
+      .about-intro h1 { font-size: 42px; }
+      .about-intro p { font-size: 16px; }
+
+      .reference-categories {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin-bottom: 55px;
+      }
+
+      .reference-category,
+      .reference-category:nth-child(4),
+      .reference-category:nth-child(5) {
+        grid-column: auto;
+        min-height: 330px;
+      }
+
+      .reference-category-content { padding: 26px; }
+      .reference-category-title { font-size: 27px; }
+
+      .refs-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .ref { min-height: 360px; }
+
+      .ref-content {
+        left: 22px;
+        right: 22px;
+        bottom: 22px;
+      }
+
+      .reference-category-detail,
+      .reference-detail {
+        padding: 65px 0 80px;
+      }
+
+      .detail-back { margin-bottom: 40px; }
+
+      .reference-category-detail .head,
+      .reference-detail .head {
+        margin-bottom: 40px;
+      }
+
+      .reference-category-detail h1,
+      .reference-detail h1 {
+        font-size: 42px;
+      }
+
+      .reference-category-detail .head p,
+      .reference-detail .head p {
+        font-size: 15px;
+      }
+
+      .reference-gallery img { height: 420px; }
+
+      .reference-gallery-button {
+        width: 42px;
+        height: 42px;
+        font-size: 24px;
+      }
+
+      .reference-gallery-button.prev { left: 12px; }
+      .reference-gallery-button.next { right: 12px; }
+
+      .reference-gallery-counter {
+        right: 12px;
+        bottom: 12px;
+      }
+
+      .project-detail-content { padding: 32px 25px 38px; }
+      .project-detail-placeholder { min-height: 340px; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 500px) {
+      .reference-category { min-height: 300px; }
+      .reference-category-title { font-size: 24px; }
+      .reference-gallery img { height: 300px; }
+      .project-detail-content { padding: 30px 24px 35px; }
+      .project-detail-content h2 { font-size: 26px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
-<body></body>
+
+<body>
+  <div class="top">
+    <div class="container top-inner">
+      <span>ROOFCON — Holzbau · Bedachung · Fassadenbau</span>
+      <span>
+        <a href="tel:+352621765489">+352 621 765 489</a>
+        ·
+        <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+      </span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="/" aria-label="ROOFCON — Accueil">
+        <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
+      </a>
+
+      <div class="lang" aria-label="Choisir la langue">
+        <button type="button" id="lang-fr" class="active" aria-pressed="true">FR</button>
+        <button type="button" id="lang-de" aria-pressed="false">DE</button>
+      </div>
+
+      <button
+        type="button"
+        class="mobile-menu-button"
+        id="mobile-menu-button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+      >☰</button>
+
+      <nav class="menu" id="main-menu" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="/services/">Nos services</a>
+        <a href="/projets-en-cours/">Projets en cours</a>
+        <a href="/realisations/" aria-current="page">Réalisations</a>
+        <a href="/emploi/">Offres d'emploi</a>
+        <a href="/contact/" class="cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="references" class="refs">
+      <div class="container">
+        <div class="about-intro">
+          <div class="kicker" id="refs-kicker">Nos projets</div>
+          <h1 id="refs-title">Nos réalisations</h1>
+          <p id="refs-intro">Découvrez nos réalisations dans les domaines de la toiture, de la charpente, des façades et de la construction en ossature bois.</p>
+        </div>
+
+        <div class="reference-categories" id="reference-categories"></div>
+        <div class="refs-grid" id="refs-grid"></div>
+      </div>
+    </section>
+
+    <section id="reference-category-detail" class="reference-category-detail">
+      <div class="container">
+        <a href="#" class="detail-back" id="category-back">
+          <span class="back-arrow">←</span>
+          <span id="category-detail-back-text">Retour aux réalisations</span>
+        </a>
+
+        <div class="head">
+          <div class="kicker" id="category-detail-kicker">Nos réalisations</div>
+          <h1 id="category-detail-title"></h1>
+          <p id="category-detail-intro"></p>
+        </div>
+
+        <div class="refs-grid" id="category-detail-projects"></div>
+      </div>
+    </section>
+
+    <section id="reference-detail" class="reference-detail">
+      <div class="container">
+        <a href="#" class="detail-back" id="detail-back">
+          <span class="back-arrow">←</span>
+          <span id="detail-back-text">Retour aux projets</span>
+        </a>
+
+        <div class="head">
+          <div class="kicker" id="detail-kicker"></div>
+          <h1 id="detail-title"></h1>
+          <p id="detail-intro"></p>
+        </div>
+
+        <div class="detail-projects" id="detail-projects"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="/ROOFCON.png" class="footer-logo" alt="ROOFCON">
+          <div id="footer-description"></div>
+        </div>
+
+        <div>
+          <div class="footer-title" id="footer-contact-title">Contact</div>
+          <div class="footer-item" id="footer-phone"></div>
+          <div class="footer-item" id="footer-email"></div>
+        </div>
+
+        <div>
+          <div class="footer-title" id="footer-address-title">Adresse</div>
+          <div class="footer-item" id="footer-address"></div>
+          <div class="footer-item" id="footer-hours"></div>
+        </div>
+
+        <div>
+          <div class="footer-title" id="footer-social-title">Suivez-nous</div>
+          <div class="footer-social">
+            <a id="footer-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a id="footer-instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div id="footer-copyright"></div>
+        <div class="footer-legal">
+          <a href="/mentions-legales.html" id="footer-legal-1">Mentions légales</a> ·
+          <a href="/politique-confidentialite.html" id="footer-legal-2">Politique de confidentialité</a> ·
+          <a href="/politique-cookies.html" id="footer-legal-3">Politique des cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const CONTENT_URL = "/content.json";
+
+    const menu = document.getElementById("main-menu");
+    const mobileButton = document.getElementById("mobile-menu-button");
+
+    let CONTENT = null;
+    let LANG = "fr";
+    let currentCategory = null;
+    let currentProject = null;
+    let currentImages = [];
+    let currentImageIndex = 0;
+    let currentView = "references";
+
+    const categoryIcons = {
+      facades: `
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M10 54V15L32 7L54 15V54"/>
+          <path d="M17 54V20L32 15L47 20V54"/>
+          <path d="M17 28H47"/>
+          <path d="M17 36H47"/>
+          <path d="M17 44H47"/>
+          <path d="M22 20V54"/>
+          <path d="M42 20V54"/>
+          <path d="M51 22L57 22"/>
+          <path d="M51 28L57 28"/>
+          <path d="M51 34L57 34"/>
+          <path d="M51 40L57 40"/>
+        </svg>`,
+      toitures: `
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M8 24H56"/>
+          <path d="M8 30H56"/>
+          <path d="M8 36H56"/>
+          <path d="M8 42H56"/>
+          <path d="M8 48H56"/>
+          <path d="M14 24V48"/>
+          <path d="M50 24V48"/>
+          <path d="M18 18H46"/>
+          <path d="M18 18L22 14H42L46 18"/>
+          <path d="M26 14V9"/>
+          <path d="M38 14V9"/>
+          <path d="M23 54H41"/>
+        </svg>`,
+      charpentes: `
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M7 50L32 10L57 50"/>
+          <path d="M15 50L32 23L49 50"/>
+          <path d="M21 41H43"/>
+          <path d="M25 35L39 35"/>
+          <path d="M32 10V54"/>
+          <path d="M12 50H52"/>
+          <path d="M17 50L25 37"/>
+          <path d="M47 50L39 37"/>
+        </svg>`,
+      couvertures: `
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M10 39L22 27L34 39L22 51Z"/>
+          <path d="M30 39L42 27L54 39L42 51Z"/>
+          <path d="M10 39L10 47L22 59L34 47L34 39"/>
+          <path d="M30 39L30 47L42 59L54 47L54 39"/>
+          <path d="M39 12L53 26"/>
+          <path d="M35 16L49 30"/>
+          <path d="M35 16L42 9L49 16L42 23Z"/>
+          <path d="M47 30L56 39"/>
+        </svg>`,
+      maisons: `
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <path d="M8 30L32 10L56 30"/>
+          <path d="M14 27V54H50V27"/>
+          <path d="M25 54V38H39V54"/>
+          <path d="M19 33H27V40H19Z"/>
+          <path d="M37 33H45V40H37Z"/>
+        </svg>`
+    };
+
+    function escapeHTML(value) {
+      return String(value ?? "").replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[character]);
+    }
+
+    function localized(value) {
+      if (value && typeof value === "object") {
+        return value[LANG] ?? value.fr ?? value.de ?? "";
+      }
+      return value ?? "";
+    }
+
+    function assetURL(path) {
+      if (!path) return "";
+      if (/^(https?:)?\/\//i.test(path) || path.startsWith("/")) return path;
+      return "/" + path.replace(/^\.?\//, "");
+    }
+
+    function allCategories() {
+      return CONTENT?.references?.items || [];
+    }
+
+    function findProject(projectId) {
+      for (const category of allCategories()) {
+        const project = (category.projects || []).find(item => item.id === projectId);
+        if (project) return { project, category };
+      }
+      return null;
+    }
+
+    function projectImages(project) {
+      if (Array.isArray(project.images) && project.images.length) {
+        return project.images.map(assetURL);
+      }
+      return project.image ? [assetURL(project.image)] : [];
+    }
+
+    function showView(view) {
+      currentView = view;
+
+      document.getElementById("references").classList.toggle("hidden", view !== "references");
+      document.getElementById("reference-category-detail").classList.toggle("visible", view === "category");
+      document.getElementById("reference-detail").classList.toggle("visible", view === "project");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderReferenceCategories() {
+      const container = document.getElementById("reference-categories");
+
+      container.innerHTML = allCategories().map(category => {
+        const title = localized(category.title);
+        const image = category.image ? assetURL(category.image) : "";
+
+        return `
+          <button
+            type="button"
+            class="reference-category"
+            data-category-id="${escapeHTML(category.id)}"
+            style="${image ? `background-image:url('${escapeHTML(image).replace(/'/g, "%27")}')` : ""}"
+            aria-label="${escapeHTML(title)}"
+          >
+            <span class="reference-category-content">
+              <span class="reference-category-icon">${categoryIcons[category.id] || ""}</span>
+              <span class="reference-category-title">${escapeHTML(title)}</span>
+            </span>
+          </button>
+        `;
+      }).join("");
+
+      container.querySelectorAll("[data-category-id]").forEach(button => {
+        button.addEventListener("click", () => openReferenceCategory(button.dataset.categoryId));
+      });
+    }
+
+    function projectCardHTML(project, category) {
+      const title = localized(project.title);
+      const description = localized(project.description);
+      const image = project.image ? assetURL(project.image) : "";
+
+      return `
+        <article
+          class="ref reference-card"
+          role="button"
+          tabindex="0"
+          data-project-id="${escapeHTML(project.id)}"
+          aria-label="${escapeHTML(title)}"
+        >
+          ${image
+            ? `<img class="ref-image" src="${escapeHTML(image)}" alt="${escapeHTML(title)}" loading="lazy">`
+            : `<div class="project-detail-placeholder">ROOFCON</div>`}
+          <div class="ref-overlay"></div>
+          <div class="ref-content">
+            <p class="ref-category">${escapeHTML(localized(category.title))}</p>
+            <h3>${escapeHTML(title)}</h3>
+            ${description ? `<p>${escapeHTML(description)}</p>` : ""}
+          </div>
+        </article>
+      `;
+    }
+
+    function attachProjectCardEvents(container) {
+      container.querySelectorAll("[data-project-id]").forEach(card => {
+        const open = () => openReference(card.dataset.projectId);
+
+        card.addEventListener("click", open);
+        card.addEventListener("keydown", event => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            open();
+          }
+        });
+      });
+    }
+
+    function renderReferences() {
+      const container = document.getElementById("refs-grid");
+      const projects = [];
+
+      allCategories().forEach(category => {
+        (category.projects || []).forEach(project => {
+          projects.push({ project, category });
+        });
+      });
+
+      if (!projects.length) {
+        container.innerHTML = `
+          <div class="refs-empty">
+            ${LANG === "fr"
+              ? "Nos réalisations seront bientôt disponibles."
+              : "Unsere Referenzen werden bald verfügbar sein."}
+          </div>`;
+        return;
+      }
+
+      container.innerHTML = projects.map(item =>
+        projectCardHTML(item.project, item.category)
+      ).join("");
+
+      attachProjectCardEvents(container);
+    }
+
+    function openReferenceCategory(categoryId) {
+      const category = allCategories().find(item => item.id === categoryId);
+      if (!category) return;
+
+      currentCategory = categoryId;
+
+      document.getElementById("category-detail-kicker").textContent =
+        LANG === "fr" ? "Nos réalisations" : "Unsere Referenzen";
+
+      document.getElementById("category-detail-title").textContent =
+        localized(category.title);
+
+      document.getElementById("category-detail-intro").textContent =
+        LANG === "fr"
+          ? "Découvrez nos réalisations dans ce domaine."
+          : "Entdecken Sie unsere Projekte in diesem Bereich.";
+
+      document.getElementById("category-detail-back-text").textContent =
+        LANG === "fr" ? "Retour aux réalisations" : "Zurück zu den Referenzen";
+
+      const container = document.getElementById("category-detail-projects");
+      const projects = category.projects || [];
+
+      if (!projects.length) {
+        container.innerHTML = `
+          <div class="refs-empty">
+            ${LANG === "fr"
+              ? "Nos réalisations seront bientôt disponibles."
+              : "Unsere Referenzen werden bald verfügbar sein."}
+          </div>`;
+      } else {
+        container.innerHTML = projects.map(project =>
+          projectCardHTML(project, category)
+        ).join("");
+        attachProjectCardEvents(container);
+      }
+
+      showView("category");
+    }
+
+    function openReference(projectId) {
+      const found = findProject(projectId);
+      if (!found) return;
+
+      const project = found.project;
+      const category = found.category;
+
+      currentProject = projectId;
+      currentCategory = category.id;
+      currentImages = projectImages(project);
+      currentImageIndex = 0;
+
+      document.getElementById("detail-kicker").textContent =
+        localized(category.title);
+
+      document.getElementById("detail-title").textContent =
+        localized(project.title);
+
+      document.getElementById("detail-intro").textContent =
+        localized(project.description);
+
+      document.getElementById("detail-back-text").textContent =
+        LANG === "fr" ? "Retour aux projets" : "Zurück zu den Projekten";
+
+      const galleryHTML = currentImages.length
+        ? `
+          <div class="reference-gallery">
+            <img id="reference-gallery-image"
+                 src="${escapeHTML(currentImages[0])}"
+                 alt="${escapeHTML(localized(project.title))}">
+            ${currentImages.length > 1 ? `
+              <button type="button" class="reference-gallery-button prev"
+                      id="gallery-prev" aria-label="Photo précédente">‹</button>
+              <button type="button" class="reference-gallery-button next"
+                      id="gallery-next" aria-label="Photo suivante">›</button>
+              <div class="reference-gallery-counter" id="reference-gallery-counter">
+                1 / ${currentImages.length}
+              </div>` : ""}
+          </div>`
+        : `<div class="project-detail-placeholder">ROOFCON</div>`;
+
+      document.getElementById("detail-projects").innerHTML = `
+        <article class="project-detail">
+          ${galleryHTML}
+          <div class="project-detail-content">
+            <div class="project-detail-category">${escapeHTML(localized(category.title))}</div>
+            <h2>${escapeHTML(localized(project.title))}</h2>
+            ${localized(project.description)
+              ? `<p>${escapeHTML(localized(project.description))}</p>`
+              : ""}
+          </div>
+        </article>
+      `;
+
+      const previous = document.getElementById("gallery-prev");
+      const next = document.getElementById("gallery-next");
+
+      if (previous) previous.addEventListener("click", () => changeReferenceImage(-1));
+      if (next) next.addEventListener("click", () => changeReferenceImage(1));
+
+      showView("project");
+    }
+
+    function changeReferenceImage(direction) {
+      if (!currentImages.length) return;
+
+      currentImageIndex =
+        (currentImageIndex + direction + currentImages.length) % currentImages.length;
+
+      const image = document.getElementById("reference-gallery-image");
+      const counter = document.getElementById("reference-gallery-counter");
+
+      if (image) image.src = currentImages[currentImageIndex];
+      if (counter) {
+        counter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+      }
+    }
+
+    document.getElementById("category-back").addEventListener("click", event => {
+      event.preventDefault();
+      showView("references");
+    });
+
+    document.getElementById("detail-back").addEventListener("click", event => {
+      event.preventDefault();
+      if (currentCategory) {
+        openReferenceCategory(currentCategory);
+      } else {
+        showView("references");
+      }
+    });
+
+    function renderFooter() {
+      const site = CONTENT.site || {};
+      const footer = CONTENT.footer || {};
+
+      document.getElementById("footer-description").textContent =
+        localized(footer.description);
+
+      document.getElementById("footer-contact-title").textContent =
+        LANG === "fr" ? "Contact" : "Kontakt";
+
+      const phone = site.phone || "+352 621 765 489";
+      const email = site.email || "info@roof-con.com";
+
+      document.getElementById("footer-phone").innerHTML =
+        `<a href="tel:${escapeHTML(phone.replace(/\s/g, ""))}">${escapeHTML(phone)}</a>`;
+
+      document.getElementById("footer-email").innerHTML =
+        `<a href="mailto:${escapeHTML(email)}">${escapeHTML(email)}</a>`;
+
+      document.getElementById("footer-address-title").textContent =
+        LANG === "fr" ? "Adresse" : "Adresse";
+
+      document.getElementById("footer-address").textContent =
+        site.address ? site.address + ", Luxembourg" : "Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg";
+
+      document.getElementById("footer-hours").textContent =
+        localized(site.hours);
+
+      document.getElementById("footer-social-title").textContent =
+        LANG === "fr" ? "Suivez-nous" : "Folgen Sie uns";
+
+      const facebook = document.getElementById("footer-facebook");
+      const instagram = document.getElementById("footer-instagram");
+
+      facebook.href = site.facebook || "#";
+      instagram.href = site.instagram || "#";
+
+      document.getElementById("footer-copyright").textContent =
+        localized(footer.copyright);
+
+      document.getElementById("footer-legal-1").textContent =
+        LANG === "fr" ? "Mentions légales" : "Impressum";
+
+      document.getElementById("footer-legal-2").textContent =
+        LANG === "fr" ? "Politique de confidentialité" : "Datenschutzerklärung";
+
+      document.getElementById("footer-legal-3").textContent =
+        LANG === "fr" ? "Politique des cookies" : "Cookie-Richtlinie";
+    }
+
+    function renderNavigation() {
+      const links = menu.querySelectorAll("a");
+      const isFrench = LANG === "fr";
+
+      const labels = isFrench
+        ? ["Accueil", "Nos services", "Projets en cours", "Réalisations", "Offres d'emploi", "Contact"]
+        : ["Startseite", "Leistungen", "Aktuelle Projekte", "Referenzen", "Karriere", "Kontakt"];
+
+      const hrefs = isFrench
+        ? ["/", "/services/", "/projets-en-cours/", "/realisations/", "/emploi/", "/contact/"]
+        : ["/", "/leistungen/", "/aktuelle-projekte/", "/referenzen/", "/karriere/", "/kontakt/"];
+
+      links.forEach((link, index) => {
+        link.textContent = labels[index];
+        link.href = hrefs[index];
+      });
+    }
+
+    function updateSEO() {
+      const isFrench = LANG === "fr";
+      const canonical = isFrench
+        ? "https://roof-con.com/realisations/"
+        : "https://roof-con.com/referenzen/";
+
+      document.title = isFrench
+        ? "Réalisations | Charpente, toiture & façade | ROOFCON"
+        : "Referenzen | Dachstuhl, Dachdeckung & Fassade | ROOFCON";
+
+      document.querySelector('meta[name="description"]').content = isFrench
+        ? "Découvrez les réalisations de ROOFCON au Luxembourg : façades ventilées, toitures plates, charpentes, couvertures et constructions en ossature bois."
+        : "Entdecken Sie die Referenzen von ROOFCON in Luxemburg: hinterlüftete Fassaden, Flachdächer, Dachstühle, Dachdeckungen und Holzbauten.";
+
+      document.querySelector('link[rel="canonical"]').href = canonical;
+      document.querySelector('meta[property="og:url"]').content = canonical;
+
+      document.querySelector('meta[property="og:title"]').content = isFrench
+        ? "Réalisations | ROOFCON"
+        : "Referenzen | ROOFCON";
+
+      document.querySelector('meta[property="og:description"]').content = isFrench
+        ? "Découvrez les projets et réalisations de ROOFCON au Luxembourg."
+        : "Entdecken Sie die Projekte und Referenzen von ROOFCON in Luxemburg.";
+
+      document.querySelector('link[hreflang="fr-LU"]').href =
+        "https://roof-con.com/realisations/";
+
+      document.querySelector('link[hreflang="de-LU"]').href =
+        "https://roof-con.com/referenzen/";
+
+      document.querySelector('link[hreflang="x-default"]').href =
+        "https://roof-con.com/realisations/";
+    }
+
+    function renderPageText() {
+      document.documentElement.lang = LANG;
+
+      document.getElementById("refs-kicker").textContent =
+        LANG === "fr" ? "Nos projets" : "Unsere Projekte";
+
+      document.getElementById("refs-title").textContent =
+        LANG === "fr" ? "Nos réalisations" : "Unsere Referenzen";
+
+      document.getElementById("refs-intro").textContent =
+        LANG === "fr"
+          ? "Découvrez nos réalisations dans les domaines de la toiture, de la charpente, des façades et de la construction en ossature bois."
+          : "Entdecken Sie unsere Projekte in den Bereichen Dachdeckung, Dachstuhlbau, Fassaden und Holzrahmenbau.";
+
+      document.getElementById("lang-fr").classList.toggle("active", LANG === "fr");
+      document.getElementById("lang-de").classList.toggle("active", LANG === "de");
+
+      document.getElementById("lang-fr").setAttribute("aria-pressed", String(LANG === "fr"));
+      document.getElementById("lang-de").setAttribute("aria-pressed", String(LANG === "de"));
+    }
+
+    function setLanguage(lang) {
+      LANG = lang;
+
+      renderPageText();
+      renderReferenceCategories();
+      renderReferences();
+      renderFooter();
+      renderNavigation();
+      updateSEO();
+
+      history.replaceState(
+        {},
+        "",
+        LANG === "fr" ? "/realisations/" : "/referenzen/"
+      );
+
+      menu.classList.remove("mobile-open");
+      mobileButton.setAttribute("aria-expanded", "false");
+      mobileButton.textContent = "☰";
+
+      if (currentView === "category" && currentCategory) {
+        openReferenceCategory(currentCategory);
+      } else if (currentView === "project" && currentProject) {
+        openReference(currentProject);
+      } else {
+        showView("references");
+      }
+    }
+
+    document.getElementById("lang-fr").addEventListener("click", () => {
+      if (LANG !== "fr") {
+        window.location.href = "/realisations/";
+      }
+    });
+
+    document.getElementById("lang-de").addEventListener("click", () => {
+      window.location.href = "/referenzen/";
+    });
+
+    mobileButton.addEventListener("click", () => {
+      const isOpen = menu.classList.toggle("mobile-open");
+      mobileButton.setAttribute("aria-expanded", String(isOpen));
+      mobileButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    fetch(CONTENT_URL, { cache: "no-store" })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Impossible de charger content.json : " + response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        CONTENT = data;
+
+        renderPageText();
+        renderReferenceCategories();
+        renderReferences();
+        renderFooter();
+        renderNavigation();
+        updateSEO();
+        showView("references");
+      })
+      .catch(error => {
+        console.error(error);
+
+        document.getElementById("refs-title").textContent =
+          "Impossible de charger les réalisations.";
+
+        document.getElementById("refs-intro").textContent =
+          "Vérifiez que le fichier content.json est disponible à la racine du site.";
+      });
+  </script>
+</body>
 </html>
