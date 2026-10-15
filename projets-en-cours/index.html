@@ -311,6 +311,13 @@
       color:#fff;
     }
 
+    .current-project {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+    
     /* FOOTER */
 
     footer {
@@ -646,22 +653,26 @@
           </p>
         </div>
 
-        <div class="current-projects-grid">
-          <article class="current-project">
-            <img
-              src="/images/projets-en-cours/current-project-1791179907640-1791549024832-ccv5ci.jpeg"
-              alt="Projet en cours réalisé par ROOFCON au Luxembourg"
-              width="1200"
-              height="800"
-              fetchpriority="high">
+<div class="current-projects-grid">
+  <a
+    href="/projets-en-cours/nouveau-projet/"
+    class="current-project"
+    aria-label="Voir le projet">
 
-            <div class="current-project-overlay"></div>
+    <img
+      src="/images/projets-en-cours/current-project-1791179907640-1791549024832-ccv5ci.jpeg"
+      alt="Projet en cours réalisé par ROOFCON au Luxembourg"
+      width="1200"
+      height="800"
+      fetchpriority="high">
 
-            <div class="current-project-content">
-              <h2 id="project-title">Nouveau projet</h2>
-            </div>
-          </article>
-        </div>
+    <div class="current-project-overlay"></div>
+
+    <div class="current-project-content">
+      <h2 id="project-title">Nouveau projet</h2>
+    </div>
+  </a>
+</div>
       </div>
     </section>
   </main>
