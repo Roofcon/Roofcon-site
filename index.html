@@ -6480,17 +6480,20 @@ if(navAbout){
     t(c.nav.about);
 }
 
-
 const navCurrentProjects =
   document.getElementById('nav-current-projects');
 
-if(navCurrentProjects){
+if (navCurrentProjects) {
   navCurrentProjects.textContent =
     LANG === 'fr'
       ? 'Projets en cours'
       : 'Aktuelle Projekte';
-}
 
+  navCurrentProjects.href =
+    LANG === 'fr'
+      ? '/projets-en-cours/'
+      : '/aktuelle-projekte/';
+}
 
 const navReferences =
   document.getElementById('nav-references');
