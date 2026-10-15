@@ -7,15 +7,15 @@
   <title>Nos services | Toiture, charpente & façade ventilée | ROOFCON</title>
   <meta name="description" content="Découvrez les services de ROOFCON au Luxembourg : façades ventilées, toitures plates, charpentes, couvertures et constructions en ossature bois.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.roof-con.com/services/">
-  <link rel="alternate" hreflang="fr-LU" href="https://www.roof-con.com/services/">
-  <link rel="alternate" hreflang="de-LU" href="https://www.roof-con.com/leistungen/">
-  <link rel="alternate" hreflang="x-default" href="https://www.roof-con.com/services/">
+  <link rel="canonical" href="https://roof-con.com/services/">
+  <link rel="alternate" hreflang="fr-LU" href="https://roof-con.com/services/">
+  <link rel="alternate" hreflang="de-LU" href="https://roof-con.com/leistungen/">
+  <link rel="alternate" hreflang="x-default" href="https://roof-con.com/services/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Nos services | ROOFCON">
   <meta property="og:description" content="Façades ventilées, toitures plates, charpentes, couvertures et constructions en ossature bois au Luxembourg.">
-  <meta property="og:url" content="https://www.roof-con.com/services/">
+  <meta property="og:url" content="https://roof-con.com/services/">
 
   <style>
     :root {
@@ -28,13 +28,9 @@
       --line: #e5dfda;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -44,20 +40,15 @@
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-    }
-
-    button {
-      font: inherit;
-    }
+    a { color: inherit; }
+    button { font: inherit; }
 
     .container {
       width: min(1180px, 92%);
       margin: auto;
     }
 
-    /* EN-TÊTE */
+    /* BARRE SUPÉRIEURE */
 
     .top {
       background: var(--black);
@@ -72,6 +63,13 @@
       align-items: center;
       gap: 15px;
     }
+
+    .top a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* EN-TÊTE ET MENU */
 
     header {
       position: sticky;
@@ -129,33 +127,31 @@
       transition: color .2s ease, background-color .2s ease;
     }
 
-    .menu a:hover {
-      color: var(--brown);
-    }
+    .menu a:hover { color: var(--brown); }
 
     .menu .cta {
       background: var(--brown);
       color: #fff;
       padding: 12px 17px;
+      transition: background-color .25s ease, transform .25s ease,
+                  box-shadow .25s ease;
     }
 
     .menu .cta:hover {
+      transform: translateY(-2px);
       background: var(--black);
       color: #fff;
-      transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(33, 31, 32, .18);
     }
 
-    .mobile-menu-button {
-      display: none;
-    }
+    .mobile-menu-button { display: none; }
 
-    /* SERVICES */
+    /* SECTION SERVICES */
 
     .about {
-      padding: 92px 0;
-      display: block;
+      position: relative;
       background: #fff;
+      padding: 92px 0;
     }
 
     .about-intro {
@@ -172,25 +168,18 @@
       margin-bottom: 12px;
     }
 
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
     .about-intro h1 {
       font-size: clamp(34px, 4vw, 54px);
       line-height: 1.1;
       letter-spacing: -1.5px;
-      margin-bottom: 20px;
+      margin: 0 0 20px;
     }
 
     .about-intro p {
       color: var(--gray);
       font-size: 17px;
       max-width: 800px;
-      margin-bottom: 0;
+      margin: 0;
     }
 
     .poles {
@@ -200,10 +189,13 @@
     }
 
     .pole {
-      border: 1px solid var(--line);
-      background: #fff;
-      padding: 28px;
       min-width: 0;
+      min-height: 100%;
+      padding: 28px;
+      background: #fff;
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
       transition: transform .3s ease, box-shadow .3s ease,
                   border-color .3s ease;
     }
@@ -212,14 +204,6 @@
       transform: translateY(-7px);
       box-shadow: 0 18px 35px rgba(0, 0, 0, .18);
       border-color: var(--brown);
-    }
-
-    .pole-image {
-      display: block;
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      margin-bottom: 22px;
     }
 
     .pole-number {
@@ -233,13 +217,14 @@
     .pole h2 {
       font-size: 23px;
       line-height: 1.25;
-      margin-bottom: 12px;
+      margin: 0 0 12px;
     }
 
     .pole p {
       color: var(--gray);
       font-size: 14px;
-      margin-bottom: 22px;
+      margin: 0 0 22px;
+      flex-grow: 1;
     }
 
     .pole-actions {
@@ -247,6 +232,7 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 14px;
+      margin-top: auto;
     }
 
     .pole-more {
@@ -256,9 +242,7 @@
       text-decoration: none;
     }
 
-    .pole-more:hover {
-      text-decoration: underline;
-    }
+    .pole-more:hover { text-decoration: underline; }
 
     .pole-discover {
       display: inline-block;
@@ -279,6 +263,8 @@
       border-color: var(--brown);
       box-shadow: 0 8px 20px rgba(33, 31, 32, .15);
     }
+
+    /* ANIMATIONS */
 
     .reveal {
       opacity: 0;
@@ -320,9 +306,7 @@
       margin-bottom: 12px;
     }
 
-    .footer-item {
-      margin-bottom: 7px;
-    }
+    .footer-item { margin-bottom: 7px; }
 
     .footer-item a {
       color: inherit;
@@ -362,48 +346,29 @@
       text-decoration: none;
     }
 
-    .footer-legal a:hover {
-      color: var(--brown2);
+    .footer-legal a:hover { color: var(--brown2); }
+
+    /* TABLETTES */
+
+    @media (max-width: 1000px) {
+      .nav { gap: 14px; }
+      .menu { gap: 14px; font-size: 12px; }
+      .logo { width: 145px; }
+      .poles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
-    /* RESPONSIVE */
-
-    @media (max-width: 1100px) {
-      .nav {
-        gap: 15px;
-      }
-
-      .menu {
-        gap: 12px;
-        font-size: 12px;
-      }
-
-      .logo {
-        width: 145px;
-      }
-
-      .poles {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
+    /* MOBILES */
 
     @media (max-width: 750px) {
-      .top {
-        display: none;
-      }
+      .top { display: none; }
 
       .nav {
         min-height: 76px;
         position: relative;
       }
 
-      .logo {
-        width: 145px;
-      }
+      .logo { width: 145px; }
 
       .mobile-menu-button {
         display: flex;
@@ -415,7 +380,6 @@
         background: #fff;
         color: var(--black);
         cursor: pointer;
-        margin-left: 0;
         font-size: 26px;
         line-height: 1;
       }
@@ -436,9 +400,7 @@
         box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
       }
 
-      .menu.mobile-open {
-        display: flex;
-      }
+      .menu.mobile-open { display: flex; }
 
       .menu a {
         display: block;
@@ -448,9 +410,7 @@
         border-bottom: 1px solid #eee;
       }
 
-      .menu a:last-child {
-        border-bottom: 0;
-      }
+      .menu a:last-child { border-bottom: 0; }
 
       .menu a:hover {
         background: var(--cream);
@@ -463,27 +423,13 @@
         text-align: center;
       }
 
-      .lang {
-        margin-left: auto;
-        margin-right: 0;
-      }
+      .lang { margin-left: auto; margin-right: 0; }
+      .lang button { padding: 6px 8px; font-size: 12px; }
 
-      .lang button {
-        padding: 6px 8px;
-        font-size: 12px;
-      }
+      .about { padding: 65px 0; }
 
-      .about {
-        padding: 65px 0;
-      }
-
-      .about-intro h1 {
-        letter-spacing: -1px;
-      }
-
-      .about-intro p {
-        font-size: 16px;
-      }
+      .about-intro h1 { letter-spacing: -1px; }
+      .about-intro p { font-size: 16px; }
 
       .poles,
       .footer-grid {
@@ -493,30 +439,14 @@
       .pole {
         min-height: 0;
         padding: 22px;
-        display: flex;
-        flex-direction: column;
       }
 
-      .pole-image {
-        width: calc(100% + 44px);
-        max-width: none;
-        margin: -22px -22px 18px;
-        height: 150px;
-      }
-
-      .pole h2 {
-        margin: 14px 0 8px;
-      }
-
-      .pole p {
-        margin-bottom: 18px;
-      }
+      .pole h2 { margin-bottom: 8px; }
+      .pole p { margin-bottom: 18px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         scroll-behavior: auto !important;
         transition-duration: .01ms !important;
       }
@@ -527,19 +457,23 @@
 <body>
   <div class="top">
     <div class="container top-inner">
-      <span>ROOFCON — Construction bois, toiture et façades au Luxembourg</span>
-      <span><a href="tel:+352621765489">+352 621 765 489</a> · <a href="mailto:info@roof-con.com">info@roof-con.com</a></span>
+      <span>ROOFCON — Holzbau · Bedachung · Fassadenbau</span>
+      <span>
+        <a href="tel:+352621765489">+352 621 765 489</a>
+        ·
+        <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+      </span>
     </div>
   </div>
 
   <header>
     <div class="container nav">
       <a href="/" aria-label="ROOFCON — Accueil">
-        <img class="logo" src="../ROOFCON.png" alt="ROOFCON">
+        <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
       </a>
 
       <div class="lang" aria-label="Choisir la langue">
-        <button type="button" class="active" id="lang-fr" aria-pressed="true">FR</button>
+        <button type="button" id="lang-fr" class="active" aria-pressed="true">FR</button>
         <button type="button" id="lang-de" aria-pressed="false">DE</button>
       </div>
 
@@ -555,7 +489,7 @@
         <a href="/">Accueil</a>
         <a href="/services/" aria-current="page">Nos services</a>
         <a href="/projets-en-cours/">Projets en cours</a>
-        <a href="/realisations/">Références</a>
+        <a href="/realisations/">Réalisations</a>
         <a href="/emploi/">Offres d'emploi</a>
         <a href="/contact/" class="cta">Contact</a>
       </nav>
@@ -563,67 +497,14 @@
   </header>
 
   <main>
-    <section id="services" class="about">
+    <section id="about" class="about">
       <div class="container">
         <div class="about-intro">
-          <div class="kicker" id="about-kicker">Nos services</div>
-          <h1 id="about-title">Nos services en construction bois, toiture, charpente, couvertures et façade</h1>
-          <p id="about-intro">
-            ROOFCON accompagne vos projets au Luxembourg, de la charpente aux finitions de toiture et de façade, ainsi que pour les constructions en ossature bois.
-          </p>
+          <div class="kicker" id="about-kicker"></div>
+          <h1 id="about-title"></h1>
+          <p id="about-intro"></p>
         </div>
-
-        <div class="poles" id="poles-grid" aria-live="polite">
-          <article class="pole">
-            <div class="pole-number">01</div>
-            <h2>Façades ventilées</h2>
-            <p>Des solutions de façade conçues pour protéger et valoriser durablement les bâtiments.</p>
-            <div class="pole-actions">
-              <a class="pole-more" href="/facades-ventilees/">En savoir plus sur les façades ventilées</a>
-              <a class="pole-discover" href="/realisations/">Découvrir</a>
-            </div>
-          </article>
-
-          <article class="pole">
-            <div class="pole-number">02</div>
-            <h2>Toitures plates</h2>
-            <p>Des solutions adaptées aux exigences techniques et à la durabilité de chaque toiture.</p>
-            <div class="pole-actions">
-              <a class="pole-more" href="/toitures-plates/">En savoir plus sur les toitures plates</a>
-              <a class="pole-discover" href="/realisations/">Découvrir</a>
-            </div>
-          </article>
-
-          <article class="pole">
-            <div class="pole-number">03</div>
-            <h2>Charpentes</h2>
-            <p>Des structures en bois préparées avec précision pour les projets de construction.</p>
-            <div class="pole-actions">
-              <a class="pole-more" href="/charpentes/">En savoir plus sur les charpentes</a>
-              <a class="pole-discover" href="/realisations/">Découvrir</a>
-            </div>
-          </article>
-
-          <article class="pole">
-            <div class="pole-number">04</div>
-            <h2>Couvertures</h2>
-            <p>Des couvertures réalisées avec soin pour assurer la protection et la finition des bâtiments.</p>
-            <div class="pole-actions">
-              <a class="pole-more" href="/couvertures/">En savoir plus sur les couvertures</a>
-              <a class="pole-discover" href="/realisations/">Découvrir</a>
-            </div>
-          </article>
-
-          <article class="pole">
-            <div class="pole-number">05</div>
-            <h2>Maisons & annexes en ossature bois</h2>
-            <p>Des constructions en ossature bois pensées pour répondre aux besoins de chaque projet.</p>
-            <div class="pole-actions">
-              <a class="pole-more" href="/maisons-annexes-ossature-bois/">En savoir plus sur les maisons en ossature bois</a>
-              <a class="pole-discover" href="/realisations/">Découvrir</a>
-            </div>
-          </article>
-        </div>
+        <div class="poles" id="poles-grid"></div>
       </div>
     </section>
   </main>
@@ -632,237 +513,147 @@
     <div class="container">
       <div class="footer-grid">
         <div>
-          <img src="../ROOFCON.png" class="footer-logo" alt="ROOFCON">
-          <div id="footer-description">ROOFCON — Construction bois, toiture, couverture et façades au Luxembourg.</div>
+          <img src="/ROOFCON.png" class="footer-logo" alt="ROOFCON">
+          <div id="footer-description"></div>
         </div>
 
         <div>
-          <div class="footer-title" id="footer-contact-title">Contact</div>
-          <div class="footer-item"><a href="tel:+352621765489">+352 621 765 489</a></div>
-          <div class="footer-item"><a href="mailto:info@roof-con.com">info@roof-con.com</a></div>
+          <div class="footer-title" id="footer-contact-title"></div>
+          <div class="footer-item" id="footer-phone"></div>
+          <div class="footer-item" id="footer-email"></div>
         </div>
 
         <div>
-          <div class="footer-title" id="footer-address-title">Adresse</div>
-          <div class="footer-item" id="footer-address">Z.A.E.R. Op Stackem 8<br>9952 Drinklange, Luxembourg</div>
-          <div class="footer-item" id="footer-hours">Du lundi au vendredi<br>07h30 – 17h30</div>
+          <div class="footer-title" id="footer-address-title"></div>
+          <div class="footer-item" id="footer-address"></div>
+          <div class="footer-item" id="footer-hours"></div>
         </div>
 
         <div>
-          <div class="footer-title" id="footer-social-title">Suivez-nous</div>
+          <div class="footer-title" id="footer-social-title"></div>
           <div class="footer-social">
-            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="https://www.instagram.com/roofcon.lu/" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a id="footer-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a id="footer-instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div id="footer-copyright">© ROOFCON — Tous droits réservés.</div>
+        <div id="footer-copyright"></div>
         <div class="footer-legal">
-          <a href="../mentions-legales.html">Mentions légales</a> ·
-          <a href="../politique-confidentialite.html">Politique de confidentialité</a> ·
-          <a href="../politique-cookies.html">Politique des cookies</a>
+          <a href="/mentions-legales.html" id="footer-legal-1">Mentions légales</a> ·
+          <a href="/politique-confidentialite.html" id="footer-legal-2">Politique de confidentialité</a> ·
+          <a href="/politique-cookies.html" id="footer-legal-3">Politique des cookies</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script>
-    const translations = {
-      fr: {
-        title: "Nos services en construction bois, toiture, charpente, couvertures et façade",
-        description: "ROOFCON accompagne vos projets au Luxembourg, de la charpente aux finitions de toiture et de façade, ainsi que pour les constructions en ossature bois.",
-        kicker: "Nos services",
-        services: [
-          {
-            id: "facades",
-            number: "01",
-            title: "Façades ventilées",
-            text: "Des solutions de façade conçues pour protéger et valoriser durablement les bâtiments.",
-            more: "En savoir plus sur les façades ventilées",
-            href: "/facades-ventilees/"
-          },
-          {
-            id: "toitures",
-            number: "02",
-            title: "Toitures plates",
-            text: "Des solutions adaptées aux exigences techniques et à la durabilité de chaque toiture.",
-            more: "En savoir plus sur les toitures plates",
-            href: "/toitures-plates/"
-          },
-          {
-            id: "charpentes",
-            number: "03",
-            title: "Charpentes",
-            text: "Des structures en bois préparées avec précision pour les projets de construction.",
-            more: "En savoir plus sur les charpentes",
-            href: "/charpentes/"
-          },
-          {
-            id: "couvertures",
-            number: "04",
-            title: "Couvertures",
-            text: "Des couvertures réalisées avec soin pour assurer la protection et la finition des bâtiments.",
-            more: "En savoir plus sur les couvertures",
-            href: "/couvertures/"
-          },
-          {
-            id: "maisons",
-            number: "05",
-            title: "Maisons & annexes en ossature bois",
-            text: "Des constructions en ossature bois pensées pour répondre aux besoins de chaque projet.",
-            more: "En savoir plus sur les maisons en ossature bois",
-            href: "/maisons-annexes-ossature-bois/"
-          }
-        ],
-        nav: ["Accueil", "Nos services", "Projets en cours", "Références", "Offres d'emploi", "Contact"],
-        footerDescription: "ROOFCON — Construction bois, toiture, couverture et façades au Luxembourg.",
-        contact: "Contact",
-        address: "Adresse",
-        social: "Suivez-nous",
-        hours: "Du lundi au vendredi",
-        legal: ["Mentions légales", "Politique de confidentialité", "Politique des cookies"],
-        copyright: "© ROOFCON — Tous droits réservés.",
-        discover: "Découvrir"
-      },
-      de: {
-        title: "Unsere Leistungen im Holzbau, Dachbau und Fassadenbau",
-        description: "ROOFCON begleitet Ihre Bauprojekte in Luxemburg: hinterlüftete Fassaden, Flachdächer, Dachstühle, Dachdeckungen und Häuser in Holzrahmenbauweise.",
-        kicker: "Unsere Leistungen",
-        services: [
-          {
-            id: "facades",
-            number: "01",
-            title: "Hinterlüftete Fassaden",
-            text: "Fassadenlösungen, die Gebäude schützen und dauerhaft aufwerten.",
-            more: "Mehr über hinterlüftete Fassaden",
-            href: "/de/hinterlueftete-fassaden/"
-          },
-          {
-            id: "toitures",
-            number: "02",
-            title: "Flachdächer",
-            text: "Dachlösungen, die auf die technischen Anforderungen und die Langlebigkeit des Gebäudes abgestimmt sind.",
-            more: "Mehr über Flachdächer",
-            href: "/de/flachdaecher/"
-          },
-          {
-            id: "charpentes",
-            number: "03",
-            title: "Holzkonstruktionen",
-            text: "Präzise vorbereitete Holzkonstruktionen für Bauprojekte.",
-            more: "Mehr über den Dachstuhlbau",
-            href: "/de/dachstuhlbau/"
-          },
-          {
-            id: "couvertures",
-            number: "04",
-            title: "Dachdeckungen",
-            text: "Sorgfältig ausgeführte Dachdeckungen zum Schutz und zur Fertigstellung von Gebäuden.",
-            more: "Mehr über Dachdeckungen",
-            href: "/de/dachdeckungen/"
-          },
-          {
-            id: "maisons",
-            number: "05",
-            title: "Häuser & Anbauten in Holzrahmenbauweise",
-            text: "Holzrahmenbauten, die auf die Anforderungen des jeweiligen Projekts abgestimmt sind.",
-            more: "Mehr über Holzhäuser in Holzrahmenbauweise",
-            href: "/de/holzhaeuser-anbauten/"
-          }
-        ],
-        nav: ["Startseite", "Unsere Leistungen", "Aktuelle Projekte", "Referenzen", "Karriere", "Kontakt"],
-        footerDescription: "ROOFCON — Holzbau, Dachdeckungen und Fassadenbau in Luxemburg.",
-        contact: "Kontakt",
-        address: "Adresse",
-        social: "Folgen Sie uns",
-        hours: "Montag bis Freitag",
-        legal: ["Impressum", "Datenschutzerklärung", "Cookie-Richtlinie"],
-        copyright: "© ROOFCON — Alle Rechte vorbehalten.",
-        discover: "Entdecken"
-      }
-    };
+    const CONTENT_URL = "/content.json";
 
-    const navLinks = document.querySelectorAll("#main-menu a");
     const menu = document.getElementById("main-menu");
     const mobileButton = document.getElementById("mobile-menu-button");
+    let CONTENT = null;
+    let LANG = "fr";
 
-    function renderLanguage(lang) {
-      const t = translations[lang];
+    function escapeHTML(value) {
+      return String(value ?? "").replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[character]);
+    }
 
-      document.documentElement.lang = lang;
-      document.title = lang === "fr"
-        ? "Nos services | Toiture, charpente & façade ventilée | ROOFCON"
-        : "Leistungen | Dachbau, Holzbau & Fassadenbau | ROOFCON";
-
-      document.getElementById("about-kicker").textContent = t.kicker;
-      document.getElementById("about-title").textContent = t.title;
-      document.getElementById("about-intro").textContent = t.description;
-
-      document.getElementById("poles-grid").innerHTML = t.services.map(service => `
-        <article class="pole reveal">
-          <div class="pole-number">${service.number}</div>
-          <h2>${service.title}</h2>
-          <p>${service.text}</p>
-          <div class="pole-actions">
-            <a class="pole-more" href="${service.href}">${service.more}</a>
-            <a class="pole-discover" href="${lang === "fr" ? "/realisations/" : "/referenzen/"}">${t.discover}</a>
-          </div>
-        </article>
-      `).join("");
-
-      navLinks.forEach((link, index) => {
-        link.textContent = t.nav[index];
-      });
-
-      navLinks[0].href = "/";
-      navLinks[1].href = lang === "fr" ? "/services/" : "/leistungen/";
-      navLinks[2].href = lang === "fr" ? "/projets-en-cours/" : "/aktuelle-projekte/";
-      navLinks[3].href = lang === "fr" ? "/realisations/" : "/referenzen/";
-      navLinks[4].href = lang === "fr" ? "/emploi/" : "/karriere/";
-      navLinks[5].href = lang === "fr" ? "/contact/" : "/kontakt/";
-
-      document.getElementById("footer-description").textContent = t.footerDescription;
-      document.getElementById("footer-contact-title").textContent = t.contact;
-      document.getElementById("footer-address-title").textContent = t.address;
-      document.getElementById("footer-social-title").textContent = t.social;
-      document.getElementById("footer-hours").innerHTML = t.hours + "<br>07:30 – 17:30";
-      document.getElementById("footer-copyright").textContent = t.copyright;
-
-      const legalLinks = document.querySelectorAll(".footer-legal a");
-      legalLinks.forEach((link, index) => {
-        link.textContent = t.legal[index];
-      });
-
-      document.getElementById("lang-fr").classList.toggle("active", lang === "fr");
-      document.getElementById("lang-de").classList.toggle("active", lang === "de");
-      document.getElementById("lang-fr").setAttribute("aria-pressed", String(lang === "fr"));
-      document.getElementById("lang-de").setAttribute("aria-pressed", String(lang === "de"));
-
-      const canonical = document.querySelector('link[rel="canonical"]');
-      const description = document.querySelector('meta[name="description"]');
-      const ogUrl = document.querySelector('meta[property="og:url"]');
-
-      if (lang === "fr") {
-        canonical.href = "https://www.roof-con.com/services/";
-        description.content = "Découvrez les services de ROOFCON au Luxembourg : façades ventilées, toitures plates, charpentes, couvertures et constructions en ossature bois.";
-        ogUrl.content = "https://www.roof-con.com/services/";
-        document.querySelector('link[hreflang="fr-LU"]').href = "https://www.roof-con.com/services/";
-        document.querySelector('link[hreflang="de-LU"]').href = "https://www.roof-con.com/leistungen/";
-        document.querySelector('link[hreflang="x-default"]').href = "https://www.roof-con.com/services/";
-      } else {
-        canonical.href = "https://www.roof-con.com/leistungen/";
-        description.content = "Entdecken Sie die Leistungen von ROOFCON in Luxemburg: hinterlüftete Fassaden, Flachdächer, Dachstühle, Dachdeckungen und Holzrahmenbau.";
-        ogUrl.content = "https://www.roof-con.com/leistungen/";
-        document.querySelector('link[hreflang="fr-LU"]').href = "https://www.roof-con.com/services/";
-        document.querySelector('link[hreflang="de-LU"]').href = "https://www.roof-con.com/leistungen/";
-        document.querySelector('link[hreflang="x-default"]').href = "https://www.roof-con.com/services/";
+    function localized(value) {
+      if (value && typeof value === "object") {
+        return value[LANG] ?? value.fr ?? "";
       }
+      return value ?? "";
+    }
 
-      menu.classList.remove("mobile-open");
-      mobileButton.setAttribute("aria-expanded", "false");
-      mobileButton.textContent = "☰";
+    function assetURL(path) {
+      if (!path) return "";
+      if (/^(https?:)?\/\//i.test(path) || path.startsWith("/")) return path;
+      return "/" + path.replace(/^\.?\//, "");
+    }
+
+    function renderServices() {
+      const about = CONTENT.about;
+
+      document.getElementById("about-kicker").textContent =
+        localized(about.kicker);
+
+      document.getElementById("about-title").textContent =
+        localized(about.title);
+
+      document.getElementById("about-intro").textContent =
+        localized(about.intro);
+
+      document.getElementById("poles-grid").innerHTML =
+        about.poles.map(pole => {
+          const title = localized(pole.title);
+          const text = localized(pole.text);
+
+          const detailLinks = {
+            facades: {
+              fr: "/facades-ventilees/",
+              de: "/de/hinterlueftete-fassaden/",
+              textFr: "En savoir plus sur les façades ventilées",
+              textDe: "Mehr über hinterlüftete Fassaden"
+            },
+            toitures: {
+              fr: "/toitures-plates/",
+              de: "/de/flachdaecher/",
+              textFr: "En savoir plus sur les toitures plates",
+              textDe: "Mehr über Flachdächer"
+            },
+            charpentes: {
+              fr: "/charpentes/",
+              de: "/de/dachstuhlbau/",
+              textFr: "En savoir plus sur les charpentes",
+              textDe: "Mehr über den Dachstuhlbau"
+            },
+            couvertures: {
+              fr: "/couvertures/",
+              de: "/de/dachdeckungen/",
+              textFr: "En savoir plus sur les couvertures",
+              textDe: "Mehr über Dachdeckungen"
+            },
+            maisons: {
+              fr: "/maisons-annexes-ossature-bois/",
+              de: "/de/holzhaeuser-anbauten/",
+              textFr: "En savoir plus sur les maisons en ossature bois",
+              textDe: "Mehr über Holzhäuser in Holzrahmenbauweise"
+            }
+          };
+
+          const link = detailLinks[pole.id];
+          const detailHref = link ? link[LANG] : "#";
+          const moreText = link
+            ? (LANG === "fr" ? link.textFr : link.textDe)
+            : "";
+
+          const image = pole.image
+            ? `<img class="pole-image" src="${escapeHTML(assetURL(pole.image))}" alt="${escapeHTML(title)}" loading="lazy">`
+            : "";
+
+          return `
+            <article class="pole reveal">
+              ${image}
+              <div class="pole-number">${escapeHTML(pole.number)}</div>
+              <h2>${escapeHTML(title)}</h2>
+              <p>${escapeHTML(text)}</p>
+              <div class="pole-actions">
+                <a class="pole-more" href="${escapeHTML(detailHref)}">${escapeHTML(moreText)}</a>
+                <a class="pole-discover" href="${LANG === "fr" ? "/realisations/" : "/referenzen/"}">${LANG === "fr" ? "Découvrir" : "Entdecken"}</a>
+              </div>
+            </article>
+          `;
+        }).join("");
+
       setupReveal();
     }
 
@@ -886,15 +677,140 @@
       elements.forEach(element => observer.observe(element));
     }
 
-    document.getElementById("lang-fr").addEventListener("click", () => {
-      history.replaceState({}, "", "/services/");
-      renderLanguage("fr");
-    });
+    function renderFooter() {
+      const site = CONTENT.site;
+      const footer = CONTENT.footer;
 
-    document.getElementById("lang-de").addEventListener("click", () => {
-      history.replaceState({}, "", "/leistungen/");
-      renderLanguage("de");
-    });
+      document.getElementById("footer-description").textContent =
+        localized(footer.description);
+
+      document.getElementById("footer-contact-title").textContent =
+        LANG === "fr" ? "Contact" : "Kontakt";
+
+      document.getElementById("footer-phone").innerHTML =
+        `<a href="tel:${escapeHTML(site.phone.replace(/\s/g, ""))}">${escapeHTML(site.phone)}</a>`;
+
+      document.getElementById("footer-email").innerHTML =
+        `<a href="mailto:${escapeHTML(site.email)}">${escapeHTML(site.email)}</a>`;
+
+      document.getElementById("footer-address-title").textContent =
+        LANG === "fr" ? "Adresse" : "Adresse";
+
+      document.getElementById("footer-address").textContent =
+        site.address + ", Luxembourg";
+
+      document.getElementById("footer-hours").textContent =
+        localized(site.hours);
+
+      document.getElementById("footer-social-title").textContent =
+        LANG === "fr" ? "Suivez-nous" : "Folgen Sie uns";
+
+      document.getElementById("footer-facebook").href = site.facebook;
+      document.getElementById("footer-instagram").href = site.instagram;
+
+      document.getElementById("footer-copyright").textContent =
+        localized(footer.copyright);
+
+      document.getElementById("footer-legal-1").textContent =
+        LANG === "fr" ? "Mentions légales" : "Impressum";
+
+      document.getElementById("footer-legal-2").textContent =
+        LANG === "fr" ? "Politique de confidentialité" : "Datenschutzerklärung";
+
+      document.getElementById("footer-legal-3").textContent =
+        LANG === "fr" ? "Politique des cookies" : "Cookie-Richtlinie";
+    }
+
+    function renderNavigation() {
+      const nav = CONTENT.nav;
+
+      const links = menu.querySelectorAll("a");
+      links[0].textContent = localized(nav.home);
+      links[1].textContent = localized(nav.about);
+      links[2].textContent = LANG === "fr" ? "Projets en cours" : "Aktuelle Projekte";
+      links[3].textContent = localized(nav.references);
+      links[4].textContent = localized(nav.jobs);
+      links[5].textContent = localized(nav.contact);
+
+      links[0].href = "/";
+      links[1].href = LANG === "fr" ? "/services/" : "/leistungen/";
+      links[2].href = LANG === "fr" ? "/projets-en-cours/" : "/aktuelle-projekte/";
+      links[3].href = LANG === "fr" ? "/realisations/" : "/referenzen/";
+      links[4].href = LANG === "fr" ? "/emploi/" : "/karriere/";
+      links[5].href = LANG === "fr" ? "/contact/" : "/kontakt/";
+    }
+
+    function updateSEO() {
+      const seo = CONTENT.seo.services;
+
+      document.title = localized(seo.title);
+
+      document.querySelector('meta[name="description"]').content =
+        localized(seo.description);
+
+      const canonical = LANG === "fr"
+        ? "https://roof-con.com/services/"
+        : "https://roof-con.com/leistungen/";
+
+      document.querySelector('link[rel="canonical"]').href = canonical;
+
+      document.querySelector('meta[property="og:title"]').content =
+        localized(seo.title);
+
+      document.querySelector('meta[property="og:description"]').content =
+        localized(seo.description);
+
+      document.querySelector('meta[property="og:url"]').content = canonical;
+
+      document.querySelector('link[hreflang="fr-LU"]').href =
+        "https://roof-con.com/services/";
+
+      document.querySelector('link[hreflang="de-LU"]').href =
+        "https://roof-con.com/leistungen/";
+
+      document.querySelector('link[hreflang="x-default"]').href =
+        "https://roof-con.com/services/";
+    }
+
+    function setLanguage(lang) {
+      LANG = lang;
+
+      document.documentElement.lang = lang;
+
+      document.getElementById("lang-fr").classList.toggle("active", lang === "fr");
+      document.getElementById("lang-de").classList.toggle("active", lang === "de");
+
+      document.getElementById("lang-fr").setAttribute(
+        "aria-pressed", String(lang === "fr")
+      );
+
+      document.getElementById("lang-de").setAttribute(
+        "aria-pressed", String(lang === "de")
+      );
+
+      renderServices();
+      renderFooter();
+      renderNavigation();
+      updateSEO();
+
+      history.replaceState(
+        {},
+        "",
+        lang === "fr" ? "/services/" : "/leistungen/"
+      );
+
+      menu.classList.remove("mobile-open");
+      mobileButton.setAttribute("aria-expanded", "false");
+      mobileButton.textContent = "☰";
+    }
+
+    document.getElementById("lang-fr").addEventListener(
+      "click", () => setLanguage("fr")
+    );
+
+    document.getElementById("lang-de").addEventListener(
+      "click", () => setLanguage("de")
+    );
 
     mobileButton.addEventListener("click", () => {
       const isOpen = menu.classList.toggle("mobile-open");
@@ -902,7 +818,22 @@
       mobileButton.textContent = isOpen ? "×" : "☰";
     });
 
-    renderLanguage("fr");
+    fetch(CONTENT_URL, { cache: "no-store" })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Impossible de charger content.json : " + response.status);
+        }
+        return response.json();
+      })
+      .then(data => {
+        CONTENT = data;
+        setLanguage("fr");
+      })
+      .catch(error => {
+        console.error(error);
+        document.getElementById("about-title").textContent =
+          "Impossible de charger les services. Veuillez réessayer plus tard.";
+      });
   </script>
 </body>
 </html>
