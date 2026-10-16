@@ -1492,21 +1492,23 @@ if (!projects.length) {
       document.getElementById("lang-de").setAttribute("aria-pressed", String(LANG === "de"));
     }
 
-    function setLanguage(lang) {
-      LANG = lang;
+   function setLanguage(lang) {
+  if (lang === "de") {
+    window.location.href = "/referenzen/";
+    return;
+  }
 
-      renderPageText();
-      renderReferenceCategories();
-      renderReferences();
-      renderFooter();
-      renderNavigation();
-      updateSEO();
+  LANG = "fr";
 
-      history.replaceState(
-        {},
-        "",
-        LANG === "fr" ? "/realisations/" : "/referenzen/"
-      );
+  renderPageText();
+  renderReferenceCategories();
+  renderReferences();
+  renderFooter();
+  renderNavigation();
+  updateSEO();
+
+  history.replaceState({}, "", "/realisations/");
+}
 
       menu.classList.remove("mobile-open");
       mobileButton.setAttribute("aria-expanded", "false");
