@@ -1492,7 +1492,8 @@ if (!projects.length) {
       document.getElementById("lang-de").setAttribute("aria-pressed", String(LANG === "de"));
     }
 
-   function setLanguage(lang) {
+   
+function setLanguage(lang) {
   if (lang === "de") {
     window.location.href = "/referenzen/";
     return;
@@ -1507,21 +1508,20 @@ if (!projects.length) {
   renderNavigation();
   updateSEO();
 
+  menu.classList.remove("mobile-open");
+  mobileButton.setAttribute("aria-expanded", "false");
+  mobileButton.textContent = "☰";
+
+  if (currentView === "category" && currentCategory) {
+    openReferenceCategory(currentCategory);
+  } else if (currentView === "project" && currentProject) {
+    openReference(currentProject);
+  } else {
+    showView("references");
+  }
+
   history.replaceState({}, "", "/realisations/");
 }
-
-      menu.classList.remove("mobile-open");
-      mobileButton.setAttribute("aria-expanded", "false");
-      mobileButton.textContent = "☰";
-
-      if (currentView === "category" && currentCategory) {
-        openReferenceCategory(currentCategory);
-      } else if (currentView === "project" && currentProject) {
-        openReference(currentProject);
-      } else {
-        showView("references");
-      }
-    }
 
     document.getElementById("lang-fr").addEventListener("click", () => {
       if (LANG !== "fr") {
