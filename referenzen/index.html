@@ -1454,6 +1454,7 @@
       mobileButton.textContent = isOpen ? "×" : "☰";
     });
 
+    console.log("ROOFCON : chargement de la page allemande");
     fetch(CONTENT_URL, { cache: "no-store" })
       .then(response => {
         if (!response.ok) {
