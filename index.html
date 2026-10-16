@@ -7966,40 +7966,34 @@ if(c.site.instagram){
 
 }
 
-
 /* CLICS */
 
-document.addEventListener('click',function(e){
+document.addEventListener('click', function(e){
 
-  const link=e.target.closest('[data-page]');
+  const link = e.target.closest('#nav-references');
 
   if(link){
-
-   
-if(link.id === 'nav-references'){
-  return;
-}
-
     e.preventDefault();
-
-    showPage(link.dataset.page);
-
+    window.location.assign('/realisations/');
     return;
-
   }
 
+  const pageLink = e.target.closest('[data-page]');
 
-  const reference=e.target.closest('.reference-card');
+  if(pageLink){
+    e.preventDefault();
+    showPage(pageLink.dataset.page);
+    return;
+  }
+
+  const reference = e.target.closest('.reference-card');
 
   if(reference){
-
-    openReference(
-      reference.dataset.referenceId
-    );
-
+    openReference(reference.dataset.referenceId);
   }
 
 });
+
 
 /* FORMULAIRE */
 
