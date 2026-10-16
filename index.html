@@ -7975,10 +7975,11 @@ document.addEventListener('click',function(e){
 
   if(link){
 
-    if(link.id === 'nav-references'){
-      return;
-    }
-
+   if(link.id === 'nav-references'){
+  e.preventDefault();
+  window.location.href = '/realisations/';
+  return;
+}
     e.preventDefault();
 
     showPage(link.dataset.page);
