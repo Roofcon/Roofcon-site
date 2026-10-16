@@ -47,25 +47,62 @@
       margin: auto;
     }
 
-    .top {
+     .top {
       background: var(--black);
       color: #ddd;
       font-size: 12px;
       padding: 8px 0;
     }
 
-    .top-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
+   .top-inner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
 
     .top a {
       color: inherit;
       text-decoration: none;
     }
 
+.top {
+  font-size: 14px;
+}
+
+.top-contact {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+}
+
+.top-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.top-social svg {
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  display: block;
+}
+
+.top-social:hover {
+  color: var(--brown2);
+}
     header {
       background: #fff;
       border-bottom: 1px solid var(--line);
