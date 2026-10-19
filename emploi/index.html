@@ -1,13 +1,603 @@
 <!DOCTYPE html>
-
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noindex">
-  <title>ROOFCON</title>
-  <script>
-    window.location.replace('/?page=jobs&lang=fr');
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Offres d'emploi | ROOFCON Luxembourg</title>
+  <meta name="description" content="Découvrez les offres d'emploi ROOFCON au Luxembourg. Rejoignez nos équipes de couvreurs et charpentiers.">
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://roof-con.com/emploi/">
+  <link rel="alternate" hreflang="fr" href="https://roof-con.com/emploi/">
+  <link rel="alternate" hreflang="de" href="https://roof-con.com/karriere/">
+  <link rel="alternate" hreflang="x-default" href="https://roof-con.com/emploi/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ROOFCON">
+  <meta property="og:title" content="Offres d'emploi | ROOFCON Luxembourg">
+  <meta property="og:description" content="Découvrez les opportunités professionnelles chez ROOFCON au Luxembourg.">
+  <meta property="og:url" content="https://roof-con.com/emploi/">
+
+  <link rel="icon" href="/ROOFCON.png">
+
+  <style>
+    :root {
+      --black:#211f20;
+      --brown:#a27b5b;
+      --brown2:#c3a080;
+      --cream:#f5f2ee;
+      --gray:#706b67;
+      --line:#e5dfda;
+    }
+
+    * {
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body {
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--black);
+      line-height:1.6;
+      background:#fff;
+    }
+
+    a {
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container {
+      width:min(1180px,92%);
+      margin:auto;
+    }
+
+    .top {
+      background:var(--black);
+      color:#ddd;
+      padding:9px 0;
+      font-size:13px;
+    }
+
+    .top-inner {
+      display:flex;
+      justify-content:flex-end;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    header {
+      position:sticky;
+      top:0;
+      z-index:30;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav {
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo {
+      display:block;
+      width:165px;
+    }
+
+    .menu {
+      display:flex;
+      align-items:center;
+      gap:22px;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .menu a:hover {
+      color:var(--brown);
+    }
+
+    .lang {
+      display:flex;
+      gap:4px;
+    }
+
+    .lang a {
+      border:1px solid var(--line);
+      padding:6px 9px;
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .lang a.active {
+      background:var(--brown);
+      color:#fff;
+      border-color:var(--brown);
+    }
+
+    .hero {
+      background:#39332f;
+      color:#fff;
+      padding:100px 0 110px;
+    }
+
+    .kicker {
+      color:var(--brown2);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:20px;
+    }
+
+    h1 {
+      max-width:900px;
+      font-size:clamp(42px,6vw,76px);
+      line-height:1.02;
+      letter-spacing:-.04em;
+      margin-bottom:25px;
+    }
+
+    .intro {
+      max-width:800px;
+      color:#d1cbc6;
+      font-size:18px;
+      line-height:1.8;
+    }
+
+    .content {
+      padding:80px 0 100px;
+    }
+
+    .cards {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:22px;
+    }
+
+    .card {
+      border:1px solid var(--line);
+      background:#fff;
+      overflow:hidden;
+    }
+
+    .card img {
+      width:100%;
+      height:300px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .card-body {
+      padding:30px;
+    }
+
+    .card h2 {
+      font-size:27px;
+      line-height:1.2;
+      margin-bottom:15px;
+    }
+
+    .card p {
+      color:var(--gray);
+      white-space:pre-line;
+      margin-bottom:25px;
+    }
+
+    .btn {
+      display:inline-block;
+      padding:13px 22px;
+      background:var(--brown);
+      color:#fff;
+      font-size:13px;
+      font-weight:800;
+      border:0;
+      cursor:pointer;
+    }
+
+    .btn:hover {
+      background:var(--black);
+    }
+
+    .empty {
+      padding:35px;
+      background:var(--cream);
+      color:var(--gray);
+      text-align:center;
+      grid-column:1/-1;
+    }
+
+    .contact-grid {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+    }
+
+    .contact-details {
+      background:#211f20;
+      color:#fff;
+      padding:35px;
+    }
+
+    .contact-details h2 {
+      margin-bottom:20px;
+      font-size:28px;
+    }
+
+    .contact-details p {
+      margin-bottom:18px;
+      color:#ddd;
+      overflow-wrap:anywhere;
+    }
+
+    .contact-form label {
+      display:block;
+      font-weight:700;
+      font-size:13px;
+      margin:0 0 7px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      display:block;
+      width:100%;
+      padding:13px;
+      margin-bottom:18px;
+      border:1px solid var(--line);
+      font:inherit;
+    }
+
+    .contact-form textarea {
+      min-height:150px;
+      resize:vertical;
+    }
+
+    footer {
+      background:#171616;
+      color:#aaa;
+      padding:35px 0;
+      font-size:13px;
+    }
+
+    .footer-inner {
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    footer a:hover {
+      color:var(--brown2);
+    }
+
+    @media(max-width:850px) {
+      .nav {
+        flex-wrap:wrap;
+        padding:15px 0;
+      }
+
+      .menu {
+        width:100%;
+        flex-wrap:wrap;
+        gap:14px;
+      }
+
+      .cards,
+      .contact-grid {
+        grid-template-columns:1fr;
+      }
+
+      .hero {
+        padding:75px 0;
+      }
+
+      .content {
+        padding:55px 0 70px;
+      }
+    }
+  </style>
 </head>
-<body></body>
+
+<body>
+  <div class="top">
+    <div class="container top-inner">
+      <a href="tel:+352621765489">+352 621 765 489</a>
+      <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="/" aria-label="ROOFCON - Accueil">
+        <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
+      </a>
+
+      <div class="lang">
+        <a id="lang-fr" href="/emploi/">FR</a>
+        <a id="lang-de" href="/karriere/">DE</a>
+      </div>
+
+      <nav class="menu">
+        <a id="nav-home" href="/">Accueil</a>
+        <a id="nav-services" href="/services/">Nos services</a>
+        <a id="nav-current" href="/projets-en-cours/">Projets en cours</a>
+        <a id="nav-references" href="/realisations/">Réalisations</a>
+        <a id="nav-jobs" href="/emploi/">Offres d'emploi</a>
+        <a id="nav-contact" href="/contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="kicker" id="page-kicker">ROOFCON</div>
+        <h1 id="page-title">Offres d'emploi</h1>
+        <p class="intro" id="page-intro"></p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <div id="jobs-content" class="cards"></div>
+        <div id="contact-content" style="display:none">
+          <div class="contact-grid">
+            <div class="contact-details">
+              <h2 id="contact-card-title">Contactez-nous</h2>
+              <p id="contact-card-text"></p>
+              <p><strong id="label-phone">Téléphone</strong><br>
+                <a href="tel:+352621765489">+352 621 765 489</a>
+              </p>
+              <p><strong id="label-email">E-mail</strong><br>
+                <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+              </p>
+              <p><strong id="label-address">Adresse</strong><br>
+                <span id="contact-address">Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg</span>
+              </p>
+              <p><strong id="label-hours">Horaires</strong><br>
+                <span id="contact-hours"></span>
+              </p>
+            </div>
+
+            <form id="contact-form" class="contact-form">
+              <label id="label-name" for="form-name">Nom</label>
+              <input id="form-name" name="name" required>
+
+              <label id="label-form-email" for="form-email">E-mail</label>
+              <input id="form-email" name="email" type="email" required>
+
+              <label id="label-form-phone" for="form-phone">Téléphone</label>
+              <input id="form-phone" name="phone" type="tel">
+
+              <label id="label-message" for="form-message">Votre message</label>
+              <textarea id="form-message" name="message" required></textarea>
+
+              <button class="btn" id="form-submit" type="submit">Envoyer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© ROOFCON</span>
+      <span>
+        <a href="/mentions-legales.html">Mentions légales</a> ·
+        <a href="/politique-confidentialite.html">Confidentialité</a> ·
+        <a href="/politique-cookies.html">Cookies</a>
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    /*
+      CONFIGURATION DE LA PAGE
+      Ces valeurs seront adaptées à chaque fichier.
+    */
+    const PAGE_TYPE = 'jobs';
+    const PAGE_LANG = 'fr';
+
+    const ROUTES = {
+      jobs: {
+        fr: '/emploi/',
+        de: '/karriere/'
+      },
+      contact: {
+        fr: '/contact/',
+        de: '/kontakt/'
+      }
+    };
+
+    const TEXT = {
+      fr: {
+        home: 'Accueil',
+        services: 'Nos services',
+        current: 'Projets en cours',
+        references: 'Réalisations',
+        jobs: "Offres d'emploi",
+        contact: 'Contact',
+        jobsKicker: 'REJOIGNEZ ROOFCON',
+        jobsTitle: "Offres d'emploi",
+        jobsIntro: 'Découvrez les opportunités professionnelles au sein de nos équipes au Luxembourg.',
+        noJobs: "Aucune offre d’emploi disponible actuellement.",
+        apply: 'Postuler',
+        contactKicker: 'PARLONS DE VOTRE PROJET',
+        contactTitle: 'Contactez ROOFCON',
+        contactIntro: 'Vous avez une question ou un projet ? Contactez notre équipe.',
+        contactCardTitle: 'Nos coordonnées',
+        contactCardText: 'Notre équipe est à votre disposition pour répondre à votre demande.',
+        phone: 'Téléphone',
+        email: 'E-mail',
+        address: 'Adresse',
+        hours: 'Horaires',
+        name: 'Nom',
+        message: 'Votre message',
+        send: 'Envoyer',
+        subject: 'Demande de contact ROOFCON'
+      },
+      de: {
+        home: 'Startseite',
+        services: 'Leistungen',
+        current: 'Aktuelle Projekte',
+        references: 'Referenzen',
+        jobs: 'Stellenangebote',
+        contact: 'Kontakt',
+        jobsKicker: 'WERDEN SIE TEIL VON ROOFCON',
+        jobsTitle: 'Stellenangebote',
+        jobsIntro: 'Entdecken Sie berufliche Möglichkeiten in unseren Teams in Luxemburg.',
+        noJobs: 'Derzeit sind keine Stellenangebote verfügbar.',
+        apply: 'Bewerben',
+        contactKicker: 'SPRECHEN WIR ÜBER IHR PROJEKT',
+        contactTitle: 'Kontaktieren Sie ROOFCON',
+        contactIntro: 'Sie haben eine Frage oder ein Projekt? Kontaktieren Sie unser Team.',
+        contactCardTitle: 'Unsere Kontaktdaten',
+        contactCardText: 'Unser Team beantwortet gerne Ihre Anfrage.',
+        phone: 'Telefon',
+        email: 'E-Mail',
+        address: 'Adresse',
+        hours: 'Öffnungszeiten',
+        name: 'Name',
+        message: 'Ihre Nachricht',
+        send: 'Senden',
+        subject: 'Kontaktanfrage ROOFCON'
+      }
+    };
+
+    const t = TEXT[PAGE_LANG];
+    const oppositeLang = PAGE_LANG === 'fr' ? 'de' : 'fr';
+
+    document.documentElement.lang = PAGE_LANG;
+
+    document.getElementById('lang-fr').classList.toggle(PAGE_LANG === 'fr', true);
+    document.getElementById('lang-de').classList.toggle(PAGE_LANG === 'de', true);
+
+    document.getElementById('lang-fr').href = ROUTES[PAGE_TYPE].fr;
+    document.getElementById('lang-de').href = ROUTES[PAGE_TYPE].de;
+
+    document.getElementById('nav-home').textContent = t.home;
+    document.getElementById('nav-services').textContent = t.services;
+    document.getElementById('nav-current').textContent = t.current;
+    document.getElementById('nav-references').textContent = t.references;
+    document.getElementById('nav-jobs').textContent = t.jobs;
+    document.getElementById('nav-contact').textContent = t.contact;
+
+    document.getElementById('nav-jobs').href = ROUTES.jobs[PAGE_LANG];
+    document.getElementById('nav-contact').href = ROUTES.contact[PAGE_LANG];
+
+    document.getElementById('page-kicker').textContent =
+      PAGE_TYPE === 'jobs' ? t.jobsKicker : t.contactKicker;
+
+    document.getElementById('page-title').textContent =
+      PAGE_TYPE === 'jobs' ? t.jobsTitle : t.contactTitle;
+
+    document.getElementById('page-intro').textContent =
+      PAGE_TYPE === 'jobs' ? t.jobsIntro : t.contactIntro;
+
+    const jobsContent = document.getElementById('jobs-content');
+    const contactContent = document.getElementById('contact-content');
+
+    if (PAGE_TYPE === 'contact') {
+      jobsContent.style.display = 'none';
+      contactContent.style.display = 'block';
+
+      document.getElementById('contact-card-title').textContent = t.contactCardTitle;
+      document.getElementById('contact-card-text').textContent = t.contactCardText;
+      document.getElementById('label-phone').textContent = t.phone;
+      document.getElementById('label-email').textContent = t.email;
+      document.getElementById('label-address').textContent = t.address;
+      document.getElementById('label-hours').textContent = t.hours;
+      document.getElementById('label-name').textContent = t.name;
+      document.getElementById('label-form-email').textContent = t.email;
+      document.getElementById('label-form-phone').textContent = t.phone;
+      document.getElementById('label-message').textContent = t.message;
+      document.getElementById('form-submit').textContent = t.send;
+
+      fetch('/content.json')
+        .then(response => {
+          if (!response.ok) throw new Error('content.json inaccessible');
+          return response.json();
+        })
+        .then(data => {
+          const site = data.site || {};
+          document.getElementById('contact-address').textContent =
+            site.address || 'Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg';
+          document.getElementById('contact-hours').textContent =
+            typeof site.hours === 'string'
+              ? site.hours
+              : (site.hours && site.hours[PAGE_LANG]) || '';
+        })
+        .catch(error => console.error(error));
+
+      document.getElementById('contact-form').addEventListener('submit', event => {
+        event.preventDefault();
+
+        const name = document.getElementById('form-name').value.trim();
+        const email = document.getElementById('form-email').value.trim();
+        const phone = document.getElementById('form-phone').value.trim();
+        const message = document.getElementById('form-message').value.trim();
+
+        const body =
+          (PAGE_LANG === 'fr' ? 'Nom : ' : 'Name: ') + name +
+          '\n' + t.email + ': ' + email +
+          '\n' + t.phone + ': ' + phone +
+          '\n\n' + t.message + ':\n' + message;
+
+        window.location.href =
+          'mailto:info@roof-con.com?subject=' +
+          encodeURIComponent(t.subject) +
+          '&body=' + encodeURIComponent(body);
+      });
+
+    } else {
+      contactContent.style.display = 'none';
+
+      fetch('/content.json')
+        .then(response => {
+          if (!response.ok) throw new Error('content.json inaccessible');
+          return response.json();
+        })
+        .then(data => {
+          const jobs = (data.jobs && data.jobs.items) || [];
+
+          if (!jobs.length) {
+            jobsContent.innerHTML =
+              '<div class="empty">' + t.noJobs + '</div>';
+            return;
+          }
+
+          jobsContent.innerHTML = jobs.map(job => {
+            const title = job.title && job.title[PAGE_LANG] || '';
+            const description = job.description && job.description[PAGE_LANG] || '';
+            const images = Array.isArray(job.images)
+              ? job.images
+              : (job.image ? [job.image] : []);
+
+            return `
+              <article class="card">
+                ${images.length
+                  ? `<img src="${images[0]}" alt="${title.replace(/"/g, '&quot;')}" loading="lazy">`
+                  : ''}
+                <div class="card-body">
+                  <h2>${title}</h2>
+                  <p>${description}</p>
+                  <a class="btn" href="mailto:info@roof-con.com?subject=${encodeURIComponent(t.apply + ' - ' + title)}">${t.apply}</a>
+                </div>
+              </article>
+            `;
+          }).join('');
+        })
+        .catch(error => {
+          console.error(error);
+          jobsContent.innerHTML =
+            '<div class="empty">Impossible de charger les offres. Veuillez réessayer plus tard.</div>';
+        });
+    }
+  </script>
+</body>
 </html>
