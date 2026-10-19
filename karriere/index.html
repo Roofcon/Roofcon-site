@@ -939,8 +939,13 @@
         const title = job.title && job.title[PAGE_LANG] || '';
         const description = job.description && job.description[PAGE_LANG] || '';
 
-        const images = Array.isArray(job.images)
-          ? job.images
+       
+        const imageList = job.images && !Array.isArray(job.images)
+          ? job.images[PAGE_LANG]
+          : job.images;
+
+        const images = Array.isArray(imageList)
+          ? imageList
           : (job.image ? [job.image] : []);
 
         const imageHtml = images.length
@@ -950,10 +955,11 @@
               alt="${title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}"
               loading="lazy"
               onclick="openJobImage(this.src)"
-              title="Zum Vergrößern anklicken"
+              title="${PAGE_LANG === 'de' ? 'Zum Vergrößern anklicken' : 'Cliquer pour agrandir'}"
               style="cursor:zoom-in;"
             >`
           : '';
+
 
         return `
           <article class="card">
