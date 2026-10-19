@@ -548,11 +548,27 @@ background: #39332f;
       .menu a:last-child { border-bottom:0; }
 
       .menu a:hover {
-        background:var(--cream);
-        color:var(--brown);
-      }
+  background: var(--cream);
+  color: var(--brown);
+}
 
-      .lang { margin-left:0; margin-right:8px; }
+.menu .cta {
+  margin: 8px 16px;
+  width: auto;
+  text-align: center;
+  background: var(--brown);
+  color: #fff;
+}
+
+.menu .cta:hover {
+  background: var(--black);
+  color: #fff;
+}
+
+.lang {
+  margin-left: 0;
+  margin-right: 8px;
+}
     }
 
     @media(max-width:650px) {
@@ -656,7 +672,7 @@ background: #39332f;
         <a href="/projets-en-cours/" data-nav="current">Projets en cours</a>
 <a href="/realisations/" data-nav="references">Réalisations/</a>
         <a href="/?page=jobs&amp;lang=fr" data-nav="jobs">Offres d'emploi</a>
-<a href="/?page=contact&amp;lang=de" data-nav="contact" class="cta">contact</a>
+<a href="/contact/" data-nav="contact" class="cta">Contact</a>
       </nav>
     </div>
   </header>
