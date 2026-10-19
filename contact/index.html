@@ -86,19 +86,42 @@
       top: 0;
       z-index: 30;
     }
-   .nav {
+  
+.nav {
   min-height: 72px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: flex-start;
+  gap: 25px;
 }
+
+.nav > a {
+  display: block;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 190px;
+  display: block;
+  height: auto;
+}
+
+
 .lang {
   display: flex;
   gap: 4px;
   margin-left: 0;
+  margin-right: 0;
   flex-shrink: 0;
 }
+
+.nav > .menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-left: auto;
+}
+
 
 .nav > a {
   order: 1;
