@@ -87,12 +87,40 @@
       z-index: 30;
     }
     .nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+.lang {
+  display: flex;
+  gap: 4px;
+  margin-left: 0;
+  order: 0;
+  flex-shrink: 0;
+}
+
+.nav > a {
+  order: 1;
+  flex-shrink: 0;
+}
+
+.nav > .menu {
+  order: 2;
+  margin-left: auto;
+}
+
+.nav > .mobile-menu-button {
+  order: 3;
+}
+
+.logo {
+  width: 190px;
+  display: block;
+  height: auto;
+}
     .logo { width: 190px; display: block; height: auto; }
     .mobile-menu-button { display: none; }
     .menu {
@@ -340,7 +368,25 @@
         width: auto;
         text-align: center;
       }
-      .lang { margin-left: auto; margin-right: 0; }
+.lang {
+  margin-left: 0;
+  margin-right: 0;
+  order: 0;
+}
+
+.nav > a {
+  order: 1;
+}
+
+.nav > .mobile-menu-button {
+  order: 3;
+  margin-left: auto;
+}
+
+.nav > .menu {
+  order: 2;
+  margin-left: 0;
+}
       .lang button { padding: 6px 8px; font-size: 12px; }
       .contact-section { padding: 65px 0; }
       .contact-grid { grid-template-columns: 1fr; gap: 35px; }
@@ -382,29 +428,33 @@
 
   <!-- HEADER -->
   <header>
-    <div class="container nav">
-      <a href="/" aria-label="ROOFCON - Accueil">
-        <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
-      </a>
 
-      <button class="mobile-menu-button" id="mobile-menu-button"
-        type="button" aria-label="Ouvrir le menu" aria-expanded="false"
-        aria-controls="main-menu">☰</button>
+<div class="container nav">
 
-      <nav class="menu" id="main-menu" aria-label="Navigation principale">
-        <a href="/">Accueil</a>
-        <a href="/services/">Nos pôles</a>
-        <a href="/projets-en-cours/">Projets en cours</a>
-        <a href="/realisations/">Réalisations</a>
-        <a href="/emploi/">Offres d'emploi</a>
-        <a href="/contact/" class="cta">Contact</a>
-      </nav>
+  <div class="lang" aria-label="Choisir la langue">
+    <button type="button" id="lang-fr" class="active" aria-pressed="true">FR</button>
+    <button type="button" id="lang-de" aria-pressed="false">DE</button>
+  </div>
 
-      <div class="lang" aria-label="Choisir la langue">
-        <button type="button" id="lang-fr" class="active" aria-pressed="true">FR</button>
-        <button type="button" id="lang-de" aria-pressed="false">DE</button>
-      </div>
-    </div>
+  <a href="/" aria-label="ROOFCON - Accueil">
+    <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
+  </a>
+
+  <button class="mobile-menu-button" id="mobile-menu-button"
+    type="button" aria-label="Ouvrir le menu" aria-expanded="false"
+    aria-controls="main-menu">☰</button>
+
+  <nav class="menu" id="main-menu" aria-label="Navigation principale">
+    <a href="/">Accueil</a>
+    <a href="/services/">Nos pôles</a>
+    <a href="/projets-en-cours/">Projets en cours</a>
+    <a href="/realisations/">Réalisations</a>
+    <a href="/emploi/">Offres d'emploi</a>
+    <a href="/contact/" class="cta">Contact</a>
+  </nav>
+
+</div>
+
   </header>
 
   <!-- CONTENU CONTACT -->
