@@ -174,16 +174,16 @@
 }
 
 
+
 .cards {
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:24px;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:18px;
   align-items:stretch;
 }
 
 .card {
-  width:100%;
-  max-width:none;
+  grid-column:span 6;
   min-width:0;
   background:#262322;
   border:1px solid #3b3634;
@@ -204,11 +204,10 @@
 
 .card img {
   width:100%;
-  height:230px;
+  height:250px;
   object-fit:cover;
   display:block;
   transition:transform .6s ease;
-  cursor:zoom-in;
 }
 
 .card:hover img {
