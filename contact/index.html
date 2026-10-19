@@ -621,12 +621,15 @@
       return String(value ?? "");
     }
 
-    function setText(id, value) {
-      const element = document.getElementById(id);
-      if (element && value !== undefined && value !== null) {
-        element.textContent = value;
-      }
-    }
+   
+function setText(id, value) {
+  const element = document.getElementById(id);
+
+  if (element && value !== undefined && value !== null) {
+    element.innerHTML = String(value).replace(/&lt;br\s*\/?&gt;/gi, "<br>");
+  }
+}
+
 
     function renderFooter() {
       if (!CONTENT) return;
