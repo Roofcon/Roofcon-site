@@ -8155,18 +8155,30 @@ const requestedPage =
 const requestedLang =
   params.get('lang');
 
+i
 if (germanPaths.includes(currentPath)) {
   LANG = 'de';
   localStorage.setItem('roofconLang', 'de');
+
 } else if (frenchPaths.includes(currentPath)) {
   LANG = 'fr';
   localStorage.setItem('roofconLang', 'fr');
+
+} else if (currentPath === '') {
+  // Page d'accueil : la langue vient du paramètre URL
+  // ou du français par défaut.
+  LANG = (requestedLang === 'de') ? 'de' : 'fr';
+  localStorage.setItem('roofconLang', LANG);
+
 } else if (requestedLang === 'de' || requestedLang === 'fr') {
   LANG = requestedLang;
   localStorage.setItem('roofconLang', requestedLang);
+
 } else {
-  LANG = localStorage.getItem('roofconLang') || 'fr';
+  LANG = 'fr';
+  localStorage.setItem('roofconLang', 'fr');
 }
+
    
   render();
 
