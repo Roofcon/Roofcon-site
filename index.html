@@ -8302,6 +8302,39 @@ function openJobImage(image){
 
 }
 </script>
+
+  <script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  const jobsLink = document.getElementById('nav-jobs');
+  const contactLink = document.getElementById('nav-contact');
+
+  function updateLanguageLinks() {
+    const isGerman =
+      document.documentElement.lang === 'de' ||
+      window.location.pathname.includes('/de/');
+
+    if (jobsLink) {
+      jobsLink.href = isGerman ? '/karriere/' : '/emploi/';
+    }
+
+    if (contactLink) {
+      contactLink.href = isGerman ? '/kontakt/' : '/contact/';
+    }
+  }
+
+  updateLanguageLinks();
+
+  // Vérifie régulièrement si la langue de la page change
+  const observer = new MutationObserver(updateLanguageLinks);
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['lang']
+  });
+
+});
+</script>
   
 </body>
 </html>
