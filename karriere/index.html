@@ -1,13 +1,1003 @@
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="robots" content="noindex">
-  <title>ROOFCON</title>
-  <script>
-    window.location.replace('/?page=jobs&lang=de');
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Karriere | ROOFCON Luxemburg</title>
+  <meta name="description" content>Karriere bei ROOFCON in Luxemburg. Entdecken Sie berufliche Möglichkeiten und werden Sie Teil unseres Teams im Holzbau, Dachbau und Fassadenbau.</meta>
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://roof-con.com/karriere/">
+  <link rel="alternate" hreflang="fr" href="https://roof-con.com/emploi/">
+  <link rel="alternate" hreflang="de" href="https://roof-con.com/karriere/">
+  <link rel="alternate" hreflang="x-default" href="https://roof-con.com/emploi/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ROOFCON">
+  <meta property="og:title" content="Karriere | ROOFCON Luxemburg">
+  <meta property="og:description" content="Entdecken Sie berufliche Möglichkeiten bei ROOFCON in Luxemburg.">
+  <meta property="og:url" content="https://roof-con.com/karriere/">
+
+  <link rel="icon" href="/ROOFCON.png">
+
+  <style>
+    :root {
+      --black:#211f20;
+      --brown:#a27b5b;
+      --brown2:#c3a080;
+      --cream:#f5f2ee;
+      --gray:#706b67;
+      --line:#e5dfda;
+    }
+
+    * {
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    body {
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--black);
+      line-height:1.6;
+      background:#fff;
+    }
+
+    a {
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container {
+      width:min(1180px,92%);
+      margin:auto;
+    }
+
+    .top {
+      background:var(--black);
+      color:#ddd;
+      padding:9px 0;
+      font-size:13px;
+    }
+
+    .top-inner {
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .top-contact {
+      display:flex;
+      align-items:center;
+      gap:18px;
+      white-space:nowrap;
+    }
+
+    .top-social {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:16px;
+      height:16px;
+      flex:0 0 16px;
+    }
+
+    .top-social svg {
+      display:block;
+      width:16px !important;
+      height:16px !important;
+      min-width:16px;
+      max-width:16px;
+      min-height:16px;
+      max-height:16px;
+    }
+
+    .top-social:hover {
+      color:var(--brown2);
+    }
+
+    header {
+      position:sticky;
+      top:0;
+      z-index:30;
+      background:#fff;
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav {
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .logo {
+      display:block;
+      width:165px;
+    }
+
+    .menu {
+      display:flex;
+      align-items:center;
+      gap:22px;
+      font-size:13px;
+      font-weight:800;
+    }
+
+    .menu a:hover {
+      color:var(--brown);
+    }
+
+    .menu .cta {
+      background:var(--brown);
+      color:#fff;
+      padding:12px 18px;
+    }
+
+    .menu .cta:hover {
+      background:var(--black);
+      color:#fff;
+    }
+
+    .lang {
+      display:flex;
+      gap:4px;
+    }
+
+    .lang a {
+      border:1px solid var(--line);
+      padding:6px 9px;
+      font-size:12px;
+      font-weight:800;
+    }
+
+    .lang a.active {
+      background:var(--brown);
+      color:#fff;
+      border-color:var(--brown);
+    }
+
+    /* KARRIERE */
+
+    .hero {
+      background:#39332f;
+      color:#fff;
+      padding:92px 0 70px;
+      text-align:center;
+    }
+
+    .hero .container {
+      width:min(1180px,92%);
+      margin:auto;
+    }
+
+    .kicker {
+      display:block;
+      color:var(--brown2);
+      font-size:11px;
+      font-weight:800;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .hero h1 {
+      max-width:1000px;
+      margin:0 auto 25px;
+      color:#fff;
+      font-size:clamp(38px,5vw,66px);
+      line-height:1.03;
+      letter-spacing:-.035em;
+      font-weight:700;
+      text-align:center;
+    }
+
+    .intro {
+      max-width:850px;
+      margin:0 auto;
+      color:#c9c4c0;
+      font-size:18px;
+      line-height:1.75;
+      white-space:pre-line;
+    }
+
+    .content {
+      background:#39332f;
+      color:#fff;
+      padding:35px 0 110px;
+    }
+
+    .cards {
+      display:grid;
+      grid-template-columns:repeat(12,minmax(0,1fr));
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .card {
+      grid-column:span 6;
+      min-width:0;
+      background:#262322;
+      border:1px solid #3b3634;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      transition:
+        transform .35s ease,
+        border-color .35s ease,
+        background .35s ease;
+    }
+
+    .card:hover {
+      transform:translateY(-6px);
+      background:#2c2928;
+      border-color:#5a514d;
+    }
+
+    .card img {
+      width:100%;
+      height:250px;
+      object-fit:cover;
+      display:block;
+      transition:transform .6s ease;
+    }
+
+    .card:hover img {
+      transform:scale(1.035);
+    }
+
+    .card-body {
+      padding:30px;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+    }
+
+    .card h2 {
+      color:#fff;
+      font-size:clamp(22px,2.2vw,29px);
+      line-height:1.12;
+      letter-spacing:-.02em;
+      margin:0 0 16px;
+    }
+
+    .card p {
+      color:#c9c4c0;
+      font-size:15px;
+      line-height:1.7;
+      white-space:pre-line;
+      margin:0 0 28px;
+    }
+
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      margin-top:auto;
+      padding:0;
+      background:none;
+      color:#fff;
+      border:none;
+      font-family:inherit;
+      font-size:11px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      text-decoration:none;
+      cursor:pointer;
+      transition:gap .3s ease,opacity .3s ease;
+    }
+
+    .btn::after {
+      content:"→";
+      font-size:17px;
+      line-height:1;
+      transition:transform .3s ease;
+    }
+
+    .btn:hover {
+      background:none;
+      color:#fff;
+      opacity:.8;
+      gap:15px;
+    }
+
+    .btn:hover::after {
+      transform:translateX(3px);
+    }
+
+    .empty {
+      grid-column:1 / -1;
+      padding:35px;
+      background:#262322;
+      border:1px solid #3b3634;
+      color:#c9c4c0;
+      text-align:center;
+    }
+
+    /* FUSSBEREICH */
+
+    footer {
+      background:#171616;
+      color:#aaa;
+      padding:40px 0;
+      font-size:13px;
+    }
+
+    .footer-grid {
+      display:grid;
+      grid-template-columns:1.2fr 1fr 1fr 1fr;
+      gap:35px;
+    }
+
+    .footer-logo {
+      display:block;
+      width:150px;
+      max-width:100%;
+      height:auto;
+      background:#fff;
+      padding:7px;
+      margin-bottom:15px;
+    }
+
+    .footer-title {
+      color:#fff;
+      font-size:14px;
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    .footer-item {
+      margin-bottom:7px;
+    }
+
+    .footer-item a {
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .footer-item a:hover,
+    .footer-social a:hover {
+      color:#c3a080;
+    }
+
+    .footer-social a {
+      display:flex;
+      align-items:center;
+      gap:9px;
+      margin-bottom:10px;
+      color:#aaa;
+      text-decoration:none;
+    }
+
+    .footer-bottom {
+      border-top:1px solid #302d2b;
+      margin-top:30px;
+      padding-top:20px;
+      color:#777;
+    }
+
+    .footer-legal {
+      margin-top:10px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+
+    .footer-legal a {
+      color:#777;
+      text-decoration:none;
+    }
+
+    .footer-legal a:hover {
+      color:#c3a080;
+    }
+
+    /* MOBILES MENÜ */
+
+    .mobile-menu-button {
+      display:none;
+    }
+
+    @media (max-width:1000px) {
+      .nav {
+        gap:14px;
+      }
+
+      .menu {
+        gap:14px;
+        font-size:12px;
+      }
+
+      .logo {
+        width:145px;
+      }
+
+      .cards {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+
+      .card {
+        grid-column:span 1;
+      }
+
+      .footer-grid {
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width:750px) {
+      .top {
+        display:none;
+      }
+
+      .nav {
+        min-height:76px;
+        position:relative;
+      }
+
+      .logo {
+        width:145px;
+      }
+
+      .mobile-menu-button {
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:44px;
+        height:44px;
+        border:1px solid var(--line);
+        background:#fff;
+        color:var(--black);
+        cursor:pointer;
+        margin-left:auto;
+        font-size:26px;
+        line-height:1;
+      }
+
+      .menu {
+        display:none;
+        position:absolute;
+        top:76px;
+        left:0;
+        right:0;
+        background:#fff;
+        border-top:1px solid var(--line);
+        border-bottom:1px solid var(--line);
+        flex-direction:column;
+        align-items:stretch;
+        gap:0;
+        padding:8px 0;
+        box-shadow:0 10px 25px rgba(0,0,0,.10);
+      }
+
+      .menu.mobile-open {
+        display:flex;
+      }
+
+      .menu a {
+        display:block;
+        width:100%;
+        padding:16px 24px;
+        font-size:15px;
+        border-bottom:1px solid #eee;
+      }
+
+      .menu a:last-child {
+        border-bottom:0;
+      }
+
+      .menu .cta {
+        margin:8px 16px;
+        width:auto;
+        text-align:center;
+      }
+
+      .lang {
+        margin-left:auto;
+      }
+
+      .hero {
+        padding:65px 0 45px;
+      }
+
+      .hero h1 {
+        font-size:clamp(34px,7vw,43px);
+        line-height:1.05;
+        letter-spacing:-.02em;
+      }
+
+      .intro {
+        font-size:16px;
+        line-height:1.7;
+      }
+
+      .content {
+        padding:25px 0 70px;
+      }
+
+      .cards {
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+
+      .card {
+        grid-column:span 1;
+      }
+
+      .card img {
+        height:210px;
+      }
+
+      .card-body {
+        padding:24px;
+      }
+
+      .card h2 {
+        font-size:25px;
+      }
+
+      .footer-grid {
+        grid-template-columns:1fr;
+      }
+    }
+
+    /* BILDMODAL */
+
+    .image-modal {
+      display:none;
+      position:fixed;
+      z-index:99999;
+      inset:0;
+      background:rgba(0,0,0,.92);
+      align-items:center;
+      justify-content:center;
+      padding:50px 20px;
+      cursor:zoom-out;
+    }
+
+    .image-modal.open {
+      display:flex;
+    }
+
+    .image-modal img {
+      display:block;
+      max-width:95%;
+      max-height:90vh;
+      width:auto;
+      height:auto;
+      object-fit:contain;
+      box-shadow:0 10px 50px rgba(0,0,0,.4);
+      cursor:default;
+    }
+
+    .image-modal-close {
+      position:absolute;
+      top:15px;
+      right:25px;
+      color:white;
+      background:transparent;
+      border:none;
+      font-size:42px;
+      cursor:pointer;
+    }
+
+    @media (max-width:600px) {
+      .image-modal {
+        padding:45px 10px;
+      }
+
+      .image-modal img {
+        max-width:100%;
+        max-height:85vh;
+      }
+    }
+  </style>
 </head>
-<body></body>
+
+<body>
+
+<div class="top">
+  <div class="container top-inner">
+    <div class="top-contact">
+      <a href="tel:+352621765489">+352 621 765 489</a>
+      <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+
+      <a href="https://www.facebook.com/profile.php?id=61594591794889"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="ROOFCON auf Facebook" class="top-social">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.instagram.com/roofcon.lu/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="ROOFCON auf Instagram" class="top-social">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"
+                fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4"
+                  fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="container nav">
+    <a href="/" aria-label="ROOFCON — Startseite">
+      <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
+    </a>
+
+    <div class="lang" aria-label="Sprache auswählen">
+      <a id="lang-fr" href="/emploi/">FR</a>
+      <a id="lang-de" class="active" href="/karriere/" aria-current="page">DE</a>
+    </div>
+
+    <button
+      type="button"
+      class="mobile-menu-button"
+      id="mobile-menu-button"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+    >☰</button>
+
+    <nav class="menu" id="main-menu" aria-label="Hauptnavigation">
+      <a id="nav-home" href="/">Startseite</a>
+      <a id="nav-services" href="/leistungen/">Leistungen</a>
+      <a id="nav-current" href="/aktuelle-projekte/">Aktuelle Projekte</a>
+      <a id="nav-references" href="/referenzen/">Referenzen</a>
+      <a id="nav-jobs" href="/karriere/" aria-current="page">Karriere</a>
+      <a id="nav-contact" href="/kontakt/" class="cta">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="kicker" id="page-kicker">WERDEN SIE TEIL VON ROOFCON</div>
+      <h1 id="page-title">Gemeinsam gestalten wir die Zukunft.</h1>
+      <p class="intro" id="page-intro"></p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div class="container">
+      <div id="jobs-content" class="cards"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img src="/ROOFCON.png" class="footer-logo" alt="ROOFCON">
+        <div id="footer-description"></div>
+      </div>
+
+      <div>
+        <div class="footer-title" id="footer-contact-title">Kontakt</div>
+        <div class="footer-item">
+          <a id="footer-phone" href="tel:+352621765489">+352 621 765 489</a>
+        </div>
+        <div class="footer-item">
+          <a id="footer-email" href="mailto:info@roof-con.com">info@roof-con.com</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title" id="footer-address-title">Adresse</div>
+        <div class="footer-item" id="footer-address"></div>
+        <div class="footer-item" id="footer-hours"></div>
+      </div>
+
+      <div>
+        <div class="footer-title" id="footer-social-title">Folgen Sie uns</div>
+        <div class="footer-social">
+          <a id="footer-facebook"
+             href="https://www.facebook.com/profile.php?id=61594591794889"
+             target="_blank" rel="noopener noreferrer">Facebook</a>
+
+          <a id="footer-instagram"
+             href="https://www.instagram.com/roofcon.lu/"
+             target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div id="footer-copyright"></div>
+      <div class="footer-legal">
+        <a href="/mentions-legales.html" id="footer-legal-1">Impressum</a> ·
+        <a href="/politique-confidentialite.html" id="footer-legal-2">Datenschutzerklärung</a> ·
+        <a href="/politique-cookies.html" id="footer-legal-3">Cookie-Richtlinie</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="image-modal" class="image-modal" onclick="closeJobImage()">
+  <button class="image-modal-close" type="button"
+    aria-label="Schließen"
+    onclick="event.stopPropagation(); closeJobImage();">×</button>
+  <img id="image-modal-content" src="" alt="Stellenangebot in vergrößerter Ansicht">
+</div>
+
+<script>
+  /*
+    SEITENKONFIGURATION
+  */
+
+  const PAGE_TYPE = 'jobs';
+  const PAGE_LANG = 'de';
+
+  const ROUTES = {
+    jobs: {
+      fr: '/emploi/',
+      de: '/karriere/'
+    },
+    contact: {
+      fr: '/contact/',
+      de: '/kontakt/'
+    }
+  };
+
+  const TEXT = {
+    fr: {
+      home: 'Accueil',
+      services: 'Nos services',
+      current: 'Projets en cours',
+      references: 'Réalisations',
+      jobs: "Offres d'emploi",
+      contact: 'Contact',
+      jobsKicker: 'REJOIGNEZ ROOFCON',
+      jobsTitle: 'Construisons ensemble l’avenir.',
+      jobsIntro: 'Notre entreprise évolue grâce aux compétences et à l’engagement de ses collaborateurs. Nous sommes toujours intéressés par des personnes motivées, désireuses de mettre leur expérience à profit et de contribuer à la réalisation de projets ambitieux au sein d’une équipe dynamique.\n\nDécouvrez nos opportunités et rejoignez ROOFCON pour participer à des projets concrets et construire la suite de votre parcours professionnel.',
+      noJobs: "Aucune offre d’emploi disponible actuellement.",
+      apply: 'Postuler',
+      contactKicker: 'PARLONS DE VOTRE PROJET',
+      contactTitle: 'Contactez ROOFCON',
+      contactIntro: 'Vous avez une question ou un projet ? Contactez notre équipe.',
+      contactCardTitle: 'Nos coordonnées',
+      contactCardText: 'Notre équipe est à votre disposition pour répondre à votre demande.',
+      phone: 'Téléphone',
+      email: 'E-mail',
+      address: 'Adresse',
+      hours: 'Horaires',
+      name: 'Nom',
+      message: 'Votre message',
+      send: 'Envoyer',
+      subject: 'Demande de contact ROOFCON'
+    },
+
+    de: {
+      home: 'Startseite',
+      services: 'Leistungen',
+      current: 'Aktuelle Projekte',
+      references: 'Referenzen',
+      jobs: 'Karriere',
+      contact: 'Kontakt',
+
+      jobsKicker: 'WERDEN SIE TEIL VON ROOFCON',
+      jobsTitle: 'Gemeinsam gestalten wir die Zukunft.',
+      jobsIntro: 'Unser Unternehmen entwickelt sich dank der Fähigkeiten und des Engagements seiner Mitarbeitenden stetig weiter. Wir freuen uns immer über motivierte Menschen, die ihre Erfahrung einbringen und gemeinsam mit unserem Team anspruchsvolle Projekte verwirklichen möchten.\n\nEntdecken Sie unsere beruflichen Möglichkeiten und werden Sie Teil von ROOFCON. Gestalten Sie konkrete Bauprojekte mit und entwickeln Sie Ihren beruflichen Weg in einem dynamischen Team weiter.',
+
+      noJobs: 'Derzeit sind keine Stellenangebote verfügbar.',
+      apply: 'Jetzt bewerben',
+      contactKicker: 'SPRECHEN WIR ÜBER IHR PROJEKT',
+      contactTitle: 'Kontaktieren Sie ROOFCON',
+      contactIntro: 'Sie haben eine Frage oder ein Projekt? Kontaktieren Sie unser Team.',
+      contactCardTitle: 'Unsere Kontaktdaten',
+      contactCardText: 'Unser Team beantwortet gerne Ihre Anfrage.',
+      phone: 'Telefon',
+      email: 'E-Mail',
+      address: 'Adresse',
+      hours: 'Öffnungszeiten',
+      name: 'Name',
+      message: 'Ihre Nachricht',
+      send: 'Senden',
+      subject: 'Kontaktanfrage ROOFCON'
+    }
+  };
+
+  const t = TEXT[PAGE_LANG];
+
+  function renderFooter(data) {
+    const site = data.site || {};
+    const footer = data.footer || {};
+
+    function translated(value) {
+      if (value && typeof value === 'object') {
+        return value[PAGE_LANG] || value.fr || value.de || '';
+      }
+      return value || '';
+    }
+
+    const setText = (id, value) => {
+      const element = document.getElementById(id);
+      if (element) element.textContent = translated(value);
+    };
+
+    setText('footer-description', footer.description);
+    setText('footer-contact-title', {
+      fr: 'Contact',
+      de: 'Kontakt'
+    });
+    setText('footer-phone', site.phone);
+    setText('footer-email', site.email);
+    setText('footer-address-title', {
+      fr: 'Adresse',
+      de: 'Adresse'
+    });
+    setText('footer-address', site.address);
+    setText('footer-hours', site.hours);
+    setText('footer-social-title', {
+      fr: 'Suivez-nous',
+      de: 'Folgen Sie uns'
+    });
+    setText('footer-copyright', footer.copyright);
+
+    const phone = document.getElementById('footer-phone');
+    if (phone && site.phone) {
+      phone.href = 'tel:' + String(site.phone).replace(/[^\d+]/g, '');
+    }
+
+    const email = document.getElementById('footer-email');
+    if (email && site.email) {
+      email.href = 'mailto:' + site.email;
+    }
+
+    const facebook = document.getElementById('footer-facebook');
+    if (facebook && site.facebook) {
+      facebook.href = site.facebook;
+      facebook.target = '_blank';
+      facebook.rel = 'noopener noreferrer';
+    }
+
+    const instagram = document.getElementById('footer-instagram');
+    if (instagram && site.instagram) {
+      instagram.href = site.instagram;
+      instagram.target = '_blank';
+      instagram.rel = 'noopener noreferrer';
+    }
+  }
+
+  document.documentElement.lang = PAGE_LANG;
+
+  const mobileButton = document.getElementById('mobile-menu-button');
+  const mainMenu = document.getElementById('main-menu');
+
+  mobileButton.addEventListener('click', () => {
+    const isOpen = mainMenu.classList.toggle('mobile-open');
+    mobileButton.setAttribute('aria-expanded', String(isOpen));
+    mobileButton.setAttribute(
+      'aria-label',
+      isOpen ? 'Menü schließen' : 'Menü öffnen'
+    );
+    mobileButton.textContent = isOpen ? '×' : '☰';
+  });
+
+  document.getElementById('lang-fr').classList.toggle('active', PAGE_LANG === 'fr');
+  document.getElementById('lang-de').classList.toggle('active', PAGE_LANG === 'de');
+
+  document.getElementById('lang-fr').href = ROUTES[PAGE_TYPE].fr;
+  document.getElementById('lang-de').href = ROUTES[PAGE_TYPE].de;
+
+  document.getElementById('nav-home').textContent = t.home;
+  document.getElementById('nav-services').textContent = t.services;
+  document.getElementById('nav-current').textContent = t.current;
+  document.getElementById('nav-references').textContent = t.references;
+  document.getElementById('nav-jobs').textContent = t.jobs;
+  document.getElementById('nav-contact').textContent = t.contact;
+
+  document.getElementById('nav-home').href = '/';
+  document.getElementById('nav-services').href = '/leistungen/';
+  document.getElementById('nav-current').href = '/aktuelle-projekte/';
+  document.getElementById('nav-references').href = '/referenzen/';
+  document.getElementById('nav-jobs').href = ROUTES.jobs[PAGE_LANG];
+  document.getElementById('nav-contact').href = ROUTES.contact[PAGE_LANG];
+
+  document.getElementById('page-kicker').textContent = t.jobsKicker;
+  document.getElementById('page-title').textContent = t.jobsTitle;
+  document.getElementById('page-intro').textContent = t.jobsIntro;
+
+  document.getElementById('footer-legal-1').textContent = 'Impressum';
+  document.getElementById('footer-legal-2').textContent = 'Datenschutzerklärung';
+  document.getElementById('footer-legal-3').textContent = 'Cookie-Richtlinie';
+
+  const jobsContent = document.getElementById('jobs-content');
+
+  fetch('/content.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('content.json konnte nicht geladen werden');
+      }
+      return response.json();
+    })
+    .then(data => {
+      renderFooter(data);
+
+      const jobs = (data.jobs && data.jobs.items) || [];
+
+      if (!jobs.length) {
+        jobsContent.innerHTML =
+          '<div class="empty">' + t.noJobs + '</div>';
+        return;
+      }
+
+      jobsContent.innerHTML = jobs.map(job => {
+        const title = job.title && job.title[PAGE_LANG] || '';
+        const description = job.description && job.description[PAGE_LANG] || '';
+
+        const images = Array.isArray(job.images)
+          ? job.images
+          : (job.image ? [job.image] : []);
+
+        const imageHtml = images.length
+          ? `<img
+              class="job-image"
+              src="${images[0].startsWith('http') || images[0].startsWith('/') ? images[0] : '/' + images[0].replace(/^\.?\//, '')}"
+              alt="${title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}"
+              loading="lazy"
+              onclick="openJobImage(this.src)"
+              title="Zum Vergrößern anklicken"
+              style="cursor:zoom-in;"
+            >`
+          : '';
+
+        return `
+          <article class="card">
+            ${imageHtml}
+            <div class="card-body">
+              <h2>${title}</h2>
+              <p>${description}</p>
+              <a class="btn"
+                 href="mailto:info@roof-con.com?subject=${encodeURIComponent(t.apply + ' - ' + title)}">
+                ${t.apply}
+              </a>
+            </div>
+          </article>
+        `;
+      }).join('');
+    })
+    .catch(error => {
+      console.error(error);
+      jobsContent.innerHTML =
+        '<div class="empty">Die Stellenangebote konnten nicht geladen werden. Bitte versuchen Sie es später erneut.</div>';
+    });
+
+  function openJobImage(src) {
+    const modal = document.getElementById('image-modal');
+    const image = document.getElementById('image-modal-content');
+
+    image.src = src;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeJobImage() {
+    const modal = document.getElementById('image-modal');
+
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closeJobImage();
+    }
+  });
+</script>
+
+</body>
 </html>
