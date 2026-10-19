@@ -618,7 +618,15 @@ document.getElementById('lang-de').classList.toggle('active', PAGE_LANG === 'de'
               <article class="card">
                 
 ${images.length
-  ? `<img src="${images[0].startsWith('http') || images[0].startsWith('/') ? images[0] : '/' + images[0].replace(/^\.?\//, '')}" alt="${title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" loading="lazy">`
+  ? `<img
+      class="job-image"
+      src="${images[0].startsWith('http') || images[0].startsWith('/') ? images[0] : '/' + images[0].replace(/^\.?\//, '')}"
+      alt="${title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}"
+      loading="lazy"
+      onclick="openJobImage(this.src)"
+      title="Cliquer pour agrandir"
+      style="cursor: zoom-in;"
+    >`
   : ''}
 
                 <div class="card-body">
@@ -637,5 +645,85 @@ ${images.length
         });
     }
   </script>
+  <div id="image-modal" class="image-modal" onclick="closeJobImage()">
+  <button class="image-modal-close" type="button" aria-label="Fermer"
+    onclick="event.stopPropagation(); closeJobImage();">×</button>
+  <img id="image-modal-content" src="" alt="Offre d'emploi agrandie">
+</div>
+
+<style>
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  cursor: zoom-out;
+}
+
+.image-modal.open {
+  display: flex;
+}
+
+.image-modal img {
+  display: block;
+  max-width: 95%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4);
+  cursor: default;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: white;
+  background: transparent;
+  border: none;
+  font-size: 42px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .image-modal {
+    padding: 45px 10px;
+  }
+
+  .image-modal img {
+    max-width: 100%;
+    max-height: 85vh;
+  }
+}
+</style>
+
+<script>
+function openJobImage(src) {
+  const modal = document.getElementById('image-modal');
+  const image = document.getElementById('image-modal-content');
+
+  image.src = src;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeJobImage() {
+  const modal = document.getElementById('image-modal');
+
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeJobImage();
+  }
+});
+</script>
 </body>
 </html>
