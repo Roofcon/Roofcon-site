@@ -4,77 +4,81 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Contact | ROOFCON – Construction et toiture au Luxembourg</title>
-  <meta name="description" content="Contactez ROOFCON au Luxembourg pour vos projets de charpente, toiture, couverture, façades ventilées et construction en ossature bois.">
+  <title>Contact | ROOFCON — Toiture, charpente & façade au Luxembourg</title>
+  <meta name="description" content="Contactez ROOFCON au Luxembourg pour vos projets de façades ventilées, toitures plates, charpentes, couvertures et ossature bois.">
   <meta name="robots" content="index, follow">
-
   <link rel="canonical" href="https://roof-con.com/contact/">
-  <link rel="alternate" hreflang="fr" href="https://roof-con.com/contact/">
-  <link rel="alternate" hreflang="de" href="https://roof-con.com/kontakt/">
+  <link rel="alternate" hreflang="fr-LU" href="https://roof-con.com/contact/">
+  <link rel="alternate" hreflang="de-LU" href="https://roof-con.com/kontakt/">
   <link rel="alternate" hreflang="x-default" href="https://roof-con.com/contact/">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Contact | ROOFCON">
-  <meta property="og:description" content="Contactez ROOFCON pour vos projets de construction et de rénovation au Luxembourg.">
+  <meta property="og:description" content="Contactez ROOFCON au Luxembourg pour vos projets de construction et de rénovation.">
   <meta property="og:url" content="https://roof-con.com/contact/">
-  <meta property="og:image" content="https://roof-con.com/ROOFCON.png">
-  <meta property="og:locale" content="fr_LU">
-
-  <link rel="icon" href="/favicon.ico">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --black: #1c1b1a;
-      --brown: #9b795f;
-      --brown2: #c4a184;
-      --gray: #77716c;
-      --line: #e6e1dc;
-      --cream: #f7f5f2;
+      --black: #211f20;
+      --brown: #a27b5b;
+      --brown2: #c3a080;
+      --cream: #f5f2ee;
       --white: #fff;
-      --container: 1200px;
+      --gray: #706b67;
+      --line: #e5dfda;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: "DM Sans", sans-serif;
+      margin: 0;
+      font-family: Arial, sans-serif;
       color: var(--black);
       background: #fff;
       line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
     }
+    a { color: inherit; }
+    button, input, textarea { font: inherit; }
+    .container { width: min(1180px, 92%); margin: auto; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    /* BARRE SUPÉRIEURE */
+    .top {
+      background: var(--black);
+      color: #ddd;
+      font-size: 14px;
+      padding: 8px 0;
     }
-
-    button,
-    input,
-    textarea {
-      font: inherit;
+    .top-inner {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 15px;
     }
-
-    .container {
-      width: min(var(--container), calc(100% - 48px));
-      margin: 0 auto;
+    .top a { color: inherit; text-decoration: none; }
+    .top-contact {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      white-space: nowrap;
     }
+    .top-social {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+    .top-social svg {
+      width: 16px;
+      height: 16px;
+      max-width: 16px;
+      max-height: 16px;
+      display: block;
+    }
+    .top-social:hover { color: var(--brown2); }
 
-    /* HEADER ORIGINAL ROOFCON */
-
+    /* HEADER */
     header {
       background: #fff;
       border-bottom: 1px solid var(--line);
@@ -82,24 +86,15 @@
       top: 0;
       z-index: 30;
     }
-
     .nav {
-      min-height: 92px;
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
-
-    .logo {
-      width: 190px;
-      display: block;
-    }
-
-    .mobile-menu-button {
-      display: none;
-    }
-
+    .logo { width: 190px; display: block; height: auto; }
+    .mobile-menu-button { display: none; }
     .menu {
       display: flex;
       align-items: center;
@@ -107,25 +102,19 @@
       font-size: 14px;
       font-weight: 800;
     }
-
     .menu a {
-      transition: color .2s ease;
+      color: var(--black);
+      text-decoration: none;
+      transition: color .2s ease, background-color .2s ease;
     }
-
-    .menu a:hover {
-      color: var(--brown);
+    .menu a:hover { color: var(--brown); }
+    .menu .cta {
+      background: var(--brown);
+      color: #fff;
+      padding: 12px 18px;
     }
-
-    .menu a.current {
-      color: var(--brown);
-    }
-
-    .lang {
-      display: flex;
-      gap: 4px;
-      margin-left: auto;
-    }
-
+    .menu .cta:hover { background: var(--black); color: #fff; }
+    .lang { display: flex; gap: 4px; margin-left: auto; }
     .lang button {
       border: 1px solid var(--line);
       background: #fff;
@@ -134,7 +123,6 @@
       font-weight: 800;
       cursor: pointer;
     }
-
     .lang button.active {
       background: var(--brown);
       color: #fff;
@@ -142,269 +130,133 @@
     }
 
     /* CONTACT */
-
     .contact-section {
       padding: 92px 0;
       background: #fff;
     }
-
     .contact-grid {
       display: grid;
       grid-template-columns: 1.05fr .95fr;
       gap: 60px;
       align-items: start;
     }
-
     .kicker {
-      display: flex;
-      align-items: center;
-      gap: 12px;
       color: var(--brown);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 2px;
+      letter-spacing: .18em;
       text-transform: uppercase;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
-
-    .kicker::before {
-      content: "";
-      width: 34px;
-      height: 2px;
-      background: var(--brown);
-      flex-shrink: 0;
-    }
-
     .contact-title {
-      font-family: "Manrope", sans-serif;
       font-size: clamp(34px, 4.5vw, 58px);
+      line-height: 1.05;
+      letter-spacing: -.035em;
+      margin: 0;
       font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: -1.8px;
-      max-width: 620px;
     }
-
     .contact-intro {
       color: var(--gray);
       font-size: 18px;
-      line-height: 1.8;
-      margin-top: 20px;
-      max-width: 550px;
+      line-height: 1.75;
+      margin: 16px 0 0;
     }
-
-    .contact-details {
-      margin-top: 30px;
-    }
-
-    .item {
-      padding: 16px 0;
-      border-top: 1px solid var(--line);
-    }
-
+    .contact-details { margin-top: 30px; }
+    .item { padding: 16px 0; border-top: 1px solid var(--line); }
     .item small {
       display: block;
       color: var(--brown);
       text-transform: uppercase;
-      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 1.2px;
-      margin-bottom: 4px;
+      letter-spacing: 1px;
+      margin-bottom: 3px;
+      font-size: 11px;
     }
-
-    .item a,
-    .item span {
-      font-size: 17px;
+    .item a, .item span {
+      font-size: 19px;
       font-weight: 700;
       overflow-wrap: anywhere;
     }
-
-    .contact-details .item a {
-      color: inherit;
-      text-decoration: none;
-      transition: color .2s ease, text-decoration .2s ease;
-    }
-
-    .contact-details .item a:hover {
-      color: var(--brown);
+    .item a { text-decoration: none; transition: color .2s ease; }
+    .item a:hover {
+      color: var(--brown) !important;
       text-decoration: underline;
       text-underline-offset: 3px;
     }
-
     .contact-card {
       background: var(--black);
       color: #fff;
       padding: 42px;
     }
-
     .contact-card h2 {
-      font-family: "Manrope", sans-serif;
       font-size: 30px;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 8px;
+      line-height: 1.2;
+      margin: 0 0 8px;
     }
-
-    .contact-card > p {
-      color: #c8c3bf;
-      font-size: 14px;
-      line-height: 1.8;
-      margin-bottom: 25px;
-    }
-
-    .contact-form {
-      display: grid;
-      gap: 14px;
-    }
-
-    .contact-form .field {
-      display: grid;
-      gap: 7px;
-    }
-
+    .contact-card > p { color: #c8c3bf; margin: 0 0 25px; }
+    .contact-form { display: grid; gap: 14px; }
     .contact-form label {
+      display: block;
       font-size: 13px;
       font-weight: 800;
       color: #c8c3bf;
+      margin-bottom: 6px;
     }
-
-    .contact-form input,
-    .contact-form textarea {
-      display: block;
+    .contact-form input, .contact-form textarea {
       width: 100%;
-      min-width: 0;
       padding: 13px 14px;
       border: 1px solid #514b48;
       border-radius: 0;
       background: #2c2928;
       color: #fff;
       outline: none;
-      transition: border-color .2s ease;
     }
-
-    .contact-form input {
-      min-height: 47px;
-    }
-
-    .contact-form textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
-    .contact-form input:focus,
-    .contact-form textarea:focus {
+    .contact-form input:focus, .contact-form textarea:focus {
       border-color: var(--brown2);
     }
-
-    .contact-form input::placeholder,
-    .contact-form textarea::placeholder {
-      color: #aaa19b;
-    }
-
-    .contact-form .consent {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      color: #c8c3bf;
-      font-size: 12px;
-      font-weight: 400;
-      line-height: 1.6;
-    }
-
-    .contact-form .consent input {
-      width: 16px;
-      height: 16px;
-      min-height: 16px;
-      margin-top: 3px;
-      flex-shrink: 0;
-      accent-color: var(--brown2);
-    }
-
-    .contact-form .consent a {
-      color: #fff;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-
-    .contact-submit {
+    .contact-form textarea { min-height: 130px; resize: vertical; }
+    .btn {
       display: inline-flex;
-      align-items: center;
       justify-content: center;
-      gap: 12px;
-      min-height: 50px;
-      padding: 13px 20px;
+      align-items: center;
       border: 0;
-      background: var(--brown);
-      color: #fff;
-      font-size: 12px;
+      padding: 14px 20px;
       font-weight: 800;
-      letter-spacing: .8px;
-      text-transform: uppercase;
       cursor: pointer;
-      transition: background .2s ease, color .2s ease;
+      text-decoration: none;
+      transition: background .2s ease;
     }
+    .btn.primary { background: var(--brown); color: #fff; }
+    .btn.primary:hover { background: var(--brown2); color: var(--black); }
+    .form-note { color: #c8c3bf; font-size: 12px; margin: 0; }
 
-    .contact-submit:hover {
-      background: var(--brown2);
-      color: var(--black);
-    }
-
-    .contact-submit:focus-visible,
-    .mobile-menu-button:focus-visible,
-    .lang button:focus-visible,
-    a:focus-visible {
-      outline: 2px solid var(--brown2);
-      outline-offset: 3px;
-    }
-
-    .form-note {
-      color: #d8d0ca;
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    /* FOOTER ORIGINAL ROOFCON */
-
+    /* FOOTER */
     footer {
       background: #171616;
       color: #aaa;
       padding: 40px 0;
       font-size: 13px;
     }
-
     .footer-grid {
       display: grid;
       grid-template-columns: 1.2fr 1fr 1fr 1fr;
       gap: 35px;
     }
-
     .footer-logo {
       width: 150px;
       background: #fff;
       padding: 7px;
       margin-bottom: 15px;
-      display: block;
     }
-
     .footer-title {
       color: #fff;
       font-size: 14px;
       font-weight: 800;
       margin-bottom: 12px;
     }
-
-    .footer-item {
-      margin-bottom: 7px;
-    }
-
-    .footer-item a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .footer-item a:hover {
-      color: var(--brown2);
-    }
-
+    .footer-item { margin-bottom: 7px; }
+    .footer-item a { color: inherit; text-decoration: none; }
+    .footer-item a:hover, .footer-social a:hover { color: var(--brown2); }
     .footer-social a {
       display: flex;
       align-items: center;
@@ -413,69 +265,37 @@
       color: #aaa;
       text-decoration: none;
     }
-
-    .footer-social a svg {
-      flex-shrink: 0;
-    }
-
-    .footer-social a:hover {
-      color: var(--brown2);
-    }
-
+    .footer-social a svg { width: 16px; height: 16px; flex-shrink: 0; }
     .footer-bottom {
       border-top: 1px solid #302d2b;
       margin-top: 30px;
       padding-top: 20px;
       color: #777;
     }
-
     .footer-legal {
       margin-top: 10px;
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
     }
+    .footer-legal a { color: #777; text-decoration: none; }
+    .footer-legal a:hover { color: var(--brown2); }
 
-    .footer-legal a {
-      color: #777;
-      text-decoration: none;
-    }
-
-    .footer-legal a:hover {
-      color: var(--brown2);
-    }
-
-    /* RESPONSIVE */
-
+    /* TABLETTES */
     @media (max-width: 1000px) {
-      .menu {
-        gap: 14px;
-        font-size: 12px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .contact-grid {
-        gap: 35px;
-      }
-
-      .contact-card {
-        padding: 32px;
-      }
+      .nav { gap: 14px; }
+      .menu { gap: 14px; font-size: 12px; }
+      .logo { width: 145px; }
+      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .contact-grid { gap: 35px; }
+      .contact-card { padding: 32px; }
     }
 
+    /* MOBILES */
     @media (max-width: 750px) {
-      .nav {
-        min-height: 76px;
-        position: relative;
-      }
-
-      .logo {
-        width: 145px;
-      }
-
+      .top { display: none; }
+      .nav { min-height: 76px; position: relative; }
+      .logo { width: 145px; }
       .mobile-menu-button {
         display: flex;
         align-items: center;
@@ -490,13 +310,6 @@
         font-size: 26px;
         line-height: 1;
       }
-
-      .mobile-menu-button:hover {
-        background: var(--brown);
-        color: #fff;
-        border-color: var(--brown);
-      }
-
       .menu {
         display: none;
         position: absolute;
@@ -510,13 +323,9 @@
         align-items: stretch;
         gap: 0;
         padding: 8px 0;
-        box-shadow: 0 10px 25px rgba(0,0,0,.10);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
       }
-
-      .menu.mobile-open {
-        display: flex;
-      }
-
+      .menu.mobile-open { display: flex; }
       .menu a {
         display: block;
         width: 100%;
@@ -524,717 +333,519 @@
         font-size: 15px;
         border-bottom: 1px solid #eee;
       }
-
-      .menu a:last-child {
-        border-bottom: 0;
+      .menu a:last-child { border-bottom: 0; }
+      .menu a:hover { background: var(--cream); color: var(--brown); }
+      .menu .cta {
+        margin: 8px 16px;
+        width: auto;
+        text-align: center;
       }
-
-      .menu a:hover {
-        background: var(--cream);
-        color: var(--brown);
-      }
-
-      .lang {
-        margin-left: 0;
-        margin-right: 8px;
-      }
-
-      .lang button {
-        padding: 6px 8px;
-        font-size: 12px;
-      }
-
-      .contact-section {
-        padding: 65px 0;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 38px;
-      }
-
-      .contact-intro {
-        font-size: 16px;
-      }
-
-      .contact-card {
-        padding: 30px;
-      }
+      .lang { margin-left: auto; margin-right: 0; }
+      .lang button { padding: 6px 8px; font-size: 12px; }
+      .contact-section { padding: 65px 0; }
+      .contact-grid { grid-template-columns: 1fr; gap: 35px; }
+      .contact-title { font-size: clamp(34px, 7vw, 43px); }
+      .contact-intro { font-size: 16px; }
+      .contact-card { padding: 26px 22px; }
+      .footer-grid { grid-template-columns: 1fr; }
     }
-
-    @media (max-width: 480px) {
-      .container {
-        width: calc(100% - 36px);
-      }
-
-      .nav {
-        gap: 10px;
-      }
-
-      .logo {
-        width: 120px;
-      }
-
-      .lang {
-        gap: 3px;
-        margin-right: 0;
-      }
-
-      .lang button {
-        padding: 6px;
-      }
-
-      .contact-title {
-        letter-spacing: -1px;
-      }
-
-      .contact-card {
-        padding: 24px 20px;
-      }
-
-      .contact-card h2 {
-        font-size: 26px;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contact ROOFCON",
-    "url": "https://roof-con.com/contact/",
-    "mainEntity": {
-      "@type": "LocalBusiness",
-      "name": "ROOFCON",
-      "url": "https://roof-con.com/",
-      "image": "https://roof-con.com/ROOFCON.png",
-      "email": "info@roof-con.com",
-      "telephone": "+352 621 765 489",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Z.A.E.R. Op Stackem 8",
-        "postalCode": "9952",
-        "addressLocality": "Drinklange",
-        "addressCountry": "LU"
-      }
-    }
-  }
-  </script>
 </head>
-
 <body>
-
-<!-- HEADER ORIGINAL ROOFCON -->
-<header>
-  <div class="container nav">
-
-    <a href="/?lang=fr" data-page="accueil" id="logo-home">
-      <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
-    </a>
-
-    <div class="lang">
-      <button type="button" id="lang-fr" class="active" onclick="setLang('fr')">FR</button>
-      <button type="button" id="lang-de" onclick="setLang('de')">DE</button>
+  <!-- BARRE SUPÉRIEURE -->
+  <div class="top">
+    <div class="container top-inner">
+      <div class="top-contact">
+        <a href="tel:+352621765489">+352 621 765 489</a>
+        <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+        <a class="top-social" href="https://www.facebook.com/profile.php?id=61594591794889" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7z"/>
+          </svg>
+        </a>
+        <a class="top-social" href="https://www.instagram.com/roofcon.lu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </div>
     </div>
-
-    <button
-      type="button"
-      class="mobile-menu-button"
-      id="mobile-menu-button"
-      aria-label="Ouvrir le menu"
-      aria-expanded="false">
-      ☰
-    </button>
-
-    <nav class="menu" id="main-menu" aria-label="Navigation principale">
-
-      <a href="/?lang=fr" data-page="accueil" id="nav-home">
-        Accueil
-      </a>
-
-      <a href="/services/" id="nav-about">Nos services</a>
-
-      <a href="/projets-en-cours/" id="nav-current-projects">Projets en cours</a>
-
-      <a href="/realisations/" id="nav-references">Réalisations</a>
-
-      <a href="/emploi/" id="nav-jobs">Offres d'emploi</a>
-
-      <a href="/contact/" id="nav-contact" class="current" aria-current="page">
-        Contact
-      </a>
-
-    </nav>
   </div>
-</header>
 
-<!-- CONTACT -->
-<main>
-  <section class="contact-section" id="contact">
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <a href="/" aria-label="ROOFCON - Accueil">
+        <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
+      </a>
 
-    <div class="container">
-      <div class="contact-grid">
+      <button class="mobile-menu-button" id="mobile-menu-button"
+        type="button" aria-label="Ouvrir le menu" aria-expanded="false"
+        aria-controls="main-menu">☰</button>
 
-        <div>
-          <div class="kicker" id="contact-kicker">
-            Prenons contact
-          </div>
+      <nav class="menu" id="main-menu" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="/services/">Nos pôles</a>
+        <a href="/projets-en-cours/">Projets en cours</a>
+        <a href="/realisations/">Réalisations</a>
+        <a href="/emploi/">Offres d'emploi</a>
+        <a href="/contact/" class="cta">Contact</a>
+      </nav>
 
-          <h1 class="contact-title" id="contact-title">
-            Parlons de votre projet.
-          </h1>
+      <div class="lang" aria-label="Choisir la langue">
+        <button type="button" id="lang-fr" class="active" aria-pressed="true">FR</button>
+        <button type="button" id="lang-de" aria-pressed="false">DE</button>
+      </div>
+    </div>
+  </header>
 
+  <!-- CONTENU CONTACT -->
+  <main>
+    <section class="contact-section">
+      <div class="container contact-grid">
+
+        <div class="contact-info">
+          <div class="kicker" id="contact-kicker">Prenons contact</div>
+          <h1 class="contact-title" id="contact-title">Parlons de votre projet.</h1>
           <p class="contact-intro" id="contact-intro">
-            Vous avez un projet de construction ou de rénovation ?
-            Contactez-nous pour nous présenter vos besoins. Nous serons
-            ravis d’échanger avec vous.
+            Vous avez un projet de toiture, de charpente, de façade ventilée ou de construction en ossature bois ?
+            Contactez-nous pour en discuter.
           </p>
 
           <div class="contact-details">
-
             <div class="item">
               <small id="label-phone">Téléphone</small>
-              <a id="contact-phone" href="tel:+352621765489">
-                +352 621 765 489
-              </a>
+              <a id="contact-phone" href="tel:+352621765489">+352 621 765 489</a>
             </div>
 
             <div class="item">
               <small id="label-email">E-mail</small>
-              <a id="contact-email" href="mailto:info@roof-con.com">
-                info@roof-con.com
-              </a>
+              <a id="contact-email" href="mailto:info@roof-con.com">info@roof-con.com</a>
             </div>
 
             <div class="item">
               <small id="label-address">Adresse</small>
-              <span id="contact-address">
-                Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg
-              </span>
+              <span id="contact-address">Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg</span>
             </div>
 
             <div class="item">
               <small id="label-hours">Horaires</small>
-              <span id="contact-hours">
-                Du lundi au vendredi, de 07h30 à 17h30
-              </span>
+              <span id="contact-hours">Du lundi au vendredi, de 07h30 à 17h30</span>
             </div>
-
           </div>
         </div>
 
         <div class="contact-card">
-
-          <h2 id="contact-card-title">
-            Décrivez-nous votre projet
-          </h2>
-
+          <h2 id="contact-card-title">Envoyez-nous un message</h2>
           <p id="contact-card-text">
-            Remplissez le formulaire ci-dessous pour préparer votre demande
-            de contact par e-mail.
+            Décrivez-nous brièvement votre projet. Nous vous répondrons dans les meilleurs délais.
           </p>
 
           <form class="contact-form" id="contact-form">
-
-            <div class="field">
-              <label for="form-name" id="form-name-label">
-                Nom et prénom *
-              </label>
-              <input
-                type="text"
-                id="form-name"
-                name="name"
-                autocomplete="name"
-                placeholder="Votre nom"
-                required>
+            <div>
+              <label for="form-name" id="form-name-label">Nom et prénom</label>
+              <input id="form-name" name="name" type="text" autocomplete="name" required>
             </div>
 
-            <div class="field">
-              <label for="form-email" id="form-email-label">
-                Adresse e-mail *
-              </label>
-              <input
-                type="email"
-                id="form-email"
-                name="email"
-                autocomplete="email"
-                placeholder="vous@exemple.com"
-                required>
+            <div>
+              <label for="form-email" id="form-email-label">Adresse e-mail</label>
+              <input id="form-email" name="email" type="email" autocomplete="email" required>
             </div>
 
-            <div class="field">
-              <label for="form-phone" id="form-phone-label">
-                Téléphone
-              </label>
-              <input
-                type="tel"
-                id="form-phone"
-                name="phone"
-                autocomplete="tel"
-                placeholder="Votre numéro de téléphone">
+            <div>
+              <label for="form-phone" id="form-phone-label">Téléphone (facultatif)</label>
+              <input id="form-phone" name="phone" type="tel" autocomplete="tel">
             </div>
 
-            <div class="field">
-              <label for="form-message" id="form-message-label">
-                Votre message *
-              </label>
-              <textarea
-                id="form-message"
-                name="message"
-                placeholder="Parlez-nous de votre projet…"
-                required></textarea>
+            <div>
+              <label for="form-message" id="form-message-label">Votre message</label>
+              <textarea id="form-message" name="message" required></textarea>
             </div>
 
-            <label class="consent">
-              <input type="checkbox" id="form-consent" required>
-              <span id="form-consent-label">
-                J’accepte que les informations ci-dessus soient utilisées
-                pour traiter ma demande. *
-              </span>
-            </label>
-
-            <button type="submit" class="contact-submit" id="form-submit">
-              Préparer mon e-mail <span aria-hidden="true">↗</span>
-            </button>
-
-            <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
-
+            <button type="submit" class="btn primary" id="form-submit">Préparer mon message</button>
+            <p class="form-note" id="form-note">
+              Le bouton ouvrira votre application de messagerie pour envoyer votre demande.
+            </p>
           </form>
         </div>
 
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
-<!-- FOOTER ORIGINAL ROOFCON -->
-<footer>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
 
-  <div class="container">
-
-    <div class="footer-grid">
-
-      <div>
-        <img
-          src="/ROOFCON.png"
-          class="footer-logo"
-          alt="ROOFCON">
-
-        <div id="footer-description">
-          ROOFCON réalise vos projets de charpente, toiture, couverture,
-          façades ventilées et construction en ossature bois au Luxembourg
-          et dans la Grande Région.
-        </div>
-      </div>
-
-      <div>
-        <div class="footer-title" id="footer-contact-title">Contact</div>
-        <div class="footer-item" id="footer-phone">
-          <a href="tel:+352621765489">+352 621 765 489</a>
-        </div>
-        <div class="footer-item" id="footer-email">
-          <a href="mailto:info@roof-con.com">info@roof-con.com</a>
-        </div>
-      </div>
-
-      <div>
-        <div class="footer-title" id="footer-address-title">Adresse</div>
-        <div class="footer-item" id="footer-address">
-          Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg
-        </div>
-        <div class="footer-item" id="footer-hours">
-          Du lundi au vendredi, de 07h30 à 17h30
-        </div>
-      </div>
-
-      <div>
-        <div class="footer-title" id="footer-social-title">Suivez-nous</div>
-
-        <div class="footer-social">
-
-          <a
-            id="footer-facebook"
-            href="https://www.facebook.com/profile.php?id=61594591794889"
-            target="_blank"
-            rel="noopener noreferrer">
-            Facebook ↗
+        <div>
+          <a href="/" aria-label="ROOFCON - Accueil">
+            <img class="footer-logo" src="/ROOFCON.png" alt="ROOFCON">
           </a>
+          <div id="footer-description">
+            Charpente, toiture, couverture, façades ventilées et constructions en ossature bois au Luxembourg.
+          </div>
+        </div>
 
-          <a
-            id="footer-instagram"
-            href="https://www.instagram.com/roofcon.lu/"
-            target="_blank"
-            rel="noopener noreferrer">
-            Instagram ↗
-          </a>
+        <div>
+          <div class="footer-title" id="footer-contact-title">Contact</div>
+          <div class="footer-item" id="footer-phone">
+            <a href="tel:+352621765489">+352 621 765 489</a>
+          </div>
+          <div class="footer-item" id="footer-email">
+            <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+          </div>
+        </div>
 
+        <div>
+          <div class="footer-title" id="footer-address-title">Adresse</div>
+          <div class="footer-item" id="footer-address">
+            Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg
+          </div>
+          <div class="footer-item" id="footer-hours">
+            Du lundi au vendredi, de 07h30 à 17h30
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title" id="footer-social-title">Suivez-nous</div>
+          <div class="footer-social">
+            <a id="footer-facebook" href="https://www.facebook.com/profile.php?id=61594591794889"
+              target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7z"/>
+              </svg>
+              Facebook
+            </a>
+            <a id="footer-instagram" href="https://www.instagram.com/roofcon.lu/"
+              target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div id="footer-copyright">© ROOFCON — Tous droits réservés.</div>
+        <div class="footer-legal">
+          <a href="/mentions-legales/" id="footer-legal-1">Mentions légales</a>
+          <span>·</span>
+          <a href="/politique-confidentialite/" id="footer-legal-2">Politique de confidentialité</a>
+          <span>·</span>
+          <a href="/politique-cookies/" id="footer-legal-3">Politique des cookies</a>
         </div>
       </div>
-
     </div>
+  </footer>
+    <script>
+    const CONTENT_URL = "/content.json";
+    const menu = document.getElementById("main-menu");
+    const mobileButton = document.getElementById("mobile-menu-button");
+    let CONTENT = null;
 
-    <div class="footer-bottom">
+    let LANG = window.location.pathname
+      .replace(/\/+$/, "")
+      .endsWith("/kontakt") ? "de" : "fr";
 
-      <div id="footer-copyright">
-        © <span id="current-year"></span> ROOFCON. Tous droits réservés.
-      </div>
-
-      <div class="footer-legal">
-
-        <a href="/mentions-legales.html" id="footer-legal-1">
-          Mentions légales
-        </a>
-
-        <span>·</span>
-
-        <a href="/politique-confidentialite.html" id="footer-legal-2">
-          Politique de confidentialité
-        </a>
-
-        <span>·</span>
-
-        <a href="/politique-cookies.html" id="footer-legal-3">
-          Politique des cookies
-        </a>
-
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-
-<script>
-(() => {
-  "use strict";
-
-  const EMAIL_FALLBACK = "info@roof-con.com";
-  const PHONE_FALLBACK = "+352 621 765 489";
-
-  const translations = {
-    fr: {
-      title: "Contact | ROOFCON – Construction et toiture au Luxembourg",
-      description: "Contactez ROOFCON au Luxembourg pour vos projets de charpente, toiture, couverture, façades ventilées et construction en ossature bois.",
-      navHome: "Accueil",
-      navAbout: "Nos services",
-      navProjects: "Projets en cours",
-      navReferences: "Réalisations",
-      navJobs: "Offres d'emploi",
-      navContact: "Contact",
-      kicker: "Prenons contact",
-      heading: "Parlons de votre projet.",
-      intro: "Vous avez un projet de construction ou de rénovation ? Contactez-nous pour nous présenter vos besoins. Nous serons ravis d’échanger avec vous.",
-      phone: "Téléphone",
-      email: "E-mail",
-      address: "Adresse",
-      hours: "Horaires",
-      hoursValue: "Du lundi au vendredi, de 07h30 à 17h30",
-      cardTitle: "Décrivez-nous votre projet",
-      cardText: "Remplissez le formulaire ci-dessous pour préparer votre demande de contact par e-mail.",
-      name: "Nom et prénom *",
-      namePlaceholder: "Votre nom",
-      emailLabel: "Adresse e-mail *",
-      emailPlaceholder: "vous@exemple.com",
-      phoneLabel: "Téléphone",
-      phonePlaceholder: "Votre numéro de téléphone",
-      message: "Votre message *",
-      messagePlaceholder: "Parlez-nous de votre projet…",
-      consent: "J’accepte que les informations ci-dessus soient utilisées pour traiter ma demande. *",
-      submit: "Préparer mon e-mail",
-      formNote: "Votre application de messagerie va s’ouvrir pour vous permettre d’envoyer votre demande.",
-      formError: "Veuillez remplir tous les champs obligatoires et accepter la mention de confidentialité.",
-      footerContact: "Contact",
-      footerAddress: "Adresse",
-      footerSocial: "Suivez-nous",
-      footerCopyright: "Tous droits réservés.",
-      legal: "Mentions légales",
-      privacy: "Politique de confidentialité",
-      cookies: "Politique des cookies",
-      subject: "Demande de contact ROOFCON",
-      bodyName: "Nom",
-      bodyEmail: "E-mail",
-      bodyPhone: "Téléphone",
-      bodyMessage: "Demande",
-      menuOpen: "Ouvrir le menu",
-      menuClose: "Fermer le menu"
-    },
-
-    de: {
-      title: "Kontakt | ROOFCON – Holzbau, Dächer und Fassaden in Luxemburg",
-      description: "Kontaktieren Sie ROOFCON in Luxemburg für Zimmerarbeiten, Dachdeckungen, Flachdächer, hinterlüftete Fassaden und Holzrahmenbau.",
-      navHome: "Startseite",
-      navAbout: "Unsere Bereiche",
-      navProjects: "Laufende Projekte",
-      navReferences: "Referenzen",
-      navJobs: "Stellenangebote",
-      navContact: "Kontakt",
-      kicker: "Nehmen Sie Kontakt auf",
-      heading: "Sprechen wir über Ihr Projekt.",
-      intro: "Sie planen ein Bau- oder Renovierungsprojekt? Erzählen Sie uns von Ihrem Vorhaben. Wir freuen uns darauf, mit Ihnen darüber zu sprechen.",
-      phone: "Telefon",
-      email: "E-Mail",
-      address: "Adresse",
-      hours: "Öffnungszeiten",
-      hoursValue: "Montag bis Freitag, 07:30–17:30 Uhr",
-      cardTitle: "Beschreiben Sie Ihr Projekt",
-      cardText: "Füllen Sie das Formular aus, um Ihre Kontaktanfrage per E-Mail vorzubereiten.",
-      name: "Vor- und Nachname *",
-      namePlaceholder: "Ihr Name",
-      emailLabel: "E-Mail-Adresse *",
-      emailPlaceholder: "sie@beispiel.com",
-      phoneLabel: "Telefon",
-      phonePlaceholder: "Ihre Telefonnummer",
-      message: "Ihre Nachricht *",
-      messagePlaceholder: "Erzählen Sie uns von Ihrem Projekt …",
-      consent: "Ich bin damit einverstanden, dass die oben angegebenen Informationen zur Bearbeitung meiner Anfrage verwendet werden. *",
-      submit: "E-Mail vorbereiten",
-      formNote: "Ihr E-Mail-Programm wird geöffnet, damit Sie Ihre Anfrage senden können.",
-      formError: "Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie den Datenschutzhinweis.",
-      footerContact: "Kontakt",
-      footerAddress: "Adresse",
-      footerSocial: "Folgen Sie uns",
-      footerCopyright: "Alle Rechte vorbehalten.",
-      legal: "Impressum",
-      privacy: "Datenschutzerklärung",
-      cookies: "Cookie-Richtlinie",
-      subject: "Kontaktanfrage ROOFCON",
-      bodyName: "Name",
-      bodyEmail: "E-Mail",
-      bodyPhone: "Telefon",
-      bodyMessage: "Anfrage",
-      menuOpen: "Menü öffnen",
-      menuClose: "Menü schließen"
+    function localized(value) {
+      if (value && typeof value === "object") {
+        return value[LANG] ?? value.fr ?? "";
+      }
+      return value ?? "";
     }
-  };
 
-  const path = window.location.pathname.replace(/\/+$/, "");
-  let currentLang = path === "/kontakt" ? "de" : "fr";
-
-  function setText(id, value) {
-    const element = document.getElementById(id);
-    if (element && value !== undefined && value !== null && value !== "") {
-      element.textContent = value;
+    function safeText(value) {
+      return String(value ?? "");
     }
-  }
 
-  function setHref(id, value) {
-    const element = document.getElementById(id);
-    if (element && value) element.href = value;
-  }
+    function setText(id, value) {
+      const element = document.getElementById(id);
+      if (element && value !== undefined && value !== null) {
+        element.textContent = value;
+      }
+    }
 
-  function applyLanguage() {
-    const t = translations[currentLang];
-    document.documentElement.lang = currentLang;
-    document.title = t.title;
+    function renderFooter() {
+      if (!CONTENT) return;
 
-    const description = document.querySelector('meta[name="description"]');
-    if (description) description.content = t.description;
+      const site = CONTENT.site || {};
+      const footer = CONTENT.footer || {};
 
-    setText("nav-home", t.navHome);
-    setText("nav-about", t.navAbout);
-    setText("nav-current-projects", t.navProjects);
-    setText("nav-references", t.navReferences);
-    setText("nav-jobs", t.navJobs);
-    setText("nav-contact", t.navContact);
+      setText("footer-description", localized(footer.description));
+      setText("footer-contact-title", LANG === "fr" ? "Contact" : "Kontakt");
+      setText("footer-address-title", LANG === "fr" ? "Adresse" : "Adresse");
+      setText("footer-address", site.address
+        ? site.address + (LANG === "fr" ? ", Luxembourg" : ", Luxemburg")
+        : "");
+      setText("footer-hours", localized(site.hours));
+      setText("footer-social-title", LANG === "fr" ? "Suivez-nous" : "Folgen Sie uns");
+      setText("footer-copyright", localized(footer.copyright));
 
-    setText("contact-kicker", t.kicker);
-    setText("contact-title", t.heading);
-    setText("contact-intro", t.intro);
-    setText("label-phone", t.phone);
-    setText("label-email", t.email);
-    setText("label-address", t.address);
-    setText("label-hours", t.hours);
-    setText("contact-hours", t.hoursValue);
-    setText("contact-card-title", t.cardTitle);
-    setText("contact-card-text", t.cardText);
-    setText("form-name-label", t.name);
-    setText("form-email-label", t.emailLabel);
-    setText("form-phone-label", t.phoneLabel);
-    setText("form-message-label", t.message);
-    setText("form-consent-label", t.consent);
-    setText("form-submit", t.submit);
-    setText("form-note", "");
-
-    document.getElementById("form-name").placeholder = t.namePlaceholder;
-    document.getElementById("form-email").placeholder = t.emailPlaceholder;
-    document.getElementById("form-phone").placeholder = t.phonePlaceholder;
-    document.getElementById("form-message").placeholder = t.messagePlaceholder;
-
-    setText("footer-contact-title", t.footerContact);
-    setText("footer-address-title", t.footerAddress);
-    setText("footer-social-title", t.footerSocial);
-
-    setText("footer-legal-1", t.legal);
-    setText("footer-legal-2", t.privacy);
-    setText("footer-legal-3", t.cookies);
-
-    setText("footer-copyright",
-      "© " + new Date().getFullYear() + " ROOFCON. " + t.footerCopyright
-    );
-
-    const frButton = document.getElementById("lang-fr");
-    const deButton = document.getElementById("lang-de");
-
-    frButton.classList.toggle("active", currentLang === "fr");
-    deButton.classList.toggle("active", currentLang === "de");
-
-    frButton.setAttribute("aria-pressed", String(currentLang === "fr"));
-    deButton.setAttribute("aria-pressed", String(currentLang === "de"));
-
-    setHref("logo-home", "/?lang=" + currentLang);
-    setHref("nav-home", "/?lang=" + currentLang);
-
-    setHref("lang-fr", "/contact/");
-    setHref("lang-de", "/kontakt/");
-
-    document.getElementById("mobile-menu-button").setAttribute(
-      "aria-label", t.menuOpen
-    );
-  }
-
-  // Fonction appelée par les boutons FR et DE du header.
-  window.setLang = function(lang) {
-    if (lang !== "fr" && lang !== "de") return;
-
-    const destination = lang === "de" ? "/kontakt/" : "/contact/";
-    window.location.href = destination;
-  };
-
-  applyLanguage();
-
-  // Chargement facultatif du contenu partagé depuis la racine.
-  fetch("/content.json?v=" + Date.now(), { cache: "no-store" })
-    .then(response => {
-      if (!response.ok) throw new Error("HTTP " + response.status);
-      return response.json();
-    })
-    .then(data => {
-      if (!data || typeof data !== "object") return;
-
-      const site = data.site || {};
-      const contact = data.contact || {};
-      const form = contact.form || {};
-      const footer = data.footer || {};
-
-      const phone = site.phone || PHONE_FALLBACK;
-      const email = site.email || EMAIL_FALLBACK;
-
-      setText("contact-phone", phone);
-      setHref("contact-phone", "tel:" + phone.replace(/[^\d+]/g, ""));
-
-      setText("contact-email", email);
-      setHref("contact-email", "mailto:" + email);
-
-      setText("footer-phone", "");
-      const footerPhone = document.getElementById("footer-phone");
-      if (footerPhone) {
-        footerPhone.replaceChildren();
-        const phoneLink = document.createElement("a");
-        phoneLink.href = "tel:" + phone.replace(/[^\d+]/g, "");
-        phoneLink.textContent = phone;
-        footerPhone.appendChild(phoneLink);
+      const phone = document.getElementById("footer-phone");
+      if (phone && site.phone) {
+        const tel = safeText(site.phone).replace(/\s/g, "");
+        const cleanPhone = safeText(site.phone).replace(/[&<>]/g, "");
+        phone.innerHTML = '<a href="tel:' + tel.replace(/"/g, "") + '">' +
+          cleanPhone + '</a>';
       }
 
-      const footerEmail = document.getElementById("footer-email");
-      if (footerEmail) {
-        footerEmail.replaceChildren();
-        const emailLink = document.createElement("a");
-        emailLink.href = "mailto:" + email;
-        emailLink.textContent = email;
-        footerEmail.appendChild(emailLink);
+      const email = document.getElementById("footer-email");
+      if (email && site.email) {
+        const cleanEmail = safeText(site.email).replace(/[&<>"']/g, "");
+        email.innerHTML = '<a href="mailto:' + cleanEmail + '">' +
+          cleanEmail + '</a>';
       }
 
-      if (site.address) {
-        setText("contact-address", site.address);
-        setText("footer-address", site.address);
+      if (site.facebook) {
+        document.getElementById("footer-facebook").href = site.facebook;
       }
 
-      if (contact.kicker) setText("contact-kicker", contact.kicker);
-      if (contact.title) setText("contact-title", contact.title);
-      if (contact.intro) setText("contact-intro", contact.intro);
-      if (contact.cardTitle) setText("contact-card-title", contact.cardTitle);
-      if (contact.cardText) setText("contact-card-text", contact.cardText);
-
-      if (form.name) setText("form-name-label", form.name);
-      if (form.email) setText("form-email-label", form.email);
-      if (form.phone) setText("form-phone-label", form.phone);
-      if (form.message) setText("form-message-label", form.message);
-      if (form.submit) setText("form-submit", form.submit);
-
-      if (footer.description) {
-        setText("footer-description", footer.description);
+      if (site.instagram) {
+        document.getElementById("footer-instagram").href = site.instagram;
       }
-    })
-    .catch(error => {
-      // Les textes par défaut restent affichés si le JSON est indisponible.
-      console.info("Contenu partagé non chargé ; les textes de secours sont utilisés.", error);
-    });
 
-  // Menu mobile du site.
-  const menuButton = document.getElementById("mobile-menu-button");
-  const menu = document.getElementById("main-menu");
+      setText("footer-legal-1",
+        LANG === "fr" ? "Mentions légales" : "Impressum");
+      setText("footer-legal-2",
+        LANG === "fr" ? "Politique de confidentialité" : "Datenschutzerklärung");
+      setText("footer-legal-3",
+        LANG === "fr" ? "Politique des cookies" : "Cookie-Richtlinie");
+    }
 
-  menuButton.addEventListener("click", () => {
-    const isOpen = menu.classList.toggle("mobile-open");
-    menuButton.setAttribute("aria-expanded", String(isOpen));
-    menuButton.setAttribute(
-      "aria-label",
-      isOpen ? translations[currentLang].menuClose : translations[currentLang].menuOpen
-    );
-    menuButton.textContent = isOpen ? "×" : "☰";
-  });
+    function renderContact() {
+      if (!CONTENT) return;
 
-  menu.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
+      const c = CONTENT.contact || {};
+      const site = CONTENT.site || {};
+
+      setText("contact-kicker", localized(c.kicker));
+      setText("contact-title", localized(c.title));
+      setText("contact-intro", localized(c.intro));
+      setText("contact-card-title", localized(c.cardTitle));
+      setText("contact-card-text", localized(c.cardText));
+
+      const form = c.form || {};
+
+      setText("form-name-label", localized(form.name));
+      setText("form-email-label", localized(form.email));
+      setText("form-phone-label", localized(form.phone));
+      setText("form-message-label", localized(form.message));
+      setText("form-submit", localized(form.submit));
+
+      setText("label-phone", LANG === "fr" ? "Téléphone" : "Telefon");
+      setText("label-email", LANG === "fr" ? "E-mail" : "E-Mail");
+      setText("label-address", LANG === "fr" ? "Adresse" : "Adresse");
+      setText("label-hours", LANG === "fr" ? "Horaires" : "Öffnungszeiten");
+
+      const phone = document.getElementById("contact-phone");
+      if (site.phone && phone) {
+        phone.textContent = site.phone;
+        phone.href = "tel:" + safeText(site.phone).replace(/\s/g, "");
+      }
+
+      const email = document.getElementById("contact-email");
+      if (site.email && email) {
+        email.textContent = site.email;
+        email.href = "mailto:" + site.email;
+      }
+
+      setText("contact-address", site.address
+        ? site.address + (LANG === "fr" ? ", Luxembourg" : ", Luxemburg")
+        : "");
+
+      setText("contact-hours", localized(site.hours));
+
+      const note = document.getElementById("form-note");
+      if (note) {
+        note.textContent = LANG === "fr"
+          ? "Le bouton ouvrira votre application de messagerie pour envoyer votre demande."
+          : "Die Schaltfläche öffnet Ihr E-Mail-Programm, damit Sie Ihre Anfrage senden können.";
+      }
+    }
+
+    function renderNavigation() {
+      const nav = CONTENT && CONTENT.nav ? CONTENT.nav : {};
+      const links = menu.querySelectorAll("a");
+
+      const values = [
+        localized(nav.home) || (LANG === "fr" ? "Accueil" : "Startseite"),
+        localized(nav.about) || (LANG === "fr" ? "Nos services" : "Leistungen"),
+        LANG === "fr" ? "Projets en cours" : "Aktuelle Projekte",
+        localized(nav.references) || (LANG === "fr" ? "Réalisations" : "Referenzen"),
+        localized(nav.jobs) || (LANG === "fr" ? "Offres d'emploi" : "Stellenangebote"),
+        localized(nav.contact) || (LANG === "fr" ? "Contact" : "Kontakt")
+      ];
+
+      const hrefs = [
+        "/",
+        LANG === "fr" ? "/services/" : "/leistungen/",
+        LANG === "fr" ? "/projets-en-cours/" : "/aktuelle-projekte/",
+        LANG === "fr" ? "/realisations/" : "/referenzen/",
+        LANG === "fr" ? "/emploi/" : "/karriere/",
+        LANG === "fr" ? "/contact/" : "/kontakt/"
+      ];
+
+      links.forEach((link, i) => {
+        link.textContent = values[i];
+        link.href = hrefs[i];
+      });
+
+      links[5].classList.add("cta");
+    }
+
+    function updateSEO() {
+      const isFr = LANG === "fr";
+
+      const canonical = isFr
+        ? "https://roof-con.com/contact/"
+        : "https://roof-con.com/kontakt/";
+
+      const title = isFr
+        ? "Contact | ROOFCON — Toiture, charpente & façade au Luxembourg"
+        : "Kontakt | ROOFCON — Dach, Zimmerei & Fassade in Luxemburg";
+
+      const description = isFr
+        ? "Contactez ROOFCON au Luxembourg pour vos projets de façades ventilées, toitures plates, charpentes, couvertures et ossature bois."
+        : "Kontaktieren Sie ROOFCON in Luxemburg für hinterlüftete Fassaden, Flachdächer, Dachstuhlbau, Dachdeckungen und Holzrahmenbau.";
+
+      document.title = title;
+      document.querySelector('meta[name="description"]').content = description;
+      document.querySelector('link[rel="canonical"]').href = canonical;
+
+      document.querySelector('meta[property="og:title"]').content =
+        isFr ? "Contact | ROOFCON" : "Kontakt | ROOFCON";
+
+      document.querySelector('meta[property="og:description"]').content = description;
+      document.querySelector('meta[property="og:url"]').content = canonical;
+
+      document.querySelector('link[hreflang="fr-LU"]').href =
+        "https://roof-con.com/contact/";
+
+      document.querySelector('link[hreflang="de-LU"]').href =
+        "https://roof-con.com/kontakt/";
+
+      document.querySelector('link[hreflang="x-default"]').href =
+        "https://roof-con.com/contact/";
+    }
+
+    function setLanguage(lang, updatePath = true) {
+      LANG = lang;
+      document.documentElement.lang = lang;
+
+      document.getElementById("lang-fr").classList.toggle("active", lang === "fr");
+      document.getElementById("lang-de").classList.toggle("active", lang === "de");
+
+      document.getElementById("lang-fr").setAttribute(
+        "aria-pressed", String(lang === "fr")
+      );
+
+      document.getElementById("lang-de").setAttribute(
+        "aria-pressed", String(lang === "de")
+      );
+
+      renderContact();
+      renderFooter();
+      renderNavigation();
+      updateSEO();
+
+      if (updatePath) {
+        const path = lang === "fr" ? "/contact/" : "/kontakt/";
+
+        if (window.location.pathname !== path) {
+          history.pushState({}, "", path);
+        }
+      }
+
       menu.classList.remove("mobile-open");
-      menuButton.setAttribute("aria-expanded", "false");
-      menuButton.textContent = "☰";
-    });
-  });
-
-  // Formulaire : ouvre le logiciel de messagerie du visiteur.
-  document.getElementById("contact-form").addEventListener("submit", event => {
-    event.preventDefault();
-
-    const t = translations[currentLang];
-    const name = document.getElementById("form-name").value.trim();
-    const email = document.getElementById("form-email").value.trim();
-    const phone = document.getElementById("form-phone").value.trim();
-    const message = document.getElementById("form-message").value.trim();
-    const consent = document.getElementById("form-consent").checked;
-    const note = document.getElementById("form-note");
-
-    if (!name || !email || !message || !consent) {
-      note.textContent = t.formError;
-      return;
+      mobileButton.setAttribute("aria-expanded", "false");
+      mobileButton.textContent = "☰";
     }
 
-    const recipient =
-      document.getElementById("contact-email").textContent.trim() ||
-      EMAIL_FALLBACK;
+    document.getElementById("lang-fr").addEventListener("click", () => {
+      setLanguage("fr");
+    });
 
-    const body =
-      t.bodyName + " : " + name + "\n" +
-      t.bodyEmail + " : " + email + "\n" +
-      t.bodyPhone + " : " + (phone || "-") + "\n\n" +
-      t.bodyMessage + " :\n" + message;
+    document.getElementById("lang-de").addEventListener("click", () => {
+      setLanguage("de");
+    });
 
-    note.textContent = t.formNote;
+    mobileButton.addEventListener("click", () => {
+      const isOpen = menu.classList.toggle("mobile-open");
 
-    window.location.href =
-      "mailto:" + recipient +
-      "?subject=" + encodeURIComponent(t.subject) +
-      "&body=" + encodeURIComponent(body);
-  });
+      mobileButton.setAttribute("aria-expanded", String(isOpen));
+      mobileButton.textContent = isOpen ? "×" : "☰";
+    });
 
-})();
-</script>
+    window.addEventListener("popstate", () => {
+      const lang = window.location.pathname
+        .replace(/\/+$/, "")
+        .endsWith("/kontakt") ? "de" : "fr";
 
+      setLanguage(lang, false);
+    });
+
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("form-name").value.trim();
+      const email = document.getElementById("form-email").value.trim();
+      const phone = document.getElementById("form-phone").value.trim();
+      const message = document.getElementById("form-message").value.trim();
+
+      const siteEmail = CONTENT && CONTENT.site && CONTENT.site.email
+        ? CONTENT.site.email
+        : "info@roof-con.com";
+
+      const subject = LANG === "fr"
+        ? "Demande de contact ROOFCON"
+        : "Kontaktanfrage ROOFCON";
+
+      const body =
+        (LANG === "fr" ? "Nom : " : "Name: ") + name + "\n" +
+        (LANG === "fr" ? "E-mail : " : "E-Mail: ") + email + "\n" +
+        (LANG === "fr" ? "Téléphone : " : "Telefon: ") + phone + "\n\n" +
+        (LANG === "fr" ? "Demande :\n" : "Anfrage:\n") + message;
+
+      window.location.href = "mailto:" + siteEmail +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+    });
+
+    fetch(CONTENT_URL, { cache: "no-store" })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Impossible de charger content.json : " + response.status);
+        }
+
+        return response.json();
+      })
+      .then(data => {
+        CONTENT = data;
+        setLanguage(LANG, false);
+      })
+      .catch(error => {
+        console.error(error);
+
+        // La page reste utilisable avec les textes par défaut
+        // si content.json ne se charge pas.
+        renderFooter();
+        renderNavigation();
+        updateSEO();
+      });
+  </script>
 </body>
 </html>
