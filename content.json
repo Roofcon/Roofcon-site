@@ -565,6 +565,7 @@
       "de": "Entdecken Sie berufliche Möglichkeiten bei ROOFCON und arbeiten Sie an vielseitigen Projekten in den Bereichen Holzbau, Dachkonstruktionen, Dachdeckerarbeiten und hinterlüftete Fassaden mit. Wir suchen motivierte Menschen, die Wert auf sorgfältige Arbeit legen und ihre Fähigkeiten bei hochwertigen Bauprojekten einbringen möchten."
     },
 
+
 "items": [
   {
     "id": "job-1789375039262",
@@ -582,12 +583,12 @@
         "images/jobs/job-1789375039262-1789375262575-s377p5.png"
       ],
       "de": [
-        "REMPLACER_PAR_LE_CHEMIN_DE_L_IMAGE_ALLEMANDE_1",
-        "REMPLACER_PAR_LE_CHEMIN_DE_L_IMAGE_ALLEMANDE_2"
+        "images/jobs/job-1789374110204-1789374181825.png"
       ]
     }
   }
 ]
+
 
   },
   "contact": {
