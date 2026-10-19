@@ -3811,7 +3811,7 @@ footer{
 <header>
   <div class="container nav">
 
-    <a href="#" data-page="accueil">
+<a href="/?lang=de" data-page="accueil" id="nav-home">
       <img class="logo" src="ROOFCON.png" alt="ROOFCON">
     </a>
 
@@ -8163,11 +8163,16 @@ if (germanPaths.includes(currentPath)) {
   LANG = 'fr';
   localStorage.setItem('roofconLang', 'fr');
 
+
 } else if (currentPath === '') {
-  // Page d'accueil : la langue vient du paramètre URL
-  // ou du français par défaut.
-  LANG = (requestedLang === 'de') ? 'de' : 'fr';
+  // Page d'accueil : conserver la langue demandée
+  // ou celle déjà enregistrée.
+  LANG = (requestedLang === 'de' || requestedLang === 'fr')
+    ? requestedLang
+    : (localStorage.getItem('roofconLang') || 'fr');
+
   localStorage.setItem('roofconLang', LANG);
+
 
 } else if (requestedLang === 'de' || requestedLang === 'fr') {
   LANG = requestedLang;
