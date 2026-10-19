@@ -78,24 +78,26 @@
     }
     .top-social:hover { color: var(--brown2); }
 
-    /* HEADER */
-    header {
-      background: #fff;
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 30;
-    }
-  
+
+/* HEADER */
+header {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+
 .nav {
   min-height: 72px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 25px;
+  justify-content: space-between;
+  gap: 20px;
 }
 
 .nav > a {
+  order: 1;
   display: block;
   flex-shrink: 0;
 }
@@ -106,77 +108,71 @@
   height: auto;
 }
 
-
 .lang {
-  display: flex;
-  gap: 4px;
-  margin-left: 0;
-  margin-right: 0;
-  flex-shrink: 0;
-}
-
-.nav > .menu {
+  order: 2;
   display: flex;
   align-items: center;
-  gap: 25px;
-  margin-left: auto;
-}
-
-
-.nav > a {
-  order: 1;
+  gap: 4px;
+  margin-left: 0;
   flex-shrink: 0;
 }
 
-.nav > .menu {
-  order: 2;
-  margin-left: auto;
+.lang button {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--black);
+  padding: 7px 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.lang button.active {
+  background: var(--brown);
+  color: #fff;
+  border-color: var(--brown);
+}
+
+.mobile-menu-button {
+  display: none;
 }
 
 .nav > .mobile-menu-button {
   order: 3;
 }
 
-.logo {
-  width: 190px;
-  display: block;
-  height: auto;
+.menu {
+  order: 4;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 800;
 }
-    .logo { width: 190px; display: block; height: auto; }
-    .mobile-menu-button { display: none; }
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      font-size: 14px;
-      font-weight: 800;
-    }
-    .menu a {
-      color: var(--black);
-      text-decoration: none;
-      transition: color .2s ease, background-color .2s ease;
-    }
-    .menu a:hover { color: var(--brown); }
-    .menu .cta {
-      background: var(--brown);
-      color: #fff;
-      padding: 12px 18px;
-    }
-    .menu .cta:hover { background: var(--black); color: #fff; }
-    .lang { display: flex; gap: 4px; margin-left: auto; }
-    .lang button {
-      border: 1px solid var(--line);
-      background: #fff;
-      color: var(--black);
-      padding: 7px 10px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-    .lang button.active {
-      background: var(--brown);
-      color: #fff;
-      border-color: var(--brown);
-    }
+
+.menu a {
+  color: var(--black);
+  text-decoration: none;
+  transition: color .2s ease, background-color .2s ease;
+}
+
+.menu a:hover {
+  color: var(--brown);
+}
+
+.menu .cta {
+  background: var(--brown);
+  color: #fff;
+  padding: 12px 18px;
+}
+
+.menu .cta:hover {
+  background: var(--black);
+  color: #fff;
+}
+
+/* CONTACT */
+
 
     /* CONTACT */
     .contact-section {
