@@ -616,9 +616,11 @@ document.getElementById('lang-de').classList.toggle('active', PAGE_LANG === 'de'
 
             return `
               <article class="card">
-                ${images.length
-                  ? `<img src="${images[0]}" alt="${title.replace(/"/g, '&quot;')}" loading="lazy">`
-                  : ''}
+                
+${images.length
+  ? `<img src="${images[0].startsWith('http') || images[0].startsWith('/') ? images[0] : '/' + images[0].replace(/^\.?\//, '')}" alt="${title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}" loading="lazy">`
+  : ''}
+
                 <div class="card-body">
                   <h2>${title}</h2>
                   <p>${description}</p>
