@@ -177,13 +177,15 @@
 
 .cards {
   display:grid;
-  grid-template-columns:repeat(12,minmax(0,1fr));
-  gap:18px;
-  align-items:stretch;
+  grid-template-columns:repeat(2, minmax(0, 1fr));
+  gap:24px;
+  align-items:start;
+  justify-content:start;
 }
 
 .card {
-  grid-column:span 6;
+  width:100%;
+  max-width:520px;
   min-width:0;
   background:#262322;
   border:1px solid #3b3634;
@@ -204,7 +206,7 @@
 
 .card img {
   width:100%;
-  height:250px;
+  height:220px;
   object-fit:cover;
   display:block;
   transition:transform .6s ease;
@@ -288,11 +290,12 @@
 
 @media (max-width:1000px) {
   .cards {
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:20px;
   }
 
   .card {
-    grid-column:span 1;
+    max-width:none;
   }
 }
 
