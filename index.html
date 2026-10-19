@@ -7966,21 +7966,62 @@ if(c.site.instagram){
 
 }
 
+
 /* CLICS */
 
-document.addEventListener('click', function(e){
+document.addEventListener('click', function(e) {
 
-  const link = e.target.closest('#nav-references');
+  const link = e.target.closest('a');
 
-  if(link){
+  if (!link) return;
+
+  // Laisser fonctionner les liens externes,
+  // les liens avec ancre et les ouvertures dans un nouvel onglet.
+  if (
+    link.target === '_blank' ||
+    e.ctrlKey ||
+    e.metaKey ||
+    e.shiftKey ||
+    e.altKey
+  ) {
+    return;
+  }
+
+  const href = link.getAttribute('href');
+
+  if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+    return;
+  }
+
+  // Les liens vers les pages séparées doivent charger leur vraie page.
+  const separatePages = [
+    '/',
+    '/services/',
+    '/leistungen/',
+    '/projets-en-cours/',
+    '/aktuelle-projekte/',
+    '/realisations/',
+    '/referenzen/',
+    '/emploi/',
+    '/karriere/',
+    '/contact/',
+    '/kontakt/'
+  ];
+
+  const url = new URL(href, window.location.origin);
+
+  if (
+    url.origin === window.location.origin &&
+    separatePages.includes(url.pathname)
+  ) {
     e.preventDefault();
-    window.location.assign('/realisations/');
+    window.location.assign(url.href);
     return;
   }
 
   const pageLink = e.target.closest('[data-page]');
 
-  if(pageLink){
+  if (pageLink) {
     e.preventDefault();
     showPage(pageLink.dataset.page);
     return;
@@ -7988,7 +8029,7 @@ document.addEventListener('click', function(e){
 
   const reference = e.target.closest('.reference-card');
 
-  if(reference){
+  if (reference) {
     openReference(reference.dataset.referenceId);
   }
 
