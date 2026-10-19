@@ -549,12 +549,27 @@ background: #39332f;
       .menu a:last-child { border-bottom:0; }
 
       .menu a:hover {
-        background:var(--cream);
-        color:var(--brown);
-      }
+  background: var(--cream);
+  color: var(--brown);
+}
 
-      .lang { margin-left:0; margin-right:8px; }
-    }
+.menu .cta {
+  margin: 8px 16px;
+  width: auto;
+  text-align: center;
+  background: var(--brown);
+  color: #fff;
+}
+
+.menu .cta:hover {
+  background: var(--black);
+  color: #fff;
+}
+
+.lang {
+  margin-left: 0;
+  margin-right: 8px;
+}
 
     @media(max-width:650px) {
       .current-projects { padding:75px 0 85px; }
@@ -660,7 +675,7 @@ background: #39332f;
         <a href="/aktuelle-projekte/" data-nav="current">Aktuelle Projekte/</a>
 <a href="/referenzen/" data-nav="references">Referenzen</a>
         <a href="/?page=jobs&amp;lang=de" data-nav="jobs">Stellenangebote</a>
-<a href="/?page=contact&amp;lang=de" data-nav="contact">Kontakt</a>
+<a href="/kontakt/" data-nav="contact" class="cta">kontakt</a>
       </nav>
     </div>
   </header>
