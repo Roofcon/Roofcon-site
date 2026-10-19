@@ -3849,13 +3849,13 @@ footer{
     href="/emploi/"
     id="nav-jobs">
     Offres d'emploi
-  </a>
+</a>
 
-  <a
+<a
     href="/contact/"
     id="nav-contact">
     Contact
-  </a>
+</a>
 
 </nav>
   </div>
@@ -6513,6 +6513,11 @@ const navJobs =
 if(navJobs){
   navJobs.textContent =
     t(c.nav.jobs);
+
+  navJobs.href =
+    LANG === 'fr'
+      ? '/emploi/'
+      : '/karriere/';
 }
 
 
@@ -6522,8 +6527,12 @@ const navContact =
 if(navContact){
   navContact.textContent =
     t(c.nav.contact);
-}
 
+  navContact.href =
+    LANG === 'fr'
+      ? '/contact/'
+      : '/kontakt/';
+}
 /* BOUTON RETOUR RÉFÉRENCE */
 
 const detailBackText =
