@@ -294,34 +294,45 @@ header {
   padding: 92px 0;
 }
 
+
+/* INTRODUCTION — MÊME DESIGN QUE RÉALISATIONS */
+
 .about-intro {
+  width: 100%;
   max-width: none;
   margin: 0 auto 70px;
   text-align: center;
 }
 
 .about-intro .kicker {
+  display: block;
   color: var(--brown2);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
   margin-bottom: 18px;
 }
 
 .about-intro h1 {
-  font-size: clamp(34px, 4vw, 58px);
-  line-height: 1.05;
   margin: 0 auto 25px;
-  letter-spacing: -.02em;
-  max-width: none;
-  text-align: center;
   color: #fff;
+  font-size: clamp(38px, 5vw, 66px);
+  line-height: 1.03;
+  letter-spacing: -.035em;
+  font-weight: 700;
+  text-align: center;
 }
 
 .about-intro p {
+  width: 100%;
   max-width: none;
   margin: 0 auto;
   color: #c9c4c0;
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
+
 
 /* GRILLE DES SERVICES */
 
@@ -483,13 +494,17 @@ header {
     margin-bottom: 45px;
   }
 
-  .about-intro h1 {
-    font-size: 42px;
-  }
+ 
+.about-intro h1 {
+  font-size: clamp(34px, 7vw, 43px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+}
 
-  .about-intro p {
-    font-size: 16px;
-  }
+.about-intro p {
+  font-size: 16px;
+  line-height: 1.7;
+}
 
   .poles {
     grid-template-columns: 1fr;
@@ -670,9 +685,6 @@ header {
       .lang button { padding: 6px 8px; font-size: 12px; }
 
       .about { padding: 65px 0; }
-
-      .about-intro h1 { letter-spacing: -1px; }
-      .about-intro p { font-size: 16px; }
 
       .poles,
       .footer-grid {
