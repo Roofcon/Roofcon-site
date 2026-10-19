@@ -490,7 +490,9 @@ background: #39332f;
     @media(max-width:800px) {
       .current-projects { padding:70px 0; }
       .current-projects::before { margin-bottom:45px; }
-      .current-projects .head { margin-bottom:38px; }
+.current-projects .about-intro {
+  margin-bottom: 38px;
+}
       .current-projects-grid { grid-template-columns:1fr; gap:20px; }
       .current-project { min-height:340px; }
       .current-project-content { left:22px; right:22px; bottom:22px; }
@@ -559,13 +561,16 @@ background: #39332f;
         height:2px;
         margin-bottom:45px;
       }
-      .current-projects .head { margin-bottom:45px; }
-      .current-projects .head h1 {
+     .current-projects .about-intro {
+  margin-bottom: 45px;
+}
+
+.current-projects .about-intro h1 {
         font-size:43px;
         line-height:.98;
         margin-bottom:20px;
       }
-      .current-projects .head p { font-size:16px; line-height:1.7; }
+.current-projects .about-intro p { font-size:16px; line-height:1.7; }
       .current-projects-grid { gap:14px; }
       .current-project { min-height:380px; }
       .current-project-content { left:23px; right:23px; bottom:23px; }
@@ -583,19 +588,19 @@ background: #39332f;
     }
 
     @media(max-width:600px) {
-      #current-projects .head {
+     #current-projects .about-intro {
         max-width:none;
         margin-bottom:70px;
         text-align:center;
       }
-      #current-projects .head h1 {
+     #current-projects .about-intro h1 {
         font-size:clamp(34px,4vw,58px);
         line-height:1.05;
         margin-bottom:25px;
         letter-spacing:-.02em;
         max-width:none;
       }
-      #current-projects .head p {
+  #current-projects .about-intro p {
         max-width:none;
         color:#c9c4c0;
         font-size:18px;
@@ -666,11 +671,23 @@ background: #39332f;
   <main>
     <section id="current-projects" class="current-projects">
       <div class="container">
-        <div class="head">
-          <div class="kicker" id="current-projects-kicker">Unsere aktuelle projekte</div>
-          <h1 id="current-projects-title">Aktuelle Projekte in der Umsetzung</h1>
-          <p id="current-projects-intro">Entdecken Sie eine Auswahl der Projekte, die derzeit von den ROOFCON-Teams in Luxemburg und der Großregion umgesetzt werden. Von der Vorbereitung bis zur Ausführung auf der Baustelle begleiten unsere Teams jeden Schritt mit dem gleichen Anspruch an Präzision, Qualität und handwerkliches Know-how.</p>
-        </div>
+       
+<div class="about-intro">
+  <span class="kicker" id="current-projects-kicker">
+   Unsere aktuelle projekte
+  </span>
+
+  <h1 id="current-projects-title">
+    Projekte, die derzeit realisiert werden
+  </h1>
+
+  <p id="current-projects-intro">
+    Entdecken Sie unsere aktuellen Projekte in Luxemburg und der Großregion.
+    Unsere Teams setzen jedes Bauvorhaben mit höchster Präzision,
+    Qualität und handwerklichem Know-how um.
+  </p>
+</div>
+
 
         <div class="current-projects-grid">
           <button type="button" class="current-project" id="open-project-button"
