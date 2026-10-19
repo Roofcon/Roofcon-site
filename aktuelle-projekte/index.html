@@ -669,14 +669,14 @@ background: #39332f;
       <button type="button" class="mobile-menu-button" id="mobile-menu-button"
         aria-label="Menü öffnen" aria-expanded="false">☰</button>
 
-      <nav class="menu" id="main-menu">
-        <a href="/?page=accueil&amp;lang=de" data-nav="home">Startseite</a>
-<a href="/leistungen/" data-nav="about">Leistungen</a>
-        <a href="/aktuelle-projekte/" data-nav="current">Aktuelle Projekte/</a>
-<a href="/referenzen/" data-nav="references">Referenzen</a>
-        <a href="/?page=jobs&amp;lang=de" data-nav="jobs">Stellenangebote</a>
-<a href="/kontakt/" data-nav="contact" class="cta">kontakt</a>
-      </nav>
+      <nav class="menu" id="main-menu" aria-label="Hauptnavigation">
+      <a id="nav-home" href="/">Startseite</a>
+      <a id="nav-services" href="/leistungen/">Leistungen</a>
+      <a id="nav-current" href="/aktuelle-projekte/">Aktuelle Projekte</a>
+      <a id="nav-references" href="/referenzen/">Referenzen</a>
+      <a id="nav-jobs" href="/karriere/" aria-current="page">Stellenangebote</a>
+      <a id="nav-contact" href="/kontakt/" class="cta">Kontakt</a>
+    </nav>
     </div>
   </header>
 
