@@ -7826,71 +7826,33 @@ if(c.site.instagram){
 }
 
 /* CLICS */
-document.addEventListener('click', function(e) {
-  const link = e.target.closest('a');
-  if (!link) return;
 
-  // Bouton « Qui sommes-nous ? »
-  if (link.id === 'hero-about') {
+document.addEventListener('DOMContentLoaded', function () {
+  const heroAbout = document.getElementById('hero-about');
+
+  if (!heroAbout) {
+    console.error('Bouton Qui sommes-nous introuvable');
+    return;
+  }
+
+  heroAbout.addEventListener('click', function (e) {
     e.preventDefault();
 
-    const whoSection = document.getElementById('who-kicker');
-    if (whoSection) {
-      whoSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
+    const whoTitle = document.getElementById('who-title');
+
+    if (!whoTitle) {
+      console.error('Élément who-title introuvable');
+      return;
     }
-    return;
-  }
 
-  // Laisser fonctionner les ouvertures dans un nouvel onglet
-  if (
-    link.target === '_blank' ||
-    e.ctrlKey ||
-    e.metaKey ||
-    e.shiftKey ||
-    e.altKey
-  ) {
-    return;
-  }
+    const section = whoTitle.closest('section') || whoTitle.parentElement;
 
-  const href = link.getAttribute('href');
-
-  if (
-    !href ||
-    href.startsWith('#') ||
-    href.startsWith('mailto:') ||
-    href.startsWith('tel:')
-  ) {
-    return;
-  }
-
-  const separatePages = [
-    '/',
-    '/services/',
-    '/leistungen/',
-    '/projets-en-cours/',
-    '/aktuelle-projekte/',
-    '/realisations/',
-    '/referenzen/',
-    '/emploi/',
-    '/karriere/',
-    '/contact/',
-    '/kontakt/'
-  ];
-
-  const url = new URL(href, window.location.origin);
-
-  if (
-    url.origin === window.location.origin &&
-    separatePages.includes(url.pathname)
-  ) {
-    e.preventDefault();
-    window.location.assign(url.href);
-  }
+    section.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  });
 });
-
 
 /* FORMULAIRE */
 
