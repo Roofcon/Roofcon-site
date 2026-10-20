@@ -103,9 +103,9 @@ content="width=device-width, initial-scale=1.0"
 
 <div id="content-fr">
 
-  <a class="back" id="back-link-fr" href="index.html">
-    ← Retour au site ROOFCON
-  </a>
+<a class="back" href="/" id="back-link">
+  ← Retour au site ROOFCON
+</a>
 
   <h1>Politique de confidentialité</h1>
 
@@ -328,9 +328,9 @@ content="width=device-width, initial-scale=1.0"
 
 <div id="content-de" style="display:none;">
 
-  <a class="back" id="back-link-de" href="index.html">
-    ← Zurück zur ROOFCON-Website
-  </a>
+ <a class="back" id="back-link-de" href="/?lang=de">
+  ← Zurück zur ROOFCON-Website
+</a>
 
   <h1>Datenschutzerklärung</h1>
 
@@ -551,6 +551,11 @@ content="width=device-width, initial-scale=1.0"
 
   const francais = document.getElementById('content-fr');
   const allemand = document.getElementById('content-de');
+  const backFr = document.getElementById('back-link');
+const backDe = document.getElementById('back-link-de');
+
+if (backFr) backFr.href = '/';
+if (backDe) backDe.href = '/?lang=de';
 
   if (langue === 'de') {
 
