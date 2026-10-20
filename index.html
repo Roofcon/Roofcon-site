@@ -3413,57 +3413,143 @@ footer{
 
 
 
+
 /* =========================================================
-   ACCUEIL — SERVICES
-   Même design que la page Nos services
+   ACCUEIL — CARTES SERVICES
+   Reprise du design de la page Nos services
 ========================================================= */
 
 .home-services-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   gap: 18px;
+  align-items: stretch;
 }
 
-/* Cartes */
+/* CARTES */
 
-.home-services-grid > .pole {
+.home-service-card {
   grid-column: span 4;
   min-width: 0;
+  min-height: 430px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #262322;
+  border: 1px solid #3b3634;
+
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    background .35s ease;
 }
 
-/* Centrage des deux dernières cartes */
+/* Les deux dernières cartes */
 
-.home-services-grid > .pole:nth-child(4) {
-  grid-column: 3 / span 4;
+.home-service-card:nth-child(4),
+.home-service-card:nth-child(5) {
+  grid-column: span 6;
+  min-height: 390px;
 }
 
-.home-services-grid > .pole:nth-child(5) {
-  grid-column: 7 / span 4;
+/* SURVOL */
+
+.home-service-card:hover {
+  transform: translateY(-6px);
+  background: #2c2928;
+  border-color: #5a514d;
 }
 
-/* Tablettes */
+/* IMAGES */
+
+.home-service-card .home-service-image {
+  width: calc(100% + 60px);
+  height: 210px;
+  object-fit: cover;
+  margin: -30px -30px 28px;
+  display: block;
+
+  transition: transform .6s ease;
+}
+
+.home-service-card:hover .home-service-image {
+  transform: scale(1.035);
+}
+
+/* NUMÉROS */
+
+.home-service-number {
+  font-size: 11px;
+  color: #c3a080;
+  font-weight: 800;
+  letter-spacing: .2em;
+  margin-bottom: 18px;
+}
+
+/* TITRES */
+
+.home-service-card h3 {
+  color: #fff;
+  font-size: clamp(21px, 2vw, 28px);
+  line-height: 1.08;
+  margin: 0 0 15px;
+  text-align: left;
+  letter-spacing: -.02em;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* DESCRIPTIONS */
+
+.home-service-card p {
+  max-width: 520px;
+  color: #c9c4c0;
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* TABLETTES */
 
 @media (max-width: 1000px) {
-  .home-services-grid > .pole,
-  .home-services-grid > .pole:nth-child(4),
-  .home-services-grid > .pole:nth-child(5) {
-    grid-column: span 6;
+  .home-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-service-card,
+  .home-service-card:nth-child(4),
+  .home-service-card:nth-child(5) {
+    grid-column: span 1;
   }
 }
 
-/* Mobiles */
+/* MOBILES */
 
 @media (max-width: 650px) {
   .home-services-grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
-  .home-services-grid > .pole,
-  .home-services-grid > .pole:nth-child(4),
-  .home-services-grid > .pole:nth-child(5) {
-    grid-column: 1;
+  .home-service-card,
+  .home-service-card:nth-child(4),
+  .home-service-card:nth-child(5) {
+    grid-column: span 1;
+    min-height: 390px;
+    padding: 22px;
+  }
+
+  .home-service-card .home-service-image {
+    width: calc(100% + 44px);
+    height: 190px;
+    margin: -22px -22px 22px;
   }
 }
+
 
 
 /* =========================================================
