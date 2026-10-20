@@ -7858,7 +7858,6 @@ if(c.site.instagram){
 
 }
 
-
 /* CLICS — BOUTON QUI SOMMES-NOUS */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -7869,33 +7868,37 @@ document.addEventListener('DOMContentLoaded', function () {
   heroAbout.addEventListener('click', function (e) {
     e.preventDefault();
 
-    // Masquer les autres pages
+    // Masquer les autres sections
     document.querySelectorAll('section').forEach(function (section) {
       section.classList.remove('active-page');
       section.classList.remove('home-visible');
     });
 
-    // Réafficher l'accueil
+    // Réafficher l'accueil et Qui sommes-nous
     const home = document.getElementById('accueil');
+    const who = document.getElementById('who');
 
     if (home) {
       home.classList.add('active-page');
       home.classList.add('home-visible');
     }
 
-    // Garder l'adresse de la page d'accueil
+    if (who) {
+      who.classList.add('active-page');
+      who.classList.add('home-visible');
+    }
+
+    // Garder l'URL de l'accueil
     history.pushState({ page: 'accueil' }, '', '/');
 
-    // Aller au texte Qui sommes-nous
-    const whoTitle = document.getElementById('who-title');
-
-    if (whoTitle) {
+    // Faire défiler jusqu'à la section complète
+    if (who) {
       setTimeout(function () {
-        whoTitle.scrollIntoView({
+        who.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
         });
-      }, 100);
+      }, 150);
     }
   });
 });
