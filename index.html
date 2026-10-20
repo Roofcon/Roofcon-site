@@ -6823,6 +6823,7 @@ const homeCurrentTitle =
 const homeCurrentLink =
   document.getElementById('home-current-link');
   
+
 if (homeCurrentLink) {
   homeCurrentLink.textContent =
     LANG === 'fr'
@@ -6836,6 +6837,7 @@ if (homeCurrentLink) {
 
   homeCurrentLink.removeAttribute('data-page');
 }
+
 
 const homeCurrentGrid =
   document.getElementById('home-current-grid');
@@ -6975,7 +6977,13 @@ if(homeContactTitle){
 
 }
 
+
 if (homeContactLink) {
+  homeContactLink.textContent =
+    LANG === 'fr'
+      ? 'Nous contacter'
+      : 'Kontaktieren Sie uns';
+
   homeContactLink.href =
     LANG === 'fr'
       ? '/contact/'
@@ -6983,6 +6991,7 @@ if (homeContactLink) {
 
   homeContactLink.removeAttribute('data-page');
 }
+
   
  /* PROJETS EN COURS */
 
