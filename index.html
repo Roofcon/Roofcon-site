@@ -3411,113 +3411,50 @@ footer{
   gap:15px;
 }
 
-/* CARTES DES SERVICES — ACCUEIL */
+
+/* Cartes de l'accueil : mêmes proportions, moins d'espace vide */
 
 .home-service-card {
-  grid-column: span 4;
-  min-width: 0;
-  min-height: 0;
-  padding: 24px;
-
-  position: relative;
-  overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-
-  background: #262322;
-  border: 1px solid #3b3634;
-
-  transition:
-    transform .35s ease,
-    border-color .35s ease,
-    background .35s ease;
+  min-height: 360px;
+  padding: 30px;
 }
 
 /* Les deux dernières cartes */
 
 .home-service-card:nth-child(4),
 .home-service-card:nth-child(5) {
-  grid-column: span 6;
-  min-height: 0;
+  min-height: 320px;
 }
 
-/* Images */
-
+/* Images : conserver le style de la page Services */
 .home-service-card .home-service-image {
-  width: calc(100% + 48px);
-  height: 170px;
-  object-fit: cover;
-  margin: -24px -24px 22px;
-  display: block;
-}
-
-/* Numéro : taille inchangée */
-
-.home-service-number {
-  font-size: 11px;
-  color: #c3a080;
-  font-weight: 800;
-  letter-spacing: .2em;
-  margin-bottom: 14px;
-}
-
-/* Titre : taille inchangée */
-
-.home-service-card h3 {
-  color: #fff;
-  font-size: clamp(21px, 2vw, 28px);
-  line-height: 1.08;
-  margin: 0 0 15px;
-  text-align: left;
-  letter-spacing: -.02em;
-}
-
-/* Texte : taille inchangée */
-
-.home-service-card p {
-  max-width: 520px;
-  color: #c9c4c0;
-  font-size: 15px;
-  line-height: 1.65;
-  margin: 0;
+  height: 190px;
+  margin: -30px -30px 24px;
+  width: calc(100% + 60px);
 }
 
 /* Tablettes */
-
 @media (max-width: 1000px) {
-  .home-services-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .home-service-card,
   .home-service-card:nth-child(4),
   .home-service-card:nth-child(5) {
-    grid-column: span 1;
-    min-height: 0;
+    min-height: 340px;
   }
 }
 
 /* Téléphones */
-
 @media (max-width: 650px) {
-  .home-services-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
   .home-service-card,
   .home-service-card:nth-child(4),
   .home-service-card:nth-child(5) {
-    grid-column: span 1;
     min-height: 0;
     padding: 22px;
   }
 
   .home-service-card .home-service-image {
     width: calc(100% + 44px);
-    height: 180px;
-    margin: -22px -22px 20px;
+    height: 190px;
+    margin: -22px -22px 22px;
   }
 }
 
