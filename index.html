@@ -7873,11 +7873,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!heroAbout) return;
 
-  heroAbout.href =
-    LANG === 'fr'
-      ? '/qui-sommes-nous/'
-      : '/wer-wir-sind/';
-
+  heroAbout.href = '/qui-sommes-nous/';
   heroAbout.removeAttribute('data-page');
 });
 
