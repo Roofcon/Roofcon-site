@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Wer wir sind | ROOFCON</title>
+  <meta name="description" content="Lernen Sie ROOFCON, unser Team, unsere Werte und unser Know-how im Bauwesen in Luxemburg kennen.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://roof-con.com/wer-wir-sind/">
+  <link rel="alternate" hreflang="fr" href="https://roof-con.com/qui-sommes-nous/">
+  <link rel="alternate" hreflang="de" href="https://roof-con.com/wer-wir-sind/">
+  <link rel="alternate" hreflang="x-default" href="https://roof-con.com/qui-sommes-nous/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Wer wir sind | ROOFCON">
+  <meta property="og:description" content="Lernen Sie das Team und das Know-how von ROOFCON kennen.">
+  <meta property="og:url" content="https://roof-con.com/wer-wir-sind/">
+
+  <style>
+    :root {
+      --black: #211f20;
+      --brown: #a27b5b;
+      --brown2: #c3a080;
+      --cream: #f5f2ee;
+      --white: #fff;
+      --gray: #706b67;
+      --line: #e5dfda;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: var(--black);
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+    button { font: inherit; }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    /* OBERE LEISTE */
+
+    .top {
+      background: var(--black);
+      color: #ddd;
+      font-size: 14px;
+      padding: 8px 0;
+    }
+
+    .top-inner {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .top-contact {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      white-space: nowrap;
+    }
+
+    .top a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .top-social {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .top-social svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    .top-social:hover { color: var(--brown2); }
+
+    /* HEADER */
+
+    header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 30;
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 14px;
+    }
+
+    .nav > a {
+      order: 1;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .logo {
+      width: 190px;
+      display: block;
+      height: auto;
+    }
+
+    .lang {
+      order: 2;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin: 0;
+      flex-shrink: 0;
+    }
+
+    .lang button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--black);
+      padding: 7px 10px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .lang button.active {
+      background: var(--brown);
+      color: #fff;
+      border-color: var(--brown);
+    }
+
+    .mobile-menu-button { display: none; }
+
+    .menu {
+      order: 4;
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-left: 25px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .menu a {
+      color: var(--black);
+      text-decoration: none;
+      transition: color .2s ease, background-color .2s ease;
+    }
+
+    .menu a:hover { color: var(--brown); }
+
+    .menu .cta {
+      background: var(--brown);
+      color: #fff;
+      padding: 12px 18px;
+    }
+
+    .menu .cta:hover {
+      background: var(--black);
+      color: #fff;
+    }
+
+    /* WER WIR SIND */
+
+    .who-section {
+      padding: 100px 0 110px;
+      background: #fff;
+      min-height: 55vh;
+    }
+
+    .who-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .kicker {
+      color: var(--brown);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .who-title {
+      font-size: clamp(36px, 5vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -.035em;
+      margin: 0;
+      font-weight: 700;
+      max-width: 850px;
+    }
+
+    .who-intro {
+      color: var(--gray);
+      font-size: 19px;
+      line-height: 1.75;
+      margin: 22px 0 0;
+      max-width: 820px;
+    }
+
+    .who-content {
+      margin-top: 38px;
+      max-width: 820px;
+    }
+
+    .who-content p {
+      color: #514c49;
+      font-size: 16px;
+      line-height: 1.9;
+      margin: 0 0 22px;
+    }
+
+    .who-content .objective {
+      color: var(--black);
+      font-size: 18px;
+      font-weight: 700;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      border: 0;
+      padding: 14px 20px;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s ease;
+    }
+
+    .btn.primary {
+      background: var(--brown);
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      background: var(--brown2);
+      color: var(--black);
+    }
+
+    .who-button { margin-top: 12px; }
+
+    /* FOOTER */
+
+    footer {
+      background: #171616;
+      color: #aaa;
+      padding: 40px 0;
+      font-size: 13px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 35px;
+    }
+
+    .footer-logo {
+      width: 150px;
+      background: #fff;
+      padding: 7px;
+      margin-bottom: 15px;
+    }
+
+    .footer-title {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .footer-item { margin-bottom: 7px; }
+
+    .footer-item a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .footer-item a:hover,
+    .footer-social a:hover {
+      color: var(--brown2);
+    }
+
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 10px;
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    .footer-social svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #302d2b;
+      margin-top: 30px;
+      padding-top: 20px;
+      color: #777;
+    }
+
+    .footer-legal {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal a {
+      color: #777;
+      text-decoration: none;
+    }
+
+    .footer-legal a:hover { color: var(--brown2); }
+
+    /* TABLETS */
+
+    @media (max-width: 1000px) {
+      .nav { gap: 14px; }
+
+      .menu {
+        gap: 14px;
+        font-size: 12px;
+      }
+
+      .logo { width: 145px; }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* MOBILGERÄTE */
+
+    @media (max-width: 750px) {
+      .top { display: none; }
+
+      .nav {
+        min-height: 76px;
+        position: relative;
+      }
+
+      .logo { width: 145px; }
+
+      .mobile-menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        order: 3;
+        width: 44px;
+        height: 44px;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--black);
+        cursor: pointer;
+        margin-left: auto;
+        font-size: 26px;
+        line-height: 1;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 0;
+        margin-left: 0;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
+      }
+
+      .menu.mobile-open { display: flex; }
+
+      .menu a {
+        display: block;
+        width: 100%;
+        padding: 16px 24px;
+        font-size: 15px;
+        border-bottom: 1px solid #eee;
+      }
+
+      .menu a:last-child { border-bottom: 0; }
+
+      .menu a:hover {
+        background: var(--cream);
+        color: var(--brown);
+      }
+
+      .menu .cta {
+        margin: 8px 16px;
+        width: auto;
+        text-align: center;
+      }
+
+      .lang { order: 0; }
+      .nav > a { order: 1; }
+
+      .who-section { padding: 65px 0 75px; }
+      .who-intro { font-size: 16px; }
+      .who-content p { font-size: 15px; }
+
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- OBERE LEISTE -->
+
+  <div class="top">
+    <div class="container top-inner">
+      <div class="top-contact">
+        <a href="tel:+352621765489">+352 621 765 489</a>
+        <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+
+        <a class="top-social"
+           href="https://www.facebook.com/profile.php?id=61594591794889"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="ROOFCON auf Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7z"/>
+          </svg>
+        </a>
+
+        <a class="top-social"
+           href="https://www.instagram.com/roofcon.lu/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="ROOFCON auf Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="container nav">
+
+      <a href="/" aria-label="ROOFCON – Startseite">
+        <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
+      </a>
+
+      <div class="lang" aria-label="Sprache auswählen">
+        <button type="button" id="lang-fr" aria-pressed="false">FR</button>
+        <button type="button" id="lang-de" class="active" aria-pressed="true">DE</button>
+      </div>
+
+      <button class="mobile-menu-button"
+              id="mobile-menu-button"
+              type="button"
+              aria-label="Menü öffnen"
+              aria-expanded="false"
+              aria-controls="main-menu">☰</button>
+
+      <nav class="menu" id="main-menu" aria-label="Hauptnavigation">
+        <a href="/">Startseite</a>
+        <a href="/leistungen/">Leistungen</a>
+        <a href="/aktuelle-projekte/">Aktuelle Projekte</a>
+        <a href="/referenzen/">Referenzen</a>
+        <a href="/karriere/">Stellenangebote</a>
+        <a href="/kontakt/" class="cta">Kontakt</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- INHALT: WER WIR SIND -->
+
+  <main>
+    <section class="who-section" id="who">
+      <div class="container">
+        <div class="who-layout">
+
+          <div class="head">
+            <div class="kicker" id="who-kicker"></div>
+            <h1 class="who-title" id="who-title"></h1>
+            <p class="who-intro" id="who-intro"></p>
+          </div>
+
+          <div class="who-content">
+            <p id="who-text-1"></p>
+            <p id="who-text-2"></p>
+            <p id="who-text-3"></p>
+            <p id="who-text-4"></p>
+
+            <p class="objective">
+              <strong id="who-objective"></strong>
+            </p>
+
+            <a href="/referenzen/"
+               class="btn primary who-button"
+               id="who-hallcon"></a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <a href="/" aria-label="ROOFCON – Startseite">
+            <img class="footer-logo" src="/ROOFCON.png" alt="ROOFCON">
+          </a>
+          <div id="footer-description">
+            Holzbau, Dachstühle, Bedachungen, hinterlüftete Fassaden und Holzkonstruktionen in Luxemburg.
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title" id="footer-contact-title">Kontakt</div>
+          <div class="footer-item">
+            <a href="tel:+352621765489">+352 621 765 489</a>
+          </div>
+          <div class="footer-item">
+            <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title" id="footer-address-title">Adresse</div>
+          <div class="footer-item" id="footer-address">
+            Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxemburg
+          </div>
+          <div class="footer-item" id="footer-hours">
+            Montag bis Freitag, 07:30 bis 17:30 Uhr
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title" id="footer-social-title">Folgen Sie uns</div>
+
+          <div class="footer-social">
+            <a id="footer-facebook"
+               href="https://www.facebook.com/profile.php?id=61594591794889"
+               target="_blank" rel="noopener noreferrer">
+              Facebook
+            </a>
+
+            <a id="footer-instagram"
+               href="https://www.instagram.com/roofcon.lu/"
+               target="_blank" rel="noopener noreferrer">
+              Instagram
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div id="footer-copyright">© ROOFCON – Alle Rechte vorbehalten.</div>
+
+        <div class="footer-legal">
+          <a href="/mentions-legales/" id="footer-legal-1">Impressum</a>
+          <span>·</span>
+          <a href="/politique-confidentialite/" id="footer-legal-2">Datenschutzerklärung</a>
+          <span>·</span>
+          <a href="/politique-cookies/" id="footer-legal-3">Cookie-Richtlinie</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    const CONTENT_URL = "/content.json";
+
+    let CONTENT = null;
+    let LANG = "de";
+
+    const menu = document.getElementById("main-menu");
+    const mobileButton = document.getElementById("mobile-menu-button");
+
+    function localized(value) {
+      if (value && typeof value === "object") {
+        return value[LANG] ?? value.fr ?? "";
+      }
+      return value ?? "";
+    }
+
+    function setText(id, value) {
+      const element = document.getElementById(id);
+
+      if (element && value !== undefined && value !== null) {
+        element.innerHTML = String(value)
+          .replace(/&lt;br\s*\/?&gt;/gi, "<br>");
+      }
+    }
+
+    function renderWho() {
+      if (!CONTENT || !CONTENT.who) return;
+
+      const who = CONTENT.who;
+
+      setText("who-kicker", localized(who.kicker));
+      setText("who-title", localized(who.title));
+      setText("who-intro", localized(who.intro));
+      setText("who-text-1", localized(who.text1));
+      setText("who-text-2", localized(who.text2));
+      setText("who-text-3", localized(who.text3));
+      setText("who-text-4", localized(who.text4));
+      setText("who-objective", localized(who.objective));
+      setText("who-hallcon", localized(who.hallcon));
+
+      const footer = CONTENT.footer || {};
+      const site = CONTENT.site || {};
+
+      setText("footer-description", localized(footer.description));
+      setText("footer-contact-title", "Kontakt");
+      setText("footer-address-title", "Adresse");
+      setText("footer-social-title", "Folgen Sie uns");
+      setText("footer-copyright", localized(footer.copyright));
+
+      setText(
+        "footer-address",
+        site.address ? site.address + ", Luxemburg" : ""
+      );
+
+      setText(
+        "footer-hours",
+        localized(site.hours)
+      );
+
+      setText("footer-legal-1", "Impressum");
+      setText("footer-legal-2", "Datenschutzerklärung");
+      setText("footer-legal-3", "Cookie-Richtlinie");
+
+      const phone = site.phone || "+352 621 765 489";
+      const email = site.email || "info@roof-con.com";
+
+      const footerPhone = document.querySelector(
+        ".footer-grid > div:nth-child(2) .footer-item:first-of-type a"
+      );
+
+      const footerEmail = document.querySelector(
+        ".footer-grid > div:nth-child(2) .footer-item:nth-of-type(2) a"
+      );
+
+      if (footerPhone) {
+        footerPhone.textContent = phone;
+        footerPhone.href = "tel:" + phone.replace(/\s/g, "");
+      }
+
+      if (footerEmail) {
+        footerEmail.textContent = email;
+        footerEmail.href = "mailto:" + email;
+      }
+
+      if (site.facebook) {
+        document.getElementById("footer-facebook").href = site.facebook;
+      }
+
+      if (site.instagram) {
+        document.getElementById("footer-instagram").href = site.instagram;
+      }
+
+      document.documentElement.lang = "de";
+      document.title = "Wer wir sind | ROOFCON";
+
+      document.getElementById("lang-fr").classList.remove("active");
+      document.getElementById("lang-de").classList.add("active");
+
+      document.getElementById("lang-fr").setAttribute("aria-pressed", "false");
+      document.getElementById("lang-de").setAttribute("aria-pressed", "true");
+
+      const navLinks = menu.querySelectorAll("a");
+
+      const navTexts = [
+        "Startseite",
+        "Leistungen",
+        "Aktuelle Projekte",
+        "Referenzen",
+        "Stellenangebote",
+        "Kontakt"
+      ];
+
+      const navHrefs = [
+        "/",
+        "/leistungen/",
+        "/aktuelle-projekte/",
+        "/referenzen/",
+        "/karriere/",
+        "/kontakt/"
+      ];
+
+      navLinks.forEach(function(link, index) {
+        link.textContent = navTexts[index];
+        link.href = navHrefs[index];
+      });
+
+      const whoButton = document.getElementById("who-hallcon");
+
+      if (whoButton) {
+        whoButton.href = "/referenzen/";
+      }
+    }
+
+    /* SPRACHWECHSEL: FRANZÖSISCHE UND DEUTSCHE SEITE */
+
+    document.getElementById("lang-fr").addEventListener("click", function() {
+      window.location.href = "/qui-sommes-nous/";
+    });
+
+    document.getElementById("lang-de").addEventListener("click", function() {
+      window.location.href = "/wer-wir-sind/";
+    });
+
+    /* MOBILES MENÜ */
+
+    mobileButton.addEventListener("click", function() {
+      const isOpen = menu.classList.toggle("mobile-open");
+
+      mobileButton.setAttribute("aria-expanded", String(isOpen));
+      mobileButton.setAttribute(
+        "aria-label",
+        isOpen ? "Menü schließen" : "Menü öffnen"
+      );
+      mobileButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    menu.querySelectorAll("a").forEach(function(link) {
+      link.addEventListener("click", function() {
+        menu.classList.remove("mobile-open");
+        mobileButton.setAttribute("aria-expanded", "false");
+        mobileButton.setAttribute("aria-label", "Menü öffnen");
+        mobileButton.textContent = "☰";
+      });
+    });
+
+    /* INHALT LADEN */
+
+    fetch(CONTENT_URL, { cache: "no-store" })
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error(
+            "content.json konnte nicht geladen werden: " + response.status
+          );
+        }
+
+        return response.json();
+      })
+      .then(function(data) {
+        CONTENT = data;
+        renderWho();
+      })
+      .catch(function(error) {
+        console.error(error);
+
+        document.getElementById("who-title").textContent =
+          "Der Inhalt konnte nicht geladen werden. Bitte überprüfen Sie die Datei content.json.";
+      });
+  </script>
+
+</body>
+</html>
