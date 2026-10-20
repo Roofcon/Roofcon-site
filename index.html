@@ -6667,6 +6667,13 @@ if(homeServicesLink){
       ? 'Voir tous les services'
       : 'Alle Leistungen ansehen';
 
+  homeServicesLink.href =
+    LANG === 'fr'
+      ? '/services/'
+      : '/leistungen/';
+
+  homeServicesLink.removeAttribute('data-page');
+
 }
 
 if(homeServicesGrid){
