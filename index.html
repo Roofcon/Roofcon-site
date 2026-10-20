@@ -3811,7 +3811,7 @@ footer{
 <header>
   <div class="container nav">
 
-<a href="/?lang=de" data-page="accueil" id="logo-home">
+<a href="/" id="logo-home">
 <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
 </a>
 
@@ -3831,9 +3831,9 @@ footer{
 
 <nav class="menu" id="main-menu">
 
-  <a href="#" data-page="accueil" id="nav-home">
-    Accueil
-  </a>
+ <a href="/" id="nav-home">
+  Accueil
+</a>
 
 <a href="/services/" id="nav-about">Nos services</a>
   
@@ -3912,12 +3912,11 @@ footer{
 
         </div>
 
-        <a
-          href="#"
-          data-page="about"
-          class="home-preview-link"
-          id="home-services-link">
-        </a>
+       <a
+  href="/services/"
+  class="home-preview-link"
+  id="home-services-link">
+</a>
 
       </div>
 
@@ -3944,12 +3943,11 @@ footer{
 
         </div>
 
-        <a
-          href="#"
-          data-page="references"
-          class="home-preview-link"
-          id="home-references-link">
-        </a>
+       <a
+  href="/realisations/"
+  class="home-preview-link"
+  id="home-references-link">
+</a>
 
       </div>
 
@@ -3978,12 +3976,11 @@ footer{
 
         </div>
 
-        <a
-          href="#"
-          data-page="current-projects"
-          class="home-preview-link"
-          id="home-current-link">
-        </a>
+       <a
+  href="/projets-en-cours/"
+  class="home-preview-link"
+  id="home-current-link">
+</a>
 
       </div>
 
@@ -4018,12 +4015,11 @@ footer{
 
       </div>
 
-      <a
-        href="#"
-        data-page="contact"
-        class="btn primary"
-        id="home-contact-link">
-      </a>
+     <a
+  href="/contact/"
+  class="btn primary"
+  id="home-contact-link">
+</a>
 
     </div>
 
@@ -8016,7 +8012,6 @@ if(c.site.instagram){
 
 }
 
-
 /* CLICS */
 
 document.addEventListener('click', function(e) {
@@ -8025,8 +8020,7 @@ document.addEventListener('click', function(e) {
 
   if (!link) return;
 
-  // Laisser fonctionner les liens externes,
-  // les liens avec ancre et les ouvertures dans un nouvel onglet.
+  // Laisser fonctionner les ouvertures dans un nouvel onglet.
   if (
     link.target === '_blank' ||
     e.ctrlKey ||
@@ -8039,11 +8033,16 @@ document.addEventListener('click', function(e) {
 
   const href = link.getAttribute('href');
 
-  if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) {
+  if (
+    !href ||
+    href.startsWith('mailto:') ||
+    href.startsWith('tel:')
+  ) {
     return;
   }
 
-  // Les liens vers les pages séparées doivent charger leur vraie page.
+  // Les liens vers les pages distinctes doivent charger
+  // leur véritable URL.
   const separatePages = [
     '/',
     '/services/',
@@ -8069,7 +8068,8 @@ document.addEventListener('click', function(e) {
     return;
   }
 
-  const pageLink = e.target.closest('[data-page]');
+  // Les anciennes sections internes restent accessibles.
+  const pageLink = link.closest('[data-page]');
 
   if (pageLink) {
     e.preventDefault();
@@ -8077,14 +8077,20 @@ document.addEventListener('click', function(e) {
     return;
   }
 
+  // Laisser fonctionner les ancres classiques.
+  if (href.startsWith('#')) {
+    return;
+  }
+
+  // Ouverture des fiches de réalisations.
   const reference = e.target.closest('.reference-card');
 
   if (reference) {
+    e.preventDefault();
     openReference(reference.dataset.referenceId);
   }
 
 });
-
 
 /* FORMULAIRE */
 
