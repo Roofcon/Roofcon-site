@@ -6741,13 +6741,18 @@ if(homeReferencesTitle){
 }
 
 
-if(homeReferencesLink){
-
+if (homeReferencesLink) {
   homeReferencesLink.textContent =
     LANG === 'fr'
-      ? 'Voir toutes les réalisations'
-      : 'Alle Projekte ansehen';
+      ? 'Voir nos réalisations'
+      : 'Unsere Referenzen ansehen';
 
+  homeReferencesLink.href =
+    LANG === 'fr'
+      ? '/realisations/'
+      : '/referenzen/';
+
+  homeReferencesLink.removeAttribute('data-page');
 }
 
 
@@ -6845,13 +6850,13 @@ if(homeCurrentTitle){
 
 }
 
-if(homeCurrentLink){
-
-  homeCurrentLink.textContent =
+if (homeProjectsLink) {
+  homeProjectsLink.href =
     LANG === 'fr'
-      ? 'Voir les projets en cours'
-      : 'Aktuelle Projekte ansehen';
+      ? '/projets-en-cours/'
+      : '/aktuelle-projekte/';
 
+  homeProjectsLink.removeAttribute('data-page');
 }
 
 if(homeCurrentPreview){
@@ -6965,13 +6970,13 @@ if(homeContactTitle){
 
 }
 
-if(homeContactLink){
-
-  homeContactLink.textContent =
+if (homeContactLink) {
+  homeContactLink.href =
     LANG === 'fr'
-      ? 'Nous contacter'
-      : 'Kontakt aufnehmen';
+      ? '/contact/'
+      : '/kontakt/';
 
+  homeContactLink.removeAttribute('data-page');
 }
   
  /* PROJETS EN COURS */
@@ -7861,14 +7866,18 @@ if(c.site.instagram){
 
 }
 
-/* CLICS — BOUTON QUI SOMMES-NOUS */
+/* BOUTON QUI SOMMES-NOUS */
 
 document.addEventListener('DOMContentLoaded', function () {
   const heroAbout = document.getElementById('hero-about');
 
   if (!heroAbout) return;
 
-  heroAbout.href = '/qui-sommes-nous/';
+  heroAbout.href =
+    LANG === 'fr'
+      ? '/qui-sommes-nous/'
+      : '/wer-wir-sind/';
+
   heroAbout.removeAttribute('data-page');
 });
 
