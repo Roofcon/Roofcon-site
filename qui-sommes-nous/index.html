@@ -727,8 +727,13 @@
       const phone = site.phone || "+352 621 765 489";
       const email = site.email || "info@roof-con.com";
 
-      const footerPhone = document.querySelector(".footer-grid > div:nth-child(2) .footer-item:first-of-type a");
-      const footerEmail = document.querySelector(".footer-grid > div:nth-child(2) .footer-item:nth-of-type(2) a");
+     const footerPhone = document.querySelector(
+  '.footer-grid > div:nth-child(2) .footer-item a[href^="tel:"]'
+);
+
+const footerEmail = document.querySelector(
+  '.footer-grid > div:nth-child(2) .footer-item a[href^="mailto:"]'
+);
 
       if (footerPhone) {
         footerPhone.textContent = phone;
