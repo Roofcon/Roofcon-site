@@ -7861,44 +7861,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (!heroAbout) return;
 
-  heroAbout.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    // Masquer les autres sections
-    document.querySelectorAll('section').forEach(function (section) {
-      section.classList.remove('active-page');
-      section.classList.remove('home-visible');
-    });
-
-    // Réafficher l'accueil et Qui sommes-nous
-    const home = document.getElementById('accueil');
-    const who = document.getElementById('who');
-
-    if (home) {
-      home.classList.add('active-page');
-      home.classList.add('home-visible');
-    }
-
-    if (who) {
-      who.classList.add('active-page');
-      who.classList.add('home-visible');
-    }
-
-    // Garder l'URL de l'accueil
-    history.pushState({ page: 'accueil' }, '', '/');
-
-    // Faire défiler jusqu'à la section complète
-    if (who) {
-      setTimeout(function () {
-        who.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }, 150);
-    }
-  });
+  heroAbout.href = '/qui-sommes-nous/';
+  heroAbout.removeAttribute('data-page');
 });
-
 
 /* FORMULAIRE */
 
