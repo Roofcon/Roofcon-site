@@ -94,7 +94,7 @@
 
   <main class="container">
 
-    <a class="back" href="index.html" id="back-link">
+<a class="back" href="/" id="back-link">
   ← Retour au site ROOFCON
 </a>
 
@@ -352,6 +352,9 @@
   const francais = document.getElementById('content-fr');
   const allemand = document.getElementById('content-de');
   const back = document.getElementById('back-link');
+   if (back) {
+  back.href = langue === 'de' ? '/?lang=de' : '/';
+}
 const footerLegal1 =
   document.getElementById('footer-legal-1');
 
