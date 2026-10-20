@@ -3414,10 +3414,8 @@ footer{
 
 
 
-/* =========================================================
-   ACCUEIL — CARTES SERVICES
-   Reprise du design de la page Nos services
-========================================================= */
+
+/* CARTES DES SERVICES — ACCUEIL */
 
 .home-services-grid {
   display: grid;
@@ -3426,13 +3424,11 @@ footer{
   align-items: stretch;
 }
 
-/* CARTES */
-
 .home-service-card {
   grid-column: span 4;
   min-width: 0;
-  min-height: 430px;
-  padding: 30px;
+  min-height: 340px;
+  padding: 24px;
   position: relative;
   overflow: hidden;
 
@@ -3453,24 +3449,24 @@ footer{
 .home-service-card:nth-child(4),
 .home-service-card:nth-child(5) {
   grid-column: span 6;
-  min-height: 390px;
+  min-height: 320px;
 }
 
-/* SURVOL */
+/* Effet au survol */
 
 .home-service-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-4px);
   background: #2c2928;
   border-color: #5a514d;
 }
 
-/* IMAGES */
+/* Images */
 
 .home-service-card .home-service-image {
-  width: calc(100% + 60px);
-  height: 210px;
+  width: calc(100% + 48px);
+  height: 170px;
   object-fit: cover;
-  margin: -30px -30px 28px;
+  margin: -24px -24px 22px;
   display: block;
 
   transition: transform .6s ease;
@@ -3480,40 +3476,40 @@ footer{
   transform: scale(1.035);
 }
 
-/* NUMÉROS */
+/* Numéro */
 
 .home-service-number {
   font-size: 11px;
   color: #c3a080;
   font-weight: 800;
   letter-spacing: .2em;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
-/* TITRES */
+/* Titre */
 
 .home-service-card h3 {
   color: #fff;
-  font-size: clamp(21px, 2vw, 28px);
-  line-height: 1.08;
-  margin: 0 0 15px;
+  font-size: clamp(21px, 1.8vw, 26px);
+  line-height: 1.12;
+  margin: 0 0 12px;
   text-align: left;
   letter-spacing: -.02em;
   overflow-wrap: normal;
   word-break: normal;
 }
 
-/* DESCRIPTIONS */
+/* Description */
 
 .home-service-card p {
   max-width: 520px;
   color: #c9c4c0;
-  font-size: 15px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.55;
   margin: 0;
 }
 
-/* TABLETTES */
+/* Tablettes */
 
 @media (max-width: 1000px) {
   .home-services-grid {
@@ -3524,10 +3520,11 @@ footer{
   .home-service-card:nth-child(4),
   .home-service-card:nth-child(5) {
     grid-column: span 1;
+    min-height: 320px;
   }
 }
 
-/* MOBILES */
+/* Téléphones */
 
 @media (max-width: 650px) {
   .home-services-grid {
@@ -3539,14 +3536,14 @@ footer{
   .home-service-card:nth-child(4),
   .home-service-card:nth-child(5) {
     grid-column: span 1;
-    min-height: 390px;
+    min-height: auto;
     padding: 22px;
   }
 
   .home-service-card .home-service-image {
     width: calc(100% + 44px);
-    height: 190px;
-    margin: -22px -22px 22px;
+    height: 180px;
+    margin: -22px -22px 20px;
   }
 }
 
