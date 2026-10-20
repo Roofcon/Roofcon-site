@@ -95,9 +95,9 @@
 
   <main class="container">
 
-    <a class="back" href="index.html" id="back-link">
-      ← Retour au site ROOFCON
-    </a>
+   <a class="back" href="index.html" id="back-link">
+  ← Retour au site ROOFCON
+</a>
 
 
     <!-- ========================= -->
@@ -387,11 +387,15 @@
 
   <script>
 
-    const langue = localStorage.getItem('roofconLang');
+   const langue = localStorage.getItem('roofconLang');
 
-    const francais = document.getElementById('content-fr');
-    const allemand = document.getElementById('content-de');
-    const back = document.getElementById('back-link');
+const francais = document.getElementById('content-fr');
+const allemand = document.getElementById('content-de');
+const back = document.getElementById('back-link');
+
+if (back) {
+  back.href = langue === 'de' ? '/?lang=de' : '/';
+}
 
     if (langue === 'de') {
 
