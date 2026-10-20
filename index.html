@@ -3411,24 +3411,14 @@ footer{
   gap:15px;
 }
 
-
-
-
-
 /* CARTES DES SERVICES — ACCUEIL */
-
-.home-services-grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 18px;
-  align-items: stretch;
-}
 
 .home-service-card {
   grid-column: span 4;
   min-width: 0;
-  min-height: 340px;
+  min-height: 0;
   padding: 24px;
+
   position: relative;
   overflow: hidden;
 
@@ -3449,15 +3439,7 @@ footer{
 .home-service-card:nth-child(4),
 .home-service-card:nth-child(5) {
   grid-column: span 6;
-  min-height: 320px;
-}
-
-/* Effet au survol */
-
-.home-service-card:hover {
-  transform: translateY(-4px);
-  background: #2c2928;
-  border-color: #5a514d;
+  min-height: 0;
 }
 
 /* Images */
@@ -3468,15 +3450,9 @@ footer{
   object-fit: cover;
   margin: -24px -24px 22px;
   display: block;
-
-  transition: transform .6s ease;
 }
 
-.home-service-card:hover .home-service-image {
-  transform: scale(1.035);
-}
-
-/* Numéro */
+/* Numéro : taille inchangée */
 
 .home-service-number {
   font-size: 11px;
@@ -3486,26 +3462,24 @@ footer{
   margin-bottom: 14px;
 }
 
-/* Titre */
+/* Titre : taille inchangée */
 
 .home-service-card h3 {
   color: #fff;
-  font-size: clamp(21px, 1.8vw, 26px);
-  line-height: 1.12;
-  margin: 0 0 12px;
+  font-size: clamp(21px, 2vw, 28px);
+  line-height: 1.08;
+  margin: 0 0 15px;
   text-align: left;
   letter-spacing: -.02em;
-  overflow-wrap: normal;
-  word-break: normal;
 }
 
-/* Description */
+/* Texte : taille inchangée */
 
 .home-service-card p {
   max-width: 520px;
   color: #c9c4c0;
-  font-size: 14px;
-  line-height: 1.55;
+  font-size: 15px;
+  line-height: 1.65;
   margin: 0;
 }
 
@@ -3520,7 +3494,7 @@ footer{
   .home-service-card:nth-child(4),
   .home-service-card:nth-child(5) {
     grid-column: span 1;
-    min-height: 320px;
+    min-height: 0;
   }
 }
 
@@ -3536,7 +3510,7 @@ footer{
   .home-service-card:nth-child(4),
   .home-service-card:nth-child(5) {
     grid-column: span 1;
-    min-height: auto;
+    min-height: 0;
     padding: 22px;
   }
 
@@ -3546,8 +3520,6 @@ footer{
     margin: -22px -22px 20px;
   }
 }
-
-
 
 /* =========================================================
    RÉALISATIONS — APERÇU
