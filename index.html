@@ -3885,15 +3885,15 @@ footer{
       </p>
 
 
+
 <div class="buttons">
   <a
     class="btn primary"
-    href="#"
-    id="hero-about"
-    onclick="showPage('about'); return false;">
-    Qui sommes-nous ?
+    href="#who-kicker"
+    id="hero-about">
   </a>
 </div>
+
 
 
     </div>
@@ -5530,6 +5530,39 @@ function updateLanguageNavLinks(){
 
   });
 
+}
+
+  
+function showWhoSection() {
+  // Réafficher la page d'accueil
+  const sections = document.querySelectorAll('section');
+
+  sections.forEach(function(section) {
+    section.classList.remove('active-page');
+    section.classList.remove('home-visible');
+  });
+
+  const home = document.getElementById('accueil');
+
+  if (home) {
+    home.classList.add('active-page');
+    home.classList.add('home-visible');
+  }
+
+  // Faire défiler jusqu'au texte Qui sommes-nous
+  const whoTitle = document.getElementById('who-title');
+
+  if (whoTitle) {
+    setTimeout(function() {
+      whoTitle.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }, 100);
+  }
+
+  // Garder l'URL de l'accueil
+  history.pushState({ page: 'accueil' }, '', '/');
 }
 
 function showPage(id){
@@ -7825,34 +7858,48 @@ if(c.site.instagram){
 
 }
 
-/* CLICS */
+
+/* CLICS — BOUTON QUI SOMMES-NOUS */
 
 document.addEventListener('DOMContentLoaded', function () {
   const heroAbout = document.getElementById('hero-about');
 
-  if (!heroAbout) {
-    console.error('Bouton Qui sommes-nous introuvable');
-    return;
-  }
+  if (!heroAbout) return;
 
   heroAbout.addEventListener('click', function (e) {
     e.preventDefault();
 
-    const whoTitle = document.getElementById('who-title');
+    // Masquer les autres pages
+    document.querySelectorAll('section').forEach(function (section) {
+      section.classList.remove('active-page');
+      section.classList.remove('home-visible');
+    });
 
-    if (!whoTitle) {
-      console.error('Élément who-title introuvable');
-      return;
+    // Réafficher l'accueil
+    const home = document.getElementById('accueil');
+
+    if (home) {
+      home.classList.add('active-page');
+      home.classList.add('home-visible');
     }
 
-    const section = whoTitle.closest('section') || whoTitle.parentElement;
+    // Garder l'adresse de la page d'accueil
+    history.pushState({ page: 'accueil' }, '', '/');
 
-    section.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+    // Aller au texte Qui sommes-nous
+    const whoTitle = document.getElementById('who-title');
+
+    if (whoTitle) {
+      setTimeout(function () {
+        whoTitle.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }, 100);
+    }
   });
 });
+
 
 /* FORMULAIRE */
 
