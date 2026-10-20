@@ -6753,13 +6753,13 @@ if(homeServicesGrid){
     (c.about.poles || []).map(function(pole){
 
       return `
-        <article class="pole">
+        <article class="home-service-card">
 
           ${
             pole.image
               ? `
                 <img
-                  class="pole-image"
+                  class="home-service-image"
                   src="${esc(pole.image)}"
                   alt="${esc(t(pole.title))}"
                   loading="lazy"
@@ -6768,7 +6768,7 @@ if(homeServicesGrid){
               : ''
           }
 
-          <div class="pole-number">
+          <div class="home-service-number">
             ${esc(pole.number)}
           </div>
 
@@ -6786,7 +6786,6 @@ if(homeServicesGrid){
     }).join('');
 
 }
-
 
 
 /* =========================================================
