@@ -3886,12 +3886,13 @@ footer{
 
       <div class="buttons">
 
-       <a
+      
+<a
   class="btn primary"
-  href="#"
-  data-page="who"
+  href="#who-kicker"
   id="hero-about">
 </a>
+
 
       </div>
 
@@ -4709,190 +4710,6 @@ function esc(v){
     }[m];
 
   });
-
-}
-
-/* LA MÉTHODE ROOFCON */
-
-function renderMethode(){
-
-  const methode = CONTENT.methode || {};
-
-
-  /* PETIT TITRE */
-
-  const methodeKicker =
-    document.getElementById('methode-kicker');
-
-  if(!methodeKicker){
-    return;
-  }
-
-  methodeKicker.textContent =
-    t(methode.kicker) ||
-    (LANG === 'fr'
-      ? 'LA MÉTHODE ROOFCON'
-      : 'DIE ROOFCON-METHODE');
-
-  /* TITRE */
-
-  const methodeTitle =
-    document.getElementById('methode-title');
-
-  if(methodeTitle){
-
-    methodeTitle.textContent =
-      t(methode.title || {
-        fr:'Un projet bien réalisé commence par une méthode maîtrisée.',
-        de:'Ein gut umgesetztes Projekt beginnt mit einer durchdachten Methode.'
-      });
-
-  }
-
-
-  /* CARTE 01 */
-
-  const methodeTitle1 =
-    document.getElementById('methode-title-1');
-
-  const methodeText1 =
-    document.getElementById('methode-text-1');
-
-  if(methodeTitle1){
-
-    methodeTitle1.textContent =
-      t(methode.card1?.title || {
-        fr:'ÉCOUTER',
-        de:'ZUHÖREN'
-      });
-
-  }
-
-  if(methodeText1){
-
-    methodeText1.textContent =
-      t(methode.card1?.text || {
-        fr:'Comprendre votre projet, vos besoins et vos contraintes.',
-        de:'Ihr Projekt, Ihre Bedürfnisse und Ihre Anforderungen verstehen.'
-      });
-
-  }
-
-
-  /* CARTE 02 */
-
-  const methodeTitle2 =
-    document.getElementById('methode-title-2');
-
-  const methodeText2 =
-    document.getElementById('methode-text-2');
-
-  if(methodeTitle2){
-
-    methodeTitle2.textContent =
-      t(methode.card2?.title || {
-        fr:'CONCEVOIR',
-        de:'PLANEN'
-      });
-
-  }
-
-  if(methodeText2){
-
-    methodeText2.textContent =
-      t(methode.card2?.text || {
-        fr:'Définir les solutions techniques adaptées à votre projet.',
-        de:'Die passenden technischen Lösungen für Ihr Projekt definieren.'
-      });
-
-  }
-
-
-  /* CARTE 03 */
-
-  const methodeTitle3 =
-    document.getElementById('methode-title-3');
-
-  const methodeText3 =
-    document.getElementById('methode-text-3');
-
-  if(methodeTitle3){
-
-    methodeTitle3.textContent =
-      t(methode.card3?.title || {
-        fr:'PRÉPARER',
-        de:'VORBEREITEN'
-      });
-
-  }
-
-  if(methodeText3){
-
-    methodeText3.textContent =
-      t(methode.card3?.text || {
-        fr:'Anticiper chaque étape pour un chantier organisé et efficace.',
-        de:'Jeden Schritt vorausschauend planen für eine organisierte und effiziente Baustelle.'
-      });
-
-  }
-
-
-  /* CARTE 04 */
-
-  const methodeTitle4 =
-    document.getElementById('methode-title-4');
-
-  const methodeText4 =
-    document.getElementById('methode-text-4');
-
-  if(methodeTitle4){
-
-    methodeTitle4.textContent =
-      t(methode.card4?.title || {
-        fr:'RÉALISER',
-        de:'UMSETZEN'
-      });
-
-  }
-
-  if(methodeText4){
-
-    methodeText4.textContent =
-      t(methode.card4?.text || {
-        fr:"Mettre notre savoir-faire au service d'une réalisation soignée et durable.",
-        de:'Unser Know-how für eine hochwertige und nachhaltige Umsetzung einsetzen.'
-      });
-
-  }
-
-
-  /* CARTE 05 */
-
-  const methodeTitle5 =
-    document.getElementById('methode-title-5');
-
-  const methodeText5 =
-    document.getElementById('methode-text-5');
-
-  if(methodeTitle5){
-
-    methodeTitle5.textContent =
-      t(methode.card5?.title || {
-        fr:'ACCOMPAGNER',
-        de:'BEGLEITEN'
-      });
-
-  }
-
-  if(methodeText5){
-
-    methodeText5.textContent =
-      t(methode.card5?.text || {
-        fr:"Vous accompagner jusqu'à la finalisation de votre projet.",
-        de:'Sie bis zur Fertigstellung Ihres Projekts begleiten.'
-      });
-
-  }
 
 }
 
@@ -8012,15 +7829,27 @@ if(c.site.instagram){
 
 }
 
+
 /* CLICS */
-
 document.addEventListener('click', function(e) {
-
   const link = e.target.closest('a');
-
   if (!link) return;
 
-  // Laisser fonctionner les ouvertures dans un nouvel onglet.
+  // Bouton « Qui sommes-nous ? »
+  if (link.id === 'hero-about') {
+    e.preventDefault();
+
+    const whoSection = document.getElementById('who-kicker');
+    if (whoSection) {
+      whoSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    return;
+  }
+
+  // Laisser fonctionner les ouvertures dans un nouvel onglet
   if (
     link.target === '_blank' ||
     e.ctrlKey ||
@@ -8035,14 +7864,13 @@ document.addEventListener('click', function(e) {
 
   if (
     !href ||
+    href.startsWith('#') ||
     href.startsWith('mailto:') ||
     href.startsWith('tel:')
   ) {
     return;
   }
 
-  // Les liens vers les pages distinctes doivent charger
-  // leur véritable URL.
   const separatePages = [
     '/',
     '/services/',
@@ -8065,32 +7893,9 @@ document.addEventListener('click', function(e) {
   ) {
     e.preventDefault();
     window.location.assign(url.href);
-    return;
   }
-
-  // Les anciennes sections internes restent accessibles.
-  const pageLink = link.closest('[data-page]');
-
-  if (pageLink) {
-    e.preventDefault();
-    showPage(pageLink.dataset.page);
-    return;
-  }
-
-  // Laisser fonctionner les ancres classiques.
-  if (href.startsWith('#')) {
-    return;
-  }
-
-  // Ouverture des fiches de réalisations.
-  const reference = e.target.closest('.reference-card');
-
-  if (reference) {
-    e.preventDefault();
-    openReference(reference.dataset.referenceId);
-  }
-
 });
+
 
 /* FORMULAIRE */
 
