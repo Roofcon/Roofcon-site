@@ -1419,7 +1419,31 @@ header {
         showView("references");
       }
     });
+  
+function renderTopBar() {
+  const site = CONTENT?.site || {};
 
+  const phone = site.phone || "+352 621 765 489";
+  const email = site.email || "info@roof-con.com";
+
+  const phoneHref = String(phone).replace(/[^\d+]/g, "");
+  const emailHref = String(email).trim();
+
+  document.getElementById("top-phone").innerHTML =
+    `<a href="tel:${escapeHTML(phoneHref)}">${escapeHTML(phone)}</a>`;
+
+  document.getElementById("top-email").innerHTML =
+    `<a href="mailto:${escapeHTML(emailHref)}">${escapeHTML(email)}</a>`;
+
+  const facebook = document.getElementById("top-facebook");
+  const instagram = document.getElementById("top-instagram");
+
+  facebook.href =
+    site.facebook || "https://www.facebook.com/profile.php?id=61594591794889";
+
+  instagram.href =
+    site.instagram || "https://www.instagram.com/roofcon.lu/";
+}
 
 function renderFooter() {
   const site = CONTENT?.site || {};
@@ -1565,6 +1589,7 @@ function renderFooter() {
       .then(data => {
         CONTENT = data;
 
+        renderTopBar();
         renderPageText();
         renderReferenceCategories();
         renderReferences();
