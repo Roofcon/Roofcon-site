@@ -186,19 +186,24 @@
 .cards {
   display:grid;
   grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:28px;
-  align-items:stretch;
+  gap:30px;
+  justify-content:center;
+  align-items:start;
+  max-width:900px;
+  margin:0 auto;
 }
 
 .card {
   width:100%;
-  max-width:none;
+  max-width:435px;
   min-width:0;
+  justify-self:center;
   background:#262322;
   border:1px solid #3b3634;
   overflow:hidden;
   display:flex;
   flex-direction:column;
+  transition:none;
 }
 
 .card:hover {
@@ -209,9 +214,11 @@
 
 .card img {
   width:100%;
-  height:300px;
+  height:380px;
   object-fit:cover;
+  object-position:center;
   display:block;
+  transition:none;
 }
 
 .card:hover img {
