@@ -807,34 +807,6 @@ header {
     </nav>
   </div>
 </header>
-    <div class="container nav">
-      <a href="/" aria-label="ROOFCON — Accueil">
-        <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
-      </a>
-
-      <div class="lang" aria-label="Choisir la langue">
-        <button type="button" id="lang-fr" class="active" aria-pressed="true">FR</button>
-        <button type="button" id="lang-de" aria-pressed="false">DE</button>
-      </div>
-
-      <button
-        type="button"
-        class="mobile-menu-button"
-        id="mobile-menu-button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-      >☰</button>
-
-      <nav class="menu" id="main-menu" aria-label="Navigation principale">
-        <a href="/">Accueil</a>
-        <a href="/services/" aria-current="page">Services</a>
-        <a href="/projets-en-cours/">Projets en cours</a>
-        <a href="/realisations/">Réalisations</a>
-        <a href="/emploi/">Offres d'emploi</a>
-        <a href="/contact/" class="cta">Contact</a>
-      </nav>
-    </div>
-  </header>
 
   <main>
     <section id="about" class="about">
@@ -1217,26 +1189,27 @@ function renderTopBar() {
       mobileButton.textContent = isOpen ? "×" : "☰";
     });
 
-    
 fetch(CONTENT_URL, { cache: "no-store" })
   .then(response => {
     if (!response.ok) {
-      throw new Error("Impossible de charger content.json : " + response.status);
+      throw new Error(
+        "Impossible de charger content.json : " + response.status
+      );
     }
+
     return response.json();
   })
   .then(data => {
     CONTENT = data;
 
     const path = window.location.pathname.replace(/\/+$/, "");
-
-    const initialLanguage =
-      path === "/leistungen" ? "de" : "fr";
+    const initialLanguage = path === "/leistungen" ? "de" : "fr";
 
     setLanguage(initialLanguage);
   })
   .catch(error => {
     console.error(error);
+
     document.getElementById("about-title").textContent =
       "Impossible de charger les services. Veuillez réessayer plus tard.";
   });
