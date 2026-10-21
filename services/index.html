@@ -1057,9 +1057,10 @@ function renderTopBar() {
       document.getElementById("footer-contact-title").textContent =
         LANG === "fr" ? "Contact" : "Kontakt";
 
-      document.getElementById("footer-phone").innerHTML =
-        `<a href="tel:${escapeHTML(site.phone.replace(/\s/g, ""))}">${escapeHTML(site.phone)}</a>`;
-
+document.getElementById("footer-phone").innerHTML =
+  `<div style="margin-bottom: 5px;">Joël Brück</div>
+   <a href="tel:${escapeHTML(site.phone.replace(/\s/g, ""))}">${escapeHTML(site.phone)}</a>`;
+      
       document.getElementById("footer-email").innerHTML =
         `<a href="mailto:${escapeHTML(site.email)}">${escapeHTML(site.email)}</a>`;
 
