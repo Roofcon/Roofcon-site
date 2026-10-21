@@ -1460,8 +1460,10 @@ function renderFooter() {
   const phoneHref = String(phoneNumber).replace(/[^\d+]/g, "");
   const email = site.email || "info@roof-con.com";
 
-    document.getElementById("footer-phone").innerHTML = `
-    <div style="margin-bottom:5px; font-weight:600;">Joël Brück</div>
+     document.getElementById("footer-phone").innerHTML = `
+    <div style="margin-bottom:8px; font-weight:600; color:#ffffff;">
+      Joël Brück
+    </div>
     <a href="tel:${phoneHref}">${escapeHTML(phoneNumber)}</a>
   `;
 
