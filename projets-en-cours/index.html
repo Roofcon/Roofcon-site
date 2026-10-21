@@ -137,58 +137,69 @@
 .top-social:hover {
   color: var(--brown2);
 }
-    header {
-      background:#fff;
-      border-bottom:1px solid var(--line);
-      position:sticky;
-      top:0;
-      z-index:30;
-    }
+   header {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
 
-    .nav {
+.nav {
   min-height: 72px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-    .logo { width:190px; display:block; }
+.logo {
+  width: 190px;
+  display: block;
+  height: auto;
+}
+   
+.lang {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+}
 
-    .lang {
-      display:flex;
-      gap:4px;
-      margin-left:auto;
-    }
-
-   .lang button {
-  padding: 5px 8px;
-  border: 1px solid #514946;
-  border-radius: 3px;
-  background: transparent;
-  color: #f4f0ed;
+.lang button {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--black);
+  padding: 6px 9px;
   font-size: 12px;
   line-height: 1.2;
   font-weight: 800;
   cursor: pointer;
-  transition: all .2s ease;
 }
 
 .lang button.active {
-  background: #c8a27a;
-  border-color: #c8a27a;
-  color: #211d1b;
+  background: var(--brown);
+  color: #fff;
+  border-color: var(--brown);
 }
 
-    .menu {
-      display:flex;
-      align-items:center;
-      gap:25px;
-      font-size:14px;
-      font-weight:800;
-    }
 
-   .menu a:hover { color:var(--brown); }
+    .menu {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.menu a {
+  color: var(--black);
+  text-decoration: none;
+  transition: color .2s ease, background-color .2s ease;
+}
+
+.menu a:hover {
+  color: var(--brown);
+}
 
 .menu .cta {
   background: var(--brown);
@@ -504,76 +515,90 @@ background: #39332f;
       .current-project-content h2 { font-size:22px; }
     }
 
-    @media(max-width:750px) {
-      .nav { min-height:76px; position:relative; }
-      .logo { width:145px; }
+   
+@media (max-width: 750px) {
+  .top {
+    display: none;
+  }
 
-      .mobile-menu-button {
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        width:44px;
-        height:44px;
-        border:1px solid var(--line);
-        background:#fff;
-        color:var(--black);
-        cursor:pointer;
-        margin-left:auto;
-        font-size:26px;
-        line-height:1;
-      }
+  .nav {
+    min-height: 76px;
+    position: relative;
+  }
 
-      .menu {
-        display:none;
-        position:absolute;
-        top:76px;
-        left:0;
-        right:0;
-        background:#fff;
-        border-top:1px solid var(--line);
-        border-bottom:1px solid var(--line);
-        flex-direction:column;
-        align-items:stretch;
-        gap:0;
-        padding:8px 0;
-        box-shadow:0 10px 25px rgba(0,0,0,.10);
-      }
+  .logo {
+    width: 145px;
+  }
 
-      .menu.mobile-open { display:flex; }
+  .mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--black);
+    cursor: pointer;
+    margin-left: auto;
+    font-size: 26px;
+    line-height: 1;
+  }
 
-      .menu a {
-        display:block;
-        width:100%;
-        padding:16px 24px;
-        font-size:15px;
-        border-bottom:1px solid #eee;
-      }
+  .menu {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
+  }
 
-      .menu a:last-child { border-bottom:0; }
+  .menu.mobile-open {
+    display: flex;
+  }
 
-      .menu a:hover {
-  background: var(--cream);
-  color: var(--brown);
+  .menu a {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu a:last-child {
+    border-bottom: 0;
+  }
+
+  .menu a:hover {
+    background: var(--cream);
+    color: var(--brown);
+  }
+
+  .menu .cta {
+    margin: 8px 16px;
+    width: auto;
+    text-align: center;
+  }
+
+  .lang {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .lang button {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
 }
 
-.menu .cta {
-  margin: 8px 16px;
-  width: auto;
-  text-align: center;
-  background: var(--brown);
-  color: #fff;
-}
-
-.menu .cta:hover {
-  background: var(--black);
-  color: #fff;
-}
-
-.lang {
-  margin-left: 0;
-  margin-right: 8px;
-}
-    }
 
     @media(max-width:650px) {
       .current-projects { padding:75px 0 85px; }
@@ -623,30 +648,39 @@ background: #39332f;
     }
 
     
-/* BARRE SUPÉRIEURE — ALIGNEMENT COMME SUR NOS SERVICES */
+
+/* BARRE SUPÉRIEURE — STYLE IDENTIQUE À NOS SERVICES */
+
+.top {
+  background: var(--black);
+  color: #ddd;
+  font-size: 14px;
+  padding: 8px 0;
+}
 
 .top .inner {
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  gap: 18px;
+  align-items: center;
+  gap: 15px;
+}
+
+.top a {
+  color: inherit;
+  text-decoration: none;
 }
 
 #top-phone,
 #top-email {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-}
-
-#top-phone a,
-#top-email a {
-  color: inherit;
-  text-decoration: none;
+  white-space: nowrap;
 }
 
 .top-socials {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
 }
 
@@ -655,6 +689,9 @@ background: #39332f;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 
 #top-facebook a,
@@ -669,14 +706,16 @@ background: #39332f;
 #top-instagram svg {
   width: 16px;
   height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  display: block;
 }
 
-@media (max-width: 700px) {
-  .top .inner {
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+#top-facebook a:hover,
+#top-instagram a:hover {
+  color: var(--brown2);
 }
+
 
   </style>
 </head>
@@ -913,27 +952,58 @@ const navUrls = {
   ]
 };
 
-    
 function renderTopBar() {
-  const phone = document.getElementById('top-phone');
-  const email = document.getElementById('top-email');
-  const facebook = document.getElementById('top-facebook');
-  const instagram = document.getElementById('top-instagram');
+  const topPhone = document.getElementById('top-phone');
+  const topEmail = document.getElementById('top-email');
+  const topFacebook = document.getElementById('top-facebook');
+  const topInstagram = document.getElementById('top-instagram');
 
-  if (phone) {
-    phone.innerHTML = '<a href="tel:+352621765489">+352 621 765 489</a>';
+  const phone = '+352 621 765 489';
+  const email = 'info@roof-con.com';
+  const facebook = 'https://www.facebook.com/profile.php?id=61594591794889';
+  const instagram = 'https://www.instagram.com/roofcon.lu/';
+
+  if (topPhone) {
+    topPhone.innerHTML =
+      `<a href="tel:${phone.replace(/\s/g, '')}">${phone}</a>`;
   }
 
-  if (email) {
-    email.innerHTML = '<a href="mailto:info@roof-con.com">info@roof-con.com</a>';
+  if (topEmail) {
+    topEmail.innerHTML =
+      `<a href="mailto:${email}">${email}</a>`;
   }
 
-  if (facebook) {
-    facebook.innerHTML = '<a href="https://www.facebook.com/profile.php?id=61594591794889" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>';
+  if (topFacebook) {
+    topFacebook.innerHTML = `
+      <a href="${facebook}"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Facebook ROOFCON"
+         title="Facebook">
+        <svg viewBox="0 0 24 24" fill="currentColor"
+             aria-hidden="true">
+          <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.5v2.1H7v3.2h2.9V21z"/>
+        </svg>
+      </a>`;
   }
 
-  if (instagram) {
-    instagram.innerHTML = '<a href="https://www.instagram.com/roofcon.lu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">◎</a>';
+  if (topInstagram) {
+    topInstagram.innerHTML = `
+      <a href="${instagram}"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Instagram ROOFCON"
+         title="Instagram">
+        <svg viewBox="0 0 24 24" fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1"
+                  fill="currentColor" stroke="none"/>
+        </svg>
+      </a>`;
   }
 }
 
