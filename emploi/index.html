@@ -933,57 +933,6 @@ function renderFooter(data) {
   }
 }
 
-
-const phoneElement = document.getElementById('footer-phone');
-const phoneNumber = site.phone || '+352 621 765 489';
-
-if (phoneElement) {
-  phoneElement.innerHTML =
-    '<span style="display:block; margin-bottom:5px;">Joël Brück</span>' +
-    '<span>' + phoneNumber + '</span>';
-
-  phoneElement.href = 'tel:' + String(phoneNumber).replace(/[^\d+]/g, '');
-}
-
-
-  setText('footer-email', site.email);
-  setText('footer-address-title', {
-    fr: 'Adresse',
-    de: 'Adresse'
-  });
-  setText('footer-address', site.address);
-  setText('footer-hours', site.hours);
-  setText('footer-social-title', {
-    fr: 'Suivez-nous',
-    de: 'Folgen Sie uns'
-  });
-  setText('footer-copyright', footer.copyright);
-
-  const phone = document.getElementById('footer-phone');
-  if (phone && site.phone) {
-    phone.href = 'tel:' + String(site.phone).replace(/[^\d+]/g, '');
-  }
-
-  const email = document.getElementById('footer-email');
-  if (email && site.email) {
-    email.href = 'mailto:' + site.email;
-  }
-
-  const facebook = document.getElementById('footer-facebook');
-  if (facebook && site.facebook) {
-    facebook.href = site.facebook;
-    facebook.target = '_blank';
-    facebook.rel = 'noopener noreferrer';
-  }
-
-  const instagram = document.getElementById('footer-instagram');
-  if (instagram && site.instagram) {
-    instagram.href = site.instagram;
-    instagram.target = '_blank';
-    instagram.rel = 'noopener noreferrer';
-  }
-}
-
     const oppositeLang = PAGE_LANG === 'fr' ? 'de' : 'fr';
 
     document.documentElement.lang = PAGE_LANG;
