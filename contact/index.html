@@ -123,14 +123,20 @@ header {
   flex-shrink: 0;
 }
 
+
 .lang button {
   border: 1px solid var(--line);
   background: #fff;
   color: var(--black);
-  padding: 5px 8px;
+  padding: 3px 6px;
+  font-size: 10px;
+  line-height: 1.2;
   font-weight: 800;
   cursor: pointer;
+  min-width: 0;
+  min-height: 0;
 }
+
 
 .lang button.active {
   background: var(--brown);
@@ -412,7 +418,11 @@ header {
   order: 2;
   margin-left: 0;
 }
-      .lang button { padding: 6px 8px; font-size: 12px; }
+.lang button {
+  padding: 3px 6px;
+  font-size: 10px;
+  line-height: 1.2;
+}
       .contact-section { padding: 65px 0; }
       .contact-grid { grid-template-columns: 1fr; gap: 35px; }
       .contact-title { font-size: clamp(34px, 7vw, 43px); }
