@@ -1476,11 +1476,18 @@ function renderFooter() {
   document.getElementById("footer-hours").textContent =
     localized(site.hours);
 
-  document.getElementById("footer-facebook").href =
-    site.facebook || "https://www.facebook.com/profile.php?id=61594591794889";
+  if (site.facebook) {
+        document.getElementById(
+          "footer-facebook"
+        ).href = site.facebook;
+      }
 
-  document.getElementById("footer-instagram").href =
-    site.instagram || "https://www.instagram.com/roofcon.lu/";
+
+      if (site.instagram) {
+        document.getElementById(
+          "footer-instagram"
+        ).href = site.instagram;
+      }
 
   document.getElementById("footer-copyright").textContent =
     localized(footer.copyright) || "© ROOFCON — Alle Rechte vorbehalten.";
