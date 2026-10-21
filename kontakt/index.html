@@ -1751,56 +1751,39 @@ renderTopBar();
     );
 
 
-    fetch(
-      CONTENT_URL,
-      {
-        cache: "no-store"
-      }
-    )
-
-      .then(
-        response => {
-
-          if (!response.ok) {
-
-            throw new Error(
-              "Impossible de charger content.json : " +
-              response.status
-            );
-
-          }
-
-          return response.json();
-
-        }
-      )
-
-      .then(
-        data => {
-
-          CONTENT = data;
-
-          setLanguage(
-            "de",
-            false
-          );
-
-        }
-      )
-
-      .catch(
-        error => {
-
-          console.error(error);
-
-          renderFooter();
-
-          renderNavigation();
-
-          updateSEO();
-
-        }
+    
+fetch(CONTENT_URL, { cache: "no-store" })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(
+        "Impossible de charger content.json : " + response.status
       );
+    }
+
+    return response.json();
+  })
+  .then(data => {
+    CONTENT = data;
+
+    // Initialiser tous les éléments en allemand
+    LANG = "de";
+
+    renderTopBar();
+    renderContact();
+    renderFooter();
+    renderNavigation();
+    updateSEO();
+
+    // Mettre le bouton DE en évidence
+    document.getElementById("lang-fr")?.classList.remove("active");
+    document.getElementById("lang-de")?.classList.add("active");
+  })
+  .catch(error => {
+    console.error("Erreur de chargement de la page allemande :", error);
+    renderFooter();
+    renderNavigation();
+    updateSEO();
+  });
 
   </script>
 
