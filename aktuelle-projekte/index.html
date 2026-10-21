@@ -182,6 +182,7 @@ header {
   font-size: 12px;
   line-height: 1.2;
   font-weight: 800;
+  cursor: pointer;
   text-decoration: none;
 }
 
@@ -530,14 +531,18 @@ background: #39332f;
 
     .footer-legal a { color:#777; }
 
-    @media(max-width:1000px) {
-      .menu { gap:14px; font-size:12px; }
-      .footer-grid { grid-template-columns:1fr 1fr; }
-      .current-projects { padding:95px 0 105px; }
-      .current-projects-grid { grid-template-columns:1fr; gap:18px; }
-      .current-project { min-height:480px; }
-    }
+   /* TABLETTES */
+@media (max-width: 1000px) {
+  .nav { gap: 14px; }
+  .menu { gap: 14px; font-size: 12px; }
+  .logo { width: 145px; }
 
+  .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .current-projects { padding: 95px 0 105px; }
+  .current-projects-grid { grid-template-columns: 1fr; gap: 18px; }
+  .current-project { min-height: 480px; }
+}
     @media(max-width:800px) {
       .current-projects { padding:70px 0; }
 .current-projects .about-intro {
