@@ -1207,13 +1207,7 @@ fetch(CONTENT_URL, { cache: "no-store" })
 
     setLanguage(initialLanguage);
   })
-  .catch(error => {
-    console.error(error);
-
-    document.getElementById("about-title").textContent =
-      "Impossible de charger les services. Veuillez réessayer plus tard.";
-  });
-
+  
       .catch(error => {
         console.error(error);
         document.getElementById("about-title").textContent =
