@@ -107,61 +107,90 @@
       border-bottom:1px solid var(--line);
     }
 
-    .nav {
-  min-height:90px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-
-    .logo {
-      display:block;
-      width:165px;
-    }
-
    
+.nav {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+.nav > a:first-child {
+  margin-right: auto;
+}
+
+.nav > a {
+  order: 1;
+  display: block;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: 190px;
+  display: block;
+  height: auto;
+}
+
+.lang {
+  order: 2;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.lang a {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--black);
+  padding: 6px 9px;
+  font-size: 12px;
+  line-height: 1.2;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.lang a.active {
+  background: var(--brown);
+  color: #fff;
+  border-color: var(--brown);
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+.nav > .mobile-menu-button {
+  order: 3;
+}
+
 .menu {
+  order: 4;
   display: flex;
   align-items: center;
   gap: 25px;
+  margin-left: 0;
   font-size: 14px;
   font-weight: 800;
 }
 
+.menu a:hover {
+  color: var(--brown);
+}
 
-    .menu a:hover {
-      color:var(--brown);
-    }
+.menu .cta {
+  background: var(--brown);
+  color: #fff;
+  padding: 12px 18px;
+}
 
-    .menu .cta {
-      background:var(--brown);
-      color:#fff;
-      padding:12px 18px;
-    }
+.menu .cta:hover {
+  background: var(--black);
+  color: #fff;
+}
 
-    .menu .cta:hover {
-      background:var(--black);
-      color:#fff;
-    }
-
-    .lang {
-      display:flex;
-      gap:4px;
-    }
-
-    .lang a {
-      border:1px solid var(--line);
-      padding:6px 9px;
-      font-size:12px;
-      font-weight:800;
-    }
-
-    .lang a.active {
-      background:var(--brown);
-      color:#fff;
-      border-color:var(--brown);
-    }
 
     /* KARRIERE */
 
@@ -510,9 +539,11 @@
         text-align:center;
       }
 
-      .lang {
-        margin-left:auto;
-      }
+     .lang {
+  margin-left: 0;
+  margin-right: 0;
+  order: 0;
+}
 
       .hero {
         padding:65px 0 45px;
