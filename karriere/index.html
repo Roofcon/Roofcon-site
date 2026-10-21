@@ -640,6 +640,35 @@
         max-height:85vh;
       }
     }
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.footer-socials a:hover {
+  background: var(--brown);
+  color: #fff;
+}
+
+.footer-socials svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+    
   </style>
 </head>
 
@@ -730,9 +759,7 @@
 
       <div>
         <div class="footer-title" id="footer-contact-title">Kontakt</div>
-        <div class="footer-item">
-          <a id="footer-phone" href="tel:+352621765489">+352 621 765 489</a>
-        </div>
+        <div class="footer-item" id="footer-phone"></div>
         <div class="footer-item">
           <a id="footer-email" href="mailto:info@roof-con.com">info@roof-con.com</a>
         </div>
@@ -746,17 +773,33 @@
 
       <div>
         <div class="footer-title" id="footer-social-title">Folgen Sie uns</div>
-        <div class="footer-social">
-          <a id="footer-facebook"
-             href="https://www.facebook.com/profile.php?id=61594591794889"
-             target="_blank" rel="noopener noreferrer">Facebook</a>
+       <div class="footer-socials">
+  <a
+    id="footer-facebook"
+    href="https://www.facebook.com/profile.php?id=61594591794889"
+    target="_blank"
+    rel="noopener"
+    aria-label="Facebook"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8h3.4Z" fill="currentColor"/>
+    </svg>
+  </a>
 
-          <a id="footer-instagram"
-             href="https://www.instagram.com/roofcon.lu/"
-             target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
-      </div>
-    </div>
+  <a
+    id="footer-instagram"
+    href="https://www.instagram.com/roofcon.lu/"
+    target="_blank"
+    rel="noopener"
+    aria-label="Instagram"
+  >
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+    </svg>
+  </a>
+</div>
 
     <div class="footer-bottom">
       <div id="footer-copyright"></div>
@@ -876,7 +919,6 @@
       fr: 'Contact',
       de: 'Kontakt'
     });
-    setText('footer-phone', site.phone);
     setText('footer-email', site.email);
     setText('footer-address-title', {
       fr: 'Adresse',
@@ -890,10 +932,17 @@
     });
     setText('footer-copyright', footer.copyright);
 
-    const phone = document.getElementById('footer-phone');
-    if (phone && site.phone) {
-      phone.href = 'tel:' + String(site.phone).replace(/[^\d+]/g, '');
-    }
+   const phone = document.getElementById('footer-phone');
+
+if (phone) {
+  const phoneNumber = site.phone || '+352 621 765 489';
+  const phoneHref = phoneNumber.replace(/[^\d+]/g, '');
+
+  phone.innerHTML = `
+    <div style="margin-bottom:5px;">Joël Brück</div>
+    <a href="tel:${phoneHref}">${safeText(phoneNumber)}</a>
+  `;
+}
 
     const email = document.getElementById('footer-email');
     if (email && site.email) {
