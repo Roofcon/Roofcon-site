@@ -898,6 +898,15 @@
 
   const t = TEXT[PAGE_LANG];
 
+  function safeText(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+  
   function renderFooter(data) {
     const site = data.site || {};
     const footer = data.footer || {};
