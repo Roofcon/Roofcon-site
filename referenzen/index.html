@@ -1460,12 +1460,8 @@ function renderFooter() {
   const phoneHref = String(phoneNumber).replace(/[^\d+]/g, "");
   const email = site.email || "info@roof-con.com";
 
-     document.getElementById("footer-phone").innerHTML = `
-  <div style="display:block; margin-bottom:8px; font-weight:700;">
-    Joël Brück
-  </div>
-  <a href="tel:${phoneHref}">${escapeHTML(phoneNumber)}</a>
-`;
+    document.getElementById("footer-phone").innerHTML =
+  "TEST JOËL BRÜCK<br>+352 621 765 489";
 
   document.getElementById("footer-email").innerHTML =
     `<a href="mailto:${escapeHTML(email)}">${escapeHTML(email)}</a>`;
