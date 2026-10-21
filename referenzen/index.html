@@ -1461,11 +1461,11 @@ function renderFooter() {
   const email = site.email || "info@roof-con.com";
 
      document.getElementById("footer-phone").innerHTML = `
-    <div style="margin-bottom:8px; font-weight:600; color:#ffffff;">
-      Joël Brück
-    </div>
-    <a href="tel:${phoneHref}">${escapeHTML(phoneNumber)}</a>
-  `;
+  <div style="display:block; margin-bottom:8px; font-weight:700;">
+    Joël Brück
+  </div>
+  <a href="tel:${phoneHref}">${escapeHTML(phoneNumber)}</a>
+`;
 
   document.getElementById("footer-email").innerHTML =
     `<a href="mailto:${escapeHTML(email)}">${escapeHTML(email)}</a>`;
