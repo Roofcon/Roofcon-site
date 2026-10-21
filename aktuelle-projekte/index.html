@@ -698,57 +698,62 @@ background: #39332f;
 
 <body>
 
-<!-- BARRE SUPÉRIEURE -->
 <div class="top">
   <div class="container top-inner">
     <div class="top-contact">
-      <span id="top-phone"></span>
-      <span id="top-email"></span>
+      <a href="tel:+352621765489">+352 621 765 489</a>
+      <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+
+      <a href="https://www.facebook.com/profile.php?id=61594591794889"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="ROOFCON auf Facebook" class="top-social">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"/>
+        </svg>
+      </a>
+
+      <a href="https://www.instagram.com/roofcon.lu/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="ROOFCON auf Instagram" class="top-social">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"
+                fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4"
+                  fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+      </a>
     </div>
-
-    <a id="top-facebook" class="top-social"
-       href="https://www.facebook.com/profile.php?id=61594591794889"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Facebook ROOFCON" title="Facebook"></a>
-
-    <a id="top-instagram" class="top-social"
-       href="https://www.instagram.com/roofcon.lu/"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Instagram ROOFCON" title="Instagram"></a>
   </div>
 </div>
 
-<!-- HEADER -->
 <header>
   <div class="container nav">
-
-    <a href="/" aria-label="ROOFCON - Startseite">
+    <a href="/" aria-label="ROOFCON — Startseite">
       <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
     </a>
 
     <div class="lang" aria-label="Sprache auswählen">
-  <button type="button" id="lang-fr" data-lang="fr" aria-pressed="false">FR</button>
-  <button type="button" id="lang-de" data-lang="de" class="active" aria-pressed="true">DE</button>
-</div>
+      <a id="lang-fr" href="/emploi/">FR</a>
+      <a id="lang-de" class="active" href="/karriere/" aria-current="page">DE</a>
+    </div>
 
     <button
+      type="button"
       class="mobile-menu-button"
       id="mobile-menu-button"
-      type="button"
       aria-label="Menü öffnen"
       aria-expanded="false"
-      aria-controls="main-menu"
     >☰</button>
 
     <nav class="menu" id="main-menu" aria-label="Hauptnavigation">
-      <a href="/">Startseite</a>
-      <a href="/leistungen/">Leistungen</a>
-      <a href="/aktuelle-projekte/">Aktuelle Projekte</a>
-      <a href="/referenzen/">Referenzen</a>
-      <a href="/karriere/">Stellenangebote</a>
-      <a href="/kontakt/" class="cta">Kontakt</a>
+<a id="nav-home" href="/?lang=de">Startseite</a>
+      <a id="nav-services" href="/leistungen/">Leistungen</a>
+      <a id="nav-current" href="/aktuelle-projekte/">Aktuelle Projekte</a>
+      <a id="nav-references" href="/referenzen/">Referenzen</a>
+      <a id="nav-jobs" href="/karriere/" aria-current="page">Stellenangebote</a>
+      <a id="nav-contact" href="/kontakt/" class="cta">Kontakt</a>
     </nav>
-
   </div>
 </header>
 
