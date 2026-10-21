@@ -143,6 +143,12 @@
   cursor:pointer;
 }
 
+    .lang button.active {
+  background: var(--brown);
+  color: #fff;
+  border-color: var(--brown);
+}
+    
 .mobile-menu-button {
   display:none;
 }
@@ -1112,24 +1118,17 @@ function renderTopBar() {
       );
 
 
-      const phone =
-        document.getElementById("footer-phone");
+      const phone = document.getElementById("footer-phone");
 
-      if (phone && site.phone) {
+if (phone) {
+  const phoneNumber = site.phone || "+352 621 765 489";
+  const phoneHref = phoneNumber.replace(/[^\d+]/g, "");
 
-        const tel =
-          safeText(site.phone).replace(/\s/g, "");
-
-        const cleanPhone =
-          safeText(site.phone).replace(/[&<>]/g, "");
-
-        phone.innerHTML =
-          '<a href="tel:' +
-          tel.replace(/"/g, "") +
-          '">' +
-          cleanPhone +
-          '</a>';
-      }
+  phone.innerHTML = `
+    <div style="margin-bottom:5px;">Joël Brück</div>
+    <a href="tel:${phoneHref}">${safeText(phoneNumber)}</a>
+  `;
+}
 
 
       const email =
