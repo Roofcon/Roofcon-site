@@ -88,13 +88,19 @@ header {
   z-index: 30;
 }
 
+
 .nav {
   min-height: 72px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 14px;
+  gap: 25px;
 }
+
+.nav > a:first-child {
+  margin-right: auto;
+}
+
 
 .nav > a {
   order: 1;
@@ -140,15 +146,17 @@ header {
   order: 3;
 }
 
+
 .menu {
   order: 4;
   display: flex;
   align-items: center;
   gap: 25px;
-  margin-left: 25px;
+  margin-left: 0;
   font-size: 14px;
   font-weight: 800;
 }
+
 
 .menu a {
   color: var(--black);
@@ -391,8 +399,8 @@ header {
   order: 0;
 }
 
-.nav > a {
-  order: 1;
+.nav > a:first-child {
+  margin-right: 0;
 }
 
 .nav > .mobile-menu-button {
@@ -421,27 +429,27 @@ header {
   </style>
 </head>
 <body>
-  <!-- BARRE SUPÉRIEURE -->
-  <div class="top">
-    <div class="container top-inner">
-      <div class="top-contact">
-        <a href="tel:+352621765489">+352 621 765 489</a>
-        <a href="mailto:info@roof-con.com">info@roof-con.com</a>
-        <a class="top-social" href="https://www.facebook.com/profile.php?id=61594591794889" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7z"/>
-          </svg>
-        </a>
-        <a class="top-social" href="https://www.instagram.com/roofcon.lu/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <rect x="3" y="3" width="18" height="18" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-          </svg>
-        </a>
-      </div>
+ 
+<!-- BARRE SUPÉRIEURE -->
+<div class="top">
+  <div class="container top-inner">
+    <div class="top-contact">
+      <span id="top-phone"></span>
+      <span id="top-email"></span>
     </div>
+
+    <a id="top-facebook" class="top-social"
+       href="https://www.facebook.com/profile.php?id=61594591794889"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Facebook ROOFCON" title="Facebook"></a>
+
+    <a id="top-instagram" class="top-social"
+       href="https://www.instagram.com/roofcon.lu/"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Instagram ROOFCON" title="Instagram"></a>
   </div>
+</div>
+
 
   <!-- HEADER -->
   <header>
@@ -565,9 +573,7 @@ header {
 
         <div>
           <div class="footer-title" id="footer-contact-title">Contact</div>
-          <div class="footer-item" id="footer-phone">
-            <a href="tel:+352621765489">+352 621 765 489</a>
-          </div>
+         <div class="footer-item" id="footer-phone"></div>
           <div class="footer-item" id="footer-email">
             <a href="mailto:info@roof-con.com">info@roof-con.com</a>
           </div>
@@ -650,6 +656,53 @@ function setText(id, value) {
 }
 
 
+function renderTopBar() {
+  if (!CONTENT) return;
+
+  const site = CONTENT.site || {};
+
+  const phone = site.phone || "+352 621 765 489";
+  const email = site.email || "info@roof-con.com";
+  const facebook = site.facebook || "https://www.facebook.com/profile.php?id=61594591794889";
+  const instagram = site.instagram || "https://www.instagram.com/roofcon.lu/";
+
+  const topPhone = document.getElementById("top-phone");
+  const topEmail = document.getElementById("top-email");
+  const topFacebook = document.getElementById("top-facebook");
+  const topInstagram = document.getElementById("top-instagram");
+
+  if (topPhone) {
+    const phoneHref = String(phone).replace(/[^\d+]/g, "");
+    topPhone.innerHTML =
+      '<a href="tel:' + phoneHref + '">' + safeText(phone) + '</a>';
+  }
+
+  if (topEmail) {
+    const cleanEmail = safeText(email).replace(/[&<>"']/g, "");
+    topEmail.innerHTML =
+      '<a href="mailto:' + cleanEmail + '">' + cleanEmail + '</a>';
+  }
+
+  if (topFacebook) {
+    topFacebook.href = facebook;
+    topFacebook.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.5v2.1H7v3.2h2.9V21h3.6z"/>
+      </svg>`;
+  }
+
+  if (topInstagram) {
+    topInstagram.href = instagram;
+    topInstagram.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>`;
+  }
+}
+
     function renderFooter() {
       if (!CONTENT) return;
 
@@ -666,13 +719,17 @@ function setText(id, value) {
       setText("footer-social-title", LANG === "fr" ? "Suivez-nous" : "Folgen Sie uns");
       setText("footer-copyright", localized(footer.copyright));
 
-      const phone = document.getElementById("footer-phone");
-      if (phone && site.phone) {
-        const tel = safeText(site.phone).replace(/\s/g, "");
-        const cleanPhone = safeText(site.phone).replace(/[&<>]/g, "");
-        phone.innerHTML = '<a href="tel:' + tel.replace(/"/g, "") + '">' +
-          cleanPhone + '</a>';
-      }
+     
+const phoneElement = document.getElementById("footer-phone");
+const phoneNumber = site.phone || "+352 621 765 489";
+const phoneHref = String(phoneNumber).replace(/[^\d+]/g, "");
+
+if (phoneElement) {
+  phoneElement.innerHTML = `
+    <div style="margin-bottom: 5px;">Joël Brück</div>
+    <a href="tel:${phoneHref}">${safeText(phoneNumber)}</a>
+  `;
+}
 
       const email = document.getElementById("footer-email");
       if (email && site.email) {
@@ -828,6 +885,7 @@ function setText(id, value) {
         "aria-pressed", String(lang === "de")
       );
 
+      renderTopBar();
       renderContact();
       renderFooter();
       renderNavigation();
