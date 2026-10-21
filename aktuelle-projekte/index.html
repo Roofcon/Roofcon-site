@@ -490,7 +490,25 @@ background: #39332f;
       color:#aaa;
     }
 
-    .footer-social svg { flex-shrink:0; }
+.footer-social a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 10px;
+  color: #aaa;
+  text-decoration: none;
+}
+
+.footer-social svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  flex: 0 0 16px;
+}
 
     .footer-bottom {
       border-top:1px solid #302d2b;
@@ -679,26 +697,6 @@ background: #39332f;
 </head>
 
 <body>
-````html
-<!-- BARRE SUPÉRIEURE -->
-<div class="top">
-  <div class="container top-inner">
-    <div class="top-contact">
-      <span id="top-phone"></span>
-      <span id="top-email"></span>
-    </div>
-
-    <a id="top-facebook" class="top-social"
-       href="https://www.facebook.com/profile.php?id=61594591794889"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Facebook ROOFCON" title="Facebook"></a>
-
-    <a id="top-instagram" class="top-social"
-       href="https://www.instagram.com/roofcon.lu/"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Instagram ROOFCON" title="Instagram"></a>
-  </div>
-</div>
 
 <!-- BARRE SUPÉRIEURE -->
 <div class="top">
@@ -729,9 +727,9 @@ background: #39332f;
     </a>
 
     <div class="lang" aria-label="Sprache auswählen">
-      <button type="button" id="lang-fr" aria-pressed="false">FR</button>
-      <button type="button" id="lang-de" class="active" aria-pressed="true">DE</button>
-    </div>
+  <button type="button" id="lang-fr" data-lang="fr" aria-pressed="false">FR</button>
+  <button type="button" id="lang-de" data-lang="de" class="active" aria-pressed="true">DE</button>
+</div>
 
     <button
       class="mobile-menu-button"
