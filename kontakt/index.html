@@ -1264,17 +1264,22 @@
       );
 
 
-      const phone =
-        document.getElementById("contact-phone");
+    
+const phone = document.getElementById("contact-phone");
 
-      if (site.phone && phone) {
+if (phone) {
+  const phoneNumber = site.phone || "+352 621 765 489";
+  const phoneHref = String(phoneNumber).replace(/[^\d+]/g, "");
 
-        phone.textContent = site.phone;
+  phone.innerHTML = `
+    <span style="display:block; font-size:15px; font-weight:600; margin-bottom:2px;">
+      Joël Brück
+    </span>
+    <span>${safeText(phoneNumber)}</span>
+  `;
 
-        phone.href =
-          "tel:" +
-          safeText(site.phone).replace(/\s/g, "");
-      }
+  phone.href = "tel:" + phoneHref;
+}
 
 
       const email =
@@ -1289,15 +1294,24 @@
       }
 
 
-      setText(
-        "contact-address",
-        site.address
-          ? site.address +
-            (LANG === "fr"
-              ? ", Luxembourg"
-              : ", Luxemburg")
-          : ""
-      );
+     
+const addressElement = document.getElementById("contact-address");
+
+const address = site.address
+  ? site.address + (LANG === "fr" ? ", Luxembourg" : ", Luxemburg")
+  : "";
+
+if (addressElement && address) {
+  addressElement.innerHTML = `
+    <a
+      href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}"
+      target="_blank"
+      rel="noopener noreferrer"
+      style="font-size:19px; font-weight:700;"
+    >${safeText(address)}</a>
+  `;
+}
+
 
 
       setText(
