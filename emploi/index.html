@@ -183,27 +183,34 @@
   padding:35px 0 110px;
 }
 
+/* GRILLE DES CARTES */
+
 .cards {
-  display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  gap:30px;
-  justify-content:center;
-  align-items:start;
-  max-width:900px;
-  margin:0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 30px;
+  justify-content: start;
+  align-items: start;
+  max-width: 1000px;
+  margin: 0;
 }
 
+/* CARTE */
+
 .card {
-  width:100%;
-  max-width:435px;
-  min-width:0;
-  justify-self:center;
-  background:#262322;
-  border:1px solid #3b3634;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
-  transition:none;
+  width: 100%;
+  max-width: 470px;
+  min-width: 0;
+  justify-self: start;
+
+  background: #262322;
+  border: 1px solid #3b3634;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: none;
 }
 
 .card:hover {
