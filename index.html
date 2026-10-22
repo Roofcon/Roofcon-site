@@ -3861,31 +3861,24 @@ footer{
   }
 
   
-/* ACCUEIL — TITRE ET INTRODUCTION PLUS LARGES */
+/* TITRES DES APERÇUS DE L'ACCUEIL */
 
-#accueil .hero-content{
-  width:100%;
-  max-width:none;
+#home-services-title,
+#home-references-title,
+#home-current-title {
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.15;
+  letter-spacing: -1px;
 }
 
-#accueil #hero-title{
-  width:100%;
-  max-width:1100px;
-}
+/* VERSION MOBILE */
 
-#accueil #hero-text{
-  width:100%;
-  max-width:1000px;
-}
-
-/* Garder une bonne lisibilité sur mobile */
-@media(max-width:800px){
-  #accueil #hero-title{
-    max-width:100%;
-  }
-
-  #accueil #hero-text{
-    max-width:100%;
+@media (max-width: 650px) {
+  #home-services-title,
+  #home-references-title,
+  #home-current-title {
+    font-size: 28px;
+    letter-spacing: -0.5px;
   }
 }
 
