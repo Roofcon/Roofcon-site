@@ -796,7 +796,14 @@
       document.getElementById("footer-social-title").textContent = "Folgen Sie uns";
 
       document.getElementById("footer-phone").innerHTML =
-        `<a href="tel:${escapeHTML(site.phone.replace(/\s/g, ""))}">${escapeHTML(site.phone)}</a>`;
+  `
+    <div style="margin-bottom:5px; font-weight:600; color:#fff;">
+      Joël Brück
+    </div>
+    <a href="tel:${escapeHTML(site.phone.replace(/\s/g, ""))}">
+      ${escapeHTML(site.phone)}
+    </a>
+  `;
 
       document.getElementById("footer-email").innerHTML =
         `<a href="mailto:${escapeHTML(site.email)}">${escapeHTML(site.email)}</a>`;
