@@ -3694,16 +3694,15 @@ footer{
 ========================================================= */
 
 .home-current-preview {
-  background: #1c1b1a;
+  background: transparent;
   position: relative;
-  left: auto;
-  width: 100%;
-  transform: none;
-  padding-left: 0;
-  padding-right: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  padding-left: max(3%, calc((100vw - 1400px) / 2));
+  padding-right: max(3%, calc((100vw - 1400px) / 2));
   box-sizing: border-box;
 }
-
 
 .home-current-grid{
   display:grid;
