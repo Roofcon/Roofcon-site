@@ -3688,20 +3688,22 @@ footer{
 
 }
 
+
 /* =========================================================
-   PROJETS EN COURS
+   PROJETS EN COURS — ALIGNEMENT SUR RÉALISATIONS
 ========================================================= */
 
-.home-current-preview{
-  background:#1c1b1a;
-  position:relative;
-  left:50%;
-  width:100vw;
-  transform:translateX(-50%);
-  padding-left:max(24px,calc((100vw - 1200px) / 2));
-  padding-right:max(24px,calc((100vw - 1200px) / 2));
-  box-sizing:border-box;
+.home-current-preview {
+  background: #1c1b1a;
+  position: relative;
+  left: auto;
+  width: 100%;
+  transform: none;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
 }
+
 
 .home-current-grid{
   display:grid;
@@ -3890,14 +3892,6 @@ footer{
     letter-spacing: -0.5px;
   }
 }
-
- 
-/* ALIGNER PROJETS EN COURS SUR RÉALISATIONS */
-#home-current-preview .home-preview-head > div {
-  position: relative;
-  left: -20px;
-}
-
   
 </style>
   <link
