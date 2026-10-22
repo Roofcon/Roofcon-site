@@ -814,24 +814,23 @@
         localized(footer.copyright);
     }
 
-    function renderNavigation() {
-      const nav = CONTENT.nav;
-      const links = menu.querySelectorAll("a");
+   function renderNavigation() {
+  const links = menu.querySelectorAll("a");
 
-      links[0].textContent = localized(nav.home) || "Startseite";
-      links[1].textContent = localized(nav.about) || "Leistungen";
-      links[2].textContent = "Aktuelle Projekte";
-      links[3].textContent = "REFERENZEN TEST";
-      links[4].textContent = localized(nav.jobs) || "Karriere";
-      links[5].textContent = localized(nav.contact) || "Kontakt";
+  links[0].textContent = "Startseite";
+  links[1].textContent = "Leistungen";
+  links[2].textContent = "Aktuelle Projekte";
+  links[3].textContent = "Referenzen";
+  links[4].textContent = "Stellenangebote";
+  links[5].textContent = "Kontakt";
 
-      links[0].href = "/";
-      links[1].href = "/leistungen/";
-      links[2].href = "/aktuelle-projekte/";
-      links[3].href = "/referenzen/";
-      links[4].href = "/karriere/";
-      links[5].href = "/kontakt/";
-    }
+  links[0].href = "/";
+  links[1].href = "/leistungen/";
+  links[2].href = "/aktuelle-projekte/";
+  links[3].href = "/referenzen/";
+  links[4].href = "/karriere/";
+  links[5].href = "/kontakt/";
+}
 
     function updateSEO() {
       const seo = CONTENT.seo.services;
