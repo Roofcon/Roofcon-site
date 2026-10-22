@@ -1185,10 +1185,9 @@ if (addressElement && address) {
             ? "Accueil"
             : "Startseite"),
 
-        localized(nav.about) ||
-          (LANG === "fr"
-            ? "Nos pôles"
-            : "Leistungen"),
+        LANG === "fr"
+  ? "Nos pôles"
+  : "Leistungen",
 
         LANG === "fr"
           ? "Projets en cours"
