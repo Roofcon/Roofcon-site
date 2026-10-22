@@ -1194,10 +1194,9 @@ if (addressElement && address) {
           ? "Projets en cours"
           : "Aktuelle Projekte",
 
-        localized(nav.references) ||
-          (LANG === "fr"
-            ? "Réalisations"
-            : "Referenzen"),
+        LANG === "fr"
+  ? "Réalisations"
+  : "Referenzen",
 
         localized(nav.jobs) ||
           (LANG === "fr"
