@@ -839,221 +839,430 @@ header {
     </div>
   </footer>
 
-  <script>
-    const CONTENT_URL = "/content.json";
+ <script>
+  const CONTENT_URL = "/content.json";
 
-    let CONTENT = null;
-    let LANG = "fr";
+  let CONTENT = null;
+  let LANG = "fr";
 
-    const menu = document.getElementById("main-menu");
-    const mobileButton = document.getElementById("mobile-menu-button");
+  const menu = document.getElementById("main-menu");
+  const mobileButton = document.getElementById("mobile-menu-button");
 
-    function localized(value) {
-      if (value && typeof value === "object") {
-        return value[LANG] ?? value.fr ?? "";
-      }
-      return value ?? "";
+  function localized(value) {
+    if (value && typeof value === "object") {
+      return value[LANG] ?? value.fr ?? "";
     }
 
-    function setText(id, value) {
-      const element = document.getElementById(id);
+    return value ?? "";
+  }
 
-      if (element && value !== undefined && value !== null) {
-        element.innerHTML = String(value)
-          .replace(/&lt;br\s*\/?&gt;/gi, "<br>");
-      }
+  function setText(id, value) {
+    const element = document.getElementById(id);
+
+    if (element && value !== undefined && value !== null) {
+      element.innerHTML = String(value)
+        .replace(/&lt;br\s*\/?&gt;/gi, "<br>");
+    }
+  }
+
+  function renderWho() {
+
+    if (!CONTENT || !CONTENT.who) return;
+
+    const who = CONTENT.who;
+
+    /* =========================
+       QUI SOMMES-NOUS
+    ========================= */
+
+    setText("who-kicker", localized(who.kicker));
+    setText("who-title", localized(who.title));
+    setText("who-intro", localized(who.intro));
+    setText("who-text-1", localized(who.text1));
+    setText("who-text-2", localized(who.text2));
+    setText("who-text-3", localized(who.text3));
+    setText("who-text-4", localized(who.text4));
+    setText("who-objective", localized(who.objective));
+    setText("who-hallcon", localized(who.hallcon));
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    const footer = CONTENT.footer || {};
+    const site = CONTENT.site || {};
+
+    setText(
+      "footer-description",
+      localized(footer.description)
+    );
+
+    setText(
+      "footer-contact-title",
+      LANG === "fr" ? "Contact" : "Kontakt"
+    );
+
+    setText(
+      "footer-address-title",
+      "Adresse"
+    );
+
+    setText(
+      "footer-social-title",
+      LANG === "fr" ? "Suivez-nous" : "Folgen Sie uns"
+    );
+
+    setText(
+      "footer-copyright",
+      localized(footer.copyright)
+    );
+
+
+    setText(
+      "footer-address",
+      site.address
+        ? site.address +
+          (LANG === "fr" ? ", Luxembourg" : ", Luxemburg")
+        : ""
+    );
+
+    setText(
+      "footer-hours",
+      localized(site.hours)
+    );
+
+
+    /* =========================
+       FOOTER — LIENS LÉGAUX
+    ========================= */
+
+    setText(
+      "footer-legal-1",
+      LANG === "fr"
+        ? "Mentions légales"
+        : "Impressum"
+    );
+
+    setText(
+      "footer-legal-2",
+      LANG === "fr"
+        ? "Politique de confidentialité"
+        : "Datenschutzerklärung"
+    );
+
+    setText(
+      "footer-legal-3",
+      LANG === "fr"
+        ? "Politique des cookies"
+        : "Cookie-Richtlinie"
+    );
+
+
+    /* =========================
+       CONTACT
+    ========================= */
+
+    const phone = site.phone || "+352 621 765 489";
+    const email = site.email || "info@roof-con.com";
+
+    const footerPhone = document.querySelector(
+      '.footer-grid > div:nth-child(2) .footer-item a[href^="tel:"]'
+    );
+
+    const footerEmail = document.querySelector(
+      '.footer-grid > div:nth-child(2) .footer-item a[href^="mailto:"]'
+    );
+
+    if (footerPhone) {
+      footerPhone.textContent = phone;
+      footerPhone.href =
+        "tel:" + phone.replace(/\s/g, "");
     }
 
-    function renderWho() {
-      if (!CONTENT || !CONTENT.who) return;
+    if (footerEmail) {
+      footerEmail.textContent = email;
+      footerEmail.href = "mailto:" + email;
+    }
 
-      const who = CONTENT.who;
 
-      setText("who-kicker", localized(who.kicker));
-      setText("who-title", localized(who.title));
-      setText("who-intro", localized(who.intro));
-      setText("who-text-1", localized(who.text1));
-      setText("who-text-2", localized(who.text2));
-      setText("who-text-3", localized(who.text3));
-      setText("who-text-4", localized(who.text4));
-      setText("who-objective", localized(who.objective));
-      setText("who-hallcon", localized(who.hallcon));
+    /* =========================
+       RÉSEAUX SOCIAUX
+    ========================= */
 
-      const footer = CONTENT.footer || {};
-      const site = CONTENT.site || {};
+    const facebook = document.getElementById("footer-facebook");
+    const instagram = document.getElementById("footer-instagram");
 
-      setText("footer-description", localized(footer.description));
-      setText("footer-contact-title", LANG === "fr" ? "Contact" : "Kontakt");
-      setText("footer-address-title", LANG === "fr" ? "Adresse" : "Adresse");
-      setText("footer-social-title", LANG === "fr" ? "Suivez-nous" : "Folgen Sie uns");
-      setText("footer-copyright", localized(footer.copyright));
+    if (facebook && site.facebook) {
+      facebook.href = site.facebook;
+    }
 
-      setText("footer-address", site.address
-        ? site.address + (LANG === "fr" ? ", Luxembourg" : ", Luxemburg")
-        : "");
+    if (instagram && site.instagram) {
+      instagram.href = site.instagram;
+    }
 
-      setText("footer-hours", localized(site.hours));
 
-      setText("footer-legal-1",
-        LANG === "fr" ? "Mentions légales" : "Impressum");
+    /* =========================
+       LANGUE
+    ========================= */
 
-      setText("footer-legal-2",
-        LANG === "fr" ? "Politique de confidentialité" : "Datenschutzerklärung");
+    document.documentElement.lang = LANG;
 
-      setText("footer-legal-3",
-        LANG === "fr" ? "Politique des cookies" : "Cookie-Richtlinie");
+    const langFr = document.getElementById("lang-fr");
+    const langDe = document.getElementById("lang-de");
 
-      const phone = site.phone || "+352 621 765 489";
-      const email = site.email || "info@roof-con.com";
+    if (langFr) {
+      langFr.classList.toggle("active", LANG === "fr");
 
-     const footerPhone = document.querySelector(
-  '.footer-grid > div:nth-child(2) .footer-item a[href^="tel:"]'
-);
-
-const footerEmail = document.querySelector(
-  '.footer-grid > div:nth-child(2) .footer-item a[href^="mailto:"]'
-);
-
-      if (footerPhone) {
-        footerPhone.textContent = phone;
-        footerPhone.href = "tel:" + phone.replace(/\s/g, "");
-      }
-
-      if (footerEmail) {
-        footerEmail.textContent = email;
-        footerEmail.href = "mailto:" + email;
-      }
-
-      if (site.facebook) {
-        document.getElementById("footer-facebook").href = site.facebook;
-      }
-
-      if (site.instagram) {
-        document.getElementById("footer-instagram").href = site.instagram;
-      }
-
-      document.documentElement.lang = LANG;
-
-      document.getElementById("lang-fr").classList.toggle("active", LANG === "fr");
-      document.getElementById("lang-de").classList.toggle("active", LANG === "de");
-
-      document.getElementById("lang-fr").setAttribute(
-        "aria-pressed", String(LANG === "fr")
+      langFr.setAttribute(
+        "aria-pressed",
+        String(LANG === "fr")
       );
+    }
 
-      document.getElementById("lang-de").setAttribute(
-        "aria-pressed", String(LANG === "de")
+    if (langDe) {
+      langDe.classList.toggle("active", LANG === "de");
+
+      langDe.setAttribute(
+        "aria-pressed",
+        String(LANG === "de")
       );
+    }
+
+
+    /* =========================
+       NAVIGATION
+    ========================= */
+
+    if (menu) {
 
       const navLinks = menu.querySelectorAll("a");
 
       const navTexts = LANG === "fr"
-  ? ["Accueil", "Nos services", "Projets en cours", "Réalisations", "Offres d'emploi", "Contact"]
-  : ["Startseite", "Leistungen", "Aktuelle Projekte", "Referenzen", "Stellenangebote", "Kontakt"];
+        ? [
+            "Accueil",
+            "Nos services",
+            "Projets en cours",
+            "Réalisations",
+            "Offres d'emploi",
+            "Contact"
+          ]
+        : [
+            "Startseite",
+            "Leistungen",
+            "Aktuelle Projekte",
+            "Referenzen",
+            "Stellenangebote",
+            "Kontakt"
+          ];
 
       const navHrefs = LANG === "fr"
-        ? ["/", "/services/", "/projets-en-cours/", "/realisations/", "/emploi/", "/contact/"]
-        : ["/", "/leistungen/", "/aktuelle-projekte/", "/referenzen/", "/karriere/", "/kontakt/"];
+        ? [
+            "/",
+            "/services/",
+            "/projets-en-cours/",
+            "/realisations/",
+            "/emploi/",
+            "/contact/"
+          ]
+        : [
+            "/",
+            "/leistungen/",
+            "/aktuelle-projekte/",
+            "/referenzen/",
+            "/karriere/",
+            "/kontakt/"
+          ];
 
       navLinks.forEach(function(link, index) {
-        link.textContent = navTexts[index];
-        link.href = navHrefs[index];
+
+        if (navTexts[index] !== undefined) {
+          link.textContent = navTexts[index];
+        }
+
+        if (navHrefs[index] !== undefined) {
+          link.href = navHrefs[index];
+        }
+
       });
+    }
 
-      const whoButton = document.getElementById("who-hallcon");
-      if (whoButton) {
-        whoButton.href = LANG === "fr" ? "/realisations/" : "/referenzen/";
-      }
 
-      document.title = LANG === "fr"
+    /* =========================
+       BOUTON QUI SOMMES-NOUS
+    ========================= */
+
+    const whoButton =
+      document.getElementById("who-hallcon");
+
+    if (whoButton) {
+
+      whoButton.href =
+        LANG === "fr"
+          ? "/realisations/"
+          : "/referenzen/";
+
+    }
+
+
+    /* =========================
+       TITLE
+    ========================= */
+
+    document.title =
+      LANG === "fr"
         ? "Qui sommes-nous ? | ROOFCON"
         : "Wer wir sind | ROOFCON";
-    }
+  }
 
-    function setLanguage(lang) {
-      LANG = lang;
-      renderWho();
-    }
 
-    document.getElementById("lang-fr").addEventListener("click", function() {
+  /* =========================
+     CHANGEMENT DE LANGUE
+  ========================= */
+
+  function setLanguage(lang) {
+
+    LANG = lang;
+
+    renderWho();
+  }
+
+
+  const langFr =
+    document.getElementById("lang-fr");
+
+  const langDe =
+    document.getElementById("lang-de");
+
+
+  if (langFr) {
+
+    langFr.addEventListener("click", function() {
       setLanguage("fr");
     });
 
-    document.getElementById("lang-de").addEventListener("click", function() {
+  }
+
+
+  if (langDe) {
+
+    langDe.addEventListener("click", function() {
       setLanguage("de");
     });
 
-if (mobileButton && menu) {
-  mobileButton.addEventListener("click", function() {
-    const isOpen = menu.classList.toggle("mobile-open");
+  }
 
-    mobileButton.setAttribute(
-      "aria-expanded",
-      String(isOpen)
+
+  /* =========================
+     MENU MOBILE
+  ========================= */
+
+  if (mobileButton && menu) {
+
+    mobileButton.addEventListener(
+      "click",
+      function() {
+
+        const isOpen =
+          menu.classList.toggle("mobile-open");
+
+        mobileButton.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+        mobileButton.setAttribute(
+          "aria-label",
+          isOpen
+            ? "Fermer le menu"
+            : "Ouvrir le menu"
+        );
+
+        mobileButton.textContent =
+          isOpen ? "×" : "☰";
+      }
     );
 
-    mobileButton.setAttribute(
-      "aria-label",
-      isOpen ? "Fermer le menu" : "Ouvrir le menu"
+
+    menu.querySelectorAll("a").forEach(
+      function(link) {
+
+        link.addEventListener(
+          "click",
+          function() {
+
+            menu.classList.remove(
+              "mobile-open"
+            );
+
+            mobileButton.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+
+            mobileButton.setAttribute(
+              "aria-label",
+              "Ouvrir le menu"
+            );
+
+            mobileButton.textContent = "☰";
+          }
+        );
+
+      }
     );
 
-    mobileButton.textContent = isOpen ? "×" : "☰";
-  });
+  }
 
 
-  menu.querySelectorAll("a").forEach(function(link) {
+  /* =========================
+     CHARGEMENT DU CONTENT.JSON
+  ========================= */
 
-    link.addEventListener("click", function() {
+  fetch(
+    CONTENT_URL,
+    { cache: "no-store" }
+  )
 
-      menu.classList.remove("mobile-open");
+    .then(function(response) {
 
-      mobileButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
+      if (!response.ok) {
 
-      mobileButton.setAttribute(
-        "aria-label",
-        "Ouvrir le menu"
-      );
+        throw new Error(
+          "Impossible de charger content.json : " +
+          response.status
+        );
 
-      mobileButton.textContent = "☰";
+      }
 
-    });
+      return response.json();
+    })
 
-  });
-}
-      const isOpen = menu.classList.toggle("mobile-open");
+    .then(function(data) {
 
-      mobileButton.setAttribute("aria-expanded", String(isOpen));
-      mobileButton.textContent = isOpen ? "×" : "☰";
-    });
+      CONTENT = data;
 
-    menu.querySelectorAll("a").forEach(function(link) {
-      link.addEventListener("click", function() {
-        menu.classList.remove("mobile-open");
-        mobileButton.setAttribute("aria-expanded", "false");
-        mobileButton.textContent = "☰";
-      });
-    });
+      renderWho();
 
-    fetch(CONTENT_URL, { cache: "no-store" })
-      .then(function(response) {
-        if (!response.ok) {
-          throw new Error("Impossible de charger content.json : " + response.status);
-        }
-        return response.json();
-      })
-      .then(function(data) {
-        CONTENT = data;
-        renderWho();
-      })
-      .catch(function(error) {
-        console.error(error);
-        document.getElementById("who-title").textContent =
+    })
+
+    .catch(function(error) {
+
+      console.error(error);
+
+      const title =
+        document.getElementById("who-title");
+
+      if (title) {
+
+        title.textContent =
           "Impossible de charger le contenu. Vérifiez le fichier content.json.";
-      });
-  </script>
+
+      }
+
+    });
+
+</script>
 
 </body>
 </html>
