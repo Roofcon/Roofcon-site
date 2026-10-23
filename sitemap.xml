@@ -1,42 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- ACCUEIL -->
   <url>
-    <loc>https://www.roof-con.com/</loc>
+    <loc>https://roof-con.com/</loc>
   </url>
+
+  <!-- QUI SOMMES-NOUS -->
   <url>
-    <loc>https://www.roof-con.com/de/</loc>
+    <loc>https://roof-con.com/qui-sommes-nous/</loc>
   </url>
+
   <url>
-    <loc>https://www.roof-con.com/facades-ventilees/</loc>
+    <loc>https://roof-con.com/wer-wir-sind/</loc>
   </url>
+
+  <!-- SERVICES -->
   <url>
-    <loc>https://www.roof-con.com/de/hinterlueftete-fassaden/</loc>
+    <loc>https://roof-con.com/services/</loc>
   </url>
+
   <url>
-    <loc>https://www.roof-con.com/toitures-plates/</loc>
+    <loc>https://roof-con.com/leistungen/</loc>
   </url>
+
   <url>
-    <loc>https://www.roof-con.com/de/flachdaecher/</loc>
+    <loc>https://roof-con.com/facades-ventilees/</loc>
   </url>
+
   <url>
-    <loc>https://www.roof-con.com/charpentes/</loc>
+    <loc>https://roof-con.com/de/hinterlueftete-fassaden/</loc>
   </url>
+
   <url>
-    <loc>https://www.roof-con.com/de/dachstuhlbau/</loc>
+    <loc>https://roof-con.com/toitures-plates/</loc>
   </url>
+
   <url>
-    <loc>https://www.roof-con.com/couvertures/</loc>
+    <loc>https://roof-con.com/de/flachdaecher/</loc>
   </url>
+
   <url>
-    <loc>https://www.roof-con.com/de/dachdeckungen/</loc>
+    <loc>https://roof-con.com/charpentes/</loc>
   </url>
+
   <url>
-    <loc>https://www.roof-con.com/maisons-annexes-ossature-bois/</loc>
+    <loc>https://roof-con.com/de/dachstuhlbau/</loc>
   </url>
+
   <url>
-    <loc>https://www.roof-con.com/de/holzhaeuser-anbauten/</loc>
+    <loc>https://roof-con.com/couvertures/</loc>
   </url>
+
   <url>
-    <loc>https://www.roof-con.com/mentions-legales.html</loc>
+    <loc>https://roof-con.com/de/dachdeckungen/</loc>
   </url>
+
+  <url>
+    <loc>https://roof-con.com/maisons-annexes-ossature-bois/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/de/holzhaeuser-anbauten/</loc>
+  </url>
+
+  <!-- PROJETS -->
+  <url>
+    <loc>https://roof-con.com/projets-en-cours/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/aktuelle-projekte/</loc>
+  </url>
+
+  <!-- RÉALISATIONS -->
+  <url>
+    <loc>https://roof-con.com/realisations/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/referenzen/</loc>
+  </url>
+
+  <!-- EMPLOI -->
+  <url>
+    <loc>https://roof-con.com/emploi/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/karriere/</loc>
+  </url>
+
+  <!-- CONTACT -->
+  <url>
+    <loc>https://roof-con.com/contact/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/kontakt/</loc>
+  </url>
+
+  <!-- MENTIONS LÉGALES -->
+  <url>
+    <loc>https://roof-con.com/mentions-legales.html</loc>
+  </url>
+
 </urlset>
