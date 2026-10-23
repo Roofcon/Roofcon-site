@@ -594,6 +594,124 @@ header {
 
   <!-- BARRE SUPÉRIEURE -->
 
+  <!-- BARRE SUPÉRIEURE -->
+
+<div class="top">
+  <div class="container top-inner">
+    <div class="top-contact">
+
+      <a href="tel:+352621765489">+352 621 765 489</a>
+
+      <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+
+      <a class="top-social"
+         href="https://www.facebook.com/profile.php?id=61594591794889"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Facebook ROOFCON">
+
+        <svg viewBox="0 0 24 24"
+             fill="currentColor"
+             aria-hidden="true">
+
+          <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7z"/>
+
+        </svg>
+
+      </a>
+
+      <a class="top-social"
+         href="https://www.instagram.com/roofcon.lu/"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Instagram ROOFCON">
+
+        <svg viewBox="0 0 24 24"
+             fill="none"
+             stroke="currentColor"
+             stroke-width="2"
+             aria-hidden="true">
+
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1"
+                  fill="currentColor"
+                  stroke="none"/>
+
+        </svg>
+
+      </a>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="container nav">
+
+    <a href="/" aria-label="ROOFCON - Accueil">
+      <img class="logo"
+           src="/ROOFCON.png"
+           alt="ROOFCON">
+    </a>
+
+
+    <div class="lang" aria-label="Choisir la langue">
+
+      <button type="button"
+              id="lang-fr"
+              class="active"
+              aria-pressed="true">
+        FR
+      </button>
+
+      <button type="button"
+              id="lang-de"
+              aria-pressed="false">
+        DE
+      </button>
+
+    </div>
+
+
+    <button class="mobile-menu-button"
+            id="mobile-menu-button"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="main-menu">
+      ☰
+    </button>
+
+
+    <nav class="menu"
+         id="main-menu"
+         aria-label="Navigation principale">
+
+      <a href="/">Accueil</a>
+
+      <a href="/services/">Nos services</a>
+
+      <a href="/projets-en-cours/">Projets en cours</a>
+
+      <a href="/realisations/">Réalisations</a>
+
+      <a href="/emploi/">Offres d'emploi</a>
+
+      <a href="/contact/" class="cta">
+        Contact
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+  
   <!-- CONTENU QUI SOMMES-NOUS -->
 
   <main>
@@ -695,11 +813,26 @@ header {
         <div id="footer-copyright">© ROOFCON — Tous droits réservés.</div>
 
 <div class="footer-legal">
-  <a href="https://roof-con.com/mentions-legales.html">Mentions légales</a>
+
+  <a id="footer-legal-1"
+     href="https://roof-con.com/mentions-legales.html">
+    Mentions légales
+  </a>
+
   <span>·</span>
-  <a href="https://roof-con.com/politique-confidentialite.html">Politique de confidentialité</a>
+
+  <a id="footer-legal-2"
+     href="https://roof-con.com/politique-confidentialite.html">
+    Politique de confidentialité
+  </a>
+
   <span>·</span>
-  <a href="https://roof-con.com/politique-cookies.html">Politique des cookies</a>
+
+  <a id="footer-legal-3"
+     href="https://roof-con.com/politique-cookies.html">
+    Politique des cookies
+  </a>
+
 </div>
       </div>
 
@@ -850,7 +983,46 @@ const footerEmail = document.querySelector(
       setLanguage("de");
     });
 
-    mobileButton.addEventListener("click", function() {
+if (mobileButton && menu) {
+  mobileButton.addEventListener("click", function() {
+    const isOpen = menu.classList.toggle("mobile-open");
+
+    mobileButton.setAttribute(
+      "aria-expanded",
+      String(isOpen)
+    );
+
+    mobileButton.setAttribute(
+      "aria-label",
+      isOpen ? "Fermer le menu" : "Ouvrir le menu"
+    );
+
+    mobileButton.textContent = isOpen ? "×" : "☰";
+  });
+
+
+  menu.querySelectorAll("a").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+      menu.classList.remove("mobile-open");
+
+      mobileButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      mobileButton.setAttribute(
+        "aria-label",
+        "Ouvrir le menu"
+      );
+
+      mobileButton.textContent = "☰";
+
+    });
+
+  });
+}
       const isOpen = menu.classList.toggle("mobile-open");
 
       mobileButton.setAttribute("aria-expanded", String(isOpen));
