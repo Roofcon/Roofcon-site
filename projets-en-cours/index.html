@@ -1119,11 +1119,7 @@ function renderTopBar() {
 const currentProjectsGrid =
   document.getElementById('current-projects-grid');
 
-const currentProjectItems =
-  c.currentProjects &&
-  Array.isArray(c.currentProjects.items)
-    ? c.currentProjects.items
-    : [];
+let currentProjectItems = [];
 
 
 function renderCurrentProjects() {
@@ -1150,7 +1146,37 @@ function renderCurrentProjects() {
     return;
   }
 
+async function loadCurrentProjects() {
+  try {
+    const response = await fetch('/content.json', {
+      cache: 'no-store'
+    });
 
+    if (!response.ok) {
+      throw new Error('Impossible de charger content.json');
+    }
+
+    const data = await response.json();
+
+    currentProjectItems =
+      data.currentProjects &&
+      Array.isArray(data.currentProjects.items)
+        ? data.currentProjects.items
+        : [];
+
+    renderCurrentProjects();
+
+  } catch (error) {
+    console.error('Erreur de chargement des projets :', error);
+
+    currentProjectsGrid.innerHTML = `
+      <p style="grid-column:1/-1;color:white;text-align:center;">
+        Impossible de charger les projets en cours.
+      </p>
+    `;
+  }
+}
+  
   currentProjectsGrid.innerHTML =
     currentProjectItems
       .map(function(project, index) {
@@ -1255,8 +1281,6 @@ function renderCurrentProjects() {
       document.getElementById('current-projects-kicker').textContent = t.kicker;
       document.getElementById('current-projects-title').textContent = t.heading;
       document.getElementById('current-projects-intro').textContent = t.intro;
-      document.getElementById('project-title').textContent = t.project;
-      document.getElementById('open-project-button').setAttribute('aria-label', t.projectLink);
       document.getElementById('project-modal-kicker').textContent = t.detailKicker;
       document.getElementById('project-modal-title').textContent = t.project;
       document.getElementById('close-project-modal').setAttribute('aria-label', t.close);
@@ -1283,10 +1307,10 @@ function renderCurrentProjects() {
         button.setAttribute('aria-pressed',String(active));
       });
 
-      document.querySelector('.current-project-content').style.setProperty(
-        '--project-link-text',
-        '"' + t.projectLink.replace(/"/g,'\\"') + '"'
-      );
+currentProjectsGrid.style.setProperty(
+  '--project-link-text',
+  '"' + t.projectLink.replace(/"/g, '\\"') + '"'
+);
 
       const mobileMenu = document.getElementById('main-menu');
       mobileMenu.classList.remove('mobile-open');
@@ -1294,7 +1318,7 @@ function renderCurrentProjects() {
       document.getElementById('mobile-menu-button').textContent = '☰';
     }
 
-    renderCurrentProjects();
+loadCurrentProjects();
     
 document.querySelectorAll('[data-lang]').forEach(button => {
   button.addEventListener('click', () => {
