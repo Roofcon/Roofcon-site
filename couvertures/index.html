@@ -1131,43 +1131,35 @@
 }
 
     
-/* Logos sociaux du header */
+
+/* Logos sociaux du header, sans cercle */
 .top-social-icons {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .top-social-icons a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
   color: #d8d2cd;
   text-decoration: none;
-  transition:
-    color 0.25s ease,
-    background 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
+  transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .top-social-icons svg {
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 19px;
+  height: 19px;
   fill: currentColor;
 }
 
 .top-social-icons a:hover {
-  color: #ffffff;
-  background: var(--brown);
-  border-color: var(--brown);
+  color: var(--brown);
   transform: translateY(-2px);
 }
+
 
   </style>
 
