@@ -3629,6 +3629,33 @@ footer{
   border-color:#3b3634;
 }
 
+  
+/* PHOTOS DE COUVERTURE DES CATÉGORIES */
+
+.home-reference-card{
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+}
+
+.home-reference-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(20,18,17,.95) 0%,
+    rgba(20,18,17,.55) 45%,
+    rgba(20,18,17,.12) 100%
+  );
+  z-index:1;
+  pointer-events:none;
+}
+
+.home-reference-card:hover{
+  background-color:#262322;
+}
+
 
 /* NUMÉRO */
 
@@ -6882,6 +6909,7 @@ if (homeReferencesLink) {
 }
 
 
+
 if(homeReferencesGrid){
 
   homeReferencesGrid.innerHTML =
@@ -6889,9 +6917,23 @@ if(homeReferencesGrid){
       .slice(0,5)
       .map(function(category){
 
+        const categoryImage = category.image || '';
+
+        const imageStyle = categoryImage
+          ? `background-image:
+              linear-gradient(
+                to top,
+                rgba(20,18,17,.96) 0%,
+                rgba(20,18,17,.65) 45%,
+                rgba(20,18,17,.15) 100%
+              ),
+              url('${esc(categoryImage)}');`
+          : '';
+
         return `
           <article
             class="home-reference-card"
+            style="${imageStyle}"
           >
 
             <div class="home-reference-number">
@@ -6930,6 +6972,7 @@ if(homeReferencesGrid){
       .join('');
 
 }
+
   
 /* =========================================================
    ACCUEIL — APERÇU DES PROJETS EN COURS
