@@ -3625,7 +3625,6 @@ footer{
 
 .home-reference-card:hover{
   transform:none;
-  background:#262322;
   border-color:#3b3634;
 }
 
@@ -3633,9 +3632,13 @@ footer{
 /* PHOTOS DE COUVERTURE DES CATÉGORIES */
 
 .home-reference-card{
+  background-color:#262322;
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
+  background-attachment:scroll;
+  position:relative;
+  overflow:hidden;
 }
 
 .home-reference-card::before{
@@ -6919,16 +6922,9 @@ if(homeReferencesGrid){
 
         const categoryImage = category.image || '';
 
-        const imageStyle = categoryImage
-          ? `background-image:
-              linear-gradient(
-                to top,
-                rgba(20,18,17,.96) 0%,
-                rgba(20,18,17,.65) 45%,
-                rgba(20,18,17,.15) 100%
-              ),
-              url('${esc(categoryImage)}');`
-          : '';
+const imageStyle = categoryImage
+  ? `background-image: url('${esc(categoryImage)}');`
+  : '';
 
         return `
           <article
