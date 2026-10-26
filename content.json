@@ -713,18 +713,18 @@
       {
         "id": "current-project-1791179907640",
         "title": {
-          "fr": "Nouveau projet",
-          "de": "Neues Projekt"
+          "fr": "Bureaux à Mönchengladbach (DE)",
+          "de": "Büros in Mönchengladbach (DE)"
         },
         "description": {
           "fr": "",
           "de": ""
         },
-        "address": "",
-        "latitude": null,
-        "longitude": null,
+        "address": "einruhrstraße 100 41199 Mönchengladbach",
+        "latitude": 51.1412553,
+        "longitude": 6.4438749,
         "images": [
-          "images/projets-en-cours/current-project-1791179907640-1791549024832-ccv5ci.jpeg"
+          "images/projets-en-cours/current-project-1791179907640-1793016949484-5m6a8l.png"
         ]
       }
     ]
