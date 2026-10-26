@@ -5423,11 +5423,15 @@ window.openCurrentProject = function(id){
 
 /* RETOUR DEPUIS UNE PAGE DÉTAIL */
 
+
 function goBackFromDetail(){
 
   if(currentDetailType === 'current'){
 
-    showPage('current-projects');
+    window.location.href =
+      LANG === 'de'
+        ? '/aktuelle-projekte/'
+        : '/projets-en-cours/';
 
     return;
 
@@ -5438,6 +5442,7 @@ function goBackFromDetail(){
   );
 
 }
+
 
 function openServiceInfo(serviceId){
   
