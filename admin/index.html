@@ -1090,30 +1090,72 @@ function renderPoles(){
     set(`pole-${i}-text-fr`,pole.text?.fr);
     set(`pole-${i}-text-de`,pole.text?.de);
 
-    if(pole.image){
+    
+if (pole.image) {
+  $(`pole-${i}-image-preview`).innerHTML = `
+    <p class="hint">Image actuelle :</p>
 
-      $(`pole-${i}-image-preview`).innerHTML=
-        `
-        <p class="hint">
-          Image actuelle :
-        </p>
+    <img
+      src="../${pole.image}"
+      alt="Image de fond du département"
+      style="
+        max-width:100%;
+        max-height:220px;
+        border-radius:12px;
+        display:block;
+        margin-top:10px;
+      "
+    >
 
-        <img
-          src="../${pole.image}"
-          style="
-            max-width:100%;
-            max-height:220px;
-            border-radius:12px;
-            display:block;
-            margin-top:10px;
-          "
-        >
-        `;
-
-    }
+    <button
+      type="button"
+      class="danger"
+      style="margin-top:10px"
+      onclick="deletePoleImage(${i})"
+    >
+      🗑 Supprimer l’image
+    </button>
+  `;
+}
 
   });
 
+}
+
+  
+function deletePoleImage(index) {
+  const pole = C?.about?.poles?.[index];
+
+  if (!pole || !pole.image) {
+    return;
+  }
+
+  const confirmed = confirm(
+    "Voulez-vous vraiment supprimer l’image de fond de ce département ?"
+  );
+
+  if (!confirmed) {
+    return;
+  }
+
+  // Retirer l'image de la configuration
+  delete pole.image;
+
+  // Réinitialiser le champ de sélection du fichier
+  const fileInput = $(`pole-${index}-image-input`);
+  if (fileInput) {
+    fileInput.value = "";
+  }
+
+  // Mettre à jour l'aperçu immédiatement
+  const preview = $(`pole-${index}-image-preview`);
+  if (preview) {
+    preview.innerHTML = `
+      <p class="hint">
+        Aucune image de fond actuellement.
+      </p>
+    `;
+  }
 }
 
 
