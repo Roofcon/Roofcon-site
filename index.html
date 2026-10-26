@@ -5424,24 +5424,28 @@ window.openCurrentProject = function(id){
 /* RETOUR DEPUIS UNE PAGE DÉTAIL */
 
 
+
 function goBackFromDetail(){
 
   if(currentDetailType === 'current'){
 
-    window.location.href =
+    const destination =
       LANG === 'de'
         ? '/aktuelle-projekte/'
         : '/projets-en-cours/';
 
-    return;
+    alert(
+      'LANG = ' + LANG +
+      '\nDestination = ' + destination
+    );
 
+    window.location.assign(destination);
+    return;
   }
 
-  openReferenceCategory(
-    currentReferenceCategoryId
-  );
-
+  openReferenceCategory(currentReferenceCategoryId);
 }
+
 
 
 function openServiceInfo(serviceId){
