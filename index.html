@@ -5089,31 +5089,6 @@ if(CONTENT.currentProjects){
   </div>
 `);
 
-       marker.on('popupopen', function(){
-
-  const button =
-    document.querySelector(
-      '.current-project-button[data-project-id="' +
-      project.id +
-      '"]'
-    );
-
-  if(button){
-
-    button.onclick = function(event){
-
-      event.stopPropagation();
-
-      window.openCurrentProject(
-        project.id
-      );
-
-    };
-
-  }
-
-});
-        
         chantierMarkers.push(marker);
 
         positions.push([
@@ -5215,11 +5190,13 @@ if(CONTENT.currentProjects){
 
 }
 
-  function openMapProject(categoryId, projectId){
+  
+function openMapProject(categoryId, projectId){
 
   openReference(projectId);
 
 }
+
 
 window.openCurrentProject = function(id){
 
