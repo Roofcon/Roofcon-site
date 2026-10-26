@@ -7308,6 +7308,7 @@ const refsGrid =
 const categoriesContainer =
   document.getElementById('reference-categories');
 
+
 function renderReferenceCategories(){
 
   categoriesContainer.innerHTML =
@@ -7315,107 +7316,90 @@ function renderReferenceCategories(){
 
       let icon = '';
 
-     if(category.id === 'facades'){
-  icon = `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <path d="M10 54V15L32 7L54 15V54"/>
-      <path d="M17 54V20L32 15L47 20V54"/>
-      <path d="M17 28H47"/>
-      <path d="M17 36H47"/>
-      <path d="M17 44H47"/>
-      <path d="M22 20V54"/>
-      <path d="M42 20V54"/>
-      <path d="M51 22L57 22"/>
-      <path d="M51 28L57 28"/>
-      <path d="M51 34L57 34"/>
-      <path d="M51 40L57 40"/>
-    </svg>
-  `;
-}
+      if(category.id === 'facades'){
+        icon = `
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M10 54V15L32 7L54 15V54"/>
+            <path d="M17 54V20L32 15L47 20V54"/>
+            <path d="M17 28H47"/>
+            <path d="M17 36H47"/>
+            <path d="M17 44H47"/>
+            <path d="M22 20V54"/>
+            <path d="M42 20V54"/>
+            <path d="M51 22L57 22"/>
+            <path d="M51 28L57 28"/>
+            <path d="M51 34L57 34"/>
+            <path d="M51 40L57 40"/>
+          </svg>`;
+      } else if(category.id === 'toitures'){
+        icon = `
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M8 24H56"/>
+            <path d="M8 30H56"/>
+            <path d="M8 36H56"/>
+            <path d="M8 42H56"/>
+            <path d="M8 48H56"/>
+            <path d="M14 24V48"/>
+            <path d="M50 24V48"/>
+            <path d="M18 18H46"/>
+            <path d="M18 18L22 14H42L46 18"/>
+            <path d="M26 14V9"/>
+            <path d="M38 14V9"/>
+            <path d="M23 54H41"/>
+          </svg>`;
+      } else if(category.id === 'charpentes'){
+        icon = `
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M7 50L32 10L57 50"/>
+            <path d="M15 50L32 23L49 50"/>
+            <path d="M21 41H43"/>
+            <path d="M25 35L39 35"/>
+            <path d="M32 10V54"/>
+            <path d="M12 50H52"/>
+            <path d="M17 50L25 37"/>
+            <path d="M47 50L39 37"/>
+          </svg>`;
+      } else if(category.id === 'couvertures'){
+        icon = `
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M10 39L22 27L34 39L22 51Z"/>
+            <path d="M30 39L42 27L54 39L42 51Z"/>
+            <path d="M10 39L10 47L22 59L34 47L34 39"/>
+            <path d="M30 39L30 47L42 59L54 47L54 39"/>
+            <path d="M39 12L53 26"/>
+            <path d="M35 16L49 30"/>
+            <path d="M35 16L42 9L49 16L42 23Z"/>
+            <path d="M47 30L56 39"/>
+          </svg>`;
+      } else if(category.id === 'maisons'){
+        icon = `
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <path d="M8 30L32 10L56 30"/>
+            <path d="M14 27V54H50V27"/>
+            <path d="M25 54V38H39V54"/>
+            <path d="M19 33H27V40H19Z"/>
+            <path d="M37 33H45V40H37Z"/>
+          </svg>`;
+      }
 
-  if(category.id === 'toitures'){
-  icon = `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <path d="M8 24H56"/>
-      <path d="M8 30H56"/>
-      <path d="M8 36H56"/>
-      <path d="M8 42H56"/>
-      <path d="M8 48H56"/>
-      <path d="M14 24V48"/>
-      <path d="M50 24V48"/>
-      <path d="M18 18H46"/>
-      <path d="M18 18L22 14H42L46 18"/>
-      <path d="M26 14V9"/>
-      <path d="M38 14V9"/>
-      <path d="M23 54H41"/>
-    </svg>
-  `;
-}
+      return `
+        <button
+          type="button"
+          class="reference-category"
+          data-category="${esc(category.id)}"
+          style="background-image: url('${esc(category.image || '')}')"
+        >
+          <div class="reference-category-content">
+            <div class="reference-category-icon">
+              ${icon}
+            </div>
 
-   if(category.id === 'charpentes'){
-  icon = `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <path d="M7 50L32 10L57 50"/>
-      <path d="M15 50L32 23L49 50"/>
-      <path d="M21 41H43"/>
-      <path d="M25 35L39 35"/>
-      <path d="M32 10V54"/>
-      <path d="M12 50H52"/>
-      <path d="M17 50L25 37"/>
-      <path d="M47 50L39 37"/>
-    </svg>
-  `;
-}
-if(category.id === 'couvertures'){
-  icon = `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <path d="M10 39L22 27L34 39L22 51Z"/>
-      <path d="M30 39L42 27L54 39L42 51Z"/>
-      <path d="M10 39L10 47L22 59L34 47L34 39"/>
-      <path d="M30 39L30 47L42 59L54 47L54 39"/>
-      <path d="M39 12L53 26"/>
-      <path d="M35 16L49 30"/>
-      <path d="M35 16L42 9L49 16L42 23Z"/>
-      <path d="M47 30L56 39"/>
-    </svg>
-  `;
-}
-if(category.id === 'maisons'){
-  icon = `
-    <svg viewBox="0 0 64 64" aria-hidden="true">
-      <path d="M8 30L32 10L56 30"/>
-      <path d="M14 27V54H50V27"/>
-      <path d="M25 54V38H39V54"/>
-      <path d="M19 33H27V40H19Z"/>
-      <path d="M37 33H45V40H37Z"/>
-    </svg>
-  `;
-}
-return `
-  <button
-    type="button"
-    class="reference-category"
-    data-category="${esc(category.id)}"
-    style="
-      background-image:
-        url('${esc(category.image || '')}');
-    "
-  >
-
-    <div class="reference-category-content">
-
-      <div class="reference-category-icon">
-        ${icon}
-      </div>
-
-      <span class="reference-category-title">
-        ${esc(t(category.title))}
-      </span>
-
-    </div>
-
-  </button>
-`;
+            <span class="reference-category-title">
+              ${esc(t(category.title))}
+            </span>
+          </div>
+        </button>
+      `;
 
     }).join('');
 
@@ -7423,25 +7407,22 @@ return `
     .querySelectorAll('.reference-category')
     .forEach(function(button){
 
-      button.addEventListener(
-        'click',
-        function(){
+      button.addEventListener('click', function(){
 
-          document
-            .querySelectorAll('.reference-category')
-            .forEach(function(item){
-              item.classList.remove('active');
-            });
+        document
+          .querySelectorAll('.reference-category')
+          .forEach(function(item){
+            item.classList.remove('active');
+          });
 
-          button.classList.add('active');
+        button.classList.add('active');
 
-openReferenceCategory(
-  button.dataset.category,
-  'references'
-);
+        openReferenceCategory(
+          button.dataset.category,
+          'references'
+        );
 
-        }
-      );
+      });
 
     });
 
