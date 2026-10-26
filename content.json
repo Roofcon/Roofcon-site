@@ -199,7 +199,7 @@
           "fr": "Conception et réalisation de toitures plates pour les constructions neuves comme pour les projets de rénovation. ROOFCON met en œuvre des solutions adaptées à chaque bâtiment, en accordant une attention particulière à l'isolation, à l'étanchéité, aux raccords et aux détails techniques.",
           "de": "Planung und Ausführung von Flachdächern für Neubauten und Sanierungsprojekte. ROOFCON setzt Lösungen um, die auf das jeweilige Gebäude abgestimmt sind, mit besonderem Augenmerk auf Dämmung, Abdichtung, Anschlüsse und technische Details."
         },
-        "image": "",
+        "image": "images/poles/toitures-1793006705358.png",
         "infoWhat": {
           "title": {
             "fr": "Qu'est-ce qu'une toiture plate ?",
@@ -424,7 +424,7 @@
           "fr": "Construction de maisons, extensions et annexes en ossature bois, conçues selon les besoins de chaque projet. ROOFCON prend en charge la réalisation des structures bois avec une approche précise et adaptée aux contraintes du bâtiment, de la préparation des éléments jusqu'à leur mise en œuvre sur chantier.",
           "de": "Bau von Häusern, Erweiterungen und Anbauten in Holzrahmenbauweise, die entsprechend den Anforderungen jedes Projekts geplant werden. ROOFCON realisiert die Holzkonstruktionen präzise und abgestimmt auf die jeweiligen baulichen Anforderungen – von der Vorbereitung der Elemente bis zur Montage auf der Baustelle."
         },
-        "image": "",
+        "image": "images/poles/maisons-1793006721928.png",
         "infoWhat": {
           "title": {
             "fr": "Qu'est-ce qu'une construction en ossature bois ?",
@@ -564,32 +564,20 @@
       "fr": "Découvrez les opportunités professionnelles chez ROOFCON et participez à des projets variés dans les domaines de la construction bois, de la charpente, de la toiture et des façades ventilées. Nous recherchons des personnes motivées, attachées au travail bien fait et désireuses de mettre leur savoir-faire au service de réalisations de qualité.",
       "de": "Entdecken Sie berufliche Möglichkeiten bei ROOFCON und arbeiten Sie an vielseitigen Projekten in den Bereichen Holzbau, Dachkonstruktionen, Dachdeckerarbeiten und hinterlüftete Fassaden mit. Wir suchen motivierte Menschen, die Wert auf sorgfältige Arbeit legen und ihre Fähigkeiten bei hochwertigen Bauprojekten einbringen möchten."
     },
-
-
-"items": [
-  {
-    "id": "job-1789375039262",
-    "title": {
-      "fr": "COUVREURS/CHARPENTIERS",
-      "de": "DACHDECKER/ZIMMERER"
-    },
-    "description": {
-      "fr": "Nous recherchons des couvreurs/charpentiers expérimentés. Découvrez notre offre dès maintenant.",
-      "de": "Wir suchen erfahrene Dachdecker und Zimmerleute. Entdecken Sie unser Angebot jetzt."
-    },
-    "images": {
-      "fr": [
-        "images/jobs/job-1789375039262-1789375132913-oddsw8.png",
-        "images/jobs/job-1789375039262-1789375262575-s377p5.png"
-      ],
-      "de": [
-        "images/jobs/job-1789374110204-1789374181825.png"
-      ]
-    }
-  }
-]
-
-
+    "items": [
+      {
+        "id": "job-1789375039262",
+        "title": {
+          "fr": "COUVREURS/CHARPENTIERS",
+          "de": "DACHDECKER/ZIMMERER"
+        },
+        "description": {
+          "fr": "Nous recherchons des couvreurs/charpentiers expérimentés. Découvrez notre offre dès maintenant.",
+          "de": "Wir suchen erfahrene Dachdecker und Zimmerleute. Entdecken Sie unser Angebot jetzt."
+        },
+        "images": []
+      }
+    ]
   },
   "contact": {
     "kicker": {
