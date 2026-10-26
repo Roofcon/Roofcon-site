@@ -997,45 +997,253 @@ function renderTopBar() {
 
     let currentLanguage = 'fr';
 
-    const projectImage = '/images/projets-en-cours/current-project-1791179907640-1791549024832-ccv5ci.jpeg';
+   function openProject(index) {
 
-    function openProject() {
-      const t = translations[currentLanguage];
-      renderTopBar();
-      const modal = document.getElementById('project-modal');
+  const project =
+    currentProjectItems[index];
 
-      document.getElementById('project-modal-kicker').textContent = t.detailKicker;
-      document.getElementById('project-modal-title').textContent = t.project;
-      document.getElementById('project-modal-description').textContent = '';
-      document.getElementById('project-modal-address').textContent = '';
+  if (!project) return;
 
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden','false');
-      document.body.classList.add('detail-open');
-      document.getElementById('close-project-modal').focus();
+  const tCurrent =
+    translations[currentLanguage];
+
+  const modal =
+    document.getElementById('project-modal');
+
+
+  const image =
+    Array.isArray(project.images) &&
+    project.images.length
+      ? project.images[0]
+      : '';
+
+
+  const title =
+    t(project.title) || tCurrent.project;
+
+
+  const description =
+    t(project.description) || '';
+
+
+  const address =
+    project.address || '';
+
+
+  const modalImage =
+    document.querySelector('.project-modal-image');
+
+
+  if (modalImage) {
+
+    if (image) {
+
+      modalImage.src = image;
+      modalImage.alt = title;
+      modalImage.style.display = '';
+
+    } else {
+
+      modalImage.removeAttribute('src');
+      modalImage.alt = '';
+      modalImage.style.display = 'none';
+
     }
+
+  }
+
+
+  document.getElementById(
+    'project-modal-kicker'
+  ).textContent =
+    tCurrent.detailKicker;
+
+
+  document.getElementById(
+    'project-modal-title'
+  ).textContent =
+    title;
+
+
+  document.getElementById(
+    'project-modal-description'
+  ).textContent =
+    description;
+
+
+  document.getElementById(
+    'project-modal-address'
+  ).textContent =
+    address;
+
+
+  modal.classList.add('open');
+
+  modal.setAttribute(
+    'aria-hidden',
+    'false'
+  );
+
+  document.body.classList.add(
+    'detail-open'
+  );
+
+  document.getElementById(
+    'close-project-modal'
+  ).focus();
+
+}
 
     function closeProject() {
-      const modal = document.getElementById('project-modal');
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden','true');
-      document.body.classList.remove('detail-open');
-      document.getElementById('open-project-button').focus();
-    }
 
-    document.getElementById('open-project-button').addEventListener('click', openProject);
-    document.getElementById('close-project-modal').addEventListener('click', closeProject);
+  const modal =
+    document.getElementById('project-modal');
 
-    document.getElementById('project-modal').addEventListener('click', function(event) {
-      if (event.target === this) closeProject();
+  modal.classList.remove('open');
+
+  modal.setAttribute(
+    'aria-hidden',
+    'true'
+  );
+
+  document.body.classList.remove(
+    'detail-open'
+  );
+
+}
+
+    /* =========================================================
+   PROJETS EN COURS — AFFICHAGE DYNAMIQUE
+========================================================= */
+
+const currentProjectsGrid =
+  document.getElementById('current-projects-grid');
+
+const currentProjectItems =
+  c.currentProjects &&
+  Array.isArray(c.currentProjects.items)
+    ? c.currentProjects.items
+    : [];
+
+
+function renderCurrentProjects() {
+
+  if (!currentProjectsGrid) return;
+
+  if (!currentProjectItems.length) {
+
+    currentProjectsGrid.innerHTML = `
+      <p style="
+        grid-column:1/-1;
+        color:rgba(255,255,255,.7);
+        text-align:center;
+        padding:40px 0;
+      ">
+        ${
+          currentLanguage === 'fr'
+            ? 'Aucun projet en cours.'
+            : 'Derzeit keine aktuellen Projekte.'
+        }
+      </p>
+    `;
+
+    return;
+  }
+
+
+  currentProjectsGrid.innerHTML =
+    currentProjectItems
+      .map(function(project, index) {
+
+        const image =
+          Array.isArray(project.images) &&
+          project.images.length
+            ? project.images[0]
+            : '';
+
+        const title =
+          t(project.title) || (
+            currentLanguage === 'fr'
+              ? 'Projet en cours'
+              : 'Aktuelles Projekt'
+          );
+
+        const description =
+          t(project.description) || '';
+
+        const address =
+          project.address || '';
+
+        return `
+          <button
+            type="button"
+            class="current-project"
+            data-project-index="${index}"
+            aria-label="${
+              currentLanguage === 'fr'
+                ? 'Voir le projet'
+                : 'Projekt ansehen'
+            }"
+          >
+
+            ${
+              image
+                ? `
+                  <img
+                    src="${esc(image)}"
+                    alt="${esc(title)}"
+                    width="1200"
+                    height="800"
+                    loading="lazy"
+                  >
+                `
+                : ''
+            }
+
+            <div class="current-project-overlay"></div>
+
+            <div class="current-project-content">
+
+              <h2>
+                ${esc(title)}
+              </h2>
+
+              ${
+                description
+                  ? `
+                    <p>
+                      ${esc(description)}
+                    </p>
+                  `
+                  : ''
+              }
+
+            </div>
+
+          </button>
+        `;
+
+      })
+      .join('');
+
+
+  currentProjectsGrid
+    .querySelectorAll('.current-project')
+    .forEach(function(button) {
+
+      button.addEventListener('click', function() {
+
+        const index =
+          Number(button.dataset.projectIndex);
+
+        openProject(index);
+
+      });
+
     });
 
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape' && document.getElementById('project-modal').classList.contains('open')) {
-        closeProject();
-      }
-    });
-
+}
+    
     function setLanguage(lang) {
       currentLanguage = translations[lang] ? lang : 'fr';
       const t = translations[currentLanguage];
@@ -1086,6 +1294,8 @@ function renderTopBar() {
       document.getElementById('mobile-menu-button').textContent = '☰';
     }
 
+    renderCurrentProjects();
+    
 document.querySelectorAll('[data-lang]').forEach(button => {
   button.addEventListener('click', () => {
     const targetLang = button.dataset.lang;
