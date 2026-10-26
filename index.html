@@ -7247,46 +7247,20 @@ if(currentItems.length === 0){
               ''
           }
 
-          <div class="current-project-overlay"></div>
+         
+<div class="current-project-overlay"></div>
 
-          <div class="current-project-content">
+<div class="current-project-content">
+  <h3>
+    ${esc(t(project.title))}
+  </h3>
+</div>
 
-            <h3>
-              ${esc(t(project.title))}
-            </h3>
-
-            ${
-              t(project.description)
-                ?
-                `
-                  <p>
-                    ${esc(
-                      t(project.description)
-                    )}
-                  </p>
-                `
-                :
-                ''
-            }
-
-            ${
-              project.address
-                ?
-                `
-                  <div
-                    class="current-project-location">
-                    ${esc(project.address)}
-                  </div>
-                `
-                :
-                ''
-            }
-
-          </div>
-        </article>
-      `;
-    }).join('');
+</article>
+`;
+}).join('');
 }
+
   
 /* RÉFÉRENCES */
 
