@@ -771,48 +771,466 @@
         transition-duration: 0.01ms !important;
       }
     }
+
+    
+/* ================================
+   BARRE DE CONTACT
+================================ */
+
+.top {
+  padding: 8px 0;
+  background: var(--black);
+  color: #e8e1db;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+.top .inner {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.top a {
+  transition: color 0.2s ease;
+}
+
+.top a:hover {
+  color: var(--brown-light);
+}
+
+.top-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.top-social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+}
+
+.top-social-icons svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* ================================
+   EN-TÊTE PRINCIPAL
+================================ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid rgba(33, 31, 32, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+.site-header .nav {
+  position: relative;
+  display: flex;
+  min-height: 88px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-header .logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.site-header .logo img {
+  display: block;
+  width: 174px;
+  max-height: 66px;
+  object-fit: contain;
+}
+
+.site-header .lang {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 5px;
+}
+
+.site-header .lang a {
+  display: inline-flex;
+  min-width: 32px;
+  min-height: 30px;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  font-size: 11px;
+  font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.site-header .lang a:hover,
+.site-header .lang a.active {
+  border-color: var(--black);
+  background: var(--black);
+  color: var(--white);
+}
+
+.site-header .menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.site-header .menu a {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.site-header .menu a:hover {
+  color: var(--brown);
+}
+
+.site-header .menu a.cta {
+  padding: 12px 16px;
+  background: var(--black);
+  color: var(--white);
+}
+
+.site-header .menu a.cta:hover {
+  background: var(--brown);
+  color: var(--white);
+}
+
+.mobile-menu-button {
+  display: none;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--black);
+  padding: 7px 11px;
+  font-family: inherit;
+  font-size: 23px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+/* ================================
+   PIED DE PAGE
+================================ */
+
+.site-footer {
+  padding: 58px 0 0;
+  background: #181717;
+  color: #d8d2cd;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 1fr 0.8fr;
+  gap: 38px;
+  padding-bottom: 42px;
+}
+
+.site-footer .footer-logo {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.site-footer .footer-logo img {
+  display: block;
+  width: 145px;
+  max-height: 60px;
+  object-fit: contain;
+}
+
+.footer-description {
+  max-width: 290px;
+  color: #aaa39d;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer-title {
+  margin-bottom: 18px;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.footer-item {
+  margin-bottom: 10px;
+  color: #c5bfba;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer-item a {
+  overflow-wrap: anywhere;
+  transition: color 0.2s ease;
+}
+
+.footer-item a:hover,
+.footer-legal a:hover {
+  color: var(--brown-light);
+}
+
+.footer-item strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-social-icons a {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-social-icons a:hover {
+  border-color: var(--brown);
+  background: var(--brown);
+}
+
+.footer-social-icons svg {
+  width: 17px;
+  height: 17px;
+  fill: currentColor;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: #aaa39d;
+  font-size: 11px;
+}
+
+.footer-legal a {
+  transition: color 0.2s ease;
+}
+
+/* ================================
+   ADAPTATION TABLETTE
+================================ */
+
+@media (max-width: 1100px) {
+  .site-header .nav {
+    gap: 16px;
+  }
+
+  .site-header .logo img {
+    width: 145px;
+  }
+
+  .site-header .menu {
+    gap: 13px;
+  }
+
+  .site-header .menu a {
+    font-size: 9px;
+  }
+
+  .footer-grid {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ================================
+   MENU MOBILE
+================================ */
+
+@media (max-width: 750px) {
+  .top .inner {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+  }
+
+  .site-header .nav {
+    min-height: 76px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .site-header .logo img {
+    width: 135px;
+  }
+
+  .site-header .lang {
+    margin-left: auto;
+  }
+
+  .mobile-menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-header .menu {
+    display: none;
+    width: 100%;
+    flex-basis: 100%;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px 0 12px;
+    border-top: 1px solid var(--line);
+  }
+
+  .site-header .menu.mobile-open {
+    display: flex;
+  }
+
+  .site-header .menu a {
+    display: block;
+    padding: 13px 4px;
+    border-bottom: 1px solid rgba(33, 31, 32, 0.07);
+    font-size: 11px;
+  }
+
+  .site-header .menu a.cta {
+    margin-top: 10px;
+    padding: 13px 16px;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .site-footer {
+    padding-top: 42px;
+  }
+
+  .footer-grid {
+    padding-bottom: 30px;
+  }
+}
+
   </style>
 </head>
 
 <body>
 
-  <div class="topbar">
-    <div class="container topbar-inner">
-<span class="topbar-location">Construction bois · Toitures · Façades</span>
-      <a href="tel:+352621765489">+352 621 765 489</a>
+ 
+  <!-- BARRE DE CONTACT -->
+  <div class="top">
+    <div class="container inner">
+      <span id="top-phone">
+        <a href="tel:+352621765489">+352 621 765 489</a>
+      </span>
+
+      <span id="top-email">
+        <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+      </span>
+
+      <span class="top-social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61594591794889"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="ROOFCON sur Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8h3.4z"/>
+          </svg>
+        </a>
+
+        <a href="https://www.instagram.com/roofcon.lu/"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="ROOFCON sur Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5"
+                  fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="12" cy="12" r="4"
+                    fill="none" stroke="currentColor" stroke-width="2"/>
+            <circle cx="17.5" cy="6.8" r="1.2"/>
+          </svg>
+        </a>
+      </span>
     </div>
   </div>
 
-  <header class="header">
-    <div class="container header-inner">
-
+  <!-- NAVIGATION PRINCIPALE -->
+  <header class="site-header">
+    <div class="container nav">
       <a class="logo" href="/" aria-label="ROOFCON – accueil">
-        <img src="/ROOFCON.png" alt="ROOFCON – Holzbau, Bedachung und Fassadenbau">
+        <img src="/ROOFCON.png" alt="ROOFCON">
       </a>
 
-<nav class="nav" aria-label="Navigation principale">
-  <a href="/" data-fr="Accueil" data-de="Startseite">Accueil</a>
-  <a href="/?realisation=facades" data-fr="Réalisations" data-de="Referenzen">Réalisations</a>
-  <a href="mailto:info@roof-con.com" class="nav-cta" data-fr="Nous contacter" data-de="Kontakt">Nous contacter</a>
+      <div class="lang" aria-label="Choisir la langue">
+        <a href="/facades-ventilees/"
+           class="active"
+           lang="fr"
+           hreflang="fr-LU"
+           aria-current="page">FR</a>
 
-  <a
-    href="/facades-ventilees/"
-    id="lang-fr"
-    class="lang-switch active"
-    aria-current="page"
-    lang="fr">FR</a>
+        <a href="/de/hinterlueftete-fassaden/"
+           lang="de"
+           hreflang="de-LU">DE</a>
+      </div>
 
-  <a
-    href="/de/hinterlueftete-fassaden/"
-    id="lang-de"
-    class="lang-switch"
-    lang="de"
-    hreflang="de-LU">DE</a>
+      <button type="button"
+              class="mobile-menu-button"
+              id="mobile-menu-button"
+              aria-label="Ouvrir le menu"
+              aria-expanded="false"
+              aria-controls="main-menu">☰</button>
 
-</nav>
-
+      <nav class="menu" id="main-menu" aria-label="Navigation principale">
+        <a href="/">Accueil</a>
+        <a href="/qui-sommes-nous/">Qui sommes-nous</a>
+        <a href="/services/">Nos services</a>
+        <a href="/projets-en-cours/">Projets en cours</a>
+        <a href="/realisations/">Réalisations</a>
+        <a href="/emploi/">Offres d'emploi</a>
+        <a href="/contact/" class="cta">Contact</a>
+      </nav>
     </div>
   </header>
+
 
   <main>
 
@@ -852,7 +1270,7 @@
    data-de="Hinterlüftete Fassaden entdecken">
   Découvrir la façade ventilée
 </a>
-<a class="button button-outline" href="https://roof-con.com/services">
+<a class="button button-outline" href="/services/">
   Retour aux services
 </a>
           </div>
@@ -1169,60 +1587,118 @@
 
   </main>
 
-  <footer class="footer">
-    <div class="container footer-inner">
+ 
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
 
-      <a
-        class="footer-logo"
-        href="/"
-        aria-label="ROOFCON – accueil">
-        <img src="/ROOFCON.png" alt="ROOFCON">
-      </a>
+        <div>
+          <a href="/" aria-label="ROOFCON – accueil">
+            <img src="/ROOFCON.png" class="footer-logo" alt="ROOFCON">
+          </a>
 
-      <nav class="footer-links" aria-label="Liens de pied de page">
-        <a
-          href="/"
-          data-fr="Accueil"
-          data-de="Startseite">Accueil</a>
+          <div class="footer-description">
+            Charpente, couverture, toitures plates, façades ventilées
+            et construction bois au Luxembourg et dans la Grande Région.
+          </div>
+        </div>
 
-        <a
-          href="/?realisation=facades"
-          data-fr="Réalisations"
-          data-de="Referenzen">Réalisations</a>
+        <div>
+          <div class="footer-title">Contact</div>
+          <div class="footer-item"><strong>Joël Brück</strong></div>
+          <div class="footer-item">
+            <a href="tel:+352621765489">+352 621 765 489</a>
+          </div>
+          <div class="footer-item">
+            <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+          </div>
+        </div>
 
-        <a
-          href="https://www.instagram.com/roofcon.lu/"
-          target="_blank"
-          rel="noopener noreferrer">
-          Instagram
-        </a>
+        <div>
+          <div class="footer-title">Adresse</div>
+          <div class="footer-item">
+            Z.A.E.R. Op Stackem 8<br>
+            9952 Drinklange, Luxembourg
+          </div>
+          <div class="footer-item">
+            Du lundi au vendredi : 07:30–17:30
+          </div>
+        </div>
 
-        <a
-          href="https://www.facebook.com/profile.php?id=61594591794889"
-          target="_blank"
-          rel="noopener noreferrer">
-          Facebook
-        </a>
+        <div>
+          <div class="footer-title">Suivez-nous</div>
+          <div class="footer-social-icons">
+            <a href="https://www.facebook.com/profile.php?id=61594591794889"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="ROOFCON sur Facebook" title="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8h3.4z"/>
+              </svg>
+            </a>
 
-        <a
-          href="/mentions-legales.html"
-          data-fr="Mentions légales"
-          data-de="Impressum">Mentions légales</a>
-      </nav>
+            <a href="https://www.instagram.com/roofcon.lu/"
+               target="_blank" rel="noopener noreferrer"
+               aria-label="ROOFCON sur Instagram" title="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"
+                      fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4"
+                        fill="none" stroke="currentColor" stroke-width="2"/>
+                <circle cx="17.5" cy="6.8" r="1.2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
 
-      <div class="copyright">
-        © <span id="year"></span> ROOFCON —
-        <span
-          data-fr="Tous droits réservés."
-          data-de="Alle Rechte vorbehalten.">Tous droits réservés.</span>
       </div>
 
+      <div class="footer-bottom">
+        <div>
+          © <span id="year"></span> ROOFCON — Tous droits réservés.
+        </div>
+
+        <div class="footer-legal">
+          <a href="/mentions-legales.html">Mentions légales</a>
+        </div>
+      </div>
     </div>
   </footer>
 
+
+
 <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const yearElement = document.getElementById("year");
+
+  if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+  }
+
+  const mobileButton = document.getElementById("mobile-menu-button");
+  const mainMenu = document.getElementById("main-menu");
+
+  if (mobileButton && mainMenu) {
+    mobileButton.addEventListener("click", function () {
+      const isOpen = mainMenu.classList.toggle("mobile-open");
+
+      mobileButton.setAttribute("aria-expanded", String(isOpen));
+      mobileButton.setAttribute(
+        "aria-label",
+        isOpen ? "Fermer le menu" : "Ouvrir le menu"
+      );
+      mobileButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    mainMenu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        mainMenu.classList.remove("mobile-open");
+        mobileButton.setAttribute("aria-expanded", "false");
+        mobileButton.setAttribute("aria-label", "Ouvrir le menu");
+        mobileButton.textContent = "☰";
+      });
+    });
+  }
 </script>
+
 
 </body>
 </html>
