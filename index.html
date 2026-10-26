@@ -7219,8 +7219,43 @@ if(currentItems.length === 0){
 
 }else{
 
-  currentProjectsGrid.innerHTML =
-    currentItems.map(function(project){
+ 
+currentProjectsGrid.innerHTML =
+  currentItems.map(function(project){
+
+    const image =
+      Array.isArray(project.images) &&
+      project.images.length
+        ? project.images[0]
+        : '';
+
+    return `
+      <article
+        class="current-project"
+        data-current-project-id="${esc(project.id)}"
+        onclick="openCurrentProject('${esc(project.id)}')"
+        style="cursor:pointer;"
+      >
+        ${
+          image
+            ? `
+              <img
+                src="${esc(image)}"
+                alt="${esc(t(project.title))}"
+              >
+            `
+            : ''
+        }
+
+        <div class="current-project-overlay"></div>
+
+        <div class="current-project-content">
+          <h3>${esc(t(project.title))}</h3>
+        </div>
+      </article>
+    `;
+  }).join('');
+}
 
       const image =
         Array.isArray(project.images) &&
