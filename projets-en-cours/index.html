@@ -1112,39 +1112,38 @@ function renderTopBar() {
 
 }
 
-    /* =========================================================
+
+/* =========================================================
    PROJETS EN COURS — AFFICHAGE DYNAMIQUE
 ========================================================= */
 
-const currentProjectsGrid =
-  document.getElementById('current-projects-grid');
+const currentProjectsGrid = document.getElementById('current-projects-grid');
 
 let currentProjectItems = [];
 
-
-function renderCurrentProjects() {
-
-  if (!currentProjectsGrid) return;
-
-  if (!currentProjectItems.length) {
-
-    currentProjectsGrid.innerHTML = `
-      <p style="
-        grid-column:1/-1;
-        color:rgba(255,255,255,.7);
-        text-align:center;
-        padding:40px 0;
-      ">
-        ${
-          currentLanguage === 'fr'
-            ? 'Aucun projet en cours.'
-            : 'Derzeit keine aktuellen Projekte.'
-        }
-      </p>
-    `;
-
-    return;
+function t(value) {
+  if (typeof value === 'string') {
+    return value;
   }
+
+  if (value && typeof value === 'object') {
+    return value[currentLanguage] || value.fr || value.de || '';
+  }
+
+  return '';
+}
+
+function esc(value) {
+  return String(value ?? '').replace(/[&<>"']/g, function(char) {
+    return {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;'
+    }[char];
+  });
+}
 
 async function loadCurrentProjects() {
   try {
@@ -1170,103 +1169,80 @@ async function loadCurrentProjects() {
     console.error('Erreur de chargement des projets :', error);
 
     currentProjectsGrid.innerHTML = `
-      <p style="grid-column:1/-1;color:white;text-align:center;">
+      <p style="grid-column:1/-1;color:white;text-align:center;padding:40px 0;">
         Impossible de charger les projets en cours.
       </p>
     `;
   }
 }
-  
-  currentProjectsGrid.innerHTML =
-    currentProjectItems
-      .map(function(project, index) {
 
-        const image =
-          Array.isArray(project.images) &&
-          project.images.length
-            ? project.images[0]
-            : '';
+function renderCurrentProjects() {
+  if (!currentProjectsGrid) return;
 
-        const title =
-          t(project.title) || (
-            currentLanguage === 'fr'
-              ? 'Projet en cours'
-              : 'Aktuelles Projekt'
-          );
+  if (!currentProjectItems.length) {
+    currentProjectsGrid.innerHTML = `
+      <p style="grid-column:1/-1;color:rgba(255,255,255,.7);text-align:center;padding:40px 0;">
+        ${
+          currentLanguage === 'fr'
+            ? 'Aucun projet en cours.'
+            : 'Derzeit keine aktuellen Projekte.'
+        }
+      </p>
+    `;
+    return;
+  }
 
-        const description =
-          t(project.description) || '';
+  currentProjectsGrid.innerHTML = currentProjectItems
+    .map(function(project, index) {
+      const image =
+        Array.isArray(project.images) && project.images.length
+          ? project.images[0]
+          : '';
 
-        const address =
-          project.address || '';
+      const title =
+        t(project.title) ||
+        (currentLanguage === 'fr' ? 'Projet en cours' : 'Aktuelles Projekt');
 
-        return `
-          <button
-            type="button"
-            class="current-project"
-            data-project-index="${index}"
-            aria-label="${
-              currentLanguage === 'fr'
-                ? 'Voir le projet'
-                : 'Projekt ansehen'
-            }"
-          >
+      const description = t(project.description) || '';
 
+      return `
+        <button
+          type="button"
+          class="current-project"
+          data-project-index="${index}"
+          aria-label="${esc(
+            currentLanguage === 'fr' ? 'Voir le projet' : 'Projekt ansehen'
+          )}"
+        >
+          ${
+            image
+              ? `<img src="${esc(image)}" alt="${esc(title)}" width="1200" height="800" loading="lazy">`
+              : ''
+          }
+
+          <div class="current-project-overlay"></div>
+
+          <div class="current-project-content">
+            <h2>${esc(title)}</h2>
             ${
-              image
-                ? `
-                  <img
-                    src="${esc(image)}"
-                    alt="${esc(title)}"
-                    width="1200"
-                    height="800"
-                    loading="lazy"
-                  >
-                `
+              description
+                ? `<p>${esc(description)}</p>`
                 : ''
             }
-
-            <div class="current-project-overlay"></div>
-
-            <div class="current-project-content">
-
-              <h2>
-                ${esc(title)}
-              </h2>
-
-              ${
-                description
-                  ? `
-                    <p>
-                      ${esc(description)}
-                    </p>
-                  `
-                  : ''
-              }
-
-            </div>
-
-          </button>
-        `;
-
-      })
-      .join('');
-
+          </div>
+        </button>
+      `;
+    })
+    .join('');
 
   currentProjectsGrid
     .querySelectorAll('.current-project')
     .forEach(function(button) {
-
       button.addEventListener('click', function() {
-
-        const index =
-          Number(button.dataset.projectIndex);
-
-        openProject(index);
-
+        openProject(Number(button.dataset.projectIndex));
       });
-
     });
+}
 
 }
     
