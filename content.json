@@ -726,9 +726,11 @@
         "address": "einruhrstraße 100 41199 Mönchengladbach",
         "latitude": 51.1412553,
         "longitude": 6.4438749,
-        "images": [
-          "images/projets-en-cours/current-project-1791179907640-1793016949484-5m6a8l.png"
-        ]
+       
+"images": [
+  "/images/projets-en-cours/current-project-1791179907640-1793016949484-5m6a8l.png"
+]
+
       }
     ]
   },
