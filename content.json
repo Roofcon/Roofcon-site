@@ -416,12 +416,12 @@
         "id": "maisons",
         "number": "05",
         "title": {
-          "fr": "Maisons & annexes en ossature bois",
-          "de": "Häuser & Anbauten in Holzrahmenbauweise"
+          "fr": "Ossatures bois & petites constructions",
+          "de": "Holzrahmenbau & Kleinbauten"
         },
         "text": {
-          "fr": "Construction de maisons, extensions et annexes en ossature bois, conçues selon les besoins de chaque projet. ROOFCON prend en charge la réalisation des structures bois avec une approche précise et adaptée aux contraintes du bâtiment, de la préparation des éléments jusqu'à leur mise en œuvre sur chantier.",
-          "de": "Bau von Häusern, Erweiterungen und Anbauten in Holzrahmenbauweise, die entsprechend den Anforderungen jedes Projekts geplant werden. ROOFCON realisiert die Holzkonstruktionen präzise und abgestimmt auf die jeweiligen baulichen Anforderungen – von der Vorbereitung der Elemente bis zur Montage auf der Baustelle."
+          "fr": "Construction de maisons, extensions, annexes  et petites constructions en ossature bois, conçues selon les besoins de chaque projet. ROOFCON prend en charge la réalisation des structures bois avec une approche précise et adaptée aux contraintes du bâtiment, de la préparation des éléments jusqu'à leur mise en œuvre sur chantier.",
+          "de": "Bau von Häusern, Erweiterungen, Anbauten  und Kleinbauten in Holzrahmenbauweise, die entsprechend den Anforderungen jedes Projekts geplant werden. ROOFCON realisiert die Holzkonstruktionen präzise und abgestimmt auf die jeweiligen baulichen Anforderungen – von der Vorbereitung der Elemente bis zur Montage auf der Baustelle."
         },
         "infoWhat": {
           "title": {
