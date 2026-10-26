@@ -541,10 +541,10 @@
       {
         "id": "maisons",
         "title": {
-          "fr": "Maisons & annexes en ossature bois",
-          "de": "Häuser & Anbauten in Holzrahmenbauweise"
+          "fr": "Ossatures bois & petites constructions",
+          "de": "Holzrahmenbau & Kleinbauten"
         },
-        "image": "images/realisations/maisons-cover-1793009393816.png",
+        "image": "images/realisations/maisons-cover-1793009401625.png",
         "projects": []
       }
     ]
