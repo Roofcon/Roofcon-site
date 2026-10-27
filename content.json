@@ -699,40 +699,36 @@
     }
   },
   "mapProjects": [],
-  "currentProjects": {
-    "kicker": {
-      "fr": "PROJETS EN COURS",
-      "de": "AKTUELLE PROJEKTE"
-    },
-    "title": {
-      "fr": "Des projets actuellement en réalisation",
-      "de": "Aktuelle Projekte in der Umsetzung"
-    },
-    "intro": {
-      "fr": "Découvrez quelques-uns des projets actuellement réalisés par les équipes ROOFCON au Luxembourg et dans la Grande Région. De la préparation à la mise en œuvre sur chantier, nos équipes assurent chaque étape avec la même exigence de précision, de qualité et de savoir-faire.",
-      "de": "Entdecken Sie eine Auswahl der Projekte, die derzeit von den ROOFCON-Teams in Luxemburg und der Großregion umgesetzt werden. Von der Vorbereitung bis zur Ausführung auf der Baustelle begleiten unsere Teams jeden Schritt mit dem gleichen Anspruch an Präzision, Qualität und handwerkliches Know-how."
-    },
-    "items": [
-      {
-        "id": "current-project-1791179907640",
-        "slug": "bureaux-moenchengladbach",
-        "title": {
-          "fr": "Bureaux à Mönchengladbach (DE)",
-          "de": "Büros in Mönchengladbach (DE)"
-        },
-        "description": {
-          "fr": "Bureaux en ossature bois \nBardage extérieur en Dura Patina 21/65 allié avec du crépis \nToiture végétale\nMenuiserie extérieure en aluminium",
-          "de": "Büros in Holzrahmenbauweise \nAußenverkleidung aus Dura Patina 21/65 in Kombination mit Putz \nGründach\nAußenschreinerei aus Aluminium"
-        },
-        "address": "Einruhrstraße 100 41199 Mönchengladbach",
-        "latitude": 51.1412553,
-        "longitude": 6.4438749,
-        "images": [
-          "/images/projets-en-cours/current-project-1791179907640-1793016949484-5m6a8l.png"
-        ]
-      }
-    ]
+ "currentProjects": {
+  "kicker": {
+    "fr": "PROJETS EN COURS",
+    "de": "AKTUELLE PROJEKTE"
   },
+  "title": {
+    "fr": "Des projets actuellement en réalisation",
+    "de": "Aktuelle Projekte in der Umsetzung"
+  },
+  "intro": {
+    "fr": "Découvrez quelques-uns des projets actuellement réalisés par les équipes ROOFCON au Luxembourg et dans la Grande Région. De la préparation à la mise en œuvre sur chantier, nos équipes assurent chaque étape avec la même exigence de précision, de qualité et de savoir-faire.",
+    "de": "Entdecken Sie eine Auswahl der Projekte, die derzeit von den ROOFCON-Teams in Luxemburg und der Großregion umgesetzt werden. Von der Vorbereitung bis zur Ausführung auf der Baustelle begleiten unsere Teams jeden Schritt mit dem gleichen Anspruch an Präzision, Qualität und handwerkliches Know-how."
+  },
+  "items": [
+    {
+      "id": "current-project-1791179907640",
+      "slug": "bureaux-moenchengladbach",
+      "title": {
+        "fr": "Bureaux à Mönchengladbach (DE)",
+        "de": "Büros in Mönchengladbach (DE)"
+      },
+      "address": "Einruhrstraße 100 41199 Mönchengladbach",
+      "latitude": 51.1412553,
+      "longitude": 6.4438749,
+      "images": [
+        "/images/projets-en-cours/current-project-1791179907640-1793016949484-5m6a8l.png"
+      ]
+    }
+  ]
+}
   "seo": {
     "home": {
       "title": {
