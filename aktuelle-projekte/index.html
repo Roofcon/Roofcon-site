@@ -308,14 +308,14 @@ color: #706b67;
     }
 
     .current-project img {
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transition:transform .8s cubic-bezier(.2,.65,.2,1);
-    }
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+  transition:transform .8s cubic-bezier(.2,.65,.2,1);
+}
 
     .current-project:hover img { transform:scale(1.045); }
 
@@ -740,12 +740,12 @@ color: #706b67;
   }
 
   #current-projects .about-intro p {
-    max-width: none;
-    color: #c9c4c0;
-    font-size: 18px;
-    line-height: 1.7;
-    margin: 0;
-  }
+  max-width: none;
+  color: #706b67;
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0;
+}
 }
 
   </style>
@@ -1006,9 +1006,21 @@ function getProjectImage(project) {
     : '/ROOFCON.png';
 }
 
+
 function renderCurrentProjects() {
   const grid = document.getElementById('current-projects-grid');
+  if (!grid) return;
+
   const t = translations[currentLanguage];
+
+  if (!currentProjects.length) {
+    grid.innerHTML = `
+      <p style="grid-column:1/-1;color:#706b67;text-align:center;padding:40px 0;">
+        Derzeit sind keine Projekte verfügbar.
+      </p>
+    `;
+    return;
+  }
 
   grid.innerHTML = '';
 
@@ -1016,7 +1028,6 @@ function renderCurrentProjects() {
     const card = document.createElement('a');
     card.className = 'current-project';
 
-    // Ziel: deutsche Detailseite
     const slug = project.slug || project.id;
     card.href = '/aktuelle-projekte/' + encodeURIComponent(slug) + '/';
 
@@ -1050,6 +1061,7 @@ function renderCurrentProjects() {
     grid.appendChild(card);
   });
 }
+
 
 async function loadCurrentProjects() {
   const grid = document.getElementById('current-projects-grid');
