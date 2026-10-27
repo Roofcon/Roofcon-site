@@ -656,7 +656,7 @@
                 <a href="tel:+352621765489">+352 621 765 489</a>
               </p>
               <p><strong id="label-email">E-mail</strong><br>
-                <a href="mailto:info@roof-con.com">info@roof-con.com</a>
+                <a href="mailto:info@roof-con.lu">info@roof-con.lu</a>
               </p>
               <p><strong id="label-address">Adresse</strong><br>
                 <span id="contact-address">Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg</span>
@@ -703,7 +703,7 @@
 <div class="footer-item" id="footer-phone"></div>
 
         <div class="footer-item">
-          <a id="footer-email" href="mailto:info@roof-con.com">info@roof-con.com</a>
+          <a id="footer-email" href="mailto:info@roof-con.lu">info@roof-con.lu</a>
         </div>
       </div>
 
@@ -824,7 +824,7 @@ function renderTopBar(data) {
   const site = (data && data.site) || {};
 
   const phone = site.phone || "+352 621 765 489";
-  const email = site.email || "info@roof-con.com";
+  const email = site.email || "info@roof-con.lu";
   const facebook = site.facebook || "https://www.facebook.com/profile.php?id=61594591794889";
   const instagram = site.instagram || "https://www.instagram.com/roofcon.lu/";
 
@@ -900,7 +900,7 @@ function renderFooter(data) {
   }
 
   const emailElement = document.getElementById("footer-email");
-  const emailAddress = site.email || "info@roof-con.com";
+  const emailAddress = site.email || "info@roof-con.lu";
 
   if (emailElement) {
     emailElement.textContent = emailAddress;
@@ -1028,7 +1028,7 @@ document.getElementById('lang-de').classList.toggle('active', PAGE_LANG === 'de'
           '\n\n' + t.message + ':\n' + message;
 
         window.location.href =
-          'mailto:info@roof-con.com?subject=' +
+          'mailto:info@roof-con.lu?subject=' +
           encodeURIComponent(t.subject) +
           '&body=' + encodeURIComponent(body);
       });
@@ -1100,7 +1100,7 @@ ${images.length
                 <div class="card-body">
                   <h2>${title}</h2>
                   <p>${description}</p>
-                  <a class="btn" href="mailto:info@roof-con.com?subject=${encodeURIComponent(t.apply + ' - ' + title)}">${t.apply}</a>
+                  <a class="btn" href="mailto:info@roof-con.lu?subject=${encodeURIComponent(t.apply + ' - ' + title)}">${t.apply}</a>
                 </div>
               </article>
             `;
