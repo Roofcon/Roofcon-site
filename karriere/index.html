@@ -272,7 +272,7 @@
   margin: 0;
 }
 
-/* PHOTO À GAUCHE, TEXTE À DROITE */
+/* CARTE : PHOTO À GAUCHE, TEXTE À DROITE */
 
 .card {
   width: 100%;
@@ -304,7 +304,7 @@
   background: #fff;
   transition: none;
 }
-
+    
 .card:hover img {
   transform: none;
 }
@@ -381,8 +381,6 @@
   color: #484848;
   text-align: center;
 }
-
-
 
 /* TABLETTES */
 
@@ -461,6 +459,150 @@
     margin-top: 0;
   }
 }
+
+
+/* BARRE SUPÉRIEURE ET RÉSEAUX SOCIAUX */
+.top-inner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.top-contact {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+}
+
+.top-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+.top-social svg {
+  display: block;
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px;
+  max-width: 16px;
+  min-height: 16px;
+  max-height: 16px;
+}
+
+.top-social:hover {
+  color: var(--brown2);
+}
+
+/* MENU MOBILE */
+.mobile-menu-button {
+  display: none;
+}
+
+.menu .cta {
+  background: var(--brown);
+  color: #fff;
+  padding: 12px 18px;
+}
+
+.menu .cta:hover {
+  background: var(--black);
+  color: #fff;
+}
+
+
+@media (max-width: 1000px) {
+  .nav {
+    gap: 14px;
+  }
+
+  .menu {
+    gap: 14px;
+    font-size: 12px;
+  }
+
+  .logo {
+    width: 190px;
+  }
+}
+
+
+@media (max-width: 750px) {
+  .top {
+    display: none;
+  }
+
+  .nav {
+    min-height: 76px;
+    position: relative;
+  }
+
+  .logo {
+    width: 145px;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--black);
+    cursor: pointer;
+    margin-left: auto;
+    font-size: 26px;
+    line-height: 1;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
+  }
+
+  .menu.mobile-open {
+    display: flex;
+  }
+
+  .menu a {
+    display: block;
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu a:last-child {
+    border-bottom: 0;
+  }
+
+  .menu .cta {
+    margin: 8px 16px;
+    width: auto;
+    text-align: center;
+  }
+
+  .lang {
+    margin-left: auto;
+  }
+}
+
 
 
  /* FOOTER */
