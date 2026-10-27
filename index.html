@@ -5233,7 +5233,9 @@ function openMapProject(categoryId, projectId){
 }
 
 window.openCurrentProject = function(id){
-
+console.log('NOUVELLE VISUALISATION APPELÉE', id);
+alert('openCurrentProject appelée : ' + id);
+  
   currentDetailType = 'current';
   currentCurrentProjectId = id;
 
