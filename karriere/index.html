@@ -610,6 +610,58 @@
         transition-duration: .01ms !important;
       }
     }
+
+    /* AGRANDISSEMENT DES PHOTOS */
+
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  cursor: zoom-out;
+}
+
+.image-modal.open {
+  display: flex;
+}
+
+.image-modal img {
+  display: block;
+  max-width: 95%;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4);
+  cursor: default;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: white;
+  background: transparent;
+  border: none;
+  font-size: 42px;
+  cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  .image-modal {
+    padding: 45px 10px;
+  }
+
+  .image-modal img {
+    max-width: 100%;
+    max-height: 85vh;
+  }
+}
+    
   </style>
 </head>
 
@@ -875,7 +927,12 @@
       fr: 'Contact',
       de: 'Kontakt'
     });
-    setText('footer-email', site.email);
+    const email = document.getElementById('footer-email');
+
+if (email) {
+  const emailAddress = site.email || 'info@roof-con.lu';
+  email.innerHTML = `<a href="mailto:${safeText(emailAddress)}">${safeText(emailAddress)}</a>`;
+}
     setText('footer-address-title', {
       fr: 'Adresse',
       de: 'Adresse'
@@ -899,11 +956,6 @@ if (phone) {
     <a href="tel:${phoneHref}">${safeText(phoneNumber)}</a>
   `;
 }
-
-    const email = document.getElementById('footer-email');
-    if (email && site.email) {
-      email.href = 'mailto:' + site.email;
-    }
 
     const facebook = document.getElementById('footer-facebook');
     if (facebook && site.facebook) {
