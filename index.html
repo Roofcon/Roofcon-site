@@ -5038,7 +5038,7 @@ if(CONTENT.currentProjects){
           t(project.description) ||
           '';
 
-   marker.bindPopup(`
+ marker.bindPopup(`
   <div class="map-popup-current">
 
     <strong>${esc(title)}</strong>
@@ -5071,21 +5071,19 @@ if(CONTENT.currentProjects){
         : ''
     }
 
-  <button
-  type="button"
-  class="current-project-button"
-  onclick="openCurrentProject('${esc(project.id)}')"
-  style="
-    margin-top:10px;
-    cursor:pointer;
-  "
->
-  ${
-    LANG === 'fr'
-      ? 'Voir le projet'
-      : 'Projekt ansehen'
-  }
-</button>
+    <button
+      type="button"
+      class="current-project-button"
+      onclick="openCurrentProject('${esc(project.id)}')"
+      style="margin-top:10px; cursor:pointer;"
+    >
+      ${
+        LANG === 'fr'
+          ? 'Voir le projet'
+          : 'Projekt ansehen'
+      }
+    </button>
+
   </div>
 `);
 
