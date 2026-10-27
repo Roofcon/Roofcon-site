@@ -5022,13 +5022,15 @@ if(CONTENT.currentProjects){
             iconAnchor:[11,11]
           });
 
-        const marker =
-          L.marker(
-            [lat,lng],
-            {
-              icon:currentProjectIcon
-            }
-          ).addTo(chantierMap);
+const marker =
+  L.marker(
+    [lat,lng],
+    {
+      icon:currentProjectIcon
+    }
+  ).addTo(chantierMap);
+
+marker.currentProjectId = project.id;
         
         const title =
           t(project.title) ||
@@ -5038,7 +5040,7 @@ if(CONTENT.currentProjects){
           t(project.description) ||
           '';
 
- marker.bindPopup(`
+marker.bindPopup(`
   <div class="map-popup-current">
 
     <strong>${esc(title)}</strong>
@@ -5074,8 +5076,7 @@ if(CONTENT.currentProjects){
     <button
       type="button"
       class="current-project-button"
-      onclick="openCurrentProject('${esc(project.id)}')"
-      style="margin-top:10px; cursor:pointer;"
+      style="margin-top:10px;cursor:pointer;"
     >
       ${
         LANG === 'fr'
@@ -5087,6 +5088,43 @@ if(CONTENT.currentProjects){
   </div>
 `);
 
+        marker.on('popupopen', function(){
+
+  const popup =
+    marker.getPopup();
+
+  if(!popup){
+    return;
+  }
+
+  const popupElement =
+    popup.getElement();
+
+  if(!popupElement){
+    return;
+  }
+
+  const button =
+    popupElement.querySelector(
+      '.current-project-button'
+    );
+
+  if(!button){
+    return;
+  }
+
+  button.onclick = function(event){
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    openCurrentProject(
+      marker.currentProjectId
+    );
+
+  };
+
+});
         chantierMarkers.push(marker);
 
         positions.push([
