@@ -1263,13 +1263,19 @@ function renderCurrentProjects() {
     })
     .join('');
 
-  currentProjectsGrid
-    .querySelectorAll('.current-project')
-    .forEach(function(button) {
-      button.addEventListener('click', function() {
-        openProject(Number(button.dataset.projectIndex));
-      });
+currentProjectsGrid
+  .querySelectorAll('.current-project')
+  .forEach(function(button) {
+    button.addEventListener('click', function() {
+      const project =
+        currentProjectItems[Number(button.dataset.projectIndex)];
+
+      if (!project || !project.slug) return;
+
+      window.location.href =
+        '/projets-en-cours/' + encodeURIComponent(project.slug) + '/';
     });
+  });
 }
     
     function setLanguage(lang) {
