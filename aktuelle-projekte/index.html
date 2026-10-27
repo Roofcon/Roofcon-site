@@ -1007,6 +1007,7 @@ function getProjectImage(project) {
 }
 
 
+
 function renderCurrentProjects() {
   const grid = document.getElementById('current-projects-grid');
   if (!grid) return;
@@ -1028,40 +1029,37 @@ function renderCurrentProjects() {
     const card = document.createElement('a');
     card.className = 'current-project';
 
-    
-const slug = project.slug || project.id;
+    // Ermitteln der Projektadresse
+    const projectTitle = getProjectTitle(project, currentLanguage);
+    const slug = project.slug || project.id;
 
-card.href = (
-  getProjectTitle(project, currentLanguage).includes('Mönchengladbach')
-)
-  ? '/aktuelle-projekte/bueros-moenchengladbach/'
-  : '/aktuelle-projekte/' + encodeURIComponent(slug) + '/';
+    if (
+      projectTitle.includes('Mönchengladbach') ||
+      projectTitle.includes('Moenchengladbach')
+    ) {
+      card.href = '/aktuelle-projekte/bueros-moenchengladbach/';
+    } else {
+      card.href = '/aktuelle-projekte/' + encodeURIComponent(slug) + '/';
+    }
 
-
+    // Projektbild
     const image = document.createElement('img');
     image.src = getProjectImage(project);
-    image.alt = getProjectTitle(project, currentLanguage);
+    image.alt = projectTitle;
     image.loading = 'lazy';
     image.width = 1200;
     image.height = 800;
 
+    // Dunkler Bildverlauf
     const overlay = document.createElement('div');
     overlay.className = 'current-project-overlay';
 
+    // Titel ohne Beschreibung
     const content = document.createElement('div');
     content.className = 'current-project-content';
 
-   
-const projectTitle = getProjectTitle(project, currentLanguage);
-
-const slug = (
-  projectTitle.includes('Mönchengladbach') ||
-  projectTitle.includes('Moenchengladbach')
-)
-  ? 'bueros-moenchengladbach'
-  : (project.slug || project.id);
-
-card.href = '/aktuelle-projekte/' + encodeURIComponent(slug) + '/';
+    const title = document.createElement('h2');
+    title.textContent = projectTitle;
 
     content.appendChild(title);
     card.append(image, overlay, content);
