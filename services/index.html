@@ -344,35 +344,37 @@ header {
   align-items: stretch;
 }
 
-/* CARTES */
+
+/* CARTES DES SERVICES */
 
 .pole {
-  grid-column: span 4;
-  background: #ffffff;
-  border: 1px solid var(--line);
-  min-height: 430px;
-  padding: 30px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition:
-    transform .35s ease,
-    border-color .35s ease,
-    box-shadow .35s ease;
-}
-
-.pole:nth-child(4),
-.pole:nth-child(5) {
-  grid-column: span 6;
-  min-height: 390px;
+  background: #262322;
+  border: 1px solid #3b3634;
+  color: #fff;
+  transition: background .3s ease, border-color .3s ease, transform .3s ease;
 }
 
 .pole:hover {
-  transform: translateY(-5px);
-  background: #ffffff;
-  border-color: var(--brown2);
-  box-shadow: 0 12px 30px rgba(33, 31, 32, .08);
+  background: #2c2928;
+  border-color: #5a514d;
+  transform: translateY(-4px);
+}
+
+.pole-number {
+  color: #c3a080;
+}
+
+.pole h2 {
+  color: #fff;
+}
+
+.pole p {
+  color: #c9c4c0;
+}
+
+.pole-discover,
+.pole-more {
+  color: #fff;
 }
 
 /* IMAGES */
