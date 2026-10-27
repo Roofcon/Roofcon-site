@@ -5125,8 +5125,9 @@ button.onclick = function(event) {
   window.location.href = destination;
 };
 
-        chantierMarkers.push(marker);
+        }); // Fin de marker.on('popupopen')
 
+        chantierMarkers.push(marker);
         positions.push([
           lat,
           lng
