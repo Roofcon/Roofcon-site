@@ -612,6 +612,61 @@
   color: var(--brown2);
 }
 
+    
+/* DISPOSITION DES OFFRES — VERSION IDENTIQUE À KARriere */
+
+#jobs-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+}
+
+#jobs-content > .card {
+  display: grid;
+  grid-template-columns: 480px minmax(0, 1fr);
+  gap: 100px;
+  width: 100%;
+  align-items: start;
+}
+
+#jobs-content > .card > img.job-image {
+  display: block;
+  width: 480px;
+  max-width: 100%;
+  height: 320px;
+  object-fit: contain;
+  object-position: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* TABLETTE */
+
+@media (max-width: 1000px) {
+  #jobs-content > .card {
+    grid-template-columns: minmax(180px, 0.8fr) minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  #jobs-content > .card > img.job-image {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+  #jobs-content > .card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  #jobs-content > .card > img.job-image {
+    width: 100%;
+    height: 230px;
+  }
+}
 
   </style>
 </head>
