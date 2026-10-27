@@ -5113,18 +5113,18 @@ marker.bindPopup(`
     return;
   }
 
-  button.onclick = function(event){
+  
+button.onclick = function(event) {
+  event.preventDefault();
+  event.stopPropagation();
 
-    event.preventDefault();
-    event.stopPropagation();
+  const destination = LANG === 'de'
+    ? '/aktuelle-projekte/bueros-moenchengladbach/'
+    : '/projets-en-cours/bureaux-moenchengladbach/';
 
-    openCurrentProject(
-      marker.currentProjectId
-    );
+  window.location.href = destination;
+};
 
-  };
-
-});
         chantierMarkers.push(marker);
 
         positions.push([
