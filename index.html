@@ -5442,6 +5442,21 @@ alert(
   !!document.getElementById('reference-detail')
 );
 
+  console.log(
+  'Détail final injecté :',
+  document.getElementById('detail-projects').innerHTML
+);
+
+console.log(
+  'Section active avant affichage :',
+  document.querySelectorAll('section.active-page')
+);
+
+console.log(
+  'Fonction showPage utilisée :',
+  showPage.toString()
+);
+  
 showPage('reference-detail');
 
 };
