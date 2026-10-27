@@ -3812,6 +3812,7 @@ function deleteJobImage(jobIndex, language){
   const job = C.jobs.items[jobIndex];
 
   if(!job.images || Array.isArray(job.images)){
+
     const oldImages = Array.isArray(job.images)
       ? job.images
       : (job.image ? [job.image] : []);
@@ -3828,36 +3829,44 @@ function deleteJobImage(jobIndex, language){
 
   renderJobs();
 
+  $('status').innerHTML =
+    '<span class="success">' +
+    (language === 'fr'
+      ? 'Photo française retirée de l’offre.'
+      : 'Photo allemande retirée de l’offre.') +
+    ' Cliquez sur « Enregistrer et publier » pour sauvegarder.' +
+    '</span>';
+
 }
   
 function addJob(){
 
-  if(!C.jobs.items){
-    C.jobs.items=[];
-  }
+  C.jobs.items = C.jobs.items || [];
 
   C.jobs.items.push({
 
-    id:'job-'+Date.now(),
+    id: 'job-' + Date.now(),
 
-    title:{
-      fr:'',
-      de:''
+    title: {
+      fr: '',
+      de: ''
     },
 
-    description:{
-      fr:'',
-      de:''
+    description: {
+      fr: '',
+      de: ''
     },
 
-    images:[]
+    images: {
+      fr: '',
+      de: ''
+    }
 
   });
 
   renderJobs();
 
 }
-
 
 function deleteJob(i){
 
@@ -4239,26 +4248,36 @@ C.jobs.title=getBilingual('jobs-title');
 C.jobs.intro=getBilingual('jobs-intro');
 
 
-(C.jobs.items||[]).forEach((job,i)=>{
+(C.jobs.items || []).forEach((job, i) => {
 
-  job.title={
-    fr:val(`job-${i}-title-fr`),
-    de:val(`job-${i}-title-de`)
+  job.title = {
+    fr: val(`job-${i}-title-fr`),
+    de: val(`job-${i}-title-de`)
   };
 
-  job.description={
-    fr:val(`job-${i}-desc-fr`),
-    de:val(`job-${i}-desc-de`)
+  job.description = {
+    fr: val(`job-${i}-desc-fr`),
+    de: val(`job-${i}-desc-de`)
   };
 
-  if(!Array.isArray(job.images)){
-    job.images=[];
+  // Conserver les photos séparées par langue
+  if(!job.images || Array.isArray(job.images)){
 
-    if(job.image){
-      job.images.push(job.image);
-      delete job.image;
-    }
+    const oldImages = Array.isArray(job.images)
+      ? job.images
+      : (job.image ? [job.image] : []);
+
+    job.images = {
+      fr: oldImages[0] || '',
+      de: oldImages[1] || ''
+    };
+
+    delete job.image;
   }
+
+  // Garantir la présence des deux langues
+  job.images.fr = job.images.fr || '';
+  job.images.de = job.images.de || '';
 
 });
 
