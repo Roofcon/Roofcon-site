@@ -5784,10 +5784,14 @@ updateLanguageNavLinks();
   const pageUrls = {
   accueil: '/',
   about: LANG === 'de' ? '/leistungen' : '/services',
-references: LANG === 'de' ? '/referenzen/' : '/realisations/',
+  references: LANG === 'de' ? '/referenzen/' : '/realisations/',
   'current-projects': LANG === 'de' ? '/aktuelle-projekte' : '/projets-en-cours',
   jobs: LANG === 'de' ? '/karriere' : '/emploi',
-  contact: LANG === 'de' ? '/kontakt' : '/contact'
+  contact: LANG === 'de' ? '/kontakt' : '/contact',
+
+  /* Détails : conserver l'URL de la page d'origine */
+  'reference-detail': window.location.pathname,
+  'reference-category-detail': window.location.pathname
 };
 
   const newUrl =
