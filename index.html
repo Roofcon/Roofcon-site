@@ -5429,7 +5429,20 @@ alert('openCurrentProject appelée : ' + id);
 
   /* OUVRIR LA PAGE DÉTAIL */
 
-  showPage('reference-detail');
+console.log('Projet trouvé :', project);
+console.log('Section détail :', document.getElementById('reference-detail'));
+console.log(
+  'Contenu injecté :',
+  document.getElementById('detail-projects').innerHTML
+);
+
+alert(
+  'Titre du projet : ' + t(project.title) +
+  '\nSection détail trouvée : ' +
+  !!document.getElementById('reference-detail')
+);
+
+showPage('reference-detail');
 
 };
 
