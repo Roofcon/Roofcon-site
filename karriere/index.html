@@ -804,6 +804,28 @@
     max-height: 85vh;
   }
 }
+
+    /* DIAGNOSTIC TEMPORAIRE */
+#jobs-content {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  width: 100% !important;
+}
+
+#jobs-content > .card {
+  display: grid !important;
+  grid-template-columns: 480px minmax(0, 1fr) !important;
+  gap: 100px !important;
+  width: 100% !important;
+}
+
+#jobs-content > .card > img.job-image {
+  display: block !important;
+  width: 480px !important;
+  height: 320px !important;
+  object-fit: contain !important;
+}
+    
     
   </style>
 </head>
