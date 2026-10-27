@@ -286,18 +286,18 @@ header {
   }
 }
 
-
 /* ================================
-   NOS SERVICES — FOND BLANC
+   NOS SERVICES — STYLE ORIGINAL
 ================================ */
 
 .about {
-  background: #ffffff;
-  color: var(--black);
+  background: #39332f;
+  color: #fff;
   padding: 92px 0;
 }
 
-/* INTRODUCTION */
+
+/* INTRODUCTION — MÊME DESIGN QUE RÉALISATIONS */
 
 .about-intro {
   width: 100%;
@@ -308,7 +308,7 @@ header {
 
 .about-intro .kicker {
   display: block;
-  color: var(--brown);
+  color: var(--brown2);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: .18em;
@@ -318,7 +318,7 @@ header {
 
 .about-intro h1 {
   margin: 0 auto 25px;
-  color: var(--black);
+  color: #fff;
   font-size: clamp(38px, 5vw, 66px);
   line-height: 1.03;
   letter-spacing: -.035em;
@@ -328,12 +328,13 @@ header {
 
 .about-intro p {
   width: 100%;
-  max-width: 850px;
+  max-width: none;
   margin: 0 auto;
-  color: var(--gray);
+  color: #c9c4c0;
   font-size: 18px;
   line-height: 1.75;
 }
+
 
 /* GRILLE DES SERVICES */
 
@@ -344,7 +345,37 @@ header {
   align-items: stretch;
 }
 
-/* IMAGES */
+/* CARTES */
+
+.pole {
+  grid-column: span 4;
+  background: #262322;
+  border: 1px solid #3b3634;
+  min-height: 430px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform .35s ease,
+    border-color .35s ease,
+    background .35s ease;
+}
+
+.pole:nth-child(4),
+.pole:nth-child(5) {
+  grid-column: span 6;
+  min-height: 390px;
+}
+
+.pole:hover {
+  transform: translateY(-6px);
+  background: #2c2928;
+  border-color: #5a514d;
+}
+
+/* IMAGES : aucune image si le champ est vide */
 
 .pole-image {
   width: calc(100% + 60px);
@@ -363,7 +394,7 @@ header {
 
 .pole-number {
   font-size: 11px;
-  color: var(--brown);
+  color: var(--brown2);
   font-weight: 800;
   letter-spacing: .2em;
   margin-bottom: 18px;
@@ -372,9 +403,9 @@ header {
 /* TITRES */
 
 .pole h2 {
-  color: var(--black);
+  color: #fff;
   font-size: clamp(21px, 2vw, 28px);
-  line-height: 1.12;
+  line-height: 1.08;
   margin: 0 0 15px;
   text-align: left;
   letter-spacing: -.02em;
@@ -386,9 +417,9 @@ header {
 
 .pole p {
   max-width: 520px;
-  color: var(--gray);
+  color: #c9c4c0;
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.65;
   margin: 0;
 }
 
@@ -407,18 +438,18 @@ header {
 .pole-more {
   border: none;
   background: none;
-  color: var(--brown);
+  color: #fff;
   font-family: inherit;
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .12em;
+  letter-spacing: .14em;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  transition: gap .3s ease, color .3s ease;
+  transition: gap .3s ease, opacity .3s ease;
 }
 
 .pole-discover::after,
@@ -431,26 +462,13 @@ header {
 
 .pole-discover:hover,
 .pole-more:hover {
-  color: var(--black);
+  opacity: .8;
   gap: 15px;
 }
 
 .pole-discover:hover::after,
 .pole-more:hover::after {
   transform: translateX(3px);
-}
-
-/* ANIMATIONS : ÉVITER LES CARTES INVISIBLES */
-
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity .7s ease, transform .7s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* TABLETTES */
@@ -478,16 +496,17 @@ header {
     margin-bottom: 45px;
   }
 
-  .about-intro h1 {
-    font-size: clamp(34px, 7vw, 43px);
-    line-height: 1.05;
-    letter-spacing: -.02em;
-  }
+ 
+.about-intro h1 {
+  font-size: clamp(34px, 7vw, 43px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+}
 
-  .about-intro p {
-    font-size: 16px;
-    line-height: 1.7;
-  }
+.about-intro p {
+  font-size: 16px;
+  line-height: 1.7;
+}
 
   .poles {
     grid-template-columns: 1fr;
@@ -498,28 +517,13 @@ header {
   .pole:nth-child(4),
   .pole:nth-child(5) {
     grid-column: span 1;
-    min-height: 0;
-  }
-
-  .pole {
-    padding: 22px;
+    min-height: 390px;
   }
 
   .pole-image {
-    width: calc(100% + 44px);
     height: 190px;
-    margin: -22px -22px 24px;
-  }
-
-  .pole h2 {
-    margin-bottom: 10px;
-  }
-
-  .pole p {
-    margin-bottom: 18px;
   }
 }
-
     /* ANIMATIONS */
 
     .reveal {
@@ -759,42 +763,6 @@ header {
     flex-wrap: wrap;
   }
 }
-
-    
-/* COULEURS DES CARTES — SANS MODIFIER LA DISPOSITION */
-
-.about {
-  background: #ffffff;
-  color: #211f20;
-}
-
-.pole {
-  background: #262322;
-  border: 1px solid #3b3634;
-}
-
-.pole:hover {
-  background: #2c2928;
-  border-color: #5a514d;
-}
-
-.pole-number {
-  color: #c3a080;
-}
-
-.pole h2 {
-  color: #ffffff;
-}
-
-.pole p {
-  color: #c9c4c0;
-}
-
-.pole .pole-discover,
-.pole .pole-more {
-  color: #c3a080;
-}
-
   </style>
 </head>
 
