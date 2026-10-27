@@ -1029,16 +1029,13 @@ function renderCurrentProjects() {
     card.className = 'current-project';
 
     
-const title = getProjectTitle(project, currentLanguage);
+const slug = project.slug || project.id;
 
-const slug = (
-  title.includes('Mönchengladbach') ||
-  title.includes('Moenchengladbach')
+card.href = (
+  getProjectTitle(project, currentLanguage).includes('Mönchengladbach')
 )
-  ? 'bueros-moenchengladbach'
-  : (project.slug || project.id);
-
-card.href = '/aktuelle-projekte/' + encodeURIComponent(slug) + '/';
+  ? '/aktuelle-projekte/bueros-moenchengladbach/'
+  : '/aktuelle-projekte/' + encodeURIComponent(slug) + '/';
 
 
     const image = document.createElement('img');
