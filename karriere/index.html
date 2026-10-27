@@ -950,12 +950,14 @@ document.getElementById('nav-home').href = '/?lang=de';
 
        
         const imageList = job.images && !Array.isArray(job.images)
-          ? job.images[PAGE_LANG]
-          : job.images;
+  ? job.images[PAGE_LANG]
+  : job.images;
 
-        const images = Array.isArray(imageList)
-          ? imageList
-          : (job.image ? [job.image] : []);
+const images = Array.isArray(imageList)
+  ? imageList
+  : (typeof imageList === 'string' && imageList
+      ? [imageList]
+      : []);
 
         const imageHtml = images.length
           ? `<img
