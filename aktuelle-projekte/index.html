@@ -1028,8 +1028,18 @@ function renderCurrentProjects() {
     const card = document.createElement('a');
     card.className = 'current-project';
 
-    const slug = project.slug || project.id;
-    card.href = '/aktuelle-projekte/' + encodeURIComponent(slug) + '/';
+    
+const title = getProjectTitle(project, currentLanguage);
+
+const slug = (
+  title.includes('Mönchengladbach') ||
+  title.includes('Moenchengladbach')
+)
+  ? 'bueros-moenchengladbach'
+  : (project.slug || project.id);
+
+card.href = '/aktuelle-projekte/' + encodeURIComponent(slug) + '/';
+
 
     const image = document.createElement('img');
     image.src = getProjectImage(project);
@@ -1044,8 +1054,17 @@ function renderCurrentProjects() {
     const content = document.createElement('div');
     content.className = 'current-project-content';
 
-    const title = document.createElement('h2');
-    title.textContent = getProjectTitle(project, currentLanguage);
+   
+const projectTitle = getProjectTitle(project, currentLanguage);
+
+const slug = (
+  projectTitle.includes('Mönchengladbach') ||
+  projectTitle.includes('Moenchengladbach')
+)
+  ? 'bueros-moenchengladbach'
+  : (project.slug || project.id);
+
+card.href = '/aktuelle-projekte/' + encodeURIComponent(slug) + '/';
 
     content.appendChild(title);
     card.append(image, overlay, content);
