@@ -1070,32 +1070,10 @@ document.getElementById('lang-de').classList.toggle('active', PAGE_LANG === 'de'
           ? imageList
           : (job.image ? [job.image] : []);
 
-        const imageHtml = images.length
-          ? `<img
-              class="job-image"
-              src="${images[0].startsWith('http') || images[0].startsWith('/') ? images[0] : '/' + images[0].replace(/^\.?\//, '')}"
-              alt="${title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}"
-              loading="lazy"
-              onclick="openJobImage(this.src)"
-              title="${PAGE_LANG === 'de' ? 'Zum Vergrößern anklicken' : 'Cliquer pour agrandir'}"
-              style="cursor:zoom-in;"
-            >`
-          : '';
-
             return `
               <article class="card">
                 
-${images.length
-  ? `<img
-      class="job-image"
-      src="${images[0].startsWith('http') || images[0].startsWith('/') ? images[0] : '/' + images[0].replace(/^\.?\//, '')}"
-      alt="${title.replace(/&/g, '&amp;').replace(/"/g, '&quot;')}"
-      loading="lazy"
-      onclick="openJobImage(this.src)"
-      title="Cliquer pour agrandir"
-      style="cursor: zoom-in;"
-    >`
-  : ''}
+${imageHtml}
 
                 <div class="card-body">
                   <h2>${title}</h2>
