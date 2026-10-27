@@ -3572,83 +3572,43 @@ async function deleteProjectImage(
    OFFRES D'EMPLOI
 ========================= */
 
+
 function renderJobs(){
 
-  const container=$('jobs-editor');
+  const container = $('jobs-editor');
 
-  container.innerHTML='';
+  container.innerHTML = '';
 
-  (C.jobs.items||[]).forEach((job,i)=>{
+  (C.jobs.items || []).forEach((job, i) => {
 
-    if(!Array.isArray(job.images)){
-      job.images=[];
+    // Convertir les anciennes données en structure FR / DE
+    if (!job.images || Array.isArray(job.images)) {
 
-      if(job.image){
-        job.images.push(job.image);
-        delete job.image;
-      }
+      const oldImages = Array.isArray(job.images)
+        ? job.images
+        : (job.image ? [job.image] : []);
+
+      job.images = {
+        fr: oldImages[0] || '',
+        de: oldImages[1] || ''
+      };
+
+      delete job.image;
     }
 
-    const div=document.createElement('div');
+    const div = document.createElement('div');
+    div.className = 'box';
 
-    div.className='box';
-
-    let photos='';
-
-    job.images.forEach((image,j)=>{
-
-      photos+=`
-
-        <div
-          class="job-photo"
-          style="
-            display:inline-block;
-            margin:10px;
-            vertical-align:top;
-          "
-        >
-
-          <img
-            class="preview job-preview"
-            src="https://raw.githubusercontent.com/Roofcon/Roofcon-site/main/${image}?v=${Date.now()}"
-            alt=""
-            style="
-              display:block;
-              max-width:220px;
-              max-height:160px;
-              object-fit:cover;
-              margin-bottom:8px;
-            "
-          >
-
-          <button
-            type="button"
-            class="danger"
-            onclick="deleteJobImage(${i},${j})"
-          >
-            Supprimer
-          </button>
-
-        </div>
-
-      `;
-
-    });
-
-    div.innerHTML=`
-
+    div.innerHTML = `
       <div class="category-title">
-
-        <h3>Offre ${i+1}</h3>
+        <h3>Offre ${i + 1}</h3>
 
         <button
           type="button"
           class="danger"
-          onclick="deleteJob(${i})"
-        >
+          onclick="deleteJob(${i})">
           Supprimer
         </button>
-
       </div>
 
       <div class="grid">
@@ -3675,59 +3635,87 @@ function renderJobs(){
 
       </div>
 
-      <div style="margin-top:20px">
+      <hr>
 
-        <label>Photos de l'offre</label>
+      <div class="grid">
 
-        <input
-          type="file"
-          accept="image/*"
-          multiple
-          onchange="selectJobImages(${i},this)"
-        >
+        <div>
+          <label>Photo de l'offre — Français</label>
 
-        <div style="margin-top:15px">
+          <input
+            type="file"
+            accept="image/*"
+            onchange="selectJobImage(${i}, 'fr', this)"
+          >
 
-          ${
-            photos
-            ?
-            photos
-            :
-            `<p class="hint">Aucune photo pour cette offre.</p>`
-          }
+          <div id="job-${i}-image-fr-preview">
+            ${
+              job.images.fr
+                ? `
+                  <img
+                    class="preview"
+                    src="https://raw.githubusercontent.com/Roofcon/Roofcon-site/main/${job.images.fr}?v=${Date.now()}"
+                    alt="Photo française de l'offre"
+                  >
 
+                  <button
+                    type="button"
+                    class="danger"
+                    style="margin-top:8px"
+                    onclick="deleteJobImage(${i}, 'fr')">
+                    Supprimer la photo FR
+                  </button>
+                `
+                : '<p class="hint">Aucune photo française.</p>'
+            }
+          </div>
+        </div>
+
+        <div>
+          <label>Photo de l'offre — Deutsch</label>
+
+          <input
+            type="file"
+            accept="image/*"
+            onchange="selectJobImage(${i}, 'de', this)"
+          >
+
+          <div id="job-${i}-image-de-preview">
+            ${
+              job.images.de
+                ? `
+                  <img
+                    class="preview"
+                    src="https://raw.githubusercontent.com/Roofcon/Roofcon-site/main/${job.images.de}?v=${Date.now()}"
+                    alt="Deutsches Foto des Stellenangebots"
+                  >
+
+                  <button
+                    type="button"
+                    class="danger"
+                    style="margin-top:8px"
+                    onclick="deleteJobImage(${i}, 'de')">
+                    Foto DE löschen
+                  </button>
+                `
+                : '<p class="hint">Aucune photo allemande.</p>'
+            }
+          </div>
         </div>
 
       </div>
-
     `;
 
     container.appendChild(div);
 
-    set(
-      `job-${i}-title-fr`,
-      job.title?.fr
-    );
-
-    set(
-      `job-${i}-title-de`,
-      job.title?.de
-    );
-
-    set(
-      `job-${i}-desc-fr`,
-      job.description?.fr
-    );
-
-    set(
-      `job-${i}-desc-de`,
-      job.description?.de
-    );
+    set(`job-${i}-title-fr`, job.title?.fr);
+    set(`job-${i}-title-de`, job.title?.de);
+    set(`job-${i}-desc-fr`, job.description?.fr);
+    set(`job-${i}-desc-de`, job.description?.de);
 
   });
 
 }
-
 
 async function selectJobImages(jobIndex,input){
 
