@@ -1062,13 +1062,15 @@ document.getElementById('lang-de').classList.toggle('active', PAGE_LANG === 'de'
             const title = job.title && job.title[PAGE_LANG] || '';
             const description = job.description && job.description[PAGE_LANG] || '';
            
-        const imageList = job.images && !Array.isArray(job.images)
-          ? job.images[PAGE_LANG]
-          : job.images;
+       const imageList = job.images && !Array.isArray(job.images)
+  ? job.images[PAGE_LANG]
+  : job.images;
 
-        const images = Array.isArray(imageList)
-          ? imageList
-          : (job.image ? [job.image] : []);
+const images = Array.isArray(imageList)
+  ? imageList
+  : (typeof imageList === 'string' && imageList
+      ? [imageList]
+      : []);
 
             return `
               <article class="card">
