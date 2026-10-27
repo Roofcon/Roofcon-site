@@ -835,43 +835,14 @@ color: #706b67;
 </div>
 
 
-        <div class="current-projects-grid">
-          <button type="button" class="current-project" id="open-project-button"
-            aria-label="Projekt ansehen">
-            <img
-              src="/images/projets-en-cours/current-project-1791179907640-1791549024832-ccv5ci.jpeg"
-              alt="Aktuelles Bauprojekt von ROOFCON in Luxemburg"
-              width="1200"
-              height="800"
-              fetchpriority="high">
+       
+<div class="current-projects-grid" id="current-projects-grid">
+  <!-- Projekte werden automatisch aus content.json geladen. -->
+</div>
 
-            <div class="current-project-overlay"></div>
-            <div class="current-project-content">
-              <h2 id="project-title">Neues Projekt</h2>
-            </div>
-          </button>
-        </div>
       </div>
     </section>
   </main>
-
-  <div class="project-modal" id="project-modal" role="dialog"
-    aria-modal="true" aria-labelledby="project-modal-title" aria-hidden="true">
-    <div class="project-modal-panel">
-      <button type="button" class="project-modal-close" id="close-project-modal"
-        aria-label="Schließen">×</button>
-      <img
-        class="project-modal-image"
-        src="/images/projets-en-cours/current-project-1791179907640-1791549024832-ccv5ci.jpeg"
-        alt="Aktuelles Bauprojekt von ROOFCON">
-      <div class="project-modal-content">
-        <div class="project-modal-kicker" id="project-modal-kicker">AKTUELLES PROJEKT</div>
-        <h2 id="project-modal-title">Neues Projekt</h2>
-        <p class="project-modal-description" id="project-modal-description"></p>
-        <div class="project-modal-address" id="project-modal-address"></div>
-      </div>
-    </div>
-  </div>
 
 <!-- FOOTER -->
 <footer>
@@ -1018,93 +989,140 @@ const navUrls = {
 
     let currentLanguage = 'de';
 
-    const projectImage = '/images/projets-en-cours/current-project-1791179907640-1791549024832-ccv5ci.jpeg';
+    
+let currentProjects = [];
 
-    function openProject() {
-      const t = translations[currentLanguage];
-      const modal = document.getElementById('project-modal');
+function getProjectTitle(project, lang) {
+  return project.title?.[lang] || project.title?.fr || 'Projekt';
+}
 
-      document.getElementById('project-modal-kicker').textContent = t.detailKicker;
-      document.getElementById('project-modal-title').textContent = t.project;
-      document.getElementById('project-modal-description').textContent = '';
-      document.getElementById('project-modal-address').textContent = '';
+function getProjectDescription(project, lang) {
+  return project.description?.[lang] || project.description?.fr || '';
+}
 
-      modal.classList.add('open');
-      modal.setAttribute('aria-hidden','false');
-      document.body.classList.add('detail-open');
-      document.getElementById('close-project-modal').focus();
+function getProjectImage(project) {
+  return Array.isArray(project.images) && project.images.length
+    ? project.images[0]
+    : '/ROOFCON.png';
+}
+
+function renderCurrentProjects() {
+  const grid = document.getElementById('current-projects-grid');
+  const t = translations[currentLanguage];
+
+  grid.innerHTML = '';
+
+  currentProjects.forEach(project => {
+    const card = document.createElement('a');
+    card.className = 'current-project';
+
+    // Ziel: deutsche Detailseite
+    const slug = project.slug || project.id;
+    card.href = '/aktuelle-projekte/' + encodeURIComponent(slug) + '/';
+
+    const image = document.createElement('img');
+    image.src = getProjectImage(project);
+    image.alt = getProjectTitle(project, currentLanguage);
+    image.loading = 'lazy';
+    image.width = 1200;
+    image.height = 800;
+
+    const overlay = document.createElement('div');
+    overlay.className = 'current-project-overlay';
+
+    const content = document.createElement('div');
+    content.className = 'current-project-content';
+
+    const title = document.createElement('h2');
+    title.textContent = getProjectTitle(project, currentLanguage);
+
+    const description = document.createElement('p');
+    description.textContent = getProjectDescription(project, currentLanguage);
+
+    content.append(title, description);
+    card.append(image, overlay, content);
+
+    card.style.setProperty(
+      '--project-link-text',
+      '"' + t.projectLink.replace(/"/g, '\\"') + '"'
+    );
+
+    grid.appendChild(card);
+  });
+}
+
+async function loadCurrentProjects() {
+  const grid = document.getElementById('current-projects-grid');
+
+  try {
+    const response = await fetch('/content.json');
+
+    if (!response.ok) {
+      throw new Error('content.json konnte nicht geladen werden.');
     }
 
-    function closeProject() {
-      const modal = document.getElementById('project-modal');
-      modal.classList.remove('open');
-      modal.setAttribute('aria-hidden','true');
-      document.body.classList.remove('detail-open');
-      document.getElementById('open-project-button').focus();
+    const data = await response.json();
+    const items = data.currentProjects?.items;
+
+    currentProjects = Array.isArray(items) ? items : [];
+
+    renderCurrentProjects();
+
+    if (!currentProjects.length) {
+      grid.textContent = 'Derzeit sind keine Projekte verfügbar.';
     }
+  } catch (error) {
+    console.error('Fehler beim Laden der Projekte:', error);
+    grid.textContent = 'Die Projekte konnten momentan nicht geladen werden.';
+  }
+}
 
-    document.getElementById('open-project-button').addEventListener('click', openProject);
-    document.getElementById('close-project-modal').addEventListener('click', closeProject);
+      
+function setLanguage(lang) {
+  currentLanguage = translations[lang] ? lang : 'de';
+  const t = translations[currentLanguage];
 
-    document.getElementById('project-modal').addEventListener('click', function(event) {
-      if (event.target === this) closeProject();
-    });
+  document.documentElement.lang = t.lang;
+  document.title = t.title;
+  document.querySelector('meta[name="description"]').content = t.description;
 
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape' && document.getElementById('project-modal').classList.contains('open')) {
-        closeProject();
-      }
-    });
+  document.getElementById('current-projects-kicker').textContent = t.kicker;
+  document.getElementById('current-projects-title').textContent = t.heading;
+  document.getElementById('current-projects-intro').textContent = t.intro;
 
-    function setLanguage(lang) {
-      currentLanguage = translations[lang] ? lang : 'de';
-      const t = translations[currentLanguage];
+  document.getElementById('footer-description').textContent = t.footerDescription;
+  document.getElementById('footer-copyright').textContent = t.copyright;
+  document.getElementById('footer-hours').textContent = t.hours;
+  document.getElementById('footer-contact-title').textContent = t.contact;
+  document.getElementById('footer-address-title').textContent = t.office;
+  document.getElementById('footer-social-title').textContent = t.social;
 
-      document.documentElement.lang = t.lang;
-      document.title = t.title;
-      document.querySelector('meta[name="description"]').content = t.description;
+  ['footer-legal-1', 'footer-legal-2', 'footer-legal-3'].forEach((id, i) => {
+    document.getElementById(id).textContent = t.legal[i];
+  });
 
-      document.getElementById('current-projects-kicker').textContent = t.kicker;
-      document.getElementById('current-projects-title').textContent = t.heading;
-      document.getElementById('current-projects-intro').textContent = t.intro;
-      document.getElementById('project-title').textContent = t.project;
-      document.getElementById('open-project-button').setAttribute('aria-label', t.projectLink);
-      document.getElementById('project-modal-kicker').textContent = t.detailKicker;
-      document.getElementById('project-modal-title').textContent = t.project;
-      document.getElementById('close-project-modal').setAttribute('aria-label', t.close);
+  document.querySelectorAll('[data-nav]').forEach((link, i) => {
+    link.textContent = t.nav[i];
+    link.href = navUrls[currentLanguage][i];
+  });
 
-      document.getElementById('footer-description').textContent = t.footerDescription;
-      document.getElementById('footer-copyright').textContent = t.copyright;
-      document.getElementById('footer-hours').textContent = t.hours;
-      document.getElementById('footer-contact-title').textContent = t.contact;
-      document.getElementById('footer-address-title').textContent = t.office;
-      document.getElementById('footer-social-title').textContent = t.social;
+  document.querySelectorAll('[data-lang]').forEach(button => {
+    const active = button.dataset.lang === currentLanguage;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-pressed', String(active));
+  });
 
-      ['footer-legal-1','footer-legal-2','footer-legal-3'].forEach((id,i) => {
-        document.getElementById(id).textContent = t.legal[i];
-      });
+  const mobileMenu = document.getElementById('main-menu');
+  mobileMenu.classList.remove('mobile-open');
 
-      document.querySelectorAll('[data-nav]').forEach((link,i) => {
-        link.textContent = t.nav[i];
-        link.href = navUrls[currentLanguage][i];
-      });
+  const menuButton = document.getElementById('mobile-menu-button');
+  menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.setAttribute('aria-label', 'Menü öffnen');
+  menuButton.textContent = '☰';
 
-      document.querySelectorAll('[data-lang]').forEach(button => {
-        const active = button.dataset.lang === currentLanguage;
-        button.classList.toggle('active',active);
-        button.setAttribute('aria-pressed',String(active));
-      });
+  renderCurrentProjects();
+}
 
-      document.querySelector('.current-project-content').style.setProperty(
-        '--project-link-text',
-        '"' + t.projectLink.replace(/"/g,'\\"') + '"'
-      );
-
-      const mobileMenu = document.getElementById('main-menu');
-      mobileMenu.classList.remove('mobile-open');
-      document.getElementById('mobile-menu-button').setAttribute('aria-expanded','false');
-      document.getElementById('mobile-menu-button').textContent = '☰';
-    }
 
     document.querySelectorAll('[data-lang]').forEach(button => {
       button.addEventListener('click', () => {
@@ -1131,7 +1149,8 @@ const navUrls = {
       menuButton.textContent = open ? '×' : '☰';
     });
 
-    setLanguage('de');
+setLanguage('de');
+loadCurrentProjects();
   </script>
 </body>
 </html>
