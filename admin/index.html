@@ -3717,106 +3717,89 @@ function renderJobs(){
 
 }
 
-async function selectJobImages(jobIndex,input){
+async function selectJobImage(jobIndex, language, input){
 
-  const files=Array.from(input.files||[]);
+  const file = input.files[0];
 
-  if(!files.length) return;
+  if(!file) return;
 
   try{
 
-    const s=auth();
+    const s = auth();
 
-    $('status').textContent=
-      'Envoi des photos…';
+    $('status').textContent = 'Envoi de la photo…';
 
-    const job=C.jobs.items[jobIndex];
+    const job = C.jobs.items[jobIndex];
 
-    if(!Array.isArray(job.images)){
-      job.images=[];
+    if(!job.images || Array.isArray(job.images)){
+
+      const oldImages = Array.isArray(job.images)
+        ? job.images
+        : (job.image ? [job.image] : []);
+
+      job.images = {
+        fr: oldImages[0] || '',
+        de: oldImages[1] || ''
+      };
+
+      delete job.image;
     }
 
-    for(const file of files){
+    const extension = file.name.split('.').pop().toLowerCase();
 
-      const extension=
-        file.name
-          .split('.')
-          .pop()
-          .toLowerCase();
+    const filename =
+      (job.id || 'job-' + Date.now()) +
+      '-' + language +
+      '-' + Date.now() +
+      '-' + Math.random().toString(36).substring(2,8) +
+      '.' + extension;
 
-      const filename=
-        (job.id || 'job-'+Date.now())+
-        '-' +
-        Date.now()+
-        '-' +
-        Math.random()
-          .toString(36)
-          .substring(2,8)+
-        '.'+
-        extension;
+    const path = 'images/jobs/' + filename;
 
-      const path=
-        'images/jobs/'+
-        filename;
+    const buffer = await file.arrayBuffer();
+    const bytes = new Uint8Array(buffer);
 
-      const buffer=
-        await file.arrayBuffer();
+    let binary = '';
 
-      const bytes=
-        new Uint8Array(buffer);
+    bytes.forEach(function(b){
+      binary += String.fromCharCode(b);
+    });
 
-      let binary='';
+    const content = btoa(binary);
 
-      bytes.forEach(function(b){
+    await api(
+      '/contents/' + path,
+      {
+        method: 'PUT',
+        body: JSON.stringify({
+          message: 'Ajouter la photo ' + language.toUpperCase() + ' d’une offre d’emploi',
+          content: content,
+          branch: s.branch
+        })
+      }
+    );
 
-        binary+=
-          String.fromCharCode(b);
+    job.images[language] = path;
 
-      });
-
-      const content=
-        btoa(binary);
-
-      await api(
-        '/contents/'+path,
-        {
-          method:'PUT',
-
-          body:JSON.stringify({
-
-            message:
-              'Ajouter une photo à une offre d’emploi',
-
-            content:content,
-
-            branch:s.branch
-
-          })
-
-        }
-      );
-
-      job.images.push(path);
-
-    }
-
-    input.value='';
+    input.value = '';
 
     renderJobs();
 
-    $('status').innerHTML=
-      '<span class="success">'+
-      files.length+
-      ' photo(s) ajoutée(s) ! Cliquez maintenant sur « Enregistrer et publier ». '+
+    $('status').innerHTML =
+      '<span class="success">' +
+      (language === 'fr'
+        ? 'Photo française ajoutée !'
+        : 'Photo allemande ajoutée !') +
+      ' Cliquez sur « Enregistrer et publier » pour sauvegarder la configuration.' +
       '</span>';
 
   }
   catch(e){
 
-    $('status').innerHTML=
-      '<span class="danger-text">'+
-      'Erreur : '+
-      escapeHtml(e.message)+
+    $('status').innerHTML =
+      '<span class="danger-text">' +
+      'Erreur : ' +
+      escapeHtml(e.message) +
       '</span>';
 
   }
@@ -3824,28 +3807,29 @@ async function selectJobImages(jobIndex,input){
 }
 
 
-function deleteJobImage(jobIndex,imageIndex){
+function deleteJobImage(jobIndex, language){
 
-  if(!confirm('Supprimer cette photo de l’offre ?')){
-    return;
+  const job = C.jobs.items[jobIndex];
+
+  if(!job.images || Array.isArray(job.images)){
+    const oldImages = Array.isArray(job.images)
+      ? job.images
+      : (job.image ? [job.image] : []);
+
+    job.images = {
+      fr: oldImages[0] || '',
+      de: oldImages[1] || ''
+    };
+
+    delete job.image;
   }
 
-  const job=C.jobs.items[jobIndex];
-
-  if(!Array.isArray(job.images)){
-    job.images=[];
-  }
-
-  job.images.splice(imageIndex,1);
+  job.images[language] = '';
 
   renderJobs();
 
-  $('status').innerHTML=
-    '<span class="success">'+
-    'Photo retirée. Cliquez sur « Enregistrer et publier » pour enregistrer la modification.'+
-    '</span>';
-
 }
+  
 function addJob(){
 
   if(!C.jobs.items){
