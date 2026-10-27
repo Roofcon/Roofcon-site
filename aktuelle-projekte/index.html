@@ -1047,10 +1047,7 @@ function renderCurrentProjects() {
     const title = document.createElement('h2');
     title.textContent = getProjectTitle(project, currentLanguage);
 
-    const description = document.createElement('p');
-    description.textContent = getProjectDescription(project, currentLanguage);
-
-    content.append(title, description);
+    content.appendChild(title);
     card.append(image, overlay, content);
 
     card.style.setProperty(
