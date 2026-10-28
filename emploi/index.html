@@ -68,82 +68,259 @@
       flex-wrap:wrap;
     }
 
-    header {
-      position:sticky;
-      top:0;
-      z-index:30;
-      background:#fff;
-      border-bottom:1px solid var(--line);
-    }
+   /* =========================================
+   HEADER — STYLE ÉPURÉ ROOFCON
+========================================= */
 
-  
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
 .nav {
-  min-height: 72px;
+  min-height: 82px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 25px;
+  gap: 35px;
 }
 
-.nav > a:first-child {
-  margin-right: auto;
+/* LOGO */
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
-
-.logo {
-  width:190px;
-  display:block;
-  height:auto;
+.nav-logo img {
+  display: block;
+  width: 175px;
+  height: auto;
 }
 
-    
+/* NAVIGATION */
+
 .menu {
   display: flex;
   align-items: center;
-  gap: 25px;
-  font-size: 14px;
-  font-weight: 800;
+  justify-content: flex-end;
+  gap: 28px;
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
 }
 
+.menu a {
+  position: relative;
+  color: var(--black);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .2s ease;
+}
 
-    .menu a:hover {
-      color:var(--brown);
-    }
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: var(--brown);
+  transition: width .2s ease;
+}
 
-    
+.menu a:hover {
+  color: var(--brown);
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+/* BOUTON CONTACT */
+
+.menu .cta {
+  background: var(--brown);
+  color: #fff;
+  padding: 11px 18px;
+}
+
+.menu .cta::after {
+  display: none;
+}
+
+.menu .cta:hover {
+  background: var(--black);
+  color: #fff;
+}
+
+/* LANGUES */
+
 .lang {
-  display:flex;
-  gap:4px;
-  margin-left:0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
 }
 
-
-   
 .lang a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-width: 34px;
+  height: 30px;
+  padding: 0 8px;
+
   border: 1px solid var(--line);
   background: #fff;
   color: var(--black);
-  padding: 6px 9px;
-  font-size: 12px;
-  line-height: 1.2;
-  font-weight: 800;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+.lang a:hover {
+  border-color: var(--brown);
+  color: var(--brown);
+}
+
+.lang a.active {
+  background: var(--brown);
+  border-color: var(--brown);
+  color: #fff;
+}
+
+/* MENU MOBILE */
+
+.mobile-menu-button {
+  display: none;
 }
 
 
-    .lang a.active {
-      background:var(--brown);
-      color:#fff;
-      border-color:var(--brown);
-    }
+/* =========================================
+   TABLETTE
+========================================= */
 
+@media (max-width: 1100px) {
+
+  .nav {
+    gap: 22px;
+  }
+
+  .menu {
+    gap: 18px;
+    font-size: 12px;
+  }
+
+  .nav-logo img {
+    width: 165px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 750px) {
+
+  header {
+    position: sticky;
+    top: 0;
+  }
+
+  .nav {
+    min-height: 74px;
+    position: relative;
+    gap: 0;
+  }
+
+  .nav-logo img {
+    width: 145px;
+  }
+
+  .lang {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--black);
+
+    cursor: pointer;
+
+    font-size: 25px;
+    line-height: 1;
+  }
+
+  .menu {
+    display: none;
+
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+    margin: 0;
+
+    background: #fff;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+  }
+
+  .menu.mobile-open {
+    display: flex;
+  }
+
+  .menu a {
+    width: 100%;
+    padding: 15px 24px;
+
+    border-bottom: 1px solid #eee;
+
+    font-size: 14px;
+  }
+
+  .menu a::after {
+    display: none;
+  }
+
+  .menu a:last-child {
+    border-bottom: none;
+  }
+
+  .menu .cta {
+    margin: 10px 16px;
+    width: auto;
+    text-align: center;
+  }
+
+}
    
-
-
-
-
 /* ================================
    OFFRES D'EMPLOI — FOND BLANC
 ================================ */
@@ -695,16 +872,29 @@
 
 <header>
   <div class="container nav">
-    <a href="/" aria-label="ROOFCON — Accueil">
-      <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
+
+    <!-- LOGO -->
+    <a href="/" class="nav-logo" aria-label="ROOFCON — Accueil">
+      <img src="/ROOFCON.png" alt="ROOFCON">
     </a>
 
-   
-<div class="lang" aria-label="Choisir la langue">
-  <a id="lang-fr" class="active" href="/emploi/" aria-current="page">FR</a>
-  <a id="lang-de" href="/karriere/">DE</a>
-</div>
+    <!-- NAVIGATION -->
+    <nav class="menu" id="main-menu" aria-label="Navigation principale">
+      <a id="nav-home" href="/">Accueil</a>
+      <a id="nav-services" href="/services/">Nos services</a>
+      <a id="nav-current" href="/projets-en-cours/">Projets en cours</a>
+      <a id="nav-references" href="/realisations/">Réalisations</a>
+      <a id="nav-jobs" href="/emploi/">Offres d'emploi</a>
+      <a id="nav-contact" href="/contact/" class="cta">Contact</a>
+    </nav>
 
+    <!-- LANGUES -->
+    <div class="lang" aria-label="Choisir la langue">
+      <a id="lang-fr" class="active" href="/emploi/" aria-current="page">FR</a>
+      <a id="lang-de" href="/karriere/">DE</a>
+    </div>
+
+    <!-- MENU MOBILE -->
     <button
       type="button"
       class="mobile-menu-button"
@@ -712,18 +902,6 @@
       aria-label="Ouvrir le menu"
       aria-expanded="false"
     >☰</button>
-
-   
-
-<nav class="menu" id="main-menu" aria-label="Navigation principale">
-  <a id="nav-home" href="/">Accueil</a>
-  <a id="nav-services" href="/services/">Nos services</a>
-  <a id="nav-current" href="/projets-en-cours/">Projets en cours</a>
-  <a id="nav-references" href="/realisations/">Réalisations</a>
-  <a id="nav-jobs" href="/emploi/">Offres d'emploi</a>
-  <a id="nav-contact" href="/contact/" class="cta">Contact</a>
-</nav>
-
 
   </div>
 </header>
