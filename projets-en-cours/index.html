@@ -396,6 +396,21 @@ header {
     text-align: center;
   }
 
+  /* TAILLE DES LOGOS RÉSEAUX DANS LE HEADER */
+.top-socials a {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-socials svg {
+  width: 14px !important;
+  height: 14px !important;
+  display: block;
+}
+  
 }
     /* PROJETS EN COURS */
 
@@ -717,8 +732,7 @@ footer .container {
   color: #c3a080;
 }
 
-/* RÉSEAUX SOCIAUX */
-
+/* RÉSEAUX SOCIAUX DU FOOTER — TEXTE UNIQUEMENT */
 .footer-social {
   display: flex;
   flex-direction: column;
@@ -727,9 +741,16 @@ footer .container {
 }
 
 .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
   color: #aaa29c;
   text-decoration: none;
   transition: color .2s ease;
+}
+
+.footer-social a svg {
+  display: none;
 }
 
 .footer-social a:hover {
@@ -845,9 +866,9 @@ footer .container {
 
     <!-- LANGUES -->
     <div class="lang" aria-label="Choisir la langue">
-      <a id="lang-fr" class="active" href="/emploi/" aria-current="page">FR</a>
-      <a id="lang-de" href="/karriere/">DE</a>
-    </div>
+  <a id="lang-fr" class="active" href="/projets-en-cours/" aria-current="page">FR</a>
+  <a id="lang-de" href="/aktuelle-projekte/">DE</a>
+</div>
 
     <!-- MENU MOBILE -->
     <button
