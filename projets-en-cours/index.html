@@ -145,74 +145,88 @@
 .top-social:hover {
   color: var(--brown2);
 }
-   header {
-  background: #fff;
-  border-bottom: 1px solid var(--line);
+  /* =========================================
+   HEADER — STYLE ÉPURÉ ROOFCON
+========================================= */
+
+header {
   position: sticky;
   top: 0;
-  z-index: 30;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
 }
 
 .nav {
-  min-height: 72px;
+  min-height: 82px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  gap: 35px;
 }
 
-.logo {
-  width: 190px;
+/* LOGO */
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav-logo img {
   display: block;
+  width: 175px;
   height: auto;
 }
-   
-.lang {
-  display: flex;
-  gap: 4px;
-  margin-left: auto;
-}
 
-.lang button {
-  border: 1px solid var(--line);
-  background: #fff;
-  color: var(--black);
-  padding: 6px 9px;
-  font-size: 12px;
-  line-height: 1.2;
-  font-weight: 800;
-  cursor: pointer;
-}
+/* NAVIGATION */
 
-.lang button.active {
-  background: var(--brown);
-  color: #fff;
-  border-color: var(--brown);
-}
-
-
-    .menu {
+.menu {
   display: flex;
   align-items: center;
-  gap: 25px;
-  font-size: 14px;
-  font-weight: 800;
+  justify-content: flex-end;
+  gap: 28px;
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .menu a {
+  position: relative;
   color: var(--black);
   text-decoration: none;
-  transition: color .2s ease, background-color .2s ease;
+  white-space: nowrap;
+  transition: color .2s ease;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: var(--brown);
+  transition: width .2s ease;
 }
 
 .menu a:hover {
   color: var(--brown);
 }
 
+.menu a:hover::after {
+  width: 100%;
+}
+
+/* BOUTON CONTACT */
+
 .menu .cta {
   background: var(--brown);
   color: #fff;
-  padding: 12px 18px;
+  padding: 11px 18px;
+}
+
+.menu .cta::after {
+  display: none;
 }
 
 .menu .cta:hover {
@@ -220,8 +234,169 @@
   color: #fff;
 }
 
-.mobile-menu-button { display:none; }
+/* LANGUES */
 
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.lang a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 30px;
+  padding: 0 8px;
+
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--black);
+
+  font-size: 11px;
+  font-weight: 700;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
+}
+
+.lang a:hover {
+  border-color: var(--brown);
+  color: var(--brown);
+}
+
+.lang a.active {
+  background: var(--brown);
+  border-color: var(--brown);
+  color: #fff;
+}
+
+/* MENU MOBILE */
+
+.mobile-menu-button {
+  display: none;
+}
+
+
+/* =========================================
+   TABLETTE
+========================================= */
+
+@media (max-width: 1100px) {
+
+  .nav {
+    gap: 22px;
+  }
+
+  .menu {
+    gap: 18px;
+    font-size: 12px;
+  }
+
+  .nav-logo img {
+    width: 165px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 750px) {
+
+  header {
+    position: sticky;
+    top: 0;
+  }
+
+  .nav {
+    min-height: 74px;
+    position: relative;
+    gap: 0;
+  }
+
+  .nav-logo img {
+    width: 145px;
+  }
+
+  .lang {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--black);
+
+    cursor: pointer;
+
+    font-size: 25px;
+    line-height: 1;
+  }
+
+  .menu {
+    display: none;
+
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+    margin: 0;
+
+    background: #fff;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+  }
+
+  .menu.mobile-open {
+    display: flex;
+  }
+
+  .menu a {
+    width: 100%;
+    padding: 15px 24px;
+
+    border-bottom: 1px solid #eee;
+
+    font-size: 14px;
+  }
+
+  .menu a::after {
+    display: none;
+  }
+
+  .menu a:last-child {
+    border-bottom: none;
+  }
+
+  .menu .cta {
+    margin: 10px 16px;
+    width: auto;
+    text-align: center;
+  }
+
+}
     /* PROJETS EN COURS */
 
 .current-projects {
@@ -466,285 +641,169 @@ color: #706b67;
       font-size:14px;
     }
 
-    /* FOOTER */
-
-    footer {
-      background:#171616;
-      color:#aaa;
-      padding:40px 0;
-      font-size:13px;
-    }
-
-    .footer-grid {
-      display:grid;
-      grid-template-columns:1.2fr 1fr 1fr 1fr;
-      gap:35px;
-    }
-
-    .footer-logo {
-      width:150px;
-      background:#fff;
-      padding:7px;
-      margin-bottom:15px;
-    }
-
-    .footer-title {
-      color:#fff;
-      font-size:14px;
-      font-weight:800;
-      margin-bottom:12px;
-    }
-
-    .footer-item { margin-bottom:7px; }
-    .footer-item a { color:inherit; }
-
-    .footer-item a:hover,
-    .footer-social a:hover,
-    .footer-legal a:hover { color:var(--brown2); }
-
-    .footer-social a {
-      display:flex;
-      align-items:center;
-      gap:9px;
-      margin-bottom:10px;
-      color:#aaa;
-    }
-
-    .footer-social svg { flex-shrink:0; }
-
-    .footer-bottom {
-      border-top:1px solid #302d2b;
-      margin-top:30px;
-      padding-top:20px;
-      color:#777;
-    }
-
-    .footer-legal {
-      margin-top:10px;
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-
-    .footer-legal a { color:#777; }
-
-    @media(max-width:1000px) {
-      .menu { gap:14px; font-size:12px; }
-      .footer-grid { grid-template-columns:1fr 1fr; }
-      .current-projects { padding: 65px 0 105px; }
-      .current-projects-grid { grid-template-columns:1fr; gap:18px; }
-      .current-project { min-height:480px; }
-    }
-
-    @media(max-width:800px) {
-      .current-projects { padding:70px 0; }
-
-      .current-projects .head { margin-bottom:38px; }
-      .current-projects-grid { grid-template-columns:1fr; gap:20px; }
-      .current-project { min-height:340px; }
-      .current-project-content { left:22px; right:22px; bottom:22px; }
-      .current-project-content h2 { font-size:22px; }
-    }
-
    
-@media (max-width: 750px) {
-  .top {
-    display: none;
-  }
+/* =========================================
+   FOOTER ROOFCON — HORIZONTAL ET ÉPURÉ
+   Tous les textes actuels sont conservés
+========================================= */
 
-  .nav {
-    min-height: 76px;
-    position: relative;
-  }
-
-  .logo {
-    width: 145px;
-  }
-
-  .mobile-menu-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 44px;
-    height: 44px;
-    border: 1px solid var(--line);
-    background: #fff;
-    color: var(--black);
-    cursor: pointer;
-    margin-left: auto;
-    font-size: 26px;
-    line-height: 1;
-  }
-
-  .menu {
-    display: none;
-    position: absolute;
-    top: 76px;
-    left: 0;
-    right: 0;
-    background: #fff;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 8px 0;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
-  }
-
-  .menu.mobile-open {
-    display: flex;
-  }
-
-  .menu a {
-    display: block;
-    width: 100%;
-    padding: 16px 24px;
-    font-size: 15px;
-    border-bottom: 1px solid #eee;
-  }
-
-  .menu a:last-child {
-    border-bottom: 0;
-  }
-
-  .menu a:hover {
-    background: var(--cream);
-    color: var(--brown);
-  }
-
-  .menu .cta {
-    margin: 8px 16px;
-    width: auto;
-    text-align: center;
-  }
-
-  .lang {
-    margin-left: auto;
-    margin-right: 0;
-  }
-
-  .lang button {
-    padding: 6px 8px;
-    font-size: 12px;
-  }
+footer {
+  background: #211f20;
+  color: #aaa29c;
+  padding: 25px 0 14px;
+  font-size: 12px;
+  line-height: 1.65;
 }
 
-
-    @media(max-width:650px) {
-      .current-projects { padding:75px 0 85px; }
-      .current-projects .head { margin-bottom:45px; }
-      .current-projects .head h1 {
-        font-size:43px;
-        line-height:.98;
-        margin-bottom:20px;
-      }
-      .current-projects .head p { font-size:16px; line-height:1.7; }
-      .current-projects-grid { gap:14px; }
-      .current-project { min-height:380px; }
-      .current-project-content { left:23px; right:23px; bottom:23px; }
-      .current-project-content h2 { font-size:27px; margin-bottom:11px; }
-      .current-project-content p { font-size:13px; line-height:1.6; }
-      .current-project-content::after {
-        margin-top:20px;
-        font-size:9px;
-        letter-spacing:.14em;
-      }
-      .current-project-location { font-size:9px; }
-      .project-modal { padding:12px; }
-      .project-modal-panel { max-height:calc(100vh - 24px); }
-      .project-modal-content { padding:28px 22px 30px; }
-    }
-
-    @media(max-width:600px) {
-      #current-projects .head {
-        max-width:none;
-        margin-bottom:70px;
-        text-align:center;
-      }
-      #current-projects .head h1 {
-        font-size:clamp(34px,4vw,58px);
-        line-height:1.05;
-        margin-bottom:25px;
-        letter-spacing:-.02em;
-        max-width:none;
-      }
-      #current-projects .head p {
-        max-width:none;
-        color:#706b67;
-        font-size:18px;
-        line-height:1.7;
-        margin:0;
-      }
-    }
-
-    
-
-/* BARRE SUPÉRIEURE — STYLE IDENTIQUE À NOS SERVICES */
-
-.top {
-  background: var(--black);
-  color: #ddd;
-  font-size: 14px;
-  padding: 8px 0;
+footer .container {
+  width: min(1180px, 92%);
+  margin: auto;
 }
 
-.top .inner {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 15px;
+/* ORGANISATION HORIZONTALE */
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
+  align-items: start;
+  gap: 28px;
 }
 
-.top a {
+/* LOGO ET DESCRIPTION */
+
+.footer-logo {
+  display: block;
+  width: 125px;
+  max-width: 100%;
+  height: auto;
+  background: #fff;
+  padding: 5px;
+  margin-bottom: 12px;
+}
+
+#footer-description {
+  max-width: 240px;
+  color: #aaa29c;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* TITRES */
+
+.footer-title {
+  color: #c3a080;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin: 4px 0 9px;
+}
+
+/* COORDONNÉES ET HORAIRES */
+
+.footer-item {
+  margin-bottom: 5px;
+  color: #aaa29c;
+  overflow-wrap: anywhere;
+}
+
+.footer-item a {
   color: inherit;
   text-decoration: none;
+  transition: color .2s ease;
 }
 
-#top-phone,
-#top-email {
+.footer-item a:hover {
+  color: #c3a080;
+}
+
+/* RÉSEAUX SOCIAUX */
+
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.footer-social a {
+  color: #aaa29c;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.footer-social a:hover {
+  color: #c3a080;
+}
+
+/* COPYRIGHT ET LIENS LÉGAUX */
+
+.footer-bottom {
+  border-top: 1px solid #403a37;
+  margin-top: 22px;
+  padding-top: 12px;
+  color: #827a75;
+  font-size: 10px;
   display: flex;
   align-items: center;
-  white-space: nowrap;
-}
-
-.top-socials {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 12px;
 }
 
-#top-facebook,
-#top-instagram {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
+.footer-legal {
+  margin-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
 }
 
-#top-facebook a,
-#top-instagram a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: inherit;
+.footer-legal a {
+  color: #827a75;
+  text-decoration: none;
+  transition: color .2s ease;
 }
 
-#top-facebook svg,
-#top-instagram svg {
-  width: 16px;
-  height: 16px;
-  max-width: 16px;
-  max-height: 16px;
-  display: block;
+.footer-legal a:hover {
+  color: #c3a080;
 }
 
-#top-facebook a:hover,
-#top-instagram a:hover {
-  color: var(--brown2);
+/* TABLETTE */
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  footer {
+    padding: 24px 0 14px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 16px;
+  }
+
+  .footer-logo {
+    width: 110px;
+  }
+
+  .footer-bottom {
+    margin-top: 18px;
+  }
+
+  .footer-legal {
+    line-height: 1.9;
+  }
 }
 
 
@@ -766,37 +825,41 @@ color: #706b67;
   </div>
 
   <!-- HEADER -->
-  <header>
-    <div class="container nav">
-      <a href="/" id="logo-home" aria-label="ROOFCON — Accueil">
-        <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
-      </a>
+ <header>
+  <div class="container nav">
 
-      <div class="lang" aria-label="Choisir la langue">
-        <button type="button" id="lang-fr" class="active"
-          data-lang="fr" aria-pressed="true">FR</button>
-        <button type="button" id="lang-de"
-          data-lang="de" aria-pressed="false">DE</button>
-      </div>
+    <!-- LOGO -->
+    <a href="/" class="nav-logo" aria-label="ROOFCON — Accueil">
+      <img src="/ROOFCON.png" alt="ROOFCON">
+    </a>
 
-      <button
-        type="button"
-        class="mobile-menu-button"
-        id="mobile-menu-button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-      >☰</button>
+    <!-- NAVIGATION -->
+    <nav class="menu" id="main-menu" aria-label="Navigation principale">
+      <a id="nav-home" href="/">Accueil</a>
+      <a id="nav-services" href="/services/">Nos services</a>
+      <a id="nav-current" href="/projets-en-cours/">Projets en cours</a>
+      <a id="nav-references" href="/realisations/">Réalisations</a>
+      <a id="nav-jobs" href="/emploi/">Offres d'emploi</a>
+      <a id="nav-contact" href="/contact/" class="cta">Contact</a>
+    </nav>
 
-      <nav class="menu" id="main-menu" aria-label="Navigation principale">
-        <a href="/" data-nav="0">Accueil</a>
-        <a href="/services/" data-nav="1">Nos services</a>
-        <a href="/projets-en-cours/" data-nav="2" aria-current="page">Projets en cours</a>
-        <a href="/realisations/" data-nav="3">Réalisations</a>
-        <a href="/emploi/" data-nav="4">Offres d'emploi</a>
-        <a href="/contact/" data-nav="5" class="cta">Contact</a>
-      </nav>
+    <!-- LANGUES -->
+    <div class="lang" aria-label="Choisir la langue">
+      <a id="lang-fr" class="active" href="/emploi/" aria-current="page">FR</a>
+      <a id="lang-de" href="/karriere/">DE</a>
     </div>
-  </header>
+
+    <!-- MENU MOBILE -->
+    <button
+      type="button"
+      class="mobile-menu-button"
+      id="mobile-menu-button"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+    >☰</button>
+
+  </div>
+</header>
 
   <main>
     <section id="current-projects" class="current-projects">
