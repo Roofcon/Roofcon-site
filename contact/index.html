@@ -527,8 +527,7 @@ footer .container {
   color: #c3a080;
 }
 
-/* RÉSEAUX SOCIAUX */
-
+/* RÉSEAUX SOCIAUX DU FOOTER — TEXTE UNIQUEMENT */
 .footer-social {
   display: flex;
   flex-direction: column;
@@ -537,15 +536,21 @@ footer .container {
 }
 
 .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
   color: #aaa29c;
   text-decoration: none;
   transition: color .2s ease;
 }
 
+.footer-social a svg {
+  display: none;
+}
+
 .footer-social a:hover {
   color: #c3a080;
 }
-
 /* COPYRIGHT ET LIENS LÉGAUX */
 
 .footer-bottom {
@@ -880,12 +885,21 @@ function renderTopBar() {
 
   if (topFacebook) {
   topFacebook.href = facebook;
-  topFacebook.textContent = "Facebook";
+  topFacebook.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7z"/>
+    </svg>`;
 }
 
 if (topInstagram) {
   topInstagram.href = instagram;
-  topInstagram.textContent = "Instagram";
+  topInstagram.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    </svg>`;
 }
 }
 
