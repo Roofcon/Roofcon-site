@@ -119,27 +119,41 @@
   white-space: nowrap;
 }
 
-/* LOGOS DES RÉSEAUX DANS LA BARRE SUPÉRIEURE */
+/* BARRE SUPÉRIEURE */
+.top-inner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+.top-contact {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+}
 
 .top-social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: auto;
-  height: auto;
   flex-shrink: 0;
-  font-size: 12px;
-  text-decoration: none;
+  width: 16px;
+  height: 16px;
   color: inherit;
-  white-space: nowrap;
+  text-decoration: none;
 }
 
 .top-social svg {
-  width: 16px;
-  height: 16px;
-  max-width: 16px;
-  max-height: 16px;
-  display: block;
+  display: block !important;
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  flex: 0 0 16px !important;
 }
 
 .top-social:hover {
@@ -820,16 +834,35 @@ footer .container {
 
 
 <body>
-  <!-- BARRE SUPÉRIEURE -->
-  <div class="top">
-    <div class="container inner">
+ <!-- BARRE SUPÉRIEURE -->
+<div class="top">
+  <div class="container top-inner">
+    <div class="top-contact">
       <span id="top-phone"></span>
       <span id="top-email"></span>
-      <span class="top-socials">
-        <span id="top-facebook"></span>
-        <span id="top-instagram"></span>
-      </span>
     </div>
+
+    <a id="top-facebook"
+       class="top-social"
+       href="https://www.facebook.com/profile.php?id=61594591794889"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Facebook ROOFCON"
+       title="Facebook">
+      Facebook
+    </a>
+
+    <a id="top-instagram"
+       class="top-social"
+       href="https://www.instagram.com/roofcon.lu/"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Instagram ROOFCON"
+       title="Instagram">
+      Instagram
+    </a>
+  </div>
+</div>
   </div>
 
   <!-- HEADER -->
@@ -1050,8 +1083,12 @@ function renderTopBar() {
 
   const phone = '+352 621 765 489';
   const email = 'info@roof-con.lu';
-  const facebook = 'https://www.facebook.com/profile.php?id=61594591794889';
-  const instagram = 'https://www.instagram.com/roofcon.lu/';
+
+  const facebook =
+    'https://www.facebook.com/profile.php?id=61594591794889';
+
+  const instagram =
+    'https://www.instagram.com/roofcon.lu/';
 
   if (topPhone) {
     topPhone.innerHTML =
@@ -1064,40 +1101,37 @@ function renderTopBar() {
   }
 
   if (topFacebook) {
+    topFacebook.href = facebook;
     topFacebook.innerHTML = `
-      <a href="${facebook}"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Facebook ROOFCON"
-         title="Facebook">
-        <svg viewBox="0 0 24 24" fill="currentColor"
-             aria-hidden="true">
-          <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.5v2.1H7v3.2h2.9V21z"/>
-        </svg>
-      </a>`;
+      <svg viewBox="0 0 24 24"
+           width="16"
+           height="16"
+           fill="currentColor"
+           aria-hidden="true">
+        <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.5v2.1H7v3.2h2.9V21z"/>
+      </svg>`;
   }
 
   if (topInstagram) {
+    topInstagram.href = instagram;
     topInstagram.innerHTML = `
-      <a href="${instagram}"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Instagram ROOFCON"
-         title="Instagram">
-        <svg viewBox="0 0 24 24" fill="none"
-             stroke="currentColor"
-             stroke-width="2"
-             aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="1"
-                  fill="currentColor" stroke="none"/>
-        </svg>
-      </a>`;
+      <svg viewBox="0 0 24 24"
+           width="16"
+           height="16"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="2"
+           aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1"
+                fill="currentColor"
+                stroke="none"/>
+      </svg>`;
   }
 }
 
-    renderTopBar();
+renderTopBar();
     
     let currentLanguage = 'fr';
 
