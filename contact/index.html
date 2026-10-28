@@ -61,14 +61,19 @@
       gap: 18px;
       white-space: nowrap;
     }
-    .top-social {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
+.top-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  font-size: 12px;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+    
     .top-social svg {
       width: 16px;
       height: 16px;
@@ -76,7 +81,11 @@
       max-height: 16px;
       display: block;
     }
-    .top-social:hover { color: var(--brown2); }
+    
+  .top-social:hover {
+  color: var(--brown2);
+  text-decoration: none;
+}
 
 
 /* =========================================
@@ -209,6 +218,15 @@ header {
   color: #fff;
 }
 
+    /* BOUTONS DE LANGUE SANS SOULIGNEMENT */
+.lang a,
+.lang a:hover,
+.lang a:focus,
+.lang a:active,
+.lang a.active {
+  text-decoration: none !important;
+}
+    
 /* MENU MOBILE */
 
 .mobile-menu-button {
@@ -611,14 +629,14 @@ footer .container {
     </div>
 
     <a id="top-facebook" class="top-social"
-       href="https://www.facebook.com/profile.php?id=61594591794889"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Facebook ROOFCON" title="Facebook"></a>
+   href="https://www.facebook.com/profile.php?id=61594591794889"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Facebook ROOFCON" title="Facebook">Facebook</a>
 
-    <a id="top-instagram" class="top-social"
-       href="https://www.instagram.com/roofcon.lu/"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Instagram ROOFCON" title="Instagram"></a>
+<a id="top-instagram" class="top-social"
+   href="https://www.instagram.com/roofcon.lu/"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Instagram ROOFCON" title="Instagram">Instagram</a>
   </div>
 </div>
 
@@ -861,23 +879,14 @@ function renderTopBar() {
   }
 
   if (topFacebook) {
-    topFacebook.href = facebook;
-    topFacebook.innerHTML = `
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.5v2.1H7v3.2h2.9V21h3.6z"/>
-      </svg>`;
-  }
+  topFacebook.href = facebook;
+  topFacebook.textContent = "Facebook";
+}
 
-  if (topInstagram) {
-    topInstagram.href = instagram;
-    topInstagram.innerHTML = `
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-           stroke-width="2" aria-hidden="true">
-        <rect x="3" y="3" width="18" height="18" rx="5"/>
-        <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-      </svg>`;
-  }
+if (topInstagram) {
+  topInstagram.href = instagram;
+  topInstagram.textContent = "Instagram";
+}
 }
 
     function renderFooter() {
