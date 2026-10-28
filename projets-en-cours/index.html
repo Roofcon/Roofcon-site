@@ -121,31 +121,30 @@
 
 /* LOGOS DES RÉSEAUX DANS LA BARRE SUPÉRIEURE */
 
-.top-socials {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.top-socials a {
+.top-social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: auto;
+  height: auto;
   flex-shrink: 0;
+  font-size: 12px;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
 }
 
-.top-socials svg {
+.top-social svg {
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
   display: block;
-  width: 14px !important;
-  height: 14px !important;
-  max-width: 14px;
-  max-height: 14px;
 }
 
-.top-socials a:hover {
+.top-social:hover {
   color: var(--brown2);
+  text-decoration: none;
 }
     
   /* =========================================
