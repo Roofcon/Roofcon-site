@@ -48,28 +48,26 @@
       margin: auto;
     }
 
-    /* BARRE SUPÉRIEURE */
+   
+/* BARRE SUPÉRIEURE */
 
-    .top {
-      background: var(--black);
-      color: #ddd;
-      font-size: 12px;
-      padding: 8px 0;
-    }
+.top {
+  background: var(--black);
+  color: #ddd;
+  font-size: 14px;
+  padding: 8px 0;
+}
 
-   .top-inner {
+.top-inner {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 15px;
 }
-    .top a {
-      color: inherit;
-      text-decoration: none;
-    }
 
-.top {
-  font-size: 14px;
+.top a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .top-contact {
@@ -83,79 +81,105 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-.top-social {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: auto;
+  height: auto;
   flex-shrink: 0;
+  font-size: 12px;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
 }
 
 .top-social svg {
-  width: 16px;
-  height: 16px;
-  max-width: 16px;
-  max-height: 16px;
-  display: block;
+  display: block !important;
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  max-width: 16px !important;
+  max-height: 16px !important;
+  flex: 0 0 16px !important;
 }
 
 .top-social:hover {
   color: var(--brown2);
+  text-decoration: none;
 }
-    
-/* HEADER — STYLE ORIGINAL ROOFCON */
+
+/* HEADER — STYLE CONTACT */
 
 header {
-  background: #fff;
-  border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
-  z-index: 30;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
 }
 
 .nav {
-  min-height: 72px;
+  min-height: 82px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  gap: 35px;
 }
 
-.logo {
-  width: 190px;
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav-logo img {
   display: block;
+  width: 175px;
   height: auto;
-}
-
-.mobile-menu-button {
-  display: none;
 }
 
 .menu {
   display: flex;
   align-items: center;
-  gap: 25px;
-  font-size: 14px;
-  font-weight: 800;
+  justify-content: flex-end;
+  gap: 28px;
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .menu a {
+  position: relative;
   color: var(--black);
   text-decoration: none;
-  transition: color .2s ease, background-color .2s ease;
+  white-space: nowrap;
+  transition: color .2s ease;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: var(--brown);
+  transition: width .2s ease;
 }
 
 .menu a:hover {
   color: var(--brown);
 }
 
+.menu a:hover::after {
+  width: 100%;
+}
+
 .menu .cta {
   background: var(--brown);
   color: #fff;
-  padding: 12px 18px;
+  padding: 11px 18px;
+}
+
+.menu .cta::after {
+  display: none;
 }
 
 .menu .cta:hover {
@@ -163,45 +187,68 @@ header {
   color: #fff;
 }
 
+/* LANGUES — CONSERVATION DES BOUTONS SERVICES */
+
 .lang {
   display: flex;
+  align-items: center;
   gap: 4px;
-  margin-left: auto;
+  flex-shrink: 0;
+  margin-left: 0;
 }
 
 .lang button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 30px;
+  padding: 0 8px;
   border: 1px solid var(--line);
   background: #fff;
   color: var(--black);
-  padding: 6px 9px;
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 700;
   line-height: 1.2;
-  font-weight: 800;
   cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.lang button:hover {
+  border-color: var(--brown);
+  color: var(--brown);
 }
 
 .lang button.active {
   background: var(--brown);
-  color: #fff;
   border-color: var(--brown);
+  color: #fff;
 }
 
-/* HEADER MOBILE */
+/* MENU MOBILE */
 
-@media (max-width: 1000px) {
+.mobile-menu-button {
+  display: none;
+}
+
+/* TABLETTE */
+
+@media (max-width: 1100px) {
   .nav {
-    gap: 14px;
+    gap: 22px;
   }
 
   .menu {
-    gap: 14px;
+    gap: 18px;
     font-size: 12px;
   }
 
-  .logo {
-    width: 145px;
+  .nav-logo img {
+    width: 165px;
   }
 }
+
+/* MOBILE */
 
 @media (max-width: 750px) {
   .top {
@@ -209,43 +256,48 @@ header {
   }
 
   .nav {
-    min-height: 76px;
+    min-height: 74px;
     position: relative;
+    gap: 0;
   }
 
-  .logo {
+  .nav-logo img {
     width: 145px;
+  }
+
+  .lang {
+    margin-left: auto;
+    margin-right: 10px;
   }
 
   .mobile-menu-button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 44px;
-    height: 44px;
+    width: 42px;
+    height: 42px;
     border: 1px solid var(--line);
     background: #fff;
     color: var(--black);
     cursor: pointer;
-    margin-left: auto;
-    font-size: 26px;
+    font-size: 25px;
     line-height: 1;
   }
 
   .menu {
     display: none;
     position: absolute;
-    top: 76px;
+    top: 74px;
     left: 0;
     right: 0;
-    background: #fff;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding: 8px 0;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
+    margin: 0;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
   }
 
   .menu.mobile-open {
@@ -253,38 +305,27 @@ header {
   }
 
   .menu a {
-    display: block;
     width: 100%;
-    padding: 16px 24px;
-    font-size: 15px;
+    padding: 15px 24px;
     border-bottom: 1px solid #eee;
+    font-size: 14px;
+  }
+
+  .menu a::after {
+    display: none;
   }
 
   .menu a:last-child {
-    border-bottom: 0;
-  }
-
-  .menu a:hover {
-    background: var(--cream);
-    color: var(--brown);
+    border-bottom: none;
   }
 
   .menu .cta {
-    margin: 8px 16px;
+    margin: 10px 16px;
     width: auto;
     text-align: center;
   }
-
-  .lang {
-    margin-left: auto;
-    margin-right: 0;
-  }
-
-  .lang button {
-    padding: 6px 8px;
-    font-size: 12px;
-  }
 }
+
 
 /* ================================
    NOS SERVICES — STYLE ORIGINAL
@@ -536,177 +577,163 @@ color: #a27b5b;
       transform: translateY(0);
     }
 
-    /* PIED DE PAGE */
+   
+/* FOOTER ROOFCON — STYLE CONTACT */
 
-    footer {
-      background: #171616;
-      color: #aaa;
-      padding: 40px 0;
-      font-size: 13px;
-    }
+footer {
+  background: #211f20;
+  color: #aaa29c;
+  padding: 25px 0 14px;
+  font-size: 12px;
+  line-height: 1.65;
+}
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr 1fr;
-      gap: 35px;
-    }
+footer .container {
+  width: min(1180px, 92%);
+  margin: auto;
+}
 
-    .footer-logo {
-      width: 150px;
-      background: #fff;
-      padding: 7px;
-      margin-bottom: 15px;
-    }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
+  align-items: start;
+  gap: 28px;
+}
 
-    .footer-title {
-      color: #fff;
-      font-size: 14px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
+.footer-logo {
+  display: block;
+  width: 125px;
+  max-width: 100%;
+  height: auto;
+  background: #fff;
+  padding: 5px;
+  margin-bottom: 12px;
+}
 
-    .footer-item { margin-bottom: 7px; }
+#footer-description {
+  max-width: 240px;
+  color: #aaa29c;
+  font-size: 11px;
+  line-height: 1.7;
+}
 
-    .footer-item a {
-      color: inherit;
-      text-decoration: none;
-    }
+.footer-title {
+  color: #c3a080;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin: 4px 0 9px;
+}
 
-    .footer-item a:hover,
-    .footer-social a:hover {
-      color: var(--brown2);
-    }
+.footer-item {
+  margin-bottom: 5px;
+  color: #aaa29c;
+  overflow-wrap: anywhere;
+}
 
-    .footer-social a {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 10px;
-      color: #aaa;
-      text-decoration: none;
-    }
+.footer-item a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s ease;
+}
 
-    .footer-bottom {
-      border-top: 1px solid #302d2b;
-      margin-top: 30px;
-      padding-top: 20px;
-      color: #777;
-    }
+.footer-item a:hover {
+  color: #c3a080;
+}
 
-    .footer-legal {
-      margin-top: 10px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
 
-    .footer-legal a {
-      color: #777;
-      text-decoration: none;
-    }
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  color: #aaa29c;
+  text-decoration: none;
+  transition: color .2s ease;
+}
 
-    .footer-legal a:hover { color: var(--brown2); }
+.footer-social a svg {
+  display: none;
+}
 
-    /* TABLETTES */
+.footer-social a:hover {
+  color: #c3a080;
+}
 
-    @media (max-width: 1000px) {
-      .nav { gap: 14px; }
-      .menu { gap: 14px; font-size: 12px; }
-      .logo { width: 145px; }
-      .poles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
+.footer-bottom {
+  border-top: 1px solid #403a37;
+  margin-top: 22px;
+  padding-top: 12px;
+  color: #827a75;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
 
-    /* MOBILES */
+.footer-legal {
+  margin-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
 
-    @media (max-width: 750px) {
-      .top { display: none; }
+.footer-legal a {
+  color: #827a75;
+  text-decoration: none;
+  transition: color .2s ease;
+}
 
-      .nav {
-        min-height: 76px;
-        position: relative;
-      }
+.footer-legal a:hover {
+  color: #c3a080;
+}
 
-      .logo { width: 145px; }
+/* TABLETTE */
 
-      .mobile-menu-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 44px;
-        height: 44px;
-        border: 1px solid var(--line);
-        background: #fff;
-        color: var(--black);
-        cursor: pointer;
-        font-size: 26px;
-        line-height: 1;
-      }
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
 
-      .menu {
-        display: none;
-        position: absolute;
-        top: 76px;
-        left: 0;
-        right: 0;
-        background: #fff;
-        border-top: 1px solid var(--line);
-        border-bottom: 1px solid var(--line);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        padding: 8px 0;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
-      }
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
 
-      .menu.mobile-open { display: flex; }
+/* MOBILE */
 
-      .menu a {
-        display: block;
-        width: 100%;
-        padding: 16px 24px;
-        font-size: 15px;
-        border-bottom: 1px solid #eee;
-      }
+@media (max-width: 600px) {
+  footer {
+    padding: 24px 0 14px;
+  }
 
-      .menu a:last-child { border-bottom: 0; }
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 16px;
+  }
 
-      .menu a:hover {
-        background: var(--cream);
-        color: var(--brown);
-      }
+  .footer-logo {
+    width: 110px;
+  }
 
-      .menu .cta {
-        margin: 8px 16px;
-        width: auto;
-        text-align: center;
-      }
+  .footer-bottom {
+    margin-top: 18px;
+  }
 
-      .lang { margin-left: auto; margin-right: 0; }
-      .lang button { padding: 6px 8px; font-size: 12px; }
+  .footer-legal {
+    line-height: 1.9;
+  }
+}
 
-      .about { padding: 65px 0; }
-
-      .poles,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .pole {
-        min-height: 0;
-        padding: 22px;
-      }
-
-      .pole h2 { margin-bottom: 8px; }
-      .pole p { margin-bottom: 18px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-      }
-    }
 
 /* BARRE SUPÉRIEURE — ALIGNEMENT COMME L'ACCUEIL */
 
@@ -766,28 +793,49 @@ color: #a27b5b;
 </head>
 
 <body>
+
 <!-- BARRE SUPÉRIEURE -->
 <div class="top">
-  <div class="container inner">
-    <span id="top-phone"></span>
-    <span id="top-email"></span>
-    <span class="top-socials">
-      <span id="top-facebook"></span>
-      <span id="top-instagram"></span>
-    </span>
+  <div class="container top-inner">
+    <div class="top-contact">
+      <span id="top-phone"></span>
+      <span id="top-email"></span>
+    </div>
+
+    <a id="top-facebook" class="top-social"
+       href="https://www.facebook.com/profile.php?id=61594591794889"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Facebook ROOFCON" title="Facebook">Facebook</a>
+
+    <a id="top-instagram" class="top-social"
+       href="https://www.instagram.com/roofcon.lu/"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Instagram ROOFCON" title="Instagram">Instagram</a>
   </div>
 </div>
 
 <!-- HEADER -->
 <header>
   <div class="container nav">
-    <a href="/" id="logo-home" aria-label="ROOFCON — Accueil">
-      <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
+
+    <a href="/" class="nav-logo" aria-label="ROOFCON — Accueil">
+      <img src="/ROOFCON.png" alt="ROOFCON">
     </a>
 
+    <nav class="menu" id="main-menu" aria-label="Navigation principale">
+      <a id="nav-home" href="/">Accueil</a>
+      <a id="nav-about" href="/services/" aria-current="page">Nos services</a>
+      <a id="nav-current-projects" href="/projets-en-cours/">Projets en cours</a>
+      <a id="nav-references" href="/realisations/">Réalisations</a>
+      <a id="nav-jobs" href="/emploi/">Offres d'emploi</a>
+      <a id="nav-contact" href="/contact/" class="cta">Contact</a>
+    </nav>
+
     <div class="lang" aria-label="Choisir la langue">
-      <button type="button" id="lang-fr" class="active" aria-pressed="true">FR</button>
-      <button type="button" id="lang-de" aria-pressed="false">DE</button>
+      <button type="button" id="lang-fr" class="active"
+              aria-pressed="true">FR</button>
+      <button type="button" id="lang-de"
+              aria-pressed="false">DE</button>
     </div>
 
     <button
@@ -798,16 +846,9 @@ color: #a27b5b;
       aria-expanded="false"
     >☰</button>
 
-    <nav class="menu" id="main-menu" aria-label="Navigation principale">
-      <a href="/" id="nav-home">Accueil</a>
-      <a href="/services/" id="nav-about" aria-current="page">Nos services</a>
-      <a href="/projets-en-cours/" id="nav-current-projects">Projets en cours</a>
-      <a href="/realisations/" id="nav-references">Réalisations</a>
-      <a href="/emploi/" id="nav-jobs">Offres d'emploi</a>
-      <a href="/contact/" id="nav-contact" class="cta">Contact</a>
-    </nav>
   </div>
 </header>
+
 
   <main>
     <section id="about" class="about">
@@ -822,45 +863,58 @@ color: #a27b5b;
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <img src="/ROOFCON.png" class="footer-logo" alt="ROOFCON">
-          <div id="footer-description"></div>
-        </div>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
 
-        <div>
-          <div class="footer-title" id="footer-contact-title"></div>
-          <div class="footer-item" id="footer-phone"></div>
-          <div class="footer-item" id="footer-email"></div>
-        </div>
+      <div>
+        <a href="/" aria-label="ROOFCON - Accueil">
+          <img class="footer-logo" src="/ROOFCON.png" alt="ROOFCON">
+        </a>
+        <div id="footer-description"></div>
+      </div>
 
-        <div>
-          <div class="footer-title" id="footer-address-title"></div>
-          <div class="footer-item" id="footer-address"></div>
-          <div class="footer-item" id="footer-hours"></div>
-        </div>
+      <div>
+        <div class="footer-title" id="footer-contact-title"></div>
+        <div class="footer-item" id="footer-phone"></div>
+        <div class="footer-item" id="footer-email"></div>
+      </div>
 
-        <div>
-          <div class="footer-title" id="footer-social-title"></div>
-          <div class="footer-social">
-            <a id="footer-facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a id="footer-instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
-          </div>
+      <div>
+        <div class="footer-title" id="footer-address-title"></div>
+        <div class="footer-item" id="footer-address"></div>
+        <div class="footer-item" id="footer-hours"></div>
+      </div>
+
+      <div>
+        <div class="footer-title" id="footer-social-title"></div>
+        <div class="footer-social">
+          <a id="footer-facebook"
+             href="https://www.facebook.com/profile.php?id=61594591794889"
+             target="_blank" rel="noopener noreferrer">Facebook</a>
+
+          <a id="footer-instagram"
+             href="https://www.instagram.com/roofcon.lu/"
+             target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
       </div>
 
-      <div class="footer-bottom">
-        <div id="footer-copyright"></div>
-        <div class="footer-legal">
-          <a href="/mentions-legales.html" id="footer-legal-1">Mentions légales</a> ·
-          <a href="/politique-confidentialite.html" id="footer-legal-2">Politique de confidentialité</a> ·
-          <a href="/politique-cookies.html" id="footer-legal-3">Politique des cookies</a>
-        </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div id="footer-copyright"></div>
+      <div class="footer-legal">
+        <a href="/mentions-legales.html" id="footer-legal-1">Mentions légales</a>
+        <span>·</span>
+        <a href="/politique-confidentialite.html" id="footer-legal-2">Politique de confidentialité</a>
+        <span>·</span>
+        <a href="/politique-cookies.html" id="footer-legal-3">Politique des cookies</a>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
   <script>
     const CONTENT_URL = "/content.json";
@@ -992,8 +1046,11 @@ color: #a27b5b;
 
 /* BARRE SUPÉRIEURE */
 
+
 function renderTopBar() {
-  const site = CONTENT.site;
+  if (!CONTENT) return;
+
+  const site = CONTENT.site || {};
 
   const phone = site.phone || "+352 621 765 489";
   const email = site.email || "info@roof-con.lu";
@@ -1007,7 +1064,7 @@ function renderTopBar() {
 
   if (topPhone) {
     topPhone.innerHTML =
-      `<a href="tel:${escapeHTML(phone.replace(/\s/g, ""))}">${escapeHTML(phone)}</a>`;
+      `<a href="tel:${phone.replace(/\s/g, "")}">${escapeHTML(phone)}</a>`;
   }
 
   if (topEmail) {
@@ -1016,35 +1073,25 @@ function renderTopBar() {
   }
 
   if (topFacebook) {
+    topFacebook.href = facebook;
     topFacebook.innerHTML = `
-      <a href="${escapeHTML(facebook)}"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Facebook ROOFCON"
-         title="Facebook">
-        <svg viewBox="0 0 24 24" fill="currentColor"
-             aria-hidden="true">
-          <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.5v2.1H7v3.2h2.9V21z"/>
-        </svg>
-      </a>`;
+      <svg viewBox="0 0 24 24" width="16" height="16"
+           fill="currentColor" aria-hidden="true">
+        <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.3 1.6-4.3 4.5v2.1H7v3.2h2.9V21z"/>
+      </svg>`;
   }
 
   if (topInstagram) {
+    topInstagram.href = instagram;
     topInstagram.innerHTML = `
-      <a href="${escapeHTML(instagram)}"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="Instagram ROOFCON"
-         title="Instagram">
-        <svg viewBox="0 0 24 24" fill="none"
-             stroke="currentColor"
-             stroke-width="2"
-             aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5"/>
-          <circle cx="12" cy="12" r="4"/>
-          <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
-        </svg>
-      </a>`;
+      <svg viewBox="0 0 24 24" width="16" height="16"
+           fill="none" stroke="currentColor" stroke-width="2"
+           aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1"
+                fill="currentColor" stroke="none"/>
+      </svg>`;
   }
 }
 
