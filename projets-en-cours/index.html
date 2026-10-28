@@ -119,32 +119,35 @@
   white-space: nowrap;
 }
 
-.top-social {
-  display: inline-flex;
+/* LOGOS DES RÉSEAUX DANS LA BARRE SUPÉRIEURE */
+
+.top-socials {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 12px;
 }
 
-.top-social {
+.top-socials a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
 }
 
-.top-social svg {
-  width: 16px;
-  height: 16px;
-  max-width: 16px;
-  max-height: 16px;
+.top-socials svg {
   display: block;
+  width: 14px !important;
+  height: 14px !important;
+  max-width: 14px;
+  max-height: 14px;
 }
 
-.top-social:hover {
+.top-socials a:hover {
   color: var(--brown2);
 }
+    
   /* =========================================
    HEADER — STYLE ÉPURÉ ROOFCON
 ========================================= */
@@ -395,21 +398,6 @@ header {
     width: auto;
     text-align: center;
   }
-
-  /* TAILLE DES LOGOS RÉSEAUX DANS LE HEADER */
-.top-socials a {
-  width: 16px;
-  height: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.top-socials svg {
-  width: 14px !important;
-  height: 14px !important;
-  display: block;
-}
   
 }
     /* PROJETS EN COURS */
