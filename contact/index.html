@@ -621,305 +621,257 @@ footer .container {
   }
 }
 
- 
+    
 /* =========================================
-   ROOFCON — CONTACT
-   Style inspiré de la page Emploi
-   Header et footer préservés
+   CONTACT — DESIGN ÉPURÉ ET MODERNE
+   Header et footer inchangés
 ========================================= */
 
-#contact.contact {
-  background: #fff;
-  color: #171616;
-  padding: 82px 0 100px;
+.contact-section {
+  background: #fff !important;
+  padding: 76px 0 100px !important;
 }
 
-#contact .container {
-  width: min(1380px, calc(100% - 64px));
+.contact-section > .container {
+  width: min(1380px, 92%) !important;
   margin-inline: auto;
 }
 
-/* Mise en page générale */
-#contact .contact-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(380px, .85fr);
-  gap: clamp(48px, 7vw, 110px);
-  align-items: start;
+/* Disposition : informations à gauche, formulaire à droite */
+.contact-section .contact-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(380px, .82fr) !important;
+  gap: clamp(45px, 7vw, 105px) !important;
+  align-items: start !important;
 }
 
-/* Colonne des informations */
-#contact .contact-grid > div:first-child {
+/* En-tête de la partie contact */
+.contact-section .contact-info {
   min-width: 0;
 }
 
-/* Petit intitulé avec trait décoratif */
-#contact #contact-kicker {
+.contact-section .kicker {
   display: flex;
   align-items: center;
   gap: 18px;
-  margin: 0 0 20px;
-  color: #a27b5b;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
+  margin: 0 0 20px !important;
+  color: #a27b5b !important;
+  font-size: 12px !important;
+  letter-spacing: 2.5px !important;
 }
 
-#contact #contact-kicker::after {
+.contact-section .kicker::after {
   content: "";
   display: block;
   width: 75px;
   height: 1px;
-  background: #dfd5cb;
+  background: #e5dfda;
 }
 
-/* Titre principal */
-#contact #contact-title {
+.contact-section .contact-title {
   max-width: 650px;
-  margin: 0;
-  color: #171616;
-  font-size: clamp(42px, 4.3vw, 64px);
-  line-height: 1.06;
-  letter-spacing: -2.2px;
-  font-weight: 600;
+  margin: 0 !important;
+  color: #171616 !important;
+  font-size: clamp(44px, 4.5vw, 66px) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -2.4px !important;
+  font-weight: 600 !important;
 }
 
-/* Texte d'introduction */
-#contact #contact-intro {
-  max-width: 590px;
-  margin: 24px 0 44px;
-  color: #4f5663;
-  font-size: 17px;
-  line-height: 1.85;
+.contact-section .contact-intro {
+  max-width: 600px;
+  margin: 23px 0 42px !important;
+  color: #424958 !important;
+  font-size: 17px !important;
+  line-height: 1.85 !important;
 }
 
-/* Coordonnées : grille légère, sans cartes lourdes */
-#contact .contact-details {
-  display: grid;
+/* Coordonnées : deux colonnes et séparateurs fins */
+.contact-section .contact-details {
+  display: grid !important;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  column-gap: 36px;
-  margin: 0;
+  column-gap: 32px;
+  margin-top: 0 !important;
 }
 
-#contact .item {
+.contact-section .item {
   min-width: 0;
-  padding: 23px 0 25px;
-  border-top: 1px solid #e8e4e0;
+  padding: 22px 0 24px !important;
+  border-top: 1px solid #e5dfda !important;
 }
 
-#contact .item small {
-  display: block;
-  margin-bottom: 10px;
-  color: #a27b5b;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1.7px;
-  text-transform: uppercase;
+.contact-section .item small {
+  margin-bottom: 8px !important;
+  color: #a27b5b !important;
+  font-size: 10px !important;
+  letter-spacing: 1.6px !important;
 }
 
-#contact .item a,
-#contact .item span {
-  color: #242321;
-  font-size: 15px;
-  font-weight: 500;
+.contact-section .item a,
+.contact-section .item span {
+  color: #211f20 !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
   line-height: 1.75;
   overflow-wrap: anywhere;
 }
 
-#contact .item a {
-  text-decoration: none;
+.contact-section .item a {
+  text-decoration: none !important;
   transition: color .2s ease;
 }
 
-#contact .item a:hover {
+.contact-section .item a:hover {
   color: #a27b5b !important;
 }
 
-/* Formulaire : panneau clair et discret */
-#contact .contact-card {
-  position: relative;
-  box-sizing: border-box;
+/* Formulaire clair, sans fond noir */
+.contact-section .contact-card {
   width: 100%;
-  padding: clamp(28px, 3.5vw, 46px);
-  background: #faf9f7;
-  color: #171616;
-  border: 1px solid #eee9e4;
-  border-top: 3px solid #a27b5b;
+  min-width: 0;
+  padding: clamp(28px, 3.5vw, 46px) !important;
+  background: #faf9f7 !important;
+  color: #211f20 !important;
+  border: 1px solid #e9e3dd !important;
+  border-top: 3px solid #a27b5b !important;
+  box-shadow: 0 12px 35px rgba(33, 31, 32, .04);
 }
 
-/* Titre et texte du formulaire */
-#contact .contact-card h3 {
-  margin: 0 0 14px;
-  color: #171616;
-  font-size: clamp(27px, 2.5vw, 35px);
-  line-height: 1.2;
-  letter-spacing: -1px;
-  font-weight: 600;
+.contact-section .contact-card h2,
+.contact-section .contact-card h3 {
+  margin: 0 0 13px !important;
+  color: #171616 !important;
+  font-size: clamp(27px, 2.6vw, 35px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -.8px;
 }
 
-#contact .contact-card > p {
-  margin: 0 0 30px;
-  color: #62605d;
-  font-size: 14px;
+.contact-section .contact-card > p {
+  margin: 0 0 28px !important;
+  color: #706b67 !important;
+  font-size: 14px !important;
   line-height: 1.8;
 }
 
-/* Champs */
-#contact .contact-form {
-  display: grid;
-  gap: 21px;
+/* Champs du formulaire */
+.contact-section .contact-form {
+  display: grid !important;
+  gap: 19px !important;
 }
 
-#contact .contact-form label {
-  display: block;
-  margin-bottom: 9px;
-  color: #35322f;
-  font-size: 12px;
-  font-weight: 700;
+.contact-section .contact-form label {
+  margin-bottom: 8px !important;
+  color: #35322f !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
 }
 
-#contact .contact-form input,
-#contact .contact-form textarea {
+.contact-section .contact-form input,
+.contact-section .contact-form textarea {
   display: block;
-  box-sizing: border-box;
   width: 100%;
-  max-width: 100%;
-  padding: 14px 15px;
-  border: 1px solid #ded9d3;
-  border-radius: 0;
-  background: #fff;
-  color: #211f20;
+  min-width: 0;
+  padding: 14px 15px !important;
+  border: 1px solid #ded8d1 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  color: #211f20 !important;
   font-family: inherit;
   font-size: 14px;
-  line-height: 1.5;
   outline: none;
   transition: border-color .2s ease, box-shadow .2s ease;
 }
 
-#contact .contact-form input:focus,
-#contact .contact-form textarea:focus {
-  border-color: #a27b5b;
+.contact-section .contact-form input:focus,
+.contact-section .contact-form textarea:focus {
+  border-color: #a27b5b !important;
   box-shadow: 0 0 0 3px rgba(162, 123, 91, .09);
 }
 
-#contact .contact-form textarea {
-  min-height: 150px;
+.contact-section .contact-form textarea {
+  min-height: 145px;
   resize: vertical;
 }
 
-/* Bouton d'envoi */
-#contact .contact-form #form-submit {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* Bouton existant : même identifiant, même fonctionnement */
+.contact-section .contact-form #form-submit {
   width: 100%;
   min-height: 52px;
-  margin-top: 3px;
-  padding: 15px 20px;
-  border: 1px solid #a27b5b;
-  border-radius: 0;
-  background: #a27b5b;
-  color: #fff;
-  font-family: inherit;
+  padding: 15px 20px !important;
+  border: 1px solid #a27b5b !important;
+  border-radius: 0 !important;
+  background: #a27b5b !important;
+  color: #fff !important;
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  transition: background .2s ease, border-color .2s ease;
+  transition: background .2s ease;
 }
 
-#contact .contact-form #form-submit:hover {
-  background: #856247;
-  border-color: #856247;
+.contact-section .contact-form #form-submit:hover {
+  background: #856247 !important;
 }
 
-/* Tablettes */
-@media (max-width: 950px) {
-  #contact.contact {
-    padding: 65px 0 80px;
+/* Tablette et mobile */
+@media (max-width: 900px) {
+  .contact-section {
+    padding: 60px 0 75px !important;
   }
 
-  #contact .contact-grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, .95fr);
-    gap: 35px;
+  .contact-section .contact-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 32px !important;
   }
 
-  #contact .contact-details {
-    column-gap: 22px;
+  .contact-section .contact-title {
+    font-size: clamp(40px, 5vw, 54px) !important;
+    letter-spacing: -1.5px !important;
   }
 
-  #contact #contact-title {
-    font-size: clamp(38px, 5vw, 52px);
-    letter-spacing: -1.5px;
-  }
-
-  #contact .contact-card {
-    padding: 28px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 700px) {
-  #contact.contact {
-    padding: 48px 0 65px;
-  }
-
-  #contact .container {
-    width: calc(100% - 40px);
-  }
-
-  #contact .contact-grid {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 36px;
-  }
-
-  #contact #contact-kicker {
-    margin-bottom: 17px;
-    font-size: 11px;
-  }
-
-  #contact #contact-title {
-    font-size: clamp(38px, 10vw, 52px);
-    letter-spacing: -1.4px;
-  }
-
-  #contact #contact-intro {
-    margin: 20px 0 30px;
-    font-size: 15px;
-    line-height: 1.8;
-  }
-
-  #contact .contact-details {
+  .contact-section .contact-details {
     column-gap: 20px;
   }
 
-  #contact .item {
-    padding: 18px 0 20px;
+  .contact-section .contact-card {
+    padding: 26px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-section {
+    padding: 45px 0 60px !important;
   }
 
-  #contact .item a,
-  #contact .item span {
-    font-size: 14px;
+  .contact-section > .container {
+    width: calc(100% - 40px) !important;
   }
 
-  #contact .contact-card {
-    padding: 27px 22px;
+  .contact-section .contact-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 34px !important;
   }
 
-  #contact .contact-card h3 {
-    font-size: 28px;
+  .contact-section .contact-title {
+    font-size: clamp(39px, 10vw, 52px) !important;
+    letter-spacing: -1.5px !important;
   }
 
-  #contact .contact-form {
-    gap: 18px;
+  .contact-section .contact-intro {
+    margin: 20px 0 30px !important;
+    font-size: 15px !important;
+  }
+
+  .contact-section .contact-card {
+    padding: 26px 22px !important;
   }
 }
 
 @media (max-width: 420px) {
-  #contact .contact-details {
-    grid-template-columns: 1fr;
+  .contact-section .contact-details {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
-   
+
   </style>
 </head>
 <body>
