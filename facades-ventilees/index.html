@@ -186,26 +186,25 @@
       color: var(--brown);
     }
 
-.lang-switch {
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--black);
-  padding: 7px 9px;
-  font-family: inherit;
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
-}
+    .lang-switch {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--black);
+      padding: 7px 9px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
 
-.lang-switch:hover,
-.lang-switch.active {
-  background: var(--black);
-  color: var(--white);
-  border-color: var(--black);
-}
+    .lang-switch:hover,
+    .lang-switch.active {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
 
-    
     .nav .nav-cta {
       padding: 12px 18px;
       background: var(--black);
@@ -772,385 +771,472 @@
       }
     }
 
-    
-/* ================================
-   BARRE DE CONTACT
-================================ */
 
+    
+/* BARRE SUPÉRIEURE */
 .top {
-  padding: 8px 0;
   background: var(--black);
-  color: #e8e1db;
-  font-size: 12px;
-  letter-spacing: 0.04em;
+  color: #ddd;
+  font-size: 14px;
+  padding: 8px 0;
 }
 
-.top .inner {
+.top-inner {
   display: flex;
-  align-items: center;
   justify-content: flex-end;
-  gap: 24px;
+  align-items: center;
+  gap: 15px;
 }
 
 .top a {
-  transition: color 0.2s ease;
+  color: inherit;
+  text-decoration: none;
 }
 
-.top a:hover {
-  color: var(--brown-light);
-}
-
-.top-social-icons {
+.top-contact {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 18px;
+  white-space: nowrap;
 }
 
-.top-social-icons a {
+.top-social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  font-size: 12px;
+  white-space: nowrap;
 }
 
-.top-social-icons svg {
-  display: block;
+.top-social svg {
   width: 16px;
   height: 16px;
-  fill: currentColor;
+  max-width: 16px;
+  max-height: 16px;
+  display: block;
 }
 
-/* ================================
-   EN-TÊTE PRINCIPAL
-================================ */
+.top-social:hover {
+  color: var(--brown2);
+  text-decoration: none;
+}
 
-.site-header {
+/* HEADER */
+header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.97);
-  border-bottom: 1px solid rgba(33, 31, 32, 0.08);
-  backdrop-filter: blur(12px);
+  background: #fff;
+  border-bottom: 1px solid var(--line);
 }
 
-.site-header .nav {
-  position: relative;
+.nav {
+  min-height: 82px;
   display: flex;
-  min-height: 88px;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  gap: 35px;
 }
 
-.site-header .logo {
-  display: inline-flex;
+/* LOGO */
+.nav-logo {
+  display: flex;
+  align-items: center;
   flex-shrink: 0;
-  align-items: center;
 }
 
-.site-header .logo img {
+.nav-logo img {
   display: block;
-  width: 174px;
-  max-height: 66px;
-  object-fit: contain;
+  width: 175px;
+  height: auto;
 }
 
-.site-header .lang {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  gap: 5px;
-}
-
-.site-header .lang a {
-  display: inline-flex;
-  min-width: 32px;
-  min-height: 30px;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 8px;
-  border: 1px solid var(--line);
-  font-size: 11px;
-  font-weight: 700;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-.site-header .lang a:hover,
-.site-header .lang a.active {
-  border-color: var(--black);
-  background: var(--black);
-  color: var(--white);
-}
-
-.site-header .menu {
+/* NAVIGATION */
+.menu {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 20px;
+  gap: 28px;
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.site-header .menu a {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.045em;
-  text-transform: uppercase;
-  transition: color 0.2s ease;
+.menu a {
+  position: relative;
+  color: var(--black);
+  text-decoration: none;
+  white-space: nowrap;
+  text-transform: none;
+  transition: color .2s ease;
 }
 
-.site-header .menu a:hover {
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: var(--brown);
+  transition: width .2s ease;
+}
+
+.menu a:hover {
   color: var(--brown);
 }
 
-.site-header .menu a.cta {
-  padding: 12px 16px;
-  background: var(--black);
-  color: var(--white);
+.menu a:hover::after {
+  width: 100%;
 }
 
-.site-header .menu a.cta:hover {
+/* BOUTON CONTACT */
+.menu .cta {
   background: var(--brown);
-  color: var(--white);
+  color: #fff;
+  padding: 11px 18px;
 }
 
-.mobile-menu-button {
+.menu .cta::after {
   display: none;
-  border: 1px solid var(--line);
-  background: transparent;
-  color: var(--black);
-  padding: 7px 11px;
-  font-family: inherit;
-  font-size: 23px;
-  line-height: 1;
-  cursor: pointer;
 }
 
-/* ================================
-   PIED DE PAGE
-================================ */
-
-.site-footer {
-  padding: 58px 0 0;
-  background: #181717;
-  color: #d8d2cd;
+.menu .cta:hover {
+  background: var(--black);
+  color: #fff;
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.25fr 1fr 1fr 0.8fr;
-  gap: 38px;
-  padding-bottom: 42px;
-}
-
-.site-footer .footer-logo {
-  display: inline-flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.site-footer .footer-logo img {
-  display: block;
-  width: 145px;
-  max-height: 60px;
-  object-fit: contain;
-}
-
-.footer-description {
-  max-width: 290px;
-  color: #aaa39d;
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-.footer-title {
-  margin-bottom: 18px;
-  color: var(--white);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-.footer-item {
-  margin-bottom: 10px;
-  color: #c5bfba;
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-.footer-item a {
-  overflow-wrap: anywhere;
-  transition: color 0.2s ease;
-}
-
-.footer-item a:hover,
-.footer-legal a:hover {
-  color: var(--brown-light);
-}
-
-.footer-item strong {
-  color: var(--white);
-  font-weight: 700;
-}
-
-.footer-social-icons {
+/* LANGUES */
+.lang {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 4px;
+  flex-shrink: 0;
 }
 
-.footer-social-icons a {
+.lang a {
   display: inline-flex;
-  width: 38px;
-  height: 38px;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 50%;
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.footer-social-icons a:hover {
-  border-color: var(--brown);
-  background: var(--brown);
-}
-
-.footer-social-icons svg {
-  width: 17px;
-  height: 17px;
-  fill: currentColor;
-}
-
-.footer-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 20px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  color: #aaa39d;
+  min-width: 34px;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--black);
   font-size: 11px;
+  font-weight: 700;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
 }
 
-.footer-legal a {
-  transition: color 0.2s ease;
+.lang a:hover {
+  border-color: var(--brown);
+  color: var(--brown);
 }
 
-/* ================================
-   ADAPTATION TABLETTE
-================================ */
+.lang a.active {
+  background: var(--brown);
+  border-color: var(--brown);
+  color: #fff;
+}
 
+.lang a,
+.lang a:hover,
+.lang a:focus,
+.lang a:active,
+.lang a.active {
+  text-decoration: none !important;
+}
+
+/* MENU MOBILE */
+.mobile-menu-button {
+  display: none;
+}
+
+/* TABLETTE */
 @media (max-width: 1100px) {
-  .site-header .nav {
-    gap: 16px;
+  .nav {
+    gap: 22px;
   }
 
-  .site-header .logo img {
+  .menu {
+    gap: 18px;
+    font-size: 12px;
+  }
+
+  .nav-logo img {
+    width: 165px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 750px) {
+  header {
+    position: sticky;
+    top: 0;
+  }
+
+  .nav {
+    min-height: 74px;
+    position: relative;
+    gap: 0;
+  }
+
+  .nav-logo img {
     width: 145px;
   }
 
-  .site-header .menu {
-    gap: 13px;
+  .lang {
+    margin-left: auto;
+    margin-right: 10px;
   }
 
-  .site-header .menu a {
-    font-size: 9px;
+  .mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--black);
+    cursor: pointer;
+    font-size: 25px;
+    line-height: 1;
   }
 
-  .footer-grid {
-    gap: 24px;
+  .menu {
+    display: none;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+  }
+
+  .menu.mobile-open {
+    display: flex;
+  }
+
+  .menu a {
+    width: 100%;
+    padding: 15px 24px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+  }
+
+  .menu a::after {
+    display: none;
+  }
+
+  .menu a:last-child {
+    border-bottom: none;
+  }
+
+  .menu .cta {
+    margin: 10px 16px;
+    width: auto;
+    text-align: center;
   }
 }
+
+/* =========================================
+   FOOTER ROOFCON — HORIZONTAL ET ÉPURÉ
+   Tous les textes actuels sont conservés
+========================================= */
+
+footer {
+  background: #211f20;
+  color: #aaa29c;
+  padding: 25px 0 14px;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+footer .container {
+  width: min(1180px, 92%);
+  margin: auto;
+}
+
+/* ORGANISATION HORIZONTALE */
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
+  align-items: start;
+  gap: 28px;
+}
+
+/* LOGO ET DESCRIPTION */
+
+.footer-logo {
+  display: block;
+  width: 125px;
+  max-width: 100%;
+  height: auto;
+  background: #fff;
+  padding: 5px;
+  margin-bottom: 12px;
+}
+
+#footer-description {
+  max-width: 240px;
+  color: #aaa29c;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* TITRES */
+
+.footer-title {
+  color: #c3a080;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin: 4px 0 9px;
+}
+
+/* COORDONNÉES ET HORAIRES */
+
+.footer-item {
+  margin-bottom: 5px;
+  color: #aaa29c;
+  overflow-wrap: anywhere;
+}
+
+.footer-item a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.footer-item a:hover {
+  color: #c3a080;
+}
+
+/* RÉSEAUX SOCIAUX DU FOOTER — TEXTE UNIQUEMENT */
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  color: #aaa29c;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.footer-social a svg {
+  display: none;
+}
+
+.footer-social a:hover {
+  color: #c3a080;
+}
+/* COPYRIGHT ET LIENS LÉGAUX */
+
+.footer-bottom {
+  border-top: 1px solid #403a37;
+  margin-top: 22px;
+  padding-top: 12px;
+  color: #827a75;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.footer-legal {
+  margin-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.footer-legal a {
+  color: #827a75;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.footer-legal a:hover {
+  color: #c3a080;
+}
+
+/* TABLETTE */
 
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* ================================
-   MENU MOBILE
-================================ */
-
-@media (max-width: 750px) {
-  .top .inner {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px 18px;
-  }
-
-  .site-header .nav {
-    min-height: 76px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 12px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-
-  .site-header .logo img {
-    width: 135px;
-  }
-
-  .site-header .lang {
-    margin-left: auto;
-  }
-
-  .mobile-menu-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .site-header .menu {
-    display: none;
-    width: 100%;
-    flex-basis: 100%;
-    align-items: stretch;
-    flex-direction: column;
-    gap: 0;
-    padding: 8px 0 12px;
-    border-top: 1px solid var(--line);
-  }
-
-  .site-header .menu.mobile-open {
-    display: flex;
-  }
-
-  .site-header .menu a {
-    display: block;
-    padding: 13px 4px;
-    border-bottom: 1px solid rgba(33, 31, 32, 0.07);
-    font-size: 11px;
-  }
-
-  .site-header .menu a.cta {
-    margin-top: 10px;
-    padding: 13px 16px;
-    text-align: center;
+    gap: 24px;
   }
 
   .footer-bottom {
     align-items: flex-start;
     flex-direction: column;
-    gap: 10px;
   }
 }
+
+/* MOBILE */
 
 @media (max-width: 600px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .site-footer {
-    padding-top: 42px;
+  footer {
+    padding: 24px 0 14px;
   }
 
   .footer-grid {
-    padding-bottom: 30px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 16px;
+  }
+
+  .footer-logo {
+    width: 110px;
+  }
+
+  .footer-bottom {
+    margin-top: 18px;
+  }
+
+  .footer-legal {
+    line-height: 1.9;
   }
 }
+
+.top-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.top-social svg {
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  display: block;
+}
+
 
   </style>
 </head>
@@ -1158,78 +1244,74 @@
 <body>
 
  
-  <!-- BARRE DE CONTACT -->
-  <div class="top">
-    <div class="container inner">
+ <!-- BARRE SUPÉRIEURE -->
+<div class="top">
+  <div class="container top-inner">
+    <div class="top-contact">
       <span id="top-phone">
         <a href="tel:+352621765489">+352 621 765 489</a>
       </span>
-
       <span id="top-email">
         <a href="mailto:info@roof-con.lu">info@roof-con.lu</a>
       </span>
-
-      <span class="top-social-icons">
-        <a href="https://www.facebook.com/profile.php?id=61594591794889"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="ROOFCON sur Facebook" title="Facebook">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8h3.4z"/>
-          </svg>
-        </a>
-
-        <a href="https://www.instagram.com/roofcon.lu/"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="ROOFCON sur Instagram" title="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3" y="3" width="18" height="18" rx="5"
-                  fill="none" stroke="currentColor" stroke-width="2"/>
-            <circle cx="12" cy="12" r="4"
-                    fill="none" stroke="currentColor" stroke-width="2"/>
-            <circle cx="17.5" cy="6.8" r="1.2"/>
-          </svg>
-        </a>
-      </span>
     </div>
+
+    <a id="top-facebook" class="top-social"
+       href="https://www.facebook.com/profile.php?id=61594591794889"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Facebook ROOFCON" title="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7z"/>
+      </svg>
+    </a>
+
+    <a id="top-instagram" class="top-social"
+       href="https://www.instagram.com/roofcon.lu/"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Instagram ROOFCON" title="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="2" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1"
+                fill="currentColor" stroke="none"/>
+      </svg>
+    </a>
   </div>
+</div>
 
-  <!-- NAVIGATION PRINCIPALE -->
-  <header class="site-header">
-    <div class="container nav">
-      <a class="logo" href="/" aria-label="ROOFCON – accueil">
-        <img src="/ROOFCON.png" alt="ROOFCON">
-      </a>
+<!-- HEADER -->
+<header>
+  <div class="container nav">
 
-      <div class="lang" aria-label="Choisir la langue">
-        <a href="/facades-ventilees/"
-           class="active"
-           lang="fr"
-           hreflang="fr-LU"
-           aria-current="page">FR</a>
+    <a href="/" class="nav-logo" aria-label="ROOFCON — Accueil">
+      <img src="/ROOFCON.png" alt="ROOFCON">
+    </a>
 
-        <a href="/de/hinterlueftete-fassaden/"
-           lang="de"
-           hreflang="de-LU">DE</a>
-      </div>
+    <nav class="menu" id="main-menu" aria-label="Navigation principale">
+      <a id="nav-home" href="/">Accueil</a>
+      <a id="nav-services" href="/services/">Nos services</a>
+      <a id="nav-current" href="/projets-en-cours/">Projets en cours</a>
+      <a id="nav-references" href="/realisations/">Réalisations</a>
+      <a id="nav-jobs" href="/emploi/">Offres d'emploi</a>
+      <a id="nav-contact" href="/contact/" class="cta">Contact</a>
+    </nav>
 
-      <button type="button"
-              class="mobile-menu-button"
-              id="mobile-menu-button"
-              aria-label="Ouvrir le menu"
-              aria-expanded="false"
-              aria-controls="main-menu">☰</button>
-
-      <nav class="menu" id="main-menu" aria-label="Navigation principale">
-        <a href="/">Accueil</a>
-        <a href="/qui-sommes-nous/">Qui sommes-nous</a>
-        <a href="/services/">Nos services</a>
-        <a href="/projets-en-cours/">Projets en cours</a>
-        <a href="/realisations/">Réalisations</a>
-        <a href="/emploi/">Offres d'emploi</a>
-        <a href="/contact/" class="cta">Contact</a>
-      </nav>
+    <div class="lang" aria-label="Choisir la langue">
+      <a id="lang-fr" class="active"
+         href="/couvertures/" aria-current="page">FR</a>
+      <a id="lang-de" href="/de/dachdeckungen/">DE</a>
     </div>
-  </header>
+
+    <button type="button"
+            class="mobile-menu-button"
+            id="mobile-menu-button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false">☰</button>
+
+  </div>
+</header>
+
 
 
   <main>
@@ -1588,81 +1670,82 @@
   </main>
 
  
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
+  <!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
 
-        <div>
-          <a href="/" aria-label="ROOFCON – accueil">
-            <img src="/ROOFCON.png" class="footer-logo" alt="ROOFCON">
+      <div>
+        <a href="/" aria-label="ROOFCON - Accueil">
+          <img class="footer-logo" src="/ROOFCON.png" alt="ROOFCON">
+        </a>
+        <div id="footer-description">
+          Façades ventilées · Toitures plates · Charpentes · Couvertures · Maisons · Annexes
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title" id="footer-contact-title">Contact</div>
+        <div class="footer-item" id="footer-phone">
+          <div style="margin-bottom: 5px;">Joël Brück</div>
+          <a href="tel:+352621765489">+352 621 765 489</a>
+        </div>
+        <div class="footer-item" id="footer-email">
+          <a href="mailto:info@roof-con.lu">info@roof-con.lu</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title" id="footer-address-title">Adresse</div>
+        <div class="footer-item" id="footer-address">
+          Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg
+        </div>
+        <div class="footer-item" id="footer-hours">
+          Du lundi au vendredi, de 07h30 à 17h30
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title" id="footer-social-title">Suivez-nous</div>
+        <div class="footer-social">
+          <a id="footer-facebook"
+             href="https://www.facebook.com/profile.php?id=61594591794889"
+             target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7z"/>
+            </svg>
+            Facebook
           </a>
 
-          <div class="footer-description">
-            Charpente, couverture, toitures plates, façades ventilées
-            et construction bois au Luxembourg et dans la Grande Région.
-          </div>
+          <a id="footer-instagram"
+             href="https://www.instagram.com/roofcon.lu/"
+             target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1"
+                      fill="currentColor" stroke="none"/>
+            </svg>
+            Instagram
+          </a>
         </div>
-
-        <div>
-          <div class="footer-title">Contact</div>
-          <div class="footer-item"><strong>Joël Brück</strong></div>
-          <div class="footer-item">
-            <a href="tel:+352621765489">+352 621 765 489</a>
-          </div>
-          <div class="footer-item">
-            <a href="mailto:info@roof-con.lu">info@roof-con.lu</a>
-          </div>
-        </div>
-
-        <div>
-          <div class="footer-title">Adresse</div>
-          <div class="footer-item">
-            Z.A.E.R. Op Stackem 8<br>
-            9952 Drinklange, Luxembourg
-          </div>
-          <div class="footer-item">
-            Du lundi au vendredi : 07:30–17:30
-          </div>
-        </div>
-
-        <div>
-          <div class="footer-title">Suivez-nous</div>
-          <div class="footer-social-icons">
-            <a href="https://www.facebook.com/profile.php?id=61594591794889"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="ROOFCON sur Facebook" title="Facebook">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8h3.4z"/>
-              </svg>
-            </a>
-
-            <a href="https://www.instagram.com/roofcon.lu/"
-               target="_blank" rel="noopener noreferrer"
-               aria-label="ROOFCON sur Instagram" title="Instagram">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="5"
-                      fill="none" stroke="currentColor" stroke-width="2"/>
-                <circle cx="12" cy="12" r="4"
-                        fill="none" stroke="currentColor" stroke-width="2"/>
-                <circle cx="17.5" cy="6.8" r="1.2"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
       </div>
 
-      <div class="footer-bottom">
-        <div>
-          © <span id="year"></span> ROOFCON — Tous droits réservés.
-        </div>
+    </div>
 
-        <div class="footer-legal">
-          <a href="/mentions-legales.html">Mentions légales</a>
-        </div>
+    <div class="footer-bottom">
+      <div id="footer-copyright">© ROOFCON — Tous droits réservés.</div>
+      <div class="footer-legal">
+        <a href="/mentions-legales.html" id="footer-legal-1">Mentions légales</a>
+        <span>·</span>
+        <a href="/politique-confidentialite.html" id="footer-legal-2">Politique de confidentialité</a>
+        <span>·</span>
+        <a href="/politique-cookies.html" id="footer-legal-3">Politique des cookies</a>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
 
 
