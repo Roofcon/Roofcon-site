@@ -824,7 +824,10 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
   text-decoration: none;
 }
 
-/* HEADER — IDENTIQUE À CONTACT */
+/* =========================================
+   HEADER — STYLE ÉPURÉ ROOFCON
+========================================= */
+
 header {
   position: sticky;
   top: 0;
@@ -840,6 +843,8 @@ header {
   gap: 35px;
 }
 
+/* LOGO */
+
 .nav-logo {
   display: flex;
   align-items: center;
@@ -851,6 +856,8 @@ header {
   width: 175px;
   height: auto;
 }
+
+/* NAVIGATION */
 
 .menu {
   display: flex;
@@ -889,6 +896,8 @@ header {
   width: 100%;
 }
 
+/* BOUTON CONTACT */
+
 .menu .cta {
   background: var(--brown);
   color: #fff;
@@ -904,6 +913,8 @@ header {
   color: #fff;
 }
 
+/* LANGUES */
+
 .lang {
   display: flex;
   align-items: center;
@@ -918,13 +929,18 @@ header {
   min-width: 34px;
   height: 30px;
   padding: 0 8px;
+
   border: 1px solid var(--line);
   background: #fff;
   color: var(--black);
+
   font-size: 11px;
   font-weight: 700;
-  text-decoration: none;
-  transition: background .2s ease, color .2s ease, border-color .2s ease;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    border-color .2s ease;
 }
 
 .lang a:hover {
@@ -938,6 +954,7 @@ header {
   color: #fff;
 }
 
+    /* BOUTONS DE LANGUE SANS SOULIGNEMENT */
 .lang a,
 .lang a:hover,
 .lang a:focus,
@@ -945,13 +962,20 @@ header {
 .lang a.active {
   text-decoration: none !important;
 }
+    
+/* MENU MOBILE */
 
 .mobile-menu-button {
   display: none;
 }
 
-/* TABLETTE */
+
+/* =========================================
+   TABLETTE
+========================================= */
+
 @media (max-width: 1100px) {
+
   .nav {
     gap: 22px;
   }
@@ -964,12 +988,19 @@ header {
   .nav-logo img {
     width: 165px;
   }
+
 }
 
-/* MOBILE */
+
+/* =========================================
+   MOBILE
+========================================= */
+
 @media (max-width: 750px) {
-  .top {
-    display: none;
+
+  header {
+    position: sticky;
+    top: 0;
   }
 
   .nav {
@@ -991,29 +1022,38 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 42px;
     height: 42px;
+
     border: 1px solid var(--line);
     background: #fff;
     color: var(--black);
+
     cursor: pointer;
+
     font-size: 25px;
     line-height: 1;
   }
 
   .menu {
     display: none;
+
     position: absolute;
     top: 74px;
     left: 0;
     right: 0;
+
     flex-direction: column;
     align-items: stretch;
+
     gap: 0;
     margin: 0;
+
     background: #fff;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
+
     box-shadow: 0 12px 30px rgba(0,0,0,.08);
   }
 
@@ -1024,7 +1064,9 @@ header {
   .menu a {
     width: 100%;
     padding: 15px 24px;
+
     border-bottom: 1px solid #eee;
+
     font-size: 14px;
   }
 
@@ -1041,9 +1083,14 @@ header {
     width: auto;
     text-align: center;
   }
+
 }
 
-/* FOOTER — IDENTIQUE À CONTACT */
+/* =========================================
+   FOOTER ROOFCON — HORIZONTAL ET ÉPURÉ
+   Tous les textes actuels sont conservés
+========================================= */
+
 footer {
   background: #211f20;
   color: #aaa29c;
@@ -1057,12 +1104,16 @@ footer .container {
   margin: auto;
 }
 
+/* ORGANISATION HORIZONTALE */
+
 .footer-grid {
   display: grid;
   grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
   align-items: start;
   gap: 28px;
 }
+
+/* LOGO ET DESCRIPTION */
 
 .footer-logo {
   display: block;
@@ -1081,6 +1132,8 @@ footer .container {
   line-height: 1.7;
 }
 
+/* TITRES */
+
 .footer-title {
   color: #c3a080;
   font-size: 10px;
@@ -1089,6 +1142,8 @@ footer .container {
   text-transform: uppercase;
   margin: 4px 0 9px;
 }
+
+/* COORDONNÉES ET HORAIRES */
 
 .footer-item {
   margin-bottom: 5px;
@@ -1106,6 +1161,7 @@ footer .container {
   color: #c3a080;
 }
 
+/* RÉSEAUX SOCIAUX DU FOOTER — TEXTE UNIQUEMENT */
 .footer-social {
   display: flex;
   flex-direction: column;
@@ -1129,6 +1185,7 @@ footer .container {
 .footer-social a:hover {
   color: #c3a080;
 }
+/* COPYRIGHT ET LIENS LÉGAUX */
 
 .footer-bottom {
   border-top: 1px solid #403a37;
@@ -1159,6 +1216,8 @@ footer .container {
   color: #c3a080;
 }
 
+/* TABLETTE */
+
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1170,6 +1229,8 @@ footer .container {
     flex-direction: column;
   }
 }
+
+/* MOBILE */
 
 @media (max-width: 600px) {
   footer {
@@ -1194,6 +1255,7 @@ footer .container {
   }
 }
 
+  </style>
   </style>
 
 </head>
@@ -1224,13 +1286,16 @@ footer .container {
   </div>
 </div>
 
-<!-- HEADER -->
-<header>
+ <!-- HEADER -->
+  <header>
   <div class="container nav">
+
+    <!-- LOGO -->
     <a href="/" class="nav-logo" aria-label="ROOFCON — Accueil">
       <img src="/ROOFCON.png" alt="ROOFCON">
     </a>
 
+    <!-- NAVIGATION -->
     <nav class="menu" id="main-menu" aria-label="Navigation principale">
       <a id="nav-home" href="/">Accueil</a>
       <a id="nav-services" href="/services/">Nos services</a>
@@ -1240,19 +1305,21 @@ footer .container {
       <a id="nav-contact" href="/contact/" class="cta">Contact</a>
     </nav>
 
-    <div class="lang" aria-label="Choisir la langue">
-      <a id="lang-fr" class="active"
-         href="/charpentes/" aria-current="page">FR</a>
-      <a id="lang-de"
-         href="/de/dachstuhlbau/" hreflang="de-LU">DE</a>
-    </div>
+    <!-- LANGUES -->
+<div class="lang" aria-label="Choisir la langue">
+  <a id="lang-fr" class="active" href="/contact/" aria-current="page">FR</a>
+  <a id="lang-de" href="/kontakt/">DE</a>
+</div>
 
-    <button type="button"
-            class="mobile-menu-button"
-            id="mobile-menu-button"
-            aria-label="Ouvrir le menu"
-            aria-expanded="false"
-            aria-controls="main-menu">☰</button>
+    <!-- MENU MOBILE -->
+    <button
+      type="button"
+      class="mobile-menu-button"
+      id="mobile-menu-button"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+    >☰</button>
+
   </div>
 </header>
 
@@ -1567,69 +1634,73 @@ footer .container {
   </main>
 
 <!-- FOOTER -->
-<footer>
-  <div class="container">
-    <div class="footer-grid">
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
 
-      <div>
-        <a href="/" aria-label="ROOFCON - Accueil">
-          <img class="footer-logo" src="/ROOFCON.png" alt="ROOFCON">
-        </a>
-        <div id="footer-description">
-          Charpente, toiture, couverture, façades ventilées et constructions en ossature bois au Luxembourg.
+        <div>
+          <a href="/" aria-label="ROOFCON - Accueil">
+            <img class="footer-logo" src="/ROOFCON.png" alt="ROOFCON">
+          </a>
+          <div id="footer-description">
+            Charpente, toiture, couverture, façades ventilées et constructions en ossature bois au Luxembourg.
+          </div>
         </div>
+
+        <div>
+          <div class="footer-title" id="footer-contact-title">Contact</div>
+         <div class="footer-item" id="footer-phone"></div>
+          <div class="footer-item" id="footer-email">
+            <a href="mailto:info@roof-con.lu">info@roof-con.lu</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title" id="footer-address-title">Adresse</div>
+          <div class="footer-item" id="footer-address">
+            Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg
+          </div>
+          <div class="footer-item" id="footer-hours">
+            Du lundi au vendredi, de 07h30 à 17h30
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-title" id="footer-social-title">Suivez-nous</div>
+          <div class="footer-social">
+            <a id="footer-facebook" href="https://www.facebook.com/profile.php?id=61594591794889"
+              target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7z"/>
+              </svg>
+              Facebook
+            </a>
+            <a id="footer-instagram" href="https://www.instagram.com/roofcon.lu/"
+              target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+
       </div>
 
-      <div>
-        <div class="footer-title" id="footer-contact-title">Contact</div>
-        <div class="footer-item" id="footer-phone">
-          <div style="margin-bottom:5px;">Joël Brück</div>
-          <a href="tel:+352621765489">+352 621 765 489</a>
-        </div>
-        <div class="footer-item" id="footer-email">
-          <a href="mailto:info@roof-con.lu">info@roof-con.lu</a>
-        </div>
+      <div class="footer-bottom">
+        <div id="footer-copyright">© ROOFCON — Tous droits réservés.</div>
+        <div class="footer-legal">
+  <a href="/mentions-legales.html" id="footer-legal-1">Mentions légales</a>
+  <span>·</span>
+  <a href="/politique-confidentialite.html" id="footer-legal-2">Politique de confidentialité</a>
+  <span>·</span>
+  <a href="/politique-cookies.html" id="footer-legal-3">Politique des cookies</a>
+</div>
       </div>
-
-      <div>
-        <div class="footer-title" id="footer-address-title">Adresse</div>
-        <div class="footer-item" id="footer-address">
-          Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg
-        </div>
-        <div class="footer-item" id="footer-hours">
-          Du lundi au vendredi, de 07h30 à 17h30
-        </div>
-      </div>
-
-      <div>
-        <div class="footer-title" id="footer-social-title">Suivez-nous</div>
-        <div class="footer-social">
-          <a id="footer-facebook"
-             href="https://www.facebook.com/profile.php?id=61594591794889"
-             target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a id="footer-instagram"
-             href="https://www.instagram.com/roofcon.lu/"
-             target="_blank" rel="noopener noreferrer">Instagram</a>
-        </div>
-      </div>
-
     </div>
-
-    <div class="footer-bottom">
-      <div id="footer-copyright">
-        © <span id="year"></span> ROOFCON — Tous droits réservés.
-      </div>
-
-      <div class="footer-legal">
-        <a href="/mentions-legales.html">Mentions légales</a>
-        <span>·</span>
-        <a href="/politique-confidentialite.html">Politique de confidentialité</a>
-        <span>·</span>
-        <a href="/politique-cookies.html">Politique des cookies</a>
-      </div>
-    </div>
-  </div>
-</footer>
+  </footer>
  
 <script>
   const yearElement = document.getElementById("year");
