@@ -1509,6 +1509,122 @@ body .project-detail-category {
   }
 }
 
+    
+/* ==========================================
+   RÉALISATIONS — TEXTES PLUS AÉRÉS
+========================================== */
+
+/* Donner plus de largeur au contenu des cartes */
+body .refs .reference-category-content {
+  padding: 38px 44px !important;
+  min-height: 245px;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+/* Titres plus larges et moins compacts */
+body .refs .reference-category-title {
+  max-width: 760px;
+  font-size: clamp(30px, 3.1vw, 44px);
+  line-height: 1.18;
+  letter-spacing: -.7px;
+  text-wrap: balance;
+}
+
+/* Les textes des projets occupent davantage la largeur */
+body .refs .ref-content {
+  left: 42px !important;
+  right: 42px !important;
+  bottom: 38px !important;
+  max-width: 850px;
+}
+
+/* Catégorie du projet */
+body .refs .ref-category {
+  margin-bottom: 16px !important;
+  font-size: 10px !important;
+  line-height: 1.6;
+  letter-spacing: 2px;
+}
+
+/* Titres de projets */
+body .refs .ref-content h2,
+body .refs .ref-content h3 {
+  max-width: 780px;
+  margin-bottom: 18px;
+  font-size: clamp(30px, 3.2vw, 43px);
+  line-height: 1.15;
+  letter-spacing: -.7px;
+  text-wrap: balance;
+}
+
+/* Descriptions plus étendues */
+body .refs .ref-content p {
+  max-width: 760px;
+  margin-top: 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* Plus d'espace entre les grandes cartes */
+body .refs .reference-categories {
+  column-gap: 28px;
+  row-gap: 28px;
+}
+
+body .refs .refs-grid {
+  column-gap: 32px;
+  row-gap: 36px;
+}
+
+/* Tablette */
+@media (max-width: 900px) {
+  body .refs .reference-category-content {
+    padding: 28px !important;
+  }
+
+  body .refs .ref-content {
+    left: 28px !important;
+    right: 28px !important;
+    bottom: 28px !important;
+  }
+
+  body .refs .ref-content h2,
+  body .refs .ref-content h3 {
+    font-size: 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  body .refs .reference-category-content {
+    padding: 25px !important;
+    min-height: 210px;
+  }
+
+  body .refs .reference-category-title {
+    font-size: 30px;
+    line-height: 1.2;
+  }
+
+  body .refs .ref-content {
+    left: 23px !important;
+    right: 23px !important;
+    bottom: 25px !important;
+  }
+
+  body .refs .ref-content h2,
+  body .refs .ref-content h3 {
+    font-size: 29px;
+    margin-bottom: 12px;
+  }
+
+  body .refs .ref-content p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+}
+
   </style>
 </head>
 
