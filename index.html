@@ -120,59 +120,274 @@ textarea{
 
 /* TOP BAR */
 
-.top{
-  background:var(--black);
-  color:#eee;
-  font-size:13px;
+/* HEADER — ALIGNÉ SUR LA PAGE CONTACT */
+
+.top {
+  background: var(--black);
+  color: #aaa29c;
+  font-size: 12px;
+  padding: 0;
 }
 
-.top .inner{
-  min-height:38px;
-  display:flex;
-  justify-content:flex-end;
-  align-items:center;
-  gap:28px;
-  flex-wrap:wrap;
+.top-inner {
+  min-height: 38px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* HEADER */
-
-header{
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:30;
+.top-contact {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
 }
 
-.nav{
-  min-height:92px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+.top a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.logo{
-  width:190px;
-  display:block;
+.top-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  font-size: 12px;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
 }
 
-.mobile-menu-button{
-  display:none;
+.top-social svg {
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  display: block;
 }
 
-.menu{
-  display:flex;
-  align-items:center;
-  gap:25px;
-  font-size:14px;
-  font-weight:800;
+.top-social:hover {
+  color: var(--brown2);
+  text-decoration: none;
 }
 
-.menu a:hover{
-  color:var(--brown);
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
 }
+
+.nav {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.nav-logo img {
+  display: block;
+  width: 190px;
+  max-width: 100%;
+  height: auto;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.menu a {
+  position: relative;
+  color: var(--black);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .2s ease;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: var(--brown);
+  transition: width .2s ease;
+}
+
+.menu a:hover {
+  color: var(--brown);
+}
+
+.menu a:hover::after {
+  width: 100%;
+}
+
+.menu .cta {
+  background: var(--brown);
+  color: #fff;
+  padding: 11px 18px;
+}
+
+.menu .cta::after {
+  display: none;
+}
+
+.menu .cta:hover {
+  background: var(--black);
+  color: #fff;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.lang a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--black);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+
+.lang a:hover {
+  border-color: var(--brown);
+  color: var(--brown);
+}
+
+.lang a.active {
+  background: var(--brown);
+  border-color: var(--brown);
+  color: #fff;
+}
+
+.lang a,
+.lang a:hover,
+.lang a:focus,
+.lang a:active,
+.lang a.active {
+  text-decoration: none !important;
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .nav {
+    gap: 22px;
+  }
+
+  .menu {
+    gap: 18px;
+    font-size: 12px;
+  }
+
+  .nav-logo img {
+    width: 165px;
+  }
+}
+
+@media (max-width: 750px) {
+  .nav {
+    min-height: 74px;
+    position: relative;
+    gap: 0;
+  }
+
+  .nav-logo img {
+    width: 145px;
+  }
+
+  .lang {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--black);
+    cursor: pointer;
+    font-size: 25px;
+    line-height: 1;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
+  }
+
+  .menu.mobile-open {
+    display: flex;
+  }
+
+  .menu a {
+    width: 100%;
+    padding: 15px 24px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+  }
+
+  .menu a::after {
+    display: none;
+  }
+
+  .menu a:last-child {
+    border-bottom: none;
+  }
+
+  .menu .cta {
+    margin: 10px 16px;
+    width: auto;
+    text-align: center;
+  }
 
 .contact-card .item a#contact-phone,
 .contact-card .item a#contact-email{
@@ -193,40 +408,7 @@ header{
   text-decoration:underline;
   text-underline-offset:3px;
 }
-  
-.menu .cta{
-  background:var(--brown);
-  color:#fff;
-  padding:12px 18px;
-}
-
-.menu .cta:hover{
-  background:var(--black);
-}
-
-.lang{
-  display:flex;
-  gap:4px;
-  margin-left:auto;
-}
-
-.lang button {
-  border: 1px solid var(--line);
-  background: #fff;
-  color: var(--black);
-  padding: 6px 9px;
-  font-size: 12px;
-  line-height: 1.2;
-  font-weight: 800;
-  cursor: pointer;
-}
-
-.lang button.active{
-  background:var(--brown);
-  color:#fff;
-  border-color:var(--brown);
-}
-
+}  
 /* PAGES */
 
 section{
@@ -2864,134 +3046,133 @@ color:#333 !important;
   border-color:var(--brown2);
 }
 
+
 /* FOOTER */
 
-footer{
-  background:#171616;
-  color:#aaa;
-  padding:40px 0;
-  font-size:13px;
+footer {
+  background: #211f20;
+  color: #aaa29c;
+  padding: 25px 0 14px;
+  font-size: 12px;
+  line-height: 1.65;
 }
 
-.footer-grid{
-  display:grid;
-  grid-template-columns:1.2fr 1fr 1fr 1fr;
-  gap:35px;
+footer .container {
+  width: min(1180px, 92%);
+  margin: auto;
 }
 
-.footer-logo{
-  width:150px;
-  background:#fff;
-  padding:7px;
-  margin-bottom:15px;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
+  align-items: start;
+  gap: 28px;
 }
 
-.footer-title{
-  color:#fff;
-  font-size:14px;
-  font-weight:800;
-  margin-bottom:12px;
+.footer-logo {
+  display: block;
+  width: 125px;
+  max-width: 100%;
+  height: auto;
+  background: #fff;
+  padding: 5px;
+  margin-bottom: 12px;
 }
 
-.footer-item{
-  margin-bottom:7px;
+#footer-description {
+  max-width: 240px;
+  color: #aaa29c;
+  font-size: 11px;
+  line-height: 1.7;
 }
 
-  .footer-item a{
-  color:inherit;
-  text-decoration:none;
+.footer-title {
+  color: #c3a080;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin: 4px 0 9px;
 }
 
-.footer-item a:hover{
-  color:var(--brown2);
-}
-  
-.footer-social a{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  margin-bottom:10px;
-  color:#aaa;
-  text-decoration:none;
-  cursor:default;
+.footer-item {
+  margin-bottom: 5px;
+  color: #aaa29c;
+  overflow-wrap: anywhere;
 }
 
-.footer-social a svg{
-  flex-shrink:0;
+.footer-item a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .2s ease;
 }
 
-.footer-social a:hover{
-  color:var(--brown2);
+.footer-item a:hover {
+  color: #c3a080;
 }
 
-.footer-social a:hover{
-  color:var(--brown2);
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
 }
 
-  #top-phone a,
-#top-email a{
-  color:inherit;
-  text-decoration:none;
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  color: #aaa29c;
+  text-decoration: none;
+  transition: color .2s ease;
 }
 
-#top-phone a:hover,
-#top-email a:hover{
-  color:var(--brown2);
+.footer-social a svg {
+  display: none;
 }
 
-  .top-social{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-left:4px;
+.footer-social a:hover {
+  color: #c3a080;
 }
 
-.top-social a{
-  display:flex;
-  align-items:center;
-  color:#eee;
-  transition:.25s ease;
+#footer-address a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.top-social a:hover{
-  color:var(--brown2);
+#footer-address a:hover {
+  color: #c3a080;
 }
 
-.top-social svg{
-  display:block;
-}
-  
-  #footer-address a{
-  color:inherit;
-  text-decoration:none;
-}
-
-#footer-address a:hover{
-  color:var(--brown2);
-}
-  
-.footer-bottom{
-  border-top:1px solid #302d2b;
-  margin-top:30px;
-  padding-top:20px;
-  color:#777;
+.footer-bottom {
+  border-top: 1px solid #403a37;
+  margin-top: 22px;
+  padding-top: 12px;
+  color: #827a75;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
-  .footer-legal{
-  margin-top:10px;
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
+.footer-legal {
+  margin-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
 }
 
-.footer-legal a{
-  color:#777;
-  text-decoration:none;
+.footer-legal a {
+  color: #827a75;
+  text-decoration: none;
+  transition: color .2s ease;
 }
 
-.footer-legal a:hover{
-  color:var(--brown2);
+.footer-legal a:hover {
+  color: #c3a080;
 }
+
   
 /* EMPTY STATES */
 
@@ -3122,8 +3303,10 @@ footer{
     margin-right:8px;
   }
 
- .lang button {
-  padding: 3px 6px;
+ .lang a {
+  min-width: 30px;
+  height: 28px;
+  padding: 0 6px;
   font-size: 10px;
   line-height: 1.2;
 }
@@ -3947,21 +4130,37 @@ footer{
   src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 </script>
   
+
 <!-- TOP BAR -->
 <div class="top">
-  <div class="container inner">
+  <div class="container top-inner">
 
-    <span id="top-phone"></span>
+    <div class="top-contact">
+      <span id="top-phone"></span>
+      <span id="top-email"></span>
+    </div>
 
-    <span id="top-email"></span>
+    <a
+      id="top-facebook"
+      class="top-social"
+      href="https://www.facebook.com/profile.php?id=61594591794889"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Facebook ROOFCON"
+      title="Facebook">
+      Facebook
+    </a>
 
-    <span class="top-social">
-
-      <span id="top-facebook"></span>
-
-      <span id="top-instagram"></span>
-
-    </span>
+    <a
+      id="top-instagram"
+      class="top-social"
+      href="https://www.instagram.com/roofcon.lu/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Instagram ROOFCON"
+      title="Instagram">
+      Instagram
+    </a>
 
   </div>
 </div>
@@ -3970,56 +4169,36 @@ footer{
 <header>
   <div class="container nav">
 
-<a href="/" id="logo-home">
-<img class="logo" src="/ROOFCON.png" alt="ROOFCON">
-</a>
+    <a href="/" class="nav-logo" id="logo-home" aria-label="ROOFCON — Accueil">
+      <img src="/ROOFCON.png" alt="ROOFCON">
+    </a>
 
-  <div class="lang">
-  <button class="active" onclick="setLang('fr')">FR</button>
-  <button onclick="setLang('de')">DE</button>
-</div>
+    <nav class="menu" id="main-menu" aria-label="Navigation principale">
+      <a href="/" id="nav-home">Accueil</a>
+      <a href="/services/" id="nav-about">Nos services</a>
+      <a href="/projets-en-cours/" id="nav-current-projects">Projets en cours</a>
+      <a href="/realisations/" id="nav-references">Réalisations</a>
+      <a href="/emploi/" id="nav-jobs">Offres d'emploi</a>
+      <a href="/contact/" id="nav-contact" class="cta">Contact</a>
+    </nav>
 
-<button
-  type="button"
-  class="mobile-menu-button"
-  id="mobile-menu-button"
-  aria-label="Ouvrir le menu"
-  aria-expanded="false">
-  ☰
-</button>
+    <div class="lang" aria-label="Choisir la langue">
+      <a id="lang-fr" class="active" href="/">FR</a>
+      <a id="lang-de" href="/">DE</a>
+    </div>
 
-<nav class="menu" id="main-menu">
+    <button
+      type="button"
+      class="mobile-menu-button"
+      id="mobile-menu-button"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false">
+      ☰
+    </button>
 
- <a href="/" id="nav-home">
-  Accueil
-</a>
-
-<a href="/services/" id="nav-about">Nos services</a>
-  
-<a href="/projets-en-cours/" id="nav-current-projects">Projets en cours</a>
-
-<a
-    href="/realisations/"
-    id="nav-references">
-    Réalisations
-</a>
-
-<a
-    href="/emploi/"
-    id="nav-jobs">
-    Offres d'emploi
-</a>
-
-<a
-    href="/contact/"
-    id="nav-contact"
-    class="cta">
-    Contact
-</a>
-
-</nav>
   </div>
 </header>
+
 
 
 <!-- ACCUEIL -->
@@ -4588,7 +4767,7 @@ footer{
       <div>
 
         <img
-          src="ROOFCON.png"
+          src="/ROOFCON.png"
           class="footer-logo"
           alt="ROOFCON">
 
@@ -4622,17 +4801,21 @@ footer{
 
         <div class="footer-social">
 
-          <a
-            id="footer-facebook"
-            target="_blank"
-            rel="noopener">
-          </a>
+         <a
+  id="footer-facebook"
+  href="https://www.facebook.com/profile.php?id=61594591794889"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Facebook ROOFCON">
+</a>
 
-          <a
-            id="footer-instagram"
-            target="_blank"
-            rel="noopener">
-          </a>
+         <a
+  id="footer-instagram"
+  href="https://www.instagram.com/roofcon.lu/"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Instagram ROOFCON">
+</a>
 
         </div>
 
@@ -6074,6 +6257,19 @@ const categoryData =
 }
   
 /* LANGUE */
+
+  
+document.addEventListener('click', function(event) {
+  const langLink = event.target.closest('#lang-fr, #lang-de');
+
+  if (!langLink) return;
+
+  event.preventDefault();
+
+  const lang = langLink.id === 'lang-de' ? 'de' : 'fr';
+
+  setLang(lang);
+});
 
 function setLang(lang){
 
