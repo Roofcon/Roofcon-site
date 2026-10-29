@@ -621,6 +621,225 @@ footer .container {
   }
 }
 
+    
+/* ==========================================
+   CONTACT — NOUVEAU DESIGN ROOFCON
+   Header et footer volontairement préservés
+========================================== */
+
+/* Fond général de la page */
+
+body:has(.contact-card) main{
+  background:#211f20;
+  color:#f5f2ee;
+}
+
+/* Section principale du contact */
+
+.contact-section,
+.contact-main,
+.contact-wrapper{
+  background:#211f20;
+}
+
+/* Titres et introduction */
+
+.contact-title,
+#contact-title{
+  color:#f5f2ee;
+  font-size:clamp(38px,5vw,66px);
+  line-height:1.05;
+  letter-spacing:-1.8px;
+  font-weight:800;
+}
+
+.contact-intro,
+#contact-intro{
+  color:#bdb6b0;
+  font-size:17px;
+  line-height:1.8;
+  max-width:650px;
+}
+
+/* Petit titre au-dessus du titre principal */
+
+#contact-kicker{
+  color:#c3a080;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+
+/* Informations de contact */
+
+.contact-details{
+  margin-top:35px;
+  display:grid;
+  gap:0;
+}
+
+.item{
+  padding:22px 0;
+  border-top:1px solid #403a37;
+}
+
+.item small{
+  display:block;
+  color:#c3a080;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+
+.item a,
+.item span{
+  color:#f5f2ee;
+  font-size:17px;
+  font-weight:600;
+  line-height:1.7;
+  overflow-wrap:anywhere;
+  text-decoration:none;
+  transition:color .25s ease;
+}
+
+.item a:hover{
+  color:#c3a080;
+}
+
+/* Bloc du formulaire */
+
+.contact-card{
+  background:#292625;
+  color:#f5f2ee;
+  padding:clamp(25px,4vw,45px);
+  border:1px solid #423b37;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Filet décoratif brun */
+
+.contact-card::before{
+  content:"";
+  display:block;
+  width:55px;
+  height:3px;
+  background:#a27b5b;
+  margin-bottom:25px;
+}
+
+.contact-card h3{
+  color:#f5f2ee;
+  font-size:clamp(25px,3vw,34px);
+  line-height:1.15;
+  letter-spacing:-.5px;
+  margin-bottom:12px;
+}
+
+.contact-card p{
+  color:#bdb6b0;
+  font-size:14px;
+  line-height:1.8;
+  margin-bottom:28px;
+}
+
+/* Formulaire */
+
+.contact-form{
+  display:grid;
+  gap:18px;
+}
+
+.contact-form label{
+  display:block;
+  color:#d7cec7;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:.3px;
+  margin-bottom:8px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  box-sizing:border-box;
+  width:100%;
+  padding:15px 16px;
+  border:1px solid #4a423e;
+  border-radius:0;
+  background:#211f20;
+  color:#f5f2ee;
+  font:inherit;
+  font-size:14px;
+  outline:none;
+  transition:border-color .25s ease,
+             background .25s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder{
+  color:#8e8580;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus{
+  border-color:#c3a080;
+  background:#262322;
+}
+
+.contact-form textarea{
+  min-height:150px;
+  resize:vertical;
+}
+
+/* Bouton d'envoi */
+
+.contact-form button,
+.contact-form input[type="submit"],
+#form-submit{
+  cursor:pointer;
+  transition:background .25s ease,
+             color .25s ease,
+             border-color .25s ease;
+}
+
+/* Version responsive */
+
+@media(max-width:750px){
+
+  .contact-title,
+  #contact-title{
+    font-size:clamp(36px,10vw,50px);
+    letter-spacing:-1.2px;
+  }
+
+  .contact-intro,
+  #contact-intro{
+    font-size:15px;
+    line-height:1.75;
+  }
+
+  .contact-card{
+    padding:25px 20px;
+  }
+
+  .contact-card h3{
+    font-size:27px;
+  }
+
+  .item{
+    padding:18px 0;
+  }
+
+  .item a,
+  .item span{
+    font-size:16px;
+  }
+
+}
+
   </style>
 </head>
 <body>
