@@ -103,79 +103,225 @@
 .top-social:hover {
   color: var(--brown2);
 }
-    header {
-      background: #fff;
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      z-index: 30;
-    }
+    /* HEADER */
 
-    .nav {
-      min-height: 92px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
+header {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-    .logo {
-      width: 190px;
-      display: block;
-      height: auto;
-    }
+.nav {
+  min-height: 82px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
 
-    .mobile-menu-button { display: none; }
+.nav-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
 
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      font-size: 14px;
-      font-weight: 800;
-    }
+.logo {
+  width: 175px;
+  height: auto;
+  display: block;
+}
 
-    .menu a {
-      color: var(--black);
-      text-decoration: none;
-      transition: color .2s ease, background-color .2s ease;
-    }
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
+}
 
-    .menu a:hover { color: var(--brown); }
+.menu a {
+  position: relative;
+  color: var(--black);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .2s ease, background-color .2s ease;
+}
 
-    .menu .cta {
-      background: var(--brown);
-      color: #fff;
-      padding: 12px 18px;
-    }
+.menu a:not(.cta)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: var(--brown);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
 
-    .menu .cta:hover {
-      background: var(--black);
-      color: #fff;
-    }
+.menu a:not(.cta):hover {
+  color: var(--brown);
+}
 
-    .lang {
-      display: flex;
-      gap: 4px;
-      margin-left: auto;
-    }
+.menu a:not(.cta):hover::after {
+  transform: scaleX(1);
+}
+
+.menu .cta {
+  background: var(--brown);
+  color: #fff;
+  padding: 11px 18px;
+  transition: background-color .2s ease;
+}
+
+.menu .cta:hover {
+  background: var(--black);
+  color: #fff;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
 
 .lang button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 30px;
   border: 1px solid var(--line);
   background: #fff;
   color: var(--black);
-  padding: 6px 9px;
-  font-size: 12px;
-  line-height: 1.2;
-  font-weight: 800;
+  font-size: 11px;
+  font-weight: 700;
   cursor: pointer;
 }
 
-    .lang button.active {
-      background: var(--brown);
-      color: #fff;
-      border-color: var(--brown);
-    }
+.lang button.active {
+  background: var(--brown);
+  color: #fff;
+  border-color: var(--brown);
+}
+
+.mobile-menu-button {
+  display: none;
+}
+
+/* TABLETTE */
+
+@media (max-width: 1100px) {
+  .nav {
+    gap: 20px;
+  }
+
+  .logo {
+    width: 165px;
+  }
+
+  .menu {
+    gap: 16px;
+    font-size: 12px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+  .top {
+    display: none;
+  }
+
+  .nav {
+    min-height: 74px;
+    position: relative;
+    gap: 0;
+  }
+
+  .logo {
+    width: 145px;
+  }
+
+  .lang {
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .lang button {
+    width: 32px;
+    height: 29px;
+    font-size: 10px;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--black);
+    cursor: pointer;
+    font-size: 25px;
+    line-height: 1;
+  }
+
+  .menu {
+    display: none;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 8px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+  }
+
+  .menu.mobile-open {
+    display: flex;
+  }
+
+  .menu a {
+    display: block;
+    width: 100%;
+    padding: 15px 24px;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .menu a:not(.cta)::after {
+    display: none;
+  }
+
+  .menu a:last-child {
+    border-bottom: 0;
+  }
+
+  .menu a:hover {
+    background: var(--cream);
+    color: var(--brown);
+  }
+
+  .menu .cta {
+    width: auto;
+    margin: 8px 16px;
+    text-align: center;
+  }
+}
 
     /* SERVICES */
 
@@ -350,81 +496,116 @@ border: 1px solid #e5dfda;
       transform: translateY(0);
     }
 
-    /* FOOTER */
+   /* FOOTER */
 
-    footer {
-      background: #171616;
-      color: #aaa;
-      padding: 40px 0;
-      font-size: 13px;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr 1fr;
-      gap: 35px;
-    }
-
-    .footer-logo {
-      width: 150px;
-      background: #fff;
-      padding: 7px;
-      margin-bottom: 15px;
-    }
-
-    .footer-title {
-      color: #fff;
-      font-size: 14px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .footer-item { margin-bottom: 7px; }
-
-    .footer-item a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .footer-item a:hover,
-    .footer-social a:hover { color: var(--brown2); }
-
-    .footer-social a {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      margin-bottom: 10px;
-      color: #aaa;
-      text-decoration: none;
-    }
-
-    .footer-social a svg {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
-  display: block;
+footer {
+  background: #211f20;
+  color: #aaa29c;
+  padding: 25px 0 14px;
+  font-size: 12px;
+  line-height: 1.65;
 }
-    
-    .footer-bottom {
-      border-top: 1px solid #302d2b;
-      margin-top: 30px;
-      padding-top: 20px;
-      color: #777;
-    }
 
-    .footer-legal {
-      margin-top: 10px;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
+  gap: 28px;
+}
 
-    .footer-legal a {
-      color: #777;
-      text-decoration: none;
-    }
+.footer-logo {
+  width: 125px;
+  display: block;
+  background: #fff;
+  padding: 5px;
+  margin-bottom: 12px;
+}
 
-    .footer-legal a:hover { color: var(--brown2); }
+#footer-description {
+  max-width: 240px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #aaa29c;
+}
+
+.footer-title {
+  color: var(--brown2);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.footer-item {
+  margin-bottom: 7px;
+  overflow-wrap: anywhere;
+}
+
+.footer-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-item a:hover,
+.footer-social a:hover,
+.footer-legal a:hover {
+  color: var(--brown2);
+}
+
+.footer-social a {
+  display: block;
+  margin-bottom: 5px;
+  color: #aaa29c;
+  text-decoration: none;
+  font-size: 11px;
+}
+
+.footer-social svg {
+  display: none;
+}
+
+.footer-bottom {
+  border-top: 1px solid #403a37;
+  margin-top: 22px;
+  padding-top: 12px;
+  color: #817a75;
+  font-size: 10px;
+}
+
+.footer-legal {
+  margin-top: 5px;
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.footer-legal a {
+  color: #817a75;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 16px;
+  }
+
+  .footer-logo {
+    width: 110px;
+  }
+}
 
     @media (max-width: 1000px) {
       .nav { gap: 14px; }
@@ -438,8 +619,6 @@ border: 1px solid #e5dfda;
       .pole:nth-child(5) {
         grid-column: span 1;
       }
-
-      .footer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
     @media (max-width: 750px) {
@@ -589,35 +768,39 @@ border: 1px solid #e5dfda;
   </div>
 </div>
 
-  <header>
-    <div class="container nav">
-      <a href="/" aria-label="ROOFCON — Startseite">
-        <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
-      </a>
+  <!-- HEADER PRINCIPAL -->
+<header>
+  <div class="container nav">
 
-      <div class="lang" aria-label="Sprache wählen">
-        <button type="button" id="lang-fr" aria-pressed="false">FR</button>
-        <button type="button" id="lang-de" class="active" aria-pressed="true">DE</button>
-      </div>
+    <a href="/" class="nav-logo" aria-label="ROOFCON — Startseite">
+      <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
+    </a>
 
-      <button
-        type="button"
-        class="mobile-menu-button"
-        id="mobile-menu-button"
-        aria-label="Menü öffnen"
-        aria-expanded="false"
-      >☰</button>
-
-      <nav class="menu" id="main-menu" aria-label="Hauptnavigation">
+    <nav class="menu" id="main-menu" aria-label="Hauptnavigation">
       <a id="nav-home" href="/">Startseite</a>
-      <a id="nav-services" href="/leistungen/">Leistungen</a>
+      <a id="nav-services" href="/leistungen/" aria-current="page">Leistungen</a>
       <a id="nav-current" href="/aktuelle-projekte/">Aktuelle Projekte</a>
       <a id="nav-references" href="/referenzen/">Referenzen</a>
-      <a id="nav-jobs" href="/karriere/" aria-current="page">Stellenangebote</a>
+      <a id="nav-jobs" href="/karriere/">Stellenangebote</a>
       <a id="nav-contact" href="/kontakt/" class="cta">Kontakt</a>
     </nav>
+
+    <div class="lang" aria-label="Sprache auswählen">
+      <button type="button" id="lang-fr" aria-pressed="false">FR</button>
+      <button type="button" id="lang-de" class="active" aria-pressed="true">DE</button>
     </div>
-  </header>
+
+    <button
+      type="button"
+      class="mobile-menu-button"
+      id="mobile-menu-button"
+      aria-label="Menü öffnen"
+      aria-expanded="false"
+      aria-controls="main-menu"
+    >☰</button>
+
+  </div>
+</header>
 
   <main>
     <section id="about" class="about">
@@ -899,6 +1082,11 @@ border: 1px solid #e5dfda;
   links[3].href = "/referenzen/";
   links[4].href = "/karriere/";
   links[5].href = "/kontakt/";
+  links.forEach(link => {
+  link.removeAttribute("aria-current");
+});
+
+links[1].setAttribute("aria-current", "page");
 }
 
     function updateSEO() {
