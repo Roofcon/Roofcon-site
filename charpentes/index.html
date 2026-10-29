@@ -71,16 +71,14 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
 
   <style>
     :root {
-      --black: #211f20;
-      --black-soft: #292625;
-      --brown: #a27b5b;
-      --brown-light: #c3a080;
-      --cream: #f5f2ee;
-      --white: #ffffff;
-      --gray: #706b67;
-      --line: #e5dfda;
-      --container: 1180px;
-    }
+  --black: #211f20;
+  --brown: #a27b5b;
+  --brown2: #c3a080;
+  --cream: #f5f2ee;
+  --white: #fff;
+  --gray: #706b67;
+  --line: #e5dfda;
+}
 
     * {
       box-sizing: border-box;
@@ -120,92 +118,6 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
       margin: 0 auto;
     }
 
-    .topbar {
-      padding: 8px 0;
-      background: var(--black);
-      color: #e8e1db;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-    }
-
-    .topbar-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .topbar a:hover {
-      color: var(--brown-light);
-    }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255, 255, 255, 0.97);
-      border-bottom: 1px solid rgba(33, 31, 32, 0.08);
-      backdrop-filter: blur(12px);
-    }
-
-    .header-inner {
-      min-height: 88px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .logo img {
-      display: block;
-      width: 174px;
-      max-height: 66px;
-      object-fit: contain;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 28px;
-    }
-
-    .nav a {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      transition: color 0.2s ease;
-    }
-
-    .nav a:hover {
-      color: var(--brown);
-    }
-
-    .lang-switch {
-      border: 1px solid var(--line);
-      background: transparent;
-      color: var(--black);
-      padding: 7px 9px;
-      font-family: inherit;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .lang-switch:hover,
-    .lang-switch.active {
-      background: var(--black);
-      color: var(--white);
-      border-color: var(--black);
-    }
 
     .nav .nav-cta {
       padding: 12px 18px;
@@ -576,45 +488,6 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
       padding: 34px 0;
       background: #181717;
       color: #d8d2cd;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-logo {
-      display: inline-flex;
-      align-items: center;
-    }
-
-   .footer-logo img {
-  display: block;
-  width: 135px;
-  max-height: 55px;
-  object-fit: contain;
-}
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      font-size: 12px;
-    }
-
-    .footer-links a:hover {
-      color: var(--brown-light);
-    }
-
-    .copyright {
-      width: 100%;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      color: #aaa39d;
-      font-size: 11px;
     }
 
     @media (max-width: 900px) {
