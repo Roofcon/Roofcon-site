@@ -70,66 +70,56 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
   </script>
 
   <style>
-    :root {
+:root {
   --black: #211f20;
   --brown: #a27b5b;
   --brown2: #c3a080;
+  --brown-light: #c3a080;
   --cream: #f5f2ee;
   --white: #fff;
   --gray: #706b67;
   --line: #e5dfda;
+  --container: 1180px;
 }
 
-    * {
-      box-sizing: border-box;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-    }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
 
-    body {
-      margin: 0;
-      color: var(--black);
-      background: var(--white);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-    }
+body {
+  margin: 0;
+  color: var(--black);
+  background: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    a:focus-visible {
-      outline: 2px solid var(--brown);
-      outline-offset: 5px;
-    }
+a:focus-visible {
+  outline: 2px solid var(--brown);
+  outline-offset: 5px;
+}
 
-    img {
-      max-width: 100%;
-      height: auto;
-    }
+img {
+  max-width: 100%;
+  height: auto;
+}
 
-    .container {
-      width: min(var(--container), 92%);
-      margin: 0 auto;
-    }
+.container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
 
-
-    .nav .nav-cta {
-      padding: 12px 18px;
-      background: var(--black);
-      color: var(--white);
-      transition: background 0.2s ease;
-    }
-
-    .nav .nav-cta:hover {
-      background: var(--brown);
-      color: var(--white);
-    }
 
     .hero {
       position: relative;
@@ -1515,13 +1505,16 @@ footer .container {
             <img class="footer-logo" src="/ROOFCON.png" alt="ROOFCON">
           </a>
           <div id="footer-description">
-            Charpente, toiture, couverture, façades ventilées et constructions en ossature bois au Luxembourg.
+            Façades ventilées · Toitures plates · Charpentes · Couvertures · Maisons · Annexes
           </div>
         </div>
 
         <div>
           <div class="footer-title" id="footer-contact-title">Contact</div>
-         <div class="footer-item" id="footer-phone"></div>
+<div class="footer-item" id="footer-phone">
+  <div style="margin-bottom: 5px;">Joël Brück</div>
+  <a href="tel:+352621765489">+352 621 765 489</a>
+</div>
           <div class="footer-item" id="footer-email">
             <a href="mailto:info@roof-con.lu">info@roof-con.lu</a>
           </div>
