@@ -664,6 +664,257 @@ footer .container {
         transition-duration: .01ms !important;
       }
     }
+
+    /* =========================================
+   CONTACT — DESIGN ÉPURÉ ET MODERNE
+   Header et footer inchangés
+========================================= */
+
+.contact-section {
+  background: #fff !important;
+  padding: 76px 0 100px !important;
+}
+
+.contact-section > .container {
+  width: min(1380px, 92%) !important;
+  margin-inline: auto;
+}
+
+/* Disposition : informations à gauche, formulaire à droite */
+.contact-section .contact-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(380px, .82fr) !important;
+  gap: clamp(45px, 7vw, 105px) !important;
+  align-items: start !important;
+}
+
+/* En-tête de la partie contact */
+.contact-section .contact-info {
+  min-width: 0;
+}
+
+.contact-section .kicker {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0 0 20px !important;
+  color: #a27b5b !important;
+  font-size: 12px !important;
+  letter-spacing: 2.5px !important;
+}
+
+.contact-section .kicker::after {
+  content: "";
+  display: block;
+  width: 75px;
+  height: 1px;
+  background: #e5dfda;
+}
+
+.contact-section .contact-title {
+  max-width: 650px;
+  margin: 0 !important;
+  color: #171616 !important;
+  font-size: clamp(44px, 4.5vw, 66px) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -2.4px !important;
+  font-weight: 600 !important;
+}
+
+.contact-section .contact-intro {
+  max-width: 600px;
+  margin: 23px 0 42px !important;
+  color: #424958 !important;
+  font-size: 17px !important;
+  line-height: 1.85 !important;
+}
+
+/* Coordonnées : deux colonnes et séparateurs fins */
+.contact-section .contact-details {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 32px;
+  margin-top: 0 !important;
+}
+
+.contact-section .item {
+  min-width: 0;
+  padding: 22px 0 24px !important;
+  border-top: 1px solid #e5dfda !important;
+}
+
+.contact-section .item small {
+  margin-bottom: 8px !important;
+  color: #a27b5b !important;
+  font-size: 10px !important;
+  letter-spacing: 1.6px !important;
+}
+
+.contact-section .item a,
+.contact-section .item span {
+  color: #211f20 !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.contact-section .item a {
+  text-decoration: none !important;
+  transition: color .2s ease;
+}
+
+.contact-section .item a:hover {
+  color: #a27b5b !important;
+}
+
+/* Formulaire clair, sans fond noir */
+.contact-section .contact-card {
+  width: 100%;
+  min-width: 0;
+  padding: clamp(28px, 3.5vw, 46px) !important;
+  background: #faf9f7 !important;
+  color: #211f20 !important;
+  border: 1px solid #e9e3dd !important;
+  border-top: 3px solid #a27b5b !important;
+  box-shadow: 0 12px 35px rgba(33, 31, 32, .04);
+}
+
+.contact-section .contact-card h2,
+.contact-section .contact-card h3 {
+  margin: 0 0 13px !important;
+  color: #171616 !important;
+  font-size: clamp(27px, 2.6vw, 35px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -.8px;
+}
+
+.contact-section .contact-card > p {
+  margin: 0 0 28px !important;
+  color: #706b67 !important;
+  font-size: 14px !important;
+  line-height: 1.8;
+}
+
+/* Champs du formulaire */
+.contact-section .contact-form {
+  display: grid !important;
+  gap: 19px !important;
+}
+
+.contact-section .contact-form label {
+  margin-bottom: 8px !important;
+  color: #35322f !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+}
+
+.contact-section .contact-form input,
+.contact-section .contact-form textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 14px 15px !important;
+  border: 1px solid #ded8d1 !important;
+  border-radius: 0 !important;
+  background: #fff !important;
+  color: #211f20 !important;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.contact-section .contact-form input:focus,
+.contact-section .contact-form textarea:focus {
+  border-color: #a27b5b !important;
+  box-shadow: 0 0 0 3px rgba(162, 123, 91, .09);
+}
+
+.contact-section .contact-form textarea {
+  min-height: 145px;
+  resize: vertical;
+}
+
+/* Bouton existant : même identifiant, même fonctionnement */
+.contact-section .contact-form #form-submit {
+  width: 100%;
+  min-height: 52px;
+  padding: 15px 20px !important;
+  border: 1px solid #a27b5b !important;
+  border-radius: 0 !important;
+  background: #a27b5b !important;
+  color: #fff !important;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+.contact-section .contact-form #form-submit:hover {
+  background: #856247 !important;
+}
+
+/* Tablette et mobile */
+@media (max-width: 900px) {
+  .contact-section {
+    padding: 60px 0 75px !important;
+  }
+
+  .contact-section .contact-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 32px !important;
+  }
+
+  .contact-section .contact-title {
+    font-size: clamp(40px, 5vw, 54px) !important;
+    letter-spacing: -1.5px !important;
+  }
+
+  .contact-section .contact-details {
+    column-gap: 20px;
+  }
+
+  .contact-section .contact-card {
+    padding: 26px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-section {
+    padding: 45px 0 60px !important;
+  }
+
+  .contact-section > .container {
+    width: calc(100% - 40px) !important;
+  }
+
+  .contact-section .contact-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 34px !important;
+  }
+
+  .contact-section .contact-title {
+    font-size: clamp(39px, 10vw, 52px) !important;
+    letter-spacing: -1.5px !important;
+  }
+
+  .contact-section .contact-intro {
+    margin: 20px 0 30px !important;
+    font-size: 15px !important;
+  }
+
+  .contact-section .contact-card {
+    padding: 26px 22px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-section .contact-details {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+    
   </style>
 </head>
 
