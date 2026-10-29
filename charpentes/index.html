@@ -773,260 +773,289 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
       }
     }
 
-    
 /* BARRE SUPÉRIEURE */
 .top {
   padding: 8px 0;
-  background: var(--black);
+  background: #211f20;
   color: #e8e1db;
   font-size: 12px;
-  letter-spacing: 0.02em;
+  letter-spacing: .02em;
 }
 
-.top .inner {
+.top-inner {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 22px;
 }
 
-#top-phone a,
-#top-email a {
+.top a {
   color: inherit;
   text-decoration: none;
-  transition: color 0.25s ease;
 }
 
-#top-phone a:hover,
-#top-email a:hover {
-  color: var(--brown-light);
+.top a:hover {
+  color: #c3a080;
 }
 
-/* ICÔNES SOCIALES SANS CERCLE EN HAUT */
-.top-social-icons {
+.top-social {
   display: flex;
-  align-items: center;
   gap: 12px;
 }
 
-.top-social-icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #d8d2cd;
-  text-decoration: none;
-  transition: color 0.25s ease, transform 0.25s ease;
-}
-
-.top-social-icons svg {
-  display: block;
-  width: 19px;
-  height: 19px;
-  fill: currentColor;
-}
-
-.top-social-icons a:hover {
-  color: var(--brown-light);
-  transform: translateY(-2px);
-}
-
 /* HEADER PRINCIPAL */
-.site-header {
+header {
   position: sticky;
   top: 0;
-  z-index: 20;
-  background: rgba(255, 255, 255, 0.97);
-  border-bottom: 1px solid rgba(33, 31, 32, 0.08);
-  backdrop-filter: blur(12px);
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
 }
 
-.site-header .nav {
-  min-height: 88px;
+.nav {
+  min-height: 82px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  gap: 35px;
 }
 
-.site-header .logo {
-  display: inline-flex;
+.nav-logo {
+  display: flex;
   align-items: center;
   flex-shrink: 0;
+  text-decoration: none;
 }
 
-.site-header .logo img {
+.logo {
+  width: 175px;
+  height: auto;
   display: block;
-  width: 174px;
-  max-height: 66px;
-  object-fit: contain;
 }
 
-.site-header .menu {
+.menu {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 18px;
+  gap: 28px;
+  margin-left: auto;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.site-header .menu a {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transition: color 0.2s ease;
+.menu a {
+  position: relative;
+  color: var(--black);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color .2s ease, background-color .2s ease;
 }
 
-.site-header .menu a:hover {
+.menu a:not(.cta)::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1px;
+  background: var(--brown);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+.menu a:not(.cta):hover {
   color: var(--brown);
 }
 
-.site-header .menu a.cta {
-  padding: 11px 16px;
-  background: var(--black);
-  color: var(--white);
+.menu a:not(.cta):hover::after {
+  transform: scaleX(1);
 }
 
-.site-header .menu a.cta:hover {
+.menu .cta {
   background: var(--brown);
-  color: var(--white);
+  color: #fff;
+  padding: 11px 18px;
 }
 
-/* LANGUES */
-.site-header .lang {
+.menu .cta:hover {
+  background: var(--black);
+  color: #fff;
+}
+
+.lang {
   display: flex;
   align-items: center;
   gap: 5px;
   flex-shrink: 0;
 }
 
-.site-header .lang a {
-  padding: 6px 8px;
+.lang a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 30px;
   border: 1px solid var(--line);
+  background: #fff;
+  color: var(--black);
   font-size: 11px;
   font-weight: 700;
+  text-decoration: none;
 }
 
-.site-header .lang a.active,
-.site-header .lang a:hover {
-  background: var(--black);
-  color: var(--white);
-  border-color: var(--black);
+.lang a.active,
+.lang a:hover {
+  background: var(--brown);
+  color: #fff;
+  border-color: var(--brown);
 }
 
-/* BOUTON MOBILE */
 .mobile-menu-button {
   display: none;
-  border: 0;
-  background: transparent;
-  color: var(--black);
-  font-size: 28px;
-  line-height: 1;
-  cursor: pointer;
 }
 
-/* ÉCRANS INTERMÉDIAIRES */
 @media (max-width: 1100px) {
-  .site-header .nav {
-    gap: 12px;
+  .nav {
+    gap: 20px;
   }
 
-  .site-header .menu {
-    gap: 10px;
+  .logo {
+    width: 165px;
   }
 
-  .site-header .menu a {
-    font-size: 10px;
+  .menu {
+    gap: 16px;
+    font-size: 12px;
   }
 }
 
-/* MENU MOBILE */
 @media (max-width: 750px) {
   .top {
     display: none;
   }
 
-  .site-header .nav {
-    min-height: 76px;
+  .nav {
+    min-height: 74px;
     position: relative;
-    flex-wrap: wrap;
-    gap: 12px;
+    gap: 0;
   }
 
-  .site-header .logo img {
+  .logo {
     width: 145px;
   }
 
-  .mobile-menu-button {
-    display: block;
+  .lang {
     margin-left: auto;
+    margin-right: 10px;
   }
 
-  .site-header .lang {
-    margin-left: 0;
+  .lang a {
+    width: 32px;
+    height: 29px;
+    font-size: 10px;
   }
 
-  .site-header .menu {
+  .mobile-menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--black);
+    cursor: pointer;
+    font-size: 25px;
+    line-height: 1;
+  }
+
+  .menu {
     display: none;
-    width: 100%;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    background: #fff;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
     flex-direction: column;
     align-items: stretch;
     gap: 0;
-    padding: 8px 0 16px;
+    padding: 8px 0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .1);
   }
 
-  .site-header .menu.mobile-open {
+  .menu.mobile-open {
     display: flex;
   }
 
-  .site-header .menu a {
-    padding: 12px 8px;
-    font-size: 12px;
+  .menu a {
+    display: block;
+    width: 100%;
+    padding: 15px 24px;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
   }
 
-  .site-header .menu a.cta {
-    margin-top: 8px;
+  .menu a:not(.cta)::after {
+    display: none;
+  }
+
+  .menu a:hover {
+    background: var(--cream);
+    color: var(--brown);
+  }
+
+  .menu .cta {
+    width: auto;
+    margin: 8px 16px;
     text-align: center;
   }
 }
 
-    
-/* FOOTER */
+/* FOOTER PRINCIPAL */
 .site-footer {
-  padding: 42px 0 24px;
-  background: #171616;
-  color: #aaa;
-  font-size: 13px;
+  background: #211f20;
+  color: #aaa29c;
+  padding: 25px 0 14px;
+  font-size: 12px;
+  line-height: 1.65;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 0.7fr;
-  gap: 30px;
+  grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
+  gap: 28px;
 }
 
 .site-footer .footer-logo {
+  width: 125px;
   display: block;
-  width: 150px;
-  padding: 7px;
-  margin-bottom: 15px;
   background: #fff;
+  padding: 5px;
+  margin-bottom: 12px;
 }
 
 .footer-description {
-  max-width: 290px;
-  line-height: 1.8;
+  max-width: 240px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #aaa29c;
 }
 
 .footer-title {
-  margin-bottom: 12px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 800;
+  color: #c3a080;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
 .footer-item {
   margin-bottom: 7px;
-  line-height: 1.8;
+  overflow-wrap: anywhere;
 }
 
 .footer-item a {
@@ -1036,10 +1065,9 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
 
 .footer-item a:hover,
 .footer-legal a:hover {
-  color: var(--brown-light);
+  color: #c3a080;
 }
 
-/* RÉSEAUX SOCIAUX DANS LE FOOTER */
 .footer-social-icons {
   display: flex;
   align-items: center;
@@ -1048,18 +1076,11 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
 
 .footer-social-icons a {
   display: inline-flex;
-  width: 42px;
-  height: 42px;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  color: #d8d2cd;
-  transition:
-    color 0.25s ease,
-    background 0.25s ease,
-    border-color 0.25s ease,
-    transform 0.25s ease;
+  color: #aaa29c;
+  text-decoration: none;
+  transition: color .25s ease, transform .25s ease;
 }
 
 .footer-social-icons svg {
@@ -1070,49 +1091,50 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
 }
 
 .footer-social-icons a:hover {
-  color: #fff;
-  background: var(--brown);
-  border-color: var(--brown);
+  color: #c3a080;
   transform: translateY(-2px);
 }
 
-/* BAS DU FOOTER */
 .footer-bottom {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px;
-  border-top: 1px solid #302d2b;
-  margin-top: 30px;
-  padding-top: 20px;
-  color: #777;
-  font-size: 11px;
+  border-top: 1px solid #403a37;
+  margin-top: 22px;
+  padding-top: 12px;
+  color: #817a75;
+  font-size: 10px;
 }
 
 .footer-legal {
+  margin-top: 5px;
   display: flex;
+  gap: 7px;
   flex-wrap: wrap;
-  gap: 10px;
 }
 
 .footer-legal a {
-  color: inherit;
+  color: #817a75;
+  text-decoration: none;
 }
 
 @media (max-width: 900px) {
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
   }
 }
 
 @media (max-width: 600px) {
   .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 16px;
   }
 
-  .footer-bottom {
-    flex-direction: column;
+  .site-footer .footer-logo {
+    width: 110px;
   }
 }
 
@@ -1122,49 +1144,51 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
 
 <body>
 
-
 <!-- BARRE SUPÉRIEURE -->
 <div class="top">
-  <div class="container inner">
-    <span id="top-phone">
+  <div class="container top-inner">
+    <div id="top-phone">
       <a href="tel:+352621765489">+352 621 765 489</a>
-    </span>
+    </div>
 
-    <span id="top-email">
+    <div id="top-email">
       <a href="mailto:info@roof-con.lu">info@roof-con.lu</a>
-    </span>
+    </div>
 
-    <span class="top-social-icons">
+    <div class="top-social">
       <a href="https://www.facebook.com/profile.php?id=61594591794889"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="ROOFCON sur Facebook" title="Facebook">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M13.5 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.3V13h2.8v8h3.4z"/>
-        </svg>
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="ROOFCON sur Facebook">
+        Facebook
       </a>
 
       <a href="https://www.instagram.com/roofcon.lu/"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="ROOFCON sur Instagram" title="Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <rect x="3" y="3" width="18" height="18" rx="5"
-                fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="12" cy="12" r="4"
-                  fill="none" stroke="currentColor" stroke-width="2"/>
-          <circle cx="17.5" cy="6.8" r="1.2"/>
-        </svg>
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="ROOFCON sur Instagram">
+        Instagram
       </a>
-    </span>
+    </div>
   </div>
 </div>
 
 <!-- HEADER PRINCIPAL -->
-<header class="site-header">
+<header>
   <div class="container nav">
 
-    <a class="logo" href="/" aria-label="ROOFCON – accueil">
-      <img src="/ROOFCON.png" alt="ROOFCON">
+    <a href="/" class="nav-logo" aria-label="ROOFCON — Accueil">
+      <img class="logo" src="/ROOFCON.png" alt="ROOFCON">
     </a>
+
+    <nav class="menu" id="main-menu" aria-label="Navigation principale">
+      <a href="/">Accueil</a>
+      <a href="/services/">Services</a>
+      <a href="/projets-en-cours/">Projets en cours</a>
+      <a href="/realisations/">Réalisations</a>
+      <a href="/emploi/">Offres d'emploi</a>
+      <a href="/contact/" class="cta">Contact</a>
+    </nav>
 
     <div class="lang" aria-label="Choisir la langue">
       <a href="/charpentes/"
@@ -1183,18 +1207,8 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
             aria-expanded="false"
             aria-controls="main-menu">☰</button>
 
-    <nav class="menu" id="main-menu" aria-label="Navigation principale">
-      <a href="/">Accueil</a>
-      <a href="/services/">Services</a>
-      <a href="/projets-en-cours/">Projets en cours</a>
-      <a href="/realisations/">Réalisations</a>
-      <a href="/emploi/">Offres d'emploi</a>
-      <a href="/contact/" class="cta">Contact</a>
-    </nav>
-
   </div>
 </header>
-
 
   <main>
 
