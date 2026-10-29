@@ -830,7 +830,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: .045em;
-  text-transform: uppercase;
+  text-transform: none;
   transition: color .2s ease;
 }
 
@@ -876,220 +876,158 @@
   display: none;
 }
 
-/* ===== FOOTER COMMUN ROOFCON ===== */
 
+/* ===== FOOTER COMMUN ROOFCON ===== */
 .site-footer {
-  padding: 65px 0 22px;
-  background: #181717;
-  color: #d8d2cd;
-  font-size: 13px;
+  padding: 25px 0 14px;
+  background: #211f20;
+  color: #aaa29c;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.site-footer .container {
+  width: min(1180px, 92%);
+  margin: auto;
 }
 
 .site-footer .footer-grid {
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1.2fr .8fr;
-  gap: 38px;
-  padding-bottom: 42px;
+  grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
+  align-items: start;
+  gap: 28px;
 }
 
 .site-footer .footer-logo {
   display: block;
-  width: 145px;
-  max-height: 60px;
-  object-fit: contain;
-  margin-bottom: 20px;
+  width: 125px;
+  max-width: 100%;
+  height: auto;
+  background: #fff;
+  padding: 5px;
+  margin-bottom: 12px;
 }
 
-.site-footer .footer-description {
-  max-width: 280px;
-  color: #aaa39d;
-  font-size: 13px;
-  line-height: 1.8;
+#footer-description {
+  max-width: 240px;
+  color: #aaa29c;
+  font-size: 11px;
+  line-height: 1.7;
 }
 
 .site-footer .footer-title {
-  margin-bottom: 17px;
-  color: var(--brown-light);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .12em;
+  color: #c3a080;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
   text-transform: uppercase;
+  margin: 4px 0 9px;
 }
 
 .site-footer .footer-item {
-  margin-bottom: 10px;
-  line-height: 1.7;
+  margin-bottom: 5px;
+  color: #aaa29c;
   overflow-wrap: anywhere;
 }
 
 .site-footer .footer-item a {
   color: inherit;
+  text-decoration: none;
   transition: color .2s ease;
 }
 
-.site-footer .footer-item a:hover,
-.site-footer .footer-social a:hover,
-.site-footer .footer-legal a:hover {
-  color: var(--brown-light);
+.site-footer .footer-item a:hover {
+  color: #c3a080;
 }
 
 .site-footer .footer-social {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: 5px;
 }
 
 .site-footer .footer-social a {
-  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  color: #aaa29c;
+  text-decoration: none;
   transition: color .2s ease;
 }
 
+.site-footer .footer-social a svg {
+  display: none;
+}
+
+.site-footer .footer-social a:hover {
+  color: #c3a080;
+}
+
 .site-footer .footer-bottom {
+  border-top: 1px solid #403a37;
+  margin-top: 22px;
+  padding-top: 12px;
+  color: #827a75;
+  font-size: 10px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 15px 25px;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255, 255, 255, .12);
-  color: #aaa39d;
-  font-size: 11px;
+  gap: 12px;
 }
 
 .site-footer .footer-legal {
+  margin-top: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 7px;
 }
 
 .site-footer .footer-legal a {
-  color: inherit;
+  color: #827a75;
+  text-decoration: none;
+  transition: color .2s ease;
 }
 
-@media (max-width: 1000px) {
-  .site-header .nav {
-    gap: 14px;
+.site-footer .footer-legal a:hover {
+  color: #c3a080;
+}
+
+@media (max-width: 900px) {
+  .site-footer .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
   }
 
-  .site-header .logo {
-    width: 145px;
+  .site-footer .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
   }
+}
 
-  .site-header .menu {
-    gap: 12px;
-  }
-
-  .site-header .menu a {
-    font-size: 10px;
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 24px 0 14px;
   }
 
   .site-footer .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 750px) {
-  .top .inner {
-    justify-content: center;
-    gap: 8px 16px;
-    font-size: 11px;
+    gap: 22px 16px;
   }
 
-  .top-socials {
-    gap: 12px;
-  }
-
-  .site-header .nav {
-    min-height: 76px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 12px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-
-  .site-header .logo {
-    width: 140px;
-  }
-
-  .mobile-menu-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 40px;
-    border: 1px solid var(--line);
-    background: var(--white);
-    color: var(--black);
-    font-size: 23px;
-    cursor: pointer;
-    order: 3;
-  }
-
-  .site-header .lang {
-    margin-left: auto;
-    order: 2;
-  }
-
-  .site-header .menu {
-    display: none;
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    order: 4;
-    padding-top: 8px;
-    border-top: 1px solid var(--line);
-  }
-
-  .site-header .menu.mobile-open {
-    display: flex;
-  }
-
-  .site-header .menu a {
-    padding: 13px 5px;
-    border-bottom: 1px solid var(--line);
-    font-size: 12px;
-  }
-
-  .site-header .menu .cta {
-    margin-top: 10px;
-    padding: 13px;
-    text-align: center;
-  }
-
-  .site-footer {
-    padding-top: 45px;
-  }
-
-  .site-footer .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    padding-bottom: 30px;
+  .site-footer .footer-logo {
+    width: 110px;
   }
 
   .site-footer .footer-bottom {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 450px) {
-  .top .inner {
-    flex-direction: column;
-  }
-
-  .site-header .logo {
-    width: 125px;
-  }
-
-  .site-header .nav {
-    gap: 10px;
+    margin-top: 18px;
   }
 
   .site-footer .footer-legal {
-    gap: 8px 12px;
+    line-height: 1.9;
   }
 }
+
 
     
 /* Logos des réseaux sociaux */
@@ -1549,8 +1487,7 @@
         </a>
 
         <div class="footer-description">
-          Charpente, couverture, toitures plates, façades ventilées
-          et constructions en ossature bois au Luxembourg.
+          Façades ventilées · Toitures plates · Charpentes · Couvertures · Maisons · Annexes
         </div>
       </div>
 
