@@ -773,7 +773,10 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
       }
     }
 
-/* BARRE SUPÉRIEURE */
+/* =========================
+   HEADER ROOFCON — COMMUN
+========================= */
+
 .top {
   padding: 8px 0;
   background: #211f20;
@@ -789,6 +792,13 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
   gap: 22px;
 }
 
+.top-contact {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-right: auto;
+}
+
 .top a {
   color: inherit;
   text-decoration: none;
@@ -799,37 +809,49 @@ content="ROOFCON vous accompagne dans vos projets de charpente au Luxembourg, de
 }
 
 .top-social {
-  display: flex;
-  gap: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* HEADER PRINCIPAL */
+.top-social svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Header principal */
+
 header {
   position: sticky;
   top: 0;
   z-index: 100;
   background: #fff;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid #e5dfda;
 }
 
 .nav {
+  width: min(1180px, 92%);
   min-height: 82px;
+  margin: auto;
   display: flex;
   align-items: center;
-  gap: 35px;
+  gap: 28px;
 }
 
 .nav-logo {
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  text-decoration: none;
 }
 
-.logo {
+.nav-logo img {
+  display: block;
   width: 175px;
   height: auto;
-  display: block;
+  max-height: 66px;
+  object-fit: contain;
 }
 
 .menu {
@@ -844,7 +866,7 @@ header {
 
 .menu a {
   position: relative;
-  color: var(--black);
+  color: #211f20;
   text-decoration: none;
   white-space: nowrap;
   transition: color .2s ease, background-color .2s ease;
@@ -857,14 +879,14 @@ header {
   right: 0;
   bottom: -6px;
   height: 1px;
-  background: var(--brown);
+  background: #a27b5b;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform .25s ease;
 }
 
 .menu a:not(.cta):hover {
-  color: var(--brown);
+  color: #a27b5b;
 }
 
 .menu a:not(.cta):hover::after {
@@ -872,13 +894,13 @@ header {
 }
 
 .menu .cta {
-  background: var(--brown);
-  color: #fff;
   padding: 11px 18px;
+  background: #a27b5b;
+  color: #fff;
 }
 
 .menu .cta:hover {
-  background: var(--black);
+  background: #211f20;
   color: #fff;
 }
 
@@ -895,9 +917,9 @@ header {
   justify-content: center;
   width: 34px;
   height: 30px;
-  border: 1px solid var(--line);
+  border: 1px solid #e5dfda;
   background: #fff;
-  color: var(--black);
+  color: #211f20;
   font-size: 11px;
   font-weight: 700;
   text-decoration: none;
@@ -905,21 +927,23 @@ header {
 
 .lang a.active,
 .lang a:hover {
-  background: var(--brown);
+  background: #a27b5b;
   color: #fff;
-  border-color: var(--brown);
+  border-color: #a27b5b;
 }
 
 .mobile-menu-button {
   display: none;
 }
 
+/* Header tablette */
+
 @media (max-width: 1100px) {
   .nav {
     gap: 20px;
   }
 
-  .logo {
+  .nav-logo img {
     width: 165px;
   }
 
@@ -928,6 +952,8 @@ header {
     font-size: 12px;
   }
 }
+
+/* Header mobile */
 
 @media (max-width: 750px) {
   .top {
@@ -940,7 +966,7 @@ header {
     gap: 0;
   }
 
-  .logo {
+  .nav-logo img {
     width: 145px;
   }
 
@@ -961,9 +987,9 @@ header {
     justify-content: center;
     width: 42px;
     height: 42px;
-    border: 1px solid var(--line);
+    border: 1px solid #e5dfda;
     background: #fff;
-    color: var(--black);
+    color: #211f20;
     cursor: pointer;
     font-size: 25px;
     line-height: 1;
@@ -977,8 +1003,8 @@ header {
     right: 0;
     margin-left: 0;
     background: #fff;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
+    border-top: 1px solid #e5dfda;
+    border-bottom: 1px solid #e5dfda;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
@@ -1003,8 +1029,8 @@ header {
   }
 
   .menu a:hover {
-    background: var(--cream);
-    color: var(--brown);
+    background: #f5f2ee;
+    color: #a27b5b;
   }
 
   .menu .cta {
@@ -1014,7 +1040,10 @@ header {
   }
 }
 
-/* FOOTER PRINCIPAL */
+/* =========================
+   FOOTER ROOFCON — COMMUN
+========================= */
+
 .site-footer {
   background: #211f20;
   color: #aaa29c;
@@ -1023,15 +1052,23 @@ header {
   line-height: 1.65;
 }
 
+.site-footer .container {
+  width: min(1180px, 92%);
+  margin: auto;
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
+  align-items: start;
   gap: 28px;
 }
 
 .site-footer .footer-logo {
-  width: 125px;
   display: block;
+  width: 125px;
+  max-width: 100%;
+  height: auto;
   background: #fff;
   padding: 5px;
   margin-bottom: 12px;
@@ -1039,95 +1076,106 @@ header {
 
 .footer-description {
   max-width: 240px;
+  color: #aaa29c;
   font-size: 11px;
   line-height: 1.7;
-  color: #aaa29c;
 }
 
 .footer-title {
   color: #c3a080;
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: .1em;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin: 4px 0 9px;
 }
 
 .footer-item {
-  margin-bottom: 7px;
+  margin-bottom: 5px;
+  color: #aaa29c;
   overflow-wrap: anywhere;
 }
 
 .footer-item a {
   color: inherit;
   text-decoration: none;
+  transition: color .2s ease;
 }
 
-.footer-item a:hover,
-.footer-legal a:hover {
+.footer-item a:hover {
   color: #c3a080;
 }
 
 .footer-social-icons {
   display: flex;
-  align-items: center;
-  gap: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
 }
 
 .footer-social-icons a {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 0;
   color: #aaa29c;
   text-decoration: none;
-  transition: color .25s ease, transform .25s ease;
+  transition: color .2s ease;
 }
 
 .footer-social-icons svg {
-  display: block;
-  width: 20px;
-  height: 20px;
-  fill: currentColor;
+  display: none;
 }
 
 .footer-social-icons a:hover {
   color: #c3a080;
-  transform: translateY(-2px);
 }
 
 .footer-bottom {
   border-top: 1px solid #403a37;
   margin-top: 22px;
   padding-top: 12px;
-  color: #817a75;
+  color: #827a75;
   font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
 
 .footer-legal {
-  margin-top: 5px;
+  margin-top: 0;
   display: flex;
-  gap: 7px;
   flex-wrap: wrap;
+  gap: 7px;
 }
 
 .footer-legal a {
-  color: #817a75;
+  color: #827a75;
   text-decoration: none;
+  transition: color .2s ease;
+}
+
+.footer-legal a:hover {
+  color: #c3a080;
 }
 
 @media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
   }
 
   .footer-bottom {
-    display: flex;
+    align-items: flex-start;
     flex-direction: column;
-    gap: 5px;
   }
 }
 
 @media (max-width: 600px) {
+  .site-footer {
+    padding: 24px 0 14px;
+  }
+
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px 16px;
@@ -1136,7 +1184,16 @@ header {
   .site-footer .footer-logo {
     width: 110px;
   }
+
+  .footer-bottom {
+    margin-top: 18px;
+  }
+
+  .footer-legal {
+    line-height: 1.9;
+  }
 }
+
 
   </style>
 
@@ -1592,9 +1649,11 @@ header {
         © <span id="year"></span> ROOFCON — Tous droits réservés.
       </div>
 
-      <div class="footer-legal">
-        <a href="/mentions-legales.html">Mentions légales</a>
-      </div>
+     <div class="footer-legal">
+  <a href="/mentions-legales.html">Mentions légales</a>
+  <a href="/politique-confidentialite.html">Politique de confidentialité</a>
+  <a href="/politique-cookies.html">Politique de cookies</a>
+</div>
     </div>
 
   </div>
