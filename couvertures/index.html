@@ -1192,25 +1192,23 @@ footer .container {
   }
 }
 
-
-
-/* Correction taille des icônes réseaux sociaux du header */
-.top-inner > a.top-social {
+.top-social {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
-  flex: 0 0 18px;
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  font-size: 12px;
+  white-space: nowrap;
 }
 
-.top-inner > a.top-social svg {
+.top-social svg {
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
   display: block;
-  width: 16px !important;
-  height: 16px !important;
-  max-width: 16px !important;
-  max-height: 16px !important;
-  flex: 0 0 16px;
 }
 
   </style>
