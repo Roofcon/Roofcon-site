@@ -622,222 +622,261 @@ footer .container {
 }
 
     
-/* ==========================================
-   CONTACT — NOUVEAU DESIGN ROOFCON
-   Header et footer volontairement préservés
-========================================== */
 
-/* Fond général de la page */
+/* =====================================
+   CONTACT — DESIGN ÉPURÉ ROOFCON
+   Header et footer non modifiés
+===================================== */
 
-body:has(.contact-card) main{
-  background:#211f20;
-  color:#f5f2ee;
+#contact.contact {
+  background: #f5f2ee;
+  color: #211f20;
+  padding: 100px 0 110px;
 }
 
-/* Section principale du contact */
-
-.contact-section,
-.contact-main,
-.contact-wrapper{
-  background:#211f20;
+#contact .container {
+  max-width: 1240px;
 }
 
-/* Titres et introduction */
-
-.contact-title,
-#contact-title{
-  color:#f5f2ee;
-  font-size:clamp(38px,5vw,66px);
-  line-height:1.05;
-  letter-spacing:-1.8px;
-  font-weight:800;
+/* Forme générale : grand titre au-dessus */
+#contact .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  grid-template-areas:
+    "heading form"
+    "details form";
+  column-gap: 90px;
+  row-gap: 35px;
+  align-items: start;
 }
 
-.contact-intro,
-#contact-intro{
-  color:#bdb6b0;
-  font-size:17px;
-  line-height:1.8;
-  max-width:650px;
+/* Partie gauche : titre et introduction */
+#contact .contact-grid > div:first-child {
+  display: contents;
 }
 
-/* Petit titre au-dessus du titre principal */
-
-#contact-kicker{
-  color:#c3a080;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:2px;
-  text-transform:uppercase;
+#contact #contact-kicker {
+  grid-area: heading;
+  align-self: end;
+  margin: 0 0 -18px;
+  color: #a27b5b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
-/* Informations de contact */
-
-.contact-details{
-  margin-top:35px;
-  display:grid;
-  gap:0;
+#contact #contact-title {
+  grid-area: heading;
+  margin: 22px 0 0;
+  max-width: 600px;
+  font-size: clamp(42px, 5vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -2.5px;
+  font-weight: 750;
 }
 
-.item{
-  padding:22px 0;
-  border-top:1px solid #403a37;
+/* Introduction placée sous le titre */
+#contact #contact-intro {
+  grid-area: heading;
+  align-self: end;
+  margin: 125px 0 0;
+  max-width: 530px;
+  color: #706b67;
+  font-size: 17px;
+  line-height: 1.8;
 }
 
-.item small{
-  display:block;
-  color:#c3a080;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  margin-bottom:8px;
+/* Coordonnées : lignes sobres */
+#contact .contact-details {
+  grid-area: details;
+  margin-top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 30px;
 }
 
-.item a,
-.item span{
-  color:#f5f2ee;
-  font-size:17px;
-  font-weight:600;
-  line-height:1.7;
-  overflow-wrap:anywhere;
-  text-decoration:none;
-  transition:color .25s ease;
+#contact .item {
+  min-width: 0;
+  padding: 22px 0;
+  border-top: 1px solid #ded7d0;
 }
 
-.item a:hover{
-  color:#c3a080;
+#contact .item small {
+  display: block;
+  margin-bottom: 9px;
+  color: #a27b5b;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
-/* Bloc du formulaire */
-
-.contact-card{
-  background:#292625;
-  color:#f5f2ee;
-  padding:clamp(25px,4vw,45px);
-  border:1px solid #423b37;
-  position:relative;
-  overflow:hidden;
+#contact .item a,
+#contact .item span {
+  color: #211f20;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
-/* Filet décoratif brun */
-
-.contact-card::before{
-  content:"";
-  display:block;
-  width:55px;
-  height:3px;
-  background:#a27b5b;
-  margin-bottom:25px;
+#contact .item a {
+  text-decoration: none;
+  transition: color .2s ease;
 }
 
-.contact-card h3{
-  color:#f5f2ee;
-  font-size:clamp(25px,3vw,34px);
-  line-height:1.15;
-  letter-spacing:-.5px;
-  margin-bottom:12px;
+#contact .item a:hover {
+  color: #a27b5b !important;
 }
 
-.contact-card p{
-  color:#bdb6b0;
-  font-size:14px;
-  line-height:1.8;
-  margin-bottom:28px;
+/* Formulaire : carte claire, sans gros bloc noir */
+#contact .contact-card {
+  grid-area: form;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 38px;
+  background: #fff;
+  color: #211f20;
+  border: 1px solid #e5dfda;
+  box-shadow: 0 15px 45px rgba(33, 31, 32, .045);
 }
 
-/* Formulaire */
-
-.contact-form{
-  display:grid;
-  gap:18px;
+#contact .contact-card::before {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin-bottom: 25px;
+  background: #a27b5b;
 }
 
-.contact-form label{
-  display:block;
-  color:#d7cec7;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.3px;
-  margin-bottom:8px;
+#contact .contact-card h3 {
+  margin: 0 0 12px;
+  color: #211f20;
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: -.8px;
 }
 
-.contact-form input,
-.contact-form textarea{
-  box-sizing:border-box;
-  width:100%;
-  padding:15px 16px;
-  border:1px solid #4a423e;
-  border-radius:0;
-  background:#211f20;
-  color:#f5f2ee;
-  font:inherit;
-  font-size:14px;
-  outline:none;
-  transition:border-color .25s ease,
-             background .25s ease;
+#contact .contact-card > p {
+  margin: 0 0 28px;
+  color: #706b67;
+  font-size: 14px;
+  line-height: 1.75;
 }
 
-.contact-form input::placeholder,
-.contact-form textarea::placeholder{
-  color:#8e8580;
+/* Champs du formulaire */
+#contact .contact-form {
+  display: grid;
+  gap: 20px;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus{
-  border-color:#c3a080;
-  background:#262322;
+#contact .contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: #45403d;
+  font-size: 12px;
+  font-weight: 700;
 }
 
-.contact-form textarea{
-  min-height:150px;
-  resize:vertical;
+#contact .contact-form input,
+#contact .contact-form textarea {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid #ded7d0;
+  border-radius: 0;
+  background: #fbfaf8;
+  color: #211f20;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+  transition: border-color .2s ease, background .2s ease;
 }
 
-/* Bouton d'envoi */
-
-.contact-form button,
-.contact-form input[type="submit"],
-#form-submit{
-  cursor:pointer;
-  transition:background .25s ease,
-             color .25s ease,
-             border-color .25s ease;
+#contact .contact-form input:focus,
+#contact .contact-form textarea:focus {
+  border-color: #a27b5b;
+  background: #fff;
 }
 
-/* Version responsive */
+#contact .contact-form textarea {
+  min-height: 145px;
+  resize: vertical;
+}
 
-@media(max-width:750px){
+/* Bouton : on conserve le bouton existant et son fonctionnement */
+#contact #form-submit {
+  width: 100%;
+  min-height: 50px;
+  justify-content: center;
+  border: 1px solid #211f20;
+  border-radius: 0;
+  background: #211f20;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  transition: background .2s ease, border-color .2s ease;
+}
 
-  .contact-title,
-  #contact-title{
-    font-size:clamp(36px,10vw,50px);
-    letter-spacing:-1.2px;
+#contact #form-submit:hover {
+  background: #a27b5b;
+  border-color: #a27b5b;
+}
+
+/* Adaptation mobile */
+@media (max-width: 850px) {
+  #contact.contact {
+    padding: 65px 0 75px;
   }
 
-  .contact-intro,
-  #contact-intro{
-    font-size:15px;
-    line-height:1.75;
+  #contact .contact-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "heading"
+      "details"
+      "form";
+    gap: 35px;
   }
 
-  .contact-card{
-    padding:25px 20px;
+  #contact #contact-kicker {
+    margin: 0 0 -18px;
   }
 
-  .contact-card h3{
-    font-size:27px;
+  #contact #contact-title {
+    margin-top: 22px;
+    font-size: clamp(40px, 9vw, 58px);
+    letter-spacing: -1.5px;
   }
 
-  .item{
-    padding:18px 0;
+  #contact #contact-intro {
+    margin-top: 120px;
+    font-size: 15px;
   }
 
-  .item a,
-  .item span{
-    font-size:16px;
+  #contact .contact-details {
+    grid-template-columns: 1fr 1fr;
   }
 
+  #contact .contact-card {
+    padding: 28px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  #contact .contact-details {
+    grid-template-columns: 1fr;
+  }
+
+  #contact .contact-card {
+    padding: 25px 20px;
+  }
+
+  #contact .contact-card h3 {
+    font-size: 26px;
+  }
 }
 
   </style>
