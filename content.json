@@ -260,7 +260,8 @@
               "de": "Besondere Aufmerksamkeit für die Abdichtung"
             }
           ]
-        }
+        },
+        "image": "images/poles/toitures-1793353238888.png"
       },
       {
         "id": "charpentes",
@@ -273,7 +274,7 @@
           "fr": "Conception et réalisation de charpentes et de structures en bois pour maisons, bâtiments professionnels et projets sur mesure. De la préparation des éléments à leur assemblage et leur mise en place sur chantier, ROOFCON réalise des structures adaptées aux contraintes et aux exigences de chaque projet.",
           "de": "Planung und Ausführung von Dachstühlen und Holzkonstruktionen für Wohnhäuser, Gewerbegebäude und individuelle Bauvorhaben. Von der Vorbereitung der Elemente über die Montage bis zur Ausführung auf der Baustelle realisiert ROOFCON Konstruktionen, die auf die Anforderungen jedes Projekts abgestimmt sind."
         },
-        "image": "",
+        "image": "images/poles/charpentes-1793353244086.png",
         "infoWhat": {
           "title": {
             "fr": "Qu'est-ce qu'une charpente ?",
@@ -348,7 +349,7 @@
           "fr": "Réalisation et rénovation de couvertures de toiture pour différents types de bâtiments. ROOFCON veille à la qualité de la mise en œuvre, à la protection du bâtiment contre les intempéries et à la précision des raccords et finitions, aussi bien en construction neuve qu'en rénovation.",
           "de": "Ausführung und Sanierung von Dachdeckungen für unterschiedliche Gebäudetypen. ROOFCON legt Wert auf eine hochwertige Ausführung, den zuverlässigen Schutz des Gebäudes vor Witterungseinflüssen sowie auf präzise Anschlüsse und Abschlussarbeiten – sowohl im Neubau als auch bei Sanierungen."
         },
-        "image": "",
+        "image": "images/poles/couvertures-1793353247750.png",
         "infoWhat": {
           "title": {
             "fr": "Qu'est-ce qu'une couverture de toiture ?",
@@ -484,7 +485,8 @@
               "de": "Eine schnell umsetzbare Bauweise"
             }
           ]
-        }
+        },
+        "image": "images/poles/maisons-1793353252847.png"
       }
     ]
   },
