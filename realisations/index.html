@@ -2291,8 +2291,10 @@ document.getElementById("footer-phone").innerHTML =
       document.getElementById("refs-kicker").textContent =
         LANG === "fr" ? "Nos projets" : "Unsere Projekte";
 
-      document.getElementById("refs-title").textContent =
-        LANG === "fr" ? "Nos réalisations en construction bois, toiture, charpente, couverture et façade" : "Unsere Projekte in den Bereichen Holzbau, Dachbau, Dachstuhl, Dachdeckung und Fassadenbau";
+     document.getElementById("refs-title").textContent =
+  CONTENT?.references?.title?.[LANG] ||
+  CONTENT?.references?.title?.fr ||
+  "";
 
       document.getElementById("refs-intro").textContent =
         LANG === "fr"
