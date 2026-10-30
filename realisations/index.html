@@ -2373,7 +2373,21 @@ function setLanguage(lang) {
   renderFooter();
   renderNavigation();
   updateSEO();
-  showView("references");
+
+  // Récupérer la catégorie demandée dans l'URL
+  const params = new URLSearchParams(window.location.search);
+  const categoryId = params.get("categorie");
+
+  // Ouvrir directement la catégorie si elle existe
+  const categoryExists = allCategories().some(
+    category => category.id === categoryId
+  );
+
+  if (categoryExists) {
+    openReferenceCategory(categoryId);
+  } else {
+    showView("references");
+  }
 })
 
       .catch(error => {
