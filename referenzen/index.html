@@ -1424,6 +1424,87 @@ body .refs .refs-grid {
   display: none !important;
 }
 
+    /* ==========================================
+   RÉALISATIONS — TITRES PLUS DISCRETS
+========================================== */
+
+/* Titre principal : Nos réalisations */
+body .refs .about-intro h1 {
+  font-size: clamp(38px, 4.5vw, 60px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+
+/* Titres des catégories */
+body .refs .reference-category-title {
+  font-size: clamp(25px, 2.5vw, 35px);
+  line-height: 1.12;
+  letter-spacing: -.5px;
+}
+
+/* Titres des projets */
+body .refs .ref-content h2,
+body .refs .ref-content h3 {
+  font-size: clamp(25px, 2.5vw, 34px);
+  line-height: 1.12;
+  letter-spacing: -.5px;
+}
+
+/* Titres des pages de détail */
+body .reference-category-detail h1,
+body .reference-detail h1 {
+  font-size: clamp(36px, 4.5vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -1.8px;
+}
+
+/* Titre à l'intérieur d'un projet */
+body .project-detail-content h2 {
+  font-size: clamp(26px, 2.7vw, 36px);
+  line-height: 1.12;
+}
+
+/* Tablettes */
+@media (max-width: 900px) {
+  body .refs .about-intro h1 {
+    font-size: 48px;
+  }
+
+  body .refs .reference-category-title {
+    font-size: 30px;
+  }
+
+  body .refs .ref-content h2,
+  body .refs .ref-content h3 {
+    font-size: 29px;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+  body .refs .about-intro h1 {
+    font-size: 36px;
+    letter-spacing: -1.2px;
+  }
+
+  body .refs .reference-category-title {
+    font-size: 26px;
+  }
+
+  body .refs .ref-content h2,
+  body .refs .ref-content h3 {
+    font-size: 26px;
+  }
+
+  body .reference-category-detail h1,
+  body .reference-detail h1 {
+    font-size: 36px;
+  }
+
+  body .project-detail-content h2 {
+    font-size: 26px;
+  }
+}
   </style>
 </head>
 
