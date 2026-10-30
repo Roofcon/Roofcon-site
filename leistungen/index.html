@@ -1092,6 +1092,48 @@ body #poles-grid .pole .pole-image {
     padding: 22px !important;
   }
 }
+
+    /* SERVICES — disposition 3 cartes puis 2 */
+
+#poles-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+}
+
+#poles-grid .pole {
+  grid-column: span 4 !important;
+}
+
+/* Deuxième ligne : 2 cartes centrées */
+#poles-grid .pole:nth-child(4),
+#poles-grid .pole:nth-child(5) {
+  grid-column: span 6 !important;
+}
+
+/* Tablette */
+@media (max-width: 900px) {
+  #poles-grid .pole {
+    grid-column: span 6 !important;
+  }
+
+  #poles-grid .pole:nth-child(5) {
+    grid-column: 4 / span 6 !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  #poles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #poles-grid .pole,
+  #poles-grid .pole:nth-child(4),
+  #poles-grid .pole:nth-child(5) {
+    grid-column: 1 / -1 !important;
+  }
+}
     
   </style>
 </head>
