@@ -1041,9 +1041,15 @@ body #about.about {
   background: #ffffff !important;
 }
 
-/* Fond beige des cartes */
+/* Fond beige dégradé des cartes */
 body #poles-grid .pole {
-  background: #f3eee8 !important;
+  background: linear-gradient(
+    145deg,
+    #faf8f5 0%,
+    #f1e8de 55%,
+    #e6d5c4 100%
+  ) !important;
+
   color: #211f20 !important;
   border: 1px solid #d8c9ba !important;
   border-radius: 3px;
