@@ -464,100 +464,173 @@ color: #706b67;
 
 
 
-    .current-projects-grid {
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:20px;
-    }
+   /* =========================================
+   CARTES PROJETS EN COURS — DESIGN ROOFCON
+========================================= */
 
-    .current-project {
-      position:relative;
-      display:block;
-      min-height:520px;
-      overflow:hidden;
-      background:#292725;
-      color:inherit;
-      cursor:pointer;
-      border:0;
-      padding:0;
-      text-align:left;
-      width:100%;
-      transition:transform .45s ease,box-shadow .45s ease;
-    }
+.current-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 22px;
+}
 
-    .current-project:hover {
-      transform:translateY(-6px);
-      box-shadow:0 22px 50px rgba(0,0,0,.30);
-    }
+/* CARTES */
 
-    .current-project img {
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-     object-fit: contain;
-      display:block;
-      transition:transform .8s cubic-bezier(.2,.65,.2,1);
-    }
+.current-project {
+  grid-column: span 4;
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: 480px;
+  overflow: hidden;
 
-    .current-project:hover img { transform:scale(1.045); }
+  padding: 0;
+  border: 1px solid var(--line);
+  background: #292725;
+  color: #fff;
 
-    .current-project-overlay {
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-        to top,
-        rgba(12,11,10,.94) 0%,
-        rgba(12,11,10,.62) 28%,
-        rgba(12,11,10,.20) 62%,
-        rgba(12,11,10,.02) 100%
-      );
-      z-index:1;
-    }
+  text-align: left;
+  cursor: pointer;
 
-    .current-project-content {
-      position:absolute;
-      left:36px;
-      right:36px;
-      bottom:34px;
-      z-index:2;
-      color:#fff;
-    }
+  transition:
+    transform .4s ease,
+    box-shadow .4s ease;
+}
 
-    .current-project-content h2 {
-      margin:0 0 14px;
-      color:#fff;
-      font-size:clamp(27px,3vw,40px);
-      line-height:1.04;
-      font-weight:700;
-      letter-spacing:-.025em;
-      text-shadow:0 2px 8px rgba(0,0,0,.30);
-    }
+/* Centrer les deux dernières cartes */
+.current-project:nth-child(4) {
+  grid-column: 3 / span 4;
+}
 
-    .current-project-content p {
-      max-width:600px;
-      margin:0;
-      color:rgba(255,255,255,.82);
-      font-size:14px;
-      line-height:1.7;
-    }
+.current-project:nth-child(5) {
+  grid-column: 7 / span 4;
+}
 
-    .current-project-content::after {
-      content:var(--project-link-text, "VOIR LE PROJET  →");
-      display:inline-block;
-      margin-top:25px;
-      color:rgba(255,255,255,.82);
-      font-size:10px;
-      font-weight:800;
-      letter-spacing:.16em;
-      transition:transform .35s ease,color .35s ease;
-    }
+/* IMAGE */
 
-    .current-project:hover .current-project-content::after {
-      transform:translateX(7px);
-      color:#fff;
-    }
+.current-project img {
+  position: absolute;
+  inset: 0;
 
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+
+  transition: transform .8s cubic-bezier(.2,.65,.2,1);
+}
+
+.current-project:hover img {
+  transform: scale(1.045);
+}
+
+/* VOILE SUR L'IMAGE */
+
+.current-project-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    to top,
+    rgba(20,18,17,.92) 0%,
+    rgba(20,18,17,.55) 35%,
+    rgba(20,18,17,.10) 75%,
+    rgba(20,18,17,0) 100%
+  );
+}
+
+/* CONTENU */
+
+.current-project-content {
+  position: absolute;
+  z-index: 2;
+
+  left: 28px;
+  right: 28px;
+  bottom: 28px;
+
+  color: #fff;
+}
+
+.current-project-content h2 {
+  margin: 0;
+
+  color: #fff;
+  font-size: clamp(24px, 2.4vw, 34px);
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -.025em;
+
+  text-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+
+/* LIEN VISUEL */
+
+.current-project-content::after {
+  content: var(--project-link-text, "VOIR LE PROJET  →");
+  display: inline-block;
+
+  margin-top: 20px;
+
+  color: var(--brown2);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+
+  transition: transform .3s ease, color .3s ease;
+}
+
+.current-project:hover .current-project-content::after {
+  transform: translateX(7px);
+  color: #fff;
+}
+
+.current-project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(0,0,0,.16);
+}
+
+/* TABLETTE */
+
+@media (max-width: 1000px) {
+  .current-project {
+    grid-column: span 6;
+    min-height: 420px;
+  }
+
+  .current-project:nth-child(4),
+  .current-project:nth-child(5) {
+    grid-column: span 6;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+  .current-projects {
+    padding: 55px 0 80px;
+  }
+
+  .current-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .current-project,
+  .current-project:nth-child(4),
+  .current-project:nth-child(5) {
+    grid-column: 1 / -1;
+    min-height: 360px;
+  }
+
+  .current-project-content {
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+  }
+}
     /* FENÊTRE DE DÉTAIL */
 
     .project-modal {
