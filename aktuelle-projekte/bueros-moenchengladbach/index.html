@@ -775,6 +775,22 @@ footer .container {
 .nav {
   box-sizing: border-box;
 }
+    /* Taille du logo dans le header */
+.nav-logo img {
+  display: block;
+  width: 190px;
+  max-width: 190px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Tablette et mobile */
+@media (max-width: 750px) {
+  .nav-logo img {
+    width: 145px;
+    max-width: 145px;
+  }
+}
   </style>
 
   <script type="application/ld+json">
