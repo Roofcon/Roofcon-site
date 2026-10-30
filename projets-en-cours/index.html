@@ -1206,6 +1206,87 @@ footer .container {
   }
 }
 
+    /* AFFINER LES CARTES PROJETS */
+
+.current-project {
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .85fr);
+  gap: 20px;
+  min-height: 320px;
+  padding: 14px;
+}
+
+/* IMAGE ENTIÈREMENT VISIBLE */
+
+.current-project img {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: contain;
+  object-position: center;
+  background: #f5f2ee;
+}
+
+/* TITRE ET DESCRIPTIF PLUS DISCRETS */
+
+.current-project-content {
+  padding: 8px 5px;
+}
+
+.current-project-content h2 {
+  font-size: clamp(17px, 1.3vw, 21px);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.current-project-content p {
+  font-size: 14px;
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+/* BOUTON PLUS PETIT */
+
+.current-project-content::after {
+  font-size: 11px;
+  padding: 9px 13px;
+  gap: 10px;
+}
+
+/* TABLETTE */
+
+@media (max-width: 1000px) {
+  .current-project {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+    min-height: 280px;
+  }
+
+  .current-project img {
+    min-height: 240px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+  .current-project {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    gap: 0;
+  }
+
+  .current-project img {
+    height: 250px;
+    min-height: 0;
+  }
+
+  .current-project-content h2 {
+    font-size: 20px;
+  }
+
+  .current-project-content p {
+    font-size: 14px;
+  }
+}
   </style>
 </head>
 
