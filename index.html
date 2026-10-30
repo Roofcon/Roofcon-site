@@ -5290,15 +5290,6 @@ if(route && route[lang]){
 
 /* RÉFÉRENCE */
   
-let currentReferenceCategoryId = null;
-let referenceCategoryOrigin = 'references';
-let currentDetailType = 'reference';
-let currentCurrentProjectId = null;
-  let currentReferenceProjectId = null;
-
-  let currentReferenceImages = [];
-let currentReferenceIndex = 0;
-
 function render(){
 
   const c = CONTENT;
@@ -6259,8 +6250,7 @@ if (germanPaths.includes(currentPath)) {
   LANG = 'fr';
   localStorage.setItem('roofconLang', 'fr');
 }
-
-   
+  
   render();
 
   initChantierMap();
@@ -6294,89 +6284,7 @@ initReveal();
   `;
 
 });
-
-  function changeJobImage(jobId, direction){
-
-  const job =
-    CONTENT.jobs.items.find(function(item){
-      return item.id === jobId;
-    });
-
-  if(!job || !Array.isArray(job.images) || job.images.length < 2){
-    return;
-  }
-
-  const gallery =
-    document.querySelector(
-      '.job-gallery[data-job-id="' + jobId + '"]'
-    );
-
-  if(!gallery){
-    return;
-  }
-
-  const image =
-    gallery.querySelector('.job-gallery-image');
-
-  if(!image){
-    return;
-  }
-
-  let currentIndex =
-    parseInt(gallery.dataset.index || '0', 10);
-
-  currentIndex += direction;
-
-  if(currentIndex < 0){
-    currentIndex = job.images.length - 1;
-  }
-
-  if(currentIndex >= job.images.length){
-    currentIndex = 0;
-  }
-
-  gallery.dataset.index = currentIndex;
-
-  image.src = job.images[currentIndex];
-
-  image.alt =
-    t(job.title) + ' - Photo ' + (currentIndex + 1);
-
-  image.onclick = function(){
-    openJobImage(job.images[currentIndex]);
-  };
-
-}
   
-function openJobImage(image){
-
-  const lightbox=document.createElement('div');
-
-  lightbox.className='job-lightbox';
-
-  lightbox.innerHTML=`
-
-    <span class="job-lightbox-close">
-      &times;
-    </span>
-
-    <img
-      src="${esc(image)}"
-      alt=""
-    >
-
-  `;
-
-  lightbox.addEventListener(
-    'click',
-    function(){
-      lightbox.remove();
-    }
-  );
-
-  document.body.appendChild(lightbox);
-
-}
 </script>
   
 </body>
