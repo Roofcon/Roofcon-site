@@ -872,6 +872,268 @@ footer {
 }
 }
 
+    
+/* =========================================
+   AKTUELLE PROJEKTE — NEUES KARTENDESIGN
+   ANGEPASST AN DIE FRANZÖSISCHE SEITE
+========================================= */
+
+/* HAUPTBEREICH */
+
+#current-projects.current-projects {
+  background: #fff !important;
+  color: var(--black) !important;
+  padding: 0 0 100px !important;
+  overflow: visible !important;
+}
+
+/* INTRO */
+
+#current-projects .about-intro {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 auto 55px !important;
+  padding: 76px 0 0 !important;
+  text-align: left !important;
+}
+
+#current-projects .about-intro .kicker {
+  display: flex !important;
+  align-items: center;
+  gap: 18px;
+  color: var(--brown) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: .18em;
+  margin-bottom: 16px !important;
+}
+
+#current-projects .about-intro .kicker::after {
+  content: "";
+  display: block;
+  width: 90px;
+  height: 1px;
+  background: var(--line);
+}
+
+#current-projects .about-intro h1 {
+  max-width: 900px !important;
+  margin: 0 0 22px !important;
+  color: #111 !important;
+  font-size: clamp(38px, 4.2vw, 58px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.035em !important;
+  font-weight: 500 !important;
+  text-align: left !important;
+}
+
+#current-projects .about-intro p {
+  max-width: 850px !important;
+  margin: 0 !important;
+  color: #484848 !important;
+  font-size: 17px !important;
+  line-height: 1.8 !important;
+}
+
+/* PROJEKTGRID */
+
+#current-projects .current-projects-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 32px !important;
+  align-items: stretch;
+}
+
+/* PROJEKTKARTE */
+
+#current-projects .current-project {
+  position: relative !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr) !important;
+  align-items: center;
+  gap: 20px !important;
+
+  width: 100% !important;
+  min-width: 0;
+  min-height: 320px !important;
+
+  padding: 14px !important;
+  border: 1px solid #e5dfda !important;
+  border-radius: 5px !important;
+  background: #fff !important;
+  color: var(--black) !important;
+
+  overflow: hidden !important;
+  text-align: left;
+  box-shadow: 0 3px 12px rgba(0,0,0,.035) !important;
+  transform: none !important;
+
+  transition: border-color .25s ease,
+              box-shadow .25s ease !important;
+}
+
+#current-projects .current-project:hover {
+  border-color: var(--brown) !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,.07) !important;
+  transform: none !important;
+}
+
+/* PROJEKTBILD */
+
+#current-projects .current-project img {
+  position: relative !important;
+  inset: auto !important;
+  display: block !important;
+
+  width: 100% !important;
+  height: 290px !important;
+  min-height: 0 !important;
+
+  object-fit: contain !important;
+  object-position: center !important;
+  background: #f5f2ee !important;
+
+  transition: none !important;
+}
+
+#current-projects .current-project:hover img {
+  transform: none !important;
+}
+
+/* DUNKLER BILDVERLAUF ENTFERNEN */
+
+#current-projects .current-project-overlay {
+  display: none !important;
+}
+
+/* TEXTBEREICH */
+
+#current-projects .current-project-content {
+  position: relative !important;
+  inset: auto !important;
+
+  min-width: 0;
+  padding: 8px 5px !important;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  color: var(--black) !important;
+}
+
+/* PROJEKTTITEL */
+
+#current-projects .current-project-content h2 {
+  margin: 0 0 10px !important;
+  color: #111 !important;
+  font-size: clamp(17px, 1.3vw, 21px) !important;
+  line-height: 1.3 !important;
+  font-weight: 500 !important;
+  letter-spacing: -.02em !important;
+  text-shadow: none !important;
+}
+
+/* KLEINER PROJEKT-BUTTON */
+
+#current-projects .current-project-content::after {
+  content: var(--project-link-text, "PROJEKT ANSEHEN  →") !important;
+
+  display: inline-flex !important;
+  align-items: center;
+
+  margin-top: 5px !important;
+  padding: 7px 11px !important;
+
+  background: var(--brown) !important;
+  color: #fff !important;
+  border: 1px solid var(--brown);
+
+  font-size: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: .06em !important;
+
+  transition: background .2s ease !important;
+}
+
+#current-projects .current-project:hover .current-project-content::after {
+  background: #876347 !important;
+  color: #fff !important;
+  transform: none !important;
+}
+
+/* TABLETTE */
+
+@media (max-width: 1000px) {
+  #current-projects .current-projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+
+  #current-projects .current-project {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) !important;
+    min-height: 290px !important;
+  }
+
+  #current-projects .current-project img {
+    height: 260px !important;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 750px) {
+  #current-projects.current-projects {
+    padding: 0 0 65px !important;
+  }
+
+  #current-projects .about-intro {
+    padding: 48px 0 0 !important;
+    margin-bottom: 35px !important;
+    text-align: left !important;
+  }
+
+  #current-projects .about-intro h1 {
+    font-size: clamp(32px, 8vw, 43px) !important;
+    line-height: 1.1 !important;
+    margin-bottom: 18px !important;
+  }
+
+  #current-projects .about-intro p {
+    font-size: 15px !important;
+    line-height: 1.7 !important;
+  }
+
+  #current-projects .current-projects-grid {
+    grid-template-columns: 1fr !important;
+    gap: 25px !important;
+  }
+
+  #current-projects .current-project {
+    grid-template-columns: 1fr !important;
+    min-height: 0 !important;
+    gap: 0 !important;
+    padding: 12px !important;
+  }
+
+  #current-projects .current-project img {
+    width: 100% !important;
+    height: 240px !important;
+    min-height: 0 !important;
+  }
+
+  #current-projects .current-project-content {
+    padding: 20px 8px 10px !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+  }
+
+  #current-projects .current-project-content h2 {
+    font-size: 20px !important;
+  }
+}
+
   </style>
 </head>
 
