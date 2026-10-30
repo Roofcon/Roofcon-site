@@ -1674,7 +1674,39 @@ body .refs .refs-grid {
 #reference-categories .reference-category .category-icon {
   display: none !important;
 }
-    
+
+    /* =========================================
+   SERVICES — TITRES PLUS DISCRETS
+========================================= */
+
+/* Titre principal */
+body .about .about-intro h1 {
+  font-size: clamp(38px, 4.5vw, 62px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -2px !important;
+}
+
+/* Titres des cartes de services */
+body .about .pole h2 {
+  font-size: clamp(26px, 2.4vw, 34px) !important;
+  line-height: 1.2 !important;
+  letter-spacing: -.5px !important;
+}
+
+/* MOBILE */
+@media (max-width: 650px) {
+
+  body .about .about-intro h1 {
+    font-size: clamp(34px, 8vw, 44px) !important;
+    line-height: 1.1 !important;
+    letter-spacing: -1px !important;
+  }
+
+  body .about .pole h2 {
+    font-size: 26px !important;
+    line-height: 1.2 !important;
+  }
+}
   </style>
 </head>
 
