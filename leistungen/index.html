@@ -1032,70 +1032,64 @@ body .about .about-intro h1 {
   text-align: left;
 }
 
-    /* =========================================
-   ROOFCON — CONTRASTE DES CARTES SERVICES
+ /* =========================================
+   ROOFCON — CARTES SERVICES BEIGE
 ========================================= */
 
-/* Page blanche */
-.about {
-  background: #ffffff;
+/* Fond de la page */
+body #about.about {
+  background: #ffffff !important;
 }
 
-/* Cartes beige clair */
-.pole {
-  background: #f5f2ee;
-  border: 1px solid #ded6ce;
+/* Fond beige des cartes */
+body #poles-grid .pole {
+  background: #f3eee8 !important;
+  color: #211f20 !important;
+  border: 1px solid #d8c9ba !important;
   border-radius: 3px;
-  box-shadow: 0 5px 18px rgba(33, 31, 32, 0.06);
-  overflow: hidden;
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+  box-shadow: 0 8px 24px rgba(33, 31, 32, 0.09);
+  padding: 30px;
+  transition: all 0.3s ease;
 }
 
-/* Effet au survol */
-.pole:hover {
+/* Survol */
+body #poles-grid .pole:hover {
+  background: #eee5db !important;
+  border-color: #a27b5b !important;
   transform: translateY(-5px);
-  border-color: #c3a080;
-  box-shadow: 0 12px 28px rgba(33, 31, 32, 0.11);
+  box-shadow: 0 14px 30px rgba(33, 31, 32, 0.13);
 }
 
-/* Images */
-.pole-image {
-  background: #e5dfda;
-}
-
-/* Zone de texte */
-.pole-content {
-  background: #f5f2ee;
+/* Numéros */
+body #poles-grid .pole .pole-number {
+  color: #a27b5b !important;
 }
 
 /* Titres */
-.pole h2 {
-  color: #211f20;
+body #poles-grid .pole h2 {
+  color: #211f20 !important;
 }
 
-/* Petit trait décoratif */
-.pole h2::after {
-  content: "";
+/* Descriptions */
+body #poles-grid .pole p {
+  color: #625c57 !important;
+}
+
+/* Liens */
+body #poles-grid .pole .pole-discover,
+body #poles-grid .pole .pole-more {
+  color: #8a6245 !important;
+}
+
+/* Images */
+body #poles-grid .pole .pole-image {
   display: block;
-  width: 42px;
-  height: 2px;
-  background: #a27b5b;
-  margin-top: 18px;
-}
-
-/* Paragraphes */
-.pole p {
-  color: #625c57;
 }
 
 /* Mobile */
-@media (max-width: 750px) {
-  .pole {
-    box-shadow: 0 4px 14px rgba(33, 31, 32, 0.07);
+@media (max-width: 650px) {
+  body #poles-grid .pole {
+    padding: 22px !important;
   }
 }
     
