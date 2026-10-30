@@ -1460,7 +1460,10 @@ body #poles-grid .pole:hover .pole-image {
               <p>${escapeHTML(text)}</p>
               <div class="pole-actions">
                 <a class="pole-more" href="${escapeHTML(detailHref)}">${escapeHTML(moreText)}</a>
-                <a class="pole-discover" href="${LANG === "fr" ? "/realisations/" : "/referenzen/"}">${LANG === "fr" ? "Découvrir" : "Entdecken"}</a>
+                <a class="pole-discover"
+   href="${LANG === "fr" ? "/realisations/" : "/referenzen/"}?categorie=${encodeURIComponent(pole.id)}">
+  ${LANG === "fr" ? "Découvrir" : "Entdecken"}
+</a>
               </div>
             </article>
           `;
