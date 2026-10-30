@@ -1133,60 +1133,143 @@ footer .container {
   }
 }
 
-    /* =====================================
-   AJUSTEMENT FINAL DES CARTES PROJETS
+  /* =====================================
+   CARTES PROJETS — CADRE ET TEXTE CENTRÉ
 ===================================== */
 
-/* Donner plus de place à l'image */
+/* CARTE */
+
 .current-projects-grid .current-project {
   grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr) !important;
+  align-items: stretch !important;
   min-height: 320px !important;
   padding: 14px !important;
-  gap: 20px !important;
+  gap: 24px !important;
+
+  background: #fff !important;
+  border: 1px solid #e5dfda !important;
+  border-radius: 3px !important;
+  box-shadow: 0 5px 20px rgba(33, 31, 32, .04) !important;
+
+  transition: transform .25s ease, box-shadow .25s ease !important;
 }
 
-/* Afficher l'image entière */
+/* SURVOL */
+
+.current-projects-grid .current-project:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 14px 35px rgba(33, 31, 32, .10) !important;
+}
+
+/* IMAGE */
+
 .current-projects-grid .current-project img {
   position: relative !important;
   inset: auto !important;
+  display: block !important;
+
   width: 100% !important;
   height: 290px !important;
-  min-height: 0 !important;
+
   object-fit: contain !important;
   object-position: center !important;
   background: #f5f2ee !important;
 }
 
-/* Réduire le titre */
+/* MASQUER LE VOILE */
+
+.current-projects-grid .current-project-overlay {
+  display: none !important;
+}
+
+/* CONTENU CENTRÉ */
+
+.current-projects-grid .current-project-content {
+  position: relative !important;
+  inset: auto !important;
+  z-index: 2;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  min-width: 0;
+  height: 100%;
+  padding: 20px !important;
+
+  text-align: center !important;
+  color: var(--black) !important;
+}
+
+/* TITRE */
+
 .current-projects-grid .current-project-content h2 {
+  margin: 0 0 14px !important;
+  color: #211f20 !important;
+
   font-size: 21px !important;
-  line-height: 1.25 !important;
-  margin-bottom: 10px !important;
+  line-height: 1.3 !important;
+  font-weight: 500 !important;
+  letter-spacing: -.02em;
+  text-align: center !important;
 }
 
-/* Réduire le descriptif */
+/* DESCRIPTION */
+
 .current-projects-grid .current-project-content p {
+  margin: 0 0 15px !important;
+  color: #706b67 !important;
+
   font-size: 13px !important;
-  line-height: 1.5 !important;
-  margin-bottom: 10px !important;
+  line-height: 1.7 !important;
+  text-align: center !important;
 }
 
-/* Réduire le bouton */
+/* BOUTON */
+
 .current-projects-grid .current-project-content::after {
-  font-size: 10px !important;
-  padding: 7px 11px !important;
+  content: "VOIR LE PROJET  →";
+
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
   margin-top: 5px !important;
+  padding: 8px 13px !important;
+
+  background: var(--brown) !important;
+  border: 1px solid var(--brown) !important;
+  color: #fff !important;
+
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+}
+
+/* TABLETTE */
+
+@media (max-width: 1000px) {
+  .current-projects-grid .current-project {
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr) !important;
+  }
 }
 
 /* MOBILE */
+
 @media (max-width: 650px) {
   .current-projects-grid .current-project {
     grid-template-columns: 1fr !important;
+    gap: 0 !important;
     min-height: 0 !important;
   }
 
   .current-projects-grid .current-project img {
     height: 240px !important;
+  }
+
+  .current-projects-grid .current-project-content {
+    padding: 24px 15px !important;
   }
 
   .current-projects-grid .current-project-content h2 {
@@ -1727,6 +1810,7 @@ function renderCurrentProjects() {
          
 <div class="current-project-content">
   <h2>${esc(title)}</h2>
+  ${description ? `<p>${esc(description)}</p>` : ''}
 </div>
 
         </button>
