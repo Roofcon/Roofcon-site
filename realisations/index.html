@@ -1629,6 +1629,42 @@ body .refs .refs-grid {
   }
 }
 
+    /* GRILLE DES CATÉGORIES : 3 CARTES PUIS 2 */
+
+#reference-categories {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 22px;
+}
+
+#reference-categories .reference-category {
+  grid-column: span 4 !important;
+}
+
+/* Deuxième ligne : cartes plus larges et centrées */
+#reference-categories .reference-category:nth-child(4),
+#reference-categories .reference-category:nth-child(5) {
+  grid-column: span 4 !important;
+}
+
+/* Tablette */
+@media (max-width: 1000px) {
+  #reference-categories .reference-category {
+    grid-column: span 6 !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 750px) {
+  #reference-categories {
+    grid-template-columns: 1fr;
+  }
+
+  #reference-categories .reference-category {
+    grid-column: 1 / -1 !important;
+  }
+}
+    
   </style>
 </head>
 
