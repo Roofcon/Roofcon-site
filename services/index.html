@@ -1212,8 +1212,8 @@ body #poles-grid .pole .pole-image {
   height: 100%;
   margin: 0;
   object-fit: cover;
-  opacity: 0.35;
-  z-index: -2;
+  opacity: 0.55;
+  z-index: 0;
   transition: transform .7s ease, opacity .4s ease;
 }
 
@@ -1224,13 +1224,14 @@ body #poles-grid .pole::before {
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(250, 248, 245, 0.88) 0%,
-    rgba(243, 238, 232, 0.78) 55%,
-    rgba(230, 213, 196, 0.68) 100%
+    rgba(250, 248, 245, 0.72) 0%,
+    rgba(243, 238, 232, 0.62) 55%,
+    rgba(230, 213, 196, 0.52) 100%
   );
-  z-index: -1;
+  z-index: 1;
+  pointer-events: none;
 }
-
+    
 /* Textes et liens au premier plan */
 body #poles-grid .pole > :not(.pole-image) {
   position: relative;
