@@ -4471,36 +4471,9 @@ let currentServiceInfoId = null;
 
   function updateHreflang(page){
 
-  const routes = {
-    'accueil': {
-      fr: '/',
-      de: '/'
-    },
-    'about': {
-      fr: '/services',
-      de: '/leistungen'
-    },
-    'references': {
-      fr: '/realisations',
-      de: '/referenzen'
-    },
-    'current-projects': {
-      fr: '/projets-en-cours',
-      de: '/aktuelle-projekte'
-    },
-    'jobs': {
-      fr: '/emploi',
-      de: '/karriere'
-    },
-    'contact': {
-      fr: '/contact',
-      de: '/kontakt'
-    }
-  };
+  if(page !== 'accueil') return;
 
-  const route = routes[page];
-
-  if(!route) return;
+  const homeUrl = 'https://roof-con.com/';
 
   const frLink =
     document.querySelector('link[hreflang="fr"]');
@@ -4511,20 +4484,10 @@ let currentServiceInfoId = null;
   const defaultLink =
     document.querySelector('link[hreflang="x-default"]');
 
-  if(frLink){
-    frLink.href =
-      'https://roof-con.com' + route.fr;
-  }
+  if(frLink) frLink.href = homeUrl;
+  if(deLink) deLink.href = homeUrl;
+  if(defaultLink) defaultLink.href = homeUrl;
 
-  if(deLink){
-    deLink.href =
-      'https://roof-con.com' + route.de;
-  }
-
-  if(defaultLink){
-    defaultLink.href =
-      'https://roof-con.com' + route.fr;
-  }
 }
   
   function updateSEO(page){
@@ -4532,13 +4495,8 @@ let currentServiceInfoId = null;
   if(!CONTENT || !CONTENT.seo) return;
 
   const seoMap = {
-    'accueil': 'home',
-    'about': 'services',
-    'references': 'references',
-    'current-projects': 'currentProjects',
-    'jobs': 'jobs',
-    'contact': 'contact'
-  };
+  'accueil': 'home'
+};
 
   const seoKey = seoMap[page];
 
@@ -5099,16 +5057,7 @@ updateLanguageNavLinks();
   ================================ */
 
   const pageUrls = {
-  accueil: '/',
-  about: LANG === 'de' ? '/leistungen' : '/services',
-  references: LANG === 'de' ? '/referenzen/' : '/realisations/',
-  'current-projects': LANG === 'de' ? '/aktuelle-projekte' : '/projets-en-cours',
-  jobs: LANG === 'de' ? '/karriere' : '/emploi',
-  contact: LANG === 'de' ? '/kontakt' : '/contact',
-
-  /* Détails : conserver l'URL de la page d'origine */
-  'reference-detail': window.location.pathname,
-  'reference-category-detail': window.location.pathname
+  accueil: '/'
 };
 
   const newUrl =
