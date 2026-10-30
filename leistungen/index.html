@@ -1031,6 +1031,73 @@ body .about .about-intro h1 {
   margin-right: 0;
   text-align: left;
 }
+
+    /* =========================================
+   ROOFCON — CONTRASTE DES CARTES SERVICES
+========================================= */
+
+/* Page blanche */
+.about {
+  background: #ffffff;
+}
+
+/* Cartes beige clair */
+.pole {
+  background: #f5f2ee;
+  border: 1px solid #ded6ce;
+  border-radius: 3px;
+  box-shadow: 0 5px 18px rgba(33, 31, 32, 0.06);
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Effet au survol */
+.pole:hover {
+  transform: translateY(-5px);
+  border-color: #c3a080;
+  box-shadow: 0 12px 28px rgba(33, 31, 32, 0.11);
+}
+
+/* Images */
+.pole-image {
+  background: #e5dfda;
+}
+
+/* Zone de texte */
+.pole-content {
+  background: #f5f2ee;
+}
+
+/* Titres */
+.pole h2 {
+  color: #211f20;
+}
+
+/* Petit trait décoratif */
+.pole h2::after {
+  content: "";
+  display: block;
+  width: 42px;
+  height: 2px;
+  background: #a27b5b;
+  margin-top: 18px;
+}
+
+/* Paragraphes */
+.pole p {
+  color: #625c57;
+}
+
+/* Mobile */
+@media (max-width: 750px) {
+  .pole {
+    box-shadow: 0 4px 14px rgba(33, 31, 32, 0.07);
+  }
+}
     
   </style>
 </head>
