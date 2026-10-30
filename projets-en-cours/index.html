@@ -413,80 +413,96 @@ header {
   }
   
 }
-    /* PROJETS EN COURS */
+    
+/* =========================================
+   PAGE PROJETS EN COURS — DESIGN ROOFCON
+========================================= */
 
 .current-projects {
-  display: block;
   position: relative;
-  background: #ffffff;
-  color: #211f20;
-  padding: 75px 0 130px;
+  display: block;
+  padding: 90px 0 110px;
+  background: #f5f2ee;
+  color: var(--black);
   overflow: hidden;
 }
 
+/* CONTENEUR PRINCIPAL */
 
-    /* INTRO — MÊME DESIGN QUE RÉALISATIONS */
+.current-projects > .container {
+  width: min(1380px, 92%);
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   INTRODUCTION
+========================================= */
 
 .about-intro {
   width: 100%;
-  max-width: none;
-  margin: 0 auto 70px;
+  max-width: 900px;
+  margin: 0 auto 65px;
   text-align: center;
 }
 
 .about-intro .kicker {
-  display: block;
-color: var(--brown);
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--brown);
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: .18em;
+  letter-spacing: .2em;
   text-transform: uppercase;
-  margin-bottom: 18px;
 }
 
 .about-intro h1 {
-  margin: 0 auto 25px;
-color: #211f20;
-  font-size: clamp(38px, 5vw, 66px);
-  line-height: 1.03;
-  letter-spacing: -.035em;
+  max-width: 850px;
+  margin: 0 auto 24px;
+  color: var(--black);
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -.04em;
   font-weight: 700;
 }
 
 .about-intro p {
-  width: 100%;
-  max-width: none;
+  max-width: 760px;
   margin: 0 auto;
-color: #706b67;
-  font-size: 18px;
-  line-height: 1.75;
+  color: var(--gray);
+  font-size: 16px;
+  line-height: 1.85;
 }
 
-
-
-   /* =========================================
-   CARTES PROJETS EN COURS — DESIGN ROOFCON
+/* =========================================
+   GRILLE DES PROJETS
 ========================================= */
 
 .current-projects-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 22px;
+  gap: 26px;
+  align-items: stretch;
 }
 
-/* CARTES */
+/* =========================================
+   CARTES
+========================================= */
 
 .current-project {
-  grid-column: span 4;
+  grid-column: span 6;
   position: relative;
   display: block;
   width: 100%;
-  min-height: 480px;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  min-height: 300px;
   overflow: hidden;
 
   padding: 0;
   border: 1px solid var(--line);
-  background: #292725;
+  border-radius: 0;
+  background: #e8e2dc;
   color: #fff;
 
   text-align: left;
@@ -497,35 +513,39 @@ color: #706b67;
     box-shadow .4s ease;
 }
 
-/* Centrer les deux dernières cartes */
-.current-project:nth-child(4) {
-  grid-column: 3 / span 4;
+/* Centrer la dernière carte si le nombre est impair */
+
+.current-project:last-child:nth-child(odd) {
+  grid-column: 4 / span 6;
 }
 
-.current-project:nth-child(5) {
-  grid-column: 7 / span 4;
-}
-
-/* IMAGE */
+/* =========================================
+   IMAGE — AFFICHÉE EN ENTIER
+========================================= */
 
 .current-project img {
   position: absolute;
   inset: 0;
 
+  display: block;
   width: 100%;
   height: 100%;
 
-  display: block;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 
-  transition: transform .8s cubic-bezier(.2,.65,.2,1);
+  background: #e8e2dc;
+
+  transition: transform .7s ease;
 }
 
 .current-project:hover img {
-  transform: scale(1.045);
+  transform: scale(1.02);
 }
 
-/* VOILE SUR L'IMAGE */
+/* =========================================
+   VOILE LÉGER POUR LE TITRE
+========================================= */
 
 .current-project-overlay {
   position: absolute;
@@ -534,95 +554,92 @@ color: #706b67;
 
   background: linear-gradient(
     to top,
-    rgba(20,18,17,.92) 0%,
-    rgba(20,18,17,.55) 35%,
-    rgba(20,18,17,.10) 75%,
-    rgba(20,18,17,0) 100%
+    rgba(20,18,17,.82) 0%,
+    rgba(20,18,17,.38) 27%,
+    rgba(20,18,17,.05) 60%,
+    transparent 100%
   );
+
+  pointer-events: none;
 }
 
-/* CONTENU */
+/* =========================================
+   TITRE DES CARTES
+========================================= */
 
 .current-project-content {
   position: absolute;
   z-index: 2;
 
-  left: 28px;
-  right: 28px;
+  left: 30px;
+  right: 30px;
   bottom: 28px;
 
   color: #fff;
+  pointer-events: none;
 }
 
 .current-project-content h2 {
   margin: 0;
-
   color: #fff;
-  font-size: clamp(24px, 2.4vw, 34px);
-  line-height: 1.12;
+
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.15;
   font-weight: 700;
   letter-spacing: -.025em;
 
-  text-shadow: 0 2px 8px rgba(0,0,0,.25);
+  text-shadow: 0 2px 8px rgba(0,0,0,.3);
 }
 
-/* LIEN VISUEL */
+/* INDICATION POUR OUVRIR LE PROJET */
 
 .current-project-content::after {
   content: var(--project-link-text, "VOIR LE PROJET  →");
   display: inline-block;
 
-  margin-top: 20px;
+  margin-top: 14px;
 
   color: var(--brown2);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: .16em;
 
-  transition: transform .3s ease, color .3s ease;
+  transition:
+    transform .3s ease,
+    color .3s ease;
 }
 
 .current-project:hover .current-project-content::after {
-  transform: translateX(7px);
+  transform: translateX(6px);
   color: #fff;
 }
 
+/* SURVOL */
+
 .current-project:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 18px 40px rgba(0,0,0,.16);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(33,31,32,.13);
 }
 
-/* TABLETTE */
+/* =========================================
+   TABLETTE
+========================================= */
 
 @media (max-width: 1000px) {
-  .current-project {
-    grid-column: span 6;
-    min-height: 420px;
-  }
-
-  .current-project:nth-child(4),
-  .current-project:nth-child(5) {
-    grid-column: span 6;
-  }
-}
-
-/* MOBILE */
-
-@media (max-width: 750px) {
   .current-projects {
-    padding: 55px 0 80px;
+    padding: 75px 0 90px;
   }
 
   .current-projects-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 20px;
   }
 
-  .current-project,
-  .current-project:nth-child(4),
-  .current-project:nth-child(5) {
-    grid-column: 1 / -1;
-    min-height: 360px;
+  .current-project {
+    min-height: 250px;
+  }
+
+  .current-project:last-child:nth-child(odd) {
+    grid-column: 4 / span 6;
   }
 
   .current-project-content {
@@ -631,6 +648,62 @@ color: #706b67;
     bottom: 22px;
   }
 }
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 750px) {
+  .current-projects {
+    padding: 55px 0 75px;
+  }
+
+  .current-projects > .container {
+    width: 92%;
+  }
+
+  .about-intro {
+    margin-bottom: 38px;
+  }
+
+  .about-intro .kicker {
+    margin-bottom: 14px;
+    font-size: 10px;
+  }
+
+  .about-intro h1 {
+    margin-bottom: 18px;
+    font-size: 36px;
+  }
+
+  .about-intro p {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .current-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .current-project,
+  .current-project:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    min-height: 230px;
+    aspect-ratio: 4 / 3;
+  }
+
+  .current-project-content {
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+  }
+
+  .current-project-content h2 {
+    font-size: 24px;
+  }
+}
+
     /* FENÊTRE DE DÉTAIL */
 
     .project-modal {
