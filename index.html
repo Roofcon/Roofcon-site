@@ -5073,39 +5073,6 @@ function updateLanguageNavLinks(){
 
 }
 
-  
-function showWhoSection() {
-  // Réafficher la page d'accueil
-  const sections = document.querySelectorAll('section');
-
-  sections.forEach(function(section) {
-    section.classList.remove('active-page');
-    section.classList.remove('home-visible');
-  });
-
-  const home = document.getElementById('accueil');
-
-  if (home) {
-    home.classList.add('active-page');
-    home.classList.add('home-visible');
-  }
-
-  // Faire défiler jusqu'au texte Qui sommes-nous
-  const whoTitle = document.getElementById('who-title');
-
-  if (whoTitle) {
-    setTimeout(function() {
-      whoTitle.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }, 100);
-  }
-
-  // Garder l'URL de l'accueil
-  history.pushState({ page: 'accueil' }, '', '/');
-}
-
 function showPage(id){
 
   updateSEO(id);
@@ -6298,33 +6265,7 @@ if (germanPaths.includes(currentPath)) {
 
   initChantierMap();
     
-  const pageFromUrl = {
-    about: 'about',
-    references: 'references',
-    'current-projects': 'current-projects',
-    jobs: 'jobs',
-    contact: 'contact'
-  };
-
- const initialPage =
-  pageFromUrl[requestedPage] || 'accueil';
-
-const requestedCategory =
-  new URLSearchParams(window.location.search).get('realisation');
-
-console.log('PAGE INITIALE :', initialPage);
-
-if (
-  requestedCategory === 'facades' ||
-  requestedCategory === 'toitures' ||
-  requestedCategory === 'charpentes' ||
-  requestedCategory === 'couvertures' ||
-  requestedCategory === 'maisons'
-) {
-  openReferenceCategory(requestedCategory, 'references');
-} else {
-  showPage(initialPage);
-}
+showPage('accueil');
 
 initReveal();
 
