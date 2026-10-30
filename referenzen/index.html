@@ -2048,8 +2048,10 @@ function renderFooter() {
 
       document.getElementById("refs-kicker").textContent = "Unsere Projekte";
 
-      document.getElementById("refs-title").textContent =
-        "Unsere Projekte in den Bereichen Holzbau, Dachbau, Dachstuhl, Dachdeckung und Fassadenbau";
+     document.getElementById("refs-title").textContent =
+  CONTENT?.references?.title?.[LANG] ||
+  CONTENT?.references?.title?.fr ||
+  "";
 
       document.getElementById("refs-intro").textContent =
         "Entdecken Sie eine Auswahl der von ROOFCON in Luxemburg und der Großregion realisierten Projekte. Unsere Arbeiten umfassen verschiedene Bereiche des Bauwesens und der Gebäudehülle, darunter hinterlüftete Fassaden, Flachdächer, Holzkonstruktionen, Dachdeckungen sowie Häuser und Anbauten in Holzrahmenbauweise. Jedes Projekt steht für unsere technische Kompetenz, präzise Ausführung und unseren Anspruch an hochwertige Details.";
