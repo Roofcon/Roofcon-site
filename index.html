@@ -6677,1555 +6677,873 @@ let currentReferenceIndex = 0;
 
 }
   
-/* AFFICHAGE PRINCIPAL */
+
+/* =========================================
+   AFFICHAGE PRINCIPAL — ACCUEIL
+========================================= */
 
 function render(){
 
-  const c=CONTENT;
+  const c = CONTENT;
 
- /* BOUTON RETOUR */
-
-const categoryBackText =
-  document.getElementById('category-detail-back-text');
-
-if(categoryBackText){
-
-  if(referenceCategoryOrigin === 'about'){
-
-    categoryBackText.textContent =
-      LANG === 'fr'
-        ? 'Retour aux services'
-        : 'Zurück zu den Dienstleistungen';
-
-  }else{
-
-    categoryBackText.textContent =
-      LANG === 'fr'
-        ? 'Retour aux réalisations'
-        : 'Zurück zu den Projekten';
-
+  if(!c || !c.site){
+    return;
   }
 
-}
+  /* =========================================
+     TITRE DU DOCUMENT
+  ========================================= */
 
-  /* ACTUALISER LE PROJET OUVERT LORS DU CHANGEMENT DE LANGUE */
-
-if(
-  currentDetailType === 'reference' &&
-  currentReferenceProjectId
-){
-
-  openReference(currentReferenceProjectId);
-
-}
-  
-  document.title=c.site.title;
-
-  /* TOP */
-
-/* TÉLÉPHONE CLIQUABLE */
-
-const topPhone =
-  document.getElementById('top-phone');
-
-topPhone.innerHTML =
-  '<a href="tel:+352621765489">' +
-  c.site.phone +
-  '</a>';
+  if(c.site.title){
+    document.title = t(c.site.title);
+  }
 
 
-/* E-MAIL CLIQUABLE */
+  /* =========================================
+     BARRE SUPÉRIEURE
+  ========================================= */
 
-const topEmail =
-  document.getElementById('top-email');
+  const topPhone =
+    document.getElementById('top-phone');
 
-topEmail.innerHTML =
-  '<a href="mailto:' +
-  c.site.email +
-  '">' +
-  c.site.email +
-  '</a>';
-
-/* NAVIGATION */
-
-const navHome =
-  document.getElementById('nav-home');
-
-if(navHome){
-  navHome.textContent =
-    t(c.nav.home);
-}
-
-
-const navAbout =
-  document.getElementById('nav-about');
-
-if (navAbout) {
-  navAbout.textContent =
-    LANG === 'fr'
-      ? 'Nos services'
-      : 'Leistungen';
-
-  navAbout.href =
-    LANG === 'fr'
-      ? '/services/'
-      : '/leistungen/';
-}
-
-const navCurrentProjects =
-  document.getElementById('nav-current-projects');
-
-if (navCurrentProjects) {
-  navCurrentProjects.textContent =
-    LANG === 'fr'
-      ? 'Projets en cours'
-      : 'Aktuelle Projekte';
-
-  navCurrentProjects.href =
-    LANG === 'fr'
-      ? '/projets-en-cours/'
-      : '/aktuelle-projekte/';
-}
-
-const navReferences =
-  document.getElementById('nav-references');
-
-if(navReferences){
-  navReferences.textContent =
-    t(c.nav.references);
-}
-
-
-const navJobs =
-  document.getElementById('nav-jobs');
-
-if(navJobs){
-  navJobs.textContent =
-    t(c.nav.jobs);
-
-  navJobs.href =
-    LANG === 'fr'
-      ? '/emploi/'
-      : '/karriere/';
-}
-
-
-const navContact =
-  document.getElementById('nav-contact');
-
-if(navContact){
-  navContact.textContent =
-    t(c.nav.contact);
-
-  navContact.href =
-    LANG === 'fr'
-      ? '/contact/'
-      : '/kontakt/';
-}
-/* BOUTON RETOUR RÉFÉRENCE */
-
-const detailBackText =
-  document.getElementById('detail-back-text');
-
-if(detailBackText){
-
-  detailBackText.textContent =
-    LANG === 'fr'
-      ? 'Retour aux projets'
-      : 'Zurück zu den Projekten';
-
-}
-  
-  /* HERO */
-
-  document.getElementById('hero-kicker').textContent=
-    t(c.hero.kicker);
-
-  document.getElementById('hero-title').innerHTML=
-    t(c.hero.title);
-
-const heroText = t(c.hero.text);
-
-document.getElementById('hero-text').innerHTML =
-  `<span class="hero-text-line1">${esc(heroText.split(',')[0] + ',')}</span>` +
-  `<span class="hero-text-line2">${esc(heroText.split(',').slice(1).join(',').trim())}</span>`;
-  
-  document.getElementById('hero-about').textContent=
-    t(c.hero.aboutButton);
-
-/* IMAGE HERO */
-
-const hero=document.getElementById('accueil');
-
-if(c.hero.image){
-
-  hero.classList.add('has-image');
-
-  hero.style.backgroundImage=
-    `
-    linear-gradient(
-      90deg,
-      rgba(20,18,18,.93) 0%,
-      rgba(20,18,18,.76) 47%,
-      rgba(20,18,18,.25) 100%
-    ),
-    url("${c.hero.image}")
+  if(topPhone){
+    topPhone.innerHTML = `
+      <a href="tel:+352621765489">
+        ${esc(c.site.phone || '')}
+      </a>
     `;
+  }
 
-}else{
+  const topEmail =
+    document.getElementById('top-email');
 
-  hero.classList.remove('has-image');
-
-  hero.style.backgroundImage='';
-
-}
-  
-/* QUI SOMMES-NOUS */
-
-document.getElementById('who-kicker').textContent=
-  t(c.who.kicker);
-
-document.getElementById('who-title').textContent=
-  t(c.who.title);
-
-document.getElementById('who-intro').textContent=
-  t(c.who.intro);
-
-document.getElementById('who-text-1').textContent=
-  t(c.who.text1);
-
-document.getElementById('who-text-2').textContent=
-  t(c.who.text2);
-
-document.getElementById('who-text-3').textContent=
-  t(c.who.text3);
-
-document.getElementById('who-text-4').textContent=
-  t(c.who.text4);
-
-document.getElementById('who-objective').textContent=
-  t(c.who.objective);
-
-document.getElementById('who-hallcon').textContent=
-  t(c.who.hallcon);
-  
-/* NOS SERVICES */
-
-document.getElementById('about-kicker').textContent =
-  t(c.about.kicker);
-
-document.getElementById('about-title').textContent =
-  t(c.about.title);
-
-document.getElementById('about-intro').textContent =
-  t(c.about.intro);
-
-document.getElementById('poles-grid').innerHTML =
-  c.about.poles.map(function(pole){
-
-    return `
-
-      <article class="pole">
-
-        ${
-          pole.image
-            ? `
-              <img
-                class="pole-image"
-                src="${esc(pole.image)}"
-                alt="${esc(t(pole.title))}"
-                loading="lazy"
-              >
-            `
-            : ''
-        }
-
-        <div class="pole-number">
-          ${esc(pole.number)}
-        </div>
-
-        <h3>
-          ${esc(t(pole.title))}
-        </h3>
-
-        <p>
-          ${esc(t(pole.text))}
-        </p>
-
-
-<div class="pole-actions">
-
- 
-${
-    pole.id === 'facades'
-      ? `
-        <a
-          class="pole-more"
-href="${LANG === 'fr' ? '/facades-ventilees/' : '/de/hinterlueftete-fassaden/'}"
-          onclick="event.stopPropagation();">
-          ${LANG === 'fr'
-            ? 'En savoir plus sur les façades ventilées'
-            : 'Mehr über hinterlüftete Fassaden'}
-        </a>
-      `
-      : pole.id === 'toitures'
-      ? `
-        <a
-          class="pole-more"
-href="${LANG === 'fr' ? '/toitures-plates/' : '/de/flachdaecher/'}"
-          onclick="event.stopPropagation();">
-          ${LANG === 'fr'
-            ? 'En savoir plus sur les toitures plates'
-            : 'Mehr über Flachdächer'}
-        </a>
-      `
-      : pole.id === 'charpentes'
-      ? `
-        <a
-          class="pole-more"
-          href="${LANG === 'fr' ? '/charpentes/' : '/de/dachstuhlbau/'}"
-          onclick="event.stopPropagation();">
-          ${LANG === 'fr'
-            ? 'En savoir plus sur les charpentes'
-            : 'Mehr über den Dachstuhlbau'}
-        </a>
-      `
-      : pole.id === 'couvertures'
-      ? `
-        <a
-          class="pole-more"
-          href="${LANG === 'fr' ? '/couvertures/' : '/de/dachdeckungen/'}"
-          onclick="event.stopPropagation();">
-          ${LANG === 'fr'
-            ? 'En savoir plus sur les couvertures'
-            : 'Mehr über Dachdeckungen'}
-        </a>
-      `
-      : pole.id === 'maisons'
-      ? `
-        <a
-          class="pole-more"
-          href="${LANG === 'fr' ? '/maisons-annexes-ossature-bois/' : '/de/holzhaeuser-anbauten/'}"
-          onclick="event.stopPropagation();">
-          ${LANG === 'fr'
-            ? 'En savoir plus sur les maisons en ossature bois'
-            : 'Mehr über Holzhäuser in Holzrahmenbauweise'}
-        </a>
-      `
-      : ''
-}
-  <button
-    type="button"
-    class="pole-discover"
-    onclick="openReferenceCategory('${esc(pole.id)}', 'about'); event.stopPropagation();">
-
-    ${LANG === 'fr' ? 'Découvrir' : 'Entdecken'}
-
-  </button>
-
-</div>
-      </article>
-
+  if(topEmail){
+    topEmail.innerHTML = `
+      <a href="mailto:${esc(c.site.email || '')}">
+        ${esc(c.site.email || '')}
+      </a>
     `;
+  }
 
-  }).join('');
 
-  /* =========================================================
-   ACCUEIL — APERÇU DES SERVICES
-========================================================= */
+  /* =========================================
+     NAVIGATION
+  ========================================= */
 
-const homeServicesKicker =
-  document.getElementById('home-services-kicker');
+  const navHome =
+    document.getElementById('nav-home');
 
-const homeServicesTitle =
-  document.getElementById('home-services-title');
+  if(navHome){
+    navHome.textContent =
+      t(c.nav.home);
 
-const homeServicesLink =
-  document.getElementById('home-services-link');
+    navHome.href = LANG === 'fr'
+      ? '/'
+      : '/?lang=de';
+  }
 
-const homeServicesGrid =
-  document.getElementById('home-services-grid');
+  const navAbout =
+    document.getElementById('nav-about');
 
-if(homeServicesKicker){
+  if(navAbout){
+    navAbout.textContent =
+      LANG === 'fr'
+        ? 'Nos services'
+        : 'Leistungen';
 
-  homeServicesKicker.textContent =
-    LANG === 'fr'
-      ? 'NOS SERVICES'
-      : 'UNSERE LEISTUNGEN';
+    navAbout.href =
+      LANG === 'fr'
+        ? '/services/'
+        : '/leistungen/';
+  }
 
-}
+  const navCurrentProjects =
+    document.getElementById('nav-current-projects');
 
-if(homeServicesTitle){
+  if(navCurrentProjects){
+    navCurrentProjects.textContent =
+      LANG === 'fr'
+        ? 'Projets en cours'
+        : 'Aktuelle Projekte';
 
-  homeServicesTitle.textContent =
-    LANG === 'fr'
-      ? 'Des solutions adaptées à chaque projet.'
-      : 'Lösungen für jedes Projekt.';
+    navCurrentProjects.href =
+      LANG === 'fr'
+        ? '/projets-en-cours/'
+        : '/aktuelle-projekte/';
+  }
 
-}
+  const navReferences =
+    document.getElementById('nav-references');
 
-if(homeServicesLink){
+  if(navReferences){
+    navReferences.textContent =
+      t(c.nav.references);
 
-  homeServicesLink.textContent =
-    LANG === 'fr'
-      ? 'Voir tous les services'
-      : 'Alle Leistungen ansehen';
+    navReferences.href =
+      LANG === 'fr'
+        ? '/realisations/'
+        : '/referenzen/';
+  }
 
-  homeServicesLink.href =
-    LANG === 'fr'
-      ? '/services/'
-      : '/leistungen/';
+  const navJobs =
+    document.getElementById('nav-jobs');
 
-  homeServicesLink.removeAttribute('data-page');
+  if(navJobs){
+    navJobs.textContent =
+      t(c.nav.jobs);
 
-}
+    navJobs.href =
+      LANG === 'fr'
+        ? '/emploi/'
+        : '/karriere/';
+  }
 
-if (homeServicesGrid) {
-  homeServicesGrid.innerHTML =
-    (c.about.poles || []).map(function (pole) {
-      return `
-        <article class="home-service-card">
-          ${
-            pole.image
-              ? `
-                <img
-                  class="home-service-image"
-                  src="${esc(pole.image)}"
-                  alt="${esc(t(pole.title))}"
-                  loading="lazy"
-                >
-              `
-              : ''
-          }
+  const navContact =
+    document.getElementById('nav-contact');
 
-          <div class="home-service-number">
-            ${esc(pole.number)}
-          </div>
+  if(navContact){
+    navContact.textContent =
+      t(c.nav.contact);
 
-          <h3>${esc(t(pole.title))}</h3>
+    navContact.href =
+      LANG === 'fr'
+        ? '/contact/'
+        : '/kontakt/';
+  }
 
-          <p>${esc(t(pole.text))}</p>
-        </article>
+
+  /* =========================================
+     BOUTONS DE LANGUE
+  ========================================= */
+
+  const langFr =
+    document.getElementById('lang-fr');
+
+  const langDe =
+    document.getElementById('lang-de');
+
+  if(langFr){
+    langFr.classList.toggle(
+      'active',
+      LANG === 'fr'
+    );
+  }
+
+  if(langDe){
+    langDe.classList.toggle(
+      'active',
+      LANG === 'de'
+    );
+  }
+
+
+  /* =========================================
+     HERO
+  ========================================= */
+
+  const heroKicker =
+    document.getElementById('hero-kicker');
+
+  if(heroKicker){
+    heroKicker.textContent =
+      t(c.hero.kicker);
+  }
+
+  const heroTitle =
+    document.getElementById('hero-title');
+
+  if(heroTitle){
+    heroTitle.innerHTML =
+      t(c.hero.title);
+  }
+
+  const heroTextElement =
+    document.getElementById('hero-text');
+
+  if(heroTextElement){
+
+    const heroText =
+      t(c.hero.text) || '';
+
+    const heroParts =
+      heroText.split(',');
+
+    heroTextElement.innerHTML =
+      `<span class="hero-text-line1">${esc(heroParts[0] || '')}${heroParts.length > 1 ? ',' : ''}</span>` +
+      `<span class="hero-text-line2">${esc(heroParts.slice(1).join(',').trim())}</span>`;
+  }
+
+  const heroAbout =
+    document.getElementById('hero-about');
+
+  if(heroAbout){
+
+    heroAbout.textContent =
+      t(c.hero.aboutButton);
+
+    heroAbout.href =
+      LANG === 'de'
+        ? '/wer-wir-sind/'
+        : '/qui-sommes-nous/';
+
+    heroAbout.removeAttribute('data-page');
+  }
+
+
+  /* =========================================
+     IMAGE HERO
+  ========================================= */
+
+  const hero =
+    document.getElementById('accueil');
+
+  if(hero){
+
+    if(c.hero.image){
+
+      hero.classList.add('has-image');
+
+      hero.style.backgroundImage = `
+        linear-gradient(
+          90deg,
+          rgba(20,18,18,.93) 0%,
+          rgba(20,18,18,.76) 47%,
+          rgba(20,18,18,.25) 100%
+        ),
+        url("${c.hero.image}")
       `;
-    }).join('');
-}
 
-/* =========================================================
-   ACCUEIL — APERÇU DES RÉALISATIONS
-========================================================= */
+    }else{
 
-const homeReferencesKicker =
-  document.getElementById('home-references-kicker');
+      hero.classList.remove('has-image');
 
-const homeReferencesTitle =
-  document.getElementById('home-references-title');
+      hero.style.backgroundImage = '';
 
-const homeReferencesLink =
-  document.getElementById('home-references-link');
-
-const homeReferencesGrid =
-  document.getElementById('home-references-grid');
-
-
-if(homeReferencesKicker){
-
-  homeReferencesKicker.textContent =
-    LANG === 'fr'
-      ? 'NOS RÉALISATIONS'
-      : 'UNSERE PROJEKTE';
-
-}
-
-
-if(homeReferencesTitle){
-
-  homeReferencesTitle.textContent =
-    LANG === 'fr'
-      ? 'Des réalisations qui parlent de notre savoir-faire.'
-      : 'Projekte, die unser Know-how zeigen.';
-
-}
-
-
-if (homeReferencesLink) {
-  homeReferencesLink.textContent =
-    LANG === 'fr'
-      ? 'Voir nos réalisations'
-      : 'Unsere Referenzen ansehen';
-
-  homeReferencesLink.href =
-    LANG === 'fr'
-      ? '/realisations/'
-      : '/referenzen/';
-
-  homeReferencesLink.removeAttribute('data-page');
-}
-
-
-
-if(homeReferencesGrid){
-
-  homeReferencesGrid.innerHTML =
-    (c.references.items || [])
-      .slice(0,5)
-      .map(function(category){
-
-        const categoryImage = category.image || '';
-
-const imageStyle = categoryImage
-  ? `background-image: url('${esc(categoryImage)}');`
-  : '';
-
-        return `
-          <article
-            class="home-reference-card"
-            style="${imageStyle}"
-          >
-
-            <div class="home-reference-number">
-              ${esc(
-                category.number ||
-                String(
-                  (c.references.items || []).indexOf(category) + 1
-                ).padStart(2,'0')
-              )}
-            </div>
-
-            <div class="home-reference-card-content">
-
-              <h3>
-                ${esc(t(category.title))}
-              </h3>
-
-              ${
-                category.description
-                  ?
-                  `
-                    <p>
-                      ${esc(t(category.description))}
-                    </p>
-                  `
-                  :
-                  ''
-              }
-
-            </div>
-
-          </article>
-        `;
-
-      })
-      .join('');
-
-}
-
-  
-/* =========================================================
-   ACCUEIL — APERÇU DES PROJETS EN COURS
-========================================================= */
-
-const homeCurrentPreview =
-  document.getElementById('home-current-preview');
-
-const homeCurrentKicker =
-  document.getElementById('home-current-kicker');
-
-const homeCurrentTitle =
-  document.getElementById('home-current-title');
-
-const homeCurrentLink =
-  document.getElementById('home-current-link');
-  
-
-if (homeCurrentLink) {
-  homeCurrentLink.textContent =
-    LANG === 'fr'
-      ? 'Voir tous les projets en cours'
-      : 'Alle aktuellen Projekte ansehen';
-
-  homeCurrentLink.href =
-    LANG === 'fr'
-      ? '/projets-en-cours/'
-      : '/aktuelle-projekte/';
-
-  homeCurrentLink.removeAttribute('data-page');
-}
-
-
-const homeCurrentGrid =
-  document.getElementById('home-current-grid');
-
-const homeCurrentItems =
-  c.currentProjects &&
-  Array.isArray(c.currentProjects.items)
-    ? c.currentProjects.items
-    : [];
-
-if(homeCurrentKicker){
-
-  homeCurrentKicker.textContent =
-    LANG === 'fr'
-      ? 'PROJETS EN COURS'
-      : 'AKTUELLE PROJEKTE';
-
-}
-
-if(homeCurrentTitle){
-
-  homeCurrentTitle.textContent =
-    LANG === 'fr'
-      ? 'Ce que nos équipes réalisent actuellement.'
-      : 'Was unsere Teams derzeit realisieren.';
-
-}
-
-if(homeCurrentPreview){
-
-  if(homeCurrentItems.length === 0){
-
-    homeCurrentPreview.style.display = 'none';
-
-  }else{
-
-    homeCurrentPreview.style.display = '';
-
+    }
   }
 
-}
 
-if(homeCurrentGrid){
+  /* =========================================
+     ACCUEIL — APERÇU DES SERVICES
+  ========================================= */
 
-  homeCurrentGrid.innerHTML =
-    homeCurrentItems
-      .slice(0,2)
-      .map(function(project){
+  const homeServicesKicker =
+    document.getElementById('home-services-kicker');
 
-        const image =
-          Array.isArray(project.images) &&
-          project.images.length
-            ? project.images[0]
-            : '';
+  const homeServicesTitle =
+    document.getElementById('home-services-title');
+
+  const homeServicesLink =
+    document.getElementById('home-services-link');
+
+  const homeServicesGrid =
+    document.getElementById('home-services-grid');
+
+  if(homeServicesKicker){
+    homeServicesKicker.textContent =
+      LANG === 'fr'
+        ? 'NOS SERVICES'
+        : 'UNSERE LEISTUNGEN';
+  }
+
+  if(homeServicesTitle){
+    homeServicesTitle.textContent =
+      LANG === 'fr'
+        ? 'Des solutions adaptées à chaque projet.'
+        : 'Lösungen für jedes Projekt.';
+  }
+
+  if(homeServicesLink){
+
+    homeServicesLink.textContent =
+      LANG === 'fr'
+        ? 'Voir tous les services'
+        : 'Alle Leistungen ansehen';
+
+    homeServicesLink.href =
+      LANG === 'fr'
+        ? '/services/'
+        : '/leistungen/';
+
+    homeServicesLink.removeAttribute('data-page');
+  }
+
+  if(homeServicesGrid){
+
+    homeServicesGrid.innerHTML =
+      (c.about.poles || []).map(function(pole){
 
         return `
-          <article
-            class="home-current-card"
-          >
+          <article class="home-service-card">
 
             ${
-              image
-                ?
-                `
+              pole.image
+                ? `
                   <img
-                    class="home-current-card-image"
-                    src="${esc(image)}"
-                    alt="${esc(t(project.title))}"
+                    class="home-service-image"
+                    src="${esc(pole.image)}"
+                    alt="${esc(t(pole.title))}"
                     loading="lazy"
                   >
                 `
-                :
-                ''
+                : ''
             }
 
-            <div class="home-current-card-overlay"></div>
-
-            <div class="home-current-card-content">
-
-              <h3>
-                ${esc(t(project.title))}
-              </h3>
+            <div class="home-service-number">
+              ${esc(pole.number || '')}
             </div>
+
+            <h3>
+              ${esc(t(pole.title))}
+            </h3>
+
+            <p>
+              ${esc(t(pole.text))}
+            </p>
 
           </article>
         `;
 
-      })
-      .join('');
-
-}
-
-/* =========================================================
-   ACCUEIL — CONTACT
-========================================================= */
-
-const homeContactKicker =
-  document.getElementById('home-contact-kicker');
-
-const homeContactTitle =
-  document.getElementById('home-contact-title');
-
-const homeContactLink =
-  document.getElementById('home-contact-link');
-
-if(homeContactKicker){
-
-  homeContactKicker.textContent =
-    LANG === 'fr'
-      ? 'UN PROJET ?'
-      : 'EIN PROJEKT?';
-
-}
-
-if(homeContactTitle){
-
-  homeContactTitle.textContent =
-    LANG === 'fr'
-      ? 'Parlons de votre projet.'
-      : 'Sprechen wir über Ihr Projekt.';
-
-}
-
-
-if (homeContactLink) {
-  homeContactLink.textContent =
-    LANG === 'fr'
-      ? 'Nous contacter'
-      : 'Kontaktieren Sie uns';
-
-  homeContactLink.href =
-    LANG === 'fr'
-      ? '/contact/'
-      : '/kontakt/';
-
-  homeContactLink.removeAttribute('data-page');
-}
-
-  
- /* PROJETS EN COURS */
-
-const currentProjects =
-  c.currentProjects || {};
-
-document.getElementById(
-  'current-projects-kicker'
-).textContent =
-  t(
-    currentProjects.kicker || {
-      fr:'PROJETS EN COURS',
-      de:'AKTUELLE PROJEKTE'
-    }
-  );
-
-document.getElementById(
-  'current-projects-title'
-).textContent =
-  t(
-    currentProjects.title || {
-      fr:'Projet en cours',
-      de:'Aktuelle Projekte'
-    }
-  );
-
-document.getElementById(
-  'current-projects-intro'
-).textContent =
-  t(
-    currentProjects.intro || {
-      fr:'',
-      de:''
-    }
-  );
-
-const currentProjectsGrid =
-  document.getElementById(
-    'current-projects-grid'
-  );
-
-const currentItems =
-  currentProjects.items || [];
-
-const currentProjectsSection =
-  document.getElementById(
-    'current-projects'
-  );
-
-if(currentItems.length === 0){
-
-  currentProjectsSection.style.display =
-    'none';
-
-  currentProjectsGrid.innerHTML='';
-
-}else{
-
- 
-currentProjectsGrid.innerHTML =
-  currentItems.map(function(project){
-
-    const image =
-      Array.isArray(project.images) &&
-      project.images.length
-        ? project.images[0]
-        : '';
-
-    return `
-      <article
-        class="current-project"
-        data-current-project-id="${esc(project.id)}"
-        onclick="openCurrentProject('${esc(project.id)}')"
-        style="cursor:pointer;"
-      >
-        ${
-          image
-            ? `
-              <img
-                src="${esc(image)}"
-                alt="${esc(t(project.title))}"
-              >
-            `
-            : ''
-        }
-
-        <div class="current-project-overlay"></div>
-
-        <div class="current-project-content">
-          <h3>${esc(t(project.title))}</h3>
-        </div>
-      </article>
-    `;
-  }).join('');
-}
-  
-/* RÉFÉRENCES */
-
-document.getElementById('refs-kicker').textContent=
-  t(c.references.kicker);
-
-document.getElementById('refs-title').textContent=
-  t(c.references.title);
-
-document.getElementById('refs-intro').textContent=
-  t(c.references.intro);
-
-
-const refsGrid =
-  document.getElementById('refs-grid');
-
-const categoriesContainer =
-  document.getElementById('reference-categories');
-
-
-function renderReferenceCategories(){
-
-  categoriesContainer.innerHTML =
-    c.references.items.map(function(category){
-
-      let icon = '';
-
-      if(category.id === 'facades'){
-        icon = `
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M10 54V15L32 7L54 15V54"/>
-            <path d="M17 54V20L32 15L47 20V54"/>
-            <path d="M17 28H47"/>
-            <path d="M17 36H47"/>
-            <path d="M17 44H47"/>
-            <path d="M22 20V54"/>
-            <path d="M42 20V54"/>
-            <path d="M51 22L57 22"/>
-            <path d="M51 28L57 28"/>
-            <path d="M51 34L57 34"/>
-            <path d="M51 40L57 40"/>
-          </svg>`;
-      } else if(category.id === 'toitures'){
-        icon = `
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M8 24H56"/>
-            <path d="M8 30H56"/>
-            <path d="M8 36H56"/>
-            <path d="M8 42H56"/>
-            <path d="M8 48H56"/>
-            <path d="M14 24V48"/>
-            <path d="M50 24V48"/>
-            <path d="M18 18H46"/>
-            <path d="M18 18L22 14H42L46 18"/>
-            <path d="M26 14V9"/>
-            <path d="M38 14V9"/>
-            <path d="M23 54H41"/>
-          </svg>`;
-      } else if(category.id === 'charpentes'){
-        icon = `
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M7 50L32 10L57 50"/>
-            <path d="M15 50L32 23L49 50"/>
-            <path d="M21 41H43"/>
-            <path d="M25 35L39 35"/>
-            <path d="M32 10V54"/>
-            <path d="M12 50H52"/>
-            <path d="M17 50L25 37"/>
-            <path d="M47 50L39 37"/>
-          </svg>`;
-      } else if(category.id === 'couvertures'){
-        icon = `
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M10 39L22 27L34 39L22 51Z"/>
-            <path d="M30 39L42 27L54 39L42 51Z"/>
-            <path d="M10 39L10 47L22 59L34 47L34 39"/>
-            <path d="M30 39L30 47L42 59L54 47L54 39"/>
-            <path d="M39 12L53 26"/>
-            <path d="M35 16L49 30"/>
-            <path d="M35 16L42 9L49 16L42 23Z"/>
-            <path d="M47 30L56 39"/>
-          </svg>`;
-      } else if(category.id === 'maisons'){
-        icon = `
-          <svg viewBox="0 0 64 64" aria-hidden="true">
-            <path d="M8 30L32 10L56 30"/>
-            <path d="M14 27V54H50V27"/>
-            <path d="M25 54V38H39V54"/>
-            <path d="M19 33H27V40H19Z"/>
-            <path d="M37 33H45V40H37Z"/>
-          </svg>`;
-      }
-
-      return `
-        <button
-          type="button"
-          class="reference-category"
-          data-category="${esc(category.id)}"
-          style="background-image: url('${esc(category.image || '')}')"
-        >
-          <div class="reference-category-content">
-            <div class="reference-category-icon">
-              ${icon}
-            </div>
-
-            <span class="reference-category-title">
-              ${esc(t(category.title))}
-            </span>
-          </div>
-        </button>
-      `;
-
-    }).join('');
-
-  document
-    .querySelectorAll('.reference-category')
-    .forEach(function(button){
-
-      button.addEventListener('click', function(){
-
-        document
-          .querySelectorAll('.reference-category')
-          .forEach(function(item){
-            item.classList.remove('active');
-          });
-
-        button.classList.add('active');
-
-        openReferenceCategory(
-          button.dataset.category,
-          'references'
-        );
-
-      });
-
-    });
-
-}
-
-renderReferenceCategories();
-
-
-  
-function renderReferences(filter){
-
-  let html='';
-
-c.references.items.forEach(function(category,i){
-
-    const categoryName=
-      (category.title?.fr || '').toLowerCase();
-
-    let categoryKey='';
-
-    if(categoryName.includes('charpente')){
-      categoryKey='charpentes';
-    }
-
-    else if(categoryName.includes('toiture')){
-      categoryKey='toitures';
-    }
-
-    else if(categoryName.includes('façade') ||
-            categoryName.includes('facade')){
-      categoryKey='facades';
-    }
-
-    else if(categoryName.includes('couverture')){
-      categoryKey='couvertures';
-    }
-
-    else if(categoryName.includes('maison') ||
-        categoryName.includes('häuser') ||
-        categoryName.includes('anbauten')){
-  categoryKey='maisons';
-}
-    
-    if(
-      filter!=='all' &&
-      filter!==categoryKey
-    ){
-      return;
-    }
-
-(category.projects || []).forEach(function(project,j){
-
-      html+=`
-
-        <article
-          class="ref reference-card"
-        data-reference-id="${esc(project.id)}"
-data-project-id="${esc(project.id)}">
-
-          ${
-            project.image
-              ?
-              `
-                <img
-                  class="ref-image"
-                  src="${esc(project.image)}"
-                  alt="${esc(t(project.title))}">
-              `
-              :
-              `
-                <div class="ref-placeholder">
-                  <span>ROOFCON</span>
-                </div>
-              `
-          }
-
-          <div class="ref-overlay"></div>
-
-          <div class="ref-content">
-
-            <p class="ref-category">
-              ${esc(t(category.title))}
-            </p>
-
-          <h3>
-  ${esc(t(project.title))}
-</h3>
-
-${
-  project.description?.fr ||
-  project.description?.de
-  ?
-  `
-    <p>
-      ${esc(t(project.description))}
-    </p>
-  `
-  :
-  ''
-}
-
-          </div>
-
-        </article>
-
-      `;
-
-    });
-
-  });
-
-  /* MESSAGE UNIQUEMENT APRÈS LE CLIC SUR UNE CATÉGORIE */
-
-  if(!html && filter && filter!=='all'){
-
-    html=`
-
-      <div class="refs-empty">
-
-        ${
-          LANG==='fr'
-            ? 'Nos réalisations seront bientôt disponibles.'
-            : 'Unsere Referenzen werden bald verfügbar sein.'
-        }
-
-      </div>
-
-    `;
-
+      }).join('');
   }
 
- refsGrid.innerHTML=html;
 
-c.references.items.forEach(function(category,i){
+  /* =========================================
+     ACCUEIL — APERÇU DES RÉALISATIONS
+  ========================================= */
 
-  (category.projects || []).forEach(function(project,j){
+  const homeReferencesKicker =
+    document.getElementById('home-references-kicker');
 
-    initProjectMap(i,j);
+  const homeReferencesTitle =
+    document.getElementById('home-references-title');
 
-  });
+  const homeReferencesLink =
+    document.getElementById('home-references-link');
 
-});
+  const homeReferencesGrid =
+    document.getElementById('home-references-grid');
 
-}
-
-/* OFFRES D'EMPLOI */
-
-document.getElementById('jobs-kicker').textContent=
-  t(c.jobs.kicker);
-
-document.getElementById('jobs-title').textContent=
-  t(c.jobs.title);
-
-document.getElementById('jobs-intro').textContent=
-  t(c.jobs.intro);
-
-
-const jobs=c.jobs.items || [];
-
-if(jobs.length===0){
-
-  document.getElementById('jobs-grid').innerHTML=`
-
-    <div class="empty">
-
-      ${
-        LANG==='fr'
-          ? 'Aucune offre d’emploi disponible actuellement.'
-          : 'Derzeit sind keine Stellenangebote verfügbar.'
-      }
-
-    </div>
-
-  `;
-
-}else{
-
-  document.getElementById('jobs-grid').innerHTML=
-    jobs.map(function(job){
-
-      let images=[];
-
-      if(Array.isArray(job.images)){
-        images=job.images;
-      }else if(job.image){
-        images=[job.image];
-      }
-
-      return `
-
-        <article class="job">
-
-          ${
-            images.length
-              ?
-              `
-            <div
-  class="job-gallery"
-  data-job-id="${esc(job.id)}"
-  data-index="0"
->
-
-  <img
-    class="job-gallery-image"
-    src="${esc(images[0])}"
-    alt="${esc(t(job.title))}"
-    onclick="openJobImage('${esc(images[0])}')"
-  >
-
-  ${
-    images.length > 1
-      ? `
-        <button
-          type="button"
-          class="job-gallery-arrow job-gallery-prev"
-          onclick="changeJobImage('${esc(job.id)}', -1); event.stopPropagation();">
-          ‹
-        </button>
-
-        <button
-          type="button"
-          class="job-gallery-arrow job-gallery-next"
-          onclick="changeJobImage('${esc(job.id)}', 1); event.stopPropagation();">
-          ›
-        </button>
-      `
-      : ''
+  if(homeReferencesKicker){
+    homeReferencesKicker.textContent =
+      LANG === 'fr'
+        ? 'NOS RÉALISATIONS'
+        : 'UNSERE PROJEKTE';
   }
 
-</div>
-              `
-              :
-              ''
-          }
+  if(homeReferencesTitle){
+    homeReferencesTitle.textContent =
+      LANG === 'fr'
+        ? 'Des réalisations qui parlent de notre savoir-faire.'
+        : 'Projekte, die unser Know-how zeigen.';
+  }
 
-          <div class="job-content">
+  if(homeReferencesLink){
 
-            <h3>
-              ${esc(t(job.title))}
-            </h3>
+    homeReferencesLink.textContent =
+      LANG === 'fr'
+        ? 'Voir nos réalisations'
+        : 'Unsere Referenzen ansehen';
 
-            <p>
-              ${esc(t(job.description))}
-            </p>
+    homeReferencesLink.href =
+      LANG === 'fr'
+        ? '/realisations/'
+        : '/referenzen/';
 
-            <a
-              class="btn primary job-button"
-              href="mailto:${esc(c.site.email)}?subject=${encodeURIComponent('Candidature ROOFCON - '+t(job.title))}">
+    homeReferencesLink.removeAttribute('data-page');
+  }
+
+  if(homeReferencesGrid){
+
+    homeReferencesGrid.innerHTML =
+      (c.references.items || [])
+        .slice(0,5)
+        .map(function(category){
+
+          const categoryImage =
+            category.image || '';
+
+          const imageStyle =
+            categoryImage
+              ? `background-image: url('${esc(categoryImage)}');`
+              : '';
+
+          return `
+            <article
+              class="home-reference-card"
+              style="${imageStyle}"
+            >
+
+              <div class="home-reference-number">
+                ${esc(
+                  category.number ||
+                  String(
+                    (c.references.items || []).indexOf(category) + 1
+                  ).padStart(2,'0')
+                )}
+              </div>
+
+              <div class="home-reference-card-content">
+
+                <h3>
+                  ${esc(t(category.title))}
+                </h3>
+
+                ${
+                  category.description
+                    ? `
+                      <p>
+                        ${esc(t(category.description))}
+                      </p>
+                    `
+                    : ''
+                }
+
+              </div>
+
+            </article>
+          `;
+
+        })
+        .join('');
+  }
+
+
+  /* =========================================
+     ACCUEIL — APERÇU DES PROJETS EN COURS
+  ========================================= */
+
+  const homeCurrentPreview =
+    document.getElementById('home-current-preview');
+
+  const homeCurrentKicker =
+    document.getElementById('home-current-kicker');
+
+  const homeCurrentTitle =
+    document.getElementById('home-current-title');
+
+  const homeCurrentLink =
+    document.getElementById('home-current-link');
+
+  const homeCurrentGrid =
+    document.getElementById('home-current-grid');
+
+  const homeCurrentItems =
+    c.currentProjects &&
+    Array.isArray(c.currentProjects.items)
+      ? c.currentProjects.items
+      : [];
+
+  if(homeCurrentKicker){
+    homeCurrentKicker.textContent =
+      LANG === 'fr'
+        ? 'PROJETS EN COURS'
+        : 'AKTUELLE PROJEKTE';
+  }
+
+  if(homeCurrentTitle){
+    homeCurrentTitle.textContent =
+      LANG === 'fr'
+        ? 'Ce que nos équipes réalisent actuellement.'
+        : 'Was unsere Teams derzeit realisieren.';
+  }
+
+  if(homeCurrentLink){
+
+    homeCurrentLink.textContent =
+      LANG === 'fr'
+        ? 'Voir tous les projets en cours'
+        : 'Alle aktuellen Projekte ansehen';
+
+    homeCurrentLink.href =
+      LANG === 'fr'
+        ? '/projets-en-cours/'
+        : '/aktuelle-projekte/';
+
+    homeCurrentLink.removeAttribute('data-page');
+  }
+
+  if(homeCurrentPreview){
+
+    homeCurrentPreview.style.display =
+      homeCurrentItems.length
+        ? ''
+        : 'none';
+  }
+
+  if(homeCurrentGrid){
+
+    homeCurrentGrid.innerHTML =
+      homeCurrentItems
+        .slice(0,2)
+        .map(function(project){
+
+          const image =
+            Array.isArray(project.images) &&
+            project.images.length
+              ? project.images[0]
+              : '';
+
+          return `
+            <article class="home-current-card">
 
               ${
-                LANG==='fr'
-                  ? 'Postuler'
-                  : 'Bewerben'
+                image
+                  ? `
+                    <img
+                      class="home-current-card-image"
+                      src="${esc(image)}"
+                      alt="${esc(t(project.title))}"
+                      loading="lazy"
+                    >
+                  `
+                  : ''
               }
 
-            </a>
+              <div class="home-current-card-overlay"></div>
+
+              <div class="home-current-card-content">
+                <h3>
+                  ${esc(t(project.title))}
+                </h3>
+              </div>
+
+            </article>
+          `;
 
-          </div>
+        })
+        .join('');
+  }
 
-        </article>
 
-      `;
+  /* =========================================
+     ACCUEIL — CONTACT
+  ========================================= */
 
-    }).join('');
+  const homeContactKicker =
+    document.getElementById('home-contact-kicker');
 
-}
-  /* CONTACT */
+  const homeContactTitle =
+    document.getElementById('home-contact-title');
 
-  document.getElementById('contact-kicker').textContent=
-    t(c.contact.kicker);
+  const homeContactLink =
+    document.getElementById('home-contact-link');
 
-  document.getElementById('contact-title').innerHTML=
-    t(c.contact.title);
+  if(homeContactKicker){
+    homeContactKicker.textContent =
+      LANG === 'fr'
+        ? 'UN PROJET ?'
+        : 'EIN PROJEKT?';
+  }
 
-  document.getElementById('contact-intro').textContent=
-    t(c.contact.intro);
+  if(homeContactTitle){
+    homeContactTitle.textContent =
+      LANG === 'fr'
+        ? 'Parlons de votre projet.'
+        : 'Sprechen wir über Ihr Projekt.';
+  }
 
-  document.getElementById('contact-card-title').textContent=
-    t(c.contact.cardTitle);
+  if(homeContactLink){
 
-  document.getElementById('contact-card-text').textContent=
-    t(c.contact.cardText);
+    homeContactLink.textContent =
+      LANG === 'fr'
+        ? 'Nous contacter'
+        : 'Kontaktieren Sie uns';
 
-document.getElementById('contact-phone').innerHTML =
-    '<strong>Joël Brück</strong><br>' +
-    c.site.phone;
+    homeContactLink.href =
+      LANG === 'fr'
+        ? '/contact/'
+        : '/kontakt/';
 
-document.getElementById('contact-phone').href =
-    'tel:' + c.site.phone.replace(/[^+0-9]/g,'');
+    homeContactLink.removeAttribute('data-page');
+  }
 
-document.getElementById('contact-email').textContent=
-  c.site.email;
 
-document.getElementById('contact-email').href=
-  'mailto:'+c.site.email;
+  /* =========================================
+     FOOTER
+  ========================================= */
 
-  document.getElementById('contact-address').textContent=
-    c.site.address;
+  const footerDescription =
+    document.getElementById('footer-description');
 
-  document.getElementById('contact-hours').textContent=
-    t(c.site.hours);
+  if(footerDescription){
+    footerDescription.textContent =
+      t(c.footer.description);
+  }
 
+  const footerCopyright =
+    document.getElementById('footer-copyright');
 
-  document.getElementById('label-phone').textContent=
-    LANG==='fr' ? 'Téléphone' : 'Telefon';
+  if(footerCopyright){
+    footerCopyright.textContent =
+      t(c.footer.copyright);
+  }
 
-  document.getElementById('label-email').textContent=
-    LANG==='fr' ? 'E-mail' : 'E-Mail';
+  const footerContactTitle =
+    document.getElementById('footer-contact-title');
 
-  document.getElementById('label-address').textContent=
-    LANG==='fr' ? 'Adresse' : 'Adresse';
+  if(footerContactTitle){
+    footerContactTitle.textContent =
+      LANG === 'fr'
+        ? 'Contact'
+        : 'Kontakt';
+  }
 
-  document.getElementById('label-hours').textContent=
-    LANG==='fr' ? 'Horaires' : 'Öffnungszeiten';
+  const footerAddressTitle =
+    document.getElementById('footer-address-title');
 
+  if(footerAddressTitle){
+    footerAddressTitle.textContent =
+      LANG === 'fr'
+        ? 'Bureau'
+        : 'Büro';
+  }
 
-  /* FORMULAIRE */
+  const footerSocialTitle =
+    document.getElementById('footer-social-title');
 
-  document.getElementById('form-name-label').textContent=
-    t(c.contact.form.name);
+  if(footerSocialTitle){
+    footerSocialTitle.textContent =
+      LANG === 'fr'
+        ? 'Réseaux sociaux'
+        : 'Soziale Netzwerke';
+  }
 
-  document.getElementById('form-email-label').textContent=
-    t(c.contact.form.email);
 
-  document.getElementById('form-phone-label').textContent=
-    t(c.contact.form.phone);
+  /* TÉLÉPHONE FOOTER */
 
-  document.getElementById('form-message-label').textContent=
-    t(c.contact.form.message);
+  const phoneElement =
+    document.getElementById('footer-phone');
 
-  document.getElementById('form-submit').textContent=
-    t(c.contact.form.submit);
+  if(phoneElement){
 
+    phoneElement.innerHTML = `
+      <strong>Joël Brück</strong><br>
+      <a href="tel:+352621765489">
+        ${esc(c.site.phone || '')}
+      </a>
+    `;
+  }
 
-  /* FOOTER */
 
-  document.getElementById('footer-description').textContent=
-    t(c.footer.description);
+  /* E-MAIL FOOTER */
 
-  document.getElementById('footer-copyright').textContent=
-    t(c.footer.copyright);
+  const emailElement =
+    document.getElementById('footer-email');
 
-  /* LIENS LÉGAUX */
+  if(emailElement){
 
-const footerLegal1 =
-  document.getElementById('footer-legal-1');
+    emailElement.innerHTML = `
+      <a href="mailto:${esc(c.site.email || '')}">
+        ${esc(c.site.email || '')}
+      </a>
+    `;
+  }
 
-const footerLegal2 =
-  document.getElementById('footer-legal-2');
 
-const footerLegal3 =
-  document.getElementById('footer-legal-3');
+  /* ADRESSE FOOTER */
 
+  const addressElement =
+    document.getElementById('footer-address');
 
-if(footerLegal1){
+  if(addressElement){
 
-  footerLegal1.textContent =
-    LANG === 'fr'
-      ? 'Mentions légales'
-      : 'Impressum';
+    addressElement.innerHTML = `
+      <a
+        href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.site.address || '')}"
+        target="_blank"
+        rel="noopener"
+      >
+        ${esc(c.site.address || '')}
+      </a>
+    `;
+  }
 
-}
 
+  /* HORAIRES FOOTER */
 
-if(footerLegal2){
+  const footerHours =
+    document.getElementById('footer-hours');
 
-  footerLegal2.textContent =
-    LANG === 'fr'
-      ? 'Politique de confidentialité'
-      : 'Datenschutzerklärung';
+  if(footerHours){
+    footerHours.textContent =
+      t(c.site.hours);
+  }
 
-}
 
+  /* =========================================
+     LIENS LÉGAUX
+  ========================================= */
 
-if(footerLegal3){
+  const footerLegal1 =
+    document.getElementById('footer-legal-1');
 
-  footerLegal3.textContent =
-    LANG === 'fr'
-      ? 'Politique des cookies'
-      : 'Cookie-Richtlinie';
+  const footerLegal2 =
+    document.getElementById('footer-legal-2');
 
-}
-  
- /* TÉLÉPHONE CLIQUABLE */
+  const footerLegal3 =
+    document.getElementById('footer-legal-3');
 
-const phoneElement =
-  document.getElementById('footer-phone');
+  if(footerLegal1){
+    footerLegal1.textContent =
+      LANG === 'fr'
+        ? 'Mentions légales'
+        : 'Impressum';
+  }
 
-phoneElement.innerHTML =
-  '<strong>Joël Brück</strong><br>' +
-  '<a href="tel:+352621765489">' +
-  c.site.phone +
-  '</a>';
+  if(footerLegal2){
+    footerLegal2.textContent =
+      LANG === 'fr'
+        ? 'Politique de confidentialité'
+        : 'Datenschutzerklärung';
+  }
 
-/* E-MAIL CLIQUABLE */
+  if(footerLegal3){
+    footerLegal3.textContent =
+      LANG === 'fr'
+        ? 'Politique des cookies'
+        : 'Cookie-Richtlinie';
+  }
 
-const emailElement =
-  document.getElementById('footer-email');
 
-emailElement.innerHTML =
-  '<a href="mailto:' +
-  c.site.email +
-  '">' +
-  c.site.email +
-  '</a>';
+  /* =========================================
+     RÉSEAUX SOCIAUX — BARRE DU HAUT
+  ========================================= */
 
-/* RÉSEAUX SOCIAUX BARRE DU HAUT */
+  const topFacebook =
+    document.getElementById('top-facebook');
 
-const topFacebook =
-  document.getElementById('top-facebook');
+  if(topFacebook){
 
-topFacebook.innerHTML = `
-  <a
-    href="${c.site.facebook || '#'}"
-    ${c.site.facebook ? 'target="_blank" rel="noopener"' : ''}
-    aria-label="Facebook"
-    title="Facebook">
+    topFacebook.href =
+      c.site.facebook || '#';
 
-    <svg
-      width="17"
-      height="17"
-      viewBox="0 0 24 24"
-      aria-hidden="true">
+    topFacebook.target =
+      '_blank';
 
-      <path
-        fill="currentColor"
-        d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"/>
+    topFacebook.rel =
+      'noopener';
 
-    </svg>
+    topFacebook.setAttribute(
+      'aria-label',
+      'Facebook'
+    );
+  }
 
-  </a>
-`;
+  const topInstagram =
+    document.getElementById('top-instagram');
 
-const topInstagram =
-  document.getElementById('top-instagram');
+  if(topInstagram){
 
-topInstagram.innerHTML = `
-  <a
-    href="${c.site.instagram || '#'}"
-    ${c.site.instagram ? 'target="_blank" rel="noopener"' : ''}
-    aria-label="Instagram"
-    title="Instagram">
+    topInstagram.href =
+      c.site.instagram || '#';
 
-    <svg
-      width="17"
-      height="17"
-      viewBox="0 0 24 24"
-      aria-hidden="true">
+    topInstagram.target =
+      '_blank';
 
-      <rect
-        x="3"
-        y="3"
+    topInstagram.rel =
+      'noopener';
+
+    topInstagram.setAttribute(
+      'aria-label',
+      'Instagram'
+    );
+  }
+
+
+  /* =========================================
+     RÉSEAUX SOCIAUX — FOOTER
+  ========================================= */
+
+  const facebook =
+    document.getElementById('footer-facebook');
+
+  if(facebook){
+
+    facebook.innerHTML = `
+      <svg
         width="18"
         height="18"
-        rx="5"
-        ry="5"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"/>
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          fill="currentColor"
+          d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"
+        />
+      </svg>
+      <span>Facebook</span>
+    `;
 
-      <circle
-        cx="12"
-        cy="12"
-        r="4"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"/>
+    facebook.href =
+      c.site.facebook || '#';
 
-      <circle
-        cx="17.5"
-        cy="6.5"
-        r="1"
-        fill="currentColor"/>
+    facebook.target =
+      '_blank';
 
-    </svg>
+    facebook.rel =
+      'noopener';
 
-  </a>
-`;
-  
-const addressElement =
-  document.getElementById('footer-address');
+    facebook.style.display =
+      'flex';
+  }
 
-addressElement.innerHTML =
-  '<a href="https://www.google.com/maps/search/?api=1&query=' +
-  encodeURIComponent(c.site.address) +
-  '" target="_blank" rel="noopener">' +
-  c.site.address +
-  '</a>';
+  const instagram =
+    document.getElementById('footer-instagram');
 
-  document.getElementById('footer-hours').textContent=
-    t(c.site.hours);
+  if(instagram){
 
+    instagram.innerHTML = `
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <rect
+          x="3"
+          y="3"
+          width="18"
+          height="18"
+          rx="5"
+          ry="5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          r="4"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        />
+        <circle
+          cx="17.5"
+          cy="6.5"
+          r="1"
+          fill="currentColor"
+        />
+      </svg>
+      <span>Instagram</span>
+    `;
 
-  document.getElementById('footer-contact-title').textContent=
-    LANG==='fr' ? 'Contact' : 'Kontakt';
+    instagram.href =
+      c.site.instagram || '#';
 
-  document.getElementById('footer-address-title').textContent=
-    LANG==='fr' ? 'Bureau' : 'Büro';
+    instagram.target =
+      '_blank';
 
-  document.getElementById('footer-social-title').textContent=
-    LANG==='fr' ? 'Réseaux sociaux' : 'Soziale Netzwerke';
+    instagram.rel =
+      'noopener';
 
-  document.getElementById('footer-facebook').textContent =
-  'Facebook';
-
-document.getElementById('footer-instagram').textContent =
-  'Instagram';
-  
-document.getElementById('footer-facebook').innerHTML = `
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    aria-hidden="true">
-    <path
-      fill="currentColor"
-      d="M14 8h3V4h-3c-3.3 0-5 1.7-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"/>
-  </svg>
-  <span>Facebook</span>
-`;
-
-document.getElementById('footer-instagram').innerHTML = `
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    aria-hidden="true">
-    <rect
-      x="3"
-      y="3"
-      width="18"
-      height="18"
-      rx="5"
-      ry="5"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"/>
-    <circle
-      cx="12"
-      cy="12"
-      r="4"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"/>
-    <circle
-      cx="17.5"
-      cy="6.5"
-      r="1"
-      fill="currentColor"/>
-  </svg>
-  <span>Instagram</span>
-`;
-
-/* FACEBOOK */
-
-const facebook =
-  document.getElementById('footer-facebook');
-
-facebook.style.display =
-  'flex';
-
-if(c.site.facebook){
-
-  facebook.href =
-    c.site.facebook;
-
-  facebook.target =
-    '_blank';
-
-  facebook.rel =
-    'noopener';
+    instagram.style.display =
+      'flex';
+  }
 
 }
 
-
-/* INSTAGRAM */
-
-const instagram =
-  document.getElementById('footer-instagram');
-
-instagram.style.display =
-  'flex';
-
-if(c.site.instagram){
-
-  instagram.href =
-    c.site.instagram;
-
-  instagram.target =
-    '_blank';
-
-  instagram.rel =
-    'noopener';
-
-}
-
-  /* BOUTONS LANGUE */
-
-  document.querySelectorAll('.lang button').forEach(function(button){
-
-    button.classList.toggle(
-      'active',
-      button.textContent.trim().toLowerCase()===LANG
-    );
-
-  });
-
-}
 
 /* CLICS — BOUTON QUI SOMMES-NOUS */
 document.addEventListener('DOMContentLoaded', function () {
