@@ -4364,47 +4364,6 @@ footer .container {
 
 </section>
 
-<!-- QUI-SOMMES-NOUS -->
-<section id="who" class="who">
-
-  <div class="container">
-
-    <div class="who-layout">
-
-      <div class="who-left">
-
-        <div class="head">
-          <div class="kicker" id="who-kicker"></div>
-          <h2 id="who-title"></h2>
-          <p id="who-intro"></p>
-        </div>
-
-        <div class="who-content">
-          <p id="who-text-1"></p>
-          <p id="who-text-2"></p>
-          <p id="who-text-3"></p>
-          <p id="who-text-4"></p>
-
-          <p>
-            <strong id="who-objective"></strong>
-          </p>
-
-          <a
-            href="#"
-            data-page="references"
-            class="btn primary"
-            id="who-hallcon">
-          </a>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
 <!-- NOS PÔLES -->
 <section id="about" class="about">
 
@@ -5412,7 +5371,14 @@ button.onclick = function(event) {
 
 function openMapProject(categoryId, projectId){
 
-  openReference(projectId);
+  const destination =
+    LANG === 'de'
+      ? '/referenzen/'
+      : '/realisations/';
+
+  window.location.href =
+    destination + '?realisation=' +
+    encodeURIComponent(categoryId);
 
 }
 
@@ -7565,68 +7531,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-/* FORMULAIRE */
-
-document.getElementById('contact-form')
-.addEventListener('submit',function(e){
-
-  e.preventDefault();
-
-  const name=document.getElementById('form-name').value;
-  const email=document.getElementById('form-email').value;
-  const phone=document.getElementById('form-phone').value;
-  const message=document.getElementById('form-message').value;
-
-
-  const subject=
-    LANG==='fr'
-      ? 'Demande de contact ROOFCON'
-      : 'Kontaktanfrage ROOFCON';
-
-
-  const body=
-
-    (LANG==='fr'
-      ? 'Nom : '
-      : 'Name : ')
-
-    +name+
-
-    '\n'+
-
-    (LANG==='fr'
-      ? 'E-mail : '
-      : 'E-Mail : ')
-
-    +email+
-
-    '\n'+
-
-    (LANG==='fr'
-      ? 'Téléphone : '
-      : 'Telefon : ')
-
-    +phone+
-
-    '\n\n'+
-
-    (LANG==='fr'
-      ? 'Demande :\n'
-      : 'Anfrage :\n')
-
-    +message;
-
-
-  window.location.href=
-    'mailto:'+CONTENT.site.email+
-    '?subject='+
-    encodeURIComponent(subject)+
-    '&body='+
-    encodeURIComponent(body);
-
-});
-
-
 /* CHARGEMENT */
 
 fetch('/content.json?v='+Date.now())
@@ -7848,39 +7752,6 @@ function openJobImage(image){
   document.body.appendChild(lightbox);
 
 }
-</script>
-
-  <script>
-document.addEventListener('DOMContentLoaded', function () {
-
-  const jobsLink = document.getElementById('nav-jobs');
-  const contactLink = document.getElementById('nav-contact');
-
-  function updateLanguageLinks() {
-    const isGerman =
-      document.documentElement.lang === 'de' ||
-      window.location.pathname.includes('/de/');
-
-    if (jobsLink) {
-      jobsLink.href = isGerman ? '/karriere/' : '/emploi/';
-    }
-
-    if (contactLink) {
-      contactLink.href = isGerman ? '/kontakt/' : '/contact/';
-    }
-  }
-
-  updateLanguageLinks();
-
-  // Vérifie régulièrement si la langue de la page change
-  const observer = new MutationObserver(updateLanguageLinks);
-
-  observer.observe(document.documentElement, {
-    attributes: true,
-    attributeFilter: ['lang']
-  });
-
-});
 </script>
   
 </body>
