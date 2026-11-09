@@ -2993,7 +2993,6 @@ function esc(v){
 /* NAVIGATION */
 
     let chantierMap = null;
-let chantierMarkers = [];
 
 function initChantierMap(){
 
@@ -3037,7 +3036,6 @@ function initChantierMap(){
   if(chantierMap){
     chantierMap.remove();
     chantierMap = null;
-    chantierMarkers = [];
   }
 
   chantierMap =
@@ -3096,8 +3094,6 @@ marker.bindPopup(`
     Voir la réalisation
   </button>
 `);
-
-          chantierMarkers.push(marker);
 
           positions.push([
             lat,
@@ -3247,7 +3243,6 @@ button.onclick = function(event) {
 
         }); // Fin de marker.on('popupopen')
 
-        chantierMarkers.push(marker);
         positions.push([
           lat,
           lng
@@ -3303,8 +3298,6 @@ button.onclick = function(event) {
               : ''
           }
         `);
-
-        chantierMarkers.push(mapMarker);
 
         positions.push([
           lat,
