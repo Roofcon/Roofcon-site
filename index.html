@@ -3091,7 +3091,7 @@ marker.bindPopup(`
   <br>
   <button
     type="button"
-    onclick="openMapProject('${category.id}', '${project.id}')"
+    onclick="openMapProject('${category.id}')"
     style="margin-top:8px; cursor:pointer;">
     Voir la réalisation
   </button>
@@ -3347,7 +3347,7 @@ button.onclick = function(event) {
 
 }
 
-function openMapProject(categoryId, projectId){
+function openMapProject(categoryId){
 
   const destination =
     LANG === 'de'
