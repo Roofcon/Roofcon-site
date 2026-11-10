@@ -1611,75 +1611,6 @@ footer .container {
   box-shadow:0 6px 16px rgba(33,31,32,.18);
 }
 
-.pole{
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease,
-    border-color .3s ease;
-}
-
-.pole:hover{
-  transform:translateY(-7px);
-  box-shadow:0 18px 35px rgba(0,0,0,.18);
-  border-color:var(--brown);
-}
-
-.reference-category{
-  transition:
-    transform .35s ease,
-    box-shadow .35s ease,
-    filter .35s ease;
-}
-
-.reference-category:hover{
-  transform:translateY(-8px) scale(1.01);
-  box-shadow:0 20px 40px rgba(33,31,32,.22);
-  filter:brightness(1.05);
-}
-
-.ref{
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-}
-
-.ref:hover{
-  transform:translateY(-7px);
-  box-shadow:0 18px 38px rgba(33,31,32,.18);
-}
-
-.job{
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease,
-    border-color .3s ease;
-}
-
-.job:hover{
-  transform:translateY(-6px);
-  box-shadow:0 15px 35px rgba(33,31,32,.12);
-  border-color:var(--brown2);
-}
-
-.job img{
-  transition:transform .5s ease;
-}
-
-.job:hover img{
-  transform:scale(1.03);
-}
-
-.contact-card{
-  transition:
-    transform .3s ease,
-    box-shadow .3s ease;
-}
-
-.contact-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 18px 40px rgba(33,31,32,.18);
-}
-
 /* =========================
    ANIMATION APPARITION
    ========================= */
@@ -1720,10 +1651,8 @@ footer .container {
   box-sizing: border-box;
 }
 
-.home-preview-head h2,
-.home-current-preview .home-preview-head h2 {
+.home-preview-head h2 {
   color: #fff;
-  font-size: clamp(30px, 3.2vw, 44px);
   line-height: 1.1;
   letter-spacing: -.03em;
   margin: 0;
@@ -1915,33 +1844,20 @@ footer .container {
   display:flex;
   flex-direction:column;
   justify-content:flex-end;
-  transition:
-    transform .4s ease,
-    background .4s ease,
-    border-color .4s ease;
 }
 
 .home-reference-card:nth-child(4),
 .home-reference-card:nth-child(5){
   grid-column:span 6;
 }
-
-.home-reference-card:hover{
-  transform:none;
-  border-color:#3b3634;
-}
-
-  
+ 
 /* PHOTOS DE COUVERTURE DES CATÉGORIES */
 
 .home-reference-card{
-  background-color:#262322;
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
   background-attachment:scroll;
-  position:relative;
-  overflow:hidden;
 }
 
 .home-reference-card::before{
@@ -1957,11 +1873,6 @@ footer .container {
   z-index:1;
   pointer-events:none;
 }
-
-.home-reference-card:hover{
-  background-color:#262322;
-}
-
 
 /* NUMÉRO */
 
@@ -2004,12 +1915,6 @@ footer .container {
 /* RESPONSIVE */
 
 @media(max-width:1000px){
-
-  .home-reference-card,
-  .home-reference-card:nth-child(4),
-  .home-reference-card:nth-child(5){
-    grid-column:span 6;
-  }
 
 }
 
@@ -2152,10 +2057,6 @@ footer .container {
   .home-preview{
     margin-top:80px;
     padding-top:65px;
-  }
-
-  .home-preview-head h2{
-    font-size:42px;
   }
 
   .home-services-grid,
