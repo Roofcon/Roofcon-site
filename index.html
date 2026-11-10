@@ -3428,35 +3428,6 @@ function showPage(id){
   },50);
 
 }
-  function initReveal(){
-
-  const elements = document.querySelectorAll(
-  'section > .wrap'
-);
-
-  elements.forEach(function(element){
-    element.classList.add('reveal');
-  });
-
-  const observer = new IntersectionObserver(function(entries){
-
-    entries.forEach(function(entry){
-
-      if(entry.isIntersecting){
-        entry.target.classList.add('visible');
-      }
-
-    });
-
-  },{
-    threshold:0.15
-  });
-
-  elements.forEach(function(element){
-    observer.observe(element);
-  });
-
-}
   
 /* LANGUE */
 
@@ -4502,8 +4473,6 @@ if (germanPaths.includes(currentPath)) {
   initChantierMap();
     
 showPage('accueil');
-
-initReveal();
 
 })
 .catch(function(error){
