@@ -2842,40 +2842,141 @@ footer .container {
 }
 
   
-/* SERVICES — PALETTE FINALE */
 
+/* =========================================================
+   SERVICES — DESIGN FINAL ROOFCON
+========================================================= */
+
+/* Section blanche sur toute la largeur */
 .home-services-preview {
+  width: 100vw !important;
+  max-width: none !important;
+  margin-left: calc(50% - 50vw) !important;
+  box-sizing: border-box !important;
+  padding: 90px max(5%, calc((100vw - 1200px) / 2)) !important;
   background: #ffffff !important;
   background-color: #ffffff !important;
 }
 
+/* En-tête */
+.home-services-preview .home-preview-head {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  background: transparent !important;
+}
+
+.home-services-preview .home-preview-head h2 {
+  color: #211f20 !important;
+}
+
+.home-services-preview .home-preview-head p {
+  color: #6d625b !important;
+}
+
+/* Grille : 3 cartes puis 2 cartes centrées */
+.home-services-preview .home-services-grid {
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  grid-auto-rows: 300px;
+  gap: 22px !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
 .home-services-preview .home-service-card {
+  grid-column: span 2 !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+  box-sizing: border-box !important;
+  padding: 30px !important;
+
   background: #49372d !important;
   background-color: #49372d !important;
   background-image: none !important;
-  border: 1px solid #49372d !important;
-  box-shadow: none !important;
-  color: #f5f2ee !important;
-}
 
-.home-services-preview .home-service-card h3 {
+  border: 1px solid #49372d !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  overflow: hidden !important;
   color: #ffffff !important;
 }
 
-.home-services-preview .home-service-card p {
-  color: rgba(255, 255, 255, 0.78) !important;
+/* Centrage de la deuxième rangée */
+.home-services-preview .home-service-card:nth-child(4) {
+  grid-column: 2 / span 2 !important;
 }
 
+.home-services-preview .home-service-card:nth-child(5) {
+  grid-column: 4 / span 2 !important;
+}
+
+/* Suppression des images */
+.home-services-preview .home-service-image {
+  display: none !important;
+}
+
+/* Numéros */
 .home-services-preview .home-service-number {
   color: #c3a080 !important;
+  font-size: 12px !important;
+  letter-spacing: 2px !important;
+  margin-bottom: 24px !important;
 }
 
-.home-services-preview .home-preview-head,
-.home-services-preview .home-preview-head h2,
-.home-services-preview .home-preview-head p {
-  background: #ffffff !important;
-  color: #211f20 !important;
+/* Titres */
+.home-services-preview .home-service-card h3 {
+  color: #ffffff !important;
+  font-size: 24px !important;
+  line-height: 1.25 !important;
+  margin: 0 0 15px !important;
 }
+
+/* Descriptions */
+.home-services-preview .home-service-card p {
+  color: rgba(255,255,255,.78) !important;
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  margin: 0 !important;
+}
+
+/* Tablette */
+@media (max-width: 900px) {
+  .home-services-preview .home-services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-rows: minmax(280px, auto);
+  }
+
+  .home-services-preview .home-service-card,
+  .home-services-preview .home-service-card:nth-child(4),
+  .home-services-preview .home-service-card:nth-child(5) {
+    grid-column: auto !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .home-services-preview {
+    padding: 65px 22px !important;
+  }
+
+  .home-services-preview .home-services-grid {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: auto;
+    gap: 16px !important;
+  }
+
+  .home-services-preview .home-service-card {
+    min-height: 250px !important;
+    padding: 25px !important;
+  }
+}
+
 
   
 </style>
