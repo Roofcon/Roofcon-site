@@ -388,26 +388,6 @@ header {
     width: auto;
     text-align: center;
   }
-
-.contact-card .item a#contact-phone,
-.contact-card .item a#contact-email{
-  color:inherit;
-  text-decoration:none;
-  transition:color .2s ease, text-decoration .2s ease;
-}
-
-.contact-card .item a#contact-phone:hover,
-.contact-card .item a#contact-email:hover{
-  color:var(--brown) !important;
-  text-decoration:underline;
-  text-underline-offset:3px;
-}
-
-.contact-card .item a:hover{
-  color:var(--brown);
-  text-decoration:underline;
-  text-underline-offset:3px;
-}
 }  
 /* PAGES */
 
@@ -429,14 +409,6 @@ section.active-page{
   align-items:center;
   overflow:hidden;
 
-  background:transparent;
-}
-
-.hero.active-page{
-  display:flex;
-}
-
-.hero.has-image{
   background:transparent;
 }
 
@@ -599,14 +571,6 @@ h1 span{
 .head{
   max-width:1050px;
   margin-bottom:46px;
-}
-
-  #references .head{
-  max-width:none;
-}
-
-#references .head p{
-  max-width:none;
 }
   
 .head h2{
@@ -1109,61 +1073,6 @@ h1 span{
 
 }
   
-/* ================================
-   RÉALISATIONS
-================================ */
-
-.refs{
-  background:#f4f2ef;
-  padding:110px 0 120px;
-}
-
-.refs .head{
-  max-width:none;
-  margin:0 0 70px;
-}
-
-.refs .head h2{
-  font-size:clamp(34px,4vw,58px);
-  line-height:1.05;
-  margin-bottom:25px;
-  letter-spacing:-.02em;
-  max-width:none;
-  text-align:center;
-}
-
-#references .about-intro p{
-  max-width:none !important;
-  color:#333 !important;
-  font-size:18px !important;
-  line-height:1.7 !important;
-  margin:0 !important;
-}
-  
-/* PRÉSENTATION — OFFRES D'EMPLOI */
-
-#jobs .head{
-  max-width:none !important;
-  margin-bottom:70px !important;
-  text-align:center;
-}
-
-#jobs .head h2{
-  font-size:clamp(34px,4vw,58px) !important;
-  line-height:1.05 !important;
-  margin-bottom:25px !important;
-  letter-spacing:-.02em !important;
-  max-width:none !important;
-}
-
-#jobs .head p{
-  max-width:none !important;
-color:#333 !important;
-  font-size:18px !important;
-  line-height:1.7 !important;
-  margin:0 !important;
-}
-
 /* FOOTER */
 
 footer {
@@ -1290,17 +1199,6 @@ footer .container {
   color: #c3a080;
 }
 
-  
-/* EMPTY STATES */
-
-.empty{
-  grid-column:1/-1;
-  background:var(--cream);
-  padding:50px;
-  text-align:center;
-  color:var(--gray);
-}
-
 /* MOBILE */
 
 @media(max-width:1000px){
@@ -1324,10 +1222,6 @@ footer .container {
   .nav{
     min-height:76px;
     position:relative;
-  }
-
-  .logo{
-    width:145px;
   }
 
   /* BOUTON MENU MOBILE */
@@ -1438,12 +1332,9 @@ footer .container {
   overflow-wrap:break-word;
 }
 
-  .poles,
-  .refs-grid,
-  .jobs-grid,
   .footer-grid{
-    grid-template-columns:1fr;
-  }  
+  grid-template-columns:1fr;
+}
 }
 
   /* =========================
@@ -1899,12 +1790,6 @@ footer .container {
 
 @media(max-width:1000px){
 
-  .home-service-card,
-  .home-service-card:nth-child(4),
-  .home-service-card:nth-child(5){
-    grid-column:span 6;
-  }
-
   .home-preview-head{
     align-items:flex-start;
     flex-direction:column;
@@ -1921,24 +1806,8 @@ footer .container {
     padding-top:65px;
   }
 
-  .home-services-grid,
-  .home-references-grid{
-    grid-template-columns:1fr;
-  }
-
-  .home-service-card,
-  .home-service-card:nth-child(4),
-  .home-service-card:nth-child(5),
-  .home-reference-card{
-    grid-column:span 1;
-  }
-
   .home-service-card{
     min-height:270px;
-  }
-
-  .home-reference-card{
-    min-height:300px;
   }
 
   .home-current-grid{
