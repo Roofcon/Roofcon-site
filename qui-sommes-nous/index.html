@@ -975,32 +975,30 @@ footer .container {
     );
 
 
-    /* =========================
-       CONTACT
-    ========================= */
+   
+/* =========================
+   CONTACT
+========================= */
 
-    const phone = site.phone || "+352 621 765 489";
-    const email = site.email || "info@roof-con.lu";
+const phone = site.phone || "+352 621 765 489";
+const email = site.email || "info@roof-con.lu";
 
-    const footerPhone = document.querySelector(
-      '.footer-grid > div:nth-child(2) .footer-item a[href^="tel:"]'
-    );
+const footerPhone = document.getElementById("footer-phone");
+const footerEmail = document.getElementById("footer-email");
 
-    const footerEmail = document.querySelector(
-      '.footer-grid > div:nth-child(2) .footer-item a[href^="mailto:"]'
-    );
+if (footerPhone) {
+  footerPhone.innerHTML =
+    '<a href="tel:' + phone.replace(/\s/g, "") + '">' +
+    phone +
+    '</a>';
+}
 
-    if (footerPhone) {
-      footerPhone.textContent = phone;
-      footerPhone.href =
-        "tel:" + phone.replace(/\s/g, "");
-    }
-
-    if (footerEmail) {
-      footerEmail.textContent = email;
-      footerEmail.href = "mailto:" + email;
-    }
-
+if (footerEmail) {
+  footerEmail.innerHTML =
+    '<a href="mailto:' + email + '">' +
+    email +
+    '</a>';
+}
 
     /* =========================
        RÉSEAUX SOCIAUX
