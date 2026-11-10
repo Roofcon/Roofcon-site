@@ -3727,38 +3727,38 @@ function render(){
   }
 
 
-  /* =========================================
-     IMAGE HERO
-  ========================================= */
 
-  const hero =
-    document.getElementById('accueil');
+/* =========================================
+   IMAGE HERO
+========================================= */
 
-  if(hero){
+const hero = document.getElementById('accueil');
+const heroContent = document.querySelector('#accueil .hero-content');
 
-    if(c.hero.image){
+if (hero && heroContent) {
 
-      hero.classList.add('has-image');
+  if (c.hero.image) {
 
-      hero.style.backgroundImage = `
-        linear-gradient(
-          90deg,
-          rgba(20,18,18,.93) 0%,
-          rgba(20,18,18,.76) 47%,
-          rgba(20,18,18,.25) 100%
-        ),
-        url("${c.hero.image}")
-      `;
+    hero.classList.add('has-image');
 
-    }else{
+    heroContent.style.backgroundImage = `
+      linear-gradient(
+        0deg,
+        rgba(20,18,18,.78) 0%,
+        rgba(20,18,18,.40) 42%,
+        rgba(20,18,18,.08) 100%
+      ),
+      url("${c.hero.image}")
+    `;
 
-      hero.classList.remove('has-image');
+  } else {
 
-      hero.style.backgroundImage = '';
+    hero.classList.remove('has-image');
+    heroContent.style.backgroundImage = '';
 
-    }
   }
 
+}
 
   /* =========================================
      ACCUEIL — APERÇU DES SERVICES
