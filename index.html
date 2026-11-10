@@ -657,37 +657,6 @@ h1 span{
   }
 }
   
-/* =========================================================
-   RÉALISATIONS — EN-TÊTE
-========================================================= */
-
-#references .head{
-  max-width:900px;
-  margin-bottom:70px;
-}
-
-#references .head .kicker{
-  margin-bottom:18px;
-}
-
-#references .head h2{
-  max-width:850px;
-  margin-bottom:24px;
-
-  font-size:clamp(46px,6vw,82px);
-  line-height:.96;
-  letter-spacing:-.045em;
-}
-
-#references .head p{
-  max-width:700px;
-  margin:0;
-
-  color:#777;
-  font-size:17px;
-  line-height:1.75;
-}
-  
 /* ================================
    RESPONSIVE
 ================================ */
@@ -1547,8 +1516,6 @@ footer .container {
   .poles,
   .refs-grid,
   .jobs-grid,
-  .contact-grid,
-  .detail-projects,
   .footer-grid{
     grid-template-columns:1fr;
   }
@@ -1607,32 +1574,6 @@ footer .container {
   .job-gallery{
     height:240px;
   }
-
-  .methode .head{
-    margin-bottom:15px;
-  }
-
-  #current-projects .head{
-  max-width:none !important;
-  margin-bottom:70px !important;
-  text-align:center;
-}
-
-#current-projects .head h2{
-  font-size:clamp(34px,4vw,58px) !important;
-  line-height:1.05 !important;
-  margin-bottom:25px !important;
-  letter-spacing:-.02em !important;
-  max-width:none !important;
-}
-
-#current-projects .head p{
-  max-width:none !important;
-  color:#c9c4c0 !important;
-  font-size:18px !important;
-  line-height:1.7 !important;
-  margin:0 !important;
-}
 }
 
   /* =========================
@@ -1742,37 +1683,6 @@ footer .container {
 /* =========================
    ANIMATION APPARITION
    ========================= */
-
-.reveal{
-  opacity:0;
-  transform:translateY(30px);
-  transition:
-    opacity .7s ease,
-    transform .7s ease;
-}
-
-.reveal.visible{
-  opacity:1;
-  transform:translateY(0);
-}
-
-  .project-map{
-  width:100%;
-  height:280px;
-  margin-top:20px;
-  border-radius:12px;
-  overflow:hidden;
-}
-
-  .chantier-map-section{
-  margin-top:90px;
-  padding-top:60px;
-  border-top:1px solid rgba(255,255,255,.15);
-}
-
-.chantier-map-section .head h2{
-  color:#fff;
-}
 
 .chantier-map{
   width:100%;
@@ -2294,16 +2204,10 @@ footer .container {
 }
   
 @media(max-width:800px){
-
-  .chantier-map-section{
-    margin-top:50px;
-    padding-top:35px;
-  }
-
   .chantier-map{
     height:260px;
   }
-
+}
   
 /* TITRES DES APERÇUS DE L'ACCUEIL */
 
