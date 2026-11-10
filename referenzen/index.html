@@ -1505,6 +1505,24 @@ body .project-detail-content h2 {
     font-size: 26px;
   }
 }
+    
+/* RÉALISATIONS — AFFICHAGE MOBILE */
+
+@media (max-width: 750px) {
+  .reference-categories {
+    grid-template-columns: 1fr;
+  }
+
+  .reference-categories > * {
+    grid-column: 1 / -1;
+  }
+
+  .refs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+    
   </style>
 </head>
 
