@@ -658,43 +658,6 @@ h1 span{
 }
   
 /* ================================
-   RESPONSIVE
-================================ */
-
-@media(max-width:1000px){
-
-  .poles{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .pole,
-  .pole:nth-child(4),
-  .pole:nth-child(5){
-    grid-column:span 1;
-  }
-
-}
-
-@media(max-width:650px){
-
-  .poles{
-    grid-template-columns:1fr;
-    gap:14px;
-  }
-
-  .pole,
-  .pole:nth-child(4),
-  .pole:nth-child(5){
-    grid-column:span 1;
-    min-height:390px;
-  }
-
-  .pole-image{
-    height:190px;
-  }
-
-}
-/* ================================
    PROJETS EN COURS
 ================================ */
 
@@ -1112,10 +1075,9 @@ h1 span{
 
 @media(max-width:800px){
 
-  .current-projects{
-    padding:75px 0 80px;
-  }
-
+ .current-projects{
+  padding:70px 0;
+}
   .current-projects::before{
     margin-bottom:45px;
   }
@@ -1143,30 +1105,6 @@ h1 span{
 
   .current-project-content h3{
     font-size:22px;
-  }
-
-}
-
-@media(max-width:800px){
-
-  .current-projects{
-    padding:70px 0;
-  }
-
-  .current-projects-grid{
-    grid-template-columns:1fr;
-  }
-
-  .current-project,
-  .current-project img{
-    min-height:340px;
-    height:340px;
-  }
-
-  .current-project-content{
-    left:22px;
-    right:22px;
-    bottom:22px;
   }
 
 }
@@ -1372,14 +1310,6 @@ footer .container {
     font-size:12px;
   }
 
-  .poles{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .refs-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
   .footer-grid{
     grid-template-columns:1fr 1fr;
   }
@@ -1398,11 +1328,6 @@ footer .container {
 
   .logo{
     width:145px;
-  }
-
-    .job h3{
-    font-size:20px;
-    line-height:1.2;
   }
 
   /* BOUTON MENU MOBILE */
@@ -1518,62 +1443,7 @@ footer .container {
   .jobs-grid,
   .footer-grid{
     grid-template-columns:1fr;
-  }
-
-  .ref{
-  min-height:200px;
-  padding:22px;
-}
-
-  .ref img{
-  height:130px;
-  object-fit:cover;
-}
-  
-  .contact-card{
-    padding:28px;
-  }
-
-   .pole{
-  min-height:0;
-  padding:22px;
-  display:flex;
-  flex-direction:column;
-}
-
-  .pole-image{
-    width:calc(100% + 44px);
-    margin:-22px -22px 18px;
-    height:150px;
-  }
-
-  .pole h3{
-    margin:14px 0 8px;
-  }
-
-  .pole p{
-    margin:0;
-  }
-  
-}
-
-  @media (max-width:900px){
-
-  .jobs-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-}
-
-@media (max-width:600px){
-
-  .jobs-grid{
-    grid-template-columns:1fr;
-  }
-
-  .job-gallery{
-    height:240px;
-  }
+  }  
 }
 
   /* =========================
@@ -1910,14 +1780,6 @@ footer .container {
   max-width:480px;
   margin:0;
 }
-
-
-/* RESPONSIVE */
-
-@media(max-width:1000px){
-
-}
-
 
 @media(max-width:650px){
 
