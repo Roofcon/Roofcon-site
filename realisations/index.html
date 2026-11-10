@@ -1757,19 +1757,15 @@ body .project-detail-content h2 {
   }
 }
     
-/* RÉALISATIONS — AFFICHAGE MOBILE */
-
 @media (max-width: 750px) {
-  .reference-categories {
-    grid-template-columns: 1fr;
-  }
-
-  .reference-categories > * {
-    grid-column: 1 / -1;
-  }
-
+  .reference-categories,
   .refs-grid {
     grid-template-columns: 1fr;
+  }
+
+  .reference-categories > *,
+  .refs-grid > * {
+    grid-column: 1 / -1;
   }
 }
 
