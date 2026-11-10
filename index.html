@@ -2581,6 +2581,75 @@ footer .container {
   }
 }
 
+  
+/* =========================================
+   ACCUEIL — CARTES CENTRÉES
+   ========================================= */
+
+/* SERVICES : 3 cartes + 2 centrées */
+
+.home-services-preview .home-services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+}
+
+.home-services-preview .home-service-card {
+  flex: 0 1 calc((100% - 44px) / 3);
+  max-width: calc((100% - 44px) / 3);
+}
+
+/* RÉALISATIONS : 3 cartes + 2 centrées */
+
+.home-references-preview .home-references-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+}
+
+.home-references-preview .home-reference-card {
+  flex: 0 1 calc((100% - 44px) / 3);
+  max-width: calc((100% - 44px) / 3);
+}
+
+/* PROJETS EN COURS : cartes centrées */
+
+.home-current-preview .home-current-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+}
+
+.home-current-preview .home-current-card {
+  flex: 0 1 calc((100% - 22px) / 2);
+  max-width: calc((100% - 22px) / 2);
+}
+
+/* TABLETTE */
+
+@media (max-width: 900px) {
+  .home-services-preview .home-service-card,
+  .home-references-preview .home-reference-card {
+    flex-basis: calc((100% - 22px) / 2);
+    max-width: calc((100% - 22px) / 2);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .home-services-preview .home-service-card,
+  .home-references-preview .home-reference-card,
+  .home-current-preview .home-current-card {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+  
 </style>
   <link
   rel="stylesheet"
