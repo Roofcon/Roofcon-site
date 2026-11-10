@@ -3351,54 +3351,10 @@ function openMapProject(categoryId){
 
 }
 
-/* RETOUR DEPUIS UNE PAGE DÉTAIL */
-  
-function updateLanguageNavLinks(){
-
-  const routes = {
-    'nav-home': {
-  fr: '/',
-  de: '/?lang=de'
-},
-    'nav-about': {
-      fr: '/services/',
-      de: '/leistungen/'
-    },
-    'nav-current-projects': {
-      fr: '/projets-en-cours/',
-      de: '/aktuelle-projekte/'
-    },
-    'nav-references': {
-      fr: '/realisations/',
-      de: '/referenzen/'
-    },
-    'nav-jobs': {
-      fr: '/emploi/',
-      de: '/karriere/'
-    },
-    'nav-contact': {
-      fr: '/contact/',
-      de: '/kontakt/'
-    }
-  };
-
-  Object.keys(routes).forEach(function(id){
-
-    const link = document.getElementById(id);
-
-    if(link){
-      link.href = routes[id][LANG] || routes[id].fr;
-    }
-
-  });
-
-}
-
 function showPage(id){
 
   updateSEO(id);
   updateHreflang(id);
-updateLanguageNavLinks();
   
   const sections =
     document.querySelectorAll('section');
@@ -3595,7 +3551,6 @@ if(route && route[lang]){
   ================================ */
 
   render();
-  updateLanguageNavLinks();
   initChantierMap();
 
 }
