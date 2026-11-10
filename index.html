@@ -2582,22 +2582,16 @@ footer .container {
 }
 
   
-
 /* =========================================
-   ACCUEIL — FONDS ET CARTES INDÉPENDANTES
+   ACCUEIL — SERVICES
    ========================================= */
 
-/* FOND BLANC DES SECTIONS */
-
-.home-services-preview,
-.home-references-preview,
-.home-current-preview {
-  background: #fff;
+.home-services-preview {
+  background: #ffffff;
+  padding: 80px 4%;
 }
 
-/* =========================================
-   SERVICES — CARTES BRUNES
-   ========================================= */
+/* Grille 3 cartes + 2 cartes centrées */
 
 .home-services-preview .home-services-grid {
   display: grid;
@@ -2605,30 +2599,42 @@ footer .container {
   gap: 22px;
 }
 
+/* Cartes individuelles */
+
 .home-services-preview .home-service-card {
   grid-column: span 2;
   min-height: 390px;
-  padding: 35px;
-  background: #39302b;
+  padding: 50px 45px;
+  background: #39302b !important;
+  background-image: none !important;
   border: 1px solid #39302b;
-  border-radius: 3px;
-  box-shadow: 0 5px 18px rgba(33, 31, 32, .07);
+  border-radius: 2px;
+  box-shadow: 0 5px 18px rgba(33, 31, 32, 0.08);
   position: relative;
   overflow: hidden;
   transition: transform .3s ease, background .3s ease;
 }
 
-/* Masquer les images des services */
+/* Suppression des images et des voiles */
 
-.home-services-preview .home-service-card img {
-  display: none;
-}
-
+.home-services-preview .home-service-card img,
 .home-services-preview .home-service-card::before {
-  display: none;
+  display: none !important;
 }
 
-/* Textes */
+/* 2 cartes plus larges et centrées */
+
+.home-services-preview .home-service-card:nth-child(4) {
+  grid-column: 2 / span 3;
+  min-height: 370px;
+}
+
+.home-services-preview .home-service-card:nth-child(5) {
+  grid-column: 5 / span 3;
+  min-height: 370px;
+}
+
+/* Couleurs du contenu */
 
 .home-services-preview .home-service-card h3 {
   color: #f5f2ee;
@@ -2643,92 +2649,36 @@ footer .container {
   color: #c3a080;
 }
 
-/* 4e et 5e cartes centrées */
-
-.home-services-preview .home-service-card:nth-child(4),
-.home-services-preview .home-service-card:nth-child(5) {
-  grid-column: span 3;
-  min-height: 350px;
-}
+/* Survol */
 
 .home-services-preview .home-service-card:hover {
-  background: #4a3c34;
-  transform: translateY(-5px);
+  background: #493b33 !important;
+  transform: translateY(-4px);
 }
 
-/* =========================================
-   RÉALISATIONS — CARTES AVEC PHOTOS
-   ========================================= */
-
-.home-references-preview .home-references-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 22px;
-}
-
-.home-references-preview .home-reference-card {
-  grid-column: span 2;
-  min-height: 390px;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #e5dfda;
-  border-radius: 3px;
-  box-shadow: 0 5px 18px rgba(33, 31, 32, .07);
-  transition: transform .3s ease;
-}
-
-.home-references-preview .home-reference-card:nth-child(4),
-.home-references-preview .home-reference-card:nth-child(5) {
-  grid-column: span 3;
-  min-height: 350px;
-}
-
-.home-references-preview .home-reference-card:hover {
-  transform: translateY(-5px);
-}
-
-/* =========================================
-   PROJETS EN COURS — CENTRAGE
-   ========================================= */
-
-.home-current-preview .home-current-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 22px;
-}
-
-/* =========================================
-   TABLETTE
-   ========================================= */
+/* Tablette */
 
 @media (max-width: 900px) {
   .home-services-preview .home-service-card,
-  .home-services-preview .home-service-card:nth-child(n),
-  .home-references-preview .home-reference-card,
-  .home-references-preview .home-reference-card:nth-child(n) {
+  .home-services-preview .home-service-card:nth-child(n) {
     grid-column: span 3;
     min-height: 340px;
   }
 }
 
-/* =========================================
-   MOBILE
-   ========================================= */
+/* Mobile */
 
 @media (max-width: 600px) {
-  .home-services-preview .home-services-grid,
-  .home-references-preview .home-references-grid {
+  .home-services-preview .home-services-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
   .home-services-preview .home-service-card,
-  .home-services-preview .home-service-card:nth-child(n),
-  .home-references-preview .home-reference-card,
-  .home-references-preview .home-reference-card:nth-child(n) {
+  .home-services-preview .home-service-card:nth-child(n) {
     grid-column: 1;
     min-height: 320px;
+    padding: 35px 28px;
   }
 }
 
