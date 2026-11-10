@@ -1506,22 +1506,23 @@ body .project-detail-content h2 {
   }
 }
     
-/* RÉALISATIONS — AFFICHAGE MOBILE */
+/* MOBILE — UNE CARTE PAR LIGNE */
 
-@media (max-width: 750px) {
-  .reference-categories {
-    grid-template-columns: 1fr;
+@media screen and (max-width: 750px) {
+  #reference-categories {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-flow: row !important;
   }
 
-  .reference-categories > * {
-    grid-column: 1 / -1;
-  }
-
-  .refs-grid {
-    grid-template-columns: 1fr;
+  #reference-categories .reference-category,
+  #reference-categories .reference-category:nth-child(4),
+  #reference-categories .reference-category:nth-child(5) {
+    grid-column: 1 / -1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
   }
 }
-
     
   </style>
 </head>
