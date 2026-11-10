@@ -383,12 +383,25 @@ header {
     border-bottom: none;
   }
 
+ 
   .menu .cta {
     margin: 10px 16px;
     width: auto;
     text-align: center;
   }
-}  
+
+  /* HERO MOBILE */
+
+  #accueil .hero-content {
+    width: 100%;
+    min-height: 680px;
+    margin-left: 0;
+    padding: 100px 25px 80px;
+    background-position: center;
+  }
+
+}
+
 /* PAGES */
 
 section{
@@ -1901,30 +1914,29 @@ footer .container {
    01 — HERO PHOTOGRAPHIQUE
 ========================================================= */
 
+
 #accueil .hero-content {
-  width: 100vw;
+  width: 100%;
   max-width: none;
-  min-height: 700px;
-  margin-left: calc(50% - 50vw);
-  padding:
-    150px
-    max(4%, calc((100vw - 1400px) / 2))
-    85px;
+  min-height: clamp(620px, 85vh, 820px);
+  margin-left: 0;
+  padding: 120px 8% 100px;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: flex-start;
 
   position: relative;
   isolation: isolate;
   overflow: hidden;
 
-  background-color: #62564c;
+  background-color: #211f20;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
 
 #accueil .hero-content::before {
   content: "";
@@ -2482,222 +2494,156 @@ footer .container {
 
   
 /* =========================================
-   ACCUEIL — NOUVEAU STYLE DES SERVICES
-   ========================================= */
+   ACCUEIL — NOS SERVICES
+========================================= */
 
 .home-services-preview {
-  background: #39302b;
-  padding: 100px 4%;
-  color: #f5f2ee;
+  background: #f5f2ee;
+  padding: 100px 8%;
+  color: #211f20;
 }
 
 .home-services-preview .home-preview-head {
-  margin-bottom: 45px;
+  margin-bottom: 55px;
 }
 
-.home-services-preview .home-preview-head h2 {
-  color: #f5f2ee;
+.home-services-preview .kicker {
+  color: #a27b5b;
 }
 
-.home-services-preview .home-preview-head p {
-  color: #cfc4bb;
+.home-services-preview h2 {
+  color: #211f20;
+  max-width: 700px;
 }
 
-.home-services-preview .home-preview-link {
-  color: #c3a080;
-  border-color: #a27b5b;
-}
+/* GRILLE */
 
-.home-services-preview .home-services-grid {
+.home-services-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  background: rgba(245, 242, 238, 0.2);
-  border: 1px solid rgba(245, 242, 238, 0.2);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 18px;
 }
 
-.home-services-preview .home-service-card {
+/* CARTES */
+
+.home-service-card {
+  grid-column: span 2;
+
+  min-height: 340px;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
   position: relative;
-  min-height: 260px;
-  padding: 35px;
-  background: #39302b;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
   overflow: hidden;
-  transition: background 0.3s ease;
-}
 
-/* Suppression visuelle des photos */
-.home-services-preview .home-service-card img {
-  display: none;
-}
-
-.home-services-preview .home-service-card::before {
-  display: none;
-}
-
-.home-services-preview .home-service-card:hover {
-  background: #4a3c34;
-  transform: none;
-  box-shadow: none;
-}
-
-.home-services-preview .home-service-card .number {
-  color: #c3a080;
-}
-
-.home-services-preview .home-service-card h3 {
+  background: #262322;
+  border: 1px solid #3b3634;
   color: #f5f2ee;
+
+  transition:
+    background .3s ease,
+    transform .3s ease,
+    border-color .3s ease;
 }
 
-.home-services-preview .home-service-card p {
-  color: #d0c6be;
+/* CENTRER LES DEUX DERNIÈRES CARTES */
+
+.home-service-card:nth-child(4) {
+  grid-column: 2 / span 2;
 }
 
-.home-services-preview .home-service-card a {
+.home-service-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+/* PAS DE PHOTOS */
+
+.home-service-image {
+  display: none;
+}
+
+/* NUMÉRO */
+
+.home-service-number {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+
+  font-size: 13px;
+  letter-spacing: 2px;
   color: #c3a080;
 }
 
-/* Adaptation tablette et mobile */
+/* TITRE */
+
+.home-service-card h3 {
+  margin: 0 0 14px;
+  color: #f5f2ee;
+  font-size: 23px;
+  line-height: 1.25;
+}
+
+/* DESCRIPTION */
+
+.home-service-card p {
+  margin: 0;
+  color: #c9c1bb;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* SURVOL */
+
+.home-service-card:hover {
+  background: #332d29;
+  border-color: #a27b5b;
+  transform: translateY(-5px);
+}
+
+/* TABLETTE */
+
 @media (max-width: 900px) {
-  .home-services-preview .home-services-grid {
+  .home-services-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .home-service-card,
+  .home-service-card:nth-child(4),
+  .home-service-card:nth-child(5) {
+    grid-column: auto;
+  }
 }
+
+/* MOBILE */
 
 @media (max-width: 600px) {
   .home-services-preview {
-    padding: 65px 5%;
+    padding: 75px 22px;
   }
 
-  .home-services-preview .home-services-grid {
+  .home-services-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
-  .home-services-preview .home-service-card {
-    min-height: 210px;
-    padding: 28px;
+  .home-service-card,
+  .home-service-card:nth-child(4),
+  .home-service-card:nth-child(5) {
+    grid-column: auto;
+    min-height: 280px;
+    padding: 25px;
+  }
+
+  .home-service-number {
+    left: 25px;
+    top: 22px;
   }
 }
 
   
-
-/* SERVICES — 3 CARRÉS + 2 CARRÉS CENTRÉS */
-
-.home-services-preview {
-  background: #fff;
-  padding: 80px 4%;
-}
-
-.home-services-preview .home-services-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 22px;
-}
-
-/* Toutes les cartes */
-
-.home-services-preview .home-service-card {
-  grid-column: span 2;
-  aspect-ratio: 1 / 1;
-  min-height: 0;
-  padding: 35px;
-  box-sizing: border-box;
-
-  background: #39302b !important;
-  background-image: none !important;
-  border: 1px solid #39302b;
-  border-radius: 3px;
-  box-shadow: 0 5px 18px rgba(33, 31, 32, .08);
-
-  position: relative;
-  overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  transition: transform .3s ease, background .3s ease;
-}
-
-/* 2 cartes centrées sous les 3 premières */
-
-.home-services-preview .home-service-card:nth-child(4) {
-  grid-column: 2 / span 2;
-}
-
-.home-services-preview .home-service-card:nth-child(5) {
-  grid-column: 4 / span 2;
-}
-
-/* Suppression des images */
-
-.home-services-preview .home-service-card img,
-.home-services-preview .home-service-card::before {
-  display: none !important;
-}
-
-/* Couleurs du texte */
-
-.home-services-preview .home-service-card h3 {
-  color: #f5f2ee;
-}
-
-.home-services-preview .home-service-card p {
-  color: #d6ccc4;
-}
-
-.home-services-preview .home-service-card a,
-.home-services-preview .home-service-card .number {
-  color: #c3a080;
-}
-
-/* Survol */
-
-.home-services-preview .home-service-card:hover {
-  background: #493b33 !important;
-  transform: translateY(-4px);
-}
-
-/* Tablette */
-
-@media (max-width: 900px) {
-  .home-services-preview .home-services-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .home-services-preview .home-service-card {
-    grid-column: span 2;
-  }
-
-  .home-services-preview .home-service-card:nth-child(4) {
-    grid-column: 1 / span 2;
-  }
-
-  .home-services-preview .home-service-card:nth-child(5) {
-    grid-column: 3 / span 2;
-  }
-}
-
-/* Mobile */
-
-@media (max-width: 600px) {
-  .home-services-preview .home-services-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .home-services-preview .home-service-card,
-  .home-services-preview .home-service-card:nth-child(n) {
-    grid-column: 1;
-    aspect-ratio: auto;
-    min-height: 300px;
-  }
-}
-
-
-
 </style>
   <link
   rel="stylesheet"
