@@ -2582,16 +2582,13 @@ footer .container {
 }
 
   
-/* =========================================
-   ACCUEIL — SERVICES
-   ========================================= */
+
+/* SERVICES — 3 CARRÉS + 2 CARRÉS CENTRÉS */
 
 .home-services-preview {
-  background: #ffffff;
+  background: #fff;
   padding: 80px 4%;
 }
-
-/* Grille 3 cartes + 2 cartes centrées */
 
 .home-services-preview .home-services-grid {
   display: grid;
@@ -2599,42 +2596,49 @@ footer .container {
   gap: 22px;
 }
 
-/* Cartes individuelles */
+/* Toutes les cartes */
 
 .home-services-preview .home-service-card {
   grid-column: span 2;
-  min-height: 390px;
-  padding: 50px 45px;
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+  padding: 35px;
+  box-sizing: border-box;
+
   background: #39302b !important;
   background-image: none !important;
   border: 1px solid #39302b;
-  border-radius: 2px;
-  box-shadow: 0 5px 18px rgba(33, 31, 32, 0.08);
+  border-radius: 3px;
+  box-shadow: 0 5px 18px rgba(33, 31, 32, .08);
+
   position: relative;
   overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   transition: transform .3s ease, background .3s ease;
 }
 
-/* Suppression des images et des voiles */
+/* 2 cartes centrées sous les 3 premières */
+
+.home-services-preview .home-service-card:nth-child(4) {
+  grid-column: 2 / span 2;
+}
+
+.home-services-preview .home-service-card:nth-child(5) {
+  grid-column: 4 / span 2;
+}
+
+/* Suppression des images */
 
 .home-services-preview .home-service-card img,
 .home-services-preview .home-service-card::before {
   display: none !important;
 }
 
-/* 2 cartes plus larges et centrées */
-
-.home-services-preview .home-service-card:nth-child(4) {
-  grid-column: 2 / span 3;
-  min-height: 370px;
-}
-
-.home-services-preview .home-service-card:nth-child(5) {
-  grid-column: 5 / span 3;
-  min-height: 370px;
-}
-
-/* Couleurs du contenu */
+/* Couleurs du texte */
 
 .home-services-preview .home-service-card h3 {
   color: #f5f2ee;
@@ -2659,10 +2663,20 @@ footer .container {
 /* Tablette */
 
 @media (max-width: 900px) {
-  .home-services-preview .home-service-card,
-  .home-services-preview .home-service-card:nth-child(n) {
-    grid-column: span 3;
-    min-height: 340px;
+  .home-services-preview .home-services-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .home-services-preview .home-service-card {
+    grid-column: span 2;
+  }
+
+  .home-services-preview .home-service-card:nth-child(4) {
+    grid-column: 1 / span 2;
+  }
+
+  .home-services-preview .home-service-card:nth-child(5) {
+    grid-column: 3 / span 2;
   }
 }
 
@@ -2677,10 +2691,11 @@ footer .container {
   .home-services-preview .home-service-card,
   .home-services-preview .home-service-card:nth-child(n) {
     grid-column: 1;
-    min-height: 320px;
-    padding: 35px 28px;
+    aspect-ratio: auto;
+    min-height: 300px;
   }
 }
+
 
 
 </style>
