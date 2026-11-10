@@ -4464,27 +4464,6 @@ function render(){
 
 }
 
-
-/* CLICS — BOUTON QUI SOMMES-NOUS */
-document.addEventListener('DOMContentLoaded', function () {
-  const heroAbout = document.getElementById('hero-about');
-  if (!heroAbout) return;
-
-  heroAbout.href = LANG === 'de'
-    ? '/wer-wir-sind/'
-    : '/qui-sommes-nous/';
-
-  heroAbout.removeAttribute('data-page');
-
-  heroAbout.addEventListener('click', function (event) {
-    event.preventDefault();
-
-    window.location.href = LANG === 'de'
-      ? '/wer-wir-sind/'
-      : '/qui-sommes-nous/';
-  });
-});
-
 /* CHARGEMENT */
 
 fetch('/content.json?v='+Date.now())
