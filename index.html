@@ -2840,27 +2840,6 @@ let CONTENT = null;
 let LANG = new URLSearchParams(window.location.search).get('lang')
   || localStorage.getItem('roofconLang')
   || 'fr';
-
-  function updateHreflang(page){
-
-  if(page !== 'accueil') return;
-
-  const homeUrl = 'https://roof-con.com/';
-
-  const frLink =
-    document.querySelector('link[hreflang="fr"]');
-
-  const deLink =
-    document.querySelector('link[hreflang="de"]');
-
-  const defaultLink =
-    document.querySelector('link[hreflang="x-default"]');
-
-  if(frLink) frLink.href = homeUrl;
-  if(deLink) deLink.href = homeUrl;
-  if(defaultLink) defaultLink.href = homeUrl;
-
-}
   
   function updateSEO(page){
 
