@@ -1497,7 +1497,7 @@ function initChantierMap(){
             <br>
             <button
               type="button"
-              onclick="openMapProject('${category.id}')"
+              onclick="openMapProject('${category.id}','${project.slug || project.id}')"')"
               style="margin-top:8px; cursor:pointer;">
               Voir la réalisation
             </button>
@@ -1745,17 +1745,12 @@ function initChantierMap(){
 
 }
 
-function openMapProject(categoryId){
+function openMapProject(categoryId, projectSlug) {
+  const cat = (CONTENT.references.items || []).find(c => c.id === categoryId);
+  const catSlug = cat && cat.slug ? (cat.slug[LANG] || cat.slug.fr) : categoryId;
+  const base = LANG === 'de' ? '/referenzen/' : '/realisations/';
 
-  const destination =
-    LANG === 'de'
-      ? '/referenzen/'
-      : '/realisations/';
-
-  window.location.href =
-    destination + '?realisation=' +
-    encodeURIComponent(categoryId);
-
+  window.location.href = base + catSlug + '/' + (projectSlug ? projectSlug + '/' : '');
 }
 
 /* NAVIGATION */
