@@ -73,6 +73,14 @@
     <loc>https://roof-con.com/aktuelle-projekte/</loc>
   </url>
 
+<url>
+    <loc>https://roof-con.com/projets-en-cours/bureaux-moenchengladbach/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/aktuelle-projekte/bueros-moenchengladbach/</loc>
+  </url>
+  
   <!-- RÉALISATIONS -->
   <url>
     <loc>https://roof-con.com/realisations/</loc>
@@ -82,6 +90,55 @@
     <loc>https://roof-con.com/referenzen/</loc>
   </url>
 
+ <url>
+    <loc>https://roof-con.com/realisations/facades-ventilees/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/realisations/toitures-plates/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/realisations/charpentes/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/realisations/couvertures/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/realisations/maisons-annexes-ossature-bois/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/referenzen/hinterlueftete-fassaden/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/referenzen/flachdaecher/</loc>
+  </url>
+
+  <url>
+    <loc>https://roof-con.com/referenzen/dachstuhlbau/</loc>
+  </url>
+
+   <url>
+    <loc>https://roof-con.com/referenzen/dachdeckungen/</loc>
+  </url>
+
+   <url>
+    <loc>https://roof-con.com/referenzen/holzhaeuser-anbauten/</loc>
+  </url>
+
+   <url>
+    <loc>https://roof-con.com/referenzen/hinterlueftete-fassaden/roetgen/</loc>
+  </url>
+
+   <url>
+    <loc>https://roof-con.com/realisations/facades-ventilees/roetgen/</loc>
+  </url>
+  
+  
   <!-- EMPLOI -->
   <url>
     <loc>https://roof-con.com/emploi/</loc>
