@@ -2169,7 +2169,6 @@ body .project-detail-content h2 {
           <div class="ref-content">
             <p class="ref-category">${escapeHTML(localized(category.title))}</p>
             <h3><a class="ref-link" href="${escapeHTML(projectURL(category, project))}">${escapeHTML(title)}</a></h3>
-            ${description ? `<p>${escapeHTML(description)}</p>` : ""}
           </div>
         </article>
       `;
@@ -2189,26 +2188,11 @@ body .project-detail-content h2 {
       });
     }
 
-    function renderReferences() {
+        function renderReferences() {
+      // Les projets ne s'affichent plus sous les catégories :
+      // on les voit en ouvrant la catégorie correspondante.
       const container = document.getElementById("refs-grid");
-      const projects = [];
-
-      allCategories().forEach(category => {
-        (category.projects || []).forEach(project => {
-          projects.push({ project, category });
-        });
-      });
-     
-if (!projects.length) {
-  container.innerHTML = "";
-  return;
-}
-
-      container.innerHTML = projects.map(item =>
-        projectCardHTML(item.project, item.category)
-      ).join("");
-
-      attachProjectCardEvents(container);
+      if (container) container.innerHTML = "";
     }
 
       function openReferenceCategory(categoryId, push = true) {
@@ -2585,10 +2569,10 @@ function setLanguage(lang) {
   renderNavigation();
   updateSEO();
 
-    routeFromLocation();
+  routeFromLocation();
   window.addEventListener("popstate", routeFromLocation);
-
-      .catch(error => {
+})
+.catch(error => {
         console.error(error);
 
         document.getElementById("refs-title").textContent =
