@@ -2496,6 +2496,26 @@ footer .container {
     grid-template-columns: 1fr !important;
   }
 }
+
+  /* FOND PROJETS EN COURS — UN TON PLUS FONCÉ */
+
+#accueil .home-current-preview {
+  background: #ebe4dd !important;
+  position: relative;
+  isolation: isolate;
+}
+
+#accueil .home-current-preview::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: #ebe4dd;
+}
   
 </style>
   <link
