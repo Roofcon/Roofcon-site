@@ -1523,6 +1523,8 @@ body .project-detail-content h2 {
     min-width: 0 !important;
   }
 }
+
+    .ref-content h3 a.ref-link{ color:inherit; text-decoration:none; }
     
   </style>
 </head>
@@ -1825,6 +1827,61 @@ body .project-detail-content h2 {
       return CONTENT?.references?.items || [];
     }
 
+        function basePath(lang = LANG) {
+      return lang === "de" ? "/referenzen/" : "/realisations/";
+    }
+    function categorySlug(cat, lang = LANG) {
+      return (cat.slug && cat.slug[lang]) || cat.id;
+    }
+    function projectSlug(project) {
+      return project.slug || project.id;
+    }
+    function categoryURL(cat, lang = LANG) {
+      return basePath(lang) + categorySlug(cat, lang) + "/";
+    }
+    function projectURL(cat, project, lang = LANG) {
+      return categoryURL(cat, lang) + projectSlug(project) + "/";
+    }
+
+    function viewPath(lang) {
+      const found = currentView === "project" ? findProject(currentProject) : null;
+      const cat = found
+        ? found.category
+        : (currentView === "category"
+            ? allCategories().find(c => c.id === currentCategory)
+            : null);
+      if (found) return projectURL(cat, found.project, lang);
+      if (cat) return categoryURL(cat, lang);
+      return basePath(lang);
+    }
+
+    function routeFromLocation() {
+      const params = new URLSearchParams(location.search);
+      const legacy = params.get("categorie");
+      const parts = location.pathname.split("/").filter(Boolean);
+
+      let category = null;
+      let project = null;
+
+      if (parts.length >= 2) {
+        category = allCategories().find(c => categorySlug(c) === parts[1]);
+        if (category && parts[2]) {
+          project = (category.projects || []).find(p => projectSlug(p) === parts[2]);
+        }
+      } else if (legacy) {
+        category = allCategories().find(c => c.id === legacy);
+      }
+
+      if (category && project) {
+        openReference(project.id, false);
+      } else if (category) {
+        openReferenceCategory(category.id, false);
+        if (legacy) history.replaceState({}, "", categoryURL(category));
+      } else {
+        showView("references", null, false);
+      }
+    }
+    
     function findProject(projectId) {
       for (const category of allCategories()) {
         const project = (category.projects || []).find(item => item.id === projectId);
@@ -1840,13 +1897,18 @@ body .project-detail-content h2 {
       return project.image ? [assetURL(project.image)] : [];
     }
 
-    function showView(view) {
+        function showView(view, url, push = true) {
       currentView = view;
 
       document.getElementById("references").classList.toggle("hidden", view !== "references");
       document.getElementById("reference-category-detail").classList.toggle("visible", view === "category");
       document.getElementById("reference-detail").classList.toggle("visible", view === "project");
 
+      if (url && push && location.pathname !== url) {
+        history.pushState({}, "", url);
+      }
+
+      updateSEO();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
@@ -1897,7 +1959,7 @@ body .project-detail-content h2 {
           <div class="ref-overlay"></div>
           <div class="ref-content">
             <p class="ref-category">${escapeHTML(localized(category.title))}</p>
-            <h3>${escapeHTML(title)}</h3>
+            <h3><a class="ref-link" href="${escapeHTML(projectURL(category, project))}">${escapeHTML(title)}</a></h3>
             ${description ? `<p>${escapeHTML(description)}</p>` : ""}
           </div>
         </article>
@@ -1908,7 +1970,7 @@ body .project-detail-content h2 {
       container.querySelectorAll("[data-project-id]").forEach(card => {
         const open = () => openReference(card.dataset.projectId);
 
-        card.addEventListener("click", open);
+        card.addEventListener("click", event => { event.preventDefault(); open(); });
         card.addEventListener("keydown", event => {
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
@@ -1940,7 +2002,7 @@ body .project-detail-content h2 {
       attachProjectCardEvents(container);
     }
 
-    function openReferenceCategory(categoryId) {
+    function openReferenceCategory(categoryId, push = true) {
       const category = allCategories().find(item => item.id === categoryId);
       if (!category) return;
 
@@ -1968,10 +2030,10 @@ body .project-detail-content h2 {
         attachProjectCardEvents(container);
       }
 
-      showView("category");
+      showView("category", categoryURL(category), push);
     }
 
-    function openReference(projectId) {
+      function openReference(projectId, push = true) {
       const found = findProject(projectId);
       if (!found) return;
 
@@ -2025,7 +2087,7 @@ body .project-detail-content h2 {
       if (previous) previous.addEventListener("click", () => changeReferenceImage(-1));
       if (next) next.addEventListener("click", () => changeReferenceImage(1));
 
-      showView("project");
+     showView("project", projectURL(category, project), push);
     }
 
     function changeReferenceImage(direction) {
@@ -2044,9 +2106,9 @@ body .project-detail-content h2 {
       }
     }
 
-    document.getElementById("category-back").addEventListener("click", event => {
+        document.getElementById("category-back").addEventListener("click", event => {
       event.preventDefault();
-      showView("references");
+      showView("references", basePath());
     });
 
     document.getElementById("detail-back").addEventListener("click", event => {
@@ -2055,7 +2117,7 @@ body .project-detail-content h2 {
       if (currentCategory) {
         openReferenceCategory(currentCategory);
       } else {
-        showView("references");
+        showView("references", basePath());
       }
     });
   
@@ -2163,31 +2225,36 @@ function renderFooter() {
       });
     }
 
-    function updateSEO() {
-      const canonical = "https://roof-con.com/referenzen/";
+        function updateSEO() {
+      const found = currentView === "project" ? findProject(currentProject) : null;
+      const cat = found
+        ? found.category
+        : (currentView === "category"
+            ? allCategories().find(c => c.id === currentCategory)
+            : null);
 
-      document.title = "Referenzen | Holzbau, Dachbau & Fassadenbau | ROOFCON";
+      const frUrl = "https://roof-con.com" + viewPath("fr");
+      const deUrl = "https://roof-con.com" + viewPath("de");
 
-      document.querySelector('meta[name="description"]').content =
-        "Entdecken Sie die Referenzprojekte von ROOFCON in Luxemburg: hinterlüftete Fassaden, Flachdächer, Dachstühle, Dachdeckungen und Holzbauten.";
+      let title = "Referenzen | Holzbau, Dachbau & Fassadenbau | ROOFCON";
+      let description = "Entdecken Sie die Referenzprojekte von ROOFCON in Luxemburg: hinterlüftete Fassaden, Flachdächer, Dachstühle, Dachdeckungen und Holzbauten.";
 
-      document.querySelector('link[rel="canonical"]').href = canonical;
-      document.querySelector('meta[property="og:url"]').content = canonical;
+      if (found) {
+        title = localized(found.project.title) + " | ROOFCON";
+        description = localized(found.project.description) || description;
+      } else if (cat) {
+        title = localized(cat.title) + " | Referenzen | ROOFCON";
+      }
 
-      document.querySelector('meta[property="og:title"]').content =
-        "Referenzen | ROOFCON";
-
-      document.querySelector('meta[property="og:description"]').content =
-        "Entdecken Sie die Projekte und Referenzen von ROOFCON in Luxemburg.";
-
-      document.querySelector('link[hreflang="fr-LU"]').href =
-        "https://roof-con.com/realisations/";
-
-      document.querySelector('link[hreflang="de-LU"]').href =
-        "https://roof-con.com/referenzen/";
-
-      document.querySelector('link[hreflang="x-default"]').href =
-        "https://roof-con.com/realisations/";
+      document.title = title;
+      document.querySelector('meta[name="description"]').content = description;
+      document.querySelector('link[rel="canonical"]').href = deUrl;
+      document.querySelector('meta[property="og:url"]').content = deUrl;
+      document.querySelector('meta[property="og:title"]').content = title;
+      document.querySelector('meta[property="og:description"]').content = description;
+      document.querySelector('link[hreflang="fr-LU"]').href = frUrl;
+      document.querySelector('link[hreflang="de-LU"]').href = deUrl;
+      document.querySelector('link[hreflang="x-default"]').href = frUrl;
     }
 
     function renderPageText() {
@@ -2210,12 +2277,12 @@ function renderFooter() {
       document.getElementById("lang-de").setAttribute("aria-pressed", "true");
     }
 
-    document.getElementById("lang-fr").addEventListener("click", () => {
-      window.location.href = "/realisations/";
+       document.getElementById("lang-fr").addEventListener("click", () => {
+      window.location.href = viewPath("fr");
     });
 
     document.getElementById("lang-de").addEventListener("click", () => {
-      window.location.href = "/referenzen/";
+      window.location.href = viewPath("de");
     });
 
     mobileButton.addEventListener("click", () => {
@@ -2243,21 +2310,9 @@ function renderFooter() {
   renderNavigation();
   updateSEO();
 
-  // Récupérer la catégorie demandée dans l'URL
-  const params = new URLSearchParams(window.location.search);
-  const categoryId = params.get("categorie");
-
-  // Ouvrir directement la catégorie si elle existe
-  const categoryExists = allCategories().some(
-    category => category.id === categoryId
-  );
-
-  if (categoryExists) {
-    openReferenceCategory(categoryId);
-  } else {
-    showView("references");
-  }
-})
+    routeFromLocation();
+  window.addEventListener("popstate", routeFromLocation);
+        
       .catch(error => {
         console.error(error);
 
