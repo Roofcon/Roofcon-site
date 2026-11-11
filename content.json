@@ -506,6 +506,7 @@
     "items": [
       {
         "id": "facades",
+        "slug": { "fr": "facades-ventilees", "de": "hinterlueftete-fassaden" },
         "title": {
           "fr": "Façades ventilées",
           "de": "Hinterlüftete Fassaden"
@@ -514,6 +515,7 @@
         "projects": [
           {
             "id": "project-1794387077637",
+            "slug": "roetgen",
             "title": {
               "fr": "Façade ventilée à  Roetgen",
               "de": "Hinterlüftete Fassade mit  Roetgen"
@@ -537,6 +539,7 @@
       },
       {
         "id": "toitures",
+        "slug": { "fr": "toitures-plates", "de": "flachdaecher" },
         "title": {
           "fr": "Toitures plates",
           "de": "Flachdächer"
@@ -546,6 +549,7 @@
       },
       {
         "id": "charpentes",
+        "slug": { "fr": "charpentes", "de": "dachstuhlbau" },
         "title": {
           "fr": "Charpentes",
           "de": "Holzkonstruktionen"
@@ -555,6 +559,7 @@
       },
       {
         "id": "couvertures",
+        "slug": { "fr": "couvertures", "de": "dachdeckungen" },
         "title": {
           "fr": "Couvertures",
           "de": "Dachdeckungen"
@@ -564,6 +569,7 @@
       },
       {
         "id": "maisons",
+        "slug": { "fr": "maisons-annexes-ossature-bois", "de": "holzhaeuser-anbauten" },
         "title": {
           "fr": "Ossatures bois & petites constructions",
           "de": "Holzrahmenbau & Kleinbauten"
