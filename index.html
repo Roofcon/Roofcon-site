@@ -601,14 +601,27 @@ h1 span{
   max-width:1000px;
 }
 
-/* CARTE DES CHANTIERS SUR LA PAGE D'ACCUEIL */
+/* =================================
+   CARTE DES CHANTIERS — PLEINE LARGEUR
+================================= */
+
 .home-map-section {
-  width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100vw;
+  max-width: none;
+
   margin: 70px 0 90px;
+  box-sizing: border-box;
 }
 
+/* TITRE DE LA CARTE */
+
 .home-map-heading {
-  margin-bottom: 20px;
+  width: min(1400px, 92%);
+  margin: 0 auto 25px;
 }
 
 .home-map-heading p {
@@ -618,20 +631,38 @@ h1 span{
   line-height: 1.6;
 }
 
+/* CARTE LEAFLET */
+
 .home-map-section .chantier-map {
+  display: block;
   width: 100%;
-  height: 420px;
-  border-radius: 12px;
+  height: clamp(550px, 75vh, 850px);
+
+  border-radius: 0;
   overflow: hidden;
 }
 
-@media (max-width: 768px) {
+/* TABLETTE */
+
+@media (max-width: 900px) {
+  .home-map-section .chantier-map {
+    height: 600px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
   .home-map-section {
     margin: 45px 0 60px;
   }
 
+  .home-map-heading {
+    width: 90%;
+  }
+
   .home-map-section .chantier-map {
-    height: 300px;
+    height: 480px;
   }
 }
   
