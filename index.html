@@ -2461,42 +2461,39 @@ footer .container {
   background: #f5f1ed;
 }
 
-  /* RÉALISATIONS — GRILLE 3 + 2 */
+ /* RÉALISATIONS — DISPOSITION 3 + 2 */
 
 #accueil .home-references-grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
   gap: 18px;
   width: 100%;
 }
 
 #accueil .home-references-grid > * {
-  grid-column: span 4;
+  grid-column: span 2 !important;
+  width: 100%;
   min-width: 0;
 }
 
 #accueil .home-references-grid > *:nth-child(4),
 #accueil .home-references-grid > *:nth-child(5) {
-  grid-column: span 6;
+  grid-column: span 3 !important;
 }
 
 @media (max-width: 1000px) {
   #accueil .home-references-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 
   #accueil .home-references-grid > * {
-    grid-column: span 1;
+    grid-column: span 1 !important;
   }
 }
 
 @media (max-width: 650px) {
   #accueil .home-references-grid {
-    grid-template-columns: 1fr;
-  }
-
-  #accueil .home-references-grid > * {
-    grid-column: 1;
+    grid-template-columns: 1fr !important;
   }
 }
   
