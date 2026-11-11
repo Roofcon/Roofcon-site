@@ -2299,7 +2299,7 @@ function renderFooter() {
         }
         return response.json();
       })
-      .then(data => {
+.then(data => {
   CONTENT = data;
 
   renderPageText();
@@ -2310,10 +2310,10 @@ function renderFooter() {
   renderNavigation();
   updateSEO();
 
-    routeFromLocation();
+  routeFromLocation();
   window.addEventListener("popstate", routeFromLocation);
-        
-      .catch(error => {
+})
+.catch(error => {
         console.error(error);
 
         document.getElementById("refs-title").textContent =
