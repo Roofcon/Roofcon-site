@@ -2534,14 +2534,12 @@ function setLanguage(lang) {
   history.replaceState({}, "", "/realisations/");
 }
 
-    document.getElementById("lang-fr").addEventListener("click", () => {
-      if (LANG !== "fr") {
-        window.location.href = "/realisations/";
-      }
+        document.getElementById("lang-fr").addEventListener("click", () => {
+      window.location.href = viewPath("fr");
     });
 
     document.getElementById("lang-de").addEventListener("click", () => {
-      window.location.href = "/referenzen/";
+      window.location.href = viewPath("de");
     });
 
     mobileButton.addEventListener("click", () => {
