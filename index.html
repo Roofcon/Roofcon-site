@@ -1570,26 +1570,40 @@ footer .container {
 
 
 /* =========================================================
-   PROJETS EN COURS — ALIGNEMENT SUR RÉALISATIONS
+   PROJETS EN COURS — FOND PLEINE LARGEUR ET CONTENU CENTRÉ
 ========================================================= */
 
 .home-current-preview {
-  background: transparent;
   position: relative;
+  isolation: isolate;
+  left: auto;
+  transform: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 70px 3%;
+  background: transparent;
+}
+
+.home-current-preview::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
   left: 50%;
   width: 100vw;
   transform: translateX(-50%);
-  padding-left: max(3%, calc((100vw - 1400px) / 2));
-  padding-right: max(3%, calc((100vw - 1400px) / 2));
+  background: #ebe4dd;
+}
+
+.home-current-preview .home-preview-head,
+.home-current-preview .home-current-grid {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
   box-sizing: border-box;
 }
-
-.home-current-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:16px;
-}
-
 .home-current-card{
   min-height:360px;
   position:relative;
