@@ -2585,10 +2585,10 @@ function setLanguage(lang) {
   renderNavigation();
   updateSEO();
 
-    routeFromLocation();
+  routeFromLocation();
   window.addEventListener("popstate", routeFromLocation);
-
-      .catch(error => {
+})
+.catch(error => {
         console.error(error);
 
         document.getElementById("refs-title").textContent =
