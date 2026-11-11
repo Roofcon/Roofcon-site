@@ -1492,16 +1492,16 @@ function initChantierMap(){
             t(project.title) ||
             'Réalisation ROOFCON';
 
-          marker.bindPopup(`
-            <strong>${esc(title)}</strong>
-            <br>
-            <button
-              type="button"
-              onclick="openMapProject('${category.id}','${project.slug || project.id}')"')"
-              style="margin-top:8px; cursor:pointer;">
-              Voir la réalisation
-            </button>
-          `);
+         marker.bindPopup(`
+  <strong>${esc(title)}</strong>
+  <br>
+  <button
+    type="button"
+    onclick="openMapProject('${category.id}','${project.slug || project.id}')"
+    style="margin-top:8px; cursor:pointer;">
+    ${LANG === 'de' ? 'Die Umsetzung ansehen' : 'Voir la réalisation'}
+  </button>
+`);
 
           positions.push([
             lat,
