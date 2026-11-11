@@ -2609,44 +2609,83 @@ footer .container {
   }
 }
 
- /* PROJETS EN COURS — AFFICHAGE SANS BANDES NOIRES */
+/* PROJETS EN COURS — CARTES HORIZONTALES */
+
+#accueil .home-current-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+}
 
 #accueil .home-current-card {
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
-  height: auto;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  align-items: center;
+  gap: 20px;
+
+  min-height: 300px;
+  padding: 14px;
+
+  background: #fff;
+  border: 1px solid #e5dfda;
+  box-shadow: 0 8px 25px rgba(0,0,0,.06);
+
   overflow: hidden;
-  background: #eeeeee;
 }
+
+/* IMAGE */
 
 #accueil .home-current-card-image {
   display: block;
   width: 100%;
-  height: auto;
-  max-height: 390px;
+  height: 270px;
+
   object-fit: contain;
   object-position: center;
-  background: #eeeeee;
+
+  background: #f5f2ee;
 }
 
-/* Suppression du dégradé sombre */
+/* SUPPRESSION DU DÉGRADÉ */
 
 #accueil .home-current-card-overlay {
   display: none !important;
 }
 
-/* Titre sous l'image */
+/* TITRE */
 
 #accueil .home-current-card-content {
-  position: relative;
-  padding: 16px 20px;
-  background: #C6BDA9;
+  position: static;
+  padding: 12px;
+  background: transparent;
+  text-align: center;
 }
 
 #accueil .home-current-card-content h3 {
   margin: 0;
-  color: #30241e;
+  color: #211f20;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  #accueil .home-current-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  #accueil .home-current-card {
+    grid-template-columns: 1fr;
+  }
+
+  #accueil .home-current-card-image {
+    height: 230px;
+  }
 }
   
 </style>
