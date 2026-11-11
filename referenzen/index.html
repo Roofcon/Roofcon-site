@@ -1959,8 +1959,7 @@ body .project-detail-content h2 {
           <div class="ref-overlay"></div>
           <div class="ref-content">
             <p class="ref-category">${escapeHTML(localized(category.title))}</p>
-            <h3><a class="ref-link" href="${escapeHTML(projectURL(category, project))}">${escapeHTML(title)}</a></h3>
-            ${description ? `<p>${escapeHTML(description)}</p>` : ""}
+          <h3><a class="ref-link" href="${escapeHTML(projectURL(category, project))}">${escapeHTML(title)}</a></h3>
           </div>
         </article>
       `;
