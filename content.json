@@ -511,7 +511,29 @@
           "de": "Hinterlüftete Fassaden"
         },
         "image": "images/realisations/facades-cover-1794313106667.png",
-        "projects": []
+        "projects": [
+          {
+            "id": "project-1794387077637",
+            "title": {
+              "fr": "Façade ventilée à  Roetgen",
+              "de": "Hinterlüftete Fassade mit  Roetgen"
+            },
+            "description": {
+              "fr": "Façade ventilée en bardage bois à lames verticales, associée à des allèges en Trespa anthracite et à de grandes baies vitrées. ",
+              "de": "Hinterlüftete Fassade aus vertikaler Holzverkleidung, kombiniert mit Brüstungen aus anthrazitfarbenem Trespa und großen Fensterfronten. "
+            },
+            "image": "images/realisations/project-1794387077637-1794387290720-q9cnfm.png",
+            "images": [
+              "images/realisations/project-1794387077637-1794387290720-q9cnfm.png",
+              "images/realisations/project-1794387077637-1794387301687-83ax4i.jpg",
+              "images/realisations/project-1794387077637-1794387304753-foe6tb.jpg",
+              "images/realisations/project-1794387077637-1794387312107-m03buj.png"
+            ],
+            "latitude": 50.6471603,
+            "longitude": 6.1967728,
+            "address": "Roetgen allemagne"
+          }
+        ]
       },
       {
         "id": "toitures",
