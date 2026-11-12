@@ -330,9 +330,37 @@ header {
 
     .who-layout {
       display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+      gap: 80px;
+      align-items: start;
+    }
+
+    .who-layout.no-media {
       grid-template-columns: minmax(0, 1fr);
       max-width: 900px;
-      margin: 0 auto;
+    }
+
+    .who-media {
+      position: sticky;
+      top: 130px;
+      margin: 0 24px 24px 0;
+      isolation: isolate;
+    }
+
+    .who-media::before {
+      content: "";
+      position: absolute;
+      inset: 24px -24px -24px 24px;
+      border: 2px solid var(--brown2);
+      z-index: -1;
+    }
+
+    .who-media img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: var(--cream);
     }
 
     .kicker {
@@ -406,6 +434,64 @@ header {
       margin-top: 12px;
     }
 
+    .who-content .objective {
+      border-left: 3px solid var(--brown);
+      padding-left: 22px;
+    }
+
+    @media (max-width: 900px) {
+      .who-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 50px;
+      }
+
+      .who-media {
+        position: relative;
+        top: 0;
+        max-width: 520px;
+      }
+    }
+
+
+    /* BANDE CONTACT */
+
+    .cta-band {
+      background: var(--black);
+      color: #fff;
+      padding: 80px 0;
+    }
+
+    .cta-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 50px;
+      align-items: center;
+    }
+
+    .cta-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -.02em;
+      margin: 0;
+    }
+
+    .cta-text {
+      color: #c9c2bc;
+      font-size: 16px;
+      margin: 0 0 24px;
+    }
+
+    @media (max-width: 750px) {
+      .cta-band {
+        padding: 60px 0;
+      }
+
+      .cta-inner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
 
     /* NOTRE MÉTHODE (5 ÉTAPES) */
 
@@ -415,8 +501,7 @@ header {
     }
 
     .process-head {
-      max-width: 900px;
-      margin: 0 auto 45px;
+      margin: 0 0 45px;
     }
 
     .process-title {
@@ -845,7 +930,9 @@ footer .container {
   <main>
     <section class="who-section" id="who">
       <div class="container">
-        <div class="who-layout">
+        <div class="who-layout no-media" id="who-layout">
+
+          <div class="who-text">
 
           <div class="head">
             <div class="kicker" id="who-kicker"></div>
@@ -868,6 +955,12 @@ footer .container {
                id="who-hallcon"></a>
           </div>
 
+          </div>
+
+          <figure class="who-media" id="who-media" hidden>
+            <img id="who-image" src="" alt="" loading="lazy">
+          </figure>
+
         </div>
       </div>
     </section>
@@ -881,6 +974,18 @@ footer .container {
           <h2 class="process-title" id="process-title"></h2>
         </div>
         <ol class="process-steps" id="process-steps"></ol>
+      </div>
+    </section>
+
+    <!-- BANDE CONTACT -->
+
+    <section class="cta-band" id="cta-band" hidden>
+      <div class="container cta-inner">
+        <h2 class="cta-title" id="cta-title"></h2>
+        <div>
+          <p class="cta-text" id="cta-text"></p>
+          <a href="/contact/" class="btn primary" id="cta-button"></a>
+        </div>
       </div>
     </section>
   </main>
@@ -1041,6 +1146,54 @@ footer .container {
       });
 
       processSection.hidden = false;
+    }
+
+
+    /* =========================
+       PHOTO QUI SOMMES-NOUS
+    ========================= */
+
+    const imagePath = who.image || (CONTENT.hero && CONTENT.hero.image);
+    const whoLayout = document.getElementById("who-layout");
+    const whoMedia = document.getElementById("who-media");
+    const whoImage = document.getElementById("who-image");
+
+    if (imagePath && whoLayout && whoMedia && whoImage) {
+
+      const src = /^(https?:)?\//.test(imagePath)
+        ? imagePath
+        : "/" + imagePath;
+
+      if (whoImage.getAttribute("src") !== src) {
+        whoImage.src = src;
+      }
+
+      whoImage.alt = LANG === "fr"
+        ? "L’équipe ROOFCON sur chantier"
+        : "Das ROOFCON-Team auf der Baustelle";
+
+      whoMedia.hidden = false;
+      whoLayout.classList.remove("no-media");
+    }
+
+
+    /* =========================
+       BANDE CONTACT
+    ========================= */
+
+    const contact = CONTENT.contact;
+    const ctaBand = document.getElementById("cta-band");
+    const ctaButton = document.getElementById("cta-button");
+
+    if (contact && ctaBand && ctaButton) {
+
+      setText("cta-title", localized(contact.title));
+      setText("cta-text", localized(contact.intro));
+      setText("cta-button", localized(contact.button));
+
+      ctaButton.href = LANG === "fr" ? "/contact/" : "/kontakt/";
+
+      ctaBand.hidden = false;
     }
 
 
