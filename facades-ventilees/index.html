@@ -35,7 +35,7 @@
   >
 
   <meta property="og:url" content="https://roof-con.com/facades-ventilees/">
-  <meta property="og:image" content="https://roof-con.com/ROOFCON.png">
+  <meta property="og:image" content="https://roof-con.com/images/poles/facades-1794313089573.png">
 
   <meta name="theme-color" content="#211f20">
 
@@ -67,17 +67,29 @@
   }
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://roof-con.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Nos services", "item": "https://roof-con.com/services/" },
+      { "@type": "ListItem", "position": 3, "name": "Façades ventilées", "item": "https://roof-con.com/facades-ventilees/" }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --black: #211f20;
-      --black-soft: #292625;
+      --black-soft: #2c2826;
       --brown: #a27b5b;
-      --brown-light: #c3a080;
+      --brown2: #c3a080;
       --cream: #f5f2ee;
       --white: #ffffff;
       --gray: #706b67;
+      --text: #514c49;
       --line: #e5dfda;
-      --container: 1180px;
     }
 
     * {
@@ -103,9 +115,10 @@
       text-decoration: none;
     }
 
-    a:focus-visible {
+    a:focus-visible,
+    button:focus-visible {
       outline: 2px solid var(--brown);
-      outline-offset: 5px;
+      outline-offset: 4px;
     }
 
     img {
@@ -113,277 +126,295 @@
       height: auto;
     }
 
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.12;
+    }
+
     .container {
-      width: min(var(--container), 92%);
+      width: min(1180px, 92%);
       margin: 0 auto;
     }
 
-    .topbar {
-      padding: 8px 0;
+
+    /* =========================
+       BARRE SUPÉRIEURE
+    ========================= */
+
+    .top {
       background: var(--black);
-      color: #e8e1db;
-      font-size: 12px;
-      letter-spacing: 0.08em;
+      color: #ddd;
+      font-size: 14px;
+      padding: 8px 0;
     }
 
-    .topbar-inner {
+    .top-inner {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      gap: 16px;
+      gap: 15px;
     }
 
-    .topbar a:hover {
-      color: var(--brown-light);
+    .top-contact {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      white-space: nowrap;
     }
 
-    .header {
+    .top-social {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      transition: color .2s ease;
+    }
+
+    .top-social svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    .top a:hover {
+      color: var(--brown2);
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(255, 255, 255, 0.97);
-      border-bottom: 1px solid rgba(33, 31, 32, 0.08);
-      backdrop-filter: blur(12px);
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
     }
 
-    .header-inner {
-      min-height: 88px;
+    .nav {
+      min-height: 82px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 30px;
+      gap: 35px;
     }
 
-    .logo {
-      display: inline-flex;
+    .nav-logo {
+      display: flex;
       align-items: center;
       flex-shrink: 0;
     }
 
-    .logo img {
+    .nav-logo img {
       display: block;
-      width: 174px;
-      max-height: 66px;
-      object-fit: contain;
+      width: 175px;
+      height: auto;
     }
 
-    .nav {
+    .menu {
       display: flex;
       align-items: center;
       justify-content: flex-end;
       gap: 28px;
+      margin-left: auto;
+      font-size: 13px;
+      font-weight: 600;
     }
 
-    .nav a {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      transition: color 0.2s ease;
+    .menu a {
+      position: relative;
+      color: var(--black);
+      white-space: nowrap;
+      transition: color .2s ease;
     }
 
-    .nav a:hover {
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 1px;
+      background: var(--brown);
+      transition: width .2s ease;
+    }
+
+    .menu a:hover,
+    .menu a.current {
       color: var(--brown);
     }
 
-    .lang-switch {
-      border: 1px solid var(--line);
-      background: transparent;
-      color: var(--black);
-      padding: 7px 9px;
-      font-family: inherit;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease;
+    .menu a:hover::after,
+    .menu a.current::after {
+      width: 100%;
     }
 
-    .lang-switch:hover,
-    .lang-switch.active {
-      background: var(--black);
-      color: var(--white);
-      border-color: var(--black);
-    }
-
-    .nav .nav-cta {
-      padding: 12px 18px;
-      background: var(--black);
-      color: var(--white);
-      transition: background 0.2s ease;
-    }
-
-    .nav .nav-cta:hover {
+    .menu .cta {
       background: var(--brown);
-      color: var(--white);
+      color: #fff;
+      padding: 11px 18px;
     }
 
-    .hero {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-      color: var(--white);
-      background:
-        radial-gradient(
-          ellipse at 85% 25%,
-          rgba(162, 123, 91, 0.23),
-          transparent 42%
-        ),
-        linear-gradient(115deg, #211f20 0%, #302b28 100%);
+    .menu .cta::after {
+      display: none;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: -15%;
-      right: -8%;
-      width: 49%;
-      height: 135%;
-      opacity: 0.42;
-      transform: skewX(-13deg);
-      background: repeating-linear-gradient(
-        90deg,
-        transparent 0,
-        transparent 28px,
-        rgba(255, 255, 255, 0.12) 29px,
-        rgba(255, 255, 255, 0.12) 31px
-      );
-      border-left: 1px solid rgba(255, 255, 255, 0.18);
+    .menu .cta:hover {
+      background: var(--black);
+      color: #fff;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      right: 8%;
-      width: 1px;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.14);
-    }
-
-    .hero-content {
-      max-width: 780px;
-      padding: 112px 0 120px;
-    }
-
-    .eyebrow {
+    .lang {
       display: flex;
       align-items: center;
-      gap: 13px;
-      margin: 0 0 24px;
-      color: var(--brown-light);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      gap: 4px;
+      flex-shrink: 0;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 35px;
-      height: 1px;
-      background: currentColor;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.15;
-      font-weight: 500;
-    }
-
-    h1 {
-      max-width: 800px;
-      margin-bottom: 28px;
-      font-size: clamp(42px, 6vw, 76px);
-      letter-spacing: -0.045em;
-    }
-
-    h1 span {
-      color: var(--brown-light);
-    }
-
-    .hero-intro {
-      max-width: 630px;
-      margin-bottom: 35px;
-      color: #e1dcd8;
-      font-size: 17px;
-      line-height: 1.9;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px;
-    }
-
-    .button {
+    .lang a {
       display: inline-flex;
-      min-height: 50px;
       align-items: center;
       justify-content: center;
-      padding: 13px 22px;
-      border: 1px solid transparent;
+      min-width: 34px;
+      height: 30px;
+      padding: 0 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--black);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.09em;
-      text-align: center;
-      text-transform: uppercase;
-      transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
     }
 
-    .button-primary {
+    .lang a:hover {
+      border-color: var(--brown);
+      color: var(--brown);
+    }
+
+    .lang a.active {
       background: var(--brown);
-      color: var(--white);
+      border-color: var(--brown);
+      color: #fff;
     }
 
-    .button-primary:hover {
-      background: var(--brown-light);
-      color: var(--black);
+    .mobile-menu-button {
+      display: none;
     }
 
-    .button-outline {
-      border-color: rgba(255, 255, 255, 0.45);
-      color: var(--white);
+    @media (max-width: 1100px) {
+      .nav {
+        gap: 22px;
+      }
+
+      .menu {
+        gap: 18px;
+        font-size: 12px;
+      }
+
+      .nav-logo img {
+        width: 165px;
+      }
     }
 
-    .button-outline:hover {
-      border-color: var(--white);
-      background: var(--white);
-      color: var(--black);
+    @media (max-width: 750px) {
+      .top {
+        display: none;
+      }
+
+      .nav {
+        min-height: 74px;
+        position: relative;
+        gap: 0;
+      }
+
+      .nav-logo img {
+        width: 145px;
+      }
+
+      .lang {
+        margin-left: auto;
+        margin-right: 10px;
+      }
+
+      .mobile-menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--black);
+        cursor: pointer;
+        font-size: 25px;
+        line-height: 1;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        padding: 8px 0;
+        background: #fff;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
+      }
+
+      .menu.mobile-open {
+        display: flex;
+      }
+
+      .menu a {
+        display: block;
+        width: 100%;
+        padding: 15px 24px;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+      }
+
+      .menu a::after {
+        display: none;
+      }
+
+      .menu a:last-child {
+        border-bottom: 0;
+      }
+
+      .menu .cta {
+        margin: 10px 16px;
+        width: auto;
+        text-align: center;
+      }
     }
 
-    .intro-section {
-      padding: 105px 0;
-    }
 
-    .two-columns {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 85px;
-      align-items: start;
-    }
+    /* =========================
+       ÉLÉMENTS COMMUNS
+    ========================= */
 
     .section-label {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 23px;
+      margin: 0 0 20px;
       color: var(--brown);
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
+      font-weight: 800;
+      letter-spacing: .18em;
       text-transform: uppercase;
     }
 
@@ -395,28 +426,215 @@
     }
 
     h2 {
-      margin-bottom: 25px;
-      font-size: clamp(32px, 4vw, 49px);
-      letter-spacing: -0.035em;
+      margin-bottom: 24px;
+      font-size: clamp(30px, 3.8vw, 46px);
+      letter-spacing: -.03em;
     }
 
-    h2 span {
-      color: var(--brown);
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .lead {
-      color: var(--gray);
-      font-size: 18px;
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .button-primary {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .button-primary:hover {
+      background: var(--brown2);
+      color: var(--black);
+    }
+
+    .button-outline {
+      border-color: rgba(255, 255, 255, .4);
+      color: var(--white);
+    }
+
+    .button-outline:hover {
+      border-color: var(--white);
+      background: var(--white);
+      color: var(--black);
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+      gap: 70px;
+      align-items: center;
+      padding: 70px 0 90px;
+    }
+
+    .breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 40px;
+      padding: 0;
+      list-style: none;
+      color: #9d958f;
+      font-size: 12px;
+    }
+
+    .breadcrumb li + li::before {
+      content: "›";
+      margin-right: 8px;
+      color: #6e6762;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--brown2);
+    }
+
+    .breadcrumb [aria-current] {
+      color: var(--brown2);
+    }
+
+    .hero .section-label {
+      color: var(--brown2);
+    }
+
+    h1 {
+      margin-bottom: 28px;
+      font-size: clamp(40px, 5.4vw, 68px);
+      letter-spacing: -.04em;
+    }
+
+    h1 span + br + span {
+      color: var(--brown2);
+    }
+
+    .hero-intro {
+      max-width: 600px;
+      margin-bottom: 18px;
+      color: #d9d3ce;
+      font-size: 16px;
       line-height: 1.85;
     }
 
-    .body-copy {
-      color: var(--gray);
+    .hero .button-row {
+      margin-top: 34px;
+    }
+
+    .hero-media {
+      position: relative;
+      margin: 0 24px 24px 0;
+      isolation: isolate;
+    }
+
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      inset: 24px -24px -24px 24px;
+      border: 2px solid var(--brown);
+      z-index: -1;
+    }
+
+    .hero-media img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: var(--black-soft);
+    }
+
+
+    /* =========================
+       COMPRENDRE LE PRINCIPE
+    ========================= */
+
+    .intro-section {
+      padding: 110px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 80px;
+      align-items: start;
+    }
+
+    .lead {
+      color: var(--black);
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    .body-copy p {
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.9;
     }
 
     .body-copy p:last-child {
       margin-bottom: 0;
     }
+
+    .diagram {
+      position: sticky;
+      top: 120px;
+      margin: 0;
+      padding: 30px;
+      background: var(--cream);
+    }
+
+    .diagram svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .diagram figcaption {
+      margin-top: 14px;
+      color: var(--gray);
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+
+    .d-wall { fill: #d9d1ca; }
+    .d-hatch { stroke: #b9aea5; stroke-width: 1.2; }
+    .d-insul { fill: #ead9c6; }
+    .d-wave { fill: none; stroke: var(--brown2); stroke-width: 1.4; }
+    .d-gap { fill: #fff; }
+    .d-batten { fill: var(--brown); }
+    .d-bracket { fill: #8a8079; }
+    .d-cladding { fill: var(--black); }
+    .d-joint { stroke: #4a4543; stroke-width: 1; }
+    .d-air { fill: none; stroke: var(--brown); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .d-leader { stroke: var(--black); stroke-width: 1; }
+    .d-dot { fill: var(--black); }
+    .d-label { fill: var(--black); font: 700 14px Arial, Helvetica, sans-serif; }
+    .d-small { fill: var(--gray); font: 11px Arial, Helvetica, sans-serif; letter-spacing: .06em; }
+
+
+    /* =========================
+       POINTS ESSENTIELS
+    ========================= */
 
     .detail-section {
       padding: 100px 0;
@@ -425,65 +643,79 @@
 
     .section-heading {
       max-width: 760px;
-      margin: 0 auto 55px;
-      text-align: center;
-    }
-
-    .section-heading .section-label {
-      justify-content: center;
+      margin: 0 0 55px;
     }
 
     .section-heading > p:last-child {
+      margin-bottom: 0;
       color: var(--gray);
+      font-size: 17px;
     }
 
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      gap: 4px;
     }
 
     .feature-card {
-      min-height: 250px;
-      padding: 30px;
-      border: 1px solid var(--line);
+      padding: 34px 30px;
       background: var(--white);
+      border-top: 3px solid transparent;
+      transition: border-color .2s ease;
     }
 
-    .feature-number {
-      display: block;
-      margin-bottom: 28px;
+    .feature-card:hover {
+      border-top-color: var(--brown);
+    }
+
+    .feature-tag {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 4px 10px;
+      background: var(--cream);
       color: var(--brown);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
     }
 
     .feature-card h3 {
-      margin-bottom: 15px;
-      font-size: 23px;
+      margin-bottom: 12px;
+      font-size: 20px;
     }
 
     .feature-card p {
       margin-bottom: 0;
       color: var(--gray);
       font-size: 14px;
+      line-height: 1.7;
     }
 
+
+    /* =========================
+       NOTRE APPROCHE
+    ========================= */
+
     .method-section {
-      padding: 105px 0;
+      padding: 110px 0;
     }
 
     .method-layout {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
+      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
       gap: 90px;
       align-items: start;
     }
 
     .method-intro {
       position: sticky;
-      top: 125px;
+      top: 120px;
+    }
+
+    .method-intro > p:not(.section-label) {
+      color: var(--text);
+      margin-bottom: 32px;
     }
 
     .method-list {
@@ -492,60 +724,121 @@
 
     .method-item {
       display: grid;
-      grid-template-columns: 48px 1fr;
+      grid-template-columns: 70px 1fr;
       gap: 20px;
-      padding: 27px 0;
+      padding: 30px 0;
       border-bottom: 1px solid var(--line);
     }
 
     .method-item .number {
-      color: var(--brown);
-      font-size: 13px;
+      color: var(--brown2);
+      font-size: 34px;
       font-weight: 700;
+      line-height: 1;
     }
 
     .method-item h3 {
-      margin-bottom: 9px;
-      font-size: 21px;
+      margin-bottom: 8px;
+      font-size: 20px;
     }
 
     .method-item p {
       margin-bottom: 0;
       color: var(--gray);
-      font-size: 14px;
+      font-size: 15px;
     }
 
+
+    /* =========================
+       RÉALISATIONS
+    ========================= */
+
+    .projects-section {
+      padding: 0 0 110px;
+    }
+
+    .projects-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .projects-head h2 {
+      margin-bottom: 0;
+    }
+
+    .link-arrow {
+      color: var(--brown);
+      font-weight: 800;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .link-arrow:hover {
+      color: var(--black);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      display: block;
+      background: var(--cream);
+    }
+
+    .project-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: opacity .2s ease;
+    }
+
+    .project-card:hover img {
+      opacity: .88;
+    }
+
+    .project-body {
+      padding: 22px 24px 26px;
+    }
+
+    .project-body h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .project-body p {
+      margin-bottom: 0;
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+
+    /* =========================
+       BANDE CONTACT
+    ========================= */
+
     .cta-section {
-      position: relative;
-      overflow: hidden;
-      padding: 86px 0;
+      padding: 90px 0;
       background: var(--black);
       color: var(--white);
     }
 
-    .cta-section::after {
-      content: "";
-      position: absolute;
-      top: -90px;
-      right: -60px;
-      width: 340px;
-      height: 500px;
-      transform: rotate(25deg);
-      border: 1px solid rgba(195, 160, 128, 0.22);
-      pointer-events: none;
-    }
-
     .cta-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr);
+      gap: 60px;
       align-items: center;
-      justify-content: space-between;
-      gap: 40px;
     }
 
-    .cta-copy {
-      max-width: 720px;
+    .cta-section .section-label {
+      color: var(--brown2);
     }
 
     .cta-copy h2 {
@@ -561,152 +854,103 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 13px;
-      flex-shrink: 0;
+      gap: 12px;
     }
 
     .cta-phone {
       color: #e7d5c4;
-      font-size: 14px;
+      font-size: 15px;
     }
 
-    .footer {
-      padding: 34px 0;
-      background: #181717;
-      color: #d8d2cd;
+    .cta-phone:hover {
+      color: var(--white);
     }
 
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+
+    /* =========================
+       AUTRES SERVICES
+    ========================= */
+
+    .others-section {
+      padding: 90px 0 100px;
+      background: var(--cream);
+    }
+
+    .others-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
     }
 
-    .footer-logo {
-      display: inline-flex;
-      align-items: center;
+    .other-card {
+      display: block;
+      background: var(--white);
     }
 
-   .footer-logo img {
-  display: block;
-  width: 135px;
-  max-height: 55px;
-  object-fit: contain;
-}
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      font-size: 12px;
-    }
-
-    .footer-links a:hover {
-      color: var(--brown-light);
-    }
-
-    .copyright {
+    .other-card img {
+      display: block;
       width: 100%;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      color: #aaa39d;
-      font-size: 11px;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      background: var(--line);
     }
 
-    @media (max-width: 900px) {
-      .header-inner {
-        min-height: 76px;
+    .other-card span {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 18px 20px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    .other-card span::after {
+      content: "→";
+      color: var(--brown);
+    }
+
+    .other-card:hover span {
+      color: var(--brown);
+    }
+
+
+    /* =========================
+       RESPONSIVE CONTENU
+    ========================= */
+
+    @media (max-width: 1000px) {
+      .hero-grid,
+      .intro-grid,
+      .method-layout,
+      .cta-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 45px;
       }
 
-      .logo img {
-        width: 145px;
+      .hero-media {
+        max-width: 520px;
       }
 
-      .nav {
-        gap: 16px;
-      }
-
-      .nav a {
-        font-size: 10px;
-      }
-
-      .two-columns,
-      .method-layout {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
+      .diagram,
       .method-intro {
         position: static;
       }
 
-      .feature-grid {
+      .feature-grid,
+      .projects-grid,
+      .others-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .cta-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .cta-actions {
-        flex-direction: row;
-        align-items: center;
-        flex-wrap: wrap;
       }
     }
 
     @media (max-width: 600px) {
-      .topbar-inner {
-        justify-content: center;
-        text-align: center;
+      .hero-grid {
+        padding: 45px 0 70px;
       }
 
-      .topbar-location {
-        display: none;
-      }
-
-      .header-inner {
-        min-height: auto;
-        padding: 14px 0;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      .logo img {
-        width: 135px;
-      }
-
-      .nav {
-        width: 100%;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 12px 18px;
-      }
-
-      .nav a {
-        font-size: 10px;
-      }
-
-      .nav .nav-cta {
-        padding: 8px 11px;
-      }
-
-      .hero-content {
-        padding: 76px 0 85px;
-      }
-
-      .hero::before {
-        right: -25%;
-        width: 75%;
-        opacity: 0.25;
-      }
-
-      h1 {
-        font-size: clamp(39px, 11vw, 56px);
+      .breadcrumb ol {
+        margin-bottom: 28px;
       }
 
       .hero-intro {
@@ -714,48 +958,172 @@
       }
 
       .intro-section,
-      .method-section {
-        padding: 75px 0;
-      }
-
+      .method-section,
       .detail-section {
-        padding: 75px 0;
-      }
-
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .feature-card {
-        min-height: auto;
-        padding: 25px;
-      }
-
-      .section-heading {
-        margin-bottom: 35px;
-      }
-
-      .method-item {
-        grid-template-columns: 32px 1fr;
-        gap: 14px;
-      }
-
-      .cta-section {
         padding: 70px 0;
       }
 
-      .cta-actions {
+      .projects-section {
+        padding-bottom: 70px;
+      }
+
+      .diagram {
+        padding: 18px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
+      .feature-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .method-item {
+        grid-template-columns: 48px 1fr;
+        gap: 14px;
+      }
+
+      .method-item .number {
+        font-size: 26px;
+      }
+
+      .cta-section,
+      .others-section {
+        padding: 70px 0;
+      }
+
+      .others-grid {
+        gap: 12px;
+      }
+
+      .other-card span {
+        padding: 14px;
+        font-size: 13px;
+      }
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #211f20;
+      color: #aaa29c;
+      padding: 25px 0 14px;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
+      align-items: start;
+      gap: 28px;
+    }
+
+    .footer-logo {
+      display: block;
+      width: 125px;
+      max-width: 100%;
+      height: auto;
+      background: #fff;
+      padding: 5px;
+      margin-bottom: 12px;
+    }
+
+    #footer-description {
+      max-width: 240px;
+      color: #aaa29c;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .footer-title {
+      color: var(--brown2);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 4px 0 9px;
+    }
+
+    .footer-item {
+      margin-bottom: 5px;
+      color: #aaa29c;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-item a:hover,
+    .footer-social a:hover,
+    .footer-legal a:hover {
+      color: var(--brown2);
+    }
+
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+
+    .footer-social a {
+      color: #aaa29c;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #403a37;
+      margin-top: 22px;
+      padding-top: 12px;
+      color: #827a75;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer-legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .footer-legal a {
+      color: #827a75;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .footer-bottom {
         align-items: flex-start;
         flex-direction: column;
       }
+    }
 
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
+    @media (max-width: 600px) {
+      .footer-grid {
+        gap: 22px 16px;
       }
 
-      .footer-links {
-        gap: 12px 18px;
+      .footer-logo {
+        width: 110px;
+      }
+
+      .footer-legal {
+        line-height: 1.9;
       }
     }
 
@@ -767,484 +1135,16 @@
       *,
       *::before,
       *::after {
-        transition-duration: 0.01ms !important;
+        transition-duration: .01ms !important;
       }
     }
-
-
-    
-/* BARRE SUPÉRIEURE */
-.top {
-  background: var(--black);
-  color: #ddd;
-  font-size: 14px;
-  padding: 8px 0;
-}
-
-.top-inner {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 15px;
-}
-
-.top a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.top-contact {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  white-space: nowrap;
-}
-
-.top-social {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  flex-shrink: 0;
-  font-size: 12px;
-  white-space: nowrap;
-}
-
-.top-social svg {
-  width: 16px;
-  height: 16px;
-  max-width: 16px;
-  max-height: 16px;
-  display: block;
-}
-
-.top-social:hover {
-  color: var(--brown2);
-  text-decoration: none;
-}
-
-/* HEADER */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #fff;
-  border-bottom: 1px solid var(--line);
-}
-
-.nav {
-  min-height: 82px;
-  display: flex;
-  align-items: center;
-  gap: 35px;
-}
-
-/* LOGO */
-.nav-logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.nav-logo img {
-  display: block;
-  width: 175px;
-  height: auto;
-}
-
-/* NAVIGATION */
-.menu {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 28px;
-  margin-left: auto;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.menu a {
-  position: relative;
-  color: var(--black);
-  text-decoration: none;
-  white-space: nowrap;
-  text-transform: none;
-  transition: color .2s ease;
-}
-
-.menu a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -7px;
-  width: 0;
-  height: 1px;
-  background: var(--brown);
-  transition: width .2s ease;
-}
-
-.menu a:hover {
-  color: var(--brown);
-}
-
-.menu a:hover::after {
-  width: 100%;
-}
-
-/* BOUTON CONTACT */
-.menu .cta {
-  background: var(--brown);
-  color: #fff;
-  padding: 11px 18px;
-}
-
-.menu .cta::after {
-  display: none;
-}
-
-.menu .cta:hover {
-  background: var(--black);
-  color: #fff;
-}
-
-/* LANGUES */
-.lang {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  flex-shrink: 0;
-}
-
-.lang a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 34px;
-  height: 30px;
-  padding: 0 8px;
-  border: 1px solid var(--line);
-  background: #fff;
-  color: var(--black);
-  font-size: 11px;
-  font-weight: 700;
-  transition: background .2s ease, color .2s ease, border-color .2s ease;
-}
-
-.lang a:hover {
-  border-color: var(--brown);
-  color: var(--brown);
-}
-
-.lang a.active {
-  background: var(--brown);
-  border-color: var(--brown);
-  color: #fff;
-}
-
-.lang a,
-.lang a:hover,
-.lang a:focus,
-.lang a:active,
-.lang a.active {
-  text-decoration: none !important;
-}
-
-/* MENU MOBILE */
-.mobile-menu-button {
-  display: none;
-}
-
-/* TABLETTE */
-@media (max-width: 1100px) {
-  .nav {
-    gap: 22px;
-  }
-
-  .menu {
-    gap: 18px;
-    font-size: 12px;
-  }
-
-  .nav-logo img {
-    width: 165px;
-  }
-}
-
-/* MOBILE */
-@media (max-width: 750px) {
-  header {
-    position: sticky;
-    top: 0;
-  }
-
-  .nav {
-    min-height: 74px;
-    position: relative;
-    gap: 0;
-  }
-
-  .nav-logo img {
-    width: 145px;
-  }
-
-  .lang {
-    margin-left: auto;
-    margin-right: 10px;
-  }
-
-  .mobile-menu-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border: 1px solid var(--line);
-    background: #fff;
-    color: var(--black);
-    cursor: pointer;
-    font-size: 25px;
-    line-height: 1;
-  }
-
-  .menu {
-    display: none;
-    position: absolute;
-    top: 74px;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    margin: 0;
-    background: #fff;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    box-shadow: 0 12px 30px rgba(0,0,0,.08);
-  }
-
-  .menu.mobile-open {
-    display: flex;
-  }
-
-  .menu a {
-    width: 100%;
-    padding: 15px 24px;
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
-  }
-
-  .menu a::after {
-    display: none;
-  }
-
-  .menu a:last-child {
-    border-bottom: none;
-  }
-
-  .menu .cta {
-    margin: 10px 16px;
-    width: auto;
-    text-align: center;
-  }
-}
-
-/* =========================================
-   FOOTER ROOFCON — HORIZONTAL ET ÉPURÉ
-   Tous les textes actuels sont conservés
-========================================= */
-
-footer {
-  background: #211f20;
-  color: #aaa29c;
-  padding: 25px 0 14px;
-  font-size: 12px;
-  line-height: 1.65;
-}
-
-footer .container {
-  width: min(1180px, 92%);
-  margin: auto;
-}
-
-/* ORGANISATION HORIZONTALE */
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
-  align-items: start;
-  gap: 28px;
-}
-
-/* LOGO ET DESCRIPTION */
-
-.footer-logo {
-  display: block;
-  width: 125px;
-  max-width: 100%;
-  height: auto;
-  background: #fff;
-  padding: 5px;
-  margin-bottom: 12px;
-}
-
-#footer-description {
-  max-width: 240px;
-  color: #aaa29c;
-  font-size: 11px;
-  line-height: 1.7;
-}
-
-/* TITRES */
-
-.footer-title {
-  color: #c3a080;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  margin: 4px 0 9px;
-}
-
-/* COORDONNÉES ET HORAIRES */
-
-.footer-item {
-  margin-bottom: 5px;
-  color: #aaa29c;
-  overflow-wrap: anywhere;
-}
-
-.footer-item a {
-  color: inherit;
-  text-decoration: none;
-  transition: color .2s ease;
-}
-
-.footer-item a:hover {
-  color: #c3a080;
-}
-
-/* RÉSEAUX SOCIAUX DU FOOTER — TEXTE UNIQUEMENT */
-.footer-social {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
-}
-
-.footer-social a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-  color: #aaa29c;
-  text-decoration: none;
-  transition: color .2s ease;
-}
-
-.footer-social a svg {
-  display: none;
-}
-
-.footer-social a:hover {
-  color: #c3a080;
-}
-/* COPYRIGHT ET LIENS LÉGAUX */
-
-.footer-bottom {
-  border-top: 1px solid #403a37;
-  margin-top: 22px;
-  padding-top: 12px;
-  color: #827a75;
-  font-size: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.footer-legal {
-  margin-top: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-
-.footer-legal a {
-  color: #827a75;
-  text-decoration: none;
-  transition: color .2s ease;
-}
-
-.footer-legal a:hover {
-  color: #c3a080;
-}
-
-/* TABLETTE */
-
-@media (max-width: 900px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-  }
-
-  .footer-bottom {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-  footer {
-    padding: 24px 0 14px;
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px 16px;
-  }
-
-  .footer-logo {
-    width: 110px;
-  }
-
-  .footer-bottom {
-    margin-top: 18px;
-  }
-
-  .footer-legal {
-    line-height: 1.9;
-  }
-}
-
-.top-social {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  flex-shrink: 0;
-  font-size: 12px;
-  white-space: nowrap;
-}
-
-.top-social svg {
-  width: 16px;
-  height: 16px;
-  max-width: 16px;
-  max-height: 16px;
-  display: block;
-}
-
-
   </style>
 </head>
 
 <body>
 
- 
- <!-- BARRE SUPÉRIEURE -->
+<!-- BARRE SUPÉRIEURE -->
+
 <div class="top">
   <div class="container top-inner">
     <div class="top-contact">
@@ -1273,14 +1173,14 @@ footer .container {
            stroke-width="2" aria-hidden="true">
         <rect x="3" y="3" width="18" height="18" rx="5"/>
         <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="1"
-                fill="currentColor" stroke="none"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
       </svg>
     </a>
   </div>
 </div>
 
 <!-- HEADER -->
+
 <header>
   <div class="container nav">
 
@@ -1290,7 +1190,7 @@ footer .container {
 
     <nav class="menu" id="main-menu" aria-label="Navigation principale">
       <a id="nav-home" href="/">Accueil</a>
-      <a id="nav-services" href="/services/">Nos services</a>
+      <a id="nav-services" href="/services/" class="current">Nos services</a>
       <a id="nav-current" href="/projets-en-cours/">Projets en cours</a>
       <a id="nav-references" href="/realisations/">Réalisations</a>
       <a id="nav-jobs" href="/emploi/">Offres d'emploi</a>
@@ -1298,13 +1198,10 @@ footer .container {
     </nav>
 
     <div class="lang" aria-label="Choisir la langue">
-  <a id="lang-fr" class="active"
-     href="/facades-ventilees/"
-     aria-current="page">FR</a>
+      <a id="lang-fr" class="active" href="/facades-ventilees/" aria-current="page">FR</a>
+      <a id="lang-de" href="/de/hinterlueftete-fassaden/">DE</a>
+    </div>
 
-  <a id="lang-de"
-     href="/de/hinterlueftete-fassaden/">DE</a>
-</div>
     <button type="button"
             class="mobile-menu-button"
             id="mobile-menu-button"
@@ -1315,364 +1212,425 @@ footer .container {
 </header>
 
 
+<main>
 
-  <main>
+  <!-- HERO -->
 
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
+  <section class="hero">
+    <div class="container hero-grid">
 
-<p class="eyebrow" data-fr="Façades · Luxembourg" data-de="Fassaden · Luxemburg">Façades · Luxembourg</p>
+      <div>
+        <nav class="breadcrumb" aria-label="Fil d’Ariane">
+          <ol>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/services/">Nos services</a></li>
+            <li><span aria-current="page">Façades ventilées</span></li>
+          </ol>
+        </nav>
 
-         <h1>
-  <span data-fr="Façades ventilées" data-de="Hinterlüftete Fassaden">Façades ventilées</span><br>
-  <span data-fr="au Luxembourg" data-de="in Luxemburg">au Luxembourg</span>
-</h1>
+        <p class="section-label" data-fr="Façades · Luxembourg" data-de="Fassaden · Luxemburg">Façades · Luxembourg</p>
+
+        <h1>
+          <span data-fr="Façades ventilées" data-de="Hinterlüftete Fassaden">Façades ventilées</span><br>
+          <span data-fr="au Luxembourg" data-de="in Luxemburg">au Luxembourg</span>
+        </h1>
 
         <p class="hero-intro">
-  ROOFCON vous accompagne dans vos projets de façades ventilées au Luxembourg.
-  Ce système de façade repose sur une lame d’air entre le revêtement extérieur
-  et la structure du bâtiment, favorisant la gestion de l’humidité et contribuant
-  à la protection de l’enveloppe du bâtiment.
-</p>
+          ROOFCON vous accompagne dans vos projets de façades ventilées au Luxembourg.
+          Ce système de façade repose sur une lame d’air entre le revêtement extérieur
+          et la structure du bâtiment, favorisant la gestion de l’humidité et contribuant
+          à la protection de l’enveloppe du bâtiment.
+        </p>
 
-<p class="hero-intro">
-  Chaque projet demande une attention particulière au choix des matériaux,
-  à la préparation du support et à la qualité de mise en œuvre, afin d’obtenir
-  une façade adaptée aux caractéristiques du bâtiment et au rendu architectural souhaité.
-</p>
+        <p class="hero-intro">
+          Chaque projet demande une attention particulière au choix des matériaux,
+          à la préparation du support et à la qualité de mise en œuvre, afin d’obtenir
+          une façade adaptée aux caractéristiques du bâtiment et au rendu architectural souhaité.
+        </p>
 
-          <div class="button-row">
-           <a class="button button-primary" href="mailto:info@roof-con.lu?subject=Projet%20de%20fa%C3%A7ade%20ventil%C3%A9e"
-   data-fr="Parler de votre projet"
-   data-de="Über Ihr Projekt sprechen">
-  Parler de votre projet
-</a>
+        <div class="button-row">
+          <a class="button button-primary" href="/contact/"
+             data-fr="Parler de votre projet"
+             data-de="Über Ihr Projekt sprechen">Parler de votre projet</a>
 
-<a class="button button-outline" href="#comprendre"
-   data-fr="Découvrir la façade ventilée"
-   data-de="Hinterlüftete Fassaden entdecken">
-  Découvrir la façade ventilée
-</a>
-<a class="button button-outline" href="/services/">
-  Retour aux services
-</a>
-          </div>
-
+          <a class="button button-outline" href="#comprendre"
+             data-fr="Découvrir la façade ventilée"
+             data-de="Hinterlüftete Fassaden entdecken">Découvrir la façade ventilée</a>
         </div>
       </div>
-    </section>
 
-    <section class="intro-section" id="comprendre">
-      <div class="container two-columns">
+      <figure class="hero-media">
+        <img src="/images/poles/facades-1794313089573.png"
+             alt="Façade ventilée réalisée par ROOFCON"
+             width="800" height="1000">
+      </figure>
 
-        <div>
-       <p class="section-label"
-   data-fr="Comprendre le principe"
-   data-de="Das Prinzip verstehen">
-  Comprendre le principe
-</p>
-         <h2>
-  <span data-fr="Une façade pensée" data-de="Eine Fassade, durchdacht">Une façade pensée</span><br>
-  <span data-fr="en plusieurs couches" data-de="in mehreren Schichten">en plusieurs couches</span>
-</h2>
-        </div>
+    </div>
+  </section>
+
+
+  <!-- COMPRENDRE LE PRINCIPE -->
+
+  <section class="intro-section" id="comprendre">
+    <div class="container intro-grid">
+
+      <div>
+        <p class="section-label"
+           data-fr="Comprendre le principe"
+           data-de="Das Prinzip verstehen">Comprendre le principe</p>
+
+        <h2>
+          <span data-fr="Une façade pensée" data-de="Eine Fassade, durchdacht">Une façade pensée</span><br>
+          <span data-fr="en plusieurs couches" data-de="in mehreren Schichten">en plusieurs couches</span>
+        </h2>
 
         <div class="body-copy">
-         <p class="lead"
-   data-fr="Une façade ventilée est un système de revêtement extérieur qui intègre une lame d'air entre le parement et les couches situées derrière celui-ci."
-   data-de="Eine hinterlüftete Fassade ist ein Außenverkleidungssystem mit einer Luftschicht zwischen der Fassadenbekleidung und den dahinterliegenden Schichten.">
-  Une façade ventilée est un système de revêtement extérieur
-  qui intègre une lame d'air entre le parement et les couches
-  situées derrière celui-ci.
-</p>
-
-<p
-   data-fr="Selon la conception du bâtiment, le système peut comprendre une structure porteuse secondaire, une isolation thermique et un parement extérieur. La lame d'air permet une circulation de l'air derrière le revêtement, conformément à la conception technique du système."
-   data-de="Je nach Gebäudeplanung kann das System eine Unterkonstruktion, eine Wärmedämmung und eine äußere Fassadenbekleidung umfassen. Die Luftschicht ermöglicht eine Luftzirkulation hinter der Bekleidung, entsprechend der technischen Planung des Systems.">
-  Selon la conception du bâtiment, le système peut comprendre
-  une structure porteuse secondaire, une isolation thermique
-  et un parement extérieur. La lame d'air permet une circulation
-  de l'air derrière le revêtement, conformément à la conception
-  technique du système.
-</p>
-
-<p
-   data-fr="Le choix des matériaux, la préparation du support et la qualité de la mise en œuvre doivent être adaptés à chaque bâtiment. Une étude du projet permet de déterminer la solution appropriée."
-   data-de="Die Materialauswahl, die Vorbereitung des Untergrunds und die Qualität der Ausführung müssen auf das jeweilige Gebäude abgestimmt werden. Eine Analyse des Projekts hilft dabei, die geeignete Lösung zu bestimmen.">
-  Le choix des matériaux, la préparation du support et la qualité
-  de la mise en œuvre doivent être adaptés à chaque bâtiment.
-  Une étude du projet permet de déterminer la solution appropriée.
-</p>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="detail-section">
-      <div class="container">
-
-        <div class="section-heading">
-  
-<p class="section-label"
-   data-fr="Les points essentiels"
-   data-de="Die wichtigsten Aspekte">
-  Les points essentiels
-</p>
-
-
-        <h2> <span data-fr="Une enveloppe extérieure" data-de="Eine Außenhülle">Une enveloppe extérieure</span><br> <span data-fr="soignée jusque dans les détails" data-de="bis ins Detail sorgfältig ausgeführt">soignée jusque dans les détails</span> </h2>
-
-<p
-  data-fr="Chaque élément participe au bon fonctionnement et à l'aspect final de la façade."
-  data-de="Jedes Element trägt zur Funktion und zum endgültigen Erscheinungsbild der Fassade bei.">
-  Chaque élément participe au bon fonctionnement et à l'aspect final de la façade.
-</p>
-
-        </div>
-
-        <div class="feature-grid">
-
-          <article class="feature-card">
-      
-      <span class="feature-number">01 / STRUCTURE</span>
-
-<h3>Une ossature adaptée</h3>
-
-<p
-  data-fr="Le support et la structure secondaire sont définis en fonction du bâtiment, du parement choisi et des exigences du projet."
-  data-de="Untergrund und Unterkonstruktion werden entsprechend dem Gebäude, der gewählten Bekleidung und den Projektanforderungen festgelegt.">
-  Le support et la structure secondaire sont définis en fonction du bâtiment, du parement choisi et des exigences du projet.
-</p>
-          </article>
-
-          <article class="feature-card">
-       
-            <span class="feature-number">02 / VENTILATION</span>
-
-<h3 >Une lame d'air prévue</h3>
-
-<p
-  data-fr="L'espace de ventilation doit être conçu et réalisé selon les prescriptions du système retenu, avec les entrées et sorties d'air nécessaires."
-  data-de="Der Hinterlüftungsraum muss gemäß den Vorgaben des gewählten Systems geplant und ausgeführt werden, einschließlich der erforderlichen Zu- und Abluftöffnungen.">
-  L'espace de ventilation doit être conçu et réalisé selon les prescriptions du système retenu, avec les entrées et sorties d'air nécessaires.
-</p>
-
-          </article>
-
-          <article class="feature-card">
-
-            <span class="feature-number">03 / ISOLATION</span>
-
-<h3>Une composition cohérente</h3>
-
-<p
-  data-fr="Lorsque le projet prévoit une isolation, son choix et sa mise en œuvre doivent être coordonnés avec les autres couches de la paroi."
-  data-de="Wenn eine Dämmung vorgesehen ist, müssen ihre Auswahl und Ausführung mit den übrigen Schichten der Wand abgestimmt werden.">
-  Lorsque le projet prévoit une isolation, son choix et sa mise en œuvre doivent être coordonnés avec les autres couches de la paroi.
-</p>
-          </article>
-
-          <article class="feature-card">
-  
-         <span class="feature-number">04 / PAREMENT</span>
-
-<h3>Une finition extérieure</h3>
-
-<p
-  data-fr="Le matériau de parement détermine l'apparence de la façade et influence les détails de fixation et de pose."
-  data-de="Das Bekleidungsmaterial bestimmt das Erscheinungsbild der Fassade und beeinflusst die Befestigungs- und Montagedetails.">
-  Le matériau de parement détermine l'apparence de la façade et influence les détails de fixation et de pose.
-</p>
-          </article>
-
-          <article class="feature-card">
-
-         <span class="feature-number">05 / DÉTAILS</span>
-
-<h3>Des raccords maîtrisés</h3>
-
-<p
-  data-fr="Les angles, ouvertures, jonctions et terminaisons demandent une attention particulière lors de la préparation et de l'exécution."
-  data-de="Ecken, Öffnungen, Übergänge und Abschlüsse erfordern bei Vorbereitung und Ausführung besondere Aufmerksamkeit.">
-  Les angles, ouvertures, jonctions et terminaisons demandent une attention particulière lors de la préparation et de l'exécution.
-</p>
-          </article>
-
-          <article class="feature-card">
-      
-            <span class="feature-number">06 / FINITIONS</span>
-
-<h3>Un résultat harmonieux</h3>
-
-<p
-  data-fr="L'alignement des éléments et la régularité des finitions contribuent à l'aspect final de l'ensemble du bâtiment."
-  data-de="Die Ausrichtung der Elemente und die gleichmäßige Ausführung tragen zum Gesamtbild des Gebäudes bei.">
-  L'alignement des éléments et la régularité des finitions contribuent à l'aspect final de l'ensemble du bâtiment.
-</p>
-
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="method-section">
-      <div class="container method-layout">
-
-        <div class="method-intro">
-  
-<p class="section-label"
-   data-fr="Notre approche"
-   data-de="Unsere Vorgehensweise">
-  Notre approche
-</p>
-
-        <h2> <span data-fr="De la préparation" data-de="Von der Vorbereitung">De la préparation</span><br> <span data-fr="à la réalisation" data-de="bis zur Umsetzung">à la réalisation</span> </h2>
-
-<p
-  data-fr="Un projet de façade ventilée demande une bonne coordination entre les supports, les matériaux et les différentes étapes du chantier. La méthode de travail est adaptée aux spécificités de chaque réalisation."
-  data-de="Ein Projekt mit hinterlüfteter Fassade erfordert eine gute Abstimmung zwischen Untergrund, Materialien und den einzelnen Bauphasen. Die Arbeitsweise wird an die Besonderheiten jedes Projekts angepasst.">
-  Un projet de façade ventilée demande une bonne coordination entre les supports, les matériaux et les différentes étapes du chantier. La méthode de travail est adaptée aux spécificités de chaque réalisation.
-</p>
-
-<a
-  class="button button-primary"
-  href="mailto:info@roof-con.lu?subject=Demande%20de%20renseignements%20%E2%80%93%20fa%C3%A7ade%20ventil%C3%A9e"
-  data-fr="Échanger avec ROOFCON"
-  data-de="Mit ROOFCON sprechen">
-  Échanger avec ROOFCON
-</a>
-
-        </div>
-        
-        <div class="method-list">
-
-          <article class="method-item">
-            <span class="number">01</span>
-            <div>
-              <h3
-                data-fr="Étudier le projet"
-                data-de="Das Projekt prüfen">
-                Étudier le projet
-              </h3>
-              <p
-                data-fr="Comprendre le bâtiment, les plans, les contraintes du chantier et les caractéristiques du revêtement prévu."
-                data-de="Das Gebäude, die Pläne, die Baustellenbedingungen und die Eigenschaften der vorgesehenen Bekleidung verstehen.">
-                Comprendre le bâtiment, les plans, les contraintes du
-                chantier et les caractéristiques du revêtement prévu.
-              </p>
-            </div>
-          </article>
-
-          <article class="method-item">
-            <span class="number">02</span>
-            <div>
-              <h3
-                data-fr="Préparer la mise en œuvre"
-                data-de="Die Ausführung vorbereiten">
-                Préparer la mise en œuvre
-              </h3>
-              <p
-                data-fr="Coordonner les supports, la structure secondaire et les détails techniques nécessaires à la réalisation."
-                data-de="Untergrund, Unterkonstruktion und die für die Umsetzung erforderlichen technischen Details abstimmen.">
-                Coordonner les supports, la structure secondaire et les
-                détails techniques nécessaires à la réalisation.
-              </p>
-            </div>
-          </article>
-
-          <article class="method-item">
-            <span class="number">03</span>
-            <div>
-              <h3
-                data-fr="Mettre en place les éléments"
-                data-de="Die Elemente montieren">
-                Mettre en place les éléments
-              </h3>
-              <p
-                data-fr="Réaliser les différentes couches et installer le parement conformément aux prescriptions applicables au système."
-                data-de="Die verschiedenen Schichten ausführen und die Bekleidung gemäß den geltenden Vorgaben des Systems montieren.">
-                Réaliser les différentes couches et installer le parement
-                conformément aux prescriptions applicables au système.
-              </p>
-            </div>
-          </article>
-
-          <article class="method-item">
-            <span class="number">04</span>
-            <div>
-              <h3
-                data-fr="Soigner les finitions"
-                data-de="Die Details sorgfältig ausführen">
-                Soigner les finitions
-              </h3>
-              <p
-                data-fr="Porter une attention particulière aux alignements, aux raccords et à l'aspect final de la façade."
-                data-de="Besonderes Augenmerk auf Ausrichtung, Anschlüsse und das endgültige Erscheinungsbild der Fassade legen.">
-                Porter une attention particulière aux alignements,
-                aux raccords et à l'aspect final de la façade.
-              </p>
-            </div>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section" id="contact">
-      <div class="container cta-inner">
-
-        <div class="cta-copy">
-          <p
-            class="section-label"
-            data-fr="Votre projet au Luxembourg"
-            data-de="Ihr Projekt in Luxemburg">
-            Votre projet au Luxembourg
+          <p class="lead"
+             data-fr="Une façade ventilée est un système de revêtement extérieur qui intègre une lame d'air entre le parement et les couches situées derrière celui-ci."
+             data-de="Eine hinterlüftete Fassade ist ein Außenverkleidungssystem mit einer Luftschicht zwischen der Fassadenbekleidung und den dahinterliegenden Schichten.">
+            Une façade ventilée est un système de revêtement extérieur
+            qui intègre une lame d'air entre le parement et les couches
+            situées derrière celui-ci.
           </p>
 
-          <h2>
-            <span
-              data-fr="Vous avez un projet"
-              data-de="Sie planen ein Projekt">Vous avez un projet</span><br>
-            <span
-              data-fr="de façade ventilée ?"
-              data-de="mit hinterlüfteter Fassade?">de façade ventilée ?</span>
-          </h2>
+          <p data-fr="Selon la conception du bâtiment, le système peut comprendre une structure porteuse secondaire, une isolation thermique et un parement extérieur. La lame d'air permet une circulation de l'air derrière le revêtement, conformément à la conception technique du système."
+             data-de="Je nach Gebäudeplanung kann das System eine Unterkonstruktion, eine Wärmedämmung und eine äußere Fassadenbekleidung umfassen. Die Luftschicht ermöglicht eine Luftzirkulation hinter der Bekleidung, entsprechend der technischen Planung des Systems.">
+            Selon la conception du bâtiment, le système peut comprendre
+            une structure porteuse secondaire, une isolation thermique
+            et un parement extérieur. La lame d'air permet une circulation
+            de l'air derrière le revêtement, conformément à la conception
+            technique du système.
+          </p>
 
-          <p
-            data-fr="Contactez ROOFCON pour nous présenter votre projet et échanger sur vos besoins."
-            data-de="Kontaktieren Sie ROOFCON, um uns Ihr Projekt vorzustellen und Ihre Anforderungen zu besprechen.">
-            Contactez ROOFCON pour nous présenter votre projet et
-            échanger sur vos besoins.
+          <p data-fr="Le choix des matériaux, la préparation du support et la qualité de la mise en œuvre doivent être adaptés à chaque bâtiment. Une étude du projet permet de déterminer la solution appropriée."
+             data-de="Die Materialauswahl, die Vorbereitung des Untergrunds und die Qualität der Ausführung müssen auf das jeweilige Gebäude abgestimmt werden. Eine Analyse des Projekts hilft dabei, die geeignete Lösung zu bestimmen.">
+            Le choix des matériaux, la préparation du support et la qualité
+            de la mise en œuvre doivent être adaptés à chaque bâtiment.
+            Une étude du projet permet de déterminer la solution appropriée.
           </p>
         </div>
+      </div>
 
-        <div class="cta-actions">
-          <a
-            class="button button-primary"
-            href="mailto:info@roof-con.lu?subject=Projet%20de%20fa%C3%A7ade%20ventil%C3%A9e"
-            data-fr="Demander des renseignements"
-            data-de="Informationen anfragen">
-            Demander des renseignements
-          </a>
+      <!-- SCHÉMA EN COUPE -->
+      <figure class="diagram">
+        <svg viewBox="0 0 520 440" role="img" aria-labelledby="diagram-title">
+          <title id="diagram-title">Coupe de principe d’une façade ventilée : mur porteur, isolation thermique, lame d’air ventilée, ossature secondaire et parement extérieur</title>
 
-          <a class="cta-phone" href="tel:+352621765489">
-            +352 621 765 489
-          </a>
+          <defs>
+            <pattern id="hatch" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="10" class="d-hatch"/>
+            </pattern>
+            <pattern id="wave" width="70" height="18" patternUnits="userSpaceOnUse">
+              <path d="M0 9 Q 8.75 0 17.5 9 T 35 9 T 52.5 9 T 70 9" class="d-wave"/>
+            </pattern>
+          </defs>
 
-          <a class="cta-phone" href="mailto:info@roof-con.lu">
-            info@roof-con.lu
-          </a>
-        </div>
+          <!-- Mur porteur -->
+          <rect x="30" y="40" width="95" height="360" class="d-wall"/>
+          <rect x="30" y="40" width="95" height="360" fill="url(#hatch)"/>
+
+          <!-- Isolation -->
+          <rect x="125" y="40" width="70" height="360" class="d-insul"/>
+          <rect x="125" y="40" width="70" height="360" fill="url(#wave)"/>
+
+          <!-- Lame d'air -->
+          <rect x="195" y="40" width="44" height="360" class="d-gap"/>
+
+          <!-- Pattes de fixation -->
+          <rect x="125" y="95" width="114" height="6" class="d-bracket"/>
+          <rect x="125" y="335" width="114" height="6" class="d-bracket"/>
+
+          <!-- Ossature secondaire -->
+          <rect x="223" y="40" width="16" height="360" class="d-batten"/>
+
+          <!-- Parement -->
+          <rect x="239" y="40" width="26" height="360" class="d-cladding"/>
+          <line x1="239" y1="130" x2="265" y2="130" class="d-joint"/>
+          <line x1="239" y1="220" x2="265" y2="220" class="d-joint"/>
+          <line x1="239" y1="310" x2="265" y2="310" class="d-joint"/>
+
+          <!-- Circulation de l'air -->
+          <path d="M209 385 V 300 M202 310 L209 300 L216 310" class="d-air"/>
+          <path d="M209 260 V 175 M202 185 L209 175 L216 185" class="d-air"/>
+          <path d="M209 135 V 55 M202 65 L209 55 L216 65" class="d-air"/>
+
+          <text x="209" y="26" text-anchor="middle" class="d-small">SORTIE D’AIR</text>
+          <text x="209" y="424" text-anchor="middle" class="d-small">ENTRÉE D’AIR</text>
+
+          <!-- Légendes -->
+          <circle cx="78" cy="70" r="4" class="d-dot"/>
+          <line x1="78" y1="70" x2="300" y2="70" class="d-leader"/>
+          <text x="310" y="75" class="d-label">Mur porteur</text>
+
+          <circle cx="160" cy="150" r="4" class="d-dot"/>
+          <line x1="160" y1="150" x2="300" y2="150" class="d-leader"/>
+          <text x="310" y="155" class="d-label">Isolation thermique</text>
+
+          <circle cx="202" cy="230" r="4" class="d-dot"/>
+          <line x1="202" y1="230" x2="300" y2="230" class="d-leader"/>
+          <text x="310" y="235" class="d-label">Lame d’air ventilée</text>
+
+          <circle cx="231" cy="290" r="4" class="d-dot"/>
+          <line x1="231" y1="290" x2="300" y2="290" class="d-leader"/>
+          <text x="310" y="295" class="d-label">Ossature secondaire</text>
+
+          <circle cx="252" cy="370" r="4" fill="#fff"/>
+          <line x1="252" y1="370" x2="300" y2="370" class="d-leader"/>
+          <text x="310" y="375" class="d-label">Parement extérieur</text>
+        </svg>
+        <figcaption>Coupe de principe — la composition exacte dépend de chaque projet.</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+
+  <!-- POINTS ESSENTIELS -->
+
+  <section class="detail-section">
+    <div class="container">
+
+      <div class="section-heading">
+        <p class="section-label"
+           data-fr="Les points essentiels"
+           data-de="Die wichtigsten Aspekte">Les points essentiels</p>
+
+        <h2>
+          <span data-fr="Une enveloppe extérieure" data-de="Eine Außenhülle">Une enveloppe extérieure</span><br>
+          <span data-fr="soignée jusque dans les détails" data-de="bis ins Detail sorgfältig ausgeführt">soignée jusque dans les détails</span>
+        </h2>
+
+        <p data-fr="Chaque élément participe au bon fonctionnement et à l'aspect final de la façade."
+           data-de="Jedes Element trägt zur Funktion und zum endgültigen Erscheinungsbild der Fassade bei.">
+          Chaque élément participe au bon fonctionnement et à l'aspect final de la façade.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+
+        <article class="feature-card">
+          <span class="feature-tag">STRUCTURE</span>
+          <h3>Une ossature adaptée</h3>
+          <p data-fr="Le support et la structure secondaire sont définis en fonction du bâtiment, du parement choisi et des exigences du projet."
+             data-de="Untergrund und Unterkonstruktion werden entsprechend dem Gebäude, der gewählten Bekleidung und den Projektanforderungen festgelegt.">
+            Le support et la structure secondaire sont définis en fonction du bâtiment, du parement choisi et des exigences du projet.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-tag">VENTILATION</span>
+          <h3>Une lame d'air prévue</h3>
+          <p data-fr="L'espace de ventilation doit être conçu et réalisé selon les prescriptions du système retenu, avec les entrées et sorties d'air nécessaires."
+             data-de="Der Hinterlüftungsraum muss gemäß den Vorgaben des gewählten Systems geplant und ausgeführt werden, einschließlich der erforderlichen Zu- und Abluftöffnungen.">
+            L'espace de ventilation doit être conçu et réalisé selon les prescriptions du système retenu, avec les entrées et sorties d'air nécessaires.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-tag">ISOLATION</span>
+          <h3>Une composition cohérente</h3>
+          <p data-fr="Lorsque le projet prévoit une isolation, son choix et sa mise en œuvre doivent être coordonnés avec les autres couches de la paroi."
+             data-de="Wenn eine Dämmung vorgesehen ist, müssen ihre Auswahl und Ausführung mit den übrigen Schichten der Wand abgestimmt werden.">
+            Lorsque le projet prévoit une isolation, son choix et sa mise en œuvre doivent être coordonnés avec les autres couches de la paroi.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-tag">PAREMENT</span>
+          <h3>Une finition extérieure</h3>
+          <p data-fr="Le matériau de parement détermine l'apparence de la façade et influence les détails de fixation et de pose."
+             data-de="Das Bekleidungsmaterial bestimmt das Erscheinungsbild der Fassade und beeinflusst die Befestigungs- und Montagedetails.">
+            Le matériau de parement détermine l'apparence de la façade et influence les détails de fixation et de pose.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-tag">DÉTAILS</span>
+          <h3>Des raccords maîtrisés</h3>
+          <p data-fr="Les angles, ouvertures, jonctions et terminaisons demandent une attention particulière lors de la préparation et de l'exécution."
+             data-de="Ecken, Öffnungen, Übergänge und Abschlüsse erfordern bei Vorbereitung und Ausführung besondere Aufmerksamkeit.">
+            Les angles, ouvertures, jonctions et terminaisons demandent une attention particulière lors de la préparation et de l'exécution.
+          </p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-tag">FINITIONS</span>
+          <h3>Un résultat harmonieux</h3>
+          <p data-fr="L'alignement des éléments et la régularité des finitions contribuent à l'aspect final de l'ensemble du bâtiment."
+             data-de="Die Ausrichtung der Elemente und die gleichmäßige Ausführung tragen zum Gesamtbild des Gebäudes bei.">
+            L'alignement des éléments et la régularité des finitions contribuent à l'aspect final de l'ensemble du bâtiment.
+          </p>
+        </article>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
 
- 
-  <!-- FOOTER -->
+  <!-- NOTRE APPROCHE -->
+
+  <section class="method-section">
+    <div class="container method-layout">
+
+      <div class="method-intro">
+        <p class="section-label"
+           data-fr="Notre approche"
+           data-de="Unsere Vorgehensweise">Notre approche</p>
+
+        <h2>
+          <span data-fr="De la préparation" data-de="Von der Vorbereitung">De la préparation</span><br>
+          <span data-fr="à la réalisation" data-de="bis zur Umsetzung">à la réalisation</span>
+        </h2>
+
+        <p data-fr="Un projet de façade ventilée demande une bonne coordination entre les supports, les matériaux et les différentes étapes du chantier. La méthode de travail est adaptée aux spécificités de chaque réalisation."
+           data-de="Ein Projekt mit hinterlüfteter Fassade erfordert eine gute Abstimmung zwischen Untergrund, Materialien und den einzelnen Bauphasen. Die Arbeitsweise wird an die Besonderheiten jedes Projekts angepasst.">
+          Un projet de façade ventilée demande une bonne coordination entre les supports, les matériaux et les différentes étapes du chantier. La méthode de travail est adaptée aux spécificités de chaque réalisation.
+        </p>
+
+        <a class="button button-primary" href="/contact/"
+           data-fr="Échanger avec ROOFCON"
+           data-de="Mit ROOFCON sprechen">Échanger avec ROOFCON</a>
+      </div>
+
+      <div class="method-list">
+
+        <article class="method-item">
+          <span class="number">01</span>
+          <div>
+            <h3 data-fr="Étudier le projet" data-de="Das Projekt prüfen">Étudier le projet</h3>
+            <p data-fr="Comprendre le bâtiment, les plans, les contraintes du chantier et les caractéristiques du revêtement prévu."
+               data-de="Das Gebäude, die Pläne, die Baustellenbedingungen und die Eigenschaften der vorgesehenen Bekleidung verstehen.">
+              Comprendre le bâtiment, les plans, les contraintes du
+              chantier et les caractéristiques du revêtement prévu.
+            </p>
+          </div>
+        </article>
+
+        <article class="method-item">
+          <span class="number">02</span>
+          <div>
+            <h3 data-fr="Préparer la mise en œuvre" data-de="Die Ausführung vorbereiten">Préparer la mise en œuvre</h3>
+            <p data-fr="Coordonner les supports, la structure secondaire et les détails techniques nécessaires à la réalisation."
+               data-de="Untergrund, Unterkonstruktion und die für die Umsetzung erforderlichen technischen Details abstimmen.">
+              Coordonner les supports, la structure secondaire et les
+              détails techniques nécessaires à la réalisation.
+            </p>
+          </div>
+        </article>
+
+        <article class="method-item">
+          <span class="number">03</span>
+          <div>
+            <h3 data-fr="Mettre en place les éléments" data-de="Die Elemente montieren">Mettre en place les éléments</h3>
+            <p data-fr="Réaliser les différentes couches et installer le parement conformément aux prescriptions applicables au système."
+               data-de="Die verschiedenen Schichten ausführen und die Bekleidung gemäß den geltenden Vorgaben des Systems montieren.">
+              Réaliser les différentes couches et installer le parement
+              conformément aux prescriptions applicables au système.
+            </p>
+          </div>
+        </article>
+
+        <article class="method-item">
+          <span class="number">04</span>
+          <div>
+            <h3 data-fr="Soigner les finitions" data-de="Die Details sorgfältig ausführen">Soigner les finitions</h3>
+            <p data-fr="Porter une attention particulière aux alignements, aux raccords et à l'aspect final de la façade."
+               data-de="Besonderes Augenmerk auf Ausrichtung, Anschlüsse und das endgültige Erscheinungsbild der Fassade legen.">
+              Porter une attention particulière aux alignements,
+              aux raccords et à l'aspect final de la façade.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- NOS RÉALISATIONS (remplie depuis content.json) -->
+
+  <section class="projects-section" id="projects-section" hidden>
+    <div class="container">
+      <div class="projects-head">
+        <div>
+          <p class="section-label">Nos réalisations</p>
+          <h2>Nos façades ventilées</h2>
+        </div>
+        <a class="link-arrow" href="/realisations/">Voir toutes nos réalisations →</a>
+      </div>
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+
+  <!-- BANDE CONTACT -->
+
+  <section class="cta-section" id="contact">
+    <div class="container cta-inner">
+
+      <div class="cta-copy">
+        <p class="section-label"
+           data-fr="Votre projet au Luxembourg"
+           data-de="Ihr Projekt in Luxemburg">Votre projet au Luxembourg</p>
+
+        <h2>
+          <span data-fr="Vous avez un projet" data-de="Sie planen ein Projekt">Vous avez un projet</span><br>
+          <span data-fr="de façade ventilée ?" data-de="mit hinterlüfteter Fassade?">de façade ventilée ?</span>
+        </h2>
+
+        <p data-fr="Contactez ROOFCON pour nous présenter votre projet et échanger sur vos besoins."
+           data-de="Kontaktieren Sie ROOFCON, um uns Ihr Projekt vorzustellen und Ihre Anforderungen zu besprechen.">
+          Contactez ROOFCON pour nous présenter votre projet et
+          échanger sur vos besoins.
+        </p>
+      </div>
+
+      <div class="cta-actions">
+        <a class="button button-primary" href="/contact/"
+           data-fr="Demander des renseignements"
+           data-de="Informationen anfragen">Demander des renseignements</a>
+
+        <a class="cta-phone" href="tel:+352621765489">+352 621 765 489</a>
+        <a class="cta-phone" href="mailto:info@roof-con.lu?subject=Projet%20de%20fa%C3%A7ade%20ventil%C3%A9e">info@roof-con.lu</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- NOS AUTRES SERVICES -->
+
+  <section class="others-section">
+    <div class="container">
+      <p class="section-label">Nos autres services</p>
+      <h2>Découvrez aussi</h2>
+
+      <div class="others-grid">
+        <a class="other-card" href="/toitures-plates/">
+          <img src="/images/poles/toitures-1793353238888.png" alt="" loading="lazy" width="600" height="400">
+          <span>Toitures plates</span>
+        </a>
+        <a class="other-card" href="/charpentes/">
+          <img src="/images/poles/charpentes-1793353244086.png" alt="" loading="lazy" width="600" height="400">
+          <span>Charpentes</span>
+        </a>
+        <a class="other-card" href="/couvertures/">
+          <img src="/images/poles/couvertures-1793353247750.png" alt="" loading="lazy" width="600" height="400">
+          <span>Couvertures</span>
+        </a>
+        <a class="other-card" href="/maisons-annexes-ossature-bois/">
+          <img src="/images/poles/maisons-1793353252847.png" alt="" loading="lazy" width="600" height="400">
+          <span>Ossatures bois &amp; petites constructions</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- FOOTER -->
+
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -1687,76 +1645,65 @@ footer .container {
       </div>
 
       <div>
-        <div class="footer-title" id="footer-contact-title">Contact</div>
-        <div class="footer-item" id="footer-phone">
-          <div style="margin-bottom: 5px;">Joël Brück</div>
+        <div class="footer-title">Contact</div>
+        <div class="footer-item">Joël Brück</div>
+        <div class="footer-item">
           <a href="tel:+352621765489">+352 621 765 489</a>
         </div>
-        <div class="footer-item" id="footer-email">
+        <div class="footer-item">
           <a href="mailto:info@roof-con.lu">info@roof-con.lu</a>
         </div>
       </div>
 
       <div>
-        <div class="footer-title" id="footer-address-title">Adresse</div>
-        <div class="footer-item" id="footer-address">
+        <div class="footer-title">Adresse</div>
+        <div class="footer-item">
           Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg
         </div>
-        <div class="footer-item" id="footer-hours">
+        <div class="footer-item">
           Du lundi au vendredi, de 07h30 à 17h30
         </div>
       </div>
 
       <div>
-        <div class="footer-title" id="footer-social-title">Suivez-nous</div>
+        <div class="footer-title">Suivez-nous</div>
         <div class="footer-social">
-          <a id="footer-facebook"
-             href="https://www.facebook.com/profile.php?id=61594591794889"
-             target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7z"/>
-            </svg>
-            Facebook
-          </a>
-
-          <a id="footer-instagram"
-             href="https://www.instagram.com/roofcon.lu/"
-             target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 stroke-width="2" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1"
-                      fill="currentColor" stroke="none"/>
-            </svg>
-            Instagram
-          </a>
+          <a href="https://www.facebook.com/profile.php?id=61594591794889"
+             target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.instagram.com/roofcon.lu/"
+             target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <div id="footer-copyright">© ROOFCON — Tous droits réservés.</div>
+      <div>© ROOFCON — Tous droits réservés.</div>
       <div class="footer-legal">
-        <a href="/mentions-legales.html" id="footer-legal-1">Mentions légales</a>
+        <a href="/mentions-legales.html">Mentions légales</a>
         <span>·</span>
-        <a href="/politique-confidentialite.html" id="footer-legal-2">Politique de confidentialité</a>
+        <a href="/politique-confidentialite.html">Politique de confidentialité</a>
         <span>·</span>
-        <a href="/politique-cookies.html" id="footer-legal-3">Politique des cookies</a>
+        <a href="/politique-cookies.html">Politique des cookies</a>
       </div>
     </div>
   </div>
 </footer>
 
 
-
 <script>
-  const yearElement = document.getElementById("year");
+  /* =========================
+     RÉGLAGES DE CETTE PAGE
+  ========================= */
 
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
+  const PAGE_LANG = "fr";               /* "de" sur la page allemande */
+  const SERVICE_ID = "facades";         /* id du service dans content.json */
+  const MAX_PROJECTS = 3;
+
+
+  /* =========================
+     MENU MOBILE
+  ========================= */
 
   const mobileButton = document.getElementById("mobile-menu-button");
   const mainMenu = document.getElementById("main-menu");
@@ -1766,10 +1713,7 @@ footer .container {
       const isOpen = mainMenu.classList.toggle("mobile-open");
 
       mobileButton.setAttribute("aria-expanded", String(isOpen));
-      mobileButton.setAttribute(
-        "aria-label",
-        isOpen ? "Fermer le menu" : "Ouvrir le menu"
-      );
+      mobileButton.setAttribute("aria-label", isOpen ? "Fermer le menu" : "Ouvrir le menu");
       mobileButton.textContent = isOpen ? "×" : "☰";
     });
 
@@ -1782,8 +1726,74 @@ footer .container {
       });
     });
   }
-</script>
 
+
+  /* =========================
+     RÉALISATIONS DEPUIS CONTENT.JSON
+  ========================= */
+
+  function localized(value) {
+    if (value && typeof value === "object") {
+      return value[PAGE_LANG] || value.fr || "";
+    }
+    return value || "";
+  }
+
+  function imageUrl(path) {
+    if (!path) return "";
+    return /^(https?:)?\//.test(path) ? path : "/" + path;
+  }
+
+  fetch("/content.json", { cache: "no-store" })
+    .then(function (response) {
+      if (!response.ok) throw new Error("content.json : " + response.status);
+      return response.json();
+    })
+    .then(function (data) {
+      const items = (data.references && data.references.items) || [];
+      const category = items.find(function (item) { return item.id === SERVICE_ID; });
+      const projects = (category && category.projects) || [];
+
+      const section = document.getElementById("projects-section");
+      const grid = document.getElementById("projects-grid");
+
+      if (!projects.length || !section || !grid) return;
+
+      grid.innerHTML = "";
+
+      projects.slice(0, MAX_PROJECTS).forEach(function (project) {
+        const card = document.createElement("a");
+        card.className = "project-card";
+        card.href = PAGE_LANG === "fr" ? "/realisations/" : "/referenzen/";
+
+        const img = document.createElement("img");
+        img.src = imageUrl(project.image || (project.images && project.images[0]));
+        img.alt = localized(project.title);
+        img.loading = "lazy";
+
+        const body = document.createElement("div");
+        body.className = "project-body";
+
+        const title = document.createElement("h3");
+        title.textContent = localized(project.title).replace(/\s+/g, " ").trim();
+
+        const text = document.createElement("p");
+        text.textContent = localized(project.description).trim();
+
+        body.appendChild(title);
+        if (text.textContent) body.appendChild(text);
+
+        card.appendChild(img);
+        card.appendChild(body);
+        grid.appendChild(card);
+      });
+
+      section.hidden = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+</script>
 
 </body>
 </html>
