@@ -22,7 +22,7 @@
   <meta property="og:title" content="Couvertures au Luxembourg | ROOFCON">
   <meta property="og:description" content="ROOFCON vous accompagne dans vos projets de couverture au Luxembourg, de la préparation du chantier à la réalisation et aux finitions.">
   <meta property="og:url" content="https://roof-con.com/couvertures/">
-  <meta property="og:image" content="https://roof-con.com/ROOFCON.png">
+  <meta property="og:image" content="https://roof-con.com/images/poles/couvertures-1793353247750.png">
 
   <meta name="theme-color" content="#211f20">
 
@@ -55,17 +55,29 @@
   }
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://roof-con.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Nos services", "item": "https://roof-con.com/services/" },
+      { "@type": "ListItem", "position": 3, "name": "Couvertures", "item": "https://roof-con.com/couvertures/" }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --black: #211f20;
-      --black-soft: #292625;
+      --black-soft: #2c2826;
       --brown: #a27b5b;
-      --brown-light: #c3a080;
+      --brown2: #c3a080;
       --cream: #f5f2ee;
       --white: #ffffff;
       --gray: #706b67;
+      --text: #514c49;
       --line: #e5dfda;
-      --container: 1180px;
     }
 
     * {
@@ -91,9 +103,10 @@
       text-decoration: none;
     }
 
-    a:focus-visible {
+    a:focus-visible,
+    button:focus-visible {
       outline: 2px solid var(--brown);
-      outline-offset: 5px;
+      outline-offset: 4px;
     }
 
     img {
@@ -101,277 +114,295 @@
       height: auto;
     }
 
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      line-height: 1.12;
+    }
+
     .container {
-      width: min(var(--container), 92%);
+      width: min(1180px, 92%);
       margin: 0 auto;
     }
 
-    .topbar {
-      padding: 8px 0;
+
+    /* =========================
+       BARRE SUPÉRIEURE
+    ========================= */
+
+    .top {
       background: var(--black);
-      color: #e8e1db;
-      font-size: 12px;
-      letter-spacing: 0.08em;
+      color: #ddd;
+      font-size: 14px;
+      padding: 8px 0;
     }
 
-    .topbar-inner {
+    .top-inner {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: center;
-      gap: 16px;
+      gap: 15px;
     }
 
-    .topbar a:hover {
-      color: var(--brown-light);
+    .top-contact {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      white-space: nowrap;
     }
 
-    .header {
+    .top-social {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      transition: color .2s ease;
+    }
+
+    .top-social svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    .top a:hover {
+      color: var(--brown2);
+    }
+
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(255, 255, 255, 0.97);
-      border-bottom: 1px solid rgba(33, 31, 32, 0.08);
-      backdrop-filter: blur(12px);
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
     }
 
-    .header-inner {
-      min-height: 88px;
+    .nav {
+      min-height: 82px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 30px;
+      gap: 35px;
     }
 
-    .logo {
-      display: inline-flex;
+    .nav-logo {
+      display: flex;
       align-items: center;
       flex-shrink: 0;
     }
 
-    .logo img {
+    .nav-logo img {
       display: block;
-      width: 174px;
-      max-height: 66px;
-      object-fit: contain;
+      width: 175px;
+      height: auto;
     }
 
-    .nav {
+    .menu {
       display: flex;
       align-items: center;
       justify-content: flex-end;
       gap: 28px;
+      margin-left: auto;
+      font-size: 13px;
+      font-weight: 600;
     }
 
-    .nav a {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      transition: color 0.2s ease;
+    .menu a {
+      position: relative;
+      color: var(--black);
+      white-space: nowrap;
+      transition: color .2s ease;
     }
 
-    .nav a:hover {
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 1px;
+      background: var(--brown);
+      transition: width .2s ease;
+    }
+
+    .menu a:hover,
+    .menu a.current {
       color: var(--brown);
     }
 
-    .lang-switch {
-      border: 1px solid var(--line);
-      background: transparent;
-      color: var(--black);
-      padding: 7px 9px;
-      font-family: inherit;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease;
+    .menu a:hover::after,
+    .menu a.current::after {
+      width: 100%;
     }
 
-    .lang-switch:hover,
-    .lang-switch.active {
-      background: var(--black);
-      color: var(--white);
-      border-color: var(--black);
-    }
-
-    .nav .nav-cta {
-      padding: 12px 18px;
-      background: var(--black);
-      color: var(--white);
-      transition: background 0.2s ease;
-    }
-
-    .nav .nav-cta:hover {
+    .menu .cta {
       background: var(--brown);
-      color: var(--white);
+      color: #fff;
+      padding: 11px 18px;
     }
 
-    .hero {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-      color: var(--white);
-      background:
-        radial-gradient(
-          ellipse at 85% 25%,
-          rgba(162, 123, 91, 0.23),
-          transparent 42%
-        ),
-        linear-gradient(115deg, #211f20 0%, #302b28 100%);
+    .menu .cta::after {
+      display: none;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: -15%;
-      right: -8%;
-      width: 49%;
-      height: 135%;
-      opacity: 0.42;
-      transform: skewX(-13deg);
-      background: repeating-linear-gradient(
-        90deg,
-        transparent 0,
-        transparent 28px,
-        rgba(255, 255, 255, 0.12) 29px,
-        rgba(255, 255, 255, 0.12) 31px
-      );
-      border-left: 1px solid rgba(255, 255, 255, 0.18);
+    .menu .cta:hover {
+      background: var(--black);
+      color: #fff;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      right: 8%;
-      width: 1px;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.14);
-    }
-
-    .hero-content {
-      max-width: 780px;
-      padding: 112px 0 120px;
-    }
-
-    .eyebrow {
+    .lang {
       display: flex;
       align-items: center;
-      gap: 13px;
-      margin: 0 0 24px;
-      color: var(--brown-light);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      gap: 4px;
+      flex-shrink: 0;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 35px;
-      height: 1px;
-      background: currentColor;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin-top: 0;
-    }
-
-    h1,
-    h2,
-    h3 {
-      line-height: 1.15;
-      font-weight: 500;
-    }
-
-    h1 {
-      max-width: 800px;
-      margin-bottom: 28px;
-      font-size: clamp(42px, 6vw, 76px);
-      letter-spacing: -0.045em;
-    }
-
-    h1 span {
-      color: var(--brown-light);
-    }
-
-    .hero-intro {
-      max-width: 630px;
-      margin-bottom: 35px;
-      color: #e1dcd8;
-      font-size: 17px;
-      line-height: 1.9;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px;
-    }
-
-    .button {
+    .lang a {
       display: inline-flex;
-      min-height: 50px;
       align-items: center;
       justify-content: center;
-      padding: 13px 22px;
-      border: 1px solid transparent;
+      min-width: 34px;
+      height: 30px;
+      padding: 0 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--black);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.09em;
-      text-align: center;
-      text-transform: uppercase;
-      transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
     }
 
-    .button-primary {
+    .lang a:hover {
+      border-color: var(--brown);
+      color: var(--brown);
+    }
+
+    .lang a.active {
       background: var(--brown);
-      color: var(--white);
+      border-color: var(--brown);
+      color: #fff;
     }
 
-    .button-primary:hover {
-      background: var(--brown-light);
-      color: var(--black);
+    .mobile-menu-button {
+      display: none;
     }
 
-    .button-outline {
-      border-color: rgba(255, 255, 255, 0.45);
-      color: var(--white);
+    @media (max-width: 1100px) {
+      .nav {
+        gap: 22px;
+      }
+
+      .menu {
+        gap: 18px;
+        font-size: 12px;
+      }
+
+      .nav-logo img {
+        width: 165px;
+      }
     }
 
-    .button-outline:hover {
-      border-color: var(--white);
-      background: var(--white);
-      color: var(--black);
+    @media (max-width: 750px) {
+      .top {
+        display: none;
+      }
+
+      .nav {
+        min-height: 74px;
+        position: relative;
+        gap: 0;
+      }
+
+      .nav-logo img {
+        width: 145px;
+      }
+
+      .lang {
+        margin-left: auto;
+        margin-right: 10px;
+      }
+
+      .mobile-menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--black);
+        cursor: pointer;
+        font-size: 25px;
+        line-height: 1;
+      }
+
+      .menu {
+        display: none;
+        position: absolute;
+        top: 74px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        padding: 8px 0;
+        background: #fff;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
+      }
+
+      .menu.mobile-open {
+        display: flex;
+      }
+
+      .menu a {
+        display: block;
+        width: 100%;
+        padding: 15px 24px;
+        border-bottom: 1px solid #eee;
+        font-size: 14px;
+      }
+
+      .menu a::after {
+        display: none;
+      }
+
+      .menu a:last-child {
+        border-bottom: 0;
+      }
+
+      .menu .cta {
+        margin: 10px 16px;
+        width: auto;
+        text-align: center;
+      }
     }
 
-    .intro-section {
-      padding: 105px 0;
-    }
 
-    .two-columns {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 85px;
-      align-items: start;
-    }
+    /* =========================
+       ÉLÉMENTS COMMUNS
+    ========================= */
 
     .section-label {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 23px;
+      margin: 0 0 20px;
       color: var(--brown);
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
+      font-weight: 800;
+      letter-spacing: .18em;
       text-transform: uppercase;
     }
 
@@ -383,28 +414,224 @@
     }
 
     h2 {
-      margin-bottom: 25px;
-      font-size: clamp(32px, 4vw, 49px);
-      letter-spacing: -0.035em;
+      margin-bottom: 24px;
+      font-size: clamp(30px, 3.8vw, 46px);
+      letter-spacing: -.03em;
     }
 
-    h2 span {
-      color: var(--brown);
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .lead {
-      color: var(--gray);
-      font-size: 18px;
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .button-primary {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .button-primary:hover {
+      background: var(--brown2);
+      color: var(--black);
+    }
+
+    .button-outline {
+      border-color: rgba(255, 255, 255, .4);
+      color: var(--white);
+    }
+
+    .button-outline:hover {
+      border-color: var(--white);
+      background: var(--white);
+      color: var(--black);
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+      gap: 70px;
+      align-items: center;
+      padding: 70px 0 90px;
+    }
+
+    .breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 40px;
+      padding: 0;
+      list-style: none;
+      color: #9d958f;
+      font-size: 12px;
+    }
+
+    .breadcrumb li + li::before {
+      content: "›";
+      margin-right: 8px;
+      color: #6e6762;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--brown2);
+    }
+
+    .breadcrumb [aria-current] {
+      color: var(--brown2);
+    }
+
+    .hero .section-label {
+      color: var(--brown2);
+    }
+
+    h1 {
+      margin-bottom: 28px;
+      font-size: clamp(40px, 5.4vw, 68px);
+      letter-spacing: -.04em;
+    }
+
+    h1 span + br + span {
+      color: var(--brown2);
+    }
+
+    .hero-intro {
+      max-width: 600px;
+      margin-bottom: 18px;
+      color: #d9d3ce;
+      font-size: 16px;
       line-height: 1.85;
     }
 
-    .body-copy {
-      color: var(--gray);
+    .hero .button-row {
+      margin-top: 34px;
+    }
+
+    .hero-media {
+      position: relative;
+      margin: 0 24px 24px 0;
+      isolation: isolate;
+    }
+
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      inset: 24px -24px -24px 24px;
+      border: 2px solid var(--brown);
+      z-index: -1;
+    }
+
+    .hero-media img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: var(--black-soft);
+    }
+
+
+    /* =========================
+       COMPRENDRE LE PRINCIPE
+    ========================= */
+
+    .intro-section {
+      padding: 110px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 80px;
+      align-items: start;
+    }
+
+    .lead {
+      color: var(--black);
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    .body-copy p {
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.9;
     }
 
     .body-copy p:last-child {
       margin-bottom: 0;
     }
+
+    .diagram {
+      position: sticky;
+      top: 120px;
+      margin: 0;
+      padding: 30px;
+      background: var(--cream);
+    }
+
+    .diagram svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .diagram figcaption {
+      margin-top: 14px;
+      color: var(--gray);
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+
+    .d-wall { fill: #d9d1ca; }
+    .d-hatch { stroke: #b9aea5; stroke-width: 1.2; }
+    .d-insul { fill: #ead9c6; }
+    .d-wave { fill: none; stroke: var(--brown2); stroke-width: 1.4; }
+    .d-gap { fill: #fff; }
+    .d-batten { fill: var(--brown); }
+    .d-bracket { fill: #8a8079; }
+    .d-cladding { fill: var(--black); }
+    .d-joint { stroke: #4a4543; stroke-width: 1; }
+    .d-air { fill: none; stroke: var(--brown); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .d-leader { stroke: var(--black); stroke-width: 1; }
+    .d-dot { fill: var(--black); }
+    .d-label { fill: var(--black); font: 700 14px Arial, Helvetica, sans-serif; }
+    .d-gravel-bg { fill: #ece6df; }
+    .d-gravel { fill: #b9aea5; }
+    .d-osb { fill: #cfb48f; }
+    .d-stud { fill: #b98e66; }
+    .d-membrane { fill: #6e6762; }
+    .d-finish { fill: #ffffff; stroke: #d9d1ca; stroke-width: 1; }
+    .d-timber { stroke: var(--brown); fill: none; }
+    .d-rafter { stroke: var(--black); fill: none; }
+    .d-purlin { fill: #cfb48f; stroke: var(--brown); stroke-width: 1.5; }
+    .d-small { fill: var(--gray); font: 11px Arial, Helvetica, sans-serif; letter-spacing: .06em; }
+
+
+    /* =========================
+       POINTS ESSENTIELS
+    ========================= */
 
     .detail-section {
       padding: 100px 0;
@@ -413,65 +640,79 @@
 
     .section-heading {
       max-width: 760px;
-      margin: 0 auto 55px;
-      text-align: center;
-    }
-
-    .section-heading .section-label {
-      justify-content: center;
+      margin: 0 0 55px;
     }
 
     .section-heading > p:last-child {
+      margin-bottom: 0;
       color: var(--gray);
+      font-size: 17px;
     }
 
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+      gap: 4px;
     }
 
     .feature-card {
-      min-height: 250px;
-      padding: 30px;
-      border: 1px solid var(--line);
+      padding: 34px 30px;
       background: var(--white);
+      border-top: 3px solid transparent;
+      transition: border-color .2s ease;
     }
 
-    .feature-number {
-      display: block;
-      margin-bottom: 28px;
+    .feature-card:hover {
+      border-top-color: var(--brown);
+    }
+
+    .feature-tag {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 4px 10px;
+      background: var(--cream);
       color: var(--brown);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
     }
 
     .feature-card h3 {
-      margin-bottom: 15px;
-      font-size: 23px;
+      margin-bottom: 12px;
+      font-size: 20px;
     }
 
     .feature-card p {
       margin-bottom: 0;
       color: var(--gray);
       font-size: 14px;
+      line-height: 1.7;
     }
 
+
+    /* =========================
+       NOTRE APPROCHE
+    ========================= */
+
     .method-section {
-      padding: 105px 0;
+      padding: 110px 0;
     }
 
     .method-layout {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
+      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
       gap: 90px;
       align-items: start;
     }
 
     .method-intro {
       position: sticky;
-      top: 125px;
+      top: 120px;
+    }
+
+    .method-intro > p:not(.section-label) {
+      color: var(--text);
+      margin-bottom: 32px;
     }
 
     .method-list {
@@ -480,60 +721,121 @@
 
     .method-item {
       display: grid;
-      grid-template-columns: 48px 1fr;
+      grid-template-columns: 70px 1fr;
       gap: 20px;
-      padding: 27px 0;
+      padding: 30px 0;
       border-bottom: 1px solid var(--line);
     }
 
     .method-item .number {
-      color: var(--brown);
-      font-size: 13px;
+      color: var(--brown2);
+      font-size: 34px;
       font-weight: 700;
+      line-height: 1;
     }
 
     .method-item h3 {
-      margin-bottom: 9px;
-      font-size: 21px;
+      margin-bottom: 8px;
+      font-size: 20px;
     }
 
     .method-item p {
       margin-bottom: 0;
       color: var(--gray);
-      font-size: 14px;
+      font-size: 15px;
     }
 
+
+    /* =========================
+       RÉALISATIONS
+    ========================= */
+
+    .projects-section {
+      padding: 0 0 110px;
+    }
+
+    .projects-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .projects-head h2 {
+      margin-bottom: 0;
+    }
+
+    .link-arrow {
+      color: var(--brown);
+      font-weight: 800;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .link-arrow:hover {
+      color: var(--black);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      display: block;
+      background: var(--cream);
+    }
+
+    .project-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: opacity .2s ease;
+    }
+
+    .project-card:hover img {
+      opacity: .88;
+    }
+
+    .project-body {
+      padding: 22px 24px 26px;
+    }
+
+    .project-body h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .project-body p {
+      margin-bottom: 0;
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+
+    /* =========================
+       BANDE CONTACT
+    ========================= */
+
     .cta-section {
-      position: relative;
-      overflow: hidden;
-      padding: 86px 0;
+      padding: 90px 0;
       background: var(--black);
       color: var(--white);
     }
 
-    .cta-section::after {
-      content: "";
-      position: absolute;
-      top: -90px;
-      right: -60px;
-      width: 340px;
-      height: 500px;
-      transform: rotate(25deg);
-      border: 1px solid rgba(195, 160, 128, 0.22);
-      pointer-events: none;
-    }
-
     .cta-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr);
+      gap: 60px;
       align-items: center;
-      justify-content: space-between;
-      gap: 40px;
     }
 
-    .cta-copy {
-      max-width: 720px;
+    .cta-section .section-label {
+      color: var(--brown2);
     }
 
     .cta-copy h2 {
@@ -549,152 +851,103 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 13px;
-      flex-shrink: 0;
+      gap: 12px;
     }
 
     .cta-phone {
       color: #e7d5c4;
-      font-size: 14px;
+      font-size: 15px;
     }
 
-    .footer {
-      padding: 34px 0;
-      background: #181717;
-      color: #d8d2cd;
+    .cta-phone:hover {
+      color: var(--white);
     }
 
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+
+    /* =========================
+       AUTRES SERVICES
+    ========================= */
+
+    .others-section {
+      padding: 90px 0 100px;
+      background: var(--cream);
+    }
+
+    .others-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 20px;
     }
 
-    .footer-logo {
-      display: inline-flex;
-      align-items: center;
+    .other-card {
+      display: block;
+      background: var(--white);
     }
 
-   .footer-logo img {
-  display: block;
-  width: 135px;
-  max-height: 55px;
-  object-fit: contain;
-}
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      font-size: 12px;
-    }
-
-    .footer-links a:hover {
-      color: var(--brown-light);
-    }
-
-    .copyright {
+    .other-card img {
+      display: block;
       width: 100%;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      color: #aaa39d;
-      font-size: 11px;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      background: var(--line);
     }
 
-    @media (max-width: 900px) {
-      .header-inner {
-        min-height: 76px;
+    .other-card span {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 18px 20px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    .other-card span::after {
+      content: "→";
+      color: var(--brown);
+    }
+
+    .other-card:hover span {
+      color: var(--brown);
+    }
+
+
+    /* =========================
+       RESPONSIVE CONTENU
+    ========================= */
+
+    @media (max-width: 1000px) {
+      .hero-grid,
+      .intro-grid,
+      .method-layout,
+      .cta-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 45px;
       }
 
-      .logo img {
-        width: 145px;
+      .hero-media {
+        max-width: 520px;
       }
 
-      .nav {
-        gap: 16px;
-      }
-
-      .nav a {
-        font-size: 10px;
-      }
-
-      .two-columns,
-      .method-layout {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
+      .diagram,
       .method-intro {
         position: static;
       }
 
-      .feature-grid {
+      .feature-grid,
+      .projects-grid,
+      .others-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .cta-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .cta-actions {
-        flex-direction: row;
-        align-items: center;
-        flex-wrap: wrap;
       }
     }
 
     @media (max-width: 600px) {
-      .topbar-inner {
-        justify-content: center;
-        text-align: center;
+      .hero-grid {
+        padding: 45px 0 70px;
       }
 
-      .topbar-location {
-        display: none;
-      }
-
-      .header-inner {
-        min-height: auto;
-        padding: 14px 0;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      .logo img {
-        width: 135px;
-      }
-
-      .nav {
-        width: 100%;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 12px 18px;
-      }
-
-      .nav a {
-        font-size: 10px;
-      }
-
-      .nav .nav-cta {
-        padding: 8px 11px;
-      }
-
-      .hero-content {
-        padding: 76px 0 85px;
-      }
-
-      .hero::before {
-        right: -25%;
-        width: 75%;
-        opacity: 0.25;
-      }
-
-      h1 {
-        font-size: clamp(39px, 11vw, 56px);
+      .breadcrumb ol {
+        margin-bottom: 28px;
       }
 
       .hero-intro {
@@ -702,48 +955,172 @@
       }
 
       .intro-section,
-      .method-section {
-        padding: 75px 0;
-      }
-
+      .method-section,
       .detail-section {
-        padding: 75px 0;
-      }
-
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .feature-card {
-        min-height: auto;
-        padding: 25px;
-      }
-
-      .section-heading {
-        margin-bottom: 35px;
-      }
-
-      .method-item {
-        grid-template-columns: 32px 1fr;
-        gap: 14px;
-      }
-
-      .cta-section {
         padding: 70px 0;
       }
 
-      .cta-actions {
+      .projects-section {
+        padding-bottom: 70px;
+      }
+
+      .diagram {
+        padding: 18px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
+      .feature-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .method-item {
+        grid-template-columns: 48px 1fr;
+        gap: 14px;
+      }
+
+      .method-item .number {
+        font-size: 26px;
+      }
+
+      .cta-section,
+      .others-section {
+        padding: 70px 0;
+      }
+
+      .others-grid {
+        gap: 12px;
+      }
+
+      .other-card span {
+        padding: 14px;
+        font-size: 13px;
+      }
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      background: #211f20;
+      color: #aaa29c;
+      padding: 25px 0 14px;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
+      align-items: start;
+      gap: 28px;
+    }
+
+    .footer-logo {
+      display: block;
+      width: 125px;
+      max-width: 100%;
+      height: auto;
+      background: #fff;
+      padding: 5px;
+      margin-bottom: 12px;
+    }
+
+    #footer-description {
+      max-width: 240px;
+      color: #aaa29c;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .footer-title {
+      color: var(--brown2);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 4px 0 9px;
+    }
+
+    .footer-item {
+      margin-bottom: 5px;
+      color: #aaa29c;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-item a:hover,
+    .footer-social a:hover,
+    .footer-legal a:hover {
+      color: var(--brown2);
+    }
+
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+
+    .footer-social a {
+      color: #aaa29c;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #403a37;
+      margin-top: 22px;
+      padding-top: 12px;
+      color: #827a75;
+      font-size: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer-legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .footer-legal a {
+      color: #827a75;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .footer-bottom {
         align-items: flex-start;
         flex-direction: column;
       }
+    }
 
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
+    @media (max-width: 600px) {
+      .footer-grid {
+        gap: 22px 16px;
       }
 
-      .footer-links {
-        gap: 12px 18px;
+      .footer-logo {
+        width: 110px;
+      }
+
+      .footer-legal {
+        line-height: 1.9;
       }
     }
 
@@ -755,486 +1132,16 @@
       *,
       *::before,
       *::after {
-        transition-duration: 0.01ms !important;
+        transition-duration: .01ms !important;
       }
     }
-
-    
-
-
-/* BARRE SUPÉRIEURE */
-.top {
-  background: var(--black);
-  color: #ddd;
-  font-size: 14px;
-  padding: 8px 0;
-}
-
-.top-inner {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 15px;
-}
-
-.top a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.top-contact {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  white-space: nowrap;
-}
-
-.top-social {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  flex-shrink: 0;
-  font-size: 12px;
-  white-space: nowrap;
-}
-
-.top-social svg {
-  width: 16px;
-  height: 16px;
-  max-width: 16px;
-  max-height: 16px;
-  display: block;
-}
-
-.top-social:hover {
-  color: var(--brown2);
-  text-decoration: none;
-}
-
-/* HEADER */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: #fff;
-  border-bottom: 1px solid var(--line);
-}
-
-.nav {
-  min-height: 82px;
-  display: flex;
-  align-items: center;
-  gap: 35px;
-}
-
-/* LOGO */
-.nav-logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.nav-logo img {
-  display: block;
-  width: 175px;
-  height: auto;
-}
-
-/* NAVIGATION */
-.menu {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 28px;
-  margin-left: auto;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.menu a {
-  position: relative;
-  color: var(--black);
-  text-decoration: none;
-  white-space: nowrap;
-  text-transform: none;
-  transition: color .2s ease;
-}
-
-.menu a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -7px;
-  width: 0;
-  height: 1px;
-  background: var(--brown);
-  transition: width .2s ease;
-}
-
-.menu a:hover {
-  color: var(--brown);
-}
-
-.menu a:hover::after {
-  width: 100%;
-}
-
-/* BOUTON CONTACT */
-.menu .cta {
-  background: var(--brown);
-  color: #fff;
-  padding: 11px 18px;
-}
-
-.menu .cta::after {
-  display: none;
-}
-
-.menu .cta:hover {
-  background: var(--black);
-  color: #fff;
-}
-
-/* LANGUES */
-.lang {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  flex-shrink: 0;
-}
-
-.lang a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 34px;
-  height: 30px;
-  padding: 0 8px;
-  border: 1px solid var(--line);
-  background: #fff;
-  color: var(--black);
-  font-size: 11px;
-  font-weight: 700;
-  transition: background .2s ease, color .2s ease, border-color .2s ease;
-}
-
-.lang a:hover {
-  border-color: var(--brown);
-  color: var(--brown);
-}
-
-.lang a.active {
-  background: var(--brown);
-  border-color: var(--brown);
-  color: #fff;
-}
-
-.lang a,
-.lang a:hover,
-.lang a:focus,
-.lang a:active,
-.lang a.active {
-  text-decoration: none !important;
-}
-
-/* MENU MOBILE */
-.mobile-menu-button {
-  display: none;
-}
-
-/* TABLETTE */
-@media (max-width: 1100px) {
-  .nav {
-    gap: 22px;
-  }
-
-  .menu {
-    gap: 18px;
-    font-size: 12px;
-  }
-
-  .nav-logo img {
-    width: 165px;
-  }
-}
-
-/* MOBILE */
-@media (max-width: 750px) {
-  header {
-    position: sticky;
-    top: 0;
-  }
-
-  .nav {
-    min-height: 74px;
-    position: relative;
-    gap: 0;
-  }
-
-  .nav-logo img {
-    width: 145px;
-  }
-
-  .lang {
-    margin-left: auto;
-    margin-right: 10px;
-  }
-
-  .mobile-menu-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 42px;
-    height: 42px;
-    border: 1px solid var(--line);
-    background: #fff;
-    color: var(--black);
-    cursor: pointer;
-    font-size: 25px;
-    line-height: 1;
-  }
-
-  .menu {
-    display: none;
-    position: absolute;
-    top: 74px;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    margin: 0;
-    background: #fff;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    box-shadow: 0 12px 30px rgba(0,0,0,.08);
-  }
-
-  .menu.mobile-open {
-    display: flex;
-  }
-
-  .menu a {
-    width: 100%;
-    padding: 15px 24px;
-    border-bottom: 1px solid #eee;
-    font-size: 14px;
-  }
-
-  .menu a::after {
-    display: none;
-  }
-
-  .menu a:last-child {
-    border-bottom: none;
-  }
-
-  .menu .cta {
-    margin: 10px 16px;
-    width: auto;
-    text-align: center;
-  }
-}
-
-
-/* =========================================
-   FOOTER ROOFCON — HORIZONTAL ET ÉPURÉ
-   Tous les textes actuels sont conservés
-========================================= */
-
-footer {
-  background: #211f20;
-  color: #aaa29c;
-  padding: 25px 0 14px;
-  font-size: 12px;
-  line-height: 1.65;
-}
-
-footer .container {
-  width: min(1180px, 92%);
-  margin: auto;
-}
-
-/* ORGANISATION HORIZONTALE */
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr 1.25fr .7fr;
-  align-items: start;
-  gap: 28px;
-}
-
-/* LOGO ET DESCRIPTION */
-
-.footer-logo {
-  display: block;
-  width: 125px;
-  max-width: 100%;
-  height: auto;
-  background: #fff;
-  padding: 5px;
-  margin-bottom: 12px;
-}
-
-#footer-description {
-  max-width: 240px;
-  color: #aaa29c;
-  font-size: 11px;
-  line-height: 1.7;
-}
-
-/* TITRES */
-
-.footer-title {
-  color: #c3a080;
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  margin: 4px 0 9px;
-}
-
-/* COORDONNÉES ET HORAIRES */
-
-.footer-item {
-  margin-bottom: 5px;
-  color: #aaa29c;
-  overflow-wrap: anywhere;
-}
-
-.footer-item a {
-  color: inherit;
-  text-decoration: none;
-  transition: color .2s ease;
-}
-
-.footer-item a:hover {
-  color: #c3a080;
-}
-
-/* RÉSEAUX SOCIAUX DU FOOTER — TEXTE UNIQUEMENT */
-.footer-social {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
-}
-
-.footer-social a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0;
-  color: #aaa29c;
-  text-decoration: none;
-  transition: color .2s ease;
-}
-
-.footer-social a svg {
-  display: none;
-}
-
-.footer-social a:hover {
-  color: #c3a080;
-}
-/* COPYRIGHT ET LIENS LÉGAUX */
-
-.footer-bottom {
-  border-top: 1px solid #403a37;
-  margin-top: 22px;
-  padding-top: 12px;
-  color: #827a75;
-  font-size: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.footer-legal {
-  margin-top: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-}
-
-.footer-legal a {
-  color: #827a75;
-  text-decoration: none;
-  transition: color .2s ease;
-}
-
-.footer-legal a:hover {
-  color: #c3a080;
-}
-
-/* TABLETTE */
-
-@media (max-width: 900px) {
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-  }
-
-  .footer-bottom {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-  footer {
-    padding: 24px 0 14px;
-  }
-
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px 16px;
-  }
-
-  .footer-logo {
-    width: 110px;
-  }
-
-  .footer-bottom {
-    margin-top: 18px;
-  }
-
-  .footer-legal {
-    line-height: 1.9;
-  }
-}
-
-.top-social {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-  flex-shrink: 0;
-  font-size: 12px;
-  white-space: nowrap;
-}
-
-.top-social svg {
-  width: 16px;
-  height: 16px;
-  max-width: 16px;
-  max-height: 16px;
-  display: block;
-}
-
   </style>
-
 </head>
 
 <body>
 
- 
 <!-- BARRE SUPÉRIEURE -->
+
 <div class="top">
   <div class="container top-inner">
     <div class="top-contact">
@@ -1263,14 +1170,14 @@ footer .container {
            stroke-width="2" aria-hidden="true">
         <rect x="3" y="3" width="18" height="18" rx="5"/>
         <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="1"
-                fill="currentColor" stroke="none"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
       </svg>
     </a>
   </div>
 </div>
 
 <!-- HEADER -->
+
 <header>
   <div class="container nav">
 
@@ -1280,7 +1187,7 @@ footer .container {
 
     <nav class="menu" id="main-menu" aria-label="Navigation principale">
       <a id="nav-home" href="/">Accueil</a>
-      <a id="nav-services" href="/services/">Nos services</a>
+      <a id="nav-services" href="/services/" class="current">Nos services</a>
       <a id="nav-current" href="/projets-en-cours/">Projets en cours</a>
       <a id="nav-references" href="/realisations/">Réalisations</a>
       <a id="nav-jobs" href="/emploi/">Offres d'emploi</a>
@@ -1288,8 +1195,7 @@ footer .container {
     </nav>
 
     <div class="lang" aria-label="Choisir la langue">
-      <a id="lang-fr" class="active"
-         href="/couvertures/" aria-current="page">FR</a>
+      <a id="lang-fr" class="active" href="/couvertures/" aria-current="page">FR</a>
       <a id="lang-de" href="/de/dachdeckungen/">DE</a>
     </div>
 
@@ -1302,303 +1208,348 @@ footer .container {
   </div>
 </header>
 
-  <main>
+<main>
 
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
+  <!-- HERO -->
 
-      <p class="eyebrow">Couvertures · Luxembourg</p>
+  <section class="hero">
+    <div class="container hero-grid">
 
-      <h1>
-        <span>Couvertures</span><br>
-        <span>au Luxembourg</span>
-      </h1>
+      <div>
+        <nav class="breadcrumb" aria-label="Fil d’Ariane">
+          <ol>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/services/">Nos services</a></li>
+            <li><span aria-current="page">Couvertures</span></li>
+          </ol>
+        </nav>
 
-      
-<p class="hero-intro">
-  La couverture protège votre bâtiment des intempéries et contribue à son
-  apparence architecturale. ROOFCON vous accompagne dans vos projets de
-  couverture au Luxembourg, avec une attention particulière portée à la
-  préparation du chantier, à la mise en œuvre et aux finitions.
-</p>
+        <p class="section-label">Couvertures · Luxembourg</p>
 
-<p class="hero-intro">
-  Pour chaque projet, nous veillons à réaliser des travaux adaptés aux
-  caractéristiques du bâtiment et aux besoins de votre toiture.
-</p>
+        <h1>
+          <span>Couvertures</span><br>
+          <span>au Luxembourg</span>
+        </h1>
+
+        <p class="hero-intro">
+          La couverture protège votre bâtiment des intempéries et contribue à son
+          apparence architecturale. ROOFCON vous accompagne dans vos projets de
+          couverture au Luxembourg, avec une attention particulière portée à la
+          préparation du chantier, à la mise en œuvre et aux finitions.
+        </p>
+
+        <p class="hero-intro">
+          Pour chaque projet, nous veillons à réaliser des travaux adaptés aux
+          caractéristiques du bâtiment et aux besoins de votre toiture.
+        </p>
+
+        <div class="button-row">
+          <a class="button button-primary" href="/contact/">Parler de votre projet</a>
+          <a class="button button-outline" href="#comprendre">Découvrir la couverture</a>
+        </div>
+      </div>
+
+      <figure class="hero-media">
+        <img src="/images/poles/couvertures-1793353247750.png"
+             alt="Couverture de toiture réalisée par ROOFCON"
+             width="800" height="1000">
+      </figure>
+
+    </div>
+  </section>
 
 
-      <div class="button-row">
-        <a
-          class="button button-primary"
-          href="mailto:info@roof-con.lu?subject=Projet%20de%20couverture">
-          Parler de votre projet
-        </a>
+  <!-- COMPRENDRE LE PRINCIPE -->
 
-        <a
-          class="button button-outline"
-          href="#comprendre">
-          Découvrir la couverture
-        </a>
-<a class="button button-outline" href="https://roof-con.com/services">
-  Retour aux services
-</a>
+  <section class="intro-section" id="comprendre">
+    <div class="container intro-grid">
+
+      <div>
+        <p class="section-label">Comprendre le principe</p>
+
+        <h2>
+          <span>Une couverture adaptée</span><br>
+          <span>à chaque toiture</span>
+        </h2>
+
+        <div class="body-copy">
+          <p class="lead">La couverture constitue la partie extérieure de la toiture.
+            Elle contribue à protéger le bâtiment contre les intempéries
+            et doit être adaptée à la forme du toit, au support et aux
+            caractéristiques du projet.</p>
+
+          <p>Le choix des matériaux et leur mise en œuvre dépendent
+            notamment de la configuration de la toiture et des
+            prescriptions prévues pour le chantier. La préparation
+            permet d'anticiper les différentes étapes de réalisation.</p>
+
+          <p>Les raccords, les rives, les faîtages et les points de
+            rencontre avec les autres éléments du bâtiment demandent
+            une attention particulière pour obtenir un ensemble
+            cohérent et des finitions soignées.</p>
+        </div>
+      </div>
+
+      <figure class="diagram">
+        <svg viewBox="0 100 560 240" role="img" aria-labelledby="diagram-title">
+          <title id="diagram-title">Coupe de principe d’une couverture de toiture en pente : éléments de couverture, liteaux, contre-lattes, écran sous-toiture et chevron</title>
+
+          <g transform="translate(40,250) rotate(-25)">
+            <rect x="0" y="37" width="300" height="40" class="d-purlin"/>
+            <rect x="0" y="34" width="300" height="3" class="d-membrane"/>
+            <rect x="0" y="24" width="300" height="10" class="d-stud"/>
+            <rect x="10" y="14" width="10" height="10" class="d-batten"/>
+            <rect x="40" y="14" width="10" height="10" class="d-batten"/>
+            <rect x="70" y="14" width="10" height="10" class="d-batten"/>
+            <rect x="100" y="14" width="10" height="10" class="d-batten"/>
+            <rect x="130" y="14" width="10" height="10" class="d-batten"/>
+            <rect x="160" y="14" width="10" height="10" class="d-batten"/>
+            <rect x="190" y="14" width="10" height="10" class="d-batten"/>
+            <rect x="220" y="14" width="10" height="10" class="d-batten"/>
+            <rect x="250" y="14" width="10" height="10" class="d-batten"/>
+            <rect x="280" y="14" width="10" height="10" class="d-batten"/>
+            <rect x="0" y="0" width="32" height="14" class="d-cladding"/>
+            <line x1="0" y1="0" x2="0" y2="14" class="d-joint"/>
+            <rect x="30" y="0" width="32" height="14" class="d-cladding"/>
+            <line x1="30" y1="0" x2="30" y2="14" class="d-joint"/>
+            <rect x="60" y="0" width="32" height="14" class="d-cladding"/>
+            <line x1="60" y1="0" x2="60" y2="14" class="d-joint"/>
+            <rect x="90" y="0" width="32" height="14" class="d-cladding"/>
+            <line x1="90" y1="0" x2="90" y2="14" class="d-joint"/>
+            <rect x="120" y="0" width="32" height="14" class="d-cladding"/>
+            <line x1="120" y1="0" x2="120" y2="14" class="d-joint"/>
+            <rect x="150" y="0" width="32" height="14" class="d-cladding"/>
+            <line x1="150" y1="0" x2="150" y2="14" class="d-joint"/>
+            <rect x="180" y="0" width="32" height="14" class="d-cladding"/>
+            <line x1="180" y1="0" x2="180" y2="14" class="d-joint"/>
+            <rect x="210" y="0" width="32" height="14" class="d-cladding"/>
+            <line x1="210" y1="0" x2="210" y2="14" class="d-joint"/>
+            <rect x="240" y="0" width="32" height="14" class="d-cladding"/>
+            <line x1="240" y1="0" x2="240" y2="14" class="d-joint"/>
+            <rect x="270" y="0" width="32" height="14" class="d-cladding"/>
+            <line x1="270" y1="0" x2="270" y2="14" class="d-joint"/>
+          </g>
+
+          <circle cx="260.5" cy="154.9" r="4" fill="#fff"/>
+          <line x1="260.5" y1="154.9" x2="400" y2="125" class="d-leader"/>
+          <text x="410" y="130" class="d-label">Couverture</text>
+          <circle cx="224.8" cy="184.8" r="4" class="d-dot"/>
+          <line x1="224.8" y1="184.8" x2="400" y2="165" class="d-leader"/>
+          <text x="410" y="170" class="d-label">Liteaux</text>
+          <circle cx="188.2" cy="212.9" r="4" class="d-dot"/>
+          <line x1="188.2" y1="212.9" x2="400" y2="205" class="d-leader"/>
+          <text x="410" y="210" class="d-label">Contre-lattes</text>
+          <circle cx="154.7" cy="235.7" r="4" class="d-dot"/>
+          <line x1="154.7" y1="235.7" x2="400" y2="245" class="d-leader"/>
+          <text x="410" y="250" class="d-label">Écran sous-toiture</text>
+          <circle cx="127.5" cy="272.1" r="4" class="d-dot"/>
+          <line x1="127.5" y1="272.1" x2="400" y2="285" class="d-leader"/>
+          <text x="410" y="290" class="d-label">Chevron</text>
+        </svg>
+        <figcaption>Coupe de principe — la composition exacte dépend de chaque projet.</figcaption>
+      </figure>
+
+    </div>
+  </section>
+
+
+  <!-- POINTS ESSENTIELS -->
+
+  <section class="detail-section">
+    <div class="container">
+
+      <div class="section-heading">
+        <p class="section-label">Les points essentiels</p>
+
+        <h2>
+          <span>Une toiture protégée,</span><br>
+          <span>soignée jusque dans les détails</span>
+        </h2>
+
+        <p>De la préparation du support aux finitions, chaque étape
+          participe à la qualité de la couverture et à la cohérence
+          de l'ensemble de la toiture.</p>
+      </div>
+
+      <div class="feature-grid">
+
+        <article class="feature-card">
+          <span class="feature-tag">PRÉPARATION</span>
+          <h3>Un projet bien préparé</h3>
+          <p>Prendre en compte les plans, la configuration de la toiture et les contraintes du chantier avant le début des travaux.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-tag">SUPPORT</span>
+          <h3>Un support adapté</h3>
+          <p>Préparer les éléments nécessaires à la mise en œuvre et vérifier la compatibilité du support avec le système de couverture prévu.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-tag">MATÉRIAUX</span>
+          <h3>Une mise en œuvre soignée</h3>
+          <p>Poser les matériaux de couverture en tenant compte des caractéristiques du projet et des exigences techniques applicables.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-tag">RACCORDS</span>
+          <h3>Des raccords précis</h3>
+          <p>Accorder une attention particulière aux jonctions, aux pénétrations et aux points singuliers de la toiture.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-tag">FINITIONS</span>
+          <h3>Des finitions soignées</h3>
+          <p>Traiter avec soin les rives, les faîtages et les raccordements pour obtenir un résultat propre et cohérent avec le bâtiment.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-tag">COORDINATION</span>
+          <h3>Une toiture cohérente</h3>
+          <p>Coordonner les travaux de couverture avec les autres éléments du toit et les interventions prévues sur le chantier.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- NOTRE APPROCHE -->
+
+  <section class="method-section">
+    <div class="container method-layout">
+
+      <div class="method-intro">
+        <p class="section-label">Notre approche</p>
+
+        <h2>
+          <span>De la préparation</span><br>
+          <span>à la réalisation</span>
+        </h2>
+
+        <p>Un projet de couverture demande une bonne coordination
+          entre le support, les matériaux et les différentes étapes
+          du chantier. La méthode de travail est adaptée aux
+          caractéristiques de chaque réalisation.</p>
+
+        <a class="button button-primary" href="/contact/">Échanger avec ROOFCON</a>
+      </div>
+
+      <div class="method-list">
+
+        <article class="method-item">
+          <span class="number">01</span>
+          <div>
+            <h3>Étudier le projet</h3>
+            <p>Prendre connaissance des plans, de la forme de la toiture, des matériaux prévus et des contraintes à considérer avant le démarrage du chantier.</p>
+          </div>
+        </article>
+
+        <article class="method-item">
+          <span class="number">02</span>
+          <div>
+            <h3>Préparer le chantier</h3>
+            <p>Organiser les interventions, anticiper les besoins matériels et préparer les conditions nécessaires à la mise en œuvre de la couverture.</p>
+          </div>
+        </article>
+
+        <article class="method-item">
+          <span class="number">03</span>
+          <div>
+            <h3>Réaliser la couverture</h3>
+            <p>Mettre en place les éléments de couverture en portant une attention particulière à leur positionnement, aux raccords et aux détails d'exécution.</p>
+          </div>
+        </article>
+
+        <article class="method-item">
+          <span class="number">04</span>
+          <div>
+            <h3>Contrôler les finitions</h3>
+            <p>Vérifier les éléments réalisés, les raccordements et les finitions, en coordination avec les autres travaux prévus sur la toiture.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- NOS RÉALISATIONS (remplie depuis content.json) -->
+
+  <section class="projects-section" id="projects-section" hidden>
+    <div class="container">
+      <div class="projects-head">
+        <div>
+          <p class="section-label">Nos réalisations</p>
+          <h2>Nos couvertures</h2>
+        </div>
+        <a class="link-arrow" href="/realisations/">Voir toutes nos réalisations →</a>
+      </div>
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+
+  <!-- BANDE CONTACT -->
+
+  <section class="cta-section" id="contact">
+    <div class="container cta-inner">
+
+      <div class="cta-copy">
+        <p class="section-label">Votre projet au Luxembourg</p>
+
+        <h2>
+          <span>Vous avez un projet</span><br>
+          <span>de couverture ?</span>
+        </h2>
+
+        <p>Contactez ROOFCON pour nous présenter votre projet de
+          couverture et échanger sur vos besoins.</p>
+      </div>
+
+      <div class="cta-actions">
+        <a class="button button-primary" href="/contact/">Demander des renseignements</a>
+        <a class="cta-phone" href="tel:+352621765489">+352 621 765 489</a>
+        <a class="cta-phone" href="mailto:info@roof-con.lu?subject=Projet%20de%20couverture">info@roof-con.lu</a>
       </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="intro-section" id="comprendre">
-  <div class="container two-columns">
 
-    <div>
-      <p class="section-label">Comprendre le principe</p>
+  <!-- NOS AUTRES SERVICES -->
 
-      <h2>
-        <span>Une couverture adaptée</span><br>
-        <span>à chaque toiture</span>
-      </h2>
+  <section class="others-section">
+    <div class="container">
+      <p class="section-label">Nos autres services</p>
+      <h2>Découvrez aussi</h2>
+
+      <div class="others-grid">
+        <a class="other-card" href="/facades-ventilees/">
+          <img src="/images/poles/facades-1794313089573.png" alt="" loading="lazy" width="600" height="400">
+          <span>Façades ventilées</span>
+        </a>
+        <a class="other-card" href="/toitures-plates/">
+          <img src="/images/poles/toitures-1793353238888.png" alt="" loading="lazy" width="600" height="400">
+          <span>Toitures plates</span>
+        </a>
+        <a class="other-card" href="/charpentes/">
+          <img src="/images/poles/charpentes-1793353244086.png" alt="" loading="lazy" width="600" height="400">
+          <span>Charpentes</span>
+        </a>
+        <a class="other-card" href="/maisons-annexes-ossature-bois/">
+          <img src="/images/poles/maisons-1793353252847.png" alt="" loading="lazy" width="600" height="400">
+          <span>Ossatures bois &amp; petites constructions</span>
+        </a>
+      </div>
     </div>
+  </section>
 
-    <div class="body-copy">
-      <p class="lead">
-        La couverture constitue la partie extérieure de la toiture.
-        Elle contribue à protéger le bâtiment contre les intempéries
-        et doit être adaptée à la forme du toit, au support et aux
-        caractéristiques du projet.
-      </p>
-
-      <p>
-        Le choix des matériaux et leur mise en œuvre dépendent
-        notamment de la configuration de la toiture et des
-        prescriptions prévues pour le chantier. La préparation
-        permet d'anticiper les différentes étapes de réalisation.
-      </p>
-
-      <p>
-        Les raccords, les rives, les faîtages et les points de
-        rencontre avec les autres éléments du bâtiment demandent
-        une attention particulière pour obtenir un ensemble
-        cohérent et des finitions soignées.
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<section class="detail-section">
-  <div class="container">
-
-    <div class="section-heading">
-
-      <p class="section-label">Les points essentiels</p>
-
-      <h2>
-        <span>Une toiture protégée,</span><br>
-        <span>soignée jusque dans les détails</span>
-      </h2>
-
-      <p>
-        De la préparation du support aux finitions, chaque étape
-        participe à la qualité de la couverture et à la cohérence
-        de l'ensemble de la toiture.
-      </p>
-
-    </div>
-
-    <div class="feature-grid">
-
-      <article class="feature-card">
-        <div class="feature-number">01 / PRÉPARATION</div>
-        <h3>Un projet bien préparé</h3>
-        <p>
-          Prendre en compte les plans, la configuration de la toiture
-          et les contraintes du chantier avant le début des travaux.
-        </p>
-      </article>
-
-      <article class="feature-card">
-        <span class="feature-number">02 / SUPPORT</span>
-        <h3>Un support adapté</h3>
-        <p>
-          Préparer les éléments nécessaires à la mise en œuvre
-          et vérifier la compatibilité du support avec le système
-          de couverture prévu.
-        </p>
-      </article>
-
-      <article class="feature-card">
-        <span class="feature-number">03 / MATÉRIAUX</span>
-        <h3>Une mise en œuvre soignée</h3>
-        <p>
-          Poser les matériaux de couverture en tenant compte
-          des caractéristiques du projet et des exigences
-          techniques applicables.
-        </p>
-      </article>
-
-      <article class="feature-card">
-        <span class="feature-number">04 / RACCORDS</span>
-        <h3>Des raccords précis</h3>
-        <p>
-          Accorder une attention particulière aux jonctions,
-          aux pénétrations et aux points singuliers de la toiture.
-        </p>
-      </article>
-
-      <article class="feature-card">
-        <span class="feature-number">05 / FINITIONS</span>
-        <h3>Des finitions soignées</h3>
-        <p>
-          Traiter avec soin les rives, les faîtages et les
-          raccordements pour obtenir un résultat propre
-          et cohérent avec le bâtiment.
-        </p>
-      </article>
-
-      <article class="feature-card">
-        <span class="feature-number">06 / COORDINATION</span>
-        <h3>Une toiture cohérente</h3>
-        <p>
-          Coordonner les travaux de couverture avec les autres
-          éléments du toit et les interventions prévues sur
-          le chantier.
-        </p>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section class="method-section">
-  <div class="container method-layout">
-
-    <div class="method-intro">
-
-      <p class="section-label">Notre approche</p>
-
-      <h2>
-        <span>De la préparation</span><br>
-        <span>à la réalisation</span>
-      </h2>
-
-      <p class="body-copy">
-        Un projet de couverture demande une bonne coordination
-        entre le support, les matériaux et les différentes étapes
-        du chantier. La méthode de travail est adaptée aux
-        caractéristiques de chaque réalisation.
-      </p>
-
-      <a
-        class="button button-primary"
-        href="mailto:info@roof-con.lu?subject=Demande%20de%20renseignements%20%E2%80%93%20couverture">
-        Échanger avec ROOFCON
-      </a>
-
-    </div>
-
-    <div class="method-list">
-
-      <article class="method-item">
-        <span class="number">01</span>
-        <div>
-          <h3>Étudier le projet</h3>
-          <p>
-            Prendre connaissance des plans, de la forme de la
-            toiture, des matériaux prévus et des contraintes
-            à considérer avant le démarrage du chantier.
-          </p>
-        </div>
-      </article>
-
-      <article class="method-item">
-        <span class="number">02</span>
-        <div>
-          <h3>Préparer le chantier</h3>
-          <p>
-            Organiser les interventions, anticiper les besoins
-            matériels et préparer les conditions nécessaires
-            à la mise en œuvre de la couverture.
-          </p>
-        </div>
-      </article>
-
-      <article class="method-item">
-        <span class="number">03</span>
-        <div>
-          <h3>Réaliser la couverture</h3>
-          <p>
-            Mettre en place les éléments de couverture en portant
-            une attention particulière à leur positionnement,
-            aux raccords et aux détails d'exécution.
-          </p>
-        </div>
-      </article>
-
-      <article class="method-item">
-        <span class="number">04</span>
-        <div>
-          <h3>Contrôler les finitions</h3>
-          <p>
-            Vérifier les éléments réalisés, les raccordements
-            et les finitions, en coordination avec les autres
-            travaux prévus sur la toiture.
-          </p>
-        </div>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<section class="cta-section" id="contact">
-  <div class="container cta-inner">
-
-    <div class="cta-copy">
-
-      <p class="section-label">Votre projet au Luxembourg</p>
-
-      <h2>
-        <span>Vous avez un projet</span><br>
-        <span>de couverture ?</span>
-      </h2>
-
-      <p>
-        Contactez ROOFCON pour nous présenter votre projet de
-        couverture et échanger sur vos besoins.
-      </p>
-
-    </div>
-
-    <div class="cta-actions">
-
-      <a
-        class="button button-primary"
-        href="mailto:info@roof-con.lu?subject=Projet%20de%20couverture">
-        Demander des renseignements
-      </a>
-
-      <a class="cta-phone" href="tel:+352621765489">
-        +352 621 765 489
-      </a>
-
-      <a class="cta-phone" href="mailto:info@roof-con.lu">
-        info@roof-con.lu
-      </a>
-
-    </div>
-
-  </div>
-</section>
-
-  </main>
-
- 
+</main>
 
 
 <!-- FOOTER -->
+
 <footer>
   <div class="container">
     <div class="footer-grid">
@@ -1613,78 +1564,66 @@ footer .container {
       </div>
 
       <div>
-        <div class="footer-title" id="footer-contact-title">Contact</div>
-        <div class="footer-item" id="footer-phone">
-          <div style="margin-bottom: 5px;">Joël Brück</div>
+        <div class="footer-title">Contact</div>
+        <div class="footer-item">Joël Brück</div>
+        <div class="footer-item">
           <a href="tel:+352621765489">+352 621 765 489</a>
         </div>
-        <div class="footer-item" id="footer-email">
+        <div class="footer-item">
           <a href="mailto:info@roof-con.lu">info@roof-con.lu</a>
         </div>
       </div>
 
       <div>
-        <div class="footer-title" id="footer-address-title">Adresse</div>
-        <div class="footer-item" id="footer-address">
+        <div class="footer-title">Adresse</div>
+        <div class="footer-item">
           Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxembourg
         </div>
-        <div class="footer-item" id="footer-hours">
+        <div class="footer-item">
           Du lundi au vendredi, de 07h30 à 17h30
         </div>
       </div>
 
       <div>
-        <div class="footer-title" id="footer-social-title">Suivez-nous</div>
+        <div class="footer-title">Suivez-nous</div>
         <div class="footer-social">
-          <a id="footer-facebook"
-             href="https://www.facebook.com/profile.php?id=61594591794889"
-             target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7z"/>
-            </svg>
-            Facebook
-          </a>
-
-          <a id="footer-instagram"
-             href="https://www.instagram.com/roofcon.lu/"
-             target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 stroke-width="2" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1"
-                      fill="currentColor" stroke="none"/>
-            </svg>
-            Instagram
-          </a>
+          <a href="https://www.facebook.com/profile.php?id=61594591794889"
+             target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.instagram.com/roofcon.lu/"
+             target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <div id="footer-copyright">© ROOFCON — Tous droits réservés.</div>
+      <div>© ROOFCON — Tous droits réservés.</div>
       <div class="footer-legal">
-        <a href="/mentions-legales.html" id="footer-legal-1">Mentions légales</a>
+        <a href="/mentions-legales.html">Mentions légales</a>
         <span>·</span>
-        <a href="/politique-confidentialite.html" id="footer-legal-2">Politique de confidentialité</a>
+        <a href="/politique-confidentialite.html">Politique de confidentialité</a>
         <span>·</span>
-        <a href="/politique-cookies.html" id="footer-legal-3">Politique des cookies</a>
+        <a href="/politique-cookies.html">Politique des cookies</a>
       </div>
     </div>
   </div>
 </footer>
 
- 
+
 <script>
-  // Année automatique dans le footer
-  const yearElement = document.getElementById("year");
+  /* =========================
+     RÉGLAGES DE CETTE PAGE
+  ========================= */
 
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
+  const PAGE_LANG = "fr";               /* "de" sur la page allemande */
+  const SERVICE_ID = "couvertures";         /* id du service dans content.json */
+  const MAX_PROJECTS = 3;
 
-  // Ouverture et fermeture du menu mobile
+
+  /* =========================
+     MENU MOBILE
+  ========================= */
+
   const mobileButton = document.getElementById("mobile-menu-button");
   const mainMenu = document.getElementById("main-menu");
 
@@ -1693,15 +1632,10 @@ footer .container {
       const isOpen = mainMenu.classList.toggle("mobile-open");
 
       mobileButton.setAttribute("aria-expanded", String(isOpen));
-      mobileButton.setAttribute(
-        "aria-label",
-        isOpen ? "Fermer le menu" : "Ouvrir le menu"
-      );
-
+      mobileButton.setAttribute("aria-label", isOpen ? "Fermer le menu" : "Ouvrir le menu");
       mobileButton.textContent = isOpen ? "×" : "☰";
     });
 
-    // Fermer le menu après avoir sélectionné une page
     mainMenu.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         mainMenu.classList.remove("mobile-open");
@@ -1711,6 +1645,74 @@ footer .container {
       });
     });
   }
+
+
+  /* =========================
+     RÉALISATIONS DEPUIS CONTENT.JSON
+  ========================= */
+
+  function localized(value) {
+    if (value && typeof value === "object") {
+      return value[PAGE_LANG] || value.fr || "";
+    }
+    return value || "";
+  }
+
+  function imageUrl(path) {
+    if (!path) return "";
+    return /^(https?:)?\//.test(path) ? path : "/" + path;
+  }
+
+  fetch("/content.json", { cache: "no-store" })
+    .then(function (response) {
+      if (!response.ok) throw new Error("content.json : " + response.status);
+      return response.json();
+    })
+    .then(function (data) {
+      const items = (data.references && data.references.items) || [];
+      const category = items.find(function (item) { return item.id === SERVICE_ID; });
+      const projects = (category && category.projects) || [];
+
+      const section = document.getElementById("projects-section");
+      const grid = document.getElementById("projects-grid");
+
+      if (!projects.length || !section || !grid) return;
+
+      grid.innerHTML = "";
+
+      projects.slice(0, MAX_PROJECTS).forEach(function (project) {
+        const card = document.createElement("a");
+        card.className = "project-card";
+        card.href = PAGE_LANG === "fr" ? "/realisations/" : "/referenzen/";
+
+        const img = document.createElement("img");
+        img.src = imageUrl(project.image || (project.images && project.images[0]));
+        img.alt = localized(project.title);
+        img.loading = "lazy";
+
+        const body = document.createElement("div");
+        body.className = "project-body";
+
+        const title = document.createElement("h3");
+        title.textContent = localized(project.title).replace(/\s+/g, " ").trim();
+
+        const text = document.createElement("p");
+        text.textContent = localized(project.description).trim();
+
+        body.appendChild(title);
+        if (text.textContent) body.appendChild(text);
+
+        card.appendChild(img);
+        card.appendChild(body);
+        grid.appendChild(card);
+      });
+
+      section.hidden = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 </script>
+
 </body>
 </html>
