@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Holzrahmenbau & Kleinbauten in Luxemburg | ROOFCON</title>
-  <meta name="description" content="ROOFCON realisiert Holzrahmenbauten, Anbauten und kleine Holzbauten in Luxemburg – mit durchdachten Lösungen für jedes Bauvorhaben.">
+  <title>Holzrahmenbau in Luxemburg | ROOFCON</title>
+  <meta name="description" content="ROOFCON realisiert Häuser und Anbauten in Holzrahmenbauweise in Luxemburg – mit Lösungen, die auf die Anforderungen jedes Projekts abgestimmt sind.">
   <meta name="robots" content="index, follow">
 
   <link rel="canonical" href="https://roof-con.com/de/holzhaeuser-anbauten/">
@@ -16,10 +16,10 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_LU">
   <meta property="og:site_name" content="ROOFCON">
-  <meta property="og:title" content="Holzrahmenbau & Kleinbauten in Luxemburg | ROOFCON">
-  <meta property="og:description" content="Entdecken Sie die Lösungen von ROOFCON für Holzrahmenhäuser, Anbauten und kleine Holzbauten in Luxemburg.">
+  <meta property="og:title" content="Häuser und Anbauten in Holzrahmenbauweise in Luxemburg | ROOFCON">
+  <meta property="og:description" content="Entdecken Sie die Lösungen von ROOFCON für Häuser, Erweiterungen und Anbauten in Holzrahmenbauweise in Luxemburg.">
   <meta property="og:url" content="https://roof-con.com/de/holzhaeuser-anbauten/">
-  <meta property="og:image" content="https://roof-con.com/ROOFCON.png">
+  <meta property="og:image" content="https://roof-con.com/images/poles/maisons-1793353252847.png">
   <meta name="theme-color" content="#211f20">
 
   <script type="application/ld+json">
@@ -40,14 +40,26 @@
     },
     "areaServed": {
       "@type": "Country",
-      "name": "Luxembourg"
+      "name": "Luxemburg"
     },
     "knowsAbout": [
       "Holzrahmenbau",
-      "Holzhäuser",
-      "Holzanbauten",
-      "Holzbau",
-      "Wohngebäude"
+      "Häuser in Holzrahmenbauweise",
+      "Anbauten in Holzbauweise",
+      "Erweiterungen aus Holz",
+      "Holzbau"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://roof-con.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Leistungen", "item": "https://roof-con.com/leistungen/" },
+      { "@type": "ListItem", "position": 3, "name": "Holzrahmenbau & Kleinbauten", "item": "https://roof-con.com/de/holzhaeuser-anbauten/" }
     ]
   }
   </script>
@@ -55,17 +67,19 @@
   <style>
     :root {
       --black: #211f20;
-      --black-soft: #292625;
+      --black-soft: #2c2826;
       --brown: #a27b5b;
-      --brown-light: #c3a080;
+      --brown2: #c3a080;
       --cream: #f5f2ee;
       --white: #ffffff;
       --gray: #706b67;
+      --text: #514c49;
       --line: #e5dfda;
-      --container: 1180px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -81,186 +95,20 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    a:focus-visible {
+    a:focus-visible,
+    button:focus-visible {
       outline: 2px solid var(--brown);
-      outline-offset: 5px;
+      outline-offset: 4px;
     }
 
-    img { max-width: 100%; height: auto; }
-
-    .container {
-      width: min(var(--container), 92%);
-      margin: 0 auto;
-    }
-
-    .topbar {
-      padding: 8px 0;
-      background: var(--black);
-      color: #e8e1db;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-    }
-
-    .topbar-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .topbar a:hover {
-      color: var(--brown-light);
-    }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: rgba(255, 255, 255, 0.97);
-      border-bottom: 1px solid rgba(33, 31, 32, 0.08);
-      backdrop-filter: blur(12px);
-    }
-
-    .header-inner {
-      min-height: 88px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-
-    .logo {
-      display: inline-flex;
-      align-items: center;
-      flex-shrink: 0;
-    }
-
-    .logo img {
-      display: block;
-      width: 174px;
-      max-height: 66px;
-      object-fit: contain;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      gap: 28px;
-    }
-
-    .nav a {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      transition: color 0.2s ease;
-    }
-
-    .nav a:hover {
-      color: var(--brown);
-    }
-
-    .lang-switch {
-      border: 1px solid var(--line);
-      background: transparent;
-      color: var(--black);
-      padding: 7px 9px;
-      font-family: inherit;
-      font-size: 11px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    .lang-switch:hover,
-    .lang-switch.active {
-      background: var(--black);
-      color: var(--white);
-      border-color: var(--black);
-    }
-
-    .nav .nav-cta {
-      padding: 12px 18px;
-      background: var(--black);
-      color: var(--white);
-      transition: background 0.2s ease;
-    }
-
-    .nav .nav-cta:hover {
-      background: var(--brown);
-      color: var(--white);
-    }
-
-    .hero {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-      color: var(--white);
-      background:
-        radial-gradient(
-          ellipse at 85% 25%,
-          rgba(162, 123, 91, 0.23),
-          transparent 42%
-        ),
-        linear-gradient(115deg, #211f20 0%, #302b28 100%);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: -15%;
-      right: -8%;
-      width: 49%;
-      height: 135%;
-      opacity: 0.42;
-      transform: skewX(-13deg);
-      background: repeating-linear-gradient(
-        90deg,
-        transparent 0,
-        transparent 28px,
-        rgba(255, 255, 255, 0.12) 29px,
-        rgba(255, 255, 255, 0.12) 31px
-      );
-      border-left: 1px solid rgba(255, 255, 255, 0.18);
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      right: 8%;
-      width: 1px;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.14);
-    }
-
-    .hero-content {
-      max-width: 780px;
-      padding: 112px 0 120px;
-    }
-
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 13px;
-      margin: 0 0 24px;
-      color: var(--brown-light);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    .eyebrow::before {
-      content: "";
-      width: 35px;
-      height: 1px;
-      background: currentColor;
+    img {
+      max-width: 100%;
+      height: auto;
     }
 
     h1, h2, h3, p {
@@ -268,482 +116,20 @@
     }
 
     h1, h2, h3 {
-      line-height: 1.15;
-      font-weight: 500;
-    }
-
-    h1 {
-      max-width: 800px;
-      margin-bottom: 28px;
-      font-size: clamp(42px, 6vw, 76px);
-      letter-spacing: -0.045em;
-    }
-
-    h1 span {
-      color: var(--brown-light);
-    }
-
-    .hero-intro {
-      max-width: 630px;
-      margin-bottom: 35px;
-      color: #e1dcd8;
-      font-size: 17px;
-      line-height: 1.9;
-    }
-
-    .button-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px;
-    }
-
-    .button {
-      display: inline-flex;
-      min-height: 50px;
-      align-items: center;
-      justify-content: center;
-      padding: 13px 22px;
-      border: 1px solid transparent;
-      font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.09em;
-      text-align: center;
-      text-transform: uppercase;
-      transition:
-        background 0.2s ease,
-        color 0.2s ease,
-        border-color 0.2s ease;
+      line-height: 1.12;
     }
 
-    .button-primary {
-      background: var(--brown);
-      color: var(--white);
+    .container {
+      width: min(1180px, 92%);
+      margin: 0 auto;
     }
 
-    .button-primary:hover {
-      background: var(--brown-light);
-      color: var(--black);
-    }
 
-    .button-outline {
-      border-color: rgba(255, 255, 255, 0.45);
-      color: var(--white);
-    }
+    /* =========================
+       BARRE SUPÉRIEURE
+    ========================= */
 
-    .button-outline:hover {
-      border-color: var(--white);
-      background: var(--white);
-      color: var(--black);
-    }
-
-    .intro-section {
-      padding: 105px 0;
-    }
-
-    .two-columns {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 85px;
-      align-items: start;
-    }
-
-    .section-label {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 23px;
-      color: var(--brown);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .section-label::before {
-      content: "";
-      width: 28px;
-      height: 1px;
-      background: currentColor;
-    }
-
-    h2 {
-      margin-bottom: 25px;
-      font-size: clamp(32px, 4vw, 49px);
-      letter-spacing: -0.035em;
-    }
-
-    h2 span {
-      color: var(--brown);
-    }
-
-    .lead {
-      color: var(--gray);
-      font-size: 18px;
-      line-height: 1.85;
-    }
-
-    .body-copy {
-      color: var(--gray);
-    }
-
-    .body-copy p:last-child {
-      margin-bottom: 0;
-    }
-
-    .detail-section {
-      padding: 100px 0;
-      background: var(--cream);
-    }
-
-    .section-heading {
-      max-width: 760px;
-      margin: 0 auto 55px;
-      text-align: center;
-    }
-
-    .section-heading .section-label {
-      justify-content: center;
-    }
-
-    .section-heading > p:last-child {
-      color: var(--gray);
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .feature-card {
-      min-height: 250px;
-      padding: 30px;
-      border: 1px solid var(--line);
-      background: var(--white);
-    }
-
-    .feature-number {
-      display: block;
-      margin-bottom: 28px;
-      color: var(--brown);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-    }
-
-    .feature-card h3 {
-      margin-bottom: 15px;
-      font-size: 23px;
-    }
-
-    .feature-card p {
-      margin-bottom: 0;
-      color: var(--gray);
-      font-size: 14px;
-    }
-
-    .method-section {
-      padding: 105px 0;
-    }
-
-    .method-layout {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 90px;
-      align-items: start;
-    }
-
-    .method-intro {
-      position: sticky;
-      top: 125px;
-    }
-
-    .method-list {
-      border-top: 1px solid var(--line);
-    }
-
-    .method-item {
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: 20px;
-      padding: 27px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .method-item .number {
-      color: var(--brown);
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .method-item h3 {
-      margin-bottom: 9px;
-      font-size: 21px;
-    }
-
-    .method-item p {
-      margin-bottom: 0;
-      color: var(--gray);
-      font-size: 14px;
-    }
-
-    .cta-section {
-      position: relative;
-      overflow: hidden;
-      padding: 86px 0;
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .cta-section::after {
-      content: "";
-      position: absolute;
-      top: -90px;
-      right: -60px;
-      width: 340px;
-      height: 500px;
-      transform: rotate(25deg);
-      border: 1px solid rgba(195, 160, 128, 0.22);
-      pointer-events: none;
-    }
-
-    .cta-inner {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-
-    .cta-copy {
-      max-width: 720px;
-    }
-
-    .cta-copy h2 {
-      margin-bottom: 16px;
-    }
-
-    .cta-copy p:last-child {
-      margin-bottom: 0;
-      color: #d5ceca;
-    }
-
-    .cta-actions {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 13px;
-      flex-shrink: 0;
-    }
-
-    .cta-phone {
-      color: #e7d5c4;
-      font-size: 14px;
-    }
-
-    .footer {
-      padding: 34px 0;
-      background: #181717;
-      color: #d8d2cd;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .footer-logo {
-      display: inline-flex;
-      align-items: center;
-    }
-
-    .footer-logo img {
-      display: block;
-      width: 135px;
-      max-height: 55px;
-      object-fit: contain;
-    }
-
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      font-size: 12px;
-    }
-
-    .footer-links a:hover {
-      color: var(--brown-light);
-    }
-
-    .copyright {
-      width: 100%;
-      padding-top: 18px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      color: #aaa39d;
-      font-size: 11px;
-    }
-
-    @media (max-width: 900px) {
-      .header-inner {
-        min-height: 76px;
-      }
-
-      .logo img {
-        width: 145px;
-      }
-
-      .nav {
-        gap: 16px;
-      }
-
-      .nav a {
-        font-size: 10px;
-      }
-
-      .two-columns,
-      .method-layout {
-        grid-template-columns: 1fr;
-        gap: 35px;
-      }
-
-      .method-intro {
-        position: static;
-      }
-
-      .feature-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .cta-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .cta-actions {
-        flex-direction: row;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .topbar-inner {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .topbar-location {
-        display: none;
-      }
-
-      .header-inner {
-        min-height: auto;
-        padding: 14px 0;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      .logo img {
-        width: 135px;
-      }
-
-      .nav {
-        width: 100%;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 12px 18px;
-      }
-
-      .nav a {
-        font-size: 10px;
-      }
-
-      .nav .nav-cta {
-        padding: 8px 11px;
-      }
-
-      .hero-content {
-        padding: 76px 0 85px;
-      }
-
-      .hero::before {
-        right: -25%;
-        width: 75%;
-        opacity: 0.25;
-      }
-
-      h1 {
-        font-size: clamp(39px, 11vw, 56px);
-      }
-
-      .hero-intro {
-        font-size: 15px;
-      }
-
-      .intro-section,
-      .method-section {
-        padding: 75px 0;
-      }
-
-      .detail-section {
-        padding: 75px 0;
-      }
-
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .feature-card {
-        min-height: auto;
-        padding: 25px;
-      }
-
-      .section-heading {
-        margin-bottom: 35px;
-      }
-
-      .method-item {
-        grid-template-columns: 32px 1fr;
-        gap: 14px;
-      }
-
-      .cta-section {
-        padding: 70px 0;
-      }
-
-      .cta-actions {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .footer-inner {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .footer-links {
-        gap: 12px 18px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition-duration: 0.01ms !important;
-      }
-    }
-
-    /* BARRE SUPÉRIEURE */
     .top {
       background: var(--black);
       color: #ddd;
@@ -758,11 +144,6 @@
       gap: 15px;
     }
 
-    .top a {
-      color: inherit;
-      text-decoration: none;
-    }
-
     .top-contact {
       display: flex;
       align-items: center;
@@ -774,27 +155,27 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: auto;
-      height: auto;
+      width: 18px;
+      height: 18px;
       flex-shrink: 0;
-      font-size: 12px;
-      white-space: nowrap;
+      transition: color .2s ease;
     }
 
     .top-social svg {
       width: 16px;
       height: 16px;
-      max-width: 16px;
-      max-height: 16px;
       display: block;
     }
 
-    .top-social:hover {
-      color: var(--brown-light);
-      text-decoration: none;
+    .top a:hover {
+      color: var(--brown2);
     }
 
-    /* HEADER */
+
+    /* =========================
+       HEADER
+    ========================= */
+
     header {
       position: sticky;
       top: 0;
@@ -810,7 +191,6 @@
       gap: 35px;
     }
 
-    /* LOGO */
     .nav-logo {
       display: flex;
       align-items: center;
@@ -823,7 +203,6 @@
       height: auto;
     }
 
-    /* NAVIGATION */
     .menu {
       display: flex;
       align-items: center;
@@ -837,9 +216,7 @@
     .menu a {
       position: relative;
       color: var(--black);
-      text-decoration: none;
       white-space: nowrap;
-      text-transform: none;
       transition: color .2s ease;
     }
 
@@ -854,15 +231,16 @@
       transition: width .2s ease;
     }
 
-    .menu a:hover {
+    .menu a:hover,
+    .menu a.current {
       color: var(--brown);
     }
 
-    .menu a:hover::after {
+    .menu a:hover::after,
+    .menu a.current::after {
       width: 100%;
     }
 
-    /* BOUTON CONTACT */
     .menu .cta {
       background: var(--brown);
       color: #fff;
@@ -878,7 +256,6 @@
       color: #fff;
     }
 
-    /* LANGUES */
     .lang {
       display: flex;
       align-items: center;
@@ -912,20 +289,10 @@
       color: #fff;
     }
 
-    .lang a,
-    .lang a:hover,
-    .lang a:focus,
-    .lang a:active,
-    .lang a.active {
-      text-decoration: none !important;
-    }
-
-    /* MENU MOBILE */
     .mobile-menu-button {
       display: none;
     }
 
-    /* TABLETTE */
     @media (max-width: 1100px) {
       .nav {
         gap: 22px;
@@ -941,11 +308,9 @@
       }
     }
 
-    /* MOBILE */
     @media (max-width: 750px) {
-      header {
-        position: sticky;
-        top: 0;
+      .top {
+        display: none;
       }
 
       .nav {
@@ -987,10 +352,11 @@
         align-items: stretch;
         gap: 0;
         margin: 0;
+        padding: 8px 0;
         background: #fff;
         border-top: 1px solid var(--line);
         border-bottom: 1px solid var(--line);
-        box-shadow: 0 12px 30px rgba(0,0,0,.08);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, .10);
       }
 
       .menu.mobile-open {
@@ -998,6 +364,7 @@
       }
 
       .menu a {
+        display: block;
         width: 100%;
         padding: 15px 24px;
         border-bottom: 1px solid #eee;
@@ -1009,7 +376,7 @@
       }
 
       .menu a:last-child {
-        border-bottom: none;
+        border-bottom: 0;
       }
 
       .menu .cta {
@@ -1019,18 +386,632 @@
       }
     }
 
-    /* FOOTER ROOFCON */
+
+    /* =========================
+       ÉLÉMENTS COMMUNS
+    ========================= */
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 20px;
+      color: var(--brown);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .section-label::before {
+      content: "";
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h2 {
+      margin-bottom: 24px;
+      font-size: clamp(30px, 3.8vw, 46px);
+      letter-spacing: -.03em;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: 13px 22px;
+      border: 1px solid transparent;
+      font-size: 14px;
+      font-weight: 800;
+      text-align: center;
+      transition: background .2s ease, color .2s ease, border-color .2s ease;
+    }
+
+    .button-primary {
+      background: var(--brown);
+      color: var(--white);
+    }
+
+    .button-primary:hover {
+      background: var(--brown2);
+      color: var(--black);
+    }
+
+    .button-outline {
+      border-color: rgba(255, 255, 255, .4);
+      color: var(--white);
+    }
+
+    .button-outline:hover {
+      border-color: var(--white);
+      background: var(--white);
+      color: var(--black);
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+      gap: 70px;
+      align-items: center;
+      padding: 70px 0 90px;
+    }
+
+    .breadcrumb ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 40px;
+      padding: 0;
+      list-style: none;
+      color: #9d958f;
+      font-size: 12px;
+    }
+
+    .breadcrumb li + li::before {
+      content: "›";
+      margin-right: 8px;
+      color: #6e6762;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--brown2);
+    }
+
+    .breadcrumb [aria-current] {
+      color: var(--brown2);
+    }
+
+    .hero .section-label {
+      color: var(--brown2);
+    }
+
+    h1 {
+      margin-bottom: 28px;
+      font-size: clamp(40px, 5.4vw, 68px);
+      letter-spacing: -.04em;
+    }
+
+    h1 span + br + span {
+      color: var(--brown2);
+    }
+
+    .hero-intro {
+      max-width: 600px;
+      margin-bottom: 18px;
+      color: #d9d3ce;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .hero .button-row {
+      margin-top: 34px;
+    }
+
+    .hero-media {
+      position: relative;
+      margin: 0 24px 24px 0;
+      isolation: isolate;
+    }
+
+    .hero-media::before {
+      content: "";
+      position: absolute;
+      inset: 24px -24px -24px 24px;
+      border: 2px solid var(--brown);
+      z-index: -1;
+    }
+
+    .hero-media img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: var(--black-soft);
+    }
+
+
+    /* =========================
+       COMPRENDRE LE PRINCIPE
+    ========================= */
+
+    .intro-section {
+      padding: 110px 0;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 80px;
+      align-items: start;
+    }
+
+    .lead {
+      color: var(--black);
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    .body-copy p {
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .body-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .diagram {
+      position: sticky;
+      top: 120px;
+      margin: 0;
+      padding: 30px;
+      background: var(--cream);
+    }
+
+    .diagram svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .diagram figcaption {
+      margin-top: 14px;
+      color: var(--gray);
+      font-size: 12px;
+      letter-spacing: .04em;
+    }
+
+    .d-wall { fill: #d9d1ca; }
+    .d-hatch { stroke: #b9aea5; stroke-width: 1.2; }
+    .d-insul { fill: #ead9c6; }
+    .d-wave { fill: none; stroke: var(--brown2); stroke-width: 1.4; }
+    .d-gap { fill: #fff; }
+    .d-batten { fill: var(--brown); }
+    .d-bracket { fill: #8a8079; }
+    .d-cladding { fill: var(--black); }
+    .d-joint { stroke: #4a4543; stroke-width: 1; }
+    .d-air { fill: none; stroke: var(--brown); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .d-leader { stroke: var(--black); stroke-width: 1; }
+    .d-dot { fill: var(--black); }
+    .d-label { fill: var(--black); font: 700 14px Arial, Helvetica, sans-serif; }
+    .d-gravel-bg { fill: #ece6df; }
+    .d-gravel { fill: #b9aea5; }
+    .d-osb { fill: #cfb48f; }
+    .d-stud { fill: #b98e66; }
+    .d-membrane { fill: #6e6762; }
+    .d-finish { fill: #ffffff; stroke: #d9d1ca; stroke-width: 1; }
+    .d-small { fill: var(--gray); font: 11px Arial, Helvetica, sans-serif; letter-spacing: .06em; }
+
+
+    /* =========================
+       POINTS ESSENTIELS
+    ========================= */
+
+    .detail-section {
+      padding: 100px 0;
+      background: var(--cream);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin: 0 0 55px;
+    }
+
+    .section-heading > p:last-child {
+      margin-bottom: 0;
+      color: var(--gray);
+      font-size: 17px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 4px;
+    }
+
+    .feature-card {
+      padding: 34px 30px;
+      background: var(--white);
+      border-top: 3px solid transparent;
+      transition: border-color .2s ease;
+    }
+
+    .feature-card:hover {
+      border-top-color: var(--brown);
+    }
+
+    .feature-tag {
+      display: inline-block;
+      margin-bottom: 22px;
+      padding: 4px 10px;
+      background: var(--cream);
+      color: var(--brown);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+    }
+
+    .feature-card h3 {
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .feature-card p {
+      margin-bottom: 0;
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+
+    /* =========================
+       NOTRE APPROCHE
+    ========================= */
+
+    .method-section {
+      padding: 110px 0;
+    }
+
+    .method-layout {
+      display: grid;
+      grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+      gap: 90px;
+      align-items: start;
+    }
+
+    .method-intro {
+      position: sticky;
+      top: 120px;
+    }
+
+    .method-intro > p:not(.section-label) {
+      color: var(--text);
+      margin-bottom: 32px;
+    }
+
+    .method-list {
+      border-top: 1px solid var(--line);
+    }
+
+    .method-item {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 20px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .method-item .number {
+      color: var(--brown2);
+      font-size: 34px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .method-item h3 {
+      margin-bottom: 8px;
+      font-size: 20px;
+    }
+
+    .method-item p {
+      margin-bottom: 0;
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+
+    /* =========================
+       RÉALISATIONS
+    ========================= */
+
+    .projects-section {
+      padding: 0 0 110px;
+    }
+
+    .projects-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .projects-head h2 {
+      margin-bottom: 0;
+    }
+
+    .link-arrow {
+      color: var(--brown);
+      font-weight: 800;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .link-arrow:hover {
+      color: var(--black);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      display: block;
+      background: var(--cream);
+    }
+
+    .project-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: opacity .2s ease;
+    }
+
+    .project-card:hover img {
+      opacity: .88;
+    }
+
+    .project-body {
+      padding: 22px 24px 26px;
+    }
+
+    .project-body h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .project-body p {
+      margin-bottom: 0;
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+
+    /* =========================
+       BANDE CONTACT
+    ========================= */
+
+    .cta-section {
+      padding: 90px 0;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .cta-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr);
+      gap: 60px;
+      align-items: center;
+    }
+
+    .cta-section .section-label {
+      color: var(--brown2);
+    }
+
+    .cta-copy h2 {
+      margin-bottom: 16px;
+    }
+
+    .cta-copy p:last-child {
+      margin-bottom: 0;
+      color: #d5ceca;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .cta-phone {
+      color: #e7d5c4;
+      font-size: 15px;
+    }
+
+    .cta-phone:hover {
+      color: var(--white);
+    }
+
+
+    /* =========================
+       AUTRES SERVICES
+    ========================= */
+
+    .others-section {
+      padding: 90px 0 100px;
+      background: var(--cream);
+    }
+
+    .others-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .other-card {
+      display: block;
+      background: var(--white);
+    }
+
+    .other-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      background: var(--line);
+    }
+
+    .other-card span {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 18px 20px;
+      font-weight: 700;
+      font-size: 15px;
+      transition: color .2s ease;
+    }
+
+    .other-card span::after {
+      content: "→";
+      color: var(--brown);
+    }
+
+    .other-card:hover span {
+      color: var(--brown);
+    }
+
+
+    /* =========================
+       RESPONSIVE CONTENU
+    ========================= */
+
+    @media (max-width: 1000px) {
+      .hero-grid,
+      .intro-grid,
+      .method-layout,
+      .cta-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 45px;
+      }
+
+      .hero-media {
+        max-width: 520px;
+      }
+
+      .diagram,
+      .method-intro {
+        position: static;
+      }
+
+      .feature-grid,
+      .projects-grid,
+      .others-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-grid {
+        padding: 45px 0 70px;
+      }
+
+      .breadcrumb ol {
+        margin-bottom: 28px;
+      }
+
+      .hero-intro {
+        font-size: 15px;
+      }
+
+      .intro-section,
+      .method-section,
+      .detail-section {
+        padding: 70px 0;
+      }
+
+      .projects-section {
+        padding-bottom: 70px;
+      }
+
+      .diagram {
+        padding: 18px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
+      .feature-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .method-item {
+        grid-template-columns: 48px 1fr;
+        gap: 14px;
+      }
+
+      .method-item .number {
+        font-size: 26px;
+      }
+
+      .cta-section,
+      .others-section {
+        padding: 70px 0;
+      }
+
+      .others-grid {
+        gap: 12px;
+      }
+
+      .other-card span {
+        padding: 14px;
+        font-size: 13px;
+      }
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
       background: #211f20;
       color: #aaa29c;
       padding: 25px 0 14px;
       font-size: 12px;
       line-height: 1.65;
-    }
-
-    footer .container {
-      width: min(1180px, 92%);
-      margin: auto;
     }
 
     .footer-grid {
@@ -1058,10 +1039,10 @@
     }
 
     .footer-title {
-      color: #c3a080;
+      color: var(--brown2);
       font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .1em;
+      font-weight: 700;
+      letter-spacing: .12em;
       text-transform: uppercase;
       margin: 4px 0 9px;
     }
@@ -1072,14 +1053,10 @@
       overflow-wrap: anywhere;
     }
 
-    .footer-item a {
-      color: inherit;
-      text-decoration: none;
-      transition: color .2s ease;
-    }
-
-    .footer-item a:hover {
-      color: #c3a080;
+    .footer-item a:hover,
+    .footer-social a:hover,
+    .footer-legal a:hover {
+      color: var(--brown2);
     }
 
     .footer-social {
@@ -1090,20 +1067,7 @@
     }
 
     .footer-social a {
-      display: inline-flex;
-      align-items: center;
-      gap: 0;
       color: #aaa29c;
-      text-decoration: none;
-      transition: color .2s ease;
-    }
-
-    .footer-social a svg {
-      display: none;
-    }
-
-    .footer-social a:hover {
-      color: #c3a080;
     }
 
     .footer-bottom {
@@ -1119,7 +1083,6 @@
     }
 
     .footer-legal {
-      margin-top: 0;
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
@@ -1127,12 +1090,6 @@
 
     .footer-legal a {
       color: #827a75;
-      text-decoration: none;
-      transition: color .2s ease;
-    }
-
-    .footer-legal a:hover {
-      color: #c3a080;
     }
 
     @media (max-width: 900px) {
@@ -1148,12 +1105,7 @@
     }
 
     @media (max-width: 600px) {
-      footer {
-        padding: 24px 0 14px;
-      }
-
       .footer-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 22px 16px;
       }
 
@@ -1161,12 +1113,20 @@
         width: 110px;
       }
 
-      .footer-bottom {
-        margin-top: 18px;
-      }
-
       .footer-legal {
         line-height: 1.9;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
       }
     }
   </style>
@@ -1174,7 +1134,8 @@
 
 <body>
 
-<!-- OBERE KONTAKTLEISTE -->
+<!-- OBERE LEISTE -->
+
 <div class="top">
   <div class="container top-inner">
     <div class="top-contact">
@@ -1203,45 +1164,40 @@
            stroke-width="2" aria-hidden="true">
         <rect x="3" y="3" width="18" height="18" rx="5"/>
         <circle cx="12" cy="12" r="4"/>
-        <circle cx="17.5" cy="6.5" r="1"
-                fill="currentColor" stroke="none"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
       </svg>
     </a>
   </div>
 </div>
 
 <!-- HEADER -->
+
 <header>
   <div class="container nav">
 
-    <a href="/de/" class="nav-logo" aria-label="ROOFCON – Startseite">
+    <a href="/" class="nav-logo" aria-label="ROOFCON — Startseite">
       <img src="/ROOFCON.png" alt="ROOFCON">
     </a>
 
     <nav class="menu" id="main-menu" aria-label="Hauptnavigation">
-      <a id="nav-home" href="/de/">Startseite</a>
-      <a id="nav-services" href="/de/leistungen/">Leistungen</a>
-      <a id="nav-current" href="/de/aktuelle-projekte/">Aktuelle Projekte</a>
-      <a id="nav-references" href="/de/referenzen/">Referenzen</a>
-      <a id="nav-jobs" href="/de/karriere/">Stellenangebote</a>
-      <a id="nav-contact" href="/de/kontakt/" class="cta">Kontakt</a>
+      <a id="nav-home" href="/">Startseite</a>
+      <a id="nav-services" href="/leistungen/" class="current">Leistungen</a>
+      <a id="nav-current" href="/aktuelle-projekte/">Aktuelle Projekte</a>
+      <a id="nav-references" href="/referenzen/">Referenzen</a>
+      <a id="nav-jobs" href="/karriere/">Stellenangebote</a>
+      <a id="nav-contact" href="/kontakt/" class="cta">Kontakt</a>
     </nav>
 
-    <div class="lang" aria-label="Sprache auswählen">
-  <a id="lang-fr"
-     href="/maisons-annexes-ossature-bois/">FR</a>
-
-  <a id="lang-de" class="active"
-     href="/de/holzhaeuser-anbauten/"
-     aria-current="page">DE</a>
-</div>
+    <div class="lang" aria-label="Sprache wählen">
+      <a id="lang-fr" href="/maisons-annexes-ossature-bois/">FR</a>
+      <a id="lang-de" class="active" href="/de/holzhaeuser-anbauten/" aria-current="page">DE</a>
+    </div>
 
     <button type="button"
             class="mobile-menu-button"
             id="mobile-menu-button"
             aria-label="Menü öffnen"
-            aria-expanded="false"
-            aria-controls="main-menu">☰</button>
+            aria-expanded="false">☰</button>
 
   </div>
 </header>
@@ -1249,169 +1205,237 @@
 <main>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
 
-        <p class="eyebrow">Holzbau · Luxemburg</p>
+  <section class="hero">
+    <div class="container hero-grid">
+
+      <div>
+        <nav class="breadcrumb" aria-label="Brotkrümelnavigation">
+          <ol>
+            <li><a href="/">Startseite</a></li>
+            <li><a href="/leistungen/">Leistungen</a></li>
+            <li><span aria-current="page">Holzrahmenbau &amp; Kleinbauten</span></li>
+          </ol>
+        </nav>
+
+        <p class="section-label">Holzbau · Luxemburg</p>
 
         <h1>
-          <span>Holzrahmenbau & Kleinbauten in Luxemburg</span>
+          <span>Holzrahmenbau</span><br>
+          <span>in Luxemburg</span>
         </h1>
 
         <p class="hero-intro">
-          ROOFCON realisiert Holzrahmenbauprojekte in Luxemburg,
-          darunter Anbauten und kleinere Gebäude, die auf die
-          Anforderungen des jeweiligen Bauvorhabens abgestimmt sind.
+          ROOFCON realisiert Bauprojekte in Holzrahmenbauweise in Luxemburg,
+          insbesondere Häuser, Anbauten und Erweiterungen, die auf die
+          Anforderungen jedes Projekts abgestimmt sind.
         </p>
 
         <p class="hero-intro">
-          Unser Ansatz verbindet handwerkliches Know-how im Holzbau,
-          sorgfältige Ausführung und Liebe zum Detail. Wir begleiten
-          Sie von der Klärung Ihrer Anforderungen bis zur Umsetzung
-          der Bauarbeiten.
+          Unser Ansatz verbindet Know-how im Holzbau, hochwertige Ausführung
+          und Liebe zum Detail. Wir begleiten Sie bei der Umsetzung Ihres
+          Projekts – von der Definition Ihrer Anforderungen bis zur
+          Ausführung der Arbeiten.
         </p>
 
         <div class="button-row">
-          <a class="button button-primary"
-             href="mailto:info@roof-con.lu?subject=Projekt%20Holzrahmenbau%20und%20Kleinbauten">
-            Projekt besprechen
-          </a>
-
-          <a class="button button-outline" href="#verstehen">
-            Holzrahmenbau entdecken
-          </a>
-
-          <a class="button button-outline" href="/leistungen/">
-  Zurück zu den Leistungen
-</a>
-
+          <a class="button button-primary" href="/kontakt/">Über Ihr Projekt sprechen</a>
+          <a class="button button-outline" href="#prinzip">Holzrahmenbau entdecken</a>
         </div>
-
       </div>
+
+      <figure class="hero-media">
+        <img src="/images/poles/maisons-1793353252847.png"
+             alt="Holzrahmenbau von ROOFCON"
+             width="800" height="1000">
+      </figure>
+
     </div>
   </section>
 
-  <!-- GRUNDLAGEN -->
-  <section class="intro-section" id="verstehen">
-    <div class="container two-columns">
+
+  <!-- DAS PRINZIP VERSTEHEN -->
+
+  <section class="intro-section" id="prinzip">
+    <div class="container intro-grid">
 
       <div>
         <p class="section-label">Das Prinzip verstehen</p>
 
         <h2>
           <span>Eine Konstruktion,</span><br>
-          <span>die zum Projekt passt</span>
+          <span>abgestimmt auf jedes Projekt</span>
         </h2>
+
+        <div class="body-copy">
+          <p class="lead">
+            Der Holzrahmenbau beruht auf einer Konstruktion aus
+            zusammengefügten Elementen, die die Wände des Gebäudes bilden.
+            Er eignet sich für den Bau eines Hauses, einer Erweiterung
+            oder eines Anbaus.
+          </p>
+
+          <p>
+            Jedes Projekt hat seine eigenen Anforderungen: Abmessungen,
+            Raumaufteilung, Öffnungen, Anschluss an den Bestand oder
+            Abstimmung mit anderen Gewerken. Diese Punkte müssen bereits
+            bei der Vorbereitung berücksichtigt werden.
+          </p>
+
+          <p>
+            Eine gute Abstimmung zwischen Konstruktion, Plänen und den
+            einzelnen Bauphasen ermöglicht ein stimmiges Gesamtergebnis,
+            das auf die vorgesehene Nutzung und die Eigenschaften des
+            Gebäudes abgestimmt ist.
+          </p>
+        </div>
       </div>
 
-      <div class="body-copy">
-        <p class="lead">
-          Beim Holzrahmenbau bilden miteinander verbundene Bauteile
-          die tragende Struktur der Wände. Diese Bauweise eignet sich
-          unter anderem für Wohnhäuser, Erweiterungen und kleinere
-          Nebengebäude.
-        </p>
+      <!-- PRINZIPSCHNITT -->
+      <figure class="diagram">
+        <svg viewBox="0 0 560 330" role="img" aria-labelledby="diagram-title">
+          <title id="diagram-title">Prinzipschnitt einer Holzrahmenwand von außen nach innen: Fassadenbekleidung, Lattung und Luftschicht, Fassadenbahn, aussteifende Beplankung, Holzständer mit Wärmedämmung, Dampfbremse und Innenbekleidung</title>
 
-        <p>
-          Jedes Bauvorhaben bringt eigene Anforderungen mit sich:
-          Abmessungen, Raumaufteilung, Öffnungen, Anschlüsse an
-          bestehende Gebäude und die Abstimmung mit anderen Gewerken.
-          Diese Aspekte sollten bereits bei der Planung berücksichtigt
-          werden.
-        </p>
+          <defs>
+            <pattern id="wave" width="70" height="18" patternUnits="userSpaceOnUse">
+              <path d="M0 9 Q 8.75 0 17.5 9 T 35 9 T 52.5 9 T 70 9" class="d-wave"/>
+            </pattern>
+          </defs>
 
-        <p>
-          Eine sorgfältige Abstimmung zwischen Konstruktion, Plänen
-          und den einzelnen Bauphasen trägt dazu bei, ein stimmiges
-          Ergebnis zu erzielen, das zur vorgesehenen Nutzung und zum
-          Gebäude passt.
-        </p>
-      </div>
+          <text x="30" y="45" class="d-small">AUSSEN</text>
+          <text x="30" y="305" class="d-small">INNEN</text>
+
+          <!-- Fassadenbekleidung -->
+          <rect x="30" y="60" width="270" height="24" class="d-cladding"/>
+          <line x1="120" y1="60" x2="120" y2="84" class="d-joint"/>
+          <line x1="210" y1="60" x2="210" y2="84" class="d-joint"/>
+
+          <!-- Luftschicht + Lattung -->
+          <rect x="30" y="84" width="270" height="28" class="d-gap"/>
+          <rect x="50" y="84" width="16" height="28" class="d-batten"/>
+          <rect x="157" y="84" width="16" height="28" class="d-batten"/>
+          <rect x="264" y="84" width="16" height="28" class="d-batten"/>
+
+          <!-- Fassadenbahn -->
+          <rect x="30" y="112" width="270" height="5" class="d-membrane"/>
+
+          <!-- Aussteifende Beplankung -->
+          <rect x="30" y="117" width="270" height="16" class="d-osb"/>
+
+          <!-- Holzständer mit Dämmung -->
+          <rect x="30" y="133" width="270" height="120" class="d-insul"/>
+          <rect x="30" y="133" width="270" height="120" fill="url(#wave)"/>
+          <rect x="30" y="133" width="22" height="120" class="d-stud"/>
+          <rect x="135" y="133" width="22" height="120" class="d-stud"/>
+          <rect x="245" y="133" width="22" height="120" class="d-stud"/>
+
+          <!-- Dampfbremse -->
+          <rect x="30" y="253" width="270" height="5" class="d-membrane"/>
+
+          <!-- Innenbekleidung -->
+          <rect x="30" y="258" width="270" height="20" class="d-finish"/>
+
+          <!-- Beschriftungen -->
+          <circle cx="270" cy="72" r="4" fill="#fff"/>
+          <line x1="270" y1="72" x2="330" y2="45" class="d-leader"/>
+          <text x="340" y="50" class="d-label">Fassadenbekleidung</text>
+
+          <circle cx="110" cy="98" r="4" class="d-dot"/>
+          <line x1="110" y1="98" x2="330" y2="85" class="d-leader"/>
+          <text x="340" y="90" class="d-label">Lattung und Luftschicht</text>
+
+          <circle cx="200" cy="114.5" r="4" class="d-dot"/>
+          <line x1="200" y1="114.5" x2="330" y2="120" class="d-leader"/>
+          <text x="340" y="125" class="d-label">Fassadenbahn</text>
+
+          <circle cx="250" cy="125" r="4" class="d-dot"/>
+          <line x1="250" y1="125" x2="330" y2="155" class="d-leader"/>
+          <text x="340" y="160" class="d-label">Aussteifende Beplankung</text>
+
+          <circle cx="90" cy="190" r="4" class="d-dot"/>
+          <line x1="90" y1="190" x2="330" y2="190" class="d-leader"/>
+          <text x="340" y="195" class="d-label">Wärmedämmung</text>
+
+          <circle cx="146" cy="215" r="4" class="d-dot"/>
+          <line x1="146" y1="215" x2="330" y2="225" class="d-leader"/>
+          <text x="340" y="230" class="d-label">Holzständer</text>
+
+          <circle cx="180" cy="255.5" r="4" class="d-dot"/>
+          <line x1="180" y1="255.5" x2="330" y2="260" class="d-leader"/>
+          <text x="340" y="265" class="d-label">Dampfbremse</text>
+
+          <circle cx="120" cy="268" r="4" class="d-dot"/>
+          <line x1="120" y1="268" x2="330" y2="295" class="d-leader"/>
+          <text x="340" y="300" class="d-label">Innenbekleidung</text>
+        </svg>
+        <figcaption>Prinzipschnitt einer Wand – der genaue Aufbau hängt vom jeweiligen Projekt ab.</figcaption>
+      </figure>
 
     </div>
   </section>
 
-  <!-- WICHTIGE ASPEKTE -->
+
+  <!-- DIE WICHTIGSTEN ASPEKTE -->
+
   <section class="detail-section">
     <div class="container">
 
       <div class="section-heading">
-        <p class="section-label">Die wesentlichen Aspekte</p>
+        <p class="section-label">Die wichtigsten Aspekte</p>
 
         <h2>
-          <span>Holzbau bis ins</span><br>
-          <span>Detail durchdacht</span>
+          <span>Ein Holzbau,</span><br>
+          <span>bis ins Detail durchdacht</span>
         </h2>
 
-        <p>
-          Von der Vorbereitung bis zur Koordination auf der Baustelle
-          trägt jeder Schritt zur Qualität und zur Gesamtstimmigkeit
-          der Konstruktion bei.
-        </p>
+        <p>Von der Projektvorbereitung bis zur Koordination der Baustelle trägt jeder Schritt zur Qualität und Stimmigkeit der Konstruktion bei.</p>
       </div>
 
       <div class="feature-grid">
 
         <article class="feature-card">
-          <span class="feature-number">01 / PLANUNG</span>
+          <span class="feature-tag">ANALYSE</span>
           <h3>Das Projekt verstehen</h3>
-          <p>
-            Anforderungen, Abmessungen, Pläne und die besonderen
-            Rahmenbedingungen des Hauses oder Anbaus berücksichtigen.
-          </p>
+          <p>Bedürfnisse, Abmessungen, Pläne und die besonderen Anforderungen des Hauses oder Anbaus berücksichtigen.</p>
         </article>
 
         <article class="feature-card">
-          <span class="feature-number">02 / KONZEPTION</span>
+          <span class="feature-tag">PLANUNG</span>
           <h3>Die Konstruktion vorbereiten</h3>
-          <p>
-            Die Elemente des Holzrahmens planen und Öffnungen sowie
-            erforderliche Anschlüsse frühzeitig berücksichtigen.
-          </p>
+          <p>Die Elemente des Holzrahmens organisieren und Öffnungen sowie die für das Projekt notwendigen Anschlüsse frühzeitig einplanen.</p>
         </article>
 
         <article class="feature-card">
-          <span class="feature-number">03 / MATERIALIEN</span>
-          <h3>Geeignete Lösungen auswählen</h3>
-          <p>
-            Materialien und Bauteile auf die Eigenschaften des
-            Gebäudes und die Anforderungen des Bauvorhabens abstimmen.
-          </p>
+          <span class="feature-tag">MATERIALIEN</span>
+          <h3>Passende Lösungen wählen</h3>
+          <p>Materialien und Bauteile an die Eigenschaften des Gebäudes und die Anforderungen an die Konstruktion anpassen.</p>
         </article>
 
         <article class="feature-card">
-          <span class="feature-number">04 / MONTAGE</span>
+          <span class="feature-tag">MONTAGE</span>
           <h3>Eine stimmige Konstruktion</h3>
-          <p>
-            Auf präzise Verbindungen und die korrekte Positionierung
-            der Bauteile entsprechend den Plänen achten.
-          </p>
+          <p>Auf präzise Verbindungen und die richtige Positionierung der Elemente gemäß den Projektplänen achten.</p>
         </article>
 
         <article class="feature-card">
-          <span class="feature-number">05 / ANSCHLÜSSE</span>
-          <h3>Übergänge sorgfältig planen</h3>
-          <p>
-            Anschlüsse an Fundamente, Dach und Fassaden sowie bei
-            Erweiterungen an das bestehende Gebäude berücksichtigen.
-          </p>
+          <span class="feature-tag">ANSCHLÜSSE</span>
+          <h3>Sorgfältige Anschlüsse</h3>
+          <p>Die Verbindung mit Fundament, Dach, Fassaden und – bei einer Erweiterung – mit dem bestehenden Gebäude einplanen.</p>
         </article>
 
         <article class="feature-card">
-          <span class="feature-number">06 / KOORDINATION</span>
-          <h3>Arbeitsschritte abstimmen</h3>
-          <p>
-            Die Konstruktion mit den weiteren Bauphasen koordinieren,
-            damit die Arbeiten möglichst reibungslos voranschreiten.
-          </p>
+          <span class="feature-tag">KOORDINATION</span>
+          <h3>Arbeiten vorausplanen</h3>
+          <p>Die Konstruktion mit den übrigen Bauphasen abstimmen, um einen reibungslosen Baufortschritt zu ermöglichen.</p>
         </article>
 
       </div>
     </div>
   </section>
 
-  <!-- VORGEHENSWEISE -->
+
+  <!-- UNSERE VORGEHENSWEISE -->
+
   <section class="method-section">
     <div class="container method-layout">
 
@@ -1419,21 +1443,13 @@
         <p class="section-label">Unsere Vorgehensweise</p>
 
         <h2>
-          <span>Von der Planung</span><br>
+          <span>Von der Analyse</span><br>
           <span>bis zur Umsetzung</span>
         </h2>
 
-        <p class="body-copy">
-          Jedes Haus und jeder Anbau erfordert eine passende
-          Vorbereitung. ROOFCON berücksichtigt die Besonderheiten
-          des Projekts, um die einzelnen Schritte zu planen und
-          die Arbeiten zu koordinieren.
-        </p>
+        <p>Jedes Haus und jeder Anbau erfordert eine passende Vorbereitung. ROOFCON berücksichtigt die Eigenschaften des Projekts, um die Arbeitsschritte zu planen und die Arbeiten zu koordinieren.</p>
 
-        <a class="button button-primary"
-           href="mailto:info@roof-con.lu?subject=Anfrage%20Holzrahmenbau">
-          Mit ROOFCON sprechen
-        </a>
+        <a class="button button-primary" href="/kontakt/">Mit ROOFCON sprechen</a>
       </div>
 
       <div class="method-list">
@@ -1441,48 +1457,32 @@
         <article class="method-item">
           <span class="number">01</span>
           <div>
-            <h3>Anforderungen klären</h3>
-            <p>
-              Das Vorhaben, die Pläne, die vorgesehene Nutzung und
-              die Rahmenbedingungen des Grundstücks oder des
-              bestehenden Gebäudes prüfen.
-            </p>
+            <h3>Die Anforderungen prüfen</h3>
+            <p>Projekt, Pläne, vorgesehene Nutzung sowie die Gegebenheiten des Grundstücks oder des bestehenden Gebäudes kennenlernen.</p>
           </div>
         </article>
 
         <article class="method-item">
           <span class="number">02</span>
           <div>
-            <h3>Die Umsetzung vorbereiten</h3>
-            <p>
-              Konstruktionselemente, Materialien, Öffnungen und
-              notwendige Arbeitsschritte für einen geordneten
-              Bauablauf frühzeitig berücksichtigen.
-            </p>
+            <h3>Die Ausführung vorbereiten</h3>
+            <p>Konstruktionselemente, Materialien, Öffnungen und die für einen reibungslosen Bauablauf notwendigen Arbeiten vorausplanen.</p>
           </div>
         </article>
 
         <article class="method-item">
           <span class="number">03</span>
           <div>
-            <h3>Die Konstruktion umsetzen</h3>
-            <p>
-              Die vorgesehenen Bauteile entsprechend den Plänen
-              und Abmessungen montieren und die Abstimmung mit
-              den weiteren Arbeiten beachten.
-            </p>
+            <h3>Die Konstruktion ausführen</h3>
+            <p>Die vorgesehenen Elemente unter Berücksichtigung der Pläne, Abmessungen und der Abstimmung mit anderen Arbeiten fertigen und montieren.</p>
           </div>
         </article>
 
         <article class="method-item">
           <span class="number">04</span>
           <div>
-            <h3>Anschlüsse und Fertigstellung koordinieren</h3>
-            <p>
-              Die Übergänge prüfen und die Verbindung mit den
-              weiteren Bauteilen entsprechend dem vereinbarten
-              Leistungsumfang abstimmen.
-            </p>
+            <h3>Die Abschlussarbeiten koordinieren</h3>
+            <p>Anschlüsse prüfen und den Übergang zu den übrigen Bauteilen entsprechend dem Projektumfang organisieren.</p>
           </div>
         </article>
 
@@ -1490,138 +1490,155 @@
     </div>
   </section>
 
-  <!-- KONTAKT -->
+
+  <!-- UNSERE REFERENZEN (aus content.json) -->
+
+  <section class="projects-section" id="projects-section" hidden>
+    <div class="container">
+      <div class="projects-head">
+        <div>
+          <p class="section-label">Unsere Referenzen</p>
+          <h2>Unsere Holzrahmenbauten</h2>
+        </div>
+        <a class="link-arrow" href="/referenzen/">Alle Referenzen ansehen →</a>
+      </div>
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+
+  <!-- KONTAKTBEREICH -->
+
   <section class="cta-section" id="kontakt">
     <div class="container cta-inner">
 
       <div class="cta-copy">
-        <p class="section-label">Ihr Bauvorhaben in Luxemburg</p>
+        <p class="section-label">Ihr Projekt in Luxemburg</p>
 
         <h2>
-          <span>Sie planen ein</span><br>
-          <span>Holzbauprojekt?</span>
+          <span>Sie planen ein Projekt</span><br>
+          <span>in Holzrahmenbauweise?</span>
         </h2>
 
-        <p>
-          Kontaktieren Sie ROOFCON, um Ihr Projekt – ob Haus,
-          Erweiterung oder kleiner Holzbau – vorzustellen und
-          Ihre Anforderungen gemeinsam zu besprechen.
-        </p>
+        <p>Kontaktieren Sie ROOFCON, um uns Ihr Haus-, Erweiterungs- oder Anbauprojekt vorzustellen und Ihre Anforderungen zu besprechen.</p>
       </div>
 
       <div class="cta-actions">
-        <a class="button button-primary"
-           href="mailto:info@roof-con.lu?subject=Anfrage%20Holzbauprojekt">
-          Informationen anfordern
-        </a>
-
-        <a class="cta-phone" href="tel:+352621765489">
-          +352 621 765 489
-        </a>
-
-        <a class="cta-phone" href="mailto:info@roof-con.lu">
-          info@roof-con.lu
-        </a>
+        <a class="button button-primary" href="/kontakt/">Informationen anfragen</a>
+        <a class="cta-phone" href="tel:+352621765489">+352 621 765 489</a>
+        <a class="cta-phone" href="mailto:info@roof-con.lu?subject=Projekt%20Holzrahmenbau">info@roof-con.lu</a>
       </div>
 
     </div>
   </section>
 
+
+  <!-- WEITERE LEISTUNGEN -->
+
+  <section class="others-section">
+    <div class="container">
+      <p class="section-label">Unsere weiteren Leistungen</p>
+      <h2>Entdecken Sie auch</h2>
+
+      <div class="others-grid">
+        <a class="other-card" href="/de/hinterlueftete-fassaden/">
+          <img src="/images/poles/facades-1794313089573.png" alt="" loading="lazy" width="600" height="400">
+          <span>Hinterlüftete Fassaden</span>
+        </a>
+        <a class="other-card" href="/de/flachdaecher/">
+          <img src="/images/poles/toitures-1793353238888.png" alt="" loading="lazy" width="600" height="400">
+          <span>Flachdächer</span>
+        </a>
+        <a class="other-card" href="/de/holzkonstruktionen/">
+          <img src="/images/poles/charpentes-1793353244086.png" alt="" loading="lazy" width="600" height="400">
+          <span>Holzkonstruktionen</span>
+        </a>
+        <a class="other-card" href="/de/dachdeckungen/">
+          <img src="/images/poles/couvertures-1793353247750.png" alt="" loading="lazy" width="600" height="400">
+          <span>Dachdeckungen</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
+
 <!-- FOOTER -->
+
 <footer>
   <div class="container">
     <div class="footer-grid">
 
       <div>
-        <a href="/de/" aria-label="ROOFCON – Startseite">
+        <a href="/" aria-label="ROOFCON - Startseite">
           <img class="footer-logo" src="/ROOFCON.png" alt="ROOFCON">
         </a>
-
         <div id="footer-description">
-          Hinterlüftete Fassaden · Flachdächer · Dachstühle ·
-          Dachdeckungen · Holzhäuser · Anbauten
+          Hinterlüftete Fassaden · Flachdächer · Holzkonstruktionen · Dachdeckungen · Häuser · Anbauten
         </div>
       </div>
 
       <div>
-        <div class="footer-title" id="footer-contact-title">Kontakt</div>
-
-        <div class="footer-item" id="footer-phone">
-          <div style="margin-bottom: 5px;">Joël Brück</div>
+        <div class="footer-title">Kontakt</div>
+        <div class="footer-item">Joël Brück</div>
+        <div class="footer-item">
           <a href="tel:+352621765489">+352 621 765 489</a>
         </div>
-
-        <div class="footer-item" id="footer-email">
+        <div class="footer-item">
           <a href="mailto:info@roof-con.lu">info@roof-con.lu</a>
         </div>
       </div>
 
       <div>
-        <div class="footer-title" id="footer-address-title">Adresse</div>
-
-        <div class="footer-item" id="footer-address">
+        <div class="footer-title">Adresse</div>
+        <div class="footer-item">
           Z.A.E.R. Op Stackem 8, 9952 Drinklange, Luxemburg
         </div>
-
-        <div class="footer-item" id="footer-hours">
-          Montag bis Freitag, 07:30–17:30 Uhr
+        <div class="footer-item">
+          Montag bis Freitag · 07:30 – 17:30
         </div>
       </div>
 
       <div>
-        <div class="footer-title" id="footer-social-title">Folgen Sie uns</div>
-
+        <div class="footer-title">Folgen Sie uns</div>
         <div class="footer-social">
-          <a id="footer-facebook"
-             href="https://www.facebook.com/profile.php?id=61594591794889"
-             target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.5 1.6-1.5h1.7V3.1c-.3 0-1.4-.1-2.6-.1-2.6 0-4.4 1.6-4.4 4.5v2.1H7v3.2h2.8V21h3.7z"/>
-            </svg>
-            Facebook
-          </a>
-
-          <a id="footer-instagram"
-             href="https://www.instagram.com/roofcon.lu/"
-             target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                 stroke-width="2" aria-hidden="true">
-              <rect x="3" y="3" width="18" height="18" rx="5"/>
-              <circle cx="12" cy="12" r="4"/>
-              <circle cx="17.5" cy="6.5" r="1"
-                      fill="currentColor" stroke="none"/>
-            </svg>
-            Instagram
-          </a>
+          <a href="https://www.facebook.com/profile.php?id=61594591794889"
+             target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="https://www.instagram.com/roofcon.lu/"
+             target="_blank" rel="noopener noreferrer">Instagram</a>
         </div>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <div id="footer-copyright">
-        © ROOFCON – Alle Rechte vorbehalten.
-      </div>
-
+      <div>© ROOFCON — Alle Rechte vorbehalten.</div>
       <div class="footer-legal">
-        <a href="/de/impressum/" id="footer-legal-1">Impressum</a>
+        <a href="/mentions-legales.html">Impressum</a>
         <span>·</span>
-        <a href="/de/datenschutz/" id="footer-legal-2">Datenschutzerklärung</a>
+        <a href="/politique-confidentialite.html">Datenschutzerklärung</a>
         <span>·</span>
-        <a href="/de/cookies/" id="footer-legal-3">Cookie-Richtlinie</a>
+        <a href="/politique-cookies.html">Cookie-Richtlinie</a>
       </div>
     </div>
   </div>
 </footer>
 
-<script>
-  const yearElement = document.getElementById("year");
 
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
+<script>
+  /* =========================
+     RÉGLAGES DE CETTE PAGE
+  ========================= */
+
+  const PAGE_LANG = "de";               /* "fr" sur la page française */
+  const SERVICE_ID = "maisons";         /* id du service dans content.json */
+  const MAX_PROJECTS = 3;
+
+
+  /* =========================
+     MENU MOBILE
+  ========================= */
 
   const mobileButton = document.getElementById("mobile-menu-button");
   const mainMenu = document.getElementById("main-menu");
@@ -1631,11 +1648,7 @@
       const isOpen = mainMenu.classList.toggle("mobile-open");
 
       mobileButton.setAttribute("aria-expanded", String(isOpen));
-      mobileButton.setAttribute(
-        "aria-label",
-        isOpen ? "Menü schließen" : "Menü öffnen"
-      );
-
+      mobileButton.setAttribute("aria-label", isOpen ? "Menü schließen" : "Menü öffnen");
       mobileButton.textContent = isOpen ? "×" : "☰";
     });
 
@@ -1648,6 +1661,73 @@
       });
     });
   }
+
+
+  /* =========================
+     RÉALISATIONS DEPUIS CONTENT.JSON
+  ========================= */
+
+  function localized(value) {
+    if (value && typeof value === "object") {
+      return value[PAGE_LANG] || value.fr || "";
+    }
+    return value || "";
+  }
+
+  function imageUrl(path) {
+    if (!path) return "";
+    return /^(https?:)?\//.test(path) ? path : "/" + path;
+  }
+
+  fetch("/content.json", { cache: "no-store" })
+    .then(function (response) {
+      if (!response.ok) throw new Error("content.json : " + response.status);
+      return response.json();
+    })
+    .then(function (data) {
+      const items = (data.references && data.references.items) || [];
+      const category = items.find(function (item) { return item.id === SERVICE_ID; });
+      const projects = (category && category.projects) || [];
+
+      const section = document.getElementById("projects-section");
+      const grid = document.getElementById("projects-grid");
+
+      if (!projects.length || !section || !grid) return;
+
+      grid.innerHTML = "";
+
+      projects.slice(0, MAX_PROJECTS).forEach(function (project) {
+        const card = document.createElement("a");
+        card.className = "project-card";
+        card.href = PAGE_LANG === "fr" ? "/realisations/" : "/referenzen/";
+
+        const img = document.createElement("img");
+        img.src = imageUrl(project.image || (project.images && project.images[0]));
+        img.alt = localized(project.title);
+        img.loading = "lazy";
+
+        const body = document.createElement("div");
+        body.className = "project-body";
+
+        const title = document.createElement("h3");
+        title.textContent = localized(project.title).replace(/\s+/g, " ").trim();
+
+        const text = document.createElement("p");
+        text.textContent = localized(project.description).trim();
+
+        body.appendChild(title);
+        if (text.textContent) body.appendChild(text);
+
+        card.appendChild(img);
+        card.appendChild(body);
+        grid.appendChild(card);
+      });
+
+      section.hidden = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 </script>
 
 </body>
