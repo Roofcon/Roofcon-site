@@ -90,10 +90,39 @@
       "fr": "Nous concevons, calculons, dessinons, fabriquons et construisons. Avec un interlocuteur unique et une exigence commune en matière de qualité.",
       "de": "Wir planen, berechnen, zeichnen, fertigen und bauen - mit einem Ansprechpartner und einem gemeinsamen Qualitätsanspruch."
     },
-    "hallcon": {
+        "hallcon": {
       "fr": "Découvrir nos réalisations →",
       "de": "Unsere Referenzen entdecken →"
     }
+  },
+  "process": {
+    "kicker": { "fr": "Notre méthode", "de": "Unsere Arbeitsweise" },
+    "title": {
+      "fr": "Un interlocuteur unique, de l’idée au chantier",
+      "de": "Ein Ansprechpartner – von der Idee bis zur Baustelle"
+    },
+    "steps": [
+      {
+        "name": { "fr": "Concevoir", "de": "Konzipieren" },
+        "text": { "fr": "Premier entretien, conseil et estimation de votre projet.", "de": "Erstgespräch, Beratung und Kostenschätzung Ihres Projekts." }
+      },
+      {
+        "name": { "fr": "Calculer", "de": "Berechnen" },
+        "text": { "fr": "Calculs statiques réalisés par notre propre équipe.", "de": "Statische Berechnungen durch unser eigenes Team." }
+      },
+      {
+        "name": { "fr": "Dessiner", "de": "Zeichnen" },
+        "text": { "fr": "Plans techniques et développement détaillé.", "de": "Technische Pläne und detaillierte Ausarbeitung." }
+      },
+      {
+        "name": { "fr": "Fabriquer", "de": "Fertigen" },
+        "text": { "fr": "Préfabrication des charpentes et structures bois.", "de": "Vorfertigung von Dachstühlen und Holzkonstruktionen." }
+      },
+      {
+        "name": { "fr": "Construire", "de": "Bauen" },
+        "text": { "fr": "Montage, toiture, couverture et façade ventilée.", "de": "Montage, Bedachung und hinterlüftete Fassade." }
+      }
+    ]
   },
   "about": {
     "kicker": {
