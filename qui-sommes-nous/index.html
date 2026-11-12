@@ -406,6 +406,83 @@ header {
       margin-top: 12px;
     }
 
+
+    /* NOTRE MÉTHODE (5 ÉTAPES) */
+
+    .process-section {
+      background: var(--cream);
+      padding: 90px 0;
+    }
+
+    .process-head {
+      max-width: 900px;
+      margin: 0 auto 45px;
+    }
+
+    .process-title {
+      font-size: clamp(28px, 3.5vw, 42px);
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      margin: 0;
+      max-width: 700px;
+    }
+
+    .process-steps {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 4px;
+    }
+
+    .process-steps li {
+      background: #fff;
+      padding: 30px 24px;
+      border-top: 3px solid transparent;
+      transition: border-color .2s ease;
+    }
+
+    .process-steps li:hover {
+      border-top-color: var(--brown);
+    }
+
+    .step-number {
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--brown2);
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .step-name {
+      font-weight: 800;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .step-text {
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1000px) {
+      .process-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .process-section {
+        padding: 60px 0;
+      }
+
+      .process-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
    
 /* FOOTER */
 
@@ -794,6 +871,18 @@ footer .container {
         </div>
       </div>
     </section>
+
+    <!-- NOTRE MÉTHODE (5 ÉTAPES) -->
+
+    <section class="process-section" id="process" hidden>
+      <div class="container">
+        <div class="process-head">
+          <div class="kicker" id="process-kicker"></div>
+          <h2 class="process-title" id="process-title"></h2>
+        </div>
+        <ol class="process-steps" id="process-steps"></ol>
+      </div>
+    </section>
   </main>
 
  
@@ -911,6 +1000,48 @@ footer .container {
     setText("who-text-4", localized(who.text4));
     setText("who-objective", localized(who.objective));
     setText("who-hallcon", localized(who.hallcon));
+
+
+    /* =========================
+       NOTRE MÉTHODE (5 ÉTAPES)
+    ========================= */
+
+    const process = CONTENT.process;
+    const processSection = document.getElementById("process");
+    const processList = document.getElementById("process-steps");
+
+    if (process && processSection && processList) {
+
+      setText("process-kicker", localized(process.kicker));
+      setText("process-title", localized(process.title));
+
+      processList.innerHTML = "";
+
+      (process.steps || []).forEach(function(step, index) {
+
+        const li = document.createElement("li");
+
+        const number = document.createElement("div");
+        number.className = "step-number";
+        number.textContent = String(index + 1).padStart(2, "0");
+
+        const name = document.createElement("div");
+        name.className = "step-name";
+        name.textContent = localized(step.name);
+
+        const text = document.createElement("div");
+        text.className = "step-text";
+        text.textContent = localized(step.text);
+
+        li.appendChild(number);
+        li.appendChild(name);
+        li.appendChild(text);
+        processList.appendChild(li);
+
+      });
+
+      processSection.hidden = false;
+    }
 
 
     /* =========================
