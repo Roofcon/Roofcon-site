@@ -1066,6 +1066,12 @@ footer .container {
  <script>
   const CONTENT_URL = "/content.json";
 
+  /* Adresse de cette page dans chaque langue */
+  const PAGE_URLS = {
+    fr: "/qui-sommes-nous/",
+    de: "/wer-sind-wir/"
+  };
+
   let CONTENT = null;
   let LANG = document.documentElement.lang === "de" ? "de" : "fr";
 
@@ -1450,7 +1456,9 @@ if (footerEmail) {
   if (langFr) {
 
     langFr.addEventListener("click", function() {
-      setLanguage("fr");
+      if (LANG !== "fr") {
+        window.location.href = PAGE_URLS.fr;
+      }
     });
 
   }
@@ -1459,7 +1467,9 @@ if (footerEmail) {
   if (langDe) {
 
     langDe.addEventListener("click", function() {
-      setLanguage("de");
+      if (LANG !== "de") {
+        window.location.href = PAGE_URLS.de;
+      }
     });
 
   }
