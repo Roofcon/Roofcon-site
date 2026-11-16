@@ -1709,23 +1709,24 @@ function initChantierMap(){
 
   if(positions.length === 1){
 
-    chantierMap.setView(
-      positions[0],
-      13
-    );
+  chantierMap.setView(
+    positions[0],
+    9
+  );
 
-  }
+}
 
-  else if(positions.length > 1){
+else if(positions.length > 1){
 
-    chantierMap.fitBounds(
-      positions,
-      {
-        padding:[40,40]
-      }
-    );
+  chantierMap.fitBounds(
+    positions,
+    {
+      padding:[60,60],
+      maxZoom: 10
+    }
+  );
 
-  }
+}
 
   setTimeout(function(){
 
